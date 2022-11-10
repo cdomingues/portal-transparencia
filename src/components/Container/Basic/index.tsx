@@ -1,0 +1,38 @@
+import React, { ReactNode } from "react";
+import { Heading, Text, Divider } from "@chakra-ui/react";
+import Head from "next/head";
+import { Container, Body } from "./styles";
+
+type PropsInput = {
+  title: string;
+  description: string;
+  children: ReactNode;
+  containerStyles?: React.CSSProperties;
+};
+
+function ContainerBasic({
+  title,
+  description,
+  children,
+  containerStyles = { paddingLeft: "2%" },
+}: PropsInput) {
+  return (
+    <Container style={containerStyles}>
+      <Head>
+        <title>{title} - PMMC</title>
+      </Head>
+      <Heading mb={2} fontSize="2xl" color="text.dark">
+        {title}
+      </Heading>
+      <Body>
+        <Text align="left" color="gray.500" fontSize="md">
+          {description}
+        </Text>
+      </Body>
+      <Divider borderWidth="2px" mt="10" mb="10" />
+      {children}
+    </Container>
+  );
+}
+
+export default ContainerBasic;

@@ -1,0 +1,11 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/": "pages/index.js",
+  "/api/totalizador/politicas-publicas": "pages/api/totalizador/politicas-publicas.js",
+  "/api/graficos/receitas-despesas": "pages/api/graficos/receitas-despesas.js",
+  "/api/totalizador/despesas": "pages/api/totalizador/despesas.js",
+  "/controle-de-obras": "pages/controle-de-obras.js",
+  "/api/totalizador/receitas": "pages/api/totalizador/receitas.js"
+}

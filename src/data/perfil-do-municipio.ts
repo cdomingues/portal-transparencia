@@ -1,0 +1,88 @@
+import {
+  BiBook,
+  BiCaretDownCircle,
+  BiCaretUpCircle,
+  BiMale,
+  BiMapPin,
+  BiMoney,
+  BiPulse,
+  BiStats,
+  BiStreetView,
+} from "react-icons/bi";
+
+export const descriptionData = [
+  {
+    label: "Área Territorial",
+    value: "712,541",
+    icon: BiMapPin,
+    year: "2021",
+    labelDescription: "",
+    descriptionValue: "km²",
+  },
+  {
+    label: "População estimada",
+    value: "455.587",
+    icon: BiMale,
+    year: "2021",
+    labelDescription: "",
+    descriptionValue: "pessoas",
+  },
+  {
+    label: "Densidade demográfica",
+    value: "544,12",
+    icon: BiStreetView,
+    year: "2010",
+    labelDescription: "",
+    descriptionValue: "hab/km²",
+  },
+  {
+    label: "Escolarização",
+    value: "97,7",
+    icon: BiBook,
+    year: "2010",
+    labelDescription: "6 a 14 anos",
+    descriptionValue: "%",
+  },
+  {
+    label: "IDHM",
+    value: "0.783",
+    icon: BiStats,
+    year: "2010",
+    labelDescription: "Índice de desenvolvimento humano municipal",
+    descriptionValue: "",
+  },
+  {
+    label: "Mortalidade infantil",
+    value: "10.19",
+    icon: BiPulse,
+    year: "2020",
+    labelDescription: "",
+    descriptionValue: "óbitos por mil nascidos vivos",
+  },
+  {
+    label: "Receitas realizadas",
+    value: "1.496.004,06",
+    icon: BiCaretUpCircle,
+    year: "2017",
+    labelDescription: "",
+    descriptionValue: "R$ (×1000)",
+  },
+  {
+    label: "Despesas empenhadas",
+    value: "1.450.291,41",
+    icon: BiCaretDownCircle,
+    year: "2017",
+    labelDescription: "",
+    descriptionValue: "R$ (×1000)",
+  },
+  {
+    label: "PIB per capita",
+    value: "36.381,52",
+    icon: BiMoney,
+    year: "2019",
+    labelDescription: "",
+    descriptionValue: "R$",
+  },
+];
+
+export default descriptionData;

@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST={"controle-de-obras/screen.tsx -> ../../components/Map":{"id":"controle-de-obras/screen.tsx -> ../../components/Map","files":["static/chunks/src_components_Map_index_tsx.js"]}}

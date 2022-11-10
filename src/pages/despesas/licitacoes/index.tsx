@@ -1,0 +1,52 @@
+import React, { useEffect, useState } from "react";
+import Screen from "./screen";
+import { GetStaticProps } from "next";
+import { getBiddings } from "../../../calls/expenses/bidding";
+
+function Controller({ biddings = [] }: any) {
+  const [loading, setLoading] = useState(false);
+
+  const columns = [
+    { title: "Número", field: "numero" },
+    { title: "Modalidade", field: "modalidade" },
+    { title: "Integração", field: "integracao" },
+    { title: "Objeto", field: "objeto" },
+    { title: "Publicação", field: "datapublicacao" },
+    { title: "Abertura", field: "dataabertura" },
+    { title: "Vencimento", field: "datavencimento" },
+    { title: "Veiculo Publicação", field: "veiculopublicacao" },
+    { title: "Nro", field: "nro" },
+    { title: "Ano", field: "ano" },
+    { title: "Download", field: "linkdownload" },
+  ];
+
+  const handler = {
+    data: biddings,
+    columns,
+    loading,
+  };
+
+  return <Screen handler={handler} />;
+}
+
+export default Controller;
+
+export const getStaticProps: GetStaticProps = async () => {
+  try {
+    const { biddings } = await getBiddings();
+
+    return {
+      props: {
+        biddings: biddings || [],
+      },
+      revalidate: 60,
+    };
+  } catch (error) {
+    return {
+      props: {
+        biddings: [],
+      },
+      revalidate: 60,
+    };
+  }
+};
