@@ -98,27 +98,25 @@ export const getGraphRevenueExpense = async () => {
       };
     });
 
-    const graph = {
-      data: [response.data, lines],
+    const config = {
+      data: [data, lines],
       xField: "data",
       yField: ["valor", "valorAcumulado"],
       geometryOptions: [
         {
           geometry: "column",
-          pattern: {
-            type: "line",
-          },
+          isGroup: true,
+          seriesField: "name",
+          columnWidthRatio: 0.4,
         },
         {
           geometry: "line",
-          lineStyle: {
-            lineWidth: 2,
-          },
+          seriesField: "name",
         },
       ],
     };
 
-    return { chart: graph };
+    return { chart: config };
   } catch (error) {
     if (axios.isAxiosError(error)) {
       console.log(

@@ -17,9 +17,11 @@ function Controller() {
     { title: "Observação", field: "observacao" },
     { title: "Empresa", field: "empresa" },
     { title: "Valor Total", field: "valor_total" },
+    { title: "Valor Aditivo", field: "valor_aditivo" },
     { title: "Valor Medido", field: "valor_medido" },
     { title: "Percentual de Medição", field: "percentual_medicao" },
     { title: "Fim do Contrato", field: "fim_do_contrato" },
+    { title: "Detalhamento", field: "detalhamento" },
   ];
 
   const handler = {

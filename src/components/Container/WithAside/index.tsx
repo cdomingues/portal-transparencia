@@ -23,12 +23,8 @@ function ContainerWithAside({ children, aSide }: PropsInput) {
   return (
     <Container>
       <Stack direction="row" width={hasAside ? "100%" : "100%"}>
-        <Box width="100%">{children}</Box>
-        {hasAside && (
-          <Box bg="white" width="600px" maxWidth="600px" height="100%">
-            {aSide}
-          </Box>
-        )}
+        <Stack flex={1}>{children}</Stack>
+        <Stack flex={1}>{aSide}</Stack>
       </Stack>
     </Container>
   );

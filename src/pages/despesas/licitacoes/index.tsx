@@ -18,7 +18,7 @@ function Controller({ biddings = [] }: any) {
     { title: "Veiculo Publicação", field: "veiculopublicacao" },
     { title: "Nro", field: "nro" },
     { title: "Ano", field: "ano" },
-    { title: "Download", field: "linkdownload" },
+    { title: "Link de detalhamento", field: "linkdownload" },
   ];
 
   const handler = {

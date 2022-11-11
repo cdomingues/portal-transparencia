@@ -54,7 +54,7 @@ function Screen({ handler: { columns, data, loading } }: PropsInput) {
 
   return (
     <ContainerBasic title={title} description={description}>
-      <div style={{ height: "500px", width: "100%" }}>
+      <div style={{ height: "500px", width: "100%", display: "inline-block" }}>
         <MapWithNoSSR
           coords={[-23.528986, -46.192973]}
           markers={data.map((item, index) => {

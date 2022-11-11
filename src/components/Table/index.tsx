@@ -366,6 +366,7 @@ function TableComponent({ columns, data, loading = false }: Props) {
                           style={{
                             padding: "8px",
                             backgroundColor: "white",
+                            textAlign: "right",
                           }}
                           {...cell?.getCellProps()}
                           key={index}
@@ -376,6 +377,7 @@ function TableComponent({ columns, data, loading = false }: Props) {
                               alignItems: "center",
                               justifyContent: "center",
                               flexDirection: "column",
+                              textAlign: "right",
                             }}
                           >
                             {cell?.value?.length > 50 ? (

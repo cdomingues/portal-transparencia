@@ -40,6 +40,62 @@ interface FeatureProps {
   index: number;
 }
 
+const PublicPolicyCard = ({
+  funcao,
+  valor,
+  stylesTranslator,
+}: {
+  valor: number;
+  funcao: any;
+  stylesTranslator: any;
+}) => (
+  <Stack
+    direction="row"
+    bg="white"
+    mb={5}
+    mr={5}
+    borderRadius="10"
+    padding="4"
+    height="100px"
+    boxShadow="10px 10px 18px -9px rgba(0,0,0,0.75)"
+    width="35%"
+  >
+    <Stack flex={1} justifyContent="center" alignItems="center">
+      <div
+        style={{
+          height: 60,
+          width: 60,
+          borderRadius: 30,
+          backgroundColor: stylesTranslator[funcao].backgroundColor,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Icon
+          fontSize="30px"
+          color="white"
+          as={stylesTranslator[funcao].icon}
+        />
+      </div>
+    </Stack>
+    <Stack flex={2}>
+      <Stack flex={1} direction="column">
+        <Stack flex={2}>
+          <Text fontWeight="500" fontSize="sm" color="gray.600">
+            {funcao}
+          </Text>
+        </Stack>
+        <Stack flex={1}>
+          <Text fontSize="medium" mb={2} fontWeight="550">
+            {moneyFormatter(valor)}
+          </Text>
+        </Stack>
+      </Stack>
+    </Stack>
+  </Stack>
+);
+
 function Feature({ text, icon, iconBg, lastIndex, index }: FeatureProps) {
   const marginRight = lastIndex === index ? {} : { marginRight: "10%" };
   const colorIconBg = useColorModeValue(
@@ -92,18 +148,32 @@ export default function FeatureComponent({
   publicPoliciesLoading,
   chartLoading,
 }: PropsInput) {
-  const firstPair = [];
-  const secondPair = [];
+  const stylesTranslator: any = {
+    "Aplicação em Saúde": {
+      icon: BiHeart,
+      backgroundColor: "#61D9AB",
+    },
+    "Aplicação em Segurança": {
+      icon: BiCheckShield,
+      backgroundColor: "#0A8FDC",
+    },
+    "Aplicação em Educação": {
+      icon: BiFoodMenu,
+      backgroundColor: "#9E49E6",
+    },
+    "Aplicação em Assistência Social": {
+      icon: BiBody,
+      backgroundColor: "#FFA940",
+    },
+  };
 
   const titlePage = "Bem vindo ao portal da transparência.";
   const description =
     "Acompanhe todas as atividades financeiras e análises de documentos, com detalhamentos e dados abertos.";
 
-  //TODO: ADICIONAR PEA CHART
-
   return (
-    <Container maxW={"5xl"} py={12}>
-      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+    <div style={{ width: "100%" }}>
+      <SimpleGrid>
         <Stack spacing={4}>
           <Heading size="lg">{titlePage}</Heading>
           <Text color={"gray.500"} fontSize={"lg"}>
@@ -197,87 +267,40 @@ export default function FeatureComponent({
                 direction={isMobile ? "column" : "row"}
                 align={isMobile ? "left" : "center"}
               >
-                {publicPolicies?.map(({ funcao, valor }, index) => {
-                  const stylesTranslator: any = {
-                    "Aplicação em Saúde": {
-                      icon: BiHeart,
-                      backgroundColor: "#61D9AB",
-                    },
-                    "Aplicação em Segurança": {
-                      icon: BiCheckShield,
-                      backgroundColor: "#0A8FDC",
-                    },
-                    "Aplicação em Educação": {
-                      icon: BiFoodMenu,
-                      backgroundColor: "#9E49E6",
-                    },
-                    "Aplicação em Assistência Social": {
-                      icon: BiBody,
-                      backgroundColor: "#FFA940",
-                    },
-                  };
-
-                  return (
-                    <Stack
-                      key={index}
-                      direction="row"
-                      bg="white"
-                      m={3}
-                      borderRadius="10"
-                      padding="4"
-                      height="100px"
-                      boxShadow="10px 10px 18px -9px rgba(0,0,0,0.75)"
-                    >
-                      <Stack
-                        flex={1}
-                        justifyContent="center"
-                        alignItems="center"
-                      >
-                        <div
-                          style={{
-                            height: 60,
-                            width: 60,
-                            borderRadius: 30,
-                            backgroundColor:
-                              stylesTranslator[funcao].backgroundColor,
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                          }}
-                        >
-                          <Icon
-                            fontSize="30px"
-                            color="white"
-                            as={stylesTranslator[funcao].icon}
-                          />
-                        </div>
-                      </Stack>
-                      <Stack flex={2}>
-                        <Stack flex={1} direction="column">
-                          <Stack flex={2}>
-                            <Text
-                              fontWeight="500"
-                              fontSize="sm"
-                              color="gray.600"
-                            >
-                              {funcao}
-                            </Text>
-                          </Stack>
-                          <Stack flex={1}>
-                            <Text fontSize="medium" mb={2} fontWeight="550">
-                              {moneyFormatter(valor)}
-                            </Text>
-                          </Stack>
-                        </Stack>
-                      </Stack>
-                    </Stack>
-                  );
-                })}
+                {[publicPolicies[0], publicPolicies[1]]?.map(
+                  ({ funcao, valor }, index) => {
+                    return (
+                      <PublicPolicyCard
+                        key={index}
+                        funcao={funcao}
+                        valor={valor}
+                        stylesTranslator={stylesTranslator}
+                      />
+                    );
+                  }
+                )}
+              </Flex>
+              <Flex
+                direction={isMobile ? "column" : "row"}
+                align={isMobile ? "left" : "center"}
+              >
+                {[publicPolicies[2], publicPolicies[3]]?.map(
+                  ({ funcao, valor }, index) => {
+                    return (
+                      <PublicPolicyCard
+                        key={index}
+                        funcao={funcao}
+                        valor={valor}
+                        stylesTranslator={stylesTranslator}
+                      />
+                    );
+                  }
+                )}
               </Flex>
             </>
           )}
         </>
       )}
-    </Container>
+    </div>
   );
 }
