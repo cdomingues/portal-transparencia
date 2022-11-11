@@ -5,6 +5,7 @@ import {
   getChart,
   getGeneralExpenses,
 } from "../../../calls/budgetExecution/generalExpenses";
+import { revalidate } from "../../../config";
 
 function Controller({ chart = { data: [] }, expenses = [] }: any) {
   const [loading, setLoading] = useState(false);
@@ -35,24 +36,14 @@ function Controller({ chart = { data: [] }, expenses = [] }: any) {
 export default Controller;
 
 export const getStaticProps: GetStaticProps = async () => {
-  try {
-    const { chart } = await getChart();
-    const { expenses } = await getGeneralExpenses();
+  const { chart } = await getChart();
+  const { expenses } = await getGeneralExpenses();
 
-    return {
-      props: {
-        chart: chart || { data: [] },
-        expenses: expenses || [],
-      },
-      revalidate: 60,
-    };
-  } catch (error) {
-    return {
-      props: {
-        chart: { data: [] },
-        expenses: [],
-      },
-      revalidate: 60,
-    };
-  }
+  return {
+    props: {
+      chart: chart || { data: [] },
+      expenses: expenses || [],
+    },
+    revalidate,
+  };
 };

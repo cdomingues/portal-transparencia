@@ -6,6 +6,7 @@ import {
   getChart,
   getChartYear,
 } from "../../../calls/expenses/adavanceHosting";
+import { revalidate } from "../../../config";
 
 function Controller({
   chartYear = { data: [] },
@@ -40,26 +41,15 @@ function Controller({
 export default Controller;
 
 export const getStaticProps: GetStaticProps = async () => {
-  try {
-    const { chartYear } = await getChartYear();
-    const { advances } = await getAdvances();
-    const { chart } = await getChart();
-    return {
-      props: {
-        chartYear: chartYear || { data: [] },
-        chart: chart || { data: [] },
-        advances: advances || [],
-      },
-      revalidate: 60,
-    };
-  } catch (error) {
-    return {
-      props: {
-        chartYear: { data: [] },
-        chart: { data: [] },
-        advances: [],
-      },
-      revalidate: 60,
-    };
-  }
+  const { chartYear } = await getChartYear();
+  const { advances } = await getAdvances();
+  const { chart } = await getChart();
+  return {
+    props: {
+      chartYear: chartYear || { data: [] },
+      chart: chart || { data: [] },
+      advances: advances || [],
+    },
+    revalidate,
+  };
 };

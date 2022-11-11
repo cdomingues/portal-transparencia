@@ -46,26 +46,15 @@ function Controller({
 export default Controller;
 
 export const getStaticProps: GetStaticProps = async () => {
-  try {
-    const { chartYear } = await getChartYear();
-    const { revenues } = await getRevenues();
-    const { chart } = await getChart();
-    return {
-      props: {
-        chartYear: chartYear || { data: [] },
-        chart: chart || { data: [] },
-        revenues: revenues || [],
-      },
-      revalidate: 60,
-    };
-  } catch (error) {
-    return {
-      props: {
-        chartYear: { data: [] },
-        chart: { data: [] },
-        revenues: [],
-      },
-      revalidate: 60,
-    };
-  }
+  const { chartYear } = await getChartYear();
+  const { revenues } = await getRevenues();
+  const { chart } = await getChart();
+  return {
+    props: {
+      chartYear: chartYear || { data: [] },
+      chart: chart || { data: [] },
+      revenues: revenues || [],
+    },
+    revalidate: 60,
+  };
 };

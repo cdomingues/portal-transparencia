@@ -6,6 +6,7 @@ import {
   getChartYear,
   getTickets,
 } from "../../../calls/expenses/passage";
+import { revalidate } from "../../../config";
 
 function Controller({
   chart = { data: [] },
@@ -41,27 +42,16 @@ function Controller({
 export default Controller;
 
 export const getStaticProps: GetStaticProps = async () => {
-  try {
-    const { chart } = await getChart();
-    const { chartYear } = await getChartYear();
-    const { tickets } = await getTickets();
+  const { chart } = await getChart();
+  const { chartYear } = await getChartYear();
+  const { tickets } = await getTickets();
 
-    return {
-      props: {
-        chartYear: chartYear || { data: [] },
-        chart: chart || { data: [] },
-        tickets: tickets || [],
-      },
-      revalidate: 60,
-    };
-  } catch (error) {
-    return {
-      props: {
-        chartYear: { data: [] },
-        chart: { data: [] },
-        tickets: [],
-      },
-      revalidate: 60,
-    };
-  }
+  return {
+    props: {
+      chartYear: chartYear || { data: [] },
+      chart: chart || { data: [] },
+      tickets: tickets || [],
+    },
+    revalidate,
+  };
 };

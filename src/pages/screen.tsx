@@ -4,13 +4,11 @@ import ContainerWithAside from "../components/Container/WithAside";
 import BlogComponent from "../components/Blog";
 import TestimonialComponent from "../components/Testimonial";
 import FeatureComponent from "../components/Feature";
-import { News, Totalizer } from "../types";
+import { News } from "../types";
 import { PublicPolicyData } from "./api/totalizador/politicas-publicas";
-import ChartColumnLineWithPartner from "../components/Antdesign/ChartPlots/ColumnLineWithPartner";
 
 type PropsInput = {
   handler: {
-    totalizers: Array<Totalizer>;
     news: Array<News>;
     expenseAmount: number;
     expensePercentageReached: number;
@@ -46,7 +44,6 @@ function Aside({ news }: { news: Array<News> }) {
 
 function HomeScreen({ handler }: PropsInput) {
   const {
-    totalizers,
     news,
     expenseAmount,
     expensePercentageReached,
@@ -77,7 +74,6 @@ function HomeScreen({ handler }: PropsInput) {
         revenueProvided={revenueProvided}
         expenseLoanding={expenseLoanding}
         revenueLoading={revenueLoading}
-        totalizers={totalizers}
         chart={graphConfig}
         publicPoliciesLoading={publicPoliciesLoading}
         chartLoading={chartLoading}

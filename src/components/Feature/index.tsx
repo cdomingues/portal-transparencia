@@ -64,7 +64,6 @@ function Feature({ text, icon, iconBg, lastIndex, index }: FeatureProps) {
 }
 
 type PropsInput = {
-  totalizers: Array<Totalizer>;
   expenseAmount: number;
   expensePercentageReached: number;
   expenseProvided: number;
@@ -80,7 +79,6 @@ type PropsInput = {
 };
 
 export default function FeatureComponent({
-  totalizers,
   expenseAmount,
   expensePercentageReached,
   expenseProvided,
@@ -96,13 +94,6 @@ export default function FeatureComponent({
 }: PropsInput) {
   const firstPair = [];
   const secondPair = [];
-
-  if (totalizers.length > 0) {
-    firstPair.push(totalizers[0]);
-    firstPair.push(totalizers[1]);
-    secondPair.push(totalizers[2]);
-    secondPair.push(totalizers[3]);
-  }
 
   const titlePage = "Bem vindo ao portal da transparência.";
   const description =

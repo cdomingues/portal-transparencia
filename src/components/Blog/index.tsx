@@ -52,18 +52,9 @@ export default function BlogComponent({
             {title}
           </Heading>
           <Text color="gray.500">{description}</Text>
-        </Stack>
-        <Stack mt={6} direction="row" spacing={4} align="center">
-          <Avatar
-            borderColor="gray.300"
-            alignSelf="center"
-            borderWidth={1}
-            src={icon.src}
-          />
-          <Stack direction="column" spacing={0} fontSize="sm">
-            <Text fontWeight={600}>Prefeitura Mogi das Cruzes</Text>
-            <Text color="gray.500">{date}</Text>
-          </Stack>
+          <Text fontSize="small" textAlign="right" color="gray.500">
+            {date}
+          </Text>
         </Stack>
       </Box>
     </Center>

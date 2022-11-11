@@ -6,6 +6,7 @@ import {
   getChartYear,
   getdvertisings,
 } from "../../../calls/expenses/advertising";
+import { revalidate } from "../../../config";
 
 function Controller({
   chart = { data: [] },
@@ -41,27 +42,16 @@ function Controller({
 export default Controller;
 
 export const getStaticProps: GetStaticProps = async () => {
-  try {
-    const { chart } = await getChart();
-    const { chartYear } = await getChartYear();
-    const { advertisings } = await getdvertisings();
+  const { chart } = await getChart();
+  const { chartYear } = await getChartYear();
+  const { advertisings } = await getdvertisings();
 
-    return {
-      props: {
-        chartYear: chartYear || { data: [] },
-        chart: chart || { data: [] },
-        advertisings: advertisings || [],
-      },
-      revalidate: 60,
-    };
-  } catch (error) {
-    return {
-      props: {
-        chartYear: { data: [] },
-        chart: { data: [] },
-        advertisings: [],
-      },
-      revalidate: 60,
-    };
-  }
+  return {
+    props: {
+      chartYear: chartYear || { data: [] },
+      chart: chart || { data: [] },
+      advertisings: advertisings || [],
+    },
+    revalidate,
+  };
 };

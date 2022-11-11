@@ -2,6 +2,7 @@ import { GetStaticProps } from "next";
 import React, { useState } from "react";
 import Screen from "./screen";
 import { getContracts } from "../../../calls/expenses/contractsMinutes";
+import { revalidate } from "../../../config";
 
 function Controller({ contracts = [] }: any) {
   const [loading, setLoading] = useState(false);
@@ -35,20 +36,11 @@ function Controller({ contracts = [] }: any) {
 export default Controller;
 
 export const getStaticProps: GetStaticProps = async () => {
-  try {
-    const { contracts } = await getContracts();
-    return {
-      props: {
-        contracts: contracts || [],
-      },
-      revalidate: 60,
-    };
-  } catch (error) {
-    return {
-      props: {
-        contracts: [],
-      },
-      revalidate: 60,
-    };
-  }
+  const { contracts } = await getContracts();
+  return {
+    props: {
+      contracts: contracts || [],
+    },
+    revalidate,
+  };
 };

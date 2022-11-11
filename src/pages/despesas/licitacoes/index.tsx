@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Screen from "./screen";
 import { GetStaticProps } from "next";
 import { getBiddings } from "../../../calls/expenses/bidding";
+import { revalidate } from "../../../config";
 
 function Controller({ biddings = [] }: any) {
   const [loading, setLoading] = useState(false);
@@ -32,21 +33,12 @@ function Controller({ biddings = [] }: any) {
 export default Controller;
 
 export const getStaticProps: GetStaticProps = async () => {
-  try {
-    const { biddings } = await getBiddings();
+  const { biddings } = await getBiddings();
 
-    return {
-      props: {
-        biddings: biddings || [],
-      },
-      revalidate: 60,
-    };
-  } catch (error) {
-    return {
-      props: {
-        biddings: [],
-      },
-      revalidate: 60,
-    };
-  }
+  return {
+    props: {
+      biddings: biddings || [],
+    },
+    revalidate,
+  };
 };

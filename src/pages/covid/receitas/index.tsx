@@ -9,6 +9,7 @@ import {
 import { CovidRevenuesData } from "../../api/covid/receitas";
 import axios from "axios";
 import moneyFormatter from "../../../utils/moneyFormatter";
+import { revalidate } from "../../../config";
 
 function Controller({
   revenues = [],
@@ -59,6 +60,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
       chart: chart || { data: [] },
       revenues: revenues || [],
     },
-    revalidate: 60,
+    revalidate,
   };
 };

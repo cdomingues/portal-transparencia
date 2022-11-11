@@ -5,6 +5,7 @@ import {
   getChart,
   getRemainders,
 } from "../../../calls/budgetExecution/remains";
+import { revalidate } from "../../../config";
 
 function Controller({ chart = { data: [] }, remainders = [] }: any) {
   const [loading, setLoading] = useState(false);
@@ -35,24 +36,14 @@ function Controller({ chart = { data: [] }, remainders = [] }: any) {
 export default Controller;
 
 export const getStaticProps: GetStaticProps = async () => {
-  try {
-    const { chart } = await getChart();
-    const { remainders } = await getRemainders();
+  const { chart } = await getChart();
+  const { remainders } = await getRemainders();
 
-    return {
-      props: {
-        chart: chart || { data: [] },
-        remainders: remainders || [],
-      },
-      revalidate: 60,
-    };
-  } catch (error) {
-    return {
-      props: {
-        chart: { data: [] },
-        remainders: [],
-      },
-      revalidate: 60,
-    };
-  }
+  return {
+    props: {
+      chart: chart || { data: [] },
+      remainders: remainders || [],
+    },
+    revalidate,
+  };
 };

@@ -5,6 +5,7 @@ import {
   getExpenses,
   getGraph,
 } from "../../../calls/covid/expenses";
+import { revalidate } from "../../../config";
 import Screen from "./screen";
 
 export default function Controller({
@@ -39,26 +40,15 @@ export default function Controller({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  try {
-    const { chartYear } = await getChartYears();
-    const { rows } = await getExpenses();
-    const { chart } = await getGraph();
-    return {
-      props: {
-        chartYear: chartYear || { data: [] },
-        chart: chart || { data: [] },
-        rows: rows || [],
-      },
-      revalidate: 60,
-    };
-  } catch (error) {
-    return {
-      props: {
-        chartYear: { data: [] },
-        chart: { data: [] },
-        rows: [],
-      },
-      revalidate: 60,
-    };
-  }
+  const { chartYear } = await getChartYears();
+  const { rows } = await getExpenses();
+  const { chart } = await getGraph();
+  return {
+    props: {
+      chartYear: chartYear || { data: [] },
+      chart: chart || { data: [] },
+      rows: rows || [],
+    },
+    revalidate,
+  };
 };

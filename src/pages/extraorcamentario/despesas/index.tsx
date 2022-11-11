@@ -6,6 +6,7 @@ import {
   getExpenses,
 } from "../../../calls/extraBudgetary/expenses";
 import { GetStaticProps } from "next";
+import { revalidate } from "../../../config";
 
 function Controller({
   chartYear = { data: [] },
@@ -40,26 +41,15 @@ function Controller({
 export default Controller;
 
 export const getStaticProps: GetStaticProps = async () => {
-  try {
-    const { chartYear } = await getChartYears();
-    const { expenses } = await getExpenses();
-    const { chart } = await getChart();
-    return {
-      props: {
-        chartYear: chartYear || { data: [] },
-        chart: chart || { data: [] },
-        expenses: expenses || [],
-      },
-      revalidate: 60,
-    };
-  } catch (error) {
-    return {
-      props: {
-        chartYear: { data: [] },
-        chart: { data: [] },
-        expenses: [],
-      },
-      revalidate: 60,
-    };
-  }
+  const { chartYear } = await getChartYears();
+  const { expenses } = await getExpenses();
+  const { chart } = await getChart();
+  return {
+    props: {
+      chartYear: chartYear || { data: [] },
+      chart: chart || { data: [] },
+      expenses: expenses || [],
+    },
+    revalidate,
+  };
 };
