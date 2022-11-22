@@ -71,7 +71,7 @@ function HeaderComponent({ title }: { title: string }) {
   );
 }
 
-function TableBackendComponent({
+function TableWithOutFilterComponent({
   columns,
   data,
   loading = false,
@@ -108,24 +108,14 @@ function TableBackendComponent({
     pageCount,
     pageOptions,
     setPageSize,
-  } = withFilter
-    ? useTable(
-        {
-          columns: newColumns,
-          data,
-        },
-        useFilters,
-        useSortBy,
-        usePagination
-      )
-    : useTable(
-        {
-          columns: newColumns,
-          data,
-        },
-        useSortBy,
-        usePagination
-      );
+  } = useTable(
+    {
+      columns: newColumns,
+      data,
+    },
+    useSortBy,
+    usePagination
+  );
 
   const exportJson = () => {
     const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
@@ -485,4 +475,4 @@ function TableBackendComponent({
   );
 }
 
-export default TableBackendComponent;
+export default TableWithOutFilterComponent;

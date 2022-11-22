@@ -108,24 +108,15 @@ function TableComponent({
     pageCount,
     pageOptions,
     setPageSize,
-  } = withFilter
-    ? useTable(
-        {
-          columns: newColumns,
-          data,
-        },
-        useFilters,
-        useSortBy,
-        usePagination
-      )
-    : useTable(
-        {
-          columns: newColumns,
-          data,
-        },
-        useSortBy,
-        usePagination
-      );
+  } = useTable(
+    {
+      columns: newColumns,
+      data,
+    },
+    useFilters,
+    useSortBy,
+    usePagination
+  );
 
   const exportJson = () => {
     const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(

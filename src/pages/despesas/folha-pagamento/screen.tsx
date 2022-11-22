@@ -14,6 +14,7 @@ import ChartColumn from "../../../components/Antdesign/ChartPlots/ChartColumn";
 import ChartColumnLineWithPartner from "../../../components/Antdesign/ChartPlots/ColumnLineWithPartner";
 import ContainerBasic from "../../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../../components/Table";
+import TableWithOutFilterComponent from "../../../components/Table/TableWithoutFilter";
 
 type PropsInput = {
   handler: {
@@ -113,7 +114,11 @@ function Screen({
           >
             {Array.from({ length: 5 }).map((value, index) => {
               const newYear = moment().subtract(index, "years").year();
-              return <option value={newYear}>{newYear}</option>;
+              return (
+                <option key={index} value={newYear}>
+                  {newYear}
+                </option>
+              );
             })}
           </Select>
         </Stack>
@@ -129,7 +134,9 @@ function Screen({
             placeholder="Selecionar Mês"
           >
             {Array.from({ length: 12 }).map((value, index) => (
-              <option value={index + 1}>{index + 1}</option>
+              <option key={index} value={index + 1}>
+                {index + 1}
+              </option>
             ))}
           </Select>
         </Stack>
@@ -189,7 +196,7 @@ function Screen({
         </Stack>
       </Stack>
       <Divider width="50%" marginTop="10px" marginBottom="10px" />
-      <TableComponent
+      <TableWithOutFilterComponent
         withFilter={false}
         loading={loading}
         columns={columns}
