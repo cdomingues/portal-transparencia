@@ -284,7 +284,7 @@ export default function FeatureComponent({
                 direction={isMobile ? "column" : "row"}
                 align={isMobile ? "left" : "center"}
               >
-                {[publicPolicies[2], publicPolicies[3]]?.map(
+                {[publicPolicies[1], publicPolicies[3]]?.map(
                   ({ funcao, valor }, index) => {
                     return (
                       <PublicPolicyCard

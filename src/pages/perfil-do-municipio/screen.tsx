@@ -22,7 +22,7 @@ function Screen({ handler }: PropsInput) {
     <ContainerBasic title={title} description={description}>
       <Tabs variant="enclosed">
         <TabList overflow="auto" whiteSpace="nowrap">
-          <Tab fontSize="small">MUNÍCIPIO</Tab>
+          <Tab fontSize="small">DEMOGRÁFICO</Tab>
           <Tab fontSize="small">EMPREENDEDORISMO</Tab>
           <Tab fontSize="small">SAÚDE</Tab>
           <Tab fontSize="small">EDUCAÇÃO</Tab>

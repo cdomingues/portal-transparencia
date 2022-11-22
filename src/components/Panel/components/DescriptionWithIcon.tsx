@@ -29,24 +29,37 @@ const DescriptionWithIcon = ({
       marginLeft: "19px",
     }}
   >
-    <Stack flex={1} direction="row">
+    <Stack flex={0.5} direction="row" >
       <Icon as={icon} fontSize="2xl" color="primary" />
+    </Stack>
+
+    <Stack flex={3} direction="row" >
+      <div flex={1} direction="row">
       <Text fontWeight="550" fontSize="small">
         {label}
       </Text>
       <Text paddingTop="6px" fontSize="10px" color="gray.600">
         {labelDescription}
       </Text>
+    </div>
     </Stack>
-    <Stack flex={1} direction="row">
+
+    <Stack flex={2} direction="row">
+      <div flex={2} direction="row">
       <Text>{value}</Text>
       <Text paddingTop="4px" fontSize="10px">
         {descriptionValue}
       </Text>
-      <Text paddingTop="6px" fontSize="10px" color="gray.600">
+    </div>
+    </Stack>
+
+    <Stack flex={0.5} direction="row">
+    <Text paddingTop="6px" fontSize="10px" color="gray.600">
         [{year}]
       </Text>
+      
     </Stack>
+
   </Stack>
 );
 
