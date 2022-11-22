@@ -1,5 +1,5 @@
 import { GetStaticProps } from "next";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Screen from "./screen";
 import {
   getChart,
@@ -7,13 +7,44 @@ import {
   getPayroll,
 } from "../../../calls/expenses/payroll";
 import { revalidate } from "../../../config";
+import moment from "moment";
+import { Row } from "../../api/despesas/folha-pagamento";
 
-function Controller({
-  chartYear = { data: [] },
-  chart = { data: [] },
-  payroll = [],
-}: any) {
+function Controller({ chartYear = { data: [] }, chart = { data: [] } }: any) {
   const [loading, setLoading] = useState(false);
+  const [year, setYear] = useState(moment().year());
+  const [month, setMonth] = useState(moment().subtract(1, "month").month() + 1);
+  const [name, setName] = useState("");
+  const [role, setRole] = useState("");
+  const [enrollment, setEnrollment] = useState("");
+  const [payroll, setPayroll] = useState<Row[]>([]);
+
+  const handlePayroll = async () => {
+    setLoading(true);
+    const { payroll } = await getPayroll({
+      mes: month,
+      ano: year,
+      cargo: role,
+      matricula: enrollment,
+      nome: name,
+    });
+    setLoading(false);
+    setPayroll(payroll);
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      const { payroll } = await getPayroll({
+        mes: moment().subtract(1, "month").month() + 1,
+        ano: moment().year(),
+      });
+      setLoading(false);
+      setPayroll(payroll);
+    };
+
+    fetchData();
+  }, []);
 
   const columns = [
     { title: "Matrícula", field: "matricula" },
@@ -37,6 +68,17 @@ function Controller({
     loading,
     chart,
     chartYear,
+    setYear,
+    year,
+    setEnrollment,
+    enrollment,
+    setMonth,
+    month,
+    setName,
+    name,
+    setRole,
+    role,
+    handlePayroll,
   };
 
   return <Screen handler={handler} />;
@@ -46,7 +88,10 @@ export default Controller;
 
 export const getStaticProps: GetStaticProps = async () => {
   const { chartYear } = await getChartYear();
-  const { payroll } = await getPayroll();
+  const { payroll } = await getPayroll({
+    mes: moment().subtract(1, "month").month() + 1,
+    ano: moment().year(),
+  });
   const { chart } = await getChart();
   return {
     props: {

@@ -71,7 +71,7 @@ function HeaderComponent({ title }: { title: string }) {
   );
 }
 
-function TableComponent({
+function TableBackendComponent({
   columns,
   data,
   loading = false,
@@ -485,4 +485,4 @@ function TableComponent({
   );
 }
 
-export default TableComponent;
+export default TableBackendComponent;

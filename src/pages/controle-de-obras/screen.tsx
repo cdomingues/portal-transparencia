@@ -1,4 +1,4 @@
-import { Divider } from "@chakra-ui/react";
+import { Divider, Stack } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 import React from "react";
 import ContainerBasic from "../../components/Container/Basic";
@@ -54,19 +54,21 @@ function Screen({ handler: { columns, data, loading } }: PropsInput) {
 
   return (
     <ContainerBasic title={title} description={description}>
-      <div style={{ height: "500px", width: "100%", display: "inline-block" }}>
-        <MapWithNoSSR
-          coords={[-23.528986, -46.192973]}
-          markers={data.map((item, index) => {
-            const coords = item.coordenadas.split(",");
-            return {
-              lat: coords[0],
-              lng: coords[1],
-              children: markerChildren(item),
-            };
-          })}
-        />
-      </div>
+      <Stack>
+        <div style={{ height: "500px", width: "100%", zIndex: 0 }}>
+          <MapWithNoSSR
+            coords={[-23.528986, -46.192973]}
+            markers={data.map((item, index) => {
+              const coords = item.coordenadas.split(",");
+              return {
+                lat: coords[0],
+                lng: coords[1],
+                children: markerChildren(item),
+              };
+            })}
+          />
+        </div>
+      </Stack>
       <Divider borderWidth="2px" mt="10" mb="10" />
       <TableComponent columns={columns} loading={loading} data={data} />
     </ContainerBasic>

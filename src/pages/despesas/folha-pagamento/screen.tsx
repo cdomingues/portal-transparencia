@@ -1,4 +1,13 @@
-import { Divider, Heading } from "@chakra-ui/react";
+import {
+  Button,
+  Divider,
+  Heading,
+  Input,
+  Select,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
+import moment from "moment";
 import React from "react";
 import { isMobile } from "react-device-detect";
 import ChartColumn from "../../../components/Antdesign/ChartPlots/ChartColumn";
@@ -13,11 +22,39 @@ type PropsInput = {
     loading: boolean;
     chart: any;
     chartYear: any;
+    setYear: any;
+    year: number;
+    setEnrollment: any;
+    enrollment: string;
+    setMonth: any;
+    month: number;
+    setName: any;
+    name: string;
+    setRole: any;
+    role: string;
+    handlePayroll: any;
   };
 };
 
 function Screen({
-  handler: { columns, data, loading, chart, chartYear },
+  handler: {
+    columns,
+    data,
+    loading,
+    chart,
+    chartYear,
+    setYear,
+    year,
+    setEnrollment,
+    enrollment,
+    setMonth,
+    month,
+    setName,
+    name,
+    setRole,
+    role,
+    handlePayroll,
+  },
 }: PropsInput) {
   const title = "Folha de Pagamento";
   const description = "";
@@ -60,8 +97,104 @@ function Screen({
           {chartYear?.data?.length > 0 && <ChartColumn config={chartYear} />}
         </div>
       </div>
-      <Divider borderWidth="2px" mt="10" mb="10" />
-      <TableComponent loading={loading} columns={columns} data={data} />
+      <Divider height="3px" marginTop="10px" marginBottom="4px" />
+
+      <Stack direction="row">
+        <Stack width="25%">
+          <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
+            Ano
+          </Text>
+          <Select
+            defaultValue={year}
+            onChange={(e) => setYear(e.target.value)}
+            bg="white"
+            variant="outline"
+            placeholder="Selecionar Ano"
+          >
+            {Array.from({ length: 5 }).map((value, index) => {
+              const newYear = moment().subtract(index, "years").year();
+              return <option value={newYear}>{newYear}</option>;
+            })}
+          </Select>
+        </Stack>
+        <Stack width="25%">
+          <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
+            Mês
+          </Text>
+          <Select
+            defaultValue={month}
+            onChange={(e) => setMonth(e.target.value)}
+            bg="white"
+            variant="outline"
+            placeholder="Selecionar Mês"
+          >
+            {Array.from({ length: 12 }).map((value, index) => (
+              <option value={index + 1}>{index + 1}</option>
+            ))}
+          </Select>
+        </Stack>
+      </Stack>
+      <Divider width="50%" height="3px" marginTop="10px" marginBottom="4px" />
+      <Stack direction="row">
+        <Stack width="25%">
+          <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
+            Nome
+          </Text>
+          <Input
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            bg="white"
+            width="100%"
+            placeholder="Nome"
+          />
+        </Stack>
+        <Stack width="25%">
+          <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
+            Cargo
+          </Text>
+          <Input
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+            bg="white"
+            width="100%"
+            placeholder="Cargo"
+          />
+        </Stack>
+      </Stack>
+      <Divider width="50%" height="3px" marginTop="10px" marginBottom="4px" />
+      <Stack direction="row">
+        <Stack width="25%">
+          <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
+            Matricula
+          </Text>
+          <Input
+            value={enrollment}
+            onChange={(e) => setEnrollment(e.target.value)}
+            bg="white"
+            width="100%"
+            placeholder="Matricula"
+          />
+        </Stack>
+        <Stack width="10%" justifyContent="flex-end">
+          <Button
+            disabled={loading}
+            onClick={() => handlePayroll()}
+            _hover={{ bg: "gray.500", color: "white" }}
+            bg="table.primary"
+            color="white"
+            fontSize="small"
+          >
+            Buscar
+          </Button>
+        </Stack>
+      </Stack>
+      <Divider width="50%" marginTop="10px" marginBottom="10px" />
+      <TableComponent
+        withFilter={false}
+        loading={loading}
+        columns={columns}
+        data={data}
+      />
     </ContainerBasic>
   );
 }

@@ -26,15 +26,39 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ExpensesPayrollData>
 ) {
-  if (req.method !== "GET") {
+  if (req.method !== "POST") {
     return res.status(404);
   }
+  const { ano, mes, nome, cargo, matricula } = req.body;
+  console.log({ ano, mes, nome, cargo, matricula });
 
-  const count = await database().count("id as count").from("FOLHAPAGAMENTO");
+  const yearFilter = ano ? { ano } : {};
+  const monthFilter = mes ? { mes } : {};
+  const nameFilter = nome ? { nome } : {};
+  const roleFilter = cargo ? { cargo } : {};
+  const enrollmentFilter = matricula ? { matricula } : {};
+
+  const count = await database()
+    .count("id as count")
+    .from("FOLHAPAGAMENTO")
+    .where({
+      ...yearFilter,
+      ...monthFilter,
+      ...nameFilter,
+      ...roleFilter,
+      ...enrollmentFilter,
+    });
 
   const payroll = await database
     .select()
     .from("FOLHAPAGAMENTO")
+    .where({
+      ...yearFilter,
+      ...monthFilter,
+      ...nameFilter,
+      ...roleFilter,
+      ...enrollmentFilter,
+    })
     .orderBy("id", "desc");
 
   return res.status(200).json({

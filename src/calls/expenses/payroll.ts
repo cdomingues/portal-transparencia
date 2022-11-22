@@ -4,9 +4,26 @@ import { baseUrl } from "../../config";
 import { ExpensesPayrollData } from "../../pages/api/despesas/folha-pagamento";
 import moneyFormatter from "../../utils/moneyFormatter";
 
-export const getPayroll = async () => {
+type PayrollPayload = {
+  ano?: number;
+  mes?: number;
+  nome?: string;
+  cargo?: string;
+  matricula?: string;
+};
+
+export const getPayroll = async ({
+  ano,
+  mes,
+  nome,
+  cargo,
+  matricula,
+}: PayrollPayload) => {
   try {
-    const response = await axios.get(`${baseUrl}/api/despesas/folha-pagamento`);
+    const response = await axios.post(
+      `${baseUrl}/api/despesas/folha-pagamento`,
+      { ano, mes, nome, cargo, matricula }
+    );
     const { rows }: ExpensesPayrollData = response.data;
 
     const mappingRows = rows.map((row) => {
