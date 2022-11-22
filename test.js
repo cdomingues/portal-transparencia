@@ -1,12 +1,5 @@
-function moneyFormatter(
-  initialValue: number,
-  options?: {
-    currency?: string;
-    precision?: number;
-    locale?: string;
-  }
-): string {
-  const currencies: any = {
+function formatCurrency(initialValue, options) {
+  const currencies = {
     USD: "$",
     EUR: "€",
     BRL: "R$",
@@ -29,7 +22,7 @@ function moneyFormatter(
       : "0".repeat(precision);
   const value = splited[0];
 
-  var chunks: string[] = [];
+  var chunks = [];
 
   for (let i = value.length; i > 0; i -= 3) {
     chunks.push(value.substring(i, i - 3));
@@ -49,4 +42,6 @@ function moneyFormatter(
   }
 }
 
-export default moneyFormatter;
+const res = formatCurrency(1000000);
+
+console.log(res);

@@ -297,6 +297,7 @@ function TableComponent({
                               color: "white",
                               display: "flex",
                               flexDirection: "row",
+                              textAlign: "left",
                             }}
                           >
                             {column.render("Header")}
@@ -365,7 +366,7 @@ function TableComponent({
                           style={{
                             padding: "8px",
                             backgroundColor: "white",
-                            textAlign: "right",
+                            textAlign: "left",
                           }}
                           {...cell?.getCellProps()}
                           key={index}
@@ -376,7 +377,7 @@ function TableComponent({
                               alignItems: "center",
                               justifyContent: "center",
                               flexDirection: "column",
-                              textAlign: "right",
+                              textAlign: "left",
                             }}
                           >
                             {cell?.value?.length > 50 ? (
@@ -386,6 +387,7 @@ function TableComponent({
                                 value={cell?.value}
                                 contentEditable="false"
                                 size="md"
+                                textAlign="left"
                               />
                             ) : (
                               cell.render("Cell")
