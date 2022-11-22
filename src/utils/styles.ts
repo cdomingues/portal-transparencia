@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { devices } from "../utils/device";
+import { devices } from "./device";
 
 export const ChartContainer = styled.div`
   width: 100px;

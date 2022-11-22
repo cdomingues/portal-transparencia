@@ -30,7 +30,7 @@ import moment from "moment";
 import { isMobile } from "react-device-detect";
 import { featureDescriptions } from "../components/Feature/data";
 import ChartColumnLineWithPartner from "../components/Antdesign/ChartPlots/ColumnLineWithPartner";
-import { ChartContainer } from "./styles";
+import { ChartContainer } from "../utils/styles";
 import { BiBody, BiCheckShield, BiFoodMenu, BiHeart } from "react-icons/bi";
 import useWindowDimensions from "../utils/getWindowSize";
 
