@@ -20,10 +20,13 @@ export const getPayroll = async ({
   matricula,
 }: PayrollPayload) => {
   try {
-    const response = await axios.post(
-      `${baseUrl}/api/despesas/folha-pagamento`,
-      { ano, mes, nome, cargo, matricula }
-    );
+    const response = await axios.post(`/api/despesas/folha-pagamento`, {
+      ano,
+      mes,
+      nome,
+      cargo,
+      matricula,
+    });
     const { rows }: ExpensesPayrollData = response.data;
 
     const mappingRows = rows.map((row) => {
