@@ -13,7 +13,7 @@ const CountyPanel = () => {
   return (
     <Stack direction={isMobile ? "column" : "row"}>
       <Stack direction="column" flex={2}>
-        <div
+        <Stack
           style={
             isMobile
               ? {
@@ -31,8 +31,8 @@ const CountyPanel = () => {
           }
         >
           <MapWithNoSSR coords={[-23.528986, -46.192973]} />
-        </div>
-        <div
+        </Stack>
+        <Stack
           style={{
             borderRadius: "5px",
             marginBottom: "19px",
@@ -43,7 +43,7 @@ const CountyPanel = () => {
         >
           <Description label="Prefeito" value="CAIO CÉSAR MACHADO DA CUNHA" />
           <Description label="Gentílico" value="MOGIANO" />
-        </div>
+        </Stack>
       </Stack>
       <Stack flex={4} width="100%">
         <Stack

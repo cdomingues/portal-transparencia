@@ -400,13 +400,13 @@ const publicRoutes = [
         name: "Acesso a Informação LAI",
         path: "/acesso-informacao",
         icon: AiOutlineProfile,
-        link: "http://www.transparencia.pmmc.com.br/fale-conosco",
+        link: "https://mogidascruzes.1doc.com.br/b.php?pg=wp/detalhes&itd=3",
       },
       {
         name: "Relatório de Demandas LAI",
         path: "/relatori-demanda",
         icon: AiOutlineProfile,
-        link: "http://www.transparencia.pmmc.com.br/fale-conosco",
+        link: "https://mogidascruzes.1doc.com.br/b.php?pg=o/transparencia",
       },
       {
         name: "Pregão Eletrônico",

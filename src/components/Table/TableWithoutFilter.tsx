@@ -153,12 +153,13 @@ function TableWithOutFilterComponent({
             <ModalHeader>Video Explicativo</ModalHeader>
             <ModalCloseButton />
             <ModalBody height={450} width={600} bg="white">
-              <iframe
+           {/* <iframe
                 style={{ paddingLeft: "8%", textAlign: "center" }}
                 width="600"
                 height="450"
                 src="https://www.youtube.com/embed/F4kk9FqoRHw"
-              ></iframe>
+              ></iframe> */}
+              <text>Este serviço será disponibilizado em breve. </text>
             </ModalBody>
             <ModalFooter>
               <Button
