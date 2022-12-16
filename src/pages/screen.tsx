@@ -49,6 +49,7 @@ type PropsInput = {
     graphConfig: any;
     publicPoliciesLoading: boolean;
     chartLoading: boolean;
+    date: string;
   };
 };
 
@@ -163,6 +164,7 @@ function HomeScreen({ handler }: PropsInput) {
     graphConfig,
     publicPoliciesLoading,
     chartLoading,
+    date,
   } = handler;
 
   const titlePage = "Bem vindo ao portal da transparência.";
@@ -204,6 +206,9 @@ function HomeScreen({ handler }: PropsInput) {
           <Heading fontSize="lg">{titlePage}</Heading>
           <Text color={"gray.500"} fontSize="md">
             {description}
+          </Text>
+          <Text color={"gray.500"} fontSize="sm">
+            Ultima atualização: {date}
           </Text>
         </Stack>
         <Stack direction="column">

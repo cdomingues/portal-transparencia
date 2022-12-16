@@ -10,6 +10,7 @@ import {
   getRevenueTotalizer,
 } from "../calls";
 import { revalidate } from "../config";
+import moment from "moment";
 
 function Home({
   amountExpense,
@@ -20,6 +21,7 @@ function Home({
   amountRevenue,
   amountRevenueProvided,
   percentageRevenueReached,
+  date,
 }: any) {
   const [news, setNews] = useState<Array<News>>([]);
   const [expenseLoanding, setExpenseLoading] = useState(true);
@@ -53,6 +55,7 @@ function Home({
     graphConfig: chart,
     publicPoliciesLoading,
     chartLoading,
+    date,
   };
   return <HomeScreen handler={handler} />;
 }
@@ -80,6 +83,7 @@ export const getStaticProps: GetStaticProps = async () => {
       amountRevenue: amountRevenue || 0,
       amountRevenueProvided: amountRevenueProvided || 0,
       percentageRevenueReached: percentageRevenueReached || 0,
+      date: moment().format("DD/MM/YYYY hh:mm:ss"),
     },
     revalidate,
   };

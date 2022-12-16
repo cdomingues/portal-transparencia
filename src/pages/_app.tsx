@@ -24,6 +24,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         maxAge: 3600,
       });
       router.reload();
+      router.reload();
     }
   };
 
