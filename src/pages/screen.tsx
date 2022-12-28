@@ -8,6 +8,7 @@ import { News } from "../types";
 import { PublicPolicyData } from "./api/totalizador/politicas-publicas";
 import Card from "../components/Card";
 import {
+  background,
   Box,
   Center,
   Divider,
@@ -115,16 +116,16 @@ const PublicPolicyCard = ({
     mb={5}
     mr={5}
     borderRadius="10"
-    height="100px"
+    height="110px"
     boxShadow="10px 10px 18px -9px rgba(0,0,0,0.75)"
-    width="200px"
+    width="260px"
   >
     <Stack flex={1} justifyContent="center" alignItems="center">
       <div
         style={{
-          height: 40,
-          width: 40,
-          borderRadius: 20,
+          height: 60,
+          width: 60,
+          borderRadius: 30,
           backgroundColor: stylesTranslator[funcao].backgroundColor,
           display: "flex",
           justifyContent: "center",
@@ -132,17 +133,17 @@ const PublicPolicyCard = ({
         }}
       >
         <Icon
-          fontSize="20px"
+          fontSize="30px"
           color="white"
           as={stylesTranslator[funcao].icon}
         />
       </div>
     </Stack>
     <Stack flex={2} direction="column" justifyContent="center">
-      <Text fontWeight="500" fontSize="x-small" color="gray.600">
+      <Text fontWeight="500" fontSize="small" color="gray.600">
         {funcao}
       </Text>
-      <Text fontSize="x-small" mb={2} fontWeight="550">
+      <Text fontSize="small" mb={2} fontWeight="550">
         {moneyFormatter(valor)}
       </Text>
     </Stack>
@@ -195,27 +196,32 @@ function HomeScreen({ handler }: PropsInput) {
   return (
     <Stack
       direction={isMobile ? "column" : "row"}
-      style={{ width: "100%", height: "100%" }}
+      style={{ width: "100%", height: "100%"}}
     >
       <Stack flex={width > 1024 ? 2 : 2} paddingLeft={10} paddingTop={5}>
         <Head>
           <title>Início</title>
         </Head>
 
-        <Stack spacing={4}>
+        <Stack 
+        spacing={4}
+        >
           <Heading fontSize="lg">{titlePage}</Heading>
           <Text color={"gray.500"} fontSize="md">
             {description}
           </Text>
-          <Text color={"gray.500"} fontSize="sm">
+          {/* <Text color={"gray.500"} fontSize="sm">
             Ultima atualização: {date}
-          </Text>
+          </Text> */}
         </Stack>
-        <Stack direction="column">
+        <Stack 
+        >
           <Heading mt={10} mb={4} fontSize="md">
             Resumo {moment().year()}
           </Heading>
-          <StatGroup width="100%" mb={20}>
+          <StatGroup 
+          width="100%" mb={20}
+          >
             <Stat>
               <StatLabel height="40px" color="black">
                 Arrecadações
@@ -230,7 +236,8 @@ function HomeScreen({ handler }: PropsInput) {
                 Alcançado: {revenuePercentageReached}%
               </StatHelpText>
             </Stat>
-            <Stat>
+            <Stat
+            >
               <StatLabel height="40px" color="black">
                 Despesas e Investimentos
               </StatLabel>
@@ -273,7 +280,13 @@ function HomeScreen({ handler }: PropsInput) {
         >
           Arrecadações e Acumulados - {moment().year()}
         </Heading>
-        {chartLoading ? (
+        <Stack
+          mb={10}
+          direction={isMobile ? "column" : "row"}
+          align={isMobile ? "left" : "center"}
+          justifyContent={isMobile ? "flex-start" : "center"}
+        >
+          {chartLoading ? (
           <Box padding="6" bg="transparent">
             {[1, 2, 3, 4, 4, 5, 6, 7].map((number, index) => (
               <Skeleton height="20px" mt="4" key={index} />
@@ -290,13 +303,376 @@ function HomeScreen({ handler }: PropsInput) {
             )}
           </>
         )}
+        </Stack>
+        {/* {chartLoading ? (
+          <Box padding="6" bg="transparent">
+            {[1, 2, 3, 4, 4, 5, 6, 7].map((number, index) => (
+              <Skeleton height="20px" mt="4" key={index} />
+            ))}
+          </Box>
+        ) : (
+          <>
+            {graphConfig?.data?.length > 0 && (
+              <ChartContainer>
+                <ChartColumnLineWithPartner
+                  config={{ ...graphConfig, width: "800px" }}
+                />
+              </ChartContainer>
+            )}
+          </>
+        )} */}
 
         <Divider mb="6%" />
 
+        {/* <Heading fontSize="md" style={{ marginTop: "30px" }}>
+          Políticas Públicas
+        </Heading> */}
+
+        {/* <Stack
+          mb={10}
+          direction={isMobile ? "column" : "row"}
+          align={isMobile ? "left" : "center"}
+          justifyContent={isMobile ? "flex-start" : "center"}
+          style={{backgroundColor: "white"}}
+        >
+          {publicPoliciesLoading ? (
+          <Box padding="6" bg="transparent" flexDirection="row" >
+            {[1, 2, 3, 4].map((number, index) => (
+              <Skeleton height="20px" mt="4" key={index} />
+            ))}
+          </Box>
+        ) : (
+          <>
+            {publicPolicies.length > 0 && (
+              <>
+                <Flex
+                  style={{ marginTop: "30px" }}
+                  direction={isMobile ? "column" : "row"}
+                  align={isMobile ? "left" : "center"}
+                  style={{backgroundColor: "blue"}}
+                >
+                  {[publicPolicies[1]]?.map(
+                    ({ funcao, valor }, index) => {
+                      return (
+                        <PublicPolicyCard
+                          key={index}
+                          funcao={funcao}
+                          valor={valor}
+                          stylesTranslator={stylesTranslator}
+                        />
+                      );
+                    }
+                  )}
+                  
+                </Flex>
+
+                
+
+              </>
+              
+            )}
+          </>
+        )}
+
+        </Stack> */}
+
+        {/* <Stack
+          mb={10}
+          direction={isMobile ? "column" : "row"}
+          align={isMobile ? "left" : "center"}
+          justifyContent={isMobile ? "flex-start" : "center"}
+          style={{backgroundColor: "red"}}
+        >
+          {publicPoliciesLoading ? (
+          <Box padding="6" bg="transparent" flexDirection="row" >
+            {[1, 2, 3, 4].map((number, index) => (
+              <Skeleton height="20px" mt="4" key={index} />
+            ))}
+          </Box>
+        ) : (
+          <>
+            {publicPolicies.length > 0 && (
+              <>
+                <Flex
+                  style={{ marginTop: "30px" }}
+                  direction={isMobile ? "column" : "row"}
+                  align={isMobile ? "left" : "center"}
+                  style={{backgroundColor: "red"}}
+                >
+                  {[publicPolicies[2], publicPolicies[3]]?.map(
+                    ({ funcao, valor }, index) => {
+                      return (
+                        <PublicPolicyCard
+                          key={index}
+                          funcao={funcao}
+                          valor={valor}
+                          stylesTranslator={stylesTranslator}
+                        />
+                      );
+                    }
+                  )}
+                </Flex>
+
+              </>
+              
+            )}
+          </>
+        )}
+
+        </Stack> */}
+
+        <Stack 
+        direction="column"
+        >
         <Heading fontSize="md" style={{ marginTop: "30px" }}>
           Políticas Públicas
         </Heading>
-        {publicPoliciesLoading ? (
+          <StatGroup 
+          width="100%" mb={20}
+          // style={{backgroundColor: "white"}}
+          >
+            <Stat
+            // style={{backgroundColor: "blue"}}
+            >
+              <Stack
+          direction={isMobile ? "column" : "row"}
+          align={isMobile ? "left" : "center"}
+          justifyContent={isMobile ? "flex-start" : "center"}
+        >
+          {publicPoliciesLoading ? (
+          <Box padding="6" bg="transparent" flexDirection="row" >
+            {[1, 2, 3, 4].map((number, index) => (
+              <Skeleton height="20px" mt="4" key={index} />
+            ))}
+          </Box>
+        ) : (
+          <>
+            {publicPolicies.length > 0 && (
+              <>
+                <Flex
+                  style={{ marginTop: "30px" }}
+                  direction={isMobile ? "column" : "row"}
+                  align={isMobile ? "left" : "center"}
+                  // style={{backgroundColor: "black"}}
+                >
+                  {[publicPolicies[0]]?.map(
+                    ({ funcao, valor }, index) => {
+                      return (
+                        <PublicPolicyCard
+                          key={index}
+                          funcao={funcao}
+                          valor={valor}
+                          stylesTranslator={stylesTranslator}
+                        />
+                      );
+                    }
+                  )}
+                  
+                </Flex>
+
+                
+
+              </>
+              
+            )}
+          </>
+        )}
+
+        </Stack>
+        
+
+              
+              {/* <StatLabel height="40px" color="black">
+                Arrecadações
+              </StatLabel>
+              <StatNumber fontSize="medium" mb={2} color="black">
+                {moneyFormatter(revenueAmount)}
+              </StatNumber>
+              <StatHelpText mb={0} color="black">
+                Valor Previsto: {moneyFormatter(revenueProvided)}
+              </StatHelpText>
+              <StatHelpText color="black">
+                Alcançado: {revenuePercentageReached}%
+              </StatHelpText> */}
+            </Stat>
+            <Stat
+            >
+              <Stack
+          direction={isMobile ? "column" : "row"}
+          align={isMobile ? "left" : "center"}
+          justifyContent={isMobile ? "flex-start" : "center"}
+          // style={{backgroundColor: "black"}}
+        >
+          {publicPoliciesLoading ? (
+          <Box padding="6" bg="transparent" flexDirection="row" >
+            {[1, 2, 3, 4].map((number, index) => (
+              <Skeleton height="20px" mt="4" key={index} />
+            ))}
+          </Box>
+        ) : (
+          <>
+            {publicPolicies.length > 0 && (
+              <>
+                <Flex
+                  style={{ marginTop: "30px" }}
+                  direction={isMobile ? "column" : "row"}
+                  align={isMobile ? "left" : "center"}
+                  // style={{backgroundColor: "red"}}
+                >
+                  {[publicPolicies[1]]?.map(
+                    ({ funcao, valor }, index) => {
+                      return (
+                        <PublicPolicyCard
+                          key={index}
+                          funcao={funcao}
+                          valor={valor}
+                          stylesTranslator={stylesTranslator}
+                        />
+                      );
+                    }
+                  )}
+                  
+                </Flex>
+
+                
+
+              </>
+              
+            )}
+          </>
+        )}
+
+        </Stack>
+            </Stat>
+          </StatGroup>
+        </Stack>
+
+        <Stack 
+        direction="column"
+        // style={{backgroundColor: "red"}}
+        >
+          <StatGroup 
+          width="100%" mb={20}
+          // style={{backgroundColor: "white"}}
+          >
+            <Stat
+            // style={{backgroundColor: "red"}}
+            >
+              <Stack
+          direction={isMobile ? "column" : "row"}
+          align={isMobile ? "left" : "center"}
+          justifyContent={isMobile ? "flex-start" : "center"}
+          // style={{backgroundColor: "white"}}
+        >
+          {publicPoliciesLoading ? (
+          <Box padding="6" bg="transparent" flexDirection="row" >
+            {[1, 2, 3, 4].map((number, index) => (
+              <Skeleton height="20px" mt="4" key={index} />
+            ))}
+          </Box>
+        ) : (
+          <>
+            {publicPolicies.length > 0 && (
+              <>
+                <Flex
+                  style={{ marginTop: "30px" }}
+                  direction={isMobile ? "column" : "row"}
+                  align={isMobile ? "left" : "center"}
+                  // style={{backgroundColor: "blue"}}
+                >
+                  {[publicPolicies[2]]?.map(
+                    ({ funcao, valor }, index) => {
+                      return (
+                        <PublicPolicyCard
+                          key={index}
+                          funcao={funcao}
+                          valor={valor}
+                          stylesTranslator={stylesTranslator}
+                        />
+                      );
+                    }
+                  )}
+                  
+                </Flex>
+
+                
+
+              </>
+              
+            )}
+          </>
+        )}
+
+        </Stack>
+        
+
+              
+              {/* <StatLabel height="40px" color="black">
+                Arrecadações
+              </StatLabel>
+              <StatNumber fontSize="medium" mb={2} color="black">
+                {moneyFormatter(revenueAmount)}
+              </StatNumber>
+              <StatHelpText mb={0} color="black">
+                Valor Previsto: {moneyFormatter(revenueProvided)}
+              </StatHelpText>
+              <StatHelpText color="black">
+                Alcançado: {revenuePercentageReached}%
+              </StatHelpText> */}
+            </Stat>
+            <Stat
+            >
+              <Stack
+          direction={isMobile ? "column" : "row"}
+          align={isMobile ? "left" : "center"}
+          justifyContent={isMobile ? "flex-start" : "center"}
+          // style={{backgroundColor: "white"}}
+        >
+          {publicPoliciesLoading ? (
+          <Box padding="6" bg="transparent" flexDirection="row" >
+            {[1, 2, 3, 4].map((number, index) => (
+              <Skeleton height="20px" mt="4" key={index} />
+            ))}
+          </Box>
+        ) : (
+          <>
+            {publicPolicies.length > 0 && (
+              <>
+                <Flex
+                  style={{ marginTop: "30px" }}
+                  direction={isMobile ? "column" : "row"}
+                  align={isMobile ? "left" : "center"}
+                  // style={{backgroundColor: "blue"}}
+                >
+                  {[publicPolicies[3]]?.map(
+                    ({ funcao, valor }, index) => {
+                      return (
+                        <PublicPolicyCard
+                          key={index}
+                          funcao={funcao}
+                          valor={valor}
+                          stylesTranslator={stylesTranslator}
+                        />
+                      );
+                    }
+                  )}
+                  
+                </Flex>
+
+                
+
+              </>
+              
+            )}
+          </>
+        )}
+
+        </Stack>
+            </Stat>
+          </StatGroup>
+        </Stack>
+
+        {/* {publicPoliciesLoading ? (
           <Box padding="6" bg="transparent" flexDirection="row">
             {[1, 2, 3, 4].map((number, index) => (
               <Skeleton height="20px" mt="4" key={index} />
@@ -344,7 +720,7 @@ function HomeScreen({ handler }: PropsInput) {
               </>
             )}
           </>
-        )}
+        )} */}
 
         {/* <FeatureComponent
           publicPolicies={publicPolicies}
@@ -360,7 +736,12 @@ function HomeScreen({ handler }: PropsInput) {
           publicPoliciesLoading={publicPoliciesLoading}
           chartLoading={chartLoading}
         /> */}
+           <Text color={"gray.500"} fontSize="sm">
+            Última atualização: {date}
+          </Text>
       </Stack>
+      
+      
       <Stack flex={width > 1024 ? 1 : 2}>
         <Aside news={news} />
       </Stack>
