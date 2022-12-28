@@ -30,13 +30,41 @@ export default async function handler(
     return res.status(404);
   }
   const { ano, mes, nome, cargo, matricula } = req.body;
-  console.log({ ano, mes, nome, cargo, matricula });
 
   const yearFilter = ano ? { ano } : {};
   const monthFilter = mes ? { mes } : {};
-  const nameFilter = nome ? { nome } : {};
   const roleFilter = cargo ? { cargo } : {};
   const enrollmentFilter = matricula ? { matricula } : {};
+
+  if (nome) {
+    const count = await database()
+      .count("id as count")
+      .from("FOLHAPAGAMENTO")
+      .where({
+        ...yearFilter,
+        ...monthFilter,
+        ...roleFilter,
+        ...enrollmentFilter,
+      })
+      .whereILike("nome", `%${nome}%`);
+
+    const payroll = await database
+      .select()
+      .from("FOLHAPAGAMENTO")
+      .where({
+        ...yearFilter,
+        ...monthFilter,
+        ...roleFilter,
+        ...enrollmentFilter,
+      })
+      .whereILike("nome", `%${nome}%`)
+      .orderBy("id", "desc");
+
+    return res.status(200).json({
+      count: Number(count[0].count),
+      rows: payroll,
+    });
+  }
 
   const count = await database()
     .count("id as count")
@@ -44,7 +72,6 @@ export default async function handler(
     .where({
       ...yearFilter,
       ...monthFilter,
-      ...nameFilter,
       ...roleFilter,
       ...enrollmentFilter,
     });
@@ -55,7 +82,6 @@ export default async function handler(
     .where({
       ...yearFilter,
       ...monthFilter,
-      ...nameFilter,
       ...roleFilter,
       ...enrollmentFilter,
     })

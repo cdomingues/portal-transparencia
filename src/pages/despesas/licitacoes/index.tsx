@@ -35,9 +35,16 @@ export default Controller;
 export const getStaticProps: GetStaticProps = async () => {
   const { biddings } = await getBiddings();
 
+  const mapBiddings = biddings.map((bidding) => {
+    return {
+      ...bidding,
+      linkdownload: `http://licitacao-mgcon.mogidascruzes.sp.gov.br/?orgao=&id_tipolicitacao=&numero=${bidding.nro}&ano=${bidding.ano}&periodopublicacao=2&situacao=&descricao`,
+    };
+  });
+
   return {
     props: {
-      biddings: biddings || [],
+      biddings: mapBiddings || [],
     },
     revalidate,
   };

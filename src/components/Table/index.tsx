@@ -35,6 +35,7 @@ import {
   ModalCloseButton,
   ModalBody,
   ModalFooter,
+  Link,
 } from "@chakra-ui/react";
 import {
   AiOutlineDatabase,
@@ -48,6 +49,7 @@ import { CsvItem, TableContainer } from "./styles";
 import { BsChevronDown, BsChevronExpand, BsChevronUp } from "react-icons/bs";
 import { BiCameraMovie } from "react-icons/bi";
 import { isMobile } from "react-device-detect";
+import { validURL } from "../../utils/validUrl";
 
 export type TableColumns = Array<{
   title: string;
@@ -362,6 +364,8 @@ function TableComponent({
                     key={index}
                   >
                     {row.cells.map((cell, index) => {
+                      const isLink = validURL(cell?.value);
+
                       return (
                         <Td
                           style={{
@@ -381,7 +385,7 @@ function TableComponent({
                               textAlign: "left",
                             }}
                           >
-                            {cell?.value?.length > 50 ? (
+                            {/* {cell?.value?.length > 50 ? (
                               <Textarea
                                 fontSize="12"
                                 width="300px"
@@ -392,6 +396,26 @@ function TableComponent({
                               />
                             ) : (
                               cell.render("Cell")
+                            )} */}
+                            {isLink ? (
+                              <Link href={cell?.value} isExternal>
+                                Detalhes
+                              </Link>
+                            ) : (
+                              <>
+                                {cell?.value?.length > 50 ? (
+                                  <Textarea
+                                    fontSize="12"
+                                    width="300px"
+                                    value={cell?.value}
+                                    contentEditable="false"
+                                    size="md"
+                                    textAlign="left"
+                                  />
+                                ) : (
+                                  cell.render("Cell")
+                                )}
+                              </>
                             )}
                           </div>
                         </Td>

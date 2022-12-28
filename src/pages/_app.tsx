@@ -15,18 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
     setLoaded(true);
-    refreshPage();
   }, []);
-
-  const refreshPage = () => {
-    if (!cookies.refreshed) {
-      setCookie("refreshed", true, {
-        maxAge: 3600,
-      });
-      router.reload();
-      router.reload();
-    }
-  };
 
   return (
     <ChakraProvider theme={theme}>
