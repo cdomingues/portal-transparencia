@@ -47,6 +47,25 @@ const publicRoutes = [
     group: undefined,
   },
   {
+    name: "Agenda Aberta",
+    path: "/agenda-aberta",
+    icon: AiOutlineAppstore,
+    group: [
+      {
+        defaultPath: "/agenda-aberta",
+        name: "Caio Cunha",
+        path: "/agenda-caio",
+        icon: AiOutlineProfile,
+      },
+      {
+        defaultPath: "/agenda-aberta",
+        name: "Priscila Yamagami",
+        path: "/agenda-caio",
+        icon: AiOutlineProfile,
+      },
+    ],
+  },
+  {
     name: "Terceiro Setor",
     path: "/terceiro-setor",
     element: <div></div>,
