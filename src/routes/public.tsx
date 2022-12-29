@@ -53,16 +53,16 @@ const publicRoutes = [
     group: [
       {
         defaultPath: "/agenda-aberta",
-        name: "Caio Cunha",
+        name: "Prefeito - Caio Cunha",
         path: "/agenda-caio",
         icon: AiOutlineProfile,
       },
-      {
-        defaultPath: "/agenda-aberta",
-        name: "Priscila Yamagami",
-        path: "/agenda-caio",
-        icon: AiOutlineProfile,
-      },
+      // {
+      //   defaultPath: "/agenda-aberta",
+      //   name: "Priscila Yamagami",
+      //   path: "/agenda-caio",
+      //   icon: AiOutlineProfile,
+      // },
     ],
   },
   {

@@ -24,7 +24,7 @@ function Screen({ handler }: PropsInput) {
 
 
   <iframe
-    src='https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FSao_Paulo&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&hl=pt_BR&src=MDM1MDY5YTUyZjYzYzIxNGI0NzEzMDVlYzljYTM2NDMzMDI1MDIxMTQ5NTJjZTk5Y2EwNDljYTBhMjBjYTQ3Y0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23616161" style="border:solid 1px #777" maxwidth="640" maxheight="480" frameborder="0" scrolling="no"'
+    src='https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FSao_Paulo&mode=AGENDA&showTitle=1&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&hl=pt_BR&src=MDM1MDY5YTUyZjYzYzIxNGI0NzEzMDVlYzljYTM2NDMzMDI1MDIxMTQ5NTJjZTk5Y2EwNDljYTBhMjBjYTQ3Y0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23616161" style="border:solid 1px #777" maxwidth="640" maxheight="480" frameborder="0" scrolling="no"'
   />
   
 </AspectRatio>
