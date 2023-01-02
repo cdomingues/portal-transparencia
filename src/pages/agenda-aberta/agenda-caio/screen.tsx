@@ -1,9 +1,38 @@
 import { Select, Stack, Text, AspectRatio, useColorModeValue } from "@chakra-ui/react";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
 import PlanContainer from "../../../components/Container/Plan";
 import { isMobile } from "react-device-detect";
 import NoClickIframe from "../../../components/IframeNoClick";
+
+
+
+function Clock10Seconds() {
+const [time, setTime] = useState(new Date());
+
+useEffect(() => {
+const interval = setInterval(() => {
+setTime(new Date());
+}, 10000);
+return () => clearInterval(interval);
+}, []);
+
+return <p>{time.toLocaleTimeString()}</p>;
+}
+
+function Clock30Seconds() {
+const [time, setTime] = useState(new Date());
+
+useEffect(() => {
+const interval = setInterval(() => {
+setTime(new Date());
+}, 30000);
+return () => clearInterval(interval);
+}, []);
+
+return <p>{time.toLocaleTimeString()}</p>;
+}
+
 
 
 type PropsInput = {
@@ -32,6 +61,12 @@ function Screen({ handler }: PropsInput) {
   /> */}
   
 </AspectRatio>
+
+
+<div>
+<Clock10Seconds />
+<Clock30Seconds />
+</div>
 
 </ContainerBasic>
 
