@@ -1,4 +1,5 @@
 import { Stack, Text } from "@chakra-ui/react";
+import { isMobile } from "react-device-detect";
 
 const Description = ({ label, value }: { label: string; value: string }) => (
   <Stack
@@ -10,7 +11,7 @@ const Description = ({ label, value }: { label: string; value: string }) => (
       height: "65px",
       padding: "2%",
       borderRadius: "5px",
-      marginBottom: "19px",
+      marginBottom: isMobile? "19px" : "0px",
       marginTop: "19px",
     }}
   >

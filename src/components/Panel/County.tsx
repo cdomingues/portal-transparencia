@@ -34,18 +34,19 @@ const CountyPanel = () => {
         </Stack>
         <Stack
           style={{
+            
             borderRadius: "5px",
-            marginBottom: "19px",
+            marginBottom: "0px",
             marginTop: "0px",
             marginRight: "0px",
             marginLeft: "0px",
           }}
         >
-          <Description label="Prefeito" value="CAIO CÉSAR MACHADO DA CUNHA" />
+          <Description  label="Prefeito" value="CAIO CÉSAR MACHADO DA CUNHA" />
           <Description label="Gentílico" value="MOGIANO" />
         </Stack>
       </Stack>
-      <Stack flex={4} width="100%">
+      <Stack flex={4} width="100%" >
         <Stack
           direction={isMobile ? "column" : "row"}
           flex={1}
