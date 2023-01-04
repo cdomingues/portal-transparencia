@@ -21,25 +21,25 @@ export default async function handler(
     .sum("valorliquidado as valor")
     .from("V1_DESPESA")
     .where("funcao", "10 - SAÚDE")
-    .where("ano", year);
+    .where("ano", year-1);
 
   const security = await database()
     .sum("valorliquidado as valor")
     .from("V1_DESPESA")
     .where("funcao", "06 - SEGURANÇA PÚBLICA")
-    .where("ano", year);
+    .where("ano", year-1);
 
   const education = await database()
     .sum("valorliquidado as valor")
     .from("V1_DESPESA")
     .where("funcao", "12 - EDUCAÇÃO")
-    .where("ano", year);
+    .where("ano", year-1);
 
   const socialAssistance = await database()
     .sum("valorliquidado as valor")
     .from("V1_DESPESA")
     .where("funcao", "08 - ASSISTÊNCIA SOCIAL")
-    .where("ano", year);
+    .where("ano", year-1);
 
   const policies = [
     {
