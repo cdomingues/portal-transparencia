@@ -18,9 +18,15 @@ export default async function handler(
   if (req.method !== "GET") {
     return res.status(404);
   }
+  const year = Number(req.query.ano) || moment().year();
 
-  const year = moment().year();
-  const month = moment().month() + 1;
+  const currentYear = moment().year();
+
+  let month = moment().month() + 1;
+
+  if (year !== currentYear) {
+    month = moment().year(year).endOf("year").month() + 1;
+  }
 
   const graphs = [];
   let acamulatedAmount = 0;

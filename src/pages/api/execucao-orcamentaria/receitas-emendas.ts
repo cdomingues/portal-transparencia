@@ -22,11 +22,24 @@ export type BudgetRevenueAmendmentsData = {
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<BudgetRevenueAmendmentsData[]>
+  res: NextApiResponse<{
+    revenues: BudgetRevenueAmendmentsData[];
+    years: Number[];
+  }>
 ) {
   if (req.method !== "GET") {
     return res.status(404);
   }
+
+  const year = Number(req.query.ano) || moment().year();
+
+  const from = moment().year(Number(year)).startOf("year").toDate();
+
+  const to = moment()
+    .year(Number(year))
+    .endOf("year")
+    .subtract(3, "hours")
+    .toDate();
 
   const filter = [
     "1.7.1.3.99.0.1.02 - PORT 3968/2021-EP 81000792-PROP 423056/21",
@@ -80,14 +93,21 @@ export default async function handler(
     .select()
     .from("RECEITAS")
     .whereIn("receita", filter)
-    .where("data", ">=", moment().startOf("year").toDate())
+    .whereBetween("data", [from, to])
     .orderBy("data", "desc");
 
-  const revenuesGrouped = groupRevenue(revenues);
-  return res.status(200).json(revenuesGrouped);
+  const revenuesGrouped = groupRevenue(revenues, year);
+
+  const years = await database.raw(
+    "SELECT DISTINCT YEAR(data) as ano FROM RECEITAS order by ano desc"
+  );
+  return res.status(200).json({
+    revenues: revenuesGrouped,
+    years: years.map(({ ano }: { ano: number }) => ano),
+  });
 }
 
-const groupRevenue = (revenues: Array<any>) => {
+const groupRevenue = (revenues: Array<any>, year: number) => {
   const mappingRevenues = revenues.map((revenue) => {
     return {
       receita: revenue.receita,
@@ -115,7 +135,7 @@ const groupRevenue = (revenues: Array<any>) => {
       novembro: 0,
       dezembro: 0,
       totalArrecadado: 0,
-      ano: moment().year(),
+      ano: year,
     };
 
     for (let index = 0; index <= 11; index++) {

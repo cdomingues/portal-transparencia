@@ -3,10 +3,15 @@ import { baseUrl } from "../../config";
 import { RevenuesData } from "../../pages/api/receitas";
 import moneyFormatter from "../../utils/moneyFormatter";
 
-export const getRevenues = async () => {
+export const getRevenues = async (year?: number) => {
   try {
-    const response = await axios.get(`${baseUrl}/api/receitas`);
-    const revenues: RevenuesData[] = response.data;
+    const response = await axios.get(`${baseUrl}/api/receitas`, {
+      params: {
+        ano: year,
+      },
+    });
+
+    const revenues: RevenuesData[] = response.data.revenues;
     const mappingData: any = revenues.map((revenue) => {
       return {
         ...revenue,
@@ -26,14 +31,14 @@ export const getRevenues = async () => {
       };
     });
 
-    return { revenues: mappingData };
+    return { revenues: mappingData, years: response.data.years };
   } catch (error) {
     if (axios.isAxiosError(error)) {
       console.log(
         `Error on get ${error.config.url}, data: ${error.response?.data}`
       );
     }
-    return { revenues: [] };
+    return { revenues: [], years: [] };
   }
 };
 

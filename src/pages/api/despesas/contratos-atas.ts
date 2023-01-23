@@ -22,6 +22,7 @@ export type Row = {
 export type ExpensesContractData = {
   rows: Row[];
   count: number;
+  years: Number[];
 };
 
 export default async function handler(
@@ -31,7 +32,17 @@ export default async function handler(
   if (req.method !== "GET") {
     return res.status(404);
   }
-  const initialDate = moment().startOf("year");
+
+  const year = req.query.ano || moment().year();
+
+  const from = moment().year(Number(year)).startOf("year").toDate();
+
+  const to = moment()
+    .year(Number(year))
+    .endOf("year")
+    .subtract(3, "hours")
+    .toDate();
+
   const count = await database().count("integracao as count").from("CONTRATOS");
 
   const contracts = await database
@@ -42,11 +53,16 @@ export default async function handler(
       "qtdeaditivos as quantidadeAdivitos"
     )
     .from("CONTRATOS")
-    .where("datainicio", ">=", initialDate.toDate())
+    .whereBetween("datainicio", [from, to])
     .orderBy("datainicio", "desc");
+
+  const years = await database.raw(
+    "SELECT DISTINCT YEAR(datainicio) as ano FROM CONTRATOS order by ano desc"
+  );
 
   return res.status(200).json({
     count: Number(count[0].count),
     rows: contracts,
+    years: years.map(({ ano }: { ano: number }) => ano),
   });
 }

@@ -3,13 +3,21 @@ import { baseUrl } from "../../config";
 import { BudgetRevenueFinesData } from "../../pages/api/execucao-orcamentaria/receitas-multas-transito";
 import moneyFormatter from "../../utils/moneyFormatter";
 
-export const getFinesRevenues = async () => {
+export const getFinesRevenues = async (year?: number) => {
   try {
     const response = await axios.get(
-      `${baseUrl}/api/execucao-orcamentaria/receitas-multas-transito`
+      `${baseUrl}/api/execucao-orcamentaria/receitas-multas-transito`,
+      {
+        params: {
+          ano: year,
+        },
+      }
     );
 
-    const revenues: BudgetRevenueFinesData[] = response.data;
+    const {
+      revenues,
+      years,
+    }: { revenues: BudgetRevenueFinesData[]; years: Number[] } = response.data;
     const mappingData: any = revenues.map((revenue) => {
       return {
         ...revenue,
@@ -29,7 +37,7 @@ export const getFinesRevenues = async () => {
       };
     });
 
-    return { revenues: mappingData };
+    return { revenues: mappingData, years };
   } catch (error) {
     if (axios.isAxiosError(error)) {
       console.log(
@@ -37,7 +45,7 @@ export const getFinesRevenues = async () => {
       );
     }
 
-    return { revenues: [] };
+    return { revenues: [], years: [] };
   }
 };
 

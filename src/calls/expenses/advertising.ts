@@ -4,10 +4,14 @@ import { baseUrl } from "../../config";
 import { ExpenseAdvertisingData } from "../../pages/api/despesas/propaganda";
 import moneyFormatter from "../../utils/moneyFormatter";
 
-export const getdvertisings = async () => {
+export const getdvertisings = async (year?: number) => {
   try {
-    const response = await axios.get(`${baseUrl}/api/despesas/propaganda`);
-    const { rows }: ExpenseAdvertisingData = response.data;
+    const response = await axios.get(`${baseUrl}/api/despesas/propaganda`, {
+      params: {
+        ano: year,
+      },
+    });
+    const { rows, years }: ExpenseAdvertisingData = response.data;
 
     const mappingRows = rows.map((row) => {
       return {
@@ -19,14 +23,14 @@ export const getdvertisings = async () => {
       };
     });
 
-    return { advertisings: mappingRows };
+    return { advertisings: mappingRows, years };
   } catch (error) {
     if (axios.isAxiosError(error)) {
       console.log(
         `Error on get ${error.config.url}, data: ${error.response?.data}`
       );
     }
-    return { advertisings: [] };
+    return { advertisings: [], years: [] };
   }
 };
 
@@ -60,11 +64,17 @@ export const getChartYear = async () => {
   }
 };
 
-export const getChart = async () => {
+export const getChart = async (year?: number) => {
   try {
     const response = await axios.get(
-      `${baseUrl}/api/graficos/despesas/propaganda`
+      `${baseUrl}/api/graficos/despesas/propaganda`,
+      {
+        params: {
+          ano: year,
+        },
+      }
     );
+
     const columnLine = {
       data: [response.data, response.data],
       xField: "data",

@@ -6,28 +6,55 @@ import {
   getGeneralExpenses,
 } from "../../../calls/budgetExecution/generalExpenses";
 import { revalidate } from "../../../config";
+import moment from "moment";
 
-function Controller({ chart = { data: [] }, expenses = [] }: any) {
+function Controller({
+  chart = { data: [] },
+  expenses = [],
+  years,
+}: {
+  chart: any;
+  expenses: any;
+  years: Number[];
+}) {
+  const [year, setYear] = useState(moment().year());
   const [loading, setLoading] = useState(false);
+  const [data, setData] = useState(expenses);
 
   const columns = [
-    { title: "Número", field: "numero" },
-    { title: "Modalidade", field: "modalidade" },
-    { title: "CPF/CNPJ", field: "cpfcnpj" },
-    { title: "Fornecedor", field: "fornecedor" },
-    { title: "Data", field: "data" },
-    { title: "Empenhado", field: "empenhado" },
-    { title: "Liquidado", field: "liquidado" },
-    { title: "Pago", field: "pago" },
-    { title: "Programa", field: "programa" },
+    { title: "Id", field: "id" },
+    { title: "Ano", field: "ano" },
     { title: "Unidade", field: "unidade" },
+    { title: "Fonte Recurso", field: "fonterecurso" },
+    { title: "Funcional Programatica", field: "funcionalprogramatica" },
+    { title: "Função", field: "funcao" },
+    { title: "Sub Função", field: "subfuncao" },
+    { title: "Programa", field: "programa" },
+    { title: "Valor Inicial", field: "valorinicial" },
+    { title: "Valor Atualizado", field: "valoratualizado" },
   ];
 
+  const handleByYear = async (year: number) => {
+    setYear(year);
+
+    setLoading(true);
+
+    const { expenses } = await getGeneralExpenses(year);
+
+    setLoading(false);
+
+    setData(expenses);
+  };
+
   const handler = {
-    data: expenses,
+    data,
     columns,
     loading,
     chart,
+    years,
+    setYear,
+    year,
+    handleByYear,
   };
 
   return <Screen handler={handler} />;
@@ -37,12 +64,13 @@ export default Controller;
 
 export const getStaticProps: GetStaticProps = async () => {
   const { chart } = await getChart();
-  const { expenses } = await getGeneralExpenses();
+  const { expenses, years } = await getGeneralExpenses();
 
   return {
     props: {
       chart: chart || { data: [] },
       expenses: expenses || [],
+      years,
     },
     revalidate,
   };

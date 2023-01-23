@@ -1,4 +1,4 @@
-import { Divider } from "@chakra-ui/react";
+import { Button, Divider, Select, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 import ChartColumn from "../../../components/Antdesign/ChartPlots/ChartColumn";
 import ChartColumnLineWithPartner from "../../../components/Antdesign/ChartPlots/ColumnLineWithPartner";
@@ -11,15 +11,64 @@ type PropsInput = {
     data: Array<any>;
     loading: boolean;
     chart: any;
+    years: Number[];
+    setYear: any;
+    year: number;
+    handleByYear: any;
   };
 };
 
-function Screen({ handler: { columns, data, loading, chart } }: PropsInput) {
+function Screen({
+  handler: {
+    columns,
+    data,
+    loading,
+    chart,
+    setYear,
+    year,
+    years,
+    handleByYear,
+  },
+}: PropsInput) {
   const title = "Despesas - Geral";
   const description = "";
   return (
     <ContainerBasic title={title} description={description}>
       {chart?.data?.length > 0 && <ChartColumn config={chart} />}
+      <Divider height="3px" marginTop="10px" marginBottom="4px" />
+
+      <Stack direction="row">
+        <Stack width="25%">
+          <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
+            Ano
+          </Text>
+          <Select
+            defaultValue={year}
+            onChange={(e) => setYear(e.target.value)}
+            bg="white"
+            variant="outline"
+            placeholder="Selecionar Ano"
+          >
+            {years?.map((year, index) => (
+              <option key={index} value={String(year)}>
+                {String(year)}
+              </option>
+            ))}
+          </Select>
+        </Stack>
+        <Stack width="10%" justifyContent="flex-end">
+          <Button
+            disabled={loading}
+            onClick={() => handleByYear(year)}
+            _hover={{ bg: "gray.500", color: "white" }}
+            bg="table.primary"
+            color="white"
+            fontSize="small"
+          >
+            Buscar
+          </Button>
+        </Stack>
+      </Stack>
       <Divider borderWidth="2px" mt="10" mb="10" />
       <TableComponent loading={loading} columns={columns} data={data} />
     </ContainerBasic>

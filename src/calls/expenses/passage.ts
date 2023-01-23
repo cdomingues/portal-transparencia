@@ -4,12 +4,17 @@ import { baseUrl } from "../../config";
 import { ExpensesPassageData } from "../../pages/api/despesas/passagem-locomocao";
 import moneyFormatter from "../../utils/moneyFormatter";
 
-export const getTickets = async () => {
+export const getTickets = async (year?: number) => {
   try {
     const response = await axios.get(
-      `${baseUrl}/api/despesas/passagem-locomocao`
+      `${baseUrl}/api/despesas/passagem-locomocao`,
+      {
+        params: {
+          ano: year,
+        },
+      }
     );
-    const { rows }: ExpensesPassageData = response.data;
+    const { rows, years }: ExpensesPassageData = response.data;
 
     const mappingRows = rows.map((row) => {
       return {
@@ -21,14 +26,14 @@ export const getTickets = async () => {
       };
     });
 
-    return { tickets: mappingRows };
+    return { tickets: mappingRows, years };
   } catch (error) {
     if (axios.isAxiosError(error)) {
       console.log(
         `Error on get ${error.config.url}, data: ${error.response?.data}`
       );
     }
-    return { tickets: [] };
+    return { tickets: [], years: [] };
   }
 };
 
@@ -66,11 +71,17 @@ export const getChartYear = async () => {
   }
 };
 
-export const getChart = async () => {
+export const getChart = async (year?: number) => {
   try {
     const response = await axios.get(
-      `${baseUrl}/api/graficos/despesas/passagens-locomocao`
+      `${baseUrl}/api/graficos/despesas/passagens-locomocao`,
+      {
+        params: {
+          ano: year,
+        },
+      }
     );
+
     const columnLine = {
       data: [response.data, response.data],
       xField: "data",

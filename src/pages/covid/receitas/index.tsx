@@ -6,17 +6,19 @@ import {
   getRevenues,
   getGraph,
 } from "../../../calls/covid/revenues";
-import { CovidRevenuesData } from "../../api/covid/receitas";
-import axios from "axios";
-import moneyFormatter from "../../../utils/moneyFormatter";
 import { revalidate } from "../../../config";
+import moment from "moment";
 
 function Controller({
   revenues = [],
   chartYear = { data: [] },
   chart = { data: [] },
+  years,
 }: any) {
+  const [year, setYear] = useState(moment().year());
   const [loading, setLoading] = useState(false);
+  const [data, setData] = useState(revenues);
+  const [newChart, setNewChart] = useState(chart);
 
   const columns = [
     { title: "Ano", field: "ano" },
@@ -36,12 +38,32 @@ function Controller({
     { title: "Total Arrecadado", field: "totalArrecadado" },
   ];
 
+  const handleByYear = async (year: number) => {
+    setYear(year);
+
+    setLoading(true);
+
+    const { revenues } = await getRevenues(year);
+
+    const { chart } = await getGraph(year);
+
+    setLoading(false);
+
+    setNewChart(chart);
+
+    setData(revenues);
+  };
+
   const handler = {
-    data: revenues,
+    data,
     columns,
     loading,
-    chart,
+    chart: newChart,
     chartYear,
+    years,
+    setYear,
+    year,
+    handleByYear,
   };
 
   return <Screen handler={handler} />;
@@ -51,7 +73,7 @@ export default Controller;
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { chartYear } = await getChartYears();
-  const { revenues } = await getRevenues();
+  const { revenues, years } = await getRevenues();
   const { chart } = await getGraph();
 
   return {
@@ -59,6 +81,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       chartYear: chartYear || { data: [] },
       chart: chart || { data: [] },
       revenues: revenues || [],
+      years,
     },
     revalidate,
   };

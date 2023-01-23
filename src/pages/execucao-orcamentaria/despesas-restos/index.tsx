@@ -6,9 +6,12 @@ import {
   getRemainders,
 } from "../../../calls/budgetExecution/remains";
 import { revalidate } from "../../../config";
+import moment from "moment";
 
-function Controller({ chart = { data: [] }, remainders = [] }: any) {
+function Controller({ chart = { data: [] }, remainders = [], years }: any) {
+  const [year, setYear] = useState(moment().year());
   const [loading, setLoading] = useState(false);
+  const [data, setData] = useState(remainders);
 
   const columns = [
     { title: "Número", field: "numero" },
@@ -23,11 +26,27 @@ function Controller({ chart = { data: [] }, remainders = [] }: any) {
     { title: "Unidade", field: "unidade" },
   ];
 
+  const handleByYear = async (year: number) => {
+    setYear(year);
+
+    setLoading(true);
+
+    const { remainders } = await getRemainders(year);
+
+    setLoading(false);
+
+    setData(remainders);
+  };
+
   const handler = {
-    data: remainders,
+    data,
     columns,
     loading,
     chart,
+    years,
+    setYear,
+    year,
+    handleByYear,
   };
 
   return <Screen handler={handler} />;
@@ -37,12 +56,13 @@ export default Controller;
 
 export const getStaticProps: GetStaticProps = async () => {
   const { chart } = await getChart();
-  const { remainders } = await getRemainders();
+  const { remainders, years } = await getRemainders();
 
   return {
     props: {
       chart: chart || { data: [] },
       remainders: remainders || [],
+      years,
     },
     revalidate,
   };

@@ -4,10 +4,15 @@ import { baseUrl } from "../../config";
 import { ExpensesContractData } from "../../pages/api/despesas/contratos-atas";
 import moneyFormatter from "../../utils/moneyFormatter";
 
-export const getContracts = async () => {
+export const getContracts = async (year?: number) => {
   try {
-    const response = await axios.get(`${baseUrl}/api/despesas/contratos-atas`);
-    const { rows }: ExpensesContractData = response.data;
+    const response = await axios.get(`${baseUrl}/api/despesas/contratos-atas`, {
+      params: {
+        ano: year,
+      },
+    });
+
+    const { rows, years }: ExpensesContractData = response.data;
 
     const mappingRows = rows.map((row) => {
       return {
@@ -23,13 +28,13 @@ export const getContracts = async () => {
       };
     });
 
-    return { contracts: mappingRows };
+    return { contracts: mappingRows, years };
   } catch (error) {
     if (axios.isAxiosError(error)) {
       console.log(
         `Error on get ${error.config.url}, data: ${error.response?.data}`
       );
     }
-    return { contracts: [] };
+    return { contracts: [], years: [] };
   }
 };

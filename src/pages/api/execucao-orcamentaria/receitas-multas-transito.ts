@@ -22,36 +22,42 @@ export type BudgetRevenueFinesData = {
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<BudgetRevenueFinesData[]>
+  res: NextApiResponse<{ revenues: BudgetRevenueFinesData[]; years: Number[] }>
 ) {
   if (req.method !== "GET") {
     return res.status(404);
   }
 
-  const filter = [
-    "1.1.2.8.01.9.1.09 - TAXA DE VISTORIA DE VEÍCULOS",
-    "1.3.3.9.99.1.1.01 - OUTORGA CONCESSÃO DO TRANSP. COLETIV.",
-    "1.3.3.9.99.1.1.02 - OUTORGA CONCES. DO ESTACIO. ROTAT. PAGO-Zona Azul",
-    "1.3.3.9.99.1.1.04 - OUTORGA CONCESSÃO DO TERMINAL RODOV. GERALDO SCAVO",
-    "1.3.3.9.99.1.1.05 - PERMISSÕES DE USO - TERMINAL CENTRAL",
-    "1.6.2.0.02.1.1.01 - PASS. CARRETA - CARGA SUPERDIMENSIONADA/PERIGOSA",
-    "1.9.1.0.01.1.1.02 - MULTAS DE TRÂNSITO",
-    "1.9.1.0.01.1.1.04 - MULTAS - TRANSP. RODOV. PASSEI. CARGAS",
-  ];
+  const year = Number(req.query.ano) || moment().year();
+
+  const from = moment().year(Number(year)).startOf("year").toDate();
+
+  const to = moment()
+    .year(Number(year))
+    .endOf("year")
+    .subtract(3, "hours")
+    .toDate();
 
   const revenues = await database
     .select()
     .from("RECEITAS")
     .whereLike("receita", "%Trânsito%")
-    .where("data", ">=", moment().startOf("year").toDate())
+    .whereBetween("data", [from, to])
     .orderBy("data", "desc");
 
-  const revenuesGrouped = groupRevenue(revenues);
+  const revenuesGrouped = groupRevenue(revenues, year);
 
-  return res.status(200).json(revenuesGrouped);
+  const years = await database.raw(
+    "SELECT DISTINCT YEAR(data) as ano FROM RECEITAS order by ano desc"
+  );
+
+  return res.status(200).json({
+    revenues: revenuesGrouped,
+    years: years.map(({ ano }: { ano: number }) => ano),
+  });
 }
 
-const groupRevenue = (revenues: Array<any>) => {
+const groupRevenue = (revenues: Array<any>, year: number) => {
   const mappingRevenues = revenues.map((revenue) => {
     return {
       receita: revenue.receita,
@@ -79,7 +85,7 @@ const groupRevenue = (revenues: Array<any>) => {
       novembro: 0,
       dezembro: 0,
       totalArrecadado: 0,
-      ano: moment().year(),
+      ano: year,
     };
 
     for (let index = 0; index <= 11; index++) {

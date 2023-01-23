@@ -7,13 +7,18 @@ import {
   getTickets,
 } from "../../../calls/expenses/passage";
 import { revalidate } from "../../../config";
+import moment from "moment";
 
 function Controller({
   chart = { data: [] },
   chartYear = { data: [] },
   tickets = [],
+  years,
 }: any) {
+  const [year, setYear] = useState(moment().year());
   const [loading, setLoading] = useState(false);
+  const [data, setData] = useState(tickets);
+  const [newChart, setNewChart] = useState(chart);
 
   const columns = [
     { title: "Número", field: "numero" },
@@ -28,12 +33,32 @@ function Controller({
     { title: "Pago", field: "pago" },
   ];
 
+  const handleByYear = async (year: number) => {
+    setYear(year);
+
+    setLoading(true);
+
+    const { tickets } = await getTickets(year);
+
+    const { chart } = await getChart(year);
+
+    setLoading(false);
+
+    setNewChart(chart);
+
+    setData(tickets);
+  };
+
   const handler = {
-    data: tickets,
+    data,
     columns,
     loading,
     chartYear,
-    chart,
+    chart: newChart,
+    years,
+    setYear,
+    year,
+    handleByYear,
   };
 
   return <Screen handler={handler} />;
@@ -44,13 +69,14 @@ export default Controller;
 export const getStaticProps: GetStaticProps = async () => {
   const { chart } = await getChart();
   const { chartYear } = await getChartYear();
-  const { tickets } = await getTickets();
+  const { tickets, years } = await getTickets();
 
   return {
     props: {
       chartYear: chartYear || { data: [] },
       chart: chart || { data: [] },
       tickets: tickets || [],
+      years: years || [],
     },
     revalidate,
   };

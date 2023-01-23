@@ -4,12 +4,17 @@ import { baseUrl } from "../../config";
 import { ExpensesHostingData } from "../../pages/api/despesas/adiantamento-hospedagem";
 import moneyFormatter from "../../utils/moneyFormatter";
 
-export const getAdvances = async () => {
+export const getAdvances = async (year?: number) => {
   try {
     const response = await axios.get(
-      `${baseUrl}/api/despesas/adiantamento-hospedagem`
+      `${baseUrl}/api/despesas/adiantamento-hospedagem`,
+      {
+        params: {
+          ano: year,
+        },
+      }
     );
-    const { rows }: ExpensesHostingData = response.data;
+    const { rows, years }: ExpensesHostingData = response.data;
 
     const mappingRows = rows.map((row) => {
       return {
@@ -21,14 +26,14 @@ export const getAdvances = async () => {
       };
     });
 
-    return { advances: mappingRows };
+    return { advances: mappingRows, years };
   } catch (error) {
     if (axios.isAxiosError(error)) {
       console.log(
         `Error on get ${error.config.url}, data: ${error.response?.data}`
       );
     }
-    return { advances: [] };
+    return { advances: [], years: [] };
   }
 };
 
@@ -62,10 +67,15 @@ export const getChartYear = async () => {
   }
 };
 
-export const getChart = async () => {
+export const getChart = async (year?: number) => {
   try {
     const response = await axios.get(
-      `${baseUrl}/api/graficos/despesas/adiantamento-hospedagem`
+      `${baseUrl}/api/graficos/despesas/adiantamento-hospedagem`,
+      {
+        params: {
+          ano: year,
+        },
+      }
     );
     const columnLine = {
       data: [response.data, response.data],

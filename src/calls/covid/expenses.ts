@@ -4,10 +4,14 @@ import { baseUrl } from "../../config";
 import { CovidExpensesData } from "../../pages/api/covid/despesas";
 import moneyFormatter from "../../utils/moneyFormatter";
 
-export const getExpenses = async () => {
+export const getExpenses = async (year?: number) => {
   try {
-    const response = await axios.get(`${baseUrl}/api/covid/despesas`);
-    const { rows }: CovidExpensesData = response.data;
+    const response = await axios.get(`${baseUrl}/api/covid/despesas`, {
+      params: {
+        ano: year,
+      },
+    });
+    const { rows, years }: CovidExpensesData = response.data;
 
     const mappingRows = rows.map((row) => {
       return {
@@ -19,20 +23,25 @@ export const getExpenses = async () => {
       };
     });
 
-    return { rows: mappingRows };
+    return { rows: mappingRows, years };
   } catch (error) {
     if (axios.isAxiosError(error)) {
       console.log(
         `Error on get ${error.config.url}, data: ${error.response?.data}`
       );
     }
-    return { rows: [] };
+    return { rows: [], years: [] };
   }
 };
 
-export const getGraph = async () => {
+export const getGraph = async (year?: number) => {
   try {
-    const response = await axios.get(`${baseUrl}/api/graficos/covid/despesas`);
+    const response = await axios.get(`${baseUrl}/api/graficos/covid/despesas`, {
+      params: {
+        ano: year,
+      },
+    });
+
     const graph = {
       data: [response.data, response.data],
       xField: "data",

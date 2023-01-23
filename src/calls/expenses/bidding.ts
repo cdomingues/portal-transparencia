@@ -3,10 +3,14 @@ import moment from "moment";
 import { baseUrl } from "../../config";
 import { ExpensesBiddingData } from "../../pages/api/despesas/licitacoes";
 
-export const getBiddings = async () => {
+export const getBiddings = async (year?: number) => {
   try {
-    const response = await axios.get(`${baseUrl}/api/despesas/licitacoes`);
-    const { rows }: ExpensesBiddingData = response.data;
+    const response = await axios.get(`${baseUrl}/api/despesas/licitacoes`, {
+      params: {
+        ano: year,
+      },
+    });
+    const { rows, years }: ExpensesBiddingData = response.data;
 
     const mappingRows = rows.map((row) => {
       return {
@@ -20,13 +24,13 @@ export const getBiddings = async () => {
       };
     });
 
-    return { biddings: mappingRows };
+    return { biddings: mappingRows, years };
   } catch (error) {
     if (axios.isAxiosError(error)) {
       console.log(
         `Error on get ${error.config.url}, data: ${error.response?.data}`
       );
     }
-    return { biddings: [] };
+    return { biddings: [], years: [] };
   }
 };

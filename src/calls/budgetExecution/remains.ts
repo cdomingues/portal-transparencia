@@ -4,12 +4,17 @@ import { baseUrl } from "../../config";
 import { BudgetExpenseRemainsData } from "../../pages/api/execucao-orcamentaria/despesas-restos";
 import moneyFormatter from "../../utils/moneyFormatter";
 
-export const getRemainders = async () => {
+export const getRemainders = async (year?: number) => {
   try {
     const response = await axios.get(
-      `${baseUrl}/api/execucao-orcamentaria/despesas-restos`
+      `${baseUrl}/api/execucao-orcamentaria/despesas-restos`,
+      {
+        params: {
+          ano: year,
+        },
+      }
     );
-    const { rows }: BudgetExpenseRemainsData = response.data;
+    const { rows, years }: BudgetExpenseRemainsData = response.data;
 
     const mappingRows = rows.map((row) => {
       return {
@@ -20,14 +25,14 @@ export const getRemainders = async () => {
         liquidado: moneyFormatter(Number(row.liquidado)),
       };
     });
-    return { remainders: mappingRows };
+    return { remainders: mappingRows, years };
   } catch (error) {
     if (axios.isAxiosError(error)) {
       console.log(
         `Error on get ${error.config.url}, data: ${error.response?.data}`
       );
     }
-    return { remainders: [] };
+    return { remainders: [], years: [] };
   }
 };
 

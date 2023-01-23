@@ -7,13 +7,18 @@ import {
 } from "../../../calls/extraBudgetary/expenses";
 import { GetStaticProps } from "next";
 import { revalidate } from "../../../config";
+import moment from "moment";
 
 function Controller({
   chartYear = { data: [] },
   chart = { data: [] },
   expenses = [],
+  years,
 }: any) {
+  const [year, setYear] = useState(moment().year());
   const [loading, setLoading] = useState(false);
+  const [data, setData] = useState(expenses);
+  const [newChart, setNewChart] = useState(chart);
 
   const columns = [
     { title: "Número", field: "numero" },
@@ -27,12 +32,32 @@ function Controller({
     { title: "Dotação", field: "dotacao" },
   ];
 
+  const handleByYear = async (year: number) => {
+    setYear(year);
+
+    setLoading(true);
+
+    const { expenses } = await getExpenses(year);
+
+    const { chart } = await getChart(year);
+
+    setLoading(false);
+
+    setNewChart(chart);
+
+    setData(expenses);
+  };
+
   const handler = {
-    data: expenses,
+    data,
     columns,
     loading,
     chartYear,
-    chart,
+    chart: newChart,
+    years,
+    setYear,
+    year,
+    handleByYear,
   };
 
   return <Screen handler={handler} />;
@@ -42,13 +67,14 @@ export default Controller;
 
 export const getStaticProps: GetStaticProps = async () => {
   const { chartYear } = await getChartYears();
-  const { expenses } = await getExpenses();
+  const { expenses, years } = await getExpenses();
   const { chart } = await getChart();
   return {
     props: {
       chartYear: chartYear || { data: [] },
       chart: chart || { data: [] },
       expenses: expenses || [],
+      years,
     },
     revalidate,
   };

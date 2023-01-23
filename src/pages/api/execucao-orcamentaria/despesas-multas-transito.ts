@@ -19,6 +19,7 @@ export type Row = {
 export type BudgetExpenseFinesData = {
   rows: Row[];
   count: number;
+  years: Number[];
 };
 
 export default async function handler(
@@ -28,6 +29,16 @@ export default async function handler(
   if (req.method !== "GET") {
     return res.status(404);
   }
+
+  const year = req.query.ano || moment().year();
+
+  const from = moment().year(Number(year)).startOf("year").toDate();
+
+  const to = moment()
+    .year(Number(year))
+    .endOf("year")
+    .subtract(3, "hours")
+    .toDate();
 
   const program = [
     "0040 - SUPORTE ADMINISTRATIVO",
@@ -39,16 +50,14 @@ export default async function handler(
     "02.10.02 - FUNDO MUNICIPAL DE MOBILIDADE URBANA-FMMU",
   ];
 
-  const lastYear = moment().subtract(1, "year").startOf("year").toDate();
-
   const count = await database()
     .count("id as count")
     .from("DESP_EMPENHO")
     .whereIn("unidadeorc", unity)
     .whereIn("programa", program)
     .where("fonterecurso", "03.410.0000 - TRÂNSITO - SINALIZAÇÃO")
-    .where("subfuncao", "452 - SERVIÇOS URBANOS");
-  // .where("data", ">=", lastYear);
+    .where("subfuncao", "452 - SERVIÇOS URBANOS")
+    .whereBetween("data", [from, to]);
 
   const expenses = await database
     .select(
@@ -66,12 +75,17 @@ export default async function handler(
     .whereIn("programa", program)
     .where("fonterecurso", "03.410.0000 - TRÂNSITO - SINALIZAÇÃO")
     .where("subfuncao", "452 - SERVIÇOS URBANOS")
-    // .where("data", ">=", lastYear)
+    .whereBetween("data", [from, to])
     .from("DESP_EMPENHO")
     .orderBy("data", "desc");
+
+  const years = await database.raw(
+    "SELECT DISTINCT ano FROM DESP_EMPENHO order by ano desc"
+  );
 
   return res.status(200).json({
     count: Number(count[0].count),
     rows: expenses,
+    years: years.map(({ ano }: { ano: number }) => ano),
   });
 }

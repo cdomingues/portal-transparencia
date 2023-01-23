@@ -7,13 +7,18 @@ import {
   getdvertisings,
 } from "../../../calls/expenses/advertising";
 import { revalidate } from "../../../config";
+import moment from "moment";
 
 function Controller({
   chart = { data: [] },
   chartYear = { data: [] },
   advertisings = [],
+  years,
 }: any) {
+  const [year, setYear] = useState(moment().year());
   const [loading, setLoading] = useState(false);
+  const [data, setData] = useState(advertisings);
+  const [newChart, setNewChart] = useState(chart);
 
   const columns = [
     { title: "Número", field: "numero" },
@@ -28,12 +33,32 @@ function Controller({
     { title: "Unidade", field: "unidade" },
   ];
 
+  const handleByYear = async (year: number) => {
+    setYear(year);
+
+    setLoading(true);
+
+    const { advertisings } = await getdvertisings(year);
+
+    const { chart } = await getChart(year);
+
+    setLoading(false);
+
+    setNewChart(chart);
+
+    setData(advertisings);
+  };
+
   const handler = {
-    data: advertisings,
+    data,
     columns,
     loading,
-    chart,
+    chart: newChart,
     chartYear,
+    years,
+    setYear,
+    year,
+    handleByYear,
   };
 
   return <Screen handler={handler} />;
@@ -44,13 +69,14 @@ export default Controller;
 export const getStaticProps: GetStaticProps = async () => {
   const { chart } = await getChart();
   const { chartYear } = await getChartYear();
-  const { advertisings } = await getdvertisings();
+  const { advertisings, years } = await getdvertisings();
 
   return {
     props: {
       chartYear: chartYear || { data: [] },
       chart: chart || { data: [] },
       advertisings: advertisings || [],
+      years: years || [],
     },
     revalidate,
   };

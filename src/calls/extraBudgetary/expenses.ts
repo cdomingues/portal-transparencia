@@ -4,12 +4,17 @@ import { baseUrl } from "../../config";
 import { ExtrabudgetaryExpensesData } from "../../pages/api/extraorcamentario/despesas";
 import moneyFormatter from "../../utils/moneyFormatter";
 
-export const getExpenses = async () => {
+export const getExpenses = async (year?: number) => {
   try {
     const response = await axios.get(
-      `${baseUrl}/api/extraorcamentario/despesas`
+      `${baseUrl}/api/extraorcamentario/despesas`,
+      {
+        params: {
+          ano: year,
+        },
+      }
     );
-    const { rows }: ExtrabudgetaryExpensesData = response.data;
+    const { rows, years }: ExtrabudgetaryExpensesData = response.data;
 
     const mappingRows = rows.map((row) => {
       return {
@@ -21,14 +26,14 @@ export const getExpenses = async () => {
       };
     });
 
-    return { expenses: mappingRows };
+    return { expenses: mappingRows, years };
   } catch (error) {
     if (axios.isAxiosError(error)) {
       console.log(
         `Error on get ${error.config.url}, data: ${error.response?.data}`
       );
     }
-    return { expenses: [] };
+    return { expenses: [], years: [] };
   }
 };
 
@@ -62,11 +67,17 @@ export const getChartYears = async () => {
   }
 };
 
-export const getChart = async () => {
+export const getChart = async (year?: number) => {
   try {
     const response = await axios.get(
-      `${baseUrl}/api/graficos/extraorcamentario/despesas`
+      `${baseUrl}/api/graficos/extraorcamentario/despesas`,
+      {
+        params: {
+          ano: year,
+        },
+      }
     );
+
     const chartConfig = {
       data: [response.data, response.data],
       xField: "data",

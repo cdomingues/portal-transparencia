@@ -3,22 +3,28 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import database from "../../../database";
 
 export type Row = {
-  numero: string;
-  modalidade: string;
-  cpfcnpj: string;
-  fornecedor: string;
-  ano: number;
-  data: string;
-  empenho: string;
-  liquidado: string;
-  pago: string;
+  id: number;
+  ano: string;
+  idunidade: string;
+  iddespesa: string;
+  despesa: string;
+  idfonterecurso: string;
+  fonterecurso: string;
+  funcionalprogramatica: string;
+  idfuncao: string;
+  funcao: string;
+  idsubfuncao: string;
+  subfuncao: string;
+  idprograma: string;
   programa: string;
-  unidade: string;
+  valorinicial: number;
+  valoratualizado: number;
 };
 
 export type BudgetGeneralExpenseData = {
   rows: Row[];
   count: number;
+  years: Number[];
 };
 
 export default async function handler(
@@ -29,26 +35,25 @@ export default async function handler(
     return res.status(404);
   }
 
-  const count = await database().count("id as count").from("DESP_EMPENHO");
+  const year = req.query.ano;
+
+  const count = await database().count("id as count").from("DESPESAS_ORC");
 
   const expenses = await database
-    .select(
-      "*",
-      "tipolicitacao as modalidade",
-      "cnpj_cpf_favorecido as cpfcnpj",
-      "favorecido as fornecedor",
-      "numerolicitacao as numero",
-      "valor_ori as empenho",
-      "valor_atu as liquidado",
-      "valor_anu as pago",
-      "unidadeorc as unidade"
-    )
-    .from("DESP_EMPENHO")
-    .where("data", ">=", moment().subtract(1, "year").startOf("year").toDate())
-    .orderBy("data", "desc");
+    .select("*")
+    .from("DESPESAS_ORC")
+    .where("ano", "=", year || moment().year())
+    .orderBy("id", "desc");
+
+  const years = await database.raw(
+    "SELECT DISTINCT ano FROM DESPESAS_ORC order by ano desc"
+  );
+
+  console.log({ years });
 
   return res.status(200).json({
     count: Number(count[0].count),
     rows: expenses,
+    years: years.map(({ ano }: { ano: number }) => ano),
   });
 }

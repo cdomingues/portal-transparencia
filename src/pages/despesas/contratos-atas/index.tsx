@@ -3,9 +3,12 @@ import React, { useState } from "react";
 import Screen from "./screen";
 import { getContracts } from "../../../calls/expenses/contractsMinutes";
 import { revalidate } from "../../../config";
+import moment from "moment";
 
-function Controller({ contracts = [] }: any) {
+function Controller({ contracts = [], years = [] }: any) {
+  const [year, setYear] = useState(moment().year());
   const [loading, setLoading] = useState(false);
+  const [data, setData] = useState(contracts);
 
   const columns = [
     { title: "Tipo", field: "tipo" },
@@ -24,10 +27,26 @@ function Controller({ contracts = [] }: any) {
     { title: "Objeto", field: "objeto" },
   ];
 
+  const handleByYear = async (year: number) => {
+    setYear(year);
+
+    setLoading(true);
+
+    const { contracts } = await getContracts(year);
+
+    setLoading(false);
+
+    setData(contracts);
+  };
+
   const handler = {
-    data: contracts,
+    data,
     columns,
     loading,
+    year,
+    years,
+    setYear,
+    handleByYear,
   };
 
   return <Screen handler={handler} />;
@@ -36,10 +55,11 @@ function Controller({ contracts = [] }: any) {
 export default Controller;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { contracts } = await getContracts();
+  const { contracts, years } = await getContracts();
   return {
     props: {
       contracts: contracts || [],
+      years: years || [],
     },
     revalidate,
   };

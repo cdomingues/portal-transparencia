@@ -4,12 +4,17 @@ import { baseUrl } from "../../config";
 import { BudgetExpenseAmendmentsData } from "../../pages/api/execucao-orcamentaria/despesas-emendas";
 import moneyFormatter from "../../utils/moneyFormatter";
 
-export const getExpenses = async () => {
+export const getExpenses = async (year?: number) => {
   try {
     const response = await axios.get(
-      `${baseUrl}/api/execucao-orcamentaria/despesas-emendas`
+      `${baseUrl}/api/execucao-orcamentaria/despesas-emendas`,
+      {
+        params: {
+          ano: year,
+        },
+      }
     );
-    const { rows }: BudgetExpenseAmendmentsData = response.data;
+    const { rows, years }: BudgetExpenseAmendmentsData = response.data;
 
     const mappingRows = rows.map((row) => {
       return {
@@ -21,14 +26,14 @@ export const getExpenses = async () => {
       };
     });
 
-    return { expenses: mappingRows };
+    return { expenses: mappingRows, years };
   } catch (error) {
     if (axios.isAxiosError(error)) {
       console.log(
         `Error on get ${error.config.url}, data: ${error.response?.data}`
       );
     }
-    return { expenses: [] };
+    return { expenses: [], years: [] };
   }
 };
 

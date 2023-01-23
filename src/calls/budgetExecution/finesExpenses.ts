@@ -4,12 +4,17 @@ import { baseUrl } from "../../config";
 import { BudgetExpenseFinesData } from "../../pages/api/execucao-orcamentaria/despesas-multas-transito";
 import moneyFormatter from "../../utils/moneyFormatter";
 
-export const getFinesExpenses = async () => {
+export const getFinesExpenses = async (year?: number) => {
   try {
     const response = await axios.get(
-      `${baseUrl}/api/execucao-orcamentaria/despesas-multas-transito`
+      `${baseUrl}/api/execucao-orcamentaria/despesas-multas-transito`,
+      {
+        params: {
+          ano: year,
+        },
+      }
     );
-    const { rows }: BudgetExpenseFinesData = response.data;
+    const { rows, years }: BudgetExpenseFinesData = response.data;
 
     const mappingRows = rows.map((row) => {
       return {
@@ -21,14 +26,14 @@ export const getFinesExpenses = async () => {
       };
     });
 
-    return { fines: mappingRows };
+    return { fines: mappingRows, years };
   } catch (error) {
     if (axios.isAxiosError(error)) {
       console.log(
         `Error on get ${error.config.url}, data: ${error.response?.data}`
       );
     }
-    return { fines: [] };
+    return { fines: [], years: [] };
   }
 };
 

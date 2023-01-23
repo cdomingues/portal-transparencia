@@ -1,35 +1,36 @@
 import axios from "axios";
-import moment from "moment";
 import { baseUrl } from "../../config";
-import { BudgetExpenseAmendmentsData } from "../../pages/api/execucao-orcamentaria/despesas-emendas";
 import { BudgetGeneralExpenseData } from "../../pages/api/execucao-orcamentaria/despesas-gerais";
 import moneyFormatter from "../../utils/moneyFormatter";
 
-export const getGeneralExpenses = async () => {
+export const getGeneralExpenses = async (year?: number) => {
   try {
     const response = await axios.get(
-      `${baseUrl}/api/execucao-orcamentaria/despesas-gerais`
+      `${baseUrl}/api/execucao-orcamentaria/despesas-gerais`,
+      {
+        params: {
+          ano: year,
+        },
+      }
     );
-    const { rows, count }: BudgetGeneralExpenseData = response.data;
+    const { rows, years }: BudgetGeneralExpenseData = response.data;
 
     const mappingRows = rows.map((row) => {
       return {
         ...row,
-        data: row.data ? moment(row.data).format("DD/MM/YYYY hh:mm") : "",
-        empenho: moneyFormatter(Number(row.empenho)),
-        pago: moneyFormatter(Number(row.pago)),
-        liquidado: moneyFormatter(Number(row.liquidado)),
+        valorinicial: moneyFormatter(Number(row.valorinicial)),
+        valoratualizado: moneyFormatter(Number(row.valoratualizado)),
       };
     });
 
-    return { expenses: mappingRows };
+    return { expenses: mappingRows, years };
   } catch (error) {
     if (axios.isAxiosError(error)) {
       console.log(
         `Error on get ${error.config.url}, data: ${error.response?.data}`
       );
     }
-    return { expenses: [] };
+    return { expenses: [], years: [] };
   }
 };
 

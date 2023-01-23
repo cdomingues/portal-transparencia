@@ -1,3 +1,4 @@
+import moment from "moment";
 import type { NextApiRequest, NextApiResponse } from "next";
 import database from "../../../database";
 
@@ -18,6 +19,7 @@ export type Row = {
 export type ExpensesPassageData = {
   rows: Row[];
   count: number;
+  years: Number[];
 };
 
 export default async function handler(
@@ -27,6 +29,8 @@ export default async function handler(
   if (req.method !== "GET") {
     return res.status(404);
   }
+
+  const year = req.query.ano;
 
   const count = await database()
     .count("id as count")
@@ -57,10 +61,16 @@ export default async function handler(
       "2002 - APRIMORAMENTO DA GESTÃO PÚBLICA",
       "2007 - MOBILIDADE URBANA",
     ])
+    .where("ano", "=", year || moment().year())
     .orderBy("data", "desc");
+
+  const years = await database.raw(
+    "SELECT DISTINCT ano FROM DESP_EMPENHO order by ano desc"
+  );
 
   return res.status(200).json({
     count: Number(count[0].count),
     rows: expenses,
+    years: years.map(({ ano }: { ano: number }) => ano),
   });
 }

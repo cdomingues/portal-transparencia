@@ -3,12 +3,22 @@ import { baseUrl } from "../../config";
 import { BudgetRevenueAmendmentsData } from "../../pages/api/execucao-orcamentaria/receitas-emendas";
 import moneyFormatter from "../../utils/moneyFormatter";
 
-export const getAmendmentRevenues = async () => {
+export const getAmendmentRevenues = async (year?: number) => {
   try {
     const response = await axios.get(
-      `${baseUrl}/api/execucao-orcamentaria/receitas-emendas`
+      `${baseUrl}/api/execucao-orcamentaria/receitas-emendas`,
+      {
+        params: {
+          ano: year,
+        },
+      }
     );
-    const revenues: BudgetRevenueAmendmentsData[] = response.data;
+    const {
+      revenues,
+      years,
+    }: { revenues: BudgetRevenueAmendmentsData[]; years: Number[] } =
+      response.data;
+
     const mappingData: any = revenues.map((revenue) => {
       return {
         ...revenue,
@@ -28,14 +38,14 @@ export const getAmendmentRevenues = async () => {
       };
     });
 
-    return { revenues: mappingData };
+    return { revenues: mappingData, years };
   } catch (error) {
     if (axios.isAxiosError(error)) {
       console.log(
         `Error on get ${error.config.url}, data: ${error.response?.data}`
       );
     }
-    return { revenues: [] };
+    return { revenues: [], years: [] };
   }
 };
 

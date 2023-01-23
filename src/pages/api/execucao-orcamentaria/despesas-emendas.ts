@@ -1,3 +1,4 @@
+import moment from "moment";
 import type { NextApiRequest, NextApiResponse } from "next";
 import database from "../../../database";
 
@@ -18,6 +19,7 @@ export type Row = {
 export type BudgetExpenseAmendmentsData = {
   rows: Row[];
   count: number;
+  years: Number[];
 };
 
 export default async function handler(
@@ -27,6 +29,17 @@ export default async function handler(
   if (req.method !== "GET") {
     return res.status(404);
   }
+
+  const year = req.query.ano || moment().year();
+
+  const from = moment().year(Number(year)).startOf("year").toDate();
+
+  const to = moment()
+    .year(Number(year))
+    .endOf("year")
+    .subtract(3, "hours")
+    .toDate();
+
   //TODO: VERIFY DATA
   const program = [
     "1001 - PRIMEIROS PASSOS",
@@ -46,7 +59,8 @@ export default async function handler(
     .count("id as count")
     .from("DESP_EMPENHO")
     .whereIn("programa", program)
-    .whereIn("unidadeorc", unity);
+    .whereIn("unidadeorc", unity)
+    .whereBetween("data", [from, to]);
 
   const expenses = await database
     .select(
@@ -63,10 +77,16 @@ export default async function handler(
     .from("DESP_EMPENHO")
     .whereIn("programa", program)
     .whereIn("unidadeorc", unity)
+    .whereBetween("data", [from, to])
     .orderBy("data", "desc");
+
+  const years = await database.raw(
+    "SELECT DISTINCT ano FROM DESP_EMPENHO order by ano desc"
+  );
 
   return res.status(200).json({
     count: Number(count[0].count),
     rows: expenses,
+    years: years.map(({ ano }: { ano: number }) => ano),
   });
 }

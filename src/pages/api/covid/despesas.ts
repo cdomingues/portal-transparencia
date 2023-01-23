@@ -19,6 +19,7 @@ export type Row = {
 export type CovidExpensesData = {
   rows: Row[];
   count: number;
+  years: Number[];
 };
 
 export default async function handler(
@@ -28,6 +29,10 @@ export default async function handler(
   if (req.method !== "GET") {
     return res.status(404);
   }
+
+  const year = Number(req.query.ano) || moment().year();
+
+  console.log({ year });
 
   const filter = [
     "02.312.8620 - ENFRENTAMENTO COVID-19-RESOLUÇÃO SS 86/2020",
@@ -41,7 +46,6 @@ export default async function handler(
     "05.312.5516 - MEDICAMENTOS SAÚDE MENTAL-COVID-PORT.2516/20",
     "05.312.5797 - ENFRENTAMENTO CORONAVÍRUS - PORTARIA 1797/2020",
   ];
-  const year = moment().year();
 
   const count = await database()
     .count("idunidade as count")
@@ -66,8 +70,13 @@ export default async function handler(
     .where("ano", year)
     .orderBy("mes", "desc");
 
+  const years = await database.raw(
+    "SELECT DISTINCT ano FROM V1_DESPESA order by ano desc"
+  );
+
   return res.status(200).json({
     count: Number(count[0].count),
     rows: expenses,
+    years: years.map(({ ano }: { ano: number }) => ano),
   });
 }
