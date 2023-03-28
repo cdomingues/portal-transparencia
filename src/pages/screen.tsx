@@ -21,7 +21,7 @@ import {
 import moneyFormatter from "../utils/moneyFormatter";
 import moment from "moment";
 import { isMobile } from "react-device-detect";
-import { Chart } from "../components/HomeGraph";
+import { Chart } from "../components/HomeChart";
 import { ChartContainer } from "../utils/styles";
 import { BiBody, BiCheckShield, BiFoodMenu, BiHeart } from "react-icons/bi";
 import useWindowDimensions from "../utils/getWindowSize";
