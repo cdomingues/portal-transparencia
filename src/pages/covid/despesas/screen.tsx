@@ -8,9 +8,9 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { isMobile } from "react-device-detect";
-import ChartColumn from "../../../components/Antdesign/ChartPlots/ChartColumn";
-import ChartColumnLineWithPartner from "../../../components/Antdesign/ChartPlots/ColumnLineWithPartner";
+import { Chart } from "../../../components/Chart";
 import ContainerBasic from "../../../components/Container/Basic";
+import { MultiAxisChart } from "../../../components/MultiAxisChart";
 import TableComponent, { TableColumns } from "../../../components/Table";
 
 type PropsInput = {
@@ -70,8 +70,8 @@ function Screen({
           <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
             Despesas Mensal Acumulado
           </Heading>
-          {chart?.data?.length > 0 && (
-            <ChartColumnLineWithPartner config={chart} />
+          {chart?.datasets?.length > 0 && (
+            <MultiAxisChart data={chart} moneyFormat />
           )}
         </div>
 
@@ -79,7 +79,9 @@ function Screen({
           <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
             Despesas últimos 5 anos
           </Heading>
-          {chartYear?.data?.length > 0 && <ChartColumn config={chartYear} />}
+          {chartYear?.datasets?.length > 0 && (
+            <Chart type="bar" data={chartYear} moneyFormat />
+          )}
         </div>
       </div>
       <Divider borderWidth="2px" mt="10" mb="10" />
