@@ -95,6 +95,7 @@ export function Chart({ data: dataProps, moneyFormat }: IChart) {
           callback: (value: any) => {
             return moneyFormat ? moneyFormatter(value) : value;
           },
+          beginAtZero: true,
         },
       },
       y1: {
@@ -103,6 +104,7 @@ export function Chart({ data: dataProps, moneyFormat }: IChart) {
           callback: (value: any) => {
             return moneyFormat ? moneyFormatter(value) : value;
           },
+          beginAtZero: true,
         },
       },
     },
