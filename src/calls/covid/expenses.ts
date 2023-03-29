@@ -46,24 +46,24 @@ export const getGraph = async (year?: number) => {
       labels: response.data.map(({ data }: any) => data),
       datasets: [
         {
-          type: 'line',
-          label: 'Valor Acumulado',
+          type: "line",
+          label: "Valor Acumulado",
           data: response.data.map(({ valorAcumulado }: any) => valorAcumulado),
           backgroundColor: "#fac534",
           borderColor: "#fac534A0",
           yAxisID: "y1",
         },
         {
-          type: 'bar',
-          label: 'Valor',
+          type: "bar",
+          label: "Valor",
           data: response.data.map(({ valor }: any) => valor),
           backgroundColor: "#1E90FFA0",
           borderColor: "#1E90FF",
           borderWidth: 2,
           yAxisID: "y",
-        }
-      ]
-    }
+        },
+      ],
+    };
 
     return { chart: graph };
   } catch (error) {
