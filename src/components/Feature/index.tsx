@@ -167,9 +167,9 @@ export default function FeatureComponent({
     },
   };
 
-  const titlePage = "Bem vindo ao portal da transparência.";
+  const titlePage = "Boas-vindas ao Portal da Transparência de Mogi!";
   const description =
-    "Acompanhe todas as atividades financeiras e análises de documentos, com detalhamentos e dados abertos.";
+    "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.";
 
   return (
     <div style={{ width: "100%" }}>
@@ -191,7 +191,7 @@ export default function FeatureComponent({
                 {moneyFormatter(revenueAmount)}
               </StatNumber>
               <StatHelpText mb={0}>
-                Valor Previsto: {moneyFormatter(revenueProvided)}
+                Valor Previsto para o ano: {moneyFormatter(revenueProvided)}
               </StatHelpText>
               <StatHelpText>
                 Alcançado: {revenuePercentageReached}%
@@ -203,7 +203,7 @@ export default function FeatureComponent({
                 {moneyFormatter(expenseAmount)}
               </StatNumber>
               <StatHelpText mb={0}>
-                Valor Previsto: {moneyFormatter(expenseProvided)}
+                Valor Previsto para o ano: {moneyFormatter(expenseProvided)}
               </StatHelpText>
               <StatHelpText>
                 Alcançado: {expensePercentageReached}%

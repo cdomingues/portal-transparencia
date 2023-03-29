@@ -168,9 +168,9 @@ function HomeScreen({ handler }: PropsInput) {
     date,
   } = handler;
 
-  const titlePage = "Bem vindo ao portal da transparência.";
+  const titlePage = "Boas-vindas ao Portal da Transparência de Mogi!";
   const description =
-    "Acompanhe todas as atividades financeiras e análises de documentos, com detalhamentos e dados abertos.";
+    "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.";
 
   const stylesTranslator: any = {
     "Aplicação em Saúde": {
@@ -220,9 +220,9 @@ function HomeScreen({ handler }: PropsInput) {
             Resumo {moment().year()}
           </Heading>
           <StatGroup 
-          width="100%" mb={20}
+          width="100%" mb={20} flexDirection={isMobile ? "column" : "row"}
           >
-            <Stat>
+            <Stat mb={isMobile ? 6 : 0}>
               <StatLabel height="40px" color="black">
                 Arrecadações
               </StatLabel>
@@ -230,7 +230,7 @@ function HomeScreen({ handler }: PropsInput) {
                 {moneyFormatter(revenueAmount)}
               </StatNumber>
               <StatHelpText mb={0} color="black">
-                Valor Previsto: {moneyFormatter(revenueProvided)}
+                Valor Previsto para o ano: {moneyFormatter(revenueProvided)}
               </StatHelpText>
               <StatHelpText color="black">
                 Alcançado: {revenuePercentageReached}%
@@ -245,32 +245,13 @@ function HomeScreen({ handler }: PropsInput) {
                 {moneyFormatter(expenseAmount)}
               </StatNumber>
               <StatHelpText mb={0} color="black">
-                Valor Previsto: {moneyFormatter(expenseProvided)}
+                Valor Previsto para o ano: {moneyFormatter(expenseProvided)}
               </StatHelpText>
               <StatHelpText color="black">
                 Alcançado: {expensePercentageReached}%
               </StatHelpText>
             </Stat>
           </StatGroup>
-        </Stack>
-        <Stack
-          mb={10}
-          direction={isMobile ? "column" : "row"}
-          align={isMobile ? "left" : "center"}
-          justifyContent={isMobile ? "flex-start" : "center"}
-        >
-          {featureDescriptions?.map(({ icon, color, text }, index) => {
-            return (
-              <Feature
-                index={index}
-                lastIndex={featureDescriptions.length - 1}
-                icon={<Icon as={icon} color={`${color}.500`} w={5} h={5} />}
-                iconBg={{ left: `${color}.100`, right: `${color}.900` }}
-                text={text}
-                key={index}
-              />
-            );
-          })}
         </Stack>
         <Divider mb={10} />
         <Heading

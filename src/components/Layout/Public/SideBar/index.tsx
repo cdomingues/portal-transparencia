@@ -235,11 +235,19 @@ function SidebarContent({ onClose, routes, ...rest }: SidebarProps) {
       }}
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <Image
-          alt="logo"
-          src={logo.src}
-          style={{ width: isMobile ? "50%" : "100%" }}
-        />
+        <Link
+          href={"/"}
+          target={"_self"}
+          style={{ textDecoration: "none" }}
+          _focus={{ boxShadow: "none" }}
+          fontSize="13"
+        >
+          <Image
+            alt="logo"
+            src={logo.src}
+            style={{ width: isMobile ? "50%" : "100%" }}
+          />
+        </Link>
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
       {routes.map((route, index) => (
@@ -309,7 +317,7 @@ function MobileNav({ onOpen, ...rest }: MobileProps) {
         style={{ textAlign: "center" }}
       >
         <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-          <Image alt="logo" width="80%" src={logo.src} />
+          <Image alt="logo" width="80%" minW="9rem" src={logo.src} />
         </Flex>
       </Text>
       <HStack
