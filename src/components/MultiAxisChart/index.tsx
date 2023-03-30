@@ -2,6 +2,7 @@ import { Chart as _Chart } from "react-chartjs-2";
 import { Chart as ChartConfig, registerables } from "chart.js";
 import moneyFormatter from "../../utils/moneyFormatter";
 import { ChartWrapper } from "../ChartWrapper";
+import { CSSProperties } from "styled-components";
 ChartConfig.register(...registerables);
 
 interface IMultiAxisChart {
@@ -18,9 +19,10 @@ interface IMultiAxisChart {
     }[];
   };
   moneyFormat?: boolean;
+  style?: CSSProperties;
 }
 
-export function MultiAxisChart({ data, moneyFormat }: IMultiAxisChart) {
+export function MultiAxisChart({ data, moneyFormat, style }: IMultiAxisChart) {
   const options = {
     type: "scatter",
     responsive: true,
@@ -66,7 +68,7 @@ export function MultiAxisChart({ data, moneyFormat }: IMultiAxisChart) {
     },
   };
   return (
-    <ChartWrapper>
+    <ChartWrapper style={style}>
       <_Chart type="bar" datasetIdKey="id" options={options} data={data} />
     </ChartWrapper>
   );

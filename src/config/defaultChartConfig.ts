@@ -5,6 +5,21 @@ type TGenericChartConfig = {
   borderWidth?: number;
 };
 
+export type TRequestChartData = {
+  name: string;
+  ano: number;
+  valor: number;
+};
+
+export type TRequestChartYearData = {
+  name: string;
+  ano: number;
+  mes: number;
+  valor: number;
+  data: string;
+  valorAcumulado: number;
+};
+
 export const barChartConfig: TGenericChartConfig = {
   type: "bar",
   backgroundColor: "#1E90FFA0",
