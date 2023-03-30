@@ -9,8 +9,8 @@ import {
 import moment from "moment";
 
 function Controller({
-  chartYear = { data: [] },
-  chart = { data: [] },
+  chartYear = { datasets: [] },
+  chart = { datasets: [] },
   revenues = [],
   years,
 }: any) {

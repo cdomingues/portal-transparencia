@@ -4,6 +4,8 @@ import { baseUrl } from "../../config";
 import {
   barChartConfig,
   lineChartConfig,
+  TRequestChartData,
+  TRequestChartYearData,
 } from "../../config/defaultChartConfig";
 import { CovidExpensesData } from "../../pages/api/covid/despesas";
 import moneyFormatter from "../../utils/moneyFormatter";
@@ -47,18 +49,20 @@ export const getGraph = async (year?: number) => {
     });
 
     const graph = {
-      labels: response.data.map(({ data }: any) => data),
+      labels: response.data.map(({ data }: TRequestChartYearData) => data),
       datasets: [
         {
           ...lineChartConfig,
           label: "Valor Acumulado",
-          data: response.data.map(({ valorAcumulado }: any) => valorAcumulado),
+          data: response.data.map(
+            ({ valorAcumulado }: TRequestChartYearData) => valorAcumulado
+          ),
           yAxisID: "y1",
         },
         {
           ...barChartConfig,
           label: "Valor",
-          data: response.data.map(({ valor }: any) => valor),
+          data: response.data.map(({ valor }: TRequestChartYearData) => valor),
           yAxisID: "y",
         },
       ],
@@ -82,11 +86,11 @@ export const getChartYears = async () => {
     );
 
     const config = {
-      labels: response.data.map(({ ano }: any) => ano?.toString()),
+      labels: response.data.map(({ ano }: TRequestChartData) => ano.toString()),
       datasets: [
         {
           ...barChartConfig,
-          data: response.data.map(({ valor }: any) => valor),
+          data: response.data.map(({ valor }: TRequestChartData) => valor),
         },
       ],
     };
