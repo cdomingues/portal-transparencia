@@ -1,6 +1,12 @@
 import { Chart as _Chart } from "react-chartjs-2";
 import { Chart as ChartConfig, registerables } from "chart.js";
 import moneyFormatter from "../../utils/moneyFormatter";
+import {
+  barChartConfig,
+  barChartConfig2,
+  lineChartConfig,
+  lineChartConfig2,
+} from "../../config/defaultChartConfig";
 ChartConfig.register(...registerables);
 
 interface IChart {
@@ -30,37 +36,27 @@ export function Chart({ data: dataProps, moneyFormat }: IChart) {
     labels,
     datasets: [
       {
-        type: "line",
+        ...lineChartConfig,
         label: "Arrecadações Acumuladas",
         data: datasets[0],
-        backgroundColor: "#fac534",
-        borderColor: "#fac534A0",
         yAxisID: "y1",
       },
       {
-        type: "line",
+        ...lineChartConfig2,
         label: "Despesas Acumuladas",
         data: datasets[1],
-        backgroundColor: "#fa6328",
-        borderColor: "#fa6328A0",
         yAxisID: "y1",
       },
       {
-        type: "bar",
+        ...barChartConfig,
         label: "Arrecadações",
         data: datasets[2],
-        backgroundColor: "#1E90FFA0",
-        borderColor: "#1E90FF",
-        borderWidth: 2,
         yAxisID: "y",
       },
       {
-        type: "bar",
+        ...barChartConfig2,
         label: "Despesas",
         data: datasets[3],
-        backgroundColor: "#FF6347A0",
-        borderColor: "#FF6347",
-        borderWidth: 2,
         yAxisID: "y",
       },
     ],

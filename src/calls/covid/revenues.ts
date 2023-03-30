@@ -1,5 +1,9 @@
 import axios from "axios";
 import { baseUrl } from "../../config";
+import {
+  barChartConfig,
+  lineChartConfig,
+} from "../../config/defaultChartConfig";
 import { CovidRevenuesData } from "../../pages/api/covid/receitas";
 import moneyFormatter from "../../utils/moneyFormatter";
 
@@ -57,20 +61,15 @@ export const getGraph = async (year?: number) => {
       labels: response.data.map(({ data }: any) => data),
       datasets: [
         {
-          type: "line",
+          ...lineChartConfig,
           label: "Valor Acumulado",
           data: response.data.map(({ valorAcumulado }: any) => valorAcumulado),
-          backgroundColor: "#fac534",
-          borderColor: "#fac534A0",
           yAxisID: "y1",
         },
         {
-          type: "bar",
+          ...barChartConfig,
           label: "Valor",
           data: response.data.map(({ valor }: any) => valor),
-          backgroundColor: "#1E90FFA0",
-          borderColor: "#1E90FF",
-          borderWidth: 2,
           yAxisID: "y",
         },
       ],
@@ -97,10 +96,8 @@ export const getChartYears = async () => {
       labels: response.data.map(({ ano }: any) => ano?.toString()),
       datasets: [
         {
+          ...barChartConfig,
           data: response.data.map(({ valor }: any) => valor),
-          backgroundColor: "#1E90FFA0",
-          borderColor: "#1E90FF",
-          borderWidth: 2,
         },
       ],
     };

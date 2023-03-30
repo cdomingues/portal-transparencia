@@ -11,7 +11,7 @@ import Screen from "./screen";
 
 export default function Controller({
   chartYear = { datasets: [] },
-  chart = { data: [] },
+  chart = { datasets: [] },
   rows = [],
   years,
 }: any) {
