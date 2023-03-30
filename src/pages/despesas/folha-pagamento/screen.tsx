@@ -170,7 +170,7 @@ function Screen({
       </Stack>
       <Divider width="50%" height="3px" marginTop="10px" marginBottom="4px" />
       <Stack direction="row">
-        <Stack width="25%">
+        <Stack  minW={140} width="25%">
           <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
             Matricula
           </Text>
@@ -184,6 +184,7 @@ function Screen({
         </Stack>
         <Stack width="10%" justifyContent="flex-end">
           <Button
+            minW={55}
             disabled={loading}
             onClick={() => handlePayroll()}
             _hover={{ bg: "gray.500", color: "white" }}
