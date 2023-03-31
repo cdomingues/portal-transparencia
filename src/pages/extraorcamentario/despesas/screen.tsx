@@ -11,6 +11,10 @@ import { isMobile } from "react-device-detect";
 import { Chart } from "../../../components/Chart";
 import ContainerBasic from "../../../components/Container/Basic";
 import { MultiAxisChart } from "../../../components/MultiAxisChart";
+import {
+  GraphWrapper,
+  MultipleGraphWrapper,
+} from "../../../components/GraphWrapper";
 import TableComponent, { TableColumns } from "../../../components/Table";
 
 type PropsInput = {
@@ -53,20 +57,8 @@ function Screen({
 
   return (
     <ContainerBasic title={title} description={description}>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: chartConfig.direction as any,
-          height: "100%",
-        }}
-      >
-        <div
-          style={{
-            width: chartConfig.width,
-            marginRight: chartConfig.marginRight,
-            marginLeft: chartConfig.marginLeft,
-          }}
-        >
+      <MultipleGraphWrapper>
+        <GraphWrapper>
           <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
             Despesas Mensal Acumulado
           </Heading>
@@ -74,22 +66,25 @@ function Screen({
             <MultiAxisChart
               moneyFormat
               data={chart}
-              style={{ width: "430px" }}
+              style={{ maxHeight: "330px" }}
             />
           )}
-        </div>
-
-        <div style={{ width: chartConfig.width }}>
+        </GraphWrapper>
+        <GraphWrapper>
           <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
             Despesas últimos 5 anos
           </Heading>
           {chartYear?.datasets?.length > 0 && (
-            <Chart type="bar" moneyFormat data={chartYear} />
+            <Chart
+              type="bar"
+              moneyFormat
+              data={chartYear}
+              style={{ maxHeight: "330px" }}
+            />
           )}
-        </div>
-      </div>
+        </GraphWrapper>
+      </MultipleGraphWrapper>
       <Divider borderWidth="2px" mt="10" mb="10" />
-
       <Stack direction="row">
         <Stack width="25%">
           <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
