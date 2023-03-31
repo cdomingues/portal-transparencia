@@ -3,6 +3,8 @@ import { Chart as ChartConfig, registerables } from "chart.js";
 import moneyFormatter from "../../utils/moneyFormatter";
 import { ChartWrapper } from "../ChartWrapper";
 import { CSSProperties } from "react";
+import { isMobile } from "react-device-detect";
+import { formatNumber } from "../../config/defaultChartConfig";
 ChartConfig.register(...registerables);
 
 interface IChart {
@@ -23,6 +25,14 @@ interface IChart {
 }
 
 export function Chart({ data, type, moneyFormat, style }: IChart) {
+  const formatMoney = (value: number) => {
+    return moneyFormat ? moneyFormatter(value) : value.toString();
+  };
+
+  const responsiveMoneyFormat = (value: number) => {
+    return isMobile ? formatNumber(value) : formatMoney(value);
+  };
+
   const options = {
     responsive: true,
     maintainAspectRatio: false,
@@ -34,9 +44,7 @@ export function Chart({ data, type, moneyFormat, style }: IChart) {
       tooltip: {
         callbacks: {
           label: (context: any) => {
-            return moneyFormat
-              ? moneyFormatter(context.parsed.y.toFixed(2))
-              : context.parsed.y;
+            return formatMoney(context.parsed.y);
           },
         },
       },
@@ -46,7 +54,7 @@ export function Chart({ data, type, moneyFormat, style }: IChart) {
       y: {
         ticks: {
           callback: (value: any) => {
-            return moneyFormat ? moneyFormatter(value) : value;
+            return responsiveMoneyFormat(value);
           },
           beginAtZero: true,
         },
