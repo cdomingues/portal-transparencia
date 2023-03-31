@@ -20,7 +20,7 @@ function moneyFormatter(
     options
   );
 
-  const str = String(initialValue);
+  const str = initialValue.toFixed(options?.precision || 2);
 
   const splited = str.split(".");
   const cents =

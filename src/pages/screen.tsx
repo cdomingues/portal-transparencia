@@ -159,7 +159,7 @@ function HomeScreen({ handler }: PropsInput) {
       direction={isMobile ? "column" : "row"}
       style={{ width: "100%", height: "100%" }}
     >
-      <Stack flex={width > 1024 ? 2 : 2} paddingLeft={10} paddingTop={5}>
+      <Stack flex={width > 1024 ? 2 : 2} style={{paddingLeft: isMobile ? 0 : '2%'}}>
         <Head>
           <title>Início</title>
         </Head>
