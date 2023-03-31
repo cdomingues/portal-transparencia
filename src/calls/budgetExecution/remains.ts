@@ -1,6 +1,10 @@
 import axios from "axios";
 import moment from "moment";
 import { baseUrl } from "../../config";
+import {
+  barChartConfig,
+  TRequestChartData,
+} from "../../config/defaultChartConfig";
 import { BudgetExpenseRemainsData } from "../../pages/api/execucao-orcamentaria/despesas-restos";
 import moneyFormatter from "../../utils/moneyFormatter";
 
@@ -41,20 +45,17 @@ export const getChart = async () => {
     const response = await axios.get(
       `${baseUrl}/api/graficos/execucao-orcamentaria/despesas-resto`
     );
+
     const config = {
-      data: response.data,
-      xField: "ano",
-      yField: "valor",
-      seriesField: "",
-      legend: false,
-      xAxis: {
-        label: {
-          autoHide: true,
-          autoRotate: false,
+      labels: response.data.map(({ ano }: TRequestChartData) => ano.toString()),
+      datasets: [
+        {
+          ...barChartConfig,
+          data: response.data.map(({ valor }: TRequestChartData) => valor),
         },
-      },
-      maxColumnWidth: 35,
+      ],
     };
+
     return { chart: config };
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -62,6 +63,6 @@ export const getChart = async () => {
         `Error on get ${error.config.url}, data: ${error.response?.data}`
       );
     }
-    return { chart: { data: [] } };
+    return { chart: { datasets: [] } };
   }
 };

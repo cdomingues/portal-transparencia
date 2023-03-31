@@ -9,7 +9,7 @@ import { revalidate } from "../../../config";
 import moment from "moment";
 
 function Controller({
-  chart = { data: [] },
+  chart = { datasets: [] },
   expenses = [],
   years,
 }: {

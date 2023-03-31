@@ -4,6 +4,11 @@ import { devices } from "./device";
 export const ChartContainer = styled.div`
   width: 100px;
 
+  // TODO: Refactor this
+  @media (min-width: 2560px) {
+    width: 750px;
+  }
+
   @media ${devices.desktop} {
     width: 750px;
   }

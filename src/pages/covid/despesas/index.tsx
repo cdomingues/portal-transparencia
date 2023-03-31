@@ -10,8 +10,8 @@ import { revalidate } from "../../../config";
 import Screen from "./screen";
 
 export default function Controller({
-  chartYear = { data: [] },
-  chart = { data: [] },
+  chartYear = { datasets: [] },
+  chart = { datasets: [] },
   rows = [],
   years,
 }: any) {

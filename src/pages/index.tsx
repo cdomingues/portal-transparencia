@@ -63,10 +63,10 @@ function Home({
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
+  const chart = await getGraphRevenueExpense();
+
   const { amountExpense, amountExpenseProvided, percentageExpenseReached } =
     await getExpenseTotalizer();
-
-  const { chart } = await getGraphRevenueExpense();
 
   const { publicPolicies } = await getPublicPolicies();
 
@@ -78,7 +78,7 @@ export const getStaticProps: GetStaticProps = async () => {
       amountExpense: amountExpense || 0,
       amountExpenseProvided: amountExpenseProvided || 0,
       percentageExpenseReached: percentageExpenseReached || 0,
-      chart: chart || { data: [] },
+      chart: chart || { datasets: [], labels: [''] },
       publicPolicies: publicPolicies || [],
       amountRevenue: amountRevenue || 0,
       amountRevenueProvided: amountRevenueProvided || 0,

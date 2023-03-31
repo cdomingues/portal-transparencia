@@ -8,7 +8,7 @@ import { GetStaticProps } from "next";
 import { revalidate } from "../../../config";
 import moment from "moment";
 
-function Controller({ chart = { data: [] }, expenses = [], years }: any) {
+function Controller({ chart = { datasets: [] }, expenses = [], years }: any) {
   const [year, setYear] = useState(moment().year());
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(expenses);
