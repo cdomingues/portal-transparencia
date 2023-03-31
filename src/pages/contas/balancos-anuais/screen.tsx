@@ -23,6 +23,7 @@ function Screen({ handler }: PropsInput) {
       <PlanContainer laws={laws}>
         <Select
           width="20%"
+          minW={90}
           bg={useColorModeValue("white", "gray.800")}
           value={selectValue}
           textAlign="center"

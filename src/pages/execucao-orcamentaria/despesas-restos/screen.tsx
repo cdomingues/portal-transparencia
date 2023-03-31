@@ -39,7 +39,7 @@ function Screen({
       <Divider borderWidth="2px" mt="10" mb="10" />
 
       <Stack direction="row">
-        <Stack width="25%">
+        <Stack minW={86} width="25%">
           <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
             Ano
           </Text>
@@ -57,7 +57,7 @@ function Screen({
             ))}
           </Select>
         </Stack>
-        <Stack width="10%" justifyContent="flex-end">
+        <Stack minW={50} width="10%" justifyContent="flex-end">
           <Button
             disabled={loading}
             onClick={() => handleByYear(year)}

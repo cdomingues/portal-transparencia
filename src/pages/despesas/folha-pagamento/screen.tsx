@@ -89,7 +89,11 @@ function Screen({
             Folha de pagamento Mensal Acumulado
           </Heading>
           {chart?.datasets?.length > 0 && (
-            <MultiAxisChart moneyFormat data={chart} style={{width: '430px'}} />
+            <MultiAxisChart
+              moneyFormat
+              data={chart}
+              style={{ width: "430px" }}
+            />
           )}
         </div>
 
@@ -105,7 +109,7 @@ function Screen({
       <Divider height="3px" marginTop="10px" marginBottom="4px" />
 
       <Stack direction="row">
-        <Stack width="25%">
+        <Stack minW={86} width="25%">
           <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
             Ano
           </Text>
@@ -126,7 +130,7 @@ function Screen({
             })}
           </Select>
         </Stack>
-        <Stack width="25%">
+        <Stack minW={86} width="25%">
           <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
             Mês
           </Text>
@@ -147,7 +151,7 @@ function Screen({
       </Stack>
       <Divider width="50%" height="3px" marginTop="10px" marginBottom="4px" />
       <Stack direction="row">
-        <Stack width="25%">
+        <Stack minW={86} width="25%">
           <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
             Nome
           </Text>
@@ -159,7 +163,7 @@ function Screen({
             placeholder="Nome"
           />
         </Stack>
-        <Stack width="25%">
+        <Stack minW={86} width="25%">
           <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
             Cargo
           </Text>
@@ -174,7 +178,7 @@ function Screen({
       </Stack>
       <Divider width="50%" height="3px" marginTop="10px" marginBottom="4px" />
       <Stack direction="row">
-        <Stack  minW={140} width="25%">
+        <Stack minW={140} width="25%">
           <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
             Matricula
           </Text>
