@@ -1,70 +1,32 @@
 import { Chart as _Chart } from "react-chartjs-2";
 import { Chart as ChartConfig, registerables } from "chart.js";
 import moneyFormatter from "../../utils/moneyFormatter";
-import {
-  barChartConfig,
-  barChartConfig2,
-  lineChartConfig,
-  lineChartConfig2,
-} from "../../config/defaultChartConfig";
+import { ChartWrapper } from "../ChartWrapper";
+import { CSSProperties } from "styled-components";
 ChartConfig.register(...registerables);
 
-interface IChart {
+interface IMultiAxisChart {
   data: {
     labels: string[];
-    datasets: number[];
+    datasets: {
+      type: "line" | "bar";
+      label: string;
+      data: number;
+      backgroundColor: string;
+      borderColor: string;
+      borderWidth?: number;
+      yAxisID: "y" | "y1";
+    }[];
   };
   moneyFormat?: boolean;
+  style?: CSSProperties;
 }
 
-type TData = {
-  labels: string[];
-  datasets: {
-    type: "line" | "bar";
-    label: string;
-    data: number;
-    backgroundColor: string;
-    borderColor: string;
-    borderWidth?: number;
-    yAxisID: "y" | "y1";
-  }[];
-};
-
-export function Chart({ data: dataProps, moneyFormat }: IChart) {
-  const { labels, datasets } = dataProps;
-  const data: TData = {
-    labels,
-    datasets: [
-      {
-        ...lineChartConfig,
-        label: "Arrecadações Acumuladas",
-        data: datasets[0],
-        yAxisID: "y1",
-      },
-      {
-        ...lineChartConfig2,
-        label: "Despesas Acumuladas",
-        data: datasets[1],
-        yAxisID: "y1",
-      },
-      {
-        ...barChartConfig,
-        label: "Arrecadações",
-        data: datasets[2],
-        yAxisID: "y",
-      },
-      {
-        ...barChartConfig2,
-        label: "Despesas",
-        data: datasets[3],
-        yAxisID: "y",
-      },
-    ],
-  };
-
+export function MultiAxisChart({ data, moneyFormat, style }: IMultiAxisChart) {
   const options = {
     type: "scatter",
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       interaction: {
         mode: "index",
@@ -84,6 +46,7 @@ export function Chart({ data: dataProps, moneyFormat }: IChart) {
         },
       },
     },
+    maxBarThickness: 60,
     scales: {
       y: {
         position: "left" as const,
@@ -105,6 +68,9 @@ export function Chart({ data: dataProps, moneyFormat }: IChart) {
       },
     },
   };
-
-  return <_Chart type="bar" datasetIdKey="id" options={options} data={data} />;
+  return (
+    <ChartWrapper style={style}>
+      <_Chart type="bar" datasetIdKey="id" options={options} data={data} />
+    </ChartWrapper>
+  );
 }

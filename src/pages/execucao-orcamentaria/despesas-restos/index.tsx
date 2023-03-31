@@ -8,7 +8,7 @@ import {
 import { revalidate } from "../../../config";
 import moment from "moment";
 
-function Controller({ chart = { data: [] }, remainders = [], years }: any) {
+function Controller({ chart = { datasets: [] }, remainders = [], years }: any) {
   const [year, setYear] = useState(moment().year());
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(remainders);

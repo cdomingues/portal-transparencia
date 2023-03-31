@@ -10,7 +10,7 @@ import { revalidate } from "../../../config";
 import moment from "moment";
 import { Row } from "../../api/despesas/folha-pagamento";
 
-function Controller({ chartYear = { data: [] }, chart = { data: [] } }: any) {
+function Controller({ chartYear = { datasets: [] }, chart = { datasets: [] } }: any) {
   const [loading, setLoading] = useState(false);
   const [year, setYear] = useState(moment().year());
   const [month, setMonth] = useState(moment().subtract(1, "month").month() + 1);
@@ -95,8 +95,8 @@ export const getStaticProps: GetStaticProps = async () => {
   const { chart } = await getChart();
   return {
     props: {
-      chartYear: chartYear || { data: [] },
-      chart: chart || { data: [] },
+      chartYear: chartYear || { datasets: [] },
+      chart: chart || { datasets: [] },
       payroll: payroll || [],
     },
     revalidate,

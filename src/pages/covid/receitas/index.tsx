@@ -11,8 +11,8 @@ import moment from "moment";
 
 function Controller({
   revenues = [],
-  chartYear = { data: [] },
-  chart = { data: [] },
+  chartYear = { datasets: [] },
+  chart = { datasets: [] },
   years,
 }: any) {
   const [year, setYear] = useState(moment().year());
