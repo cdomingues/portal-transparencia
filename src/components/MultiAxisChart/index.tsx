@@ -46,6 +46,7 @@ export function MultiAxisChart({ data, moneyFormat, style }: IMultiAxisChart) {
         },
       },
     },
+    maxBarThickness: 60,
     scales: {
       y: {
         position: "left" as const,

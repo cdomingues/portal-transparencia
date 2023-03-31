@@ -2,6 +2,7 @@ import { Chart as _Chart } from "react-chartjs-2";
 import { Chart as ChartConfig, registerables } from "chart.js";
 import moneyFormatter from "../../utils/moneyFormatter";
 import { ChartWrapper } from "../ChartWrapper";
+import { CSSProperties } from "react";
 ChartConfig.register(...registerables);
 
 interface IChart {
@@ -18,9 +19,10 @@ interface IChart {
   };
   type: "line" | "bar";
   moneyFormat?: boolean;
+  style?: CSSProperties;
 }
 
-export function Chart({ data, type, moneyFormat }: IChart) {
+export function Chart({ data, type, moneyFormat, style }: IChart) {
   const options = {
     responsive: true,
     maintainAspectRatio: false,
@@ -39,6 +41,7 @@ export function Chart({ data, type, moneyFormat }: IChart) {
         },
       },
     },
+    maxBarThickness: 60,
     scales: {
       y: {
         ticks: {
@@ -51,7 +54,7 @@ export function Chart({ data, type, moneyFormat }: IChart) {
     },
   };
   return (
-    <ChartWrapper>
+    <ChartWrapper style={style}>
       <_Chart type={type} datasetIdKey="id" options={options} data={data} />
     </ChartWrapper>
   );
