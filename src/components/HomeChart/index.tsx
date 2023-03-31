@@ -4,9 +4,11 @@ import moneyFormatter from "../../utils/moneyFormatter";
 import {
   barChartConfig,
   barChartConfig2,
+  formatNumber,
   lineChartConfig,
   lineChartConfig2,
 } from "../../config/defaultChartConfig";
+import { isMobile } from "react-device-detect";
 ChartConfig.register(...registerables);
 
 interface IChart {
@@ -62,6 +64,14 @@ export function Chart({ data: dataProps, moneyFormat }: IChart) {
     ],
   };
 
+  const formatMoney = (value: number) => {
+    return moneyFormat ? moneyFormatter(value) : value.toString();
+  };
+
+  const responsiveMoneyFormat = (value: number) => {
+    return isMobile ? formatNumber(value) : formatMoney(value);
+  };
+
   const options = {
     type: "scatter",
     responsive: true,
@@ -77,9 +87,7 @@ export function Chart({ data: dataProps, moneyFormat }: IChart) {
       tooltip: {
         callbacks: {
           label: (context: any) => {
-            return moneyFormat
-              ? moneyFormatter(context.parsed.y.toFixed(2))
-              : context.parsed.y;
+            return formatMoney(context.parsed.y);
           },
         },
       },
@@ -89,7 +97,7 @@ export function Chart({ data: dataProps, moneyFormat }: IChart) {
         position: "left" as const,
         ticks: {
           callback: (value: any) => {
-            return moneyFormat ? moneyFormatter(value) : value;
+            return responsiveMoneyFormat(value);
           },
           beginAtZero: true,
         },
@@ -98,7 +106,7 @@ export function Chart({ data: dataProps, moneyFormat }: IChart) {
         position: "right" as const,
         ticks: {
           callback: (value: any) => {
-            return moneyFormat ? moneyFormatter(value) : value;
+            return responsiveMoneyFormat(value);
           },
           beginAtZero: true,
         },
