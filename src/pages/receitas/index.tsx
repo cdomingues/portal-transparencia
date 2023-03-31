@@ -6,8 +6,8 @@ import { revalidate } from "../../config";
 import moment from "moment";
 
 function Controller({
-  chartYear = { data: [] },
-  chart = { data: [] },
+  chartYear = { datasets: [] },
+  chart = { datasets: [] },
   revenues = [],
   years,
 }: any) {
@@ -68,8 +68,8 @@ export const getStaticProps: GetStaticProps = async () => {
   const { chart } = await getChart();
   return {
     props: {
-      chartYear: chartYear || { data: [] },
-      chart: chart || { data: [] },
+      chartYear: chartYear || { datasets: [] },
+      chart: chart || { datasets: [] },
       revenues: revenues || [],
       years: years || [],
     },

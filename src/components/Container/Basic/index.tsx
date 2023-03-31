@@ -17,7 +17,9 @@ function ContainerBasic({
   containerStyles = { paddingLeft: "2%" },
 }: PropsInput) {
   return (
-    <Container style={containerStyles}>
+    <Container
+      style={{ maxWidth: "1280px", margin: "0 auto", ...containerStyles }}
+    >
       <Head>
         <title>{title} - PMMC</title>
       </Head>
