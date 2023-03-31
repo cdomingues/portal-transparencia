@@ -1,6 +1,12 @@
 import axios from "axios";
 import moment from "moment";
 import { baseUrl } from "../../config";
+import {
+  barChartConfig,
+  lineChartConfig,
+  TRequestChartData,
+  TRequestChartYearData,
+} from "../../config/defaultChartConfig";
 import { ExpensesHostingData } from "../../pages/api/despesas/adiantamento-hospedagem";
 import moneyFormatter from "../../utils/moneyFormatter";
 
@@ -42,20 +48,17 @@ export const getChartYear = async () => {
     const response = await axios.get(
       `${baseUrl}/api/graficos/despesas/adiantamento-hospedagem-anos`
     );
+
     const config = {
-      data: response.data,
-      xField: "ano",
-      yField: "valor",
-      seriesField: "",
-      legend: false,
-      xAxis: {
-        label: {
-          autoHide: true,
-          autoRotate: false,
+      labels: response.data.map(({ ano }: TRequestChartData) => ano.toString()),
+      datasets: [
+        {
+          ...barChartConfig,
+          data: response.data.map(({ valor }: TRequestChartData) => valor),
         },
-      },
-      maxColumnWidth: 35,
+      ],
     };
+
     return { chartYear: config };
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -63,7 +66,7 @@ export const getChartYear = async () => {
         `Error on get ${error.config.url}, data: ${error.response?.data}`
       );
     }
-    return { chartYear: { data: [] } };
+    return { chartYear: { datasets: [] } };
   }
 };
 
@@ -77,27 +80,28 @@ export const getChart = async (year?: number) => {
         },
       }
     );
-    const columnLine = {
-      data: [response.data, response.data],
-      xField: "data",
-      yField: ["valor", "valorAcumulado"],
-      geometryOptions: [
+
+    const config = {
+      labels: response.data.map(({ data }: TRequestChartYearData) => data),
+      datasets: [
         {
-          geometry: "column",
-          pattern: {
-            type: "line",
-          },
+          ...lineChartConfig,
+          label: "Valor Acumulado",
+          data: response.data.map(
+            ({ valorAcumulado }: TRequestChartYearData) => valorAcumulado
+          ),
+          yAxisID: "y1",
         },
         {
-          geometry: "line",
-          lineStyle: {
-            lineWidth: 2,
-          },
+          ...barChartConfig,
+          label: "Valor",
+          data: response.data.map(({ valor }: TRequestChartYearData) => valor),
+          yAxisID: "y",
         },
       ],
     };
 
-    return { chart: columnLine };
+    return { chart: config };
   } catch (error) {
     if (axios.isAxiosError(error)) {
       console.log(
@@ -105,6 +109,6 @@ export const getChart = async (year?: number) => {
       );
     }
 
-    return { chart: { data: [] } };
+    return { chart: { datasets: [] } };
   }
 };
