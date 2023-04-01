@@ -428,8 +428,8 @@ function TableComponent({
           </Table>
         )}
       </TableContainer>
-      <Center mt={5}>
-        <Center width="200px">
+      <Center mt={5} display='flex' flexWrap='wrap'>
+        <Center minW="160px" mb={5} width="200px">
           <Button
             onClick={() => gotoPage(0)}
             disabled={!canPreviousPage}
@@ -447,7 +447,7 @@ function TableComponent({
               as={AiOutlineDoubleLeft}
             />
           </Button>
-          <Text fontWeight="600" color="table.primary">
+          <Text  fontWeight="600" color="table.primary">
             {pageIndex + 1} - {pageOptions.length}
           </Text>
           <Button
@@ -470,10 +470,12 @@ function TableComponent({
         </Center>
         <NumberInput
           ml={5}
+          mb={5}
           onChange={(value) => {
             const pageNumber = value ? Number(value) - 1 : 0;
             gotoPage(pageNumber);
           }}
+          minW={40}
           w={40}
           defaultValue={pageIndex + 1}
           min={1}
@@ -488,6 +490,8 @@ function TableComponent({
         <Select
           bg="white"
           ml={5}
+          mb={5}
+          minWidth={130}
           width={130}
           value={pageSize}
           onChange={(e) => setPageSize(Number(e.target.value))}

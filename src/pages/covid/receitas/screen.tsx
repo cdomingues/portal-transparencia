@@ -10,6 +10,10 @@ import React from "react";
 import { isMobile } from "react-device-detect";
 import { Chart } from "../../../components/Chart";
 import ContainerBasic from "../../../components/Container/Basic";
+import {
+  GraphWrapper,
+  MultipleGraphWrapper,
+} from "../../../components/GraphWrapper";
 import { MultiAxisChart } from "../../../components/MultiAxisChart";
 import TableComponent, { TableColumns } from "../../../components/Table";
 
@@ -54,41 +58,28 @@ function Screen({
 
   return (
     <ContainerBasic title={title} description={description}>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: chartConfig.direction as any,
-          height: "100%",
-        }}
-      >
-        <div
-          style={{
-            width: chartConfig.width,
-            marginRight: chartConfig.marginRight,
-            marginLeft: chartConfig.marginLeft,
-          }}
-        >
+      <MultipleGraphWrapper>
+        <GraphWrapper>
           <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
             Receitas Mensal Acumulado
           </Heading>
           {chart?.datasets?.length > 0 && (
             <MultiAxisChart moneyFormat data={chart} />
           )}
-        </div>
-
-        <div style={{ width: chartConfig.width }}>
+        </GraphWrapper>
+        <GraphWrapper>
           <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
             Receitas últimos 5 anos
           </Heading>
           {chartYear?.datasets?.length > 0 && (
             <Chart type="bar" moneyFormat data={chartYear} />
           )}
-        </div>
-      </div>
+        </GraphWrapper>
+      </MultipleGraphWrapper>
       <Divider borderWidth="2px" mt="10" mb="10" />
 
       <Stack direction="row">
-        <Stack width="25%">
+        <Stack minW={86} width="25%">
           <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
             Ano
           </Text>
@@ -106,7 +97,7 @@ function Screen({
             ))}
           </Select>
         </Stack>
-        <Stack width="10%" justifyContent="flex-end">
+        <Stack minW={50} width="10%" justifyContent="flex-end">
           <Button
             disabled={loading}
             onClick={() => handleByYear(year)}

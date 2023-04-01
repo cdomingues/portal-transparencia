@@ -21,7 +21,7 @@ function Screen({ handler }: PropsInput) {
   return (
     <ContainerBasic title={title} description={description}>
       <Tabs variant="enclosed">
-        <TabList overflow="auto" whiteSpace="nowrap">
+        <TabList  display="flex" flexWrap={"wrap"} whiteSpace="nowrap">
           <Tab fontSize="small">DEMOGRÁFICO</Tab>
           <Tab fontSize="small">EMPREENDEDORISMO</Tab>
           <Tab fontSize="small">SAÚDE</Tab>
