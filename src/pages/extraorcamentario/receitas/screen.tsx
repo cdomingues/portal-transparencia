@@ -45,7 +45,7 @@ function Screen({
   },
 }: PropsInput) {
   const title = "Receitas Extraorçamentárias";
-  const description = "";
+  const description = "Aqui você pode acompanhar as informações sobre as receitas que não figuram no orçamento e, por isso, não são renda do município, apenas transitam pelo poder público.";
   const chartConfig = {
     direction: isMobile ? "column" : "row",
     width: isMobile ? "100%" : "40%",

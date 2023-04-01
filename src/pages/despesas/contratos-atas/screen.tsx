@@ -19,7 +19,7 @@ function Screen({
   handler: { columns, data, loading, handleByYear, setYear, year, years },
 }: PropsInput) {
   const title = "Contratos e Atas";
-  const description = "";
+  const description = "Nesta página, confira as informações sobre contratos e atas celebrados pela Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por número, modalidade, processo, valor, fornecedor, objeto, entre outros itens.";
   return (
     <ContainerBasic title={title} description={description}>
       <Stack direction="row">

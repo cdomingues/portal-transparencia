@@ -45,7 +45,7 @@ function Screen({
   },
 }: PropsInput) {
   const title = "Subvenções";
-  const description = "";
+  const description = "Subvenção é quando a Prefeitura destina recursos financeiros para que entidades cubram seus custos de atividades prestadas à população. Confira aqui as despesas relacionadas a essa natureza.";
   const chartConfig = {
     direction: isMobile ? "column" : "row",
     width: isMobile ? "100%" : "40%",

@@ -64,7 +64,7 @@ function Screen({
   },
 }: PropsInput) {
   const title = "Folha de Pagamento";
-  const description = "";
+  const description = "É dever do Poder Público dar transparência à Folha de Pagamento dos funcionários. Acompanhe aqui o detalhamento dos cargos e salários dos servidores públicos municipais.";
   const chartConfig = {
     direction: isMobile ? "column" : "row",
     width: isMobile ? "100%" : "40%",

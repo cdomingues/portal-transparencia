@@ -46,17 +46,17 @@ const MapWithNoSSR = dynamic(() => import("../../components/Map"), {
 
 function Screen({ handler: { columns, data, loading } }: PropsInput) {
   const title = "Controle de Radares";
-  const description = "";
+  const description = "Agora você tem um ambiente onde pode conferir, de forma oficial, as principais informações sobre os equipamentos de fiscalização de trânsito em Mogi das Cruzes. Acompanhe um mapa interativo com a localização de cada radar, tenha acesso ao tipo de equipamento, à velocidade máxima permitida e ao status de operação deles.";
 
   return (
     <ContainerBasic title={title} description={description}>
       <div style={{ height: "500px", width: "100%" }}>
         <MapWithNoSSR
-          coords={[-23.528986, -46.192973]}
+          coords={[ -23.528986, -46.192973 ]}
           markers={data.map((item) => {
             return {
-              lat: item?.coordenadas[0],
-              lng: item?.coordenadas[1],
+              lat: item?.coordenadas[ 0 ],
+              lng: item?.coordenadas[ 1 ],
               children: markerChildren(item),
             };
           })}

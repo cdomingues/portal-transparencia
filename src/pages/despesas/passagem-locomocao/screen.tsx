@@ -47,7 +47,7 @@ function Screen({
   },
 }: PropsInput) {
   const title = "Passagens e Locomoção";
-  const description = "";
+  const description = "Os agentes públicos podem realizar também diversas atividades além dos limites do município, no exercício de sua função e em benefício da cidade. Você pode acompanhar os gastos relacionados a passagens e locomoção nesta página.";
   const chartConfig = {
     direction: isMobile ? "column" : "row",
     width: isMobile ? "100%" : "40%",
