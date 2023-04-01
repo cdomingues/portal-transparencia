@@ -44,8 +44,8 @@ function Screen({
     handleByYear,
   },
 }: PropsInput) {
-  const title = "Publicidade e Propaganda";
-  const description = "";
+  const title = "Gastos com publicidade";
+  const description = "A publicidade legal e institucional realizada pelo Poder Público é um importante serviço cujo objetivo final é favorecer o acesso da população a todos os outros serviços públicos, além de contribuir com a transparência dos atos administrativos. Confira as despesas com publicidade da Prefeitura de Mogi das Cruzes.";
 
   const chartConfig = {
     direction: isMobile ? "column" : "row",

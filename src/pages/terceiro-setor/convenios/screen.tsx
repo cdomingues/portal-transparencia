@@ -12,7 +12,7 @@ type PropsInput = {
 
 function Screen({ handler: { columns, data, loading } }: PropsInput) {
   const title = "Convênios";
-  const description = "";
+  const description = "Confira aqui os contratos com as organizações do Terceiro Setor celebrados pela Prefeitura de Mogi das Cruzes.";
   return (
     <ContainerBasic title={title} description={description}>
       <TableComponent loading={loading} columns={columns} data={data} />
