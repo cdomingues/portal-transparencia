@@ -271,6 +271,8 @@ function TableComponent({
                       index + 1 === group.headers.length
                         ? { borderTopRightRadius: radius }
                         : {};
+                    const { onClick: columnClick, ...rest } =
+                      column.getHeaderProps(column.getSortByToggleProps());
                     return (
                       <Th
                         style={{
@@ -283,9 +285,7 @@ function TableComponent({
                           ...isFirst,
                           ...isLast,
                         }}
-                        {...column.getHeaderProps(
-                          column.getSortByToggleProps()
-                        )}
+                        {...rest}
                         key={index}
                       >
                         <div
@@ -294,6 +294,7 @@ function TableComponent({
                             display: "flex",
                             flexDirection: "row",
                           }}
+                          onClick={columnClick}
                         >
                           <div
                             style={{
@@ -402,20 +403,15 @@ function TableComponent({
                                 Detalhes
                               </Link>
                             ) : (
-                              <>
+                              <div style={{ textAlign: "center" }}>
                                 {cell?.value?.length > 50 ? (
-                                  <Textarea
-                                    fontSize="12"
-                                    width="300px"
-                                    value={cell?.value}
-                                    contentEditable="false"
-                                    size="md"
-                                    textAlign="left"
-                                  />
+                                  <div style={{ width: "300px" }}>
+                                    {cell.render("Cell")}
+                                  </div>
                                 ) : (
                                   cell.render("Cell")
                                 )}
-                              </>
+                              </div>
                             )}
                           </div>
                         </Td>
@@ -428,7 +424,7 @@ function TableComponent({
           </Table>
         )}
       </TableContainer>
-      <Center mt={5} display='flex' flexWrap='wrap'>
+      <Center mt={5} display="flex" flexWrap="wrap">
         <Center minW="160px" mb={5} width="200px">
           <Button
             onClick={() => gotoPage(0)}
@@ -447,7 +443,7 @@ function TableComponent({
               as={AiOutlineDoubleLeft}
             />
           </Button>
-          <Text  fontWeight="600" color="table.primary">
+          <Text fontWeight="600" color="table.primary">
             {pageIndex + 1} - {pageOptions.length}
           </Text>
           <Button
