@@ -32,7 +32,7 @@ function Screen({
   },
 }: PropsInput) {
   const title = "Despesas - Emendas Parlamentares";
-  const description = "";
+  const description = "Confira nesta página as despesas empenhadas, liquidadas e pagas a partir dos recursos obtidos por meio de emendas parlamentares";
   return (
     <ContainerBasic title={title} description={description}>
       {chart?.datasets?.length > 0 && (

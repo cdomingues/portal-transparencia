@@ -29,8 +29,8 @@ function Screen({
     handleByYear,
   },
 }: PropsInput) {
-  const title = "Despesas - Multas Trânsito";
-  const description = "";
+  const title = "Despesas - Multas de Trânsito";
+  const description = "Confira nesta página as despesas empenhadas, liquidadas e pagas a partir da arrecadação com multas de trânsito";
   return (
     <ContainerBasic title={title} description={description}>
       {chart?.datasets?.length > 0 && (

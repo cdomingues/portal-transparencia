@@ -50,19 +50,19 @@ const markerChildren = (data: any) => {
 function Screen({ handler: { columns, data, loading } }: PropsInput) {
   const title = "Controle de Obras";
   const description =
-    "A Receita Realizada representa quanto de fato foi recebido pelo governo após o efetivo pagamento ou recolhimento do valor. É a arrecadação de fato do valor, que torna o valor disponivel nos cofres públicos para uso do governo. O valor pode ser diferente da receita lançada e também do valor previsto.";
+    "Acompanhe as principais informações sobre as obras que a Prefeitura está realizando na cidade e tenha acesso também a dados sobre aquelas que foram concluídas. Pesquise por contrato, por localização, situação ou descritivo da obra.";
 
   return (
     <ContainerBasic title={title} description={description}>
       <Stack>
         <div style={{ height: "500px", width: "100%", zIndex: 0 }}>
           <MapWithNoSSR
-            coords={[-23.528986, -46.192973]}
+            coords={[ -23.528986, -46.192973 ]}
             markers={data.map((item, index) => {
               const coords = item.coordenadas.split(",");
               return {
-                lat: coords[0],
-                lng: coords[1],
+                lat: coords[ 0 ],
+                lng: coords[ 1 ],
                 children: markerChildren(item),
               };
             })}

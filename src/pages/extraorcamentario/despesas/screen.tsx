@@ -45,7 +45,7 @@ function Screen({
   },
 }: PropsInput) {
   const title = "Despesas Extraorçamentárias";
-  const description = "";
+  const description = "Aqui você pode acompanhar as informações sobre as despesas que não integram o orçamento da Prefeitura, apenas transitam pelo poder público.";
 
   const chartConfig = {
     direction: isMobile ? "column" : "row",
