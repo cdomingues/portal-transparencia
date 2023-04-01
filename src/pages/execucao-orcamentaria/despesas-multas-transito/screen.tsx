@@ -1,6 +1,6 @@
 import { Button, Divider, Select, Stack, Text } from "@chakra-ui/react";
 import React from "react";
-import ChartColumn from "../../../components/Antdesign/ChartPlots/ChartColumn";
+import { Chart } from "../../../components/Chart";
 import ContainerBasic from "../../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../../components/Table";
 
@@ -33,10 +33,12 @@ function Screen({
   const description = "";
   return (
     <ContainerBasic title={title} description={description}>
-      {chart?.data?.length > 0 && <ChartColumn config={chart} />}
+      {chart?.datasets?.length > 0 && (
+        <Chart type="bar" moneyFormat data={chart} />
+      )}
       <Divider borderWidth="2px" mt="10" mb="10" />
       <Stack direction="row">
-        <Stack width="25%">
+        <Stack minW={86} width="25%">
           <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
             Ano
           </Text>
@@ -54,7 +56,7 @@ function Screen({
             ))}
           </Select>
         </Stack>
-        <Stack width="10%" justifyContent="flex-end">
+        <Stack minW={50} width="10%" justifyContent="flex-end">
           <Button
             disabled={loading}
             onClick={() => handleByYear(year)}

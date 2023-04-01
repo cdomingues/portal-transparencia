@@ -85,44 +85,28 @@ export const getGraphRevenueExpense = async () => {
     );
 
     const data: Array<GraphExpenseRevenueData> = response.data;
-    const lines = data.map((item) => {
-      if (item.name === `Arrecadações - ${moment().year()}`) {
-        return {
-          ...item,
-          name: "Arrecadações Acumuladas",
-        };
-      }
-      return {
-        ...item,
-        name: "Despesas Acumuladas",
-      };
-    });
 
-    const config = {
-      data: [data, lines],
-      xField: "data",
-      yField: ["valor", "valorAcumulado"],
-      geometryOptions: [
-        {
-          geometry: "column",
-          isGroup: true,
-          seriesField: "name",
-          columnWidthRatio: 0.4,
-        },
-        {
-          geometry: "line",
-          seriesField: "name",
-        },
-      ],
+    const labels = data
+      .map((item) => item.data)
+      .filter((item, index, array) => array.indexOf(item) !== index);
+
+    const datasets = [
+      data.filter(({name}) => name.includes('Arrecadações')).map((item) => item.valorAcumulado),
+      data.filter(({name}) => name.includes('Despesas e Investimentos')).map((item) => item.valorAcumulado),
+      data.filter(({name}) => name.includes('Arrecadações')).map((item) => item.valor),
+      data.filter(({name}) => name.includes('Despesas e Investimentos')).map((item) => item.valor),
+    ];
+
+    return {
+      labels,
+      datasets,
     };
-
-    return { chart: config };
   } catch (error) {
     if (axios.isAxiosError(error)) {
       console.log(
         `Error on get ${error.config.url}, data: ${error.response?.data}`
       );
     }
-    return { chart: { data: [] } };
+    return undefined;
   }
 };

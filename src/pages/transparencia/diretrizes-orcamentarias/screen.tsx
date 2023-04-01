@@ -22,6 +22,7 @@ function Screen({ handler }: PropsInput) {
     <ContainerBasic title={title} description={description}>
       <PlanContainer laws={laws}>
         <Select
+          minW={90}
           width="20%"
           bg={useColorModeValue("white", "gray.800")}
           value={selectValue}

@@ -8,9 +8,13 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { isMobile } from "react-device-detect";
-import ChartColumn from "../../../components/Antdesign/ChartPlots/ChartColumn";
-import ChartColumnLineWithPartner from "../../../components/Antdesign/ChartPlots/ColumnLineWithPartner";
+import { Chart } from "../../../components/Chart";
 import ContainerBasic from "../../../components/Container/Basic";
+import { MultiAxisChart } from "../../../components/MultiAxisChart";
+import {
+  GraphWrapper,
+  MultipleGraphWrapper,
+} from "../../../components/GraphWrapper";
 import TableComponent, { TableColumns } from "../../../components/Table";
 
 type PropsInput = {
@@ -53,39 +57,36 @@ function Screen({
 
   return (
     <ContainerBasic title={title} description={description}>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: chartConfig.direction as any,
-          height: "100%",
-        }}
-      >
-        <div
-          style={{
-            width: chartConfig.width,
-            marginRight: chartConfig.marginRight,
-            marginLeft: chartConfig.marginLeft,
-          }}
-        >
+      <MultipleGraphWrapper>
+        <GraphWrapper>
           <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
             Despesas Mensal Acumulado
           </Heading>
-          {chart?.data?.length > 0 && (
-            <ChartColumnLineWithPartner config={chart} />
+          {chart?.datasets?.length > 0 && (
+            <MultiAxisChart
+              moneyFormat
+              data={chart}
+              style={{ maxHeight: "330px" }}
+            />
           )}
-        </div>
-
-        <div style={{ width: chartConfig.width }}>
+        </GraphWrapper>
+        <GraphWrapper>
           <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
             Despesas últimos 5 anos
           </Heading>
-          {chartYear?.data?.length > 0 && <ChartColumn config={chartYear} />}
-        </div>
-      </div>
+          {chartYear?.datasets?.length > 0 && (
+            <Chart
+              type="bar"
+              moneyFormat
+              data={chartYear}
+              style={{ maxHeight: "330px" }}
+            />
+          )}
+        </GraphWrapper>
+      </MultipleGraphWrapper>
       <Divider borderWidth="2px" mt="10" mb="10" />
-
       <Stack direction="row">
-        <Stack width="25%">
+        <Stack minW={86} width="25%">
           <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
             Ano
           </Text>
@@ -103,7 +104,7 @@ function Screen({
             ))}
           </Select>
         </Stack>
-        <Stack width="10%" justifyContent="flex-end">
+        <Stack minW={50} width="10%" justifyContent="flex-end">
           <Button
             disabled={loading}
             onClick={() => handleByYear(year)}

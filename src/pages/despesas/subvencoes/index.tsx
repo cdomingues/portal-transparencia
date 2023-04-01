@@ -10,8 +10,8 @@ import { revalidate } from "../../../config";
 import moment from "moment";
 
 function Controller({
-  chart = { data: [] },
-  chartYear = { data: [] },
+  chart = { datasets: [] },
+  chartYear = { datasets: [] },
   grants = [],
   years,
 }: any) {
@@ -73,8 +73,8 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: {
-      chartYear: chartYear || { data: [] },
-      chart: chart || { data: [] },
+      chartYear: chartYear || { datasets: [] },
+      chart: chart || { datasets: [] },
       grants: grants || [],
       years: years || [],
     },
