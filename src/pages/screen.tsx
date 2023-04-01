@@ -129,9 +129,9 @@ function HomeScreen({ handler }: PropsInput) {
     date,
   } = handler;
 
-  const titlePage = "Bem vindo ao portal da transparência.";
+  const titlePage = "Boas-vindas ao Portal da Transparência de Mogi!";
   const description =
-    "Acompanhe todas as atividades financeiras e análises de documentos, com detalhamentos e dados abertos.";
+    "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.";
 
   const stylesTranslator: any = {
     "Aplicação em Saúde": {
@@ -159,7 +159,10 @@ function HomeScreen({ handler }: PropsInput) {
       direction={isMobile ? "column" : "row"}
       style={{ width: "100%", height: "100%" }}
     >
-      <Stack flex={width > 1024 ? 2 : 2} style={{paddingLeft: isMobile ? 0 : '2%'}}>
+      <Stack
+        flex={width > 1024 ? 2 : 2}
+        style={{ paddingLeft: isMobile ? 0 : "2%" }}
+      >
         <Head>
           <title>Início</title>
         </Head>
@@ -177,8 +180,12 @@ function HomeScreen({ handler }: PropsInput) {
           <Heading mt={10} mb={4} fontSize="md">
             Resumo {moment().year()}
           </Heading>
-          <StatGroup width="100%" mb={20}>
-            <Stat>
+          <StatGroup
+            width="100%"
+            mb={20}
+            flexDirection={isMobile ? "column" : "row"}
+          >
+            <Stat mb={isMobile ? 6 : 0}>
               <StatLabel height="40px" color="black">
                 Arrecadações
               </StatLabel>
@@ -186,7 +193,7 @@ function HomeScreen({ handler }: PropsInput) {
                 {moneyFormatter(revenueAmount)}
               </StatNumber>
               <StatHelpText mb={0} color="black">
-                Valor Previsto: {moneyFormatter(revenueProvided)}
+                Valor Previsto para o ano: {moneyFormatter(revenueProvided)}
               </StatHelpText>
               <StatHelpText color="black">
                 Alcançado: {revenuePercentageReached}%
@@ -200,7 +207,7 @@ function HomeScreen({ handler }: PropsInput) {
                 {moneyFormatter(expenseAmount)}
               </StatNumber>
               <StatHelpText mb={0} color="black">
-                Valor Previsto: {moneyFormatter(expenseProvided)}
+                Valor Previsto para o ano: {moneyFormatter(expenseProvided)}
               </StatHelpText>
               <StatHelpText color="black">
                 Alcançado: {expensePercentageReached}%
