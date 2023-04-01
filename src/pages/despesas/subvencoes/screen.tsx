@@ -62,11 +62,7 @@ function Screen({
             Subvenções Mensal Acumulado
           </Heading>
           {chart?.datasets?.length > 0 && (
-            <MultiAxisChart
-              moneyFormat
-              data={chart}
-              style={{ width: "460px" }}
-            />
+            <MultiAxisChart moneyFormat data={chart} />
           )}
         </GraphWrapper>
         <GraphWrapper>

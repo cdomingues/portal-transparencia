@@ -14,6 +14,10 @@ import ChartColumn from "../../../components/Antdesign/ChartPlots/ChartColumn";
 import ChartColumnLineWithPartner from "../../../components/Antdesign/ChartPlots/ColumnLineWithPartner";
 import { Chart } from "../../../components/Chart";
 import ContainerBasic from "../../../components/Container/Basic";
+import {
+  GraphWrapper,
+  MultipleGraphWrapper,
+} from "../../../components/GraphWrapper";
 import { MultiAxisChart } from "../../../components/MultiAxisChart";
 import { TableColumns } from "../../../components/Table";
 import TableWithOutFilterComponent from "../../../components/Table/TableWithoutFilter";
@@ -71,41 +75,25 @@ function Screen({
 
   return (
     <ContainerBasic title={title} description={description}>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: chartConfig.direction as any,
-          height: "100%",
-        }}
-      >
-        <div
-          style={{
-            width: chartConfig.width,
-            marginRight: chartConfig.marginRight,
-            marginLeft: chartConfig.marginLeft,
-          }}
-        >
+      <MultipleGraphWrapper>
+        <GraphWrapper>
           <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
             Folha de pagamento Mensal Acumulado
           </Heading>
           {chart?.datasets?.length > 0 && (
-            <MultiAxisChart
-              moneyFormat
-              data={chart}
-              style={{ width: "430px" }}
-            />
+            <MultiAxisChart moneyFormat data={chart} />
           )}
-        </div>
+        </GraphWrapper>
 
-        <div style={{ width: chartConfig.width }}>
+        <GraphWrapper>
           <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
             Folha de pagamento últimos 5 anos
           </Heading>
           {chartYear?.datasets?.length > 0 && (
             <Chart type="bar" moneyFormat data={chartYear} />
           )}
-        </div>
-      </div>
+        </GraphWrapper>
+      </MultipleGraphWrapper>
       <Divider height="3px" marginTop="10px" marginBottom="4px" />
 
       <Stack direction="row">

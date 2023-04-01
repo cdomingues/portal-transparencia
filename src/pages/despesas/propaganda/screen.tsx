@@ -63,11 +63,7 @@ function Screen({
             Publicidade e Propaganda Mensal Acumulado
           </Heading>
           {chart?.datasets?.length > 0 && (
-            <MultiAxisChart
-              moneyFormat
-              data={chart}
-              style={{ width: "450px" }}
-            />
+            <MultiAxisChart moneyFormat data={chart} />
           )}
         </GraphWrapper>
         <GraphWrapper>

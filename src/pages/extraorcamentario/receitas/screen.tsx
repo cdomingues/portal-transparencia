@@ -62,11 +62,7 @@ function Screen({
             Receitas Mensal Acumulado
           </Heading>
           {chart?.datasets?.length > 0 && (
-            <MultiAxisChart
-              moneyFormat
-              data={chart}
-              style={{ width: "440px" }}
-            />
+            <MultiAxisChart moneyFormat data={chart} />
           )}
         </GraphWrapper>
 
