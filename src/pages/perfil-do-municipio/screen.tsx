@@ -16,12 +16,12 @@ type PropsInput = {
 function Screen({ handler }: PropsInput) {
   const title = "Perfil do Munícipio";
   const description =
-    "Mogi das Cruzes, ou simplesmente Mogi, é um município brasileiro do estado de São Paulo, localizado na Região Metropolitana de São Paulo e Alto Tietê. É uma das 39 cidades que integram a Região Imediata de São Paulo.";
+    "Mogi das Cruzes, ou simplesmente Mogi, é um município brasileiro do estado de São Paulo, localizado na Região Metropolitana de São Paulo. É uma das cidades que integram a região geográfica do Alto Tietê.";
 
   return (
     <ContainerBasic title={title} description={description}>
       <Tabs variant="enclosed">
-        <TabList  display="flex" flexWrap={"wrap"} whiteSpace="nowrap">
+        <TabList display="flex" flexWrap={"wrap"} whiteSpace="nowrap">
           <Tab fontSize="small">DEMOGRÁFICO</Tab>
           <Tab fontSize="small">EMPREENDEDORISMO</Tab>
           <Tab fontSize="small">SAÚDE</Tab>
