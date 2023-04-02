@@ -17,6 +17,7 @@ import {
   StatLabel,
   StatNumber,
   Text,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import moneyFormatter from "../utils/moneyFormatter";
 import moment from "moment";
@@ -73,7 +74,7 @@ const PublicPolicyCard = ({
 }) => (
   <Stack
     direction="row"
-    bg="white"
+    bg={useColorModeValue("white", 'gray.800')}
     mb={5}
     mr={5}
     borderRadius="10"
@@ -101,10 +102,10 @@ const PublicPolicyCard = ({
       </div>
     </Stack>
     <Stack flex={2} direction="column" justifyContent="center">
-      <Text fontWeight="500" fontSize="small" color="gray.600">
+      <Text fontWeight="500" fontSize="small" color={"gray.500"}>
         {funcao}
       </Text>
-      <Text fontSize="small" mb={2} fontWeight="550">
+      <Text fontSize="small" mb={2} fontWeight="550" color={useColorModeValue('#000', '#fff')}>
         {moneyFormatter(valor)}
       </Text>
     </Stack>
@@ -186,30 +187,30 @@ function HomeScreen({ handler }: PropsInput) {
             flexDirection={isMobile ? "column" : "row"}
           >
             <Stat mb={isMobile ? 6 : 0}>
-              <StatLabel height="40px" color="black">
+              <StatLabel height="40px" color={useColorModeValue("black", "white")}>
                 Arrecadações
               </StatLabel>
-              <StatNumber fontSize="medium" mb={2} color="black">
+              <StatNumber fontSize="medium" mb={2} color={useColorModeValue("black", "white")}>
                 {moneyFormatter(revenueAmount)}
               </StatNumber>
-              <StatHelpText mb={0} color="black">
+              <StatHelpText mb={0} color={useColorModeValue("black", "white")}>
                 Valor Previsto para o ano: {moneyFormatter(revenueProvided)}
               </StatHelpText>
-              <StatHelpText color="black">
+              <StatHelpText color={useColorModeValue("black", "white")}>
                 Alcançado: {revenuePercentageReached}%
               </StatHelpText>
             </Stat>
             <Stat>
-              <StatLabel height="40px" color="black">
+              <StatLabel height="40px" color={useColorModeValue("black", "white")}>
                 Despesas e Investimentos
               </StatLabel>
-              <StatNumber fontSize="medium" mb={2} color="black">
+              <StatNumber fontSize="medium" mb={2} color={useColorModeValue("black", "white")}>
                 {moneyFormatter(expenseAmount)}
               </StatNumber>
-              <StatHelpText mb={0} color="black">
+              <StatHelpText mb={0} color={useColorModeValue("black", "white")}>
                 Valor Previsto para o ano: {moneyFormatter(expenseProvided)}
               </StatHelpText>
-              <StatHelpText color="black">
+              <StatHelpText color={useColorModeValue("black", "white")}>
                 Alcançado: {expensePercentageReached}%
               </StatHelpText>
             </Stat>

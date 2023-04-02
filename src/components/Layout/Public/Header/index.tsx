@@ -35,12 +35,15 @@ import {
   ModalCloseButton,
   ModalBody,
   ModalFooter,
+  useColorMode,
 } from "@chakra-ui/react";
-import { BiChevronRight } from "react-icons/bi";
+import { BiChevronRight, BiMoon, BiSun } from "react-icons/bi";
 import navItems, { NavItem } from "./navItems";
 import publicRoutes from "../../../../routes/public";
 import Fuse from "fuse.js";
 import getUniqueListBy from "../../../../utils/getUniqueListBy";
+import { MdAddLocation } from "react-icons/md";
+import { BsFillMoonFill, BsSunFill } from "react-icons/bs";
 
 export default function Header() {
   const [search, setSearch] = useState("");
@@ -87,16 +90,10 @@ export default function Header() {
         minH={"60px"}
         py={{ base: 2 }}
         px={{ base: 4 }}
-        // borderBottom={1}
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
       >
-        {/* <Flex
-          flex={{ base: 1, md: "auto" }}
-          ml={{ base: -2 }}
-          display={{ base: "flex", md: "none" }}
-        ></Flex> */}
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
           <Flex display={{ base: "none", md: "flex" }} width="100%" ml={10}>
             <DesktopNav
@@ -109,10 +106,6 @@ export default function Header() {
           </Flex>
         </Flex>
       </Flex>
-
-      {/* <Collapse in={isOpen} animateOpacity>
-          <MobileNav />
-        </Collapse> */}
     </Box>
   );
 }
@@ -130,6 +123,8 @@ const DesktopNav = ({
   searchs: Array<any>;
   onOpen: any;
 }) => {
+  const { colorMode, toggleColorMode } = useColorMode();
+
   const linkColor = useColorModeValue("gray.600", "gray.200");
   const linkHoverColor = useColorModeValue("gray.800", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
@@ -183,17 +178,8 @@ const DesktopNav = ({
                             allowMultiple
                             key={child.label}
                           >
-                            <AccordionItem
-                              borderWidth={0}
-                              borderColor="gray.100"
-                            >
-                              <AccordionButton
-                                padding={0}
-                                // margin={0}
-                                _hover={{
-                                  bg: "white",
-                                }}
-                              >
+                            <AccordionItem borderWidth={0}>
+                              <AccordionButton padding={0}>
                                 <Box width="100%">
                                   <DesktopSubNav key={child.label} {...child} />
                                 </Box>
@@ -235,8 +221,20 @@ const DesktopNav = ({
           );
         })}
       </Stack>
-      <Stack flex={1} alignItems="flex-end" justifyContent="center">
-        <InputGroup width="100%" size="md">
+      <Button onClick={toggleColorMode} p={0}>
+        {colorMode === "dark" ? (
+          <BsSunFill size="20px" />
+        ) : (
+          <BsFillMoonFill size="16px" />
+        )}
+      </Button>
+      <Stack
+        flex={1}
+        alignItems="flex-end"
+        justifyContent="center"
+        flexDirection="row"
+      >
+        <InputGroup width="100%" size="md" ml={4}>
           <Input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -323,7 +321,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
         <Box>
           <Text
             transition={"all .3s ease"}
-            _groupHover={{ color: "pink.400" }}
+            _groupHover={{ color: useColorModeValue("pink.400", "white") }}
             fontWeight={500}
             fontSize="smaller"
           >
@@ -340,7 +338,12 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
           align={"center"}
           flex={1}
         >
-          <Icon color={"pink.400"} w={5} h={5} as={BiChevronRight} />
+          <Icon
+            color={useColorModeValue("pink.400", "white")}
+            w={5}
+            h={5}
+            as={BiChevronRight}
+          />
         </Flex>
       </Stack>
     </Link>

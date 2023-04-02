@@ -1,12 +1,14 @@
 import { extendTheme } from "@chakra-ui/react";
 
+import { mode } from '@chakra-ui/theme-tools';
+
 const colors = {
   primary: "#DB334F",
   primarylight: "#e05269",
   secondary: "#546FC6",
   text: {
-    dark: "#21243D",
-    light: "#8695a4",
+    dark: mode("#21243D", "#fff"),
+    light: mode("#8695a4", "#fff"),
   },
   brand: {
     900: "#1a365d",

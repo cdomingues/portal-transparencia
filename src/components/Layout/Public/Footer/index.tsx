@@ -23,10 +23,16 @@ function ListHeader({ children }: { children: ReactNode }) {
 export default function LargeWithLogoCentered() {
   return (
     <Box
-      bg={useColorModeValue("white", "white")}
+      bg={useColorModeValue("white", "gray.900")}
       color={useColorModeValue("gray.700", "gray.200")}
     >
-      <Container as={Stack} maxW="6xl" py={10}>
+      <Container
+        as={Stack}
+        maxW="6xl"
+        py={10}
+        borderTop="1px"
+        borderTopColor={useColorModeValue("gray.200", "gray.700")}
+      >
         <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
           <Stack align="flex-start"></Stack>
           <Stack align="flex-start">

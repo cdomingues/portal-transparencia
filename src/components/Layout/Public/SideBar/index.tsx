@@ -22,8 +22,17 @@ import {
   AccordionPanel,
   Divider,
   Image,
+  useColorMode,
+  Button,
 } from "@chakra-ui/react";
-import { BsFacebook, BsInstagram, BsTwitter, BsYoutube } from "react-icons/bs";
+import {
+  BsFacebook,
+  BsFillMoonFill,
+  BsInstagram,
+  BsSunFill,
+  BsTwitter,
+  BsYoutube,
+} from "react-icons/bs";
 import { FiMenu, FiBell } from "react-icons/fi";
 import { isMobile } from "react-device-detect";
 import { IconType } from "react-icons";
@@ -290,6 +299,7 @@ interface MobileProps extends FlexProps {
   onOpen: () => void;
 }
 function MobileNav({ onOpen, ...rest }: MobileProps) {
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
@@ -320,11 +330,22 @@ function MobileNav({ onOpen, ...rest }: MobileProps) {
           <Image alt="logo" width="80%" minW="9rem" src={logo.src} />
         </Flex>
       </Text>
+      <Button
+        onClick={toggleColorMode}
+        p={0}
+        display={["flex", "flex", "none"]}
+      >
+        {colorMode === "dark" ? (
+          <BsSunFill size="20px" />
+        ) : (
+          <BsFillMoonFill size="16px" />
+        )}
+      </Button>
       <HStack
+        display={["none", "none", "flex"]}
         justifyContent="flex-start"
         alignItems="flex-start"
         width="100%"
-        // spacing={{ base: "0", md: "6" }}
       >
         <Header />
       </HStack>

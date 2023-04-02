@@ -6,7 +6,7 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 function Breadcrumb() {
   const router = useRouter();
 
-  const [ isClientSide, setIsClientSide ] = useState(false);
+  const [isClientSide, setIsClientSide] = useState(false);
   const steps = router.pathname.split("/").filter((step) => step !== "");
 
   useEffect(() => {
@@ -15,14 +15,9 @@ function Breadcrumb() {
 
   if (!isClientSide || !steps.length) return null;
 
-
   return (
-    <Flex alignItems="center" gap="0.5rem" flexWrap="wrap" width="100%">
-      <Link
-        href={"/"}
-        target={"_self"}
-        fontSize="16"
-      >
+    <Flex alignItems="center" gap="0.2rem" flexWrap="wrap" width="100%" mb={3}>
+      <Link href={"/"} target={"_self"} fontSize="14">
         Início
       </Link>
 
@@ -33,23 +28,27 @@ function Breadcrumb() {
 
         return (
           <>
-            <MdOutlineKeyboardArrowRight />
+            <span
+              style={{ marginBottom: '2px' }}
+            >
+              <MdOutlineKeyboardArrowRight />
+            </span>
             {shouldRenderStep ? (
               <Link
                 href={`/${targetUrl}`}
                 target={"_self"}
                 textTransform="capitalize"
-                fontSize="16"
+                fontSize="14"
               >
                 {stepName}
               </Link>
             ) : (
-              <Box as="span" textTransform="capitalize" fontSize="16">
+              <Box as="span" textTransform="capitalize" fontSize="14">
                 {stepName}
               </Box>
             )}
           </>
-        )
+        );
       })}
     </Flex>
   );

@@ -36,6 +36,8 @@ import {
   ModalBody,
   ModalFooter,
   Link,
+  useColorMode,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import {
   AiOutlineDatabase,
@@ -81,9 +83,8 @@ function TableComponent({
 }: Props) {
   const [modelType, setModelType] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const cancelRef = React.useRef();
 
-  const newColumns = useMemo(
+  const newColumns = useMemo<any>(
     () =>
       columns.map((column) => {
         return {
@@ -244,7 +245,13 @@ function TableComponent({
       </Flex>
       <TableContainer>
         {loading ? (
-          <Box padding="6" width={"100%"} boxShadow="lg" bg="white">
+          <Box
+            padding="6"
+            width={"100%"}
+            boxShadow="lg"
+            bg={useColorModeValue("white", "gray.700")}
+            borderRadius="md"
+          >
             <Skeleton
               height="50px"
               fadeDuration={4}
@@ -271,7 +278,7 @@ function TableComponent({
                       index + 1 === group.headers.length
                         ? { borderTopRightRadius: radius }
                         : {};
-                    const { onClick: columnClick, ...rest } =
+                    const { onClick: columnClick, ...rest }: any =
                       column.getHeaderProps(column.getSortByToggleProps());
                     return (
                       <Th
@@ -358,9 +365,6 @@ function TableComponent({
                 return (
                   <Tr
                     fontSize={12}
-                    _hover={{
-                      bg: "gray.200",
-                    }}
                     {...row.getRowProps()}
                     key={index}
                   >
@@ -369,11 +373,8 @@ function TableComponent({
 
                       return (
                         <Td
-                          style={{
-                            padding: "8px",
-                            backgroundColor: "white",
-                            textAlign: "left",
-                          }}
+                          bgColor={useColorModeValue("white", "gray.800")}
+                          p="8px"
                           {...cell?.getCellProps()}
                           key={index}
                         >
@@ -386,18 +387,6 @@ function TableComponent({
                               textAlign: "left",
                             }}
                           >
-                            {/* {cell?.value?.length > 50 ? (
-                              <Textarea
-                                fontSize="12"
-                                width="300px"
-                                value={cell?.value}
-                                contentEditable="false"
-                                size="md"
-                                textAlign="left"
-                              />
-                            ) : (
-                              cell.render("Cell")
-                            )} */}
                             {isLink ? (
                               <Link href={cell?.value} isExternal>
                                 Detalhes
