@@ -31,7 +31,7 @@ export default function BlogComponent({
     <Center width="100%" py={6}>
       <Box
         m={0}
-        bg={useColorModeValue("white", "gray.900")}
+        bg={useColorModeValue("white", "gray.800")}
         boxShadow="2xl"
         rounded="md"
         p={6}

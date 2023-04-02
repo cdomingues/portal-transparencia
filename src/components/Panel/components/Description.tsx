@@ -1,10 +1,10 @@
-import { Stack, Text } from "@chakra-ui/react";
+import { Stack, Text, useColorModeValue } from "@chakra-ui/react";
 import { isMobile } from "react-device-detect";
 
 const Description = ({ label, value }: { label: string; value: string }) => (
   <Stack
     direction="row"
-    backgroundColor="white"
+    bgColor={useColorModeValue("white", "gray.700")}
     justifyContent="space-between"
     alignItems="center"
     style={{
