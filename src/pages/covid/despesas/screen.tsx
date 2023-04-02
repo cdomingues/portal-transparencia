@@ -57,24 +57,14 @@ function Screen({
 
   return (
     <ContainerBasic title={title} description={description}>
-      <MultipleGraphWrapper>
-        <GraphWrapper>
-          <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
-            Despesas Mensal Acumulado
-          </Heading>
-          {chart?.datasets?.length > 0 && (
-            <MultiAxisChart data={chart} moneyFormat />
-          )}
-        </GraphWrapper>
-        <GraphWrapper>
-          <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
-            Despesas últimos 5 anos
-          </Heading>
-          {chartYear?.datasets?.length > 0 && (
-            <Chart type="bar" data={chartYear} moneyFormat />
-          )}
-        </GraphWrapper>
-      </MultipleGraphWrapper>
+      <GraphWrapper>
+        <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
+          Despesas últimos 5 anos
+        </Heading>
+        {chartYear?.datasets?.length > 0 && (
+          <Chart type="bar" data={chartYear} moneyFormat />
+        )}
+      </GraphWrapper>
       <Divider borderWidth="2px" mt="10" mb="10" />
 
       <Stack direction="row">
