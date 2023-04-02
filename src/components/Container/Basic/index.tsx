@@ -2,6 +2,7 @@ import React, { ReactNode } from "react";
 import { Heading, Text, Divider } from "@chakra-ui/react";
 import Head from "next/head";
 import { Container, Body } from "./styles";
+import Breadcrumb from "../../Breadcrumb";
 
 type PropsInput = {
   title: string;
@@ -20,6 +21,7 @@ function ContainerBasic({
     <Container
       style={{ maxWidth: "1280px", margin: "0 auto", ...containerStyles }}
     >
+      <Breadcrumb />
       <Head>
         <title>{title} - PMMC</title>
       </Head>
