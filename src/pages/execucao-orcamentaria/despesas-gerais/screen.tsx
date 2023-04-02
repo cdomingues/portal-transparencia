@@ -29,8 +29,8 @@ function Screen({
     handleByYear,
   },
 }: PropsInput) {
-  const title = "Despesas - Geral";
-  const description = "";
+  const title = "Despesas e Investimentos - Gerais";
+  const description = "Para que a cidade possa continuar se desenvolvendo e os serviços possam permanecer funcionando e melhorando, a Prefeitura precisa realizar despesas das mais diversas, assim como investimentos. Aqui você pode conferir as informações das despesas públicas gerais empenhadas, liquidadas e pagas, entendendo os valores direcionados para cada programa.";
   return (
     <ContainerBasic title={title} description={description}>
       {chart?.datasets?.length > 0 && (
@@ -39,7 +39,7 @@ function Screen({
       <Divider height="3px" marginTop="10px" marginBottom="4px" />
 
       <Stack direction="row">
-        <Stack width="25%">
+        <Stack minW={86} width="25%">
           <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
             Ano
           </Text>
@@ -57,7 +57,7 @@ function Screen({
             ))}
           </Select>
         </Stack>
-        <Stack width="10%" justifyContent="flex-end">
+        <Stack minW={50} width="10%" justifyContent="flex-end">
           <Button
             disabled={loading}
             onClick={() => handleByYear(year)}

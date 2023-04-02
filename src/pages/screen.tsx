@@ -17,6 +17,7 @@ import {
   StatLabel,
   StatNumber,
   Text,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import moneyFormatter from "../utils/moneyFormatter";
 import moment from "moment";
@@ -73,7 +74,7 @@ const PublicPolicyCard = ({
 }) => (
   <Stack
     direction="row"
-    bg="white"
+    bg={useColorModeValue("white", 'gray.800')}
     mb={5}
     mr={5}
     borderRadius="10"
@@ -101,10 +102,10 @@ const PublicPolicyCard = ({
       </div>
     </Stack>
     <Stack flex={2} direction="column" justifyContent="center">
-      <Text fontWeight="500" fontSize="small" color="gray.600">
+      <Text fontWeight="500" fontSize="small" color={"gray.500"}>
         {funcao}
       </Text>
-      <Text fontSize="small" mb={2} fontWeight="550">
+      <Text fontSize="small" mb={2} fontWeight="550" color={useColorModeValue('#000', '#fff')}>
         {moneyFormatter(valor)}
       </Text>
     </Stack>
@@ -129,9 +130,9 @@ function HomeScreen({ handler }: PropsInput) {
     date,
   } = handler;
 
-  const titlePage = "Bem vindo ao portal da transparência.";
+  const titlePage = "Boas-vindas ao Portal da Transparência de Mogi!";
   const description =
-    "Acompanhe todas as atividades financeiras e análises de documentos, com detalhamentos e dados abertos.";
+    "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.";
 
   const stylesTranslator: any = {
     "Aplicação em Saúde": {
@@ -159,7 +160,10 @@ function HomeScreen({ handler }: PropsInput) {
       direction={isMobile ? "column" : "row"}
       style={{ width: "100%", height: "100%" }}
     >
-      <Stack flex={width > 1024 ? 2 : 2} style={{paddingLeft: isMobile ? 0 : '2%'}}>
+      <Stack
+        flex={width > 1024 ? 2 : 2}
+        style={{ paddingLeft: isMobile ? 0 : "2%" }}
+      >
         <Head>
           <title>Início</title>
         </Head>
@@ -177,32 +181,36 @@ function HomeScreen({ handler }: PropsInput) {
           <Heading mt={10} mb={4} fontSize="md">
             Resumo {moment().year()}
           </Heading>
-          <StatGroup width="100%" mb={20}>
-            <Stat>
-              <StatLabel height="40px" color="black">
+          <StatGroup
+            width="100%"
+            mb={20}
+            flexDirection={isMobile ? "column" : "row"}
+          >
+            <Stat mb={isMobile ? 6 : 0}>
+              <StatLabel height="40px" color={useColorModeValue("black", "white")}>
                 Arrecadações
               </StatLabel>
-              <StatNumber fontSize="medium" mb={2} color="black">
+              <StatNumber fontSize="medium" mb={2} color={useColorModeValue("black", "white")}>
                 {moneyFormatter(revenueAmount)}
               </StatNumber>
-              <StatHelpText mb={0} color="black">
-                Valor Previsto: {moneyFormatter(revenueProvided)}
+              <StatHelpText mb={0} color={useColorModeValue("black", "white")}>
+                Valor Previsto para o ano: {moneyFormatter(revenueProvided)}
               </StatHelpText>
-              <StatHelpText color="black">
+              <StatHelpText color={useColorModeValue("black", "white")}>
                 Alcançado: {revenuePercentageReached}%
               </StatHelpText>
             </Stat>
             <Stat>
-              <StatLabel height="40px" color="black">
+              <StatLabel height="40px" color={useColorModeValue("black", "white")}>
                 Despesas e Investimentos
               </StatLabel>
-              <StatNumber fontSize="medium" mb={2} color="black">
+              <StatNumber fontSize="medium" mb={2} color={useColorModeValue("black", "white")}>
                 {moneyFormatter(expenseAmount)}
               </StatNumber>
-              <StatHelpText mb={0} color="black">
-                Valor Previsto: {moneyFormatter(expenseProvided)}
+              <StatHelpText mb={0} color={useColorModeValue("black", "white")}>
+                Valor Previsto para o ano: {moneyFormatter(expenseProvided)}
               </StatHelpText>
-              <StatHelpText color="black">
+              <StatHelpText color={useColorModeValue("black", "white")}>
                 Alcançado: {expensePercentageReached}%
               </StatHelpText>
             </Stat>

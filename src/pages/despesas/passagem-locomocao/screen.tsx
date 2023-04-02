@@ -47,7 +47,7 @@ function Screen({
   },
 }: PropsInput) {
   const title = "Passagens e Locomoção";
-  const description = "";
+  const description = "Os agentes públicos podem realizar também diversas atividades além dos limites do município, no exercício de sua função e em benefício da cidade. Você pode acompanhar os gastos relacionados a passagens e locomoção nesta página.";
   const chartConfig = {
     direction: isMobile ? "column" : "row",
     width: isMobile ? "100%" : "40%",
@@ -79,7 +79,7 @@ function Screen({
       <Divider borderWidth="2px" mt="10" mb="10" />
 
       <Stack direction="row">
-        <Stack width="25%">
+        <Stack minW={86} width="25%">
           <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
             Ano
           </Text>
@@ -97,7 +97,7 @@ function Screen({
             ))}
           </Select>
         </Stack>
-        <Stack width="10%" justifyContent="flex-end">
+        <Stack minW={50} width="10%" justifyContent="flex-end">
           <Button
             disabled={loading}
             onClick={() => handleByYear(year)}

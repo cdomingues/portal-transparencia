@@ -29,8 +29,8 @@ function Screen({
     handleByYear,
   },
 }: PropsInput) {
-  const title = "Receitas - Multas Trânsito";
-  const description = "";
+  const title = "Receitas - Multas de Trânsito e Concessões";
+  const description = "As receitas para o município podem vir de diferentes fontes. Uma delas são as multas de trânsito - que, por lei, essa arrecadação é destinada a fins específicos ligados à Mobilidade. Há também as concessões e outorgas, que também geram receita. Acompanhe nesta página o descritivo dos recursos provenientes de multas de trânsito e outorgas e concessões pela Prefeitura de Mogi das Cruzes.";
   return (
     <ContainerBasic title={title} description={description}>
       {chart?.datasets?.length > 0 && (
@@ -38,7 +38,7 @@ function Screen({
       )}
       <Divider borderWidth="2px" mt="10" mb="10" />
       <Stack direction="row">
-        <Stack width="25%">
+        <Stack minW={86} width="25%">
           <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
             Ano
           </Text>
@@ -56,7 +56,7 @@ function Screen({
             ))}
           </Select>
         </Stack>
-        <Stack width="10%" justifyContent="flex-end">
+        <Stack minW={50} width="10%" justifyContent="flex-end">
           <Button
             disabled={loading}
             onClick={() => handleByYear(year)}

@@ -17,11 +17,12 @@ function Screen({ handler }: PropsInput) {
   const { handleSelectValue, selectOptions, laws, selectValue } = handler;
   const title = "Plano Plurianual";
   const description =
-    "O Plano Plurianual (PPA) é uma ferramenta pela qual o município faz um planejamento de como irá investir os recursos públicos nos próximos quatro anos. Sua construção deve contar com a maior participação possível da sociedade, afinal são os cidadãos que pagam os impostos e que ajudarão a definir o destino dos recursos.";
+    "O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos. Sua construção deve contar com a maior participação possível da sociedade, afinal são os cidadãos que pagam os impostos e que ajudarão a definir o destino dos recursos.";
   return (
     <ContainerBasic title={title} description={description}>
       <PlanContainer laws={laws}>
         <Select
+          minW={90}
           width="20%"
           bg={useColorModeValue("white", "gray.800")}
           value={selectValue}

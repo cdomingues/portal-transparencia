@@ -44,8 +44,8 @@ function Screen({
     handleByYear,
   },
 }: PropsInput) {
-  const title = "Publicidade e Propaganda";
-  const description = "";
+  const title = "Gastos com publicidade";
+  const description = "A publicidade legal e institucional realizada pelo Poder Público é um importante serviço cujo objetivo final é favorecer o acesso da população a todos os outros serviços públicos, além de contribuir com a transparência dos atos administrativos. Confira as despesas com publicidade da Prefeitura de Mogi das Cruzes.";
 
   const chartConfig = {
     direction: isMobile ? "column" : "row",
@@ -63,11 +63,7 @@ function Screen({
             Publicidade e Propaganda Mensal Acumulado
           </Heading>
           {chart?.datasets?.length > 0 && (
-            <MultiAxisChart
-              moneyFormat
-              data={chart}
-              style={{ width: "450px" }}
-            />
+            <MultiAxisChart moneyFormat data={chart} />
           )}
         </GraphWrapper>
         <GraphWrapper>
@@ -82,7 +78,7 @@ function Screen({
       <Divider borderWidth="2px" mt="10" mb="10" />
 
       <Stack direction="row">
-        <Stack width="25%">
+        <Stack minW={86} width="25%">
           <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
             Ano
           </Text>
@@ -100,7 +96,7 @@ function Screen({
             ))}
           </Select>
         </Stack>
-        <Stack width="10%" justifyContent="flex-end">
+        <Stack minW={50} width="10%" justifyContent="flex-end">
           <Button
             disabled={loading}
             onClick={() => handleByYear(year)}

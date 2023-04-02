@@ -214,7 +214,7 @@ const publicRoutes = [
       },
       {
         defaultPath: "/despesas",
-        name: "Subvenções e Terceiro Setor",
+        name: "Subvenções",
         path: "/subvencoes",
         icon: AiOutlineTable,
       },

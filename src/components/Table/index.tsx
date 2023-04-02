@@ -36,6 +36,8 @@ import {
   ModalBody,
   ModalFooter,
   Link,
+  useColorMode,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import {
   AiOutlineDatabase,
@@ -81,9 +83,8 @@ function TableComponent({
 }: Props) {
   const [modelType, setModelType] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const cancelRef = React.useRef();
 
-  const newColumns = useMemo(
+  const newColumns = useMemo<any>(
     () =>
       columns.map((column) => {
         return {
@@ -244,7 +245,13 @@ function TableComponent({
       </Flex>
       <TableContainer>
         {loading ? (
-          <Box padding="6" width={"100%"} boxShadow="lg" bg="white">
+          <Box
+            padding="6"
+            width={"100%"}
+            boxShadow="lg"
+            bg={useColorModeValue("white", "gray.700")}
+            borderRadius="md"
+          >
             <Skeleton
               height="50px"
               fadeDuration={4}
@@ -271,6 +278,8 @@ function TableComponent({
                       index + 1 === group.headers.length
                         ? { borderTopRightRadius: radius }
                         : {};
+                    const { onClick: columnClick, ...rest }: any =
+                      column.getHeaderProps(column.getSortByToggleProps());
                     return (
                       <Th
                         style={{
@@ -283,9 +292,7 @@ function TableComponent({
                           ...isFirst,
                           ...isLast,
                         }}
-                        {...column.getHeaderProps(
-                          column.getSortByToggleProps()
-                        )}
+                        {...rest}
                         key={index}
                       >
                         <div
@@ -294,6 +301,7 @@ function TableComponent({
                             display: "flex",
                             flexDirection: "row",
                           }}
+                          onClick={columnClick}
                         >
                           <div
                             style={{
@@ -357,9 +365,6 @@ function TableComponent({
                 return (
                   <Tr
                     fontSize={12}
-                    _hover={{
-                      bg: "gray.200",
-                    }}
                     {...row.getRowProps()}
                     key={index}
                   >
@@ -368,11 +373,8 @@ function TableComponent({
 
                       return (
                         <Td
-                          style={{
-                            padding: "8px",
-                            backgroundColor: "white",
-                            textAlign: "left",
-                          }}
+                          bgColor={useColorModeValue("white", "gray.800")}
+                          p="8px"
                           {...cell?.getCellProps()}
                           key={index}
                         >
@@ -385,37 +387,20 @@ function TableComponent({
                               textAlign: "left",
                             }}
                           >
-                            {/* {cell?.value?.length > 50 ? (
-                              <Textarea
-                                fontSize="12"
-                                width="300px"
-                                value={cell?.value}
-                                contentEditable="false"
-                                size="md"
-                                textAlign="left"
-                              />
-                            ) : (
-                              cell.render("Cell")
-                            )} */}
                             {isLink ? (
                               <Link href={cell?.value} isExternal>
                                 Detalhes
                               </Link>
                             ) : (
-                              <>
+                              <div style={{ textAlign: "center" }}>
                                 {cell?.value?.length > 50 ? (
-                                  <Textarea
-                                    fontSize="12"
-                                    width="300px"
-                                    value={cell?.value}
-                                    contentEditable="false"
-                                    size="md"
-                                    textAlign="left"
-                                  />
+                                  <div style={{ width: "300px" }}>
+                                    {cell.render("Cell")}
+                                  </div>
                                 ) : (
                                   cell.render("Cell")
                                 )}
-                              </>
+                              </div>
                             )}
                           </div>
                         </Td>
@@ -428,8 +413,8 @@ function TableComponent({
           </Table>
         )}
       </TableContainer>
-      <Center mt={5}>
-        <Center width="200px">
+      <Center mt={5} display="flex" flexWrap="wrap">
+        <Center minW="160px" mb={5} width="200px">
           <Button
             onClick={() => gotoPage(0)}
             disabled={!canPreviousPage}
@@ -470,10 +455,12 @@ function TableComponent({
         </Center>
         <NumberInput
           ml={5}
+          mb={5}
           onChange={(value) => {
             const pageNumber = value ? Number(value) - 1 : 0;
             gotoPage(pageNumber);
           }}
+          minW={40}
           w={40}
           defaultValue={pageIndex + 1}
           min={1}
@@ -488,6 +475,8 @@ function TableComponent({
         <Select
           bg="white"
           ml={5}
+          mb={5}
+          minWidth={130}
           width={130}
           value={pageSize}
           onChange={(e) => setPageSize(Number(e.target.value))}

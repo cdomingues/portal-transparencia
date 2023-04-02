@@ -46,7 +46,7 @@ function RevenueScreen({
 }: PropsInput) {
   const title = "Receitas";
   const description =
-    "A Receita Realizada representa quanto de fato foi recebido pelo governo após o efetivo pagamento ou recolhimento do valor. É a arrecadação de fato do valor, que torna o valor disponível nos cofres públicos para uso pelo governo. O valor pode ser diferente da receita lançada e também do valor previsto.";
+    "De modo acessível e de fácil compreensão, acompanhe os valores e fontes de arrecadação do município, comparando a evolução entre os últimos anos e também a variação entre receita prevista e efetivamente arrecadada.";
 
   const chartConfig = {
     direction: isMobile ? "column" : "row",
@@ -54,6 +54,7 @@ function RevenueScreen({
     marginRight: isMobile ? "0" : "10%",
     marginLeft: isMobile ? "0" : "5%",
     fontSize: isMobile ? "medium" : "larger",
+    marginBottom: isMobile ? 0.7 : 0,
   };
 
   return (
@@ -83,6 +84,7 @@ function RevenueScreen({
             Ano
           </Text>
           <Select
+            minW={92}
             defaultValue={year}
             onChange={(e) => setYear(e.target.value)}
             bg="white"
@@ -99,6 +101,7 @@ function RevenueScreen({
         <Stack width="10%" justifyContent="flex-end">
           <Button
             disabled={loading}
+            minW={55}
             onClick={() => handleByYear(year)}
             _hover={{ bg: "gray.500", color: "white" }}
             bg="table.primary"

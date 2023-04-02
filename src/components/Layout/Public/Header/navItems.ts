@@ -369,7 +369,7 @@ export default [
         href: "https://www.mogidascruzes.sp.gov.br/servicos/agricultura-e-meio-ambiente",
       },
       {
-        label: "Alvará, Certidões e Licenças",
+        label: "Alvarás, Certidões e Licenças",
         subLabel: "",
         href: "https://www.mogidascruzes.sp.gov.br/servicos/alvara-certidoes-e-licencas",
       },
@@ -404,7 +404,7 @@ export default [
         href: "https://www.mogidascruzes.sp.gov.br/servicos/esporte-e-lazer",
       },
       {
-        label: "Imposto e Taxas",
+        label: "Impostos e Taxas",
         subLabel: "",
         href: "https://www.mogidascruzes.sp.gov.br/servicos/impostos-e-taxas",
       },
@@ -466,7 +466,7 @@ export default [
         ],
       },
       {
-        label: "Guia Túristico",
+        label: "Guia Turístico",
         subLabel: "",
         href: "",
         children: [
@@ -476,7 +476,7 @@ export default [
             href: "https://www.mogidascruzes.sp.gov.br/mogi-das-cruzes/descobrindo-mogi-das-cruzes",
           },
           {
-            label: "Pontos Túristicos",
+            label: "Pontos Turísticos",
             subLabel: "",
             href: "https://www.mogidascruzes.sp.gov.br/pontos-turisticos/todos-os-assuntos",
           },

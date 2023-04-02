@@ -17,11 +17,12 @@ function Screen({ handler }: PropsInput) {
   const { handleSelectValue, selectOptions, laws, selectValue } = handler;
   const title = "Lei Orçamentária Anual";
   const description =
-    "A Lei de Diretrizes Orçamentárias (LDO) permite a ligação entre o planejamento de curto prazo, no caso o Orçamento Anual, e o planejamento de longo prazo, que é o Plano Plurianual (PPA).\nA LDO define metas e prioridades da Administração Pública, além de estabelecer metas fiscais e apontar os riscos que poderão afetar as contas públicas. O prazo de envio do projeto deve ser enviado até dia 30 de abril de cada ano à Câmara Municipal, que deve concluir sua votação até 30 de junho.\nO prazo de envio do projeto é determinado pelo artigo 174, parágrafo 9º, inciso 2º, da Constituição do Estado de São Paulo. São realizadas duas audiências públicas até a votação. Os trabalhos legislativos do primeiro semestre não podem terminar sem a aprovação da LDO.";
+    "A Lei Orçamentária Anual (LOA) é elaborada pelo Poder Executivo e votada pela Câmara Municipal, com o objetivo de estabelecer estimativas de receita e de despesas do município para o exercício financeiro. É na LOA onde o Executivo Municipal elenca um planejamento de gastos em obras e serviços, trazendo, dessa forma, as prioridades para investimento no ano correspondente.";
   return (
     <ContainerBasic title={title} description={description}>
       <PlanContainer laws={laws}>
         <Select
+          minW={90}
           width="20%"
           bg={useColorModeValue("white", "gray.800")}
           value={selectValue}

@@ -24,9 +24,9 @@ type PropsInput = {
 
 function Screen({ handler }: PropsInput) {
   const { dailies, salaries } = handler;
-  const title = "Servidores Públicos e Estagiários";
+  const title = "Cargos e Salários";
   const description =
-    "Gastos com servidores públicos e estagiários, dentro dos limites estabelecidos pela Lei de Responsabilidade Fiscal, podem ser verificados e acompanhados periodicamente.";
+    "Nesta página, confira a tabela-base dos subsídios, salários e vencimentos dos cargos e empregos públicos.";
   return (
     <ContainerBasic title={title} description={description}>
       <Stack width="50%">

@@ -29,8 +29,8 @@ function Screen({
     handleByYear,
   },
 }: PropsInput) {
-  const title = "Despesas - Restos à pagar";
-  const description = "";
+  const title = "Despesas - Restos a pagar";
+  const description = "Os restos a pagar são as despesas que a com compromisso de serem utilizadas dentro do orçamento, mas que não foram pagas até o final do exercício. Confira aqui as informações sobre as despesas empenhadas, liquidadas e pagas relativas a essa natureza.";
   return (
     <ContainerBasic title={title} description={description}>
       {chart?.datasets?.length > 0 && (
@@ -39,7 +39,7 @@ function Screen({
       <Divider borderWidth="2px" mt="10" mb="10" />
 
       <Stack direction="row">
-        <Stack width="25%">
+        <Stack minW={86} width="25%">
           <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
             Ano
           </Text>
@@ -57,7 +57,7 @@ function Screen({
             ))}
           </Select>
         </Stack>
-        <Stack width="10%" justifyContent="flex-end">
+        <Stack minW={50} width="10%" justifyContent="flex-end">
           <Button
             disabled={loading}
             onClick={() => handleByYear(year)}
