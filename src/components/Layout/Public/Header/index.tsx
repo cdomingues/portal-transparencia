@@ -39,7 +39,7 @@ import {
 } from "@chakra-ui/react";
 import { BiChevronRight, BiMoon, BiSun } from "react-icons/bi";
 import navItems, { NavItem } from "./navItems";
-import publicRoutes from "../../../../routes/public";
+import publicRoutes, { IPublicRoute } from "../../../../routes/public";
 import Fuse from "fuse.js";
 import getUniqueListBy from "../../../../utils/getUniqueListBy";
 import { MdAddLocation } from "react-icons/md";
@@ -265,44 +265,34 @@ const DesktopNav = ({
   );
 };
 
-const findPages = (search: string) => {
-  const fuseRoutesMain = new Fuse(publicRoutes, {
-    keys: ["name"],
+const findPages = (searchString: string): IPublicRoute[] => {
+  const filteredRoutes: IPublicRoute[] = [];
+
+  publicRoutes.forEach((route) => {
+    const routeHasGroup = route?.group && route.group.length > 0;
+    if (
+      (route.name.toLowerCase().includes(searchString.toLowerCase()) ||
+        route.path.toLowerCase().includes(searchString.toLowerCase())) &&
+      !routeHasGroup
+    ) {
+      filteredRoutes.push(route);
+    }
+
+    if (routeHasGroup && route?.group) {
+      route.group.forEach((group) => {
+        if (
+          group.name.toLowerCase().includes(searchString.toLowerCase()) ||
+          group.path.toLowerCase().includes(searchString.toLowerCase())
+        ) {
+          const groupName = `${route.name} > ${group.name}`;
+
+          filteredRoutes.push({ ...group, name: groupName });
+        }
+      });
+    }
   });
 
-  const routesMain = fuseRoutesMain.search(search);
-
-  const routesWithGroup = publicRoutes.filter((route) =>
-    Array.isArray(route?.group)
-  );
-  const routesGroup: any = [];
-
-  for (const route of routesWithGroup) {
-    if (route?.group && Array.isArray(route.group)) {
-      route.group.map((group) => {
-        routesGroup.push(group);
-      });
-    }
-  }
-
-  const routesSearched = [...routesMain, ...routesGroup].map(
-    (route) => route.item
-  );
-
-  const organizedRoutes = [];
-
-  for (const route of routesSearched) {
-    if (route?.group && Array.isArray(route.group)) {
-      route.group.map((group: any) => {
-        organizedRoutes.push(group);
-      });
-      continue;
-    }
-    organizedRoutes.push(route);
-  }
-
-  const routesWithoutDuplicate = getUniqueListBy(organizedRoutes, "name");
-  return routesWithoutDuplicate;
+  return filteredRoutes;
 };
 
 const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {

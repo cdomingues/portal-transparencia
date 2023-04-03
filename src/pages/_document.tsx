@@ -26,6 +26,17 @@ export default class Document extends NextDocument {
             height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
             }}
           ></noscript>
+          <Script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-Q4QD82V5LT"
+          ></Script>
+          <Script>
+            {`window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-Q4QD82V5LT');`}
+          </Script>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Main />
           <NextScript />
