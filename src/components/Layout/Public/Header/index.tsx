@@ -3,28 +3,19 @@ import {
   Box,
   Flex,
   Text,
-  IconButton,
   Button,
   Stack,
-  Collapse,
   Icon,
   Link,
   Popover,
   PopoverTrigger,
   PopoverContent,
   useColorModeValue,
-  useBreakpointValue,
   useDisclosure,
-  Menu,
-  MenuButton,
-  Portal,
-  MenuList,
-  MenuItem,
   Accordion,
   AccordionItem,
   AccordionButton,
   AccordionPanel,
-  AccordionIcon,
   InputGroup,
   Input,
   InputRightElement,
@@ -37,12 +28,9 @@ import {
   ModalFooter,
   useColorMode,
 } from "@chakra-ui/react";
-import { BiChevronRight, BiMoon, BiSun } from "react-icons/bi";
+import { BiChevronRight } from "react-icons/bi";
 import navItems, { NavItem } from "./navItems";
 import publicRoutes, { IPublicRoute } from "../../../../routes/public";
-import Fuse from "fuse.js";
-import getUniqueListBy from "../../../../utils/getUniqueListBy";
-import { MdAddLocation } from "react-icons/md";
 import { BsFillMoonFill, BsSunFill } from "react-icons/bs";
 
 export default function Header() {
