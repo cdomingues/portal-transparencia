@@ -7,21 +7,25 @@ import {
   AiOutlineSolution,
   AiOutlineShop,
   AiOutlineFileDone,
-  AiOutlineFileProtect,
   AiOutlineFileText,
   AiOutlineAppstore,
   AiOutlineException,
   AiOutlineDollar,
 } from "react-icons/ai";
-import { BiBody, BiBriefcaseAlt, BiMoney } from "react-icons/bi";
-import {
-  BsBricks,
-  BsCameraVideo,
-  BsFileText,
-  BsTropicalStorm,
-} from "react-icons/bs";
+import { BiBriefcaseAlt, BiMoney } from "react-icons/bi";
+import { BsBricks, BsCameraVideo, BsFileText } from "react-icons/bs";
 
-const publicRoutes = [
+export interface IPublicRoute {
+  name: string;
+  path: string;
+  icon?: any;
+  element?: any;
+  defaultPath?: string;
+  link?: string;
+  group?: IPublicRoute[];
+}
+
+const publicRoutes: IPublicRoute[] = [
   {
     name: "Início",
     path: "/",
