@@ -84,6 +84,9 @@ function TableComponent({
   const [modelType, setModelType] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  const loadingBoxBgColor = useColorModeValue("white", "gray.700");
+  const tdBgColor = useColorModeValue("white", "gray.800");
+
   const newColumns = useMemo<any>(
     () =>
       columns.map((column) => {
@@ -249,7 +252,7 @@ function TableComponent({
             padding="6"
             width={"100%"}
             boxShadow="lg"
-            bg={useColorModeValue("white", "gray.700")}
+            bg={loadingBoxBgColor}
             borderRadius="md"
           >
             <Skeleton
@@ -363,17 +366,13 @@ function TableComponent({
               {page.map((row, index) => {
                 prepareRow(row);
                 return (
-                  <Tr
-                    fontSize={12}
-                    {...row.getRowProps()}
-                    key={index}
-                  >
+                  <Tr fontSize={12} {...row.getRowProps()} key={index}>
                     {row.cells.map((cell, index) => {
                       const isLink = validURL(cell?.value);
 
                       return (
                         <Td
-                          bgColor={useColorModeValue("white", "gray.800")}
+                          bgColor={tdBgColor}
                           p="8px"
                           {...cell?.getCellProps()}
                           key={index}

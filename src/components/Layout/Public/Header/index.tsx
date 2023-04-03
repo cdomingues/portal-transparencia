@@ -30,8 +30,9 @@ import {
 } from "@chakra-ui/react";
 import { BiChevronRight } from "react-icons/bi";
 import navItems, { NavItem } from "./navItems";
-import publicRoutes, { IPublicRoute } from "../../../../routes/public";
+import publicRoutes from "../../../../routes/public";
 import { BsFillMoonFill, BsSunFill } from "react-icons/bs";
+import { IPublicRoute } from "../../../../types";
 
 export default function Header() {
   const [search, setSearch] = useState("");

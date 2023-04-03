@@ -37,12 +37,12 @@ import { FiMenu, FiBell } from "react-icons/fi";
 import { isMobile } from "react-device-detect";
 import { IconType } from "react-icons";
 import logo from "../../../../assets/images/logo.png";
-import { GroupRoutes, Routes } from "../../../../types";
+import { GroupRoutes, IPublicRoute, Routes } from "../../../../types";
 import Header from "../Header";
 
 interface SidebarProps extends BoxProps {
   onClose: () => void;
-  routes: GroupRoutes;
+  routes: IPublicRoute[];
 }
 
 interface NavItemProps extends FlexProps {
@@ -262,7 +262,7 @@ function SidebarContent({ onClose, routes, ...rest }: SidebarProps) {
       {routes.map((route, index) => (
         <div key={index}>
           <NavItem
-            group={route.group}
+            group={route?.group}
             path={route?.path}
             icon={route.icon}
             link={route.link}
@@ -358,7 +358,7 @@ export default function SidebarWithHeader({
   routes,
 }: {
   children: ReactNode;
-  routes: GroupRoutes;
+  routes: IPublicRoute[];
 }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (

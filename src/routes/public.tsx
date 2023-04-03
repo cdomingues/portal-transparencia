@@ -14,16 +14,7 @@ import {
 } from "react-icons/ai";
 import { BiBriefcaseAlt, BiMoney } from "react-icons/bi";
 import { BsBricks, BsCameraVideo, BsFileText } from "react-icons/bs";
-
-export interface IPublicRoute {
-  name: string;
-  path: string;
-  icon?: any;
-  element?: any;
-  defaultPath?: string;
-  link?: string;
-  group?: IPublicRoute[];
-}
+import { IPublicRoute } from "../types";
 
 const publicRoutes: IPublicRoute[] = [
   {

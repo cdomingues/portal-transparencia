@@ -9,6 +9,7 @@ export default class Document extends NextDocument {
       <Html lang="en">
         <Head>
           <Script
+            id="gtm-script"
             strategy="afterInteractive"
             dangerouslySetInnerHTML={{
               __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -28,9 +29,10 @@ export default class Document extends NextDocument {
           ></noscript>
           <Script
             async
+            id="gtag-script"
             src="https://www.googletagmanager.com/gtag/js?id=G-Q4QD82V5LT"
           ></Script>
-          <Script>
+          <Script id="gtag-window-script">
             {`window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
