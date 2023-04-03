@@ -38,3 +38,13 @@ export type GroupRoutes = Array<{
     link?: string;
   }>;
 }>;
+
+export interface IPublicRoute {
+  name: string;
+  path: string;
+  icon: IconType;
+  element?: any;
+  defaultPath?: string;
+  link?: string;
+  group?: IPublicRoute[];
+}
