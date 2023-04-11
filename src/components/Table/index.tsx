@@ -63,6 +63,7 @@ type Props = {
   data: Array<any>;
   loading?: boolean;
   withFilter?: boolean;
+  openModal?: (value?: any) => void;
 };
 
 function HeaderComponent({ title }: { title: string }) {
@@ -80,6 +81,7 @@ function TableComponent({
   data,
   loading = false,
   withFilter = true,
+  openModal,
 }: Props) {
   const [modelType, setModelType] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -376,6 +378,8 @@ function TableComponent({
                           p="8px"
                           {...cell?.getCellProps()}
                           key={index}
+                          onClick={() => (openModal ? openModal(cell) : {})}
+                          style={{ cursor: openModal ? "pointer" : "" }}
                         >
                           <div
                             style={{
