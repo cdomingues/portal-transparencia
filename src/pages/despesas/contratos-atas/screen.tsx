@@ -1,7 +1,15 @@
-import { Button, Divider, Select, Stack, Text } from "@chakra-ui/react";
-import React from "react";
+import {
+  Button,
+  Divider,
+  Select,
+  Stack,
+  Text,
+  useDisclosure,
+} from "@chakra-ui/react";
+import React, { useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../../components/Table";
+import ModalContracts from "./modalContracts";
 
 type PropsInput = {
   handler: {
@@ -18,8 +26,18 @@ type PropsInput = {
 function Screen({
   handler: { columns, data, loading, handleByYear, setYear, year, years },
 }: PropsInput) {
+  const [contract, setContract] = useState<any>(null);
   const title = "Contratos e Atas";
-  const description = "Nesta página, confira as informações sobre contratos e atas celebrados pela Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por número, modalidade, processo, valor, fornecedor, objeto, entre outros itens.";
+  const description =
+    "Nesta página, confira as informações sobre contratos e atas celebrados pela Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por número, modalidade, processo, valor, fornecedor, objeto, entre outros itens.";
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const handleOpenModal = (item: any) => {
+    onOpen();
+    setContract(item?.row?.values);
+  };
+
   return (
     <ContainerBasic title={title} description={description}>
       <Stack direction="row">
@@ -56,7 +74,14 @@ function Screen({
       </Stack>
 
       <Divider borderWidth="2px" mt="10" mb="10" />
-      <TableComponent loading={loading} columns={columns} data={data} />
+      <TableComponent
+        loading={loading}
+        columns={columns}
+        data={data}
+        openModal={handleOpenModal}
+      />
+
+      <ModalContracts isOpen={isOpen} onClose={onClose} contract={contract} />
     </ContainerBasic>
   );
 }
