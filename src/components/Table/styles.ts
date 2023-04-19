@@ -1,3 +1,4 @@
+import { Flex } from "@chakra-ui/react";
 import styled from "styled-components";
 
 export const TableContainer = styled.div`
@@ -41,3 +42,14 @@ export const CsvItem = styled.div`
   transition-duration: var(--chakra-transition-duration-ultra-fast);
   transition-timing-function: var(--chakra-transition-easing-ease-in);
 `;
+
+
+export const DisplayFlex = styled(Flex)`
+
+display: flex;
+flex-direction: row;
+
+@media (max-width:624px) {
+  flex-direction: column !important;
+}
+`

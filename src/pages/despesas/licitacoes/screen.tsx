@@ -1,7 +1,27 @@
-import { Button, Divider, Select, Stack, Text } from "@chakra-ui/react";
-import React from "react";
+import {
+  Button,
+  Divider,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalHeader,
+  ModalOverlay,
+  Select,
+  Stack,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
+  Text,
+  useDisclosure,
+} from "@chakra-ui/react";
+import React, { useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../../components/Table";
+import ModalBiddings from "./modalBiddings";
+import { ContainerSearch } from "./styles";
 
 type PropsInput = {
   handler: {
@@ -18,11 +38,21 @@ type PropsInput = {
 function Screen({
   handler: { columns, data, loading, setYear, year, years, handleByYear },
 }: PropsInput) {
+  const [bidding, setBidding] = useState<any>(null);
   const title = "Licitações";
-  const description = "O procedimento administrativo pelo qual a Prefeitura contrata serviços ou adquire produtos é chamado de Licitação. Acompanhe aqui os dados das licitações realizadas pela Prefeitura de Mogi das Cruzes, incluindo informações sobre modalidade, objeto, vencimento, participantes e demais detalhes.";
+  const description =
+    "O procedimento administrativo pelo qual a Prefeitura contrata serviços ou adquire produtos é chamado de Licitação. Acompanhe aqui os dados das licitações realizadas pela Prefeitura de Mogi das Cruzes, incluindo informações sobre modalidade, objeto, vencimento, participantes e demais detalhes.";
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const handleOpenModal = (item: any) => {
+    onOpen();
+    setBidding(item?.row?.values);
+  };
+
   return (
     <ContainerBasic title={title} description={description}>
-      <Stack direction="row">
+      <ContainerSearch direction="row">
         <Stack minW={86} width="25%">
           <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
             Ano
@@ -41,7 +71,7 @@ function Screen({
             ))}
           </Select>
         </Stack>
-        <Stack minW={50} width="10%" justifyContent="flex-end">
+        <Stack minW={50} justifyContent="flex-end" className="button-search">
           <Button
             disabled={loading}
             onClick={() => handleByYear(year)}
@@ -53,11 +83,18 @@ function Screen({
             Buscar
           </Button>
         </Stack>
-      </Stack>
+      </ContainerSearch>
 
       <Divider borderWidth="2px" mt="10" mb="10" />
 
-      <TableComponent loading={loading} columns={columns} data={data} />
+      <TableComponent
+        loading={loading}
+        columns={columns}
+        data={data}
+        openModal={handleOpenModal}
+      />
+
+      <ModalBiddings isOpen={isOpen} onClose={onClose} bidding={bidding} />
     </ContainerBasic>
   );
 }

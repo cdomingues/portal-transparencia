@@ -6,9 +6,10 @@ import {
   Select,
   Stack,
   Text,
+  useDisclosure,
 } from "@chakra-ui/react";
 import moment from "moment";
-import React from "react";
+import React, { useState } from "react";
 import { isMobile } from "react-device-detect";
 import ChartColumn from "../../../components/Antdesign/ChartPlots/ChartColumn";
 import ChartColumnLineWithPartner from "../../../components/Antdesign/ChartPlots/ColumnLineWithPartner";
@@ -21,6 +22,7 @@ import {
 import { MultiAxisChart } from "../../../components/MultiAxisChart";
 import { TableColumns } from "../../../components/Table";
 import TableWithOutFilterComponent from "../../../components/Table/TableWithoutFilter";
+import ModalPayments from "./modalPayments";
 
 type PropsInput = {
   handler: {
@@ -63,14 +65,23 @@ function Screen({
     handlePayroll,
   },
 }: PropsInput) {
+  const [payments, setPayments] = useState<any>(null);
   const title = "Folha de Pagamento";
-  const description = "É dever do Poder Público dar transparência à Folha de Pagamento dos funcionários. Acompanhe aqui o detalhamento dos cargos e salários dos servidores públicos municipais.";
+  const description =
+    "É dever do Poder Público dar transparência à Folha de Pagamento dos funcionários. Acompanhe aqui o detalhamento dos cargos e salários dos servidores públicos municipais.";
   const chartConfig = {
     direction: isMobile ? "column" : "row",
     width: isMobile ? "100%" : "40%",
     marginRight: isMobile ? "0" : "10%",
     marginLeft: isMobile ? "0" : "5%",
     fontSize: isMobile ? "medium" : "larger",
+  };
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const handleOpenModal = (item: any) => {
+    onOpen();
+    setPayments(item?.row?.values);
   };
 
   return (
@@ -199,6 +210,8 @@ function Screen({
         columns={columns}
         data={data}
       />
+
+      <ModalPayments isOpen={isOpen} onClose={onClose} payments={payments} />
     </ContainerBasic>
   );
 }

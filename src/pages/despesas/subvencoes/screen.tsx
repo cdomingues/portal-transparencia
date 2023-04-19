@@ -5,8 +5,9 @@ import {
   Select,
   Stack,
   Text,
+  useDisclosure,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import { isMobile } from "react-device-detect";
 import { Chart } from "../../../components/Chart";
 import ContainerBasic from "../../../components/Container/Basic";
@@ -16,6 +17,7 @@ import {
 } from "../../../components/GraphWrapper";
 import { MultiAxisChart } from "../../../components/MultiAxisChart";
 import TableComponent, { TableColumns } from "../../../components/Table";
+import ModalGrants from "./modalGrants";
 
 type PropsInput = {
   handler: {
@@ -44,14 +46,23 @@ function Screen({
     handleByYear,
   },
 }: PropsInput) {
+  const [grants, setGrants] = useState<any>(null);
   const title = "Subvenções";
-  const description = "Subvenção é quando a Prefeitura destina recursos financeiros para que entidades cubram seus custos de atividades prestadas à população. Confira aqui as despesas relacionadas a essa natureza.";
+  const description =
+    "Subvenção é quando a Prefeitura destina recursos financeiros para que entidades cubram seus custos de atividades prestadas à população. Confira aqui as despesas relacionadas a essa natureza.";
   const chartConfig = {
     direction: isMobile ? "column" : "row",
     width: isMobile ? "100%" : "40%",
     marginRight: isMobile ? "0" : "10%",
     marginLeft: isMobile ? "0" : "5%",
     fontSize: isMobile ? "medium" : "larger",
+  };
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const handleOpenModal = (item: any) => {
+    onOpen();
+    setGrants(item?.row?.values);
   };
 
   return (
@@ -111,7 +122,14 @@ function Screen({
 
       <Divider borderWidth="2px" mt="10" mb="10" />
 
-      <TableComponent loading={loading} columns={columns} data={data} />
+      <TableComponent
+        loading={loading}
+        columns={columns}
+        data={data}
+        openModal={handleOpenModal}
+      />
+
+      <ModalGrants isOpen={isOpen} onClose={onClose} grants={grants} />
     </ContainerBasic>
   );
 }
