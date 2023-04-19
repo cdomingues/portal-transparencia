@@ -40,9 +40,13 @@ const Apliccants = () => {
                     (index + 1) % 2 === 0 ? "#f7f7f7" : "transparent",
                 }}
               >
-                <Td>{item?.group}</Td>
-                <Td>{item?.item}</Td>
-                <Td>{item?.quantity}</Td>
+                <Td whiteSpace="break-spaces" className="md">
+                  {item?.group}
+                </Td>
+                <Td whiteSpace="break-spaces" className="md">
+                  {item?.item}
+                </Td>
+                <Td whiteSpace="break-spaces">{item?.quantity}</Td>
               </Tr>
             );
           })}

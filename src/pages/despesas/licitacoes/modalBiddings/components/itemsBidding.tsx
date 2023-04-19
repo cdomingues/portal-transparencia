@@ -56,11 +56,17 @@ const ItemsBidding = () => {
                     (index + 1) % 2 === 0 ? "#f7f7f7" : "transparent",
                 }}
               >
-                <Td>{item?.group}</Td>
-                <Td>{item?.item}</Td>
+                <Td whiteSpace="break-spaces" className="sm">
+                  {item?.group}
+                </Td>
+                <Td whiteSpace="break-spaces" className="sm">
+                  {item?.item}
+                </Td>
                 <Td>{item?.quantity}</Td>
                 <Td>{item?.value}</Td>
-                <Td>{item?.winner}</Td>
+                <Td whiteSpace="break-spaces" className="sm">
+                  {item?.winner}
+                </Td>
               </Tr>
             );
           })}

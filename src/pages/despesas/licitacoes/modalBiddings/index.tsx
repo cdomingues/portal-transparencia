@@ -2,7 +2,6 @@ import {
   Modal,
   ModalBody,
   ModalCloseButton,
-  ModalContent,
   ModalHeader,
   Tab,
   TabList,
@@ -10,7 +9,7 @@ import {
   TabPanels,
   Tabs,
 } from "@chakra-ui/react";
-import { RowDetails } from "./styles";
+import { ListTabs, ModalContainer, Panel, RowDetails, TabItem } from "./styles";
 import Details from "./components/details";
 import ItemsBidding from "./components/itemsBidding";
 import Participants from "./components/participants";
@@ -20,7 +19,7 @@ import Files from "./components/files";
 const ModalBiddings = ({ isOpen, onClose, bidding }: any) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose} size={"1xl"}>
-      <ModalContent style={{ marginLeft: "2%", marginRight: "2%" }}>
+      <ModalContainer>
         <ModalHeader style={{ backgroundColor: "#185DA6", color: "white" }}>
           Licitação #{bidding?.numero}
         </ModalHeader>
@@ -29,38 +28,38 @@ const ModalBiddings = ({ isOpen, onClose, bidding }: any) => {
           style={{ paddingLeft: 0, paddingRight: 0, paddingBottom: 0 }}
         >
           <Tabs style={{ padding: 0, margin: 0 }}>
-            <TabList style={{ overflowX: "auto", overflowY: "hidden" }}>
-              <Tab style={{ width: 140 }}>Detalhes</Tab>
-              <Tab style={{ width: 180 }}>Itens da licitação</Tab>
-              <Tab style={{ width: 140 }}>Participantes</Tab>
-              <Tab style={{ width: 140 }}>Requisitantes</Tab>
-              <Tab style={{ width: 140 }}>Arquivos</Tab>
-            </TabList>
+            <ListTabs>
+              <TabItem>Detalhes</TabItem>
+              <TabItem>Itens da licitação</TabItem>
+              <TabItem>Participantes</TabItem>
+              <TabItem>Requisitantes</TabItem>
+              <TabItem>Arquivos</TabItem>
+            </ListTabs>
 
             <TabPanels>
-              <TabPanel style={{ padding: 0 }}>
+              <Panel>
                 <Details bidding={bidding} />
-              </TabPanel>
+              </Panel>
 
-              <TabPanel style={{ padding: 0 }}>
+              <Panel>
                 <ItemsBidding />
-              </TabPanel>
+              </Panel>
 
-              <TabPanel style={{ padding: 0 }}>
+              <Panel>
                 <Participants />
-              </TabPanel>
+              </Panel>
 
-              <TabPanel style={{ padding: 0 }}>
+              <Panel>
                 <Apliccants />
-              </TabPanel>
+              </Panel>
 
-              <TabPanel style={{ padding: 0 }}>
+              <Panel>
                 <Files />
-              </TabPanel>
+              </Panel>
             </TabPanels>
           </Tabs>
         </ModalBody>
-      </ModalContent>
+      </ModalContainer>
     </Modal>
   );
 };
