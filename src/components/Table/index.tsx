@@ -47,7 +47,7 @@ import {
 } from "react-icons/ai";
 import CsvDownload from "react-json-to-csv";
 import ColumnFilter from "./components/ColumnFilter";
-import { CsvItem, TableContainer } from "./styles";
+import { CsvItem, DisplayFlex, TableContainer } from "./styles";
 import { BsChevronDown, BsChevronExpand, BsChevronUp } from "react-icons/bs";
 import { BiCameraMovie } from "react-icons/bi";
 import { isMobile } from "react-device-detect";
@@ -183,7 +183,7 @@ function TableComponent({
           </ModalContent>
         )}
       </Modal>
-      <Flex color="white" direction={isMobile ? "column" : "row"}>
+      <DisplayFlex color="white" direction={isMobile ? "column" : "row"}>
         <Box p="4" pl={0}>
           <Button
             _hover={{ bg: "table.button.hover" }}
@@ -196,6 +196,7 @@ function TableComponent({
               onOpen();
             }}
             disabled={loading}
+            style={{ width: 180 }}
           >
             Video Explicativo
           </Button>
@@ -212,6 +213,7 @@ function TableComponent({
               onOpen();
             }}
             disabled={loading}
+            style={{ width: 180 }}
           >
             Dicionário de Dados
           </Button>
@@ -227,6 +229,7 @@ function TableComponent({
               as={Button}
               leftIcon={<AiOutlineDatabase />}
               disabled={loading}
+              style={{ width: 180 }}
             >
               Dados Abertos
             </MenuButton>
@@ -247,7 +250,7 @@ function TableComponent({
           </Menu>
         </Box>
         <Spacer />
-      </Flex>
+      </DisplayFlex>
       <TableContainer>
         {loading ? (
           <Box

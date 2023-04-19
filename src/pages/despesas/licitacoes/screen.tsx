@@ -21,6 +21,7 @@ import React, { useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../../components/Table";
 import ModalBiddings from "./modalBiddings";
+import { ContainerSearch } from "./styles";
 
 type PropsInput = {
   handler: {
@@ -51,7 +52,7 @@ function Screen({
 
   return (
     <ContainerBasic title={title} description={description}>
-      <Stack direction="row">
+      <ContainerSearch direction="row">
         <Stack minW={86} width="25%">
           <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
             Ano
@@ -70,7 +71,7 @@ function Screen({
             ))}
           </Select>
         </Stack>
-        <Stack minW={50} width="10%" justifyContent="flex-end">
+        <Stack minW={50} justifyContent="flex-end" className="button-search">
           <Button
             disabled={loading}
             onClick={() => handleByYear(year)}
@@ -82,7 +83,7 @@ function Screen({
             Buscar
           </Button>
         </Stack>
-      </Stack>
+      </ContainerSearch>
 
       <Divider borderWidth="2px" mt="10" mb="10" />
 
