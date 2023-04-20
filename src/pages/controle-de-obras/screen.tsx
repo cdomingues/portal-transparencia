@@ -10,6 +10,7 @@ import { IoIosConstruct } from "react-icons/io";
 import { TbUsers, TbBus, TbRibbonHealth } from "react-icons/tb";
 import { BsTree } from "react-icons/bs";
 import CardTotal from "../../components/CardTotal";
+import MapOfConstructions from "../../components/MapOfConstructions";
 
 type PropsInput = {
   handler?: {
@@ -87,6 +88,8 @@ function Screen({ handler }: PropsInput) {
           />
         </div>
       </Style.BannerTotals>
+
+      <MapOfConstructions />
     </LayoutConstructions>
   );
 }
