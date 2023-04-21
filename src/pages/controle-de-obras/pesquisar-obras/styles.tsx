@@ -21,6 +21,37 @@ export const Description = styled.div`
     align-items: center;
     justify-content: flex-end;
   }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .page-item {
+    margin: 0 5px;
+  }
+
+  .page-link {
+    display: block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .page-link:hover {
+    background-color: #e9ecef;
+  }
+
+  .page-link.active {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+  }
 `;
 
 export const SearchBar = styled.div`

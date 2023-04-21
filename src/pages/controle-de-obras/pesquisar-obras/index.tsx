@@ -44,7 +44,7 @@ const SearchBuildingsController = () => {
     setArrayBuildings(filteredValues);
   };
 
-  const handleChangePage = (event: unknown, newPage: number) => {
+  const handleChangePage = (newPage: number) => {
     setPage(newPage - 1);
   };
 

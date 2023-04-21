@@ -5,6 +5,10 @@ import { parseMoney } from "../../../utils/mask";
 import colors from "../../../styles/colors";
 import Carousel from "../../../components/Swiper";
 import { Input, Select } from "@chakra-ui/react";
+interface PropsPagination {
+  totalPages: number;
+  onPageChange: (pageNumber: number) => void;
+}
 
 const SearchBuildingsScreen = ({ handlers }: any) => {
   const {
@@ -23,6 +27,28 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
     numberOfPages,
     handleChangePage,
   } = handlers;
+
+  function Pagination({ totalPages, onPageChange }: PropsPagination) {
+    const pageNumbers = [];
+
+    for (let i = 1; i <= totalPages; i++) {
+      pageNumbers.push(i);
+    }
+
+    return (
+      <div>
+        <div className="pagination">
+          {pageNumbers.map((number) => (
+            <div key={number} className="page-item">
+              <a className="page-link" onClick={() => onPageChange(number)}>
+                {number}
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <LayoutConstructions
@@ -177,6 +203,12 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
             onChange={handleChangePage}
           />
         </div> */}
+        <div className="bottom">
+          <Pagination
+            totalPages={numberOfPages}
+            onPageChange={handleChangePage}
+          />
+        </div>
       </Style.Description>
     </LayoutConstructions>
   );
