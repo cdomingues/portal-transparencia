@@ -9,6 +9,7 @@ import { MdPark } from "react-icons/md";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import colors from "../../styles/colors";
+import { Input } from "@chakra-ui/react";
 
 const MapWithNoSSR = dynamic(() => import("../../components/Map"), {
   ssr: false,
@@ -50,16 +51,12 @@ const MapOfConstructions = () => {
         >
           Filtrar por
         </Text.Heading4Medium>
-        {/* <TextField
-          id="outlined-basic"
-          label="Nome ou descrição da obra"
-          variant="outlined"
-          className="input"
+        <Input
+          placeholder="Nome ou descrição da obra"
           onChange={(event) =>
             setNameOrDescriptionConstruction(event.target.value)
           }
-        /> */}
-
+        />
         <Text.Heading4Medium
           color={colors.black}
           marginTop={5}
@@ -67,13 +64,10 @@ const MapOfConstructions = () => {
         >
           Buscar por
         </Text.Heading4Medium>
-        {/* <TextField
-          id="outlined-basic"
-          label="Endereço"
-          variant="outlined"
-          className="input"
+        <Input
+          placeholder="Endereço"
           onChange={(event) => setDirectionConstruction(event.target.value)}
-        /> */}
+        />
       </Style.Search>
 
       <Style.Options>
