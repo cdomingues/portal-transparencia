@@ -130,7 +130,7 @@ function Screen({ handler }: PropsInput) {
             title="Melhor espaço público"
             description="Trabajamos por una Ciudad con más y mejor espacio público y verde, disfrutable, seguro y cercano a los vecinos y las vecinas."
             backgroundImageSrc="https://cdn.buenosaires.gob.ar/BAObrasrenovado/CHACARITA-NICARAGUA-DORREGO.jpg"
-            onClick={() => router.push("/melhor-espaco-publico")}
+            onClick={() => router.push("/controle-de-obras/espaco-publico")}
           />
         </div>
       </Style.ContainerCardsTransformations>
