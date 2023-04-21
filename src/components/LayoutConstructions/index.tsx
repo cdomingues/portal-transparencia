@@ -51,7 +51,6 @@ const Layout = ({
   return (
     <Style.Container>
       <HeadComponent title={title} prefix={prefix} description={description} />
-      <Header />
 
       {breadcrumb && (
         <div className="breadcrumb-container">
@@ -118,7 +117,6 @@ const Layout = ({
       )}
 
       <Style.Content>{children}</Style.Content>
-      <Footer />
     </Style.Container>
   );
 };

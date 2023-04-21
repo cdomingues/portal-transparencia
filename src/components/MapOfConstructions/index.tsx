@@ -90,7 +90,7 @@ const MapOfConstructions = () => {
 
             <Text.SmallerBold
               className="button-text"
-              style={{ color: colors.black }}
+              style={{ color: colors.white }}
             >
               Mapa
             </Text.SmallerBold>

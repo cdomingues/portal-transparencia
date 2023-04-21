@@ -10,7 +10,7 @@ export const Container = styled.div`
   .breadcrumb-container {
     width: auto;
     position: absolute;
-    top: 176px;
+    top: 90px;
     z-index: 1000;
     margin: 0 auto !important;
     display: flex;
