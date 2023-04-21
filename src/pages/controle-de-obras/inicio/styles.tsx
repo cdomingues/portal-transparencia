@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import { Heading1Medium } from "../../styles/text";
-import colors from "../../styles/colors";
+import { Heading1Medium } from "../../../styles/text";
+import colors from "../../../styles/colors";
 
 export const Banner = styled.div`
   width: 100%;

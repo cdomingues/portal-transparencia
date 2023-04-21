@@ -11,6 +11,8 @@ import {
   AiOutlineAppstore,
   AiOutlineException,
   AiOutlineDollar,
+  AiOutlineHome,
+  AiOutlineInfoCircle,
 } from "react-icons/ai";
 import { BiBriefcaseAlt, BiMoney } from "react-icons/bi";
 import { BsBricks, BsCameraVideo, BsFileText } from "react-icons/bs";
@@ -33,7 +35,18 @@ const publicRoutes: IPublicRoute[] = [
     name: "Controle de Obras",
     icon: BsBricks,
     path: "/controle-de-obras",
-    group: undefined,
+    group: [
+      {
+        name: "Início",
+        path: "/inicio",
+        icon: AiOutlineHome,
+      },
+      {
+        name: "Sobre as Obras",
+        path: "/sobre-as-obras",
+        icon: AiOutlineInfoCircle,
+      },
+    ],
   },
   {
     name: "Controle de Radares",

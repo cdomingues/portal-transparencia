@@ -1,18 +1,18 @@
 import React from "react";
 import * as Style from "./styles";
-import * as Text from "../../styles/text";
-import { TableColumns } from "../../components/Table";
-import LayoutConstructions from "../../components/LayoutConstructions";
-import colors from "../../styles/colors";
+import * as Text from "../../../styles/text";
+import { TableColumns } from "../../../components/Table";
+import LayoutConstructions from "../../../components/LayoutConstructions";
+import colors from "../../../styles/colors";
 import { useRouter } from "next/router";
 import { AiFillInfoCircle, AiOutlineSearch } from "react-icons/ai";
 import { IoIosConstruct } from "react-icons/io";
 import { TbUsers, TbBus, TbRibbonHealth } from "react-icons/tb";
 import { BsTree } from "react-icons/bs";
-import CardTotal from "../../components/CardTotal";
-import MapOfConstructions from "../../components/MapOfConstructions";
-import CardBigTransformation from "../../components/CardBigTransformation";
-import CardTransformation from "../../components/CardTransformation";
+import CardTotal from "../../../components/CardTotal";
+import MapOfConstructions from "../../../components/MapOfConstructions";
+import CardBigTransformation from "../../../components/CardBigTransformation";
+import CardTransformation from "../../../components/CardTransformation";
 
 type PropsInput = {
   handler?: {
@@ -36,7 +36,10 @@ function Screen({ handler }: PropsInput) {
             Conheça as obras que estão transformando nossa cidade.
           </Text.Heading2Medium>
           <div className="banner-bottom">
-            <div className="chip-banner">
+            <div
+              className="chip-banner"
+              onClick={() => router.push("/controle-de-obras/sobre-as-obras")}
+            >
               <AiFillInfoCircle fontSize={18} color={colors.white} />
 
               <Text.Heading5Medium color={colors.white} fontWeight={700}>

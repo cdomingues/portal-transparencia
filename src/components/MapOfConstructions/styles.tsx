@@ -4,7 +4,7 @@ import colors from "../../styles/colors";
 export const Container = styled.div`
   width: 100%;
   min-height: 800px;
-  background-color: ${colors.white};
+  background-color: ${colors.transparent};
   /* max-width: 1340px; */
   margin: 0 auto;
   padding: 20px 10px;

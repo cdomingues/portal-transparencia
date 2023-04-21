@@ -8,14 +8,14 @@ export const Container = styled.div`
   flex-direction: column;
 
   .breadcrumb-container {
-    width: 100%;
+    width: auto;
     position: absolute;
-    top: 80px;
+    top: 176px;
     z-index: 1000;
     margin: 0 auto !important;
     display: flex;
-    padding: 10px 0px;
-    background-color: ${colors.primaryDefault60p};
+    padding: 20px 20px;
+    background-color: ${colors.transparent};
 
     .breadcrumb {
       margin: 0 auto;
@@ -34,7 +34,7 @@ export const Container = styled.div`
 export const Content = styled.div`
   width: 100%;
   height: auto;
-  background-color: ${colors.white};
+  background-color: ${colors.transparent};
 `;
 
 export const BannerDefault = styled.div`
