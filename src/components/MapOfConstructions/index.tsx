@@ -221,14 +221,7 @@ const MapOfConstructions = () => {
             <button
               className="buttons"
               style={{ borderRadius: 10 }}
-              onClick={() =>
-                router.push(
-                  `bairros/${constructionSelected.bairro.replaceAll(
-                    " ",
-                    "-"
-                  )}/${constructionSelected._id}`
-                )
-              }
+              onClick={() => router.push(`/controle-de-obras/construcao`)}
             >
               <Text.Heading5Medium
                 color={colors.white}

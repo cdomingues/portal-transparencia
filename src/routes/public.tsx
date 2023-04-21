@@ -58,6 +58,12 @@ const publicRoutes: IPublicRoute[] = [
         path: "/obras-abertas",
         icon: AiOutlineTool,
       },
+      // {
+      //   name: "Obra",
+      //   path: "/construcao",
+      //   icon: AiOutlineTool,
+
+      // },
     ],
   },
   {
