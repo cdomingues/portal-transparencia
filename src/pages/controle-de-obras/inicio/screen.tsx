@@ -58,7 +58,10 @@ function Screen({ handler }: PropsInput) {
               </Text.Heading5Bold>
             </div>
 
-            <div className="chip-banner">
+            <div
+              className="chip-banner"
+              onClick={() => router.push("/controle-de-obras/obras-abertas")}
+            >
               <IoIosConstruct fontSize={18} color={colors.white} />
 
               <Text.Heading5Bold color={colors.white} fontWeight={700}>
