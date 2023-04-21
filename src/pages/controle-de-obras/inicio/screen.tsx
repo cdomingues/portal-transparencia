@@ -116,13 +116,15 @@ function Screen({ handler }: PropsInput) {
             title="Grandes transformaciones de la Ciudad"
             description="Tenemos un plan para seguir mejorando la calidad de vida de los vecinos de la Ciudad."
             backgroundImageSrc="https://cdn.buenosaires.gob.ar/BAObrasrenovado/MONSERRAT-PASEO-DEL-BAJO-1.jpg"
-            onClick={() => router.push("/grandes-transformacoes-da-cidade")}
+            onClick={() =>
+              router.push("/controle-de-obras/grandes-transformacoes-da-cidade")
+            }
           />
           <CardTransformation
             title="Transformações de 48 bairros"
             description="Recorré los barrios de la Ciudad para conocer qué estamos haciendo en cada uno."
             backgroundImageSrc="https://cdn.buenosaires.gob.ar/BAObrasrenovado/BALVANERA-MANZANA-66.jpg"
-            onClick={() => router.push("/bairros")}
+            onClick={() => router.push("/controle-de-obras/bairros")}
           />
           <CardTransformation
             title="Melhor espaço público"
