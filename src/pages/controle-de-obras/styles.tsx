@@ -152,13 +152,13 @@ export const ContainerCardsTransformations = styled.div`
     gap: 25px;
   }
 
-  @media (max-width: 1060px) {
+  @media (max-width: 1275px) {
     .align-cards {
       grid-template-columns: 1fr 1fr;
     }
   }
 
-  @media (max-width: 670px) {
+  @media (max-width: 980px) {
     .align-cards {
       grid-template-columns: 1fr;
     }

@@ -11,6 +11,8 @@ import { TbUsers, TbBus, TbRibbonHealth } from "react-icons/tb";
 import { BsTree } from "react-icons/bs";
 import CardTotal from "../../components/CardTotal";
 import MapOfConstructions from "../../components/MapOfConstructions";
+import CardBigTransformation from "../../components/CardBigTransformation";
+import CardTransformation from "../../components/CardTransformation";
 
 type PropsInput = {
   handler?: {
@@ -21,6 +23,7 @@ type PropsInput = {
 };
 
 function Screen({ handler }: PropsInput) {
+  const router = useRouter();
   return (
     <LayoutConstructions breadcrumb={false}>
       <Style.Banner>
@@ -90,6 +93,36 @@ function Screen({ handler }: PropsInput) {
       </Style.BannerTotals>
 
       <MapOfConstructions />
+
+      <Style.ContainerBigTransformations>
+        <Style.Heading>Grandes transformações da cidade</Style.Heading>
+        <CardBigTransformation></CardBigTransformation>
+      </Style.ContainerBigTransformations>
+
+      <Style.ContainerCardsTransformations>
+        <Style.Heading>Conheça mais obras em transformação</Style.Heading>
+
+        <div className="align-cards">
+          <CardTransformation
+            title="Grandes transformaciones de la Ciudad"
+            description="Tenemos un plan para seguir mejorando la calidad de vida de los vecinos de la Ciudad."
+            backgroundImageSrc="https://cdn.buenosaires.gob.ar/BAObrasrenovado/MONSERRAT-PASEO-DEL-BAJO-1.jpg"
+            onClick={() => router.push("/grandes-transformacoes-da-cidade")}
+          />
+          <CardTransformation
+            title="Transformações de 48 bairros"
+            description="Recorré los barrios de la Ciudad para conocer qué estamos haciendo en cada uno."
+            backgroundImageSrc="https://cdn.buenosaires.gob.ar/BAObrasrenovado/BALVANERA-MANZANA-66.jpg"
+            onClick={() => router.push("/bairros")}
+          />
+          <CardTransformation
+            title="Melhor espaço público"
+            description="Trabajamos por una Ciudad con más y mejor espacio público y verde, disfrutable, seguro y cercano a los vecinos y las vecinas."
+            backgroundImageSrc="https://cdn.buenosaires.gob.ar/BAObrasrenovado/CHACARITA-NICARAGUA-DORREGO.jpg"
+            onClick={() => router.push("/melhor-espaco-publico")}
+          />
+        </div>
+      </Style.ContainerCardsTransformations>
     </LayoutConstructions>
   );
 }
