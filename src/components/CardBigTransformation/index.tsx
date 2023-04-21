@@ -1,6 +1,5 @@
 import * as Style from "./styles";
 import * as Text from "../../styles/text";
-import Button from "@mui/material/Button";
 import { MdOutlineArrowRight } from "react-icons/md";
 import { useRouter } from "next/router";
 import colors from "../../styles/colors";

@@ -13,6 +13,7 @@ import {
   AiOutlineDollar,
   AiOutlineHome,
   AiOutlineInfoCircle,
+  AiOutlineSearch,
 } from "react-icons/ai";
 import { BiBriefcaseAlt, BiMoney } from "react-icons/bi";
 import { BsBricks, BsCameraVideo, BsFileText } from "react-icons/bs";
@@ -45,6 +46,11 @@ const publicRoutes: IPublicRoute[] = [
         name: "Sobre as Obras",
         path: "/sobre-as-obras",
         icon: AiOutlineInfoCircle,
+      },
+      {
+        name: "Pesquise Obras",
+        path: "/pesquisar-obras",
+        icon: AiOutlineSearch,
       },
     ],
   },

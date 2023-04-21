@@ -1,15 +1,12 @@
 import * as Style from "./styles";
 import * as Text from "../../styles/text";
-import TextField from "@mui/material/TextField";
 import { RiMapPin2Fill } from "react-icons/ri";
 import { BsPieChartFill, BsGrid1X2Fill } from "react-icons/bs";
 import { IoStatsChartSharp, IoStar } from "react-icons/io5";
 import dynamic from "next/dynamic";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { MdPark } from "react-icons/md";
-import { Button } from "@mui/material";
 import { useState } from "react";
-import BubbleGroups from "./bubbleGroups";
 import { useRouter } from "next/router";
 import colors from "../../styles/colors";
 
