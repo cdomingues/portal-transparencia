@@ -51,7 +51,7 @@ export const Banner = styled.div`
     }
   }
 
-  @media (max-width: 1060px) {
+  @media (max-width: 1650px) {
     height: 460px;
     .content {
       max-width: 900px;
@@ -109,7 +109,13 @@ export const BannerTotals = styled.div`
     position: relative;
   }
 
-  @media (max-width: 1060px) {
+  @media (max-width: 1650px) {
+    .content {
+      max-width: 900px;
+    }
+  }
+
+  @media (max-width: 1230px) {
     height: 920px;
 
     .content {

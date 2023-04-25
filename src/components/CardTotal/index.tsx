@@ -38,11 +38,11 @@ const CardTotal = ({
     <Style.Container>
       {icon ? icon : <BsTree color={colors.white} fontSize={60} />}
 
-      <Text.Heading1Regular fontSize={3} color={colors.white} marginTop={15}>
+      <Text.Heading1Regular fontSize={2.2} color={colors.white} marginTop={15}>
         {valueCounting}
       </Text.Heading1Regular>
 
-      <Text.Heading2Regular fontSize={1.3} color={colors.white} marginTop={15}>
+      <Text.Heading2Regular fontSize={1.1} color={colors.white} marginTop={15}>
         {description}
       </Text.Heading2Regular>
     </Style.Container>

@@ -73,7 +73,13 @@ const MapAllMarkersComponent = ({
   const ZOOM_LEVEL = width > 576 ? 14 : 12;
 
   return (
-    <div style={{ height: "600px", width: "100%", zIndex: 0 }}>
+    <div
+      style={{
+        height: "740px",
+        width: "100%",
+        zIndex: 0,
+      }}
+    >
       <MapContainer
         className="map-style"
         zoom={ZOOM_LEVEL}

@@ -62,7 +62,7 @@ export const Container = styled.div`
 
   .map-style {
     width: 100%;
-    height: 600px;
+    height: 740px;
   }
 
   .map-one-marker-style {
@@ -103,6 +103,7 @@ export const Search = styled.div`
     left: 0px;
     box-shadow: none;
     margin-bottom: 10px;
+    background-color: ${colors.transparent};
   }
 
   .input {
@@ -116,7 +117,7 @@ export const Options = styled.div`
   height: auto;
   background-color: ${colors.white};
   margin-top: 45px;
-  margin-bottom: -510px;
+  margin-bottom: -600px;
   margin-left: 45px;
   z-index: 10000;
   position: relative;
@@ -145,6 +146,7 @@ export const Options = styled.div`
     margin-left: 0px;
     box-shadow: none;
     padding: 0px;
+    background-color: ${colors.transparent};
 
     .buttons {
       display: grid;
