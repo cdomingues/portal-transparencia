@@ -203,7 +203,7 @@ const publicRoutes: IPublicRoute[] = [
       },
       {
         defaultPath: "/despesas",
-        name: "Públicidade e Propaganda",
+        name: "Gastos com publicidade",
         path: "/propaganda",
         icon: AiOutlineTable,
       },
@@ -254,7 +254,7 @@ const publicRoutes: IPublicRoute[] = [
       },
       {
         defaultPath: "/execucao-orcamentaria",
-        name: "Despesas Restos à Pagar",
+        name: "Despesas - Restos à Pagar",
         path: "/despesas-restos",
         icon: AiOutlineTable,
       },
