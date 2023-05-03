@@ -142,7 +142,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                         Monto:
                       </Text.Heading4Bold>
                       <Text.Heading5Regular color={colors.black}>
-                        {parseMoney(item.Valor_inicial)}
+                        {parseMoney(item.valor_contrato)}
                       </Text.Heading5Regular>
                     </div>
                   </div>
@@ -152,7 +152,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                       Descripción:
                     </Text.Heading4Bold>
                     <Text.Heading5Regular color={colors.black}>
-                      {item.Descrição}
+                      {item.descricao_da_obra}
                     </Text.Heading5Regular>
                   </div>
 
@@ -162,7 +162,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                         Programa:
                       </Text.Heading4Bold>
                       <Text.Heading5Regular color={colors.black}>
-                        {item.Programa}
+                        {item.programa_ppa}
                       </Text.Heading5Regular>
                     </div>
                     <div className="item">
