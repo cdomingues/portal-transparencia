@@ -7,6 +7,7 @@ import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import theme from "../themes";
 import moment from "moment";
+import FileCSVWrapper from "../context/fileCsv";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [loaded, setLoaded] = useState(false);
@@ -22,7 +23,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <CookiesProvider>
         {loaded && (
           <PublicLayout>
-            <Component {...pageProps} />
+            <FileCSVWrapper>
+              <Component {...pageProps} />
+            </FileCSVWrapper>
           </PublicLayout>
         )}
       </CookiesProvider>
