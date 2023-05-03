@@ -183,7 +183,7 @@ const MapOfConstructions = () => {
               </div>
               <div>
                 <Text.Heading4Bold lineHeight={100}>
-                  {constructionSelected?.Nome}
+                  {constructionSelected?.nome_da_obra}
                 </Text.Heading4Bold>
                 <Text.Heading5Regular marginTop={5}>
                   {constructionSelected?.bairro}
@@ -193,8 +193,8 @@ const MapOfConstructions = () => {
 
             <div className="status">
               <Text.Heading5Bold color={colors.white}>
-                {constructionSelected?.Status}{" "}
-                {Number(constructionSelected?.percentual_exec)}%
+                {constructionSelected?.status}{" "}
+                {Number(constructionSelected?.Secretaria_contrante)}%
               </Text.Heading5Bold>
             </div>
 
@@ -209,7 +209,7 @@ const MapOfConstructions = () => {
             </Text.Heading5Bold>
 
             <Text.Heading5Regular marginTop={5} marginBottom={20}>
-              Comuna {constructionSelected?.Id_bairro}
+              Comuna {constructionSelected?.id_bairro}
             </Text.Heading5Regular>
 
             <button

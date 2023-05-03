@@ -31,7 +31,9 @@ const SearchBuildingsController = () => {
   const handleFilterBuildings = () => {
     let filteredValues = file?.result?.records?.filter(
       (item: any) =>
-        item?.Nome?.toLowerCase()?.includes(nameBuilding?.toLowerCase()) &&
+        item?.nome_da_obra
+          ?.toLowerCase()
+          ?.includes(nameBuilding?.toLowerCase()) &&
         item?.empresa_contratada
           ?.toLowerCase()
           ?.includes(companyName?.toLowerCase()) &&

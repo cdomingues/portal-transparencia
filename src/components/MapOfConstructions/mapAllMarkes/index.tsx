@@ -41,16 +41,16 @@ const MapAllMarkersComponent = ({
 
   const filteredNameValues = nameOrDescriptionConstruction
     ? file?.result?.records.filter((item: any) =>
-        item?.Nome?.toLowerCase().includes(
-          nameOrDescriptionConstruction.toLowerCase()
-        )
+        item?.nome_da_obra
+          ?.toLowerCase()
+          .includes(nameOrDescriptionConstruction.toLowerCase())
       )
     : null;
   const filteredDescriptionValues = nameOrDescriptionConstruction
     ? file?.result?.records.filter((item: any) =>
-        item?.Descrição?.toLowerCase().includes(
-          nameOrDescriptionConstruction.toLowerCase()
-        )
+        item?.descricao_da_obra
+          ?.toLowerCase()
+          .includes(nameOrDescriptionConstruction.toLowerCase())
       )
     : null;
 
@@ -90,8 +90,13 @@ const MapAllMarkersComponent = ({
         {filteredValues?.map((item: any, index: number) => (
           <Marker
             key={index}
-            position={[item.lat, item.lng]}
-            icon={translatorIcon(item.Categoria)}
+            position={[
+              item?.latitude != "dasd" ? item?.latitude : "-23.510053316336844",
+              item?.longitude != "asd"
+                ? item?.longitude
+                : "-46.193725156990325",
+            ]}
+            icon={translatorIcon(item?.titulo)}
             eventHandlers={{
               click: (e) => {
                 setConstructionSelected(item);

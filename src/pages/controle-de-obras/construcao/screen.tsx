@@ -11,11 +11,11 @@ const ConstructionScreen = ({ id }: any) => {
   const file = useFileCSVContext();
 
   const buildingSelected = file.result.records.filter(
-    (item: any) => item.ID === String(id)
+    (item: any) => item?.id === String(id)
   )[0];
 
   const othersBuildings = file.result.records.filter(
-    (item: any) => item.ID != String(id)
+    (item: any) => item?.id != String(id)
   );
 
   const buildingData = (item: any) => {
@@ -25,8 +25,8 @@ const ConstructionScreen = ({ id }: any) => {
     item?.imagen_3 && arrayImages.push(item?.imagen_3);
     item?.imagen_4 && arrayImages.push(item?.imagen_4);
 
-    let subtract = moment(item?.prev_termino, "DD/MM/YYYY").diff(
-      moment(item?.Inicio_Obra, "DD/MM/YYYY")
+    let subtract = moment(item?.conclusao_ate, "DD/MM/YYYY").diff(
+      moment(item?.inicio_ate, "DD/MM/YYYY")
     );
 
     let days = moment.duration(subtract).asDays().toFixed();
@@ -39,11 +39,11 @@ const ConstructionScreen = ({ id }: any) => {
           marginTop={80}
           className="title"
         >
-          {item?.Escopo_Obra}
+          {item?.escopo_da_obra}
         </Text.Heading1Regular>
 
         <Text.Heading5Regular color={colors.grayDark} marginTop={15}>
-          {item?.Descrição}
+          {item?.descricao_da_obra}
         </Text.Heading5Regular>
 
         <Style.Row>
@@ -76,7 +76,7 @@ const ConstructionScreen = ({ id }: any) => {
                     Início:
                   </Text.Heading4Bold>
                   <Text.Heading5Regular color={colors.black}>
-                    {item?.Inicio_Obra}
+                    {item?.inicio_ate}
                   </Text.Heading5Regular>
                 </div>
 
@@ -85,7 +85,7 @@ const ConstructionScreen = ({ id }: any) => {
                     Fim:
                   </Text.Heading4Bold>
                   <Text.Heading5Regular color={colors.black}>
-                    {item?.prev_termino}
+                    {item?.conclusao_ate}
                   </Text.Heading5Regular>
                 </div>
               </div>
@@ -161,10 +161,10 @@ const ConstructionScreen = ({ id }: any) => {
 
   return (
     <LayoutConstructions
-      title={buildingSelected?.Escopo_Obra}
+      title={buildingSelected?.escopo_da_obra}
       bannerSrc={buildingSelected?.imagen_1}
       bannerTitle={buildingSelected?.Categoria}
-      bannerDescription={buildingSelected?.Descrição}
+      bannerDescription={buildingSelected?.descricao_da_obra}
     >
       <Style.Container>
         {buildingData(buildingSelected)}
