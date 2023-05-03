@@ -37,8 +37,10 @@ import { FiMenu, FiBell } from "react-icons/fi";
 import { isMobile } from "react-device-detect";
 import { IconType } from "react-icons";
 import logo from "../../../../assets/images/logo.png";
+import logoDark from "../../../../assets/images/logo_branco.png";
 import { GroupRoutes, IPublicRoute, Routes } from "../../../../types";
 import Header from "../Header";
+import { useRouter } from "next/router";
 
 interface SidebarProps extends BoxProps {
   onClose: () => void;
@@ -195,6 +197,7 @@ function NavItem({
 }
 
 function SidebarContent({ onClose, routes, ...rest }: SidebarProps) {
+  const { colorMode } = useColorMode();
   const media = [
     {
       name: "Facebook",
@@ -253,7 +256,7 @@ function SidebarContent({ onClose, routes, ...rest }: SidebarProps) {
         >
           <Image
             alt="logo"
-            src={logo.src}
+            src={colorMode === "dark" ? logoDark.src : logo.src}
             style={{ width: isMobile ? "50%" : "100%" }}
           />
         </Link>
@@ -300,6 +303,7 @@ interface MobileProps extends FlexProps {
 }
 function MobileNav({ onOpen, ...rest }: MobileProps) {
   const { colorMode, toggleColorMode } = useColorMode();
+  const router = useRouter();
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
@@ -326,8 +330,14 @@ function MobileNav({ onOpen, ...rest }: MobileProps) {
         fontWeight="bold"
         style={{ textAlign: "center" }}
       >
-        <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-          <Image alt="logo" width="80%" minW="9rem" src={logo.src} />
+        <Flex h="20" alignItems="center" mx="8" justifyContent="center">
+          <Image
+            alt="logo"
+            width={colorMode === "dark" ? "34%" : "60%"}
+            minW="9rem"
+            src={colorMode === "dark" ? logoDark.src : logo.src}
+            onClick={() => router.push("/")}
+          />
         </Flex>
       </Text>
       <Button
