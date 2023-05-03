@@ -5,6 +5,7 @@ import { parseMoney } from "../../../utils/mask";
 import colors from "../../../styles/colors";
 import Carousel from "../../../components/Swiper";
 import { Input, Select } from "@chakra-ui/react";
+import { useState } from "react";
 interface PropsPagination {
   totalPages: number;
   onPageChange: (pageNumber: number) => void;
@@ -27,6 +28,31 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
     numberOfPages,
     handleChangePage,
   } = handlers;
+  const [password, setPassword] = useState("");
+  if (!password || password != "abobora123") {
+    return (
+      <div
+        style={{
+          width: "500px",
+          height: "200px",
+          margin: "0 auto",
+          display: "flex",
+          flexDirection: "column",
+          backgroundColor: "white",
+          padding: 20,
+          borderRadius: 30,
+        }}
+      >
+        <span>Digite a senha para acessar:</span>
+        <Input
+          placeholder="Senha"
+          onChange={(event) => setPassword(event.target.value)}
+          type="password"
+          style={{ marginTop: 5 }}
+        />
+      </div>
+    );
+  }
 
   function Pagination({ totalPages, onPageChange }: PropsPagination) {
     const pageNumbers = [];

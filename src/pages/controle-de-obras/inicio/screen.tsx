@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as Style from "./styles";
 import * as Text from "../../../styles/text";
 import { TableColumns } from "../../../components/Table";
@@ -13,6 +13,7 @@ import CardTotal from "../../../components/CardTotal";
 import MapOfConstructions from "../../../components/MapOfConstructions";
 import CardBigTransformation from "../../../components/CardBigTransformation";
 import CardTransformation from "../../../components/CardTransformation";
+import { Input } from "@chakra-ui/react";
 
 type PropsInput = {
   handler?: {
@@ -24,6 +25,32 @@ type PropsInput = {
 
 function Screen({ handler }: PropsInput) {
   const router = useRouter();
+  const [password, setPassword] = useState("");
+  if (!password || password != "abobora123") {
+    return (
+      <div
+        style={{
+          width: "500px",
+          height: "200px",
+          margin: "0 auto",
+          display: "flex",
+          flexDirection: "column",
+          backgroundColor: "white",
+          padding: 20,
+          borderRadius: 30,
+        }}
+      >
+        <span>Digite a senha para acessar:</span>
+        <Input
+          placeholder="Senha"
+          onChange={(event) => setPassword(event.target.value)}
+          type="password"
+          style={{ marginTop: 5 }}
+        />
+      </div>
+    );
+  }
+
   return (
     <LayoutConstructions breadcrumb={false}>
       <Style.Banner>

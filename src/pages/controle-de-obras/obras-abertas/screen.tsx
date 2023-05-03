@@ -1,8 +1,35 @@
+import { useState } from "react";
 import LayoutConstructions from "../../../components/LayoutConstructions";
 import * as Text from "../../../styles/text";
 import * as Style from "./styles";
+import { Input } from "@chakra-ui/react";
 
 const OpenedConstructionsScreen = () => {
+  const [password, setPassword] = useState("");
+  if (!password || password != "abobora123") {
+    return (
+      <div
+        style={{
+          width: "500px",
+          height: "200px",
+          margin: "0 auto",
+          display: "flex",
+          flexDirection: "column",
+          backgroundColor: "white",
+          padding: 20,
+          borderRadius: 30,
+        }}
+      >
+        <span>Digite a senha para acessar:</span>
+        <Input
+          placeholder="Senha"
+          onChange={(event) => setPassword(event.target.value)}
+          type="password"
+          style={{ marginTop: 5 }}
+        />
+      </div>
+    );
+  }
   return (
     <LayoutConstructions
       title="Abertas"
