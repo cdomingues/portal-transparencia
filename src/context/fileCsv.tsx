@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import fileCSV from "../assets/file";
 import axios from "axios";
+import { baseUrl } from "../config";
 
 type FileCSVContextProps = {
   children: ReactNode;
@@ -22,7 +23,7 @@ export function FileCSVWrapper({ children }: FileCSVContextProps) {
     "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIwR3I1S1FoaFI0UVVoenVvWE1fUjhuZXd0WHNvMzhaZ2tnV2NFNTNnOE9zIiwiaWF0IjoxNjgzMDU5NDE1fQ.b38D5ovN6VWz_nRvq0V9DR08WXjqm8i6LHbmwptb8Ns";
   const getFileOfConstructions = async () => {
     const { data } = await axios.get(
-      `https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=c23921f1-9d90-44b1-b710-02233f9d47c5`
+      `${baseUrl}/api/3/action/datastore_search?resource_id=c23921f1-9d90-44b1-b710-02233f9d47c5`
     );
 
     if (!data) {

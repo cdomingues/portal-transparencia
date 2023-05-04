@@ -23,9 +23,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <CookiesProvider>
         {loaded && (
           <PublicLayout>
-            <FileCSVWrapper>
-              <Component {...pageProps} />
-            </FileCSVWrapper>
+            {/* <FileCSVWrapper> */}
+            <Component {...pageProps} />
+            {/* </FileCSVWrapper> */}
           </PublicLayout>
         )}
       </CookiesProvider>

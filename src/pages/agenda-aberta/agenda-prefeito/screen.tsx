@@ -6,6 +6,8 @@ import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import { ptBR } from "date-fns/locale";
 import moment from "moment";
+import { baseUrl } from "../../../config";
+import { getScheduleMayor } from "../../../calls/agenda/agenda";
 
 type PropsInput = {
   handler: any;
@@ -28,9 +30,7 @@ function Screen({ handler }: PropsInput) {
   const [schedule, setSchedule] = useState<Array<Meeting>>([]);
 
   const handleGetOpenSchedule = async () => {
-    const { data } = await axios.get(
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=abf2e6db-bd7d-49de-a504-483eb95cb744&q=Claudio"
-    );
+    const { data } = await getScheduleMayor();
 
     if (!data) {
       return;
