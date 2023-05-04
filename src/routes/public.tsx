@@ -83,12 +83,12 @@ const publicRoutes: IPublicRoute[] = [
         path: "/agenda-caio",
         icon: AiOutlineProfile,
       },
-      // {
-      //   defaultPath: "/agenda-aberta",
-      //   name: "Priscila Yamagami",
-      //   path: "/agenda-caio",
-      //   icon: AiOutlineProfile,
-      // },
+      {
+        defaultPath: "/agenda-aberta",
+        name: "Prefeito",
+        path: "/agenda-prefeito",
+        icon: AiOutlineProfile,
+      },
     ],
   },
   {
