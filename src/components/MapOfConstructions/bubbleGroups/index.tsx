@@ -1,8 +1,8 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import * as Style from "./styles";
 import BuildingSteps from "./BuildingStep";
 import BuildingValues from "./BuildingValues";
-import { useFileCSVContext } from "../../../context/fileCsv";
+import axios from "axios";
 
 const BubbleGroups = ({
   viewOption,
@@ -10,7 +10,18 @@ const BubbleGroups = ({
   nameOrDescriptionConstruction,
   directionConstruction,
 }: any) => {
-  const file = useFileCSVContext();
+  const [file, setFile] = useState<any>();
+
+  const getFileOfConstructions = async () => {
+    const { data } = await axios.get(
+      `https://dados.mogidascruzes.sp.gov.br//api/3/action/datastore_search?resource_id=c23921f1-9d90-44b1-b710-02233f9d47c5`
+    );
+
+    if (!data) {
+      return;
+    }
+    return setFile(data);
+  };
 
   const filteredNameValues = useMemo(
     () =>
@@ -47,6 +58,10 @@ const BubbleGroups = ({
     filteredDescriptionValues ||
     filteredDirectionValues ||
     file?.result?.records;
+
+  useEffect(() => {
+    getFileOfConstructions();
+  }, []);
 
   useEffect(() => {}, [filteredValues]);
 

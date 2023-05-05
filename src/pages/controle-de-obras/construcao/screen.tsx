@@ -3,12 +3,28 @@ import * as Text from "../../../styles/text";
 import * as Style from "./styles";
 import moment from "moment";
 import colors from "../../../styles/colors";
-import { useFileCSVContext } from "../../../context/fileCsv";
 import Carousel from "../../../components/Swiper";
 import { parseMoney } from "../../../utils/mask";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const ConstructionScreen = ({ id }: any) => {
-  const file = useFileCSVContext();
+  const [file, setFile] = useState<any>();
+
+  const getFileOfConstructions = async () => {
+    const { data } = await axios.get(
+      `https://dados.mogidascruzes.sp.gov.br//api/3/action/datastore_search?resource_id=c23921f1-9d90-44b1-b710-02233f9d47c5`
+    );
+
+    if (!data) {
+      return;
+    }
+    return setFile(data);
+  };
+
+  useEffect(() => {
+    getFileOfConstructions();
+  }, []);
 
   const buildingSelected = file.result.records.filter(
     (item: any) => item?.id === String(id)

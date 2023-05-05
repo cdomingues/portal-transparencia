@@ -1,8 +1,9 @@
 import { MapContainer, Marker, TileLayer, useMap } from "react-leaflet";
 import L from "leaflet";
-import { useFileCSVContext } from "../../../context/fileCsv";
 import useWindowDimensions from "../../../utils/useWindowDimensions";
 import "leaflet/dist/leaflet.css";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 type Props = {
   setConstructionSelected: any;
@@ -21,11 +22,25 @@ const MapAllMarkersComponent = ({
   directionConstruction,
   setConstructionSelected,
 }: Props) => {
+  const [file, setFile] = useState<any>();
   const center = [-23.5248, -46.1871];
 
   const icon = L.divIcon({ className: "icon-marker" });
 
-  const file = useFileCSVContext();
+  const getFileOfConstructions = async () => {
+    const { data } = await axios.get(
+      `https://dados.mogidascruzes.sp.gov.br//api/3/action/datastore_search?resource_id=c23921f1-9d90-44b1-b710-02233f9d47c5`
+    );
+
+    if (!data) {
+      return;
+    }
+    return setFile(data);
+  };
+
+  useEffect(() => {
+    getFileOfConstructions();
+  }, []);
 
   const translatorIcon = (value: string) => {
     const translator: any = {

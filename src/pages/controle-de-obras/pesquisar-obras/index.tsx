@@ -1,9 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SearchBuildingsScreen from "./screen";
-import { useFileCSVContext } from "../../../context/fileCsv";
+import axios from "axios";
 
 const SearchBuildingsController = () => {
-  const file = useFileCSVContext();
+  const [file, setFile] = useState<any>();
+
+  const getFileOfConstructions = async () => {
+    const { data } = await axios.get(
+      `https://dados.mogidascruzes.sp.gov.br//api/3/action/datastore_search?resource_id=c23921f1-9d90-44b1-b710-02233f9d47c5`
+    );
+
+    if (!data) {
+      return;
+    }
+    return setFile(data);
+  };
+
+  useEffect(() => {
+    getFileOfConstructions();
+  }, []);
   const [nameBuilding, setNameBuilding] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [neighborhood, setNeighborhood] = useState("");
