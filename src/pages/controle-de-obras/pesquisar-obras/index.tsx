@@ -15,10 +15,7 @@ const SearchBuildingsController = () => {
     }
     return setFile(data);
   };
-  console.log("o que vem", file);
-  useEffect(() => {
-    getFileOfConstructions();
-  }, []);
+
   const [nameBuilding, setNameBuilding] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [neighborhood, setNeighborhood] = useState("");
@@ -27,9 +24,7 @@ const SearchBuildingsController = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
-  const [arrayBuildings, setArrayBuildings] = useState<Array<any>>(
-    file?.result?.records
-  );
+  const [arrayBuildings, setArrayBuildings] = useState<Array<any>>([]);
 
   const handleChangeSelectNeighborhood = (event: any) => {
     setNeighborhood(event.target.value as string);
@@ -66,6 +61,14 @@ const SearchBuildingsController = () => {
   };
 
   const numberOfPages = Math.ceil(arrayBuildings?.length / rowsPerPage);
+
+  useEffect(() => {
+    getFileOfConstructions();
+  }, []);
+
+  useEffect(() => {
+    setArrayBuildings(file?.result?.records);
+  }, [file]);
 
   const handlers: any = {
     arrayBuildings,

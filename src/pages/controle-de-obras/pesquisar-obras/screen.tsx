@@ -28,6 +28,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
     numberOfPages,
     handleChangePage,
   } = handlers;
+
   const [password, setPassword] = useState("");
   if (!password || password != "abobora123") {
     return (
