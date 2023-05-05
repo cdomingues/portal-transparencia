@@ -14,8 +14,8 @@ const BuildingSteps = ({ setConstructionSelected, filteredValues }: any) => {
   let buildingsStopped = useMemo(
     () =>
       filteredValues
-        .filter((item: any) => item?.Status === "Parada")
-        .map((item: any) => {
+        ?.filter((item: any) => item?.Status === "Parada")
+        ?.map((item: any) => {
           return {
             ...item,
             color: translatorColor[item?.Categoria],
@@ -27,8 +27,8 @@ const BuildingSteps = ({ setConstructionSelected, filteredValues }: any) => {
   let buildingsUnderConstruction = useMemo(
     () =>
       filteredValues
-        .filter((item: any) => item?.Status === "Em Construção")
-        .map((item: any) => {
+        ?.filter((item: any) => item?.Status === "Em Construção")
+        ?.map((item: any) => {
           return {
             ...item,
             color: translatorColor[item?.Categoria],
@@ -40,8 +40,8 @@ const BuildingSteps = ({ setConstructionSelected, filteredValues }: any) => {
   let buildingsFinished = useMemo(
     () =>
       filteredValues
-        .filter((item: any) => item?.Status === "Finalizada")
-        .map((item: any) => {
+        ?.filter((item: any) => item?.Status === "Finalizada")
+        ?.map((item: any) => {
           return {
             ...item,
             color: translatorColor[item?.Categoria],
@@ -53,8 +53,8 @@ const BuildingSteps = ({ setConstructionSelected, filteredValues }: any) => {
   let buildingsOpened = useMemo(
     () =>
       filteredValues
-        .filter((item: any) => item?.Status === "Aberto")
-        .map((item: any) => {
+        ?.filter((item: any) => item?.Status === "Aberto")
+        ?.map((item: any) => {
           return {
             ...item,
             color: translatorColor[item?.Categoria],

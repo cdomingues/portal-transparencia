@@ -3624,7 +3624,7 @@ d3-zoom@3:
 
 d3@^7.8.4:
   version "7.8.4"
-  resolved "https://registry.npmjs.org/d3/-/d3-7.8.4.tgz"
+  resolved "https://registry.yarnpkg.com/d3/-/d3-7.8.4.tgz#e35d45800e4068cab07e59e5d883a4bb42ab217f"
   integrity sha512-q2WHStdhiBtD8DMmhDPyJmXUxr6VWRngKyiJ5EfXMxPw+tqT6BhNjhJZ4w3BHsNm3QoVfZLY8Orq/qPFczwKRA==
   dependencies:
     d3-array "3"

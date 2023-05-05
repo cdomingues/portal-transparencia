@@ -15,7 +15,7 @@ const SearchBuildingsController = () => {
     }
     return setFile(data);
   };
-
+  console.log("o que vem", file);
   useEffect(() => {
     getFileOfConstructions();
   }, []);
@@ -65,7 +65,7 @@ const SearchBuildingsController = () => {
     setPage(newPage - 1);
   };
 
-  const numberOfPages = Math.ceil(arrayBuildings.length / rowsPerPage);
+  const numberOfPages = Math.ceil(arrayBuildings?.length / rowsPerPage);
 
   const handlers: any = {
     arrayBuildings,

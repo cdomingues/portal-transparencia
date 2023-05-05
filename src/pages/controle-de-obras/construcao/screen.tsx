@@ -26,11 +26,11 @@ const ConstructionScreen = ({ id }: any) => {
     getFileOfConstructions();
   }, []);
 
-  const buildingSelected = file.result.records.filter(
+  const buildingSelected = file?.result?.records?.filter(
     (item: any) => item?.id === String(id)
-  )[0];
+  )?.[0];
 
-  const othersBuildings = file.result.records.filter(
+  const othersBuildings = file?.result?.records?.filter(
     (item: any) => item?.id != String(id)
   );
 
@@ -184,7 +184,7 @@ const ConstructionScreen = ({ id }: any) => {
     >
       <Style.Container>
         {buildingData(buildingSelected)}
-        {othersBuildings.map((item: any) => buildingData(item))}
+        {othersBuildings?.map((item: any) => buildingData(item))}
       </Style.Container>
     </LayoutConstructions>
   );
