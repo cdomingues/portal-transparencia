@@ -6,6 +6,8 @@ import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import { ptBR } from "date-fns/locale";
 import moment from "moment";
+import { baseUrl } from "../../../config";
+import { getScheduleMayor } from "../../../calls/agenda/agenda";
 
 type PropsInput = {
   handler: any;
@@ -93,7 +95,7 @@ function Screen({ handler }: PropsInput) {
               {getDay} de {getMonth} de {getYear}
             </Heading>
             <Divider width="100%" height={"1px"} backgroundColor="red" />
-            {!filteredValues || filteredValues.length == 0 ? (
+            {!filteredValues || filteredValues?.length == 0 ? (
               <Heading mb={2} fontSize="1xl" color="red">
                 Nessa data não possui nada agendado!
               </Heading>

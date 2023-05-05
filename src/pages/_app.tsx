@@ -6,8 +6,6 @@ import { CookiesProvider, useCookies } from "react-cookie";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import theme from "../themes";
-import moment from "moment";
-import FileCSVWrapper from "../context/fileCsv";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [loaded, setLoaded] = useState(false);
@@ -23,9 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <CookiesProvider>
         {loaded && (
           <PublicLayout>
-            <FileCSVWrapper>
-              <Component {...pageProps} />
-            </FileCSVWrapper>
+            <Component {...pageProps} />
           </PublicLayout>
         )}
       </CookiesProvider>

@@ -28,6 +28,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
     numberOfPages,
     handleChangePage,
   } = handlers;
+
   const [password, setPassword] = useState("");
   if (!password || password != "abobora123") {
     return (
@@ -58,13 +59,13 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
     const pageNumbers = [];
 
     for (let i = 1; i <= totalPages; i++) {
-      pageNumbers.push(i);
+      pageNumbers?.push(i);
     }
 
     return (
       <div>
         <div className="pagination">
-          {pageNumbers.map((number) => (
+          {pageNumbers?.map((number) => (
             <div key={number} className="page-item">
               <a className="page-link" onClick={() => onPageChange(number)}>
                 {number}
@@ -152,7 +153,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                         Obra:
                       </Text.Heading4Bold>
                       <Text.Heading5Regular color={colors.black}>
-                        {item.Nome}
+                        {item?.Nome}
                       </Text.Heading5Regular>
                     </div>
                     <div className="item">
@@ -160,7 +161,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                         Empresa:
                       </Text.Heading4Bold>
                       <Text.Heading5Regular color={colors.black}>
-                        {item.empresa_contratada}
+                        {item?.empresa_contratada}
                       </Text.Heading5Regular>
                     </div>
                     <div className="item">
@@ -168,7 +169,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                         Monto:
                       </Text.Heading4Bold>
                       <Text.Heading5Regular color={colors.black}>
-                        {parseMoney(item.valor_contrato)}
+                        {parseMoney(item?.valor_contrato)}
                       </Text.Heading5Regular>
                     </div>
                   </div>
@@ -178,7 +179,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                       Descripción:
                     </Text.Heading4Bold>
                     <Text.Heading5Regular color={colors.black}>
-                      {item.descricao_da_obra}
+                      {item?.descricao_da_obra}
                     </Text.Heading5Regular>
                   </div>
 
@@ -188,7 +189,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                         Programa:
                       </Text.Heading4Bold>
                       <Text.Heading5Regular color={colors.black}>
-                        {item.programa_ppa}
+                        {item?.programa_ppa}
                       </Text.Heading5Regular>
                     </div>
                     <div className="item">
@@ -196,7 +197,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                         Tipo:
                       </Text.Heading4Bold>
                       <Text.Heading5Regular color={colors.black}>
-                        {item.Categoria}
+                        {item?.Categoria}
                       </Text.Heading5Regular>
                     </div>
                     <div className="item">
@@ -204,7 +205,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                         Bairro:
                       </Text.Heading4Bold>
                       <Text.Heading5Regular color={colors.black}>
-                        {item.bairro}
+                        {item?.bairro}
                       </Text.Heading5Regular>
                     </div>
                     <div className="item">
@@ -212,7 +213,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                         Etapa:
                       </Text.Heading4Bold>
                       <Text.Heading5Regular color={colors.black}>
-                        {item.Status}
+                        {item?.Status}
                       </Text.Heading5Regular>
                     </div>
                   </div>

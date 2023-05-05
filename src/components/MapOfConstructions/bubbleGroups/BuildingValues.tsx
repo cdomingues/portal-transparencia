@@ -19,12 +19,12 @@ const BuildingValues = ({ setConstructionSelected, filteredValues }: any) => {
   let buildingsMoreOneThousand = useMemo(
     () =>
       filteredValues
-        .filter(
+        ?.filter(
           (item: any) =>
             Number(item.Valor_inicial) > ONE_THOUSAND &&
             Number(item.Valor_inicial) < FIVE_THOUSAND
         )
-        .map((item: any) => {
+        ?.map((item: any) => {
           return {
             ...item,
             color: translatorColor[item?.Categoria],
@@ -36,12 +36,12 @@ const BuildingValues = ({ setConstructionSelected, filteredValues }: any) => {
   let buildingsMoreFiveHundredThousand = useMemo(
     () =>
       filteredValues
-        .filter(
+        ?.filter(
           (item: any) =>
             Number(item.Valor_inicial) > FIVE_THOUSAND &&
             Number(item.Valor_inicial) < ONE_MILLION
         )
-        .map((item: any) => {
+        ?.map((item: any) => {
           return {
             ...item,
             color: translatorColor[item?.Categoria],
@@ -53,12 +53,12 @@ const BuildingValues = ({ setConstructionSelected, filteredValues }: any) => {
   let buildingsMoreThanOneMillion = useMemo(
     () =>
       filteredValues
-        .filter(
+        ?.filter(
           (item: any) =>
             Number(item.Valor_inicial) > ONE_MILLION &&
             Number(item.Valor_inicial) < TEEN_MILLION
         )
-        .map((item: any) => {
+        ?.map((item: any) => {
           return {
             ...item,
             color: translatorColor[item?.Categoria],
@@ -70,8 +70,8 @@ const BuildingValues = ({ setConstructionSelected, filteredValues }: any) => {
   let buildingsMoreThanTeenMillion = useMemo(
     () =>
       filteredValues
-        .filter((item: any) => Number(item.Valor_inicial) > TEEN_MILLION)
-        .map((item: any) => {
+        ?.filter((item: any) => Number(item.Valor_inicial) > TEEN_MILLION)
+        ?.map((item: any) => {
           return {
             ...item,
             color: translatorColor[item?.Categoria],
