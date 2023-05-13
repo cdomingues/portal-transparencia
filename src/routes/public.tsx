@@ -54,6 +54,10 @@ import { contentGeneralCosts } from "../pages/execucao-orcamentaria/despesas-ger
 import { contentExpensesRemains } from "../pages/execucao-orcamentaria/despesas-restos/screen";
 import { contentTrafficFines } from "../pages/execucao-orcamentaria/receitas-multas-transito/screen";
 import { contentExpensesParliamentaryAmendments } from "../pages/execucao-orcamentaria/despesas-emendas/screen";
+import { contentExtrabudgetExpenses } from "../pages/extraorcamentario/despesas/screen";
+import { contentExtrabudgetRevenues } from "../pages/extraorcamentario/receitas/screen";
+import { contentCovidRecipes } from "../pages/covid/receitas/screen";
+import { contentCovidExpenses } from "../pages/covid/despesas/screen";
 
 const publicRoutes: IPublicRoute[] = [
   {
@@ -389,12 +393,14 @@ const publicRoutes: IPublicRoute[] = [
         name: "Despesas",
         path: "/despesas",
         icon: AiOutlineTable,
+        ...contentExtrabudgetExpenses
       },
       {
         defaultPath: "/extraorcamentario",
         name: "Receitas",
         path: "/receitas",
         icon: AiOutlineTable,
+        ...contentExtrabudgetRevenues
       },
     ],
   },
@@ -408,12 +414,14 @@ const publicRoutes: IPublicRoute[] = [
         name: "Receitas Covid",
         path: "/receitas",
         icon: AiOutlineTable,
+        ...contentCovidRecipes,
       },
       {
         defaultPath: "/covid",
         name: "Despesas Covid",
         path: "/despesas",
         icon: AiOutlineTable,
+        ...contentCovidExpenses
       },
       {
         defaultPath: "/covid",

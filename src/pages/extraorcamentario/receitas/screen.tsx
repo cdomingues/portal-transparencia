@@ -31,6 +31,12 @@ type PropsInput = {
   };
 };
 
+export const contentExtrabudgetRevenues = {
+  titlePage: "Receitas Extraorçamentárias",
+  description: "Aqui você pode acompanhar as informações sobre as receitas que não figuram no orçamento e, por isso, não são renda do município, apenas transitam pelo poder público.",
+}
+
+
 function Screen({
   handler: {
     columns,
@@ -44,8 +50,8 @@ function Screen({
     handleByYear,
   },
 }: PropsInput) {
-  const title = "Receitas Extraorçamentárias";
-  const description = "Aqui você pode acompanhar as informações sobre as receitas que não figuram no orçamento e, por isso, não são renda do município, apenas transitam pelo poder público.";
+  const title = contentExtrabudgetRevenues?.titlePage;
+  const description = contentExtrabudgetRevenues?.description;
   const chartConfig = {
     direction: isMobile ? "column" : "row",
     width: isMobile ? "100%" : "40%",
