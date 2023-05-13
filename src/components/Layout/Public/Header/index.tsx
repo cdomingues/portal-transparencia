@@ -241,7 +241,6 @@ const DesktopNav = ({
                 }
                 setSearchs([]);
                 setSearchs(findPages(search));
-                console.log(searchs);
                 onOpen();
               }}
             >
