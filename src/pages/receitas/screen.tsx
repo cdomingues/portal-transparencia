@@ -30,7 +30,10 @@ type PropsInput = {
     year: number;
   };
 };
-
+export const contentRevenue = {
+  titlePage: "Receitas",
+  description: "De modo acessível e de fácil compreensão, acompanhe os valores e fontes de arrecadação do município, comparando a evolução entre os últimos anos e também a variação entre receita prevista e efetivamente arrecadada.",
+}
 function RevenueScreen({
   handler: {
     columns,
@@ -44,9 +47,8 @@ function RevenueScreen({
     handleByYear,
   },
 }: PropsInput) {
-  const title = "Receitas";
-  const description =
-    "De modo acessível e de fácil compreensão, acompanhe os valores e fontes de arrecadação do município, comparando a evolução entre os últimos anos e também a variação entre receita prevista e efetivamente arrecadada.";
+  const title = contentRevenue?.titlePage;
+  const description = contentRevenue?.description;
 
   const chartConfig = {
     direction: isMobile ? "column" : "row",

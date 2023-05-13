@@ -35,13 +35,17 @@ type PropsInput = {
   };
 };
 
+export const contentBids = {
+  titlePage: "Licitações",
+  description: "O procedimento administrativo pelo qual a Prefeitura contrata serviços ou adquire produtos é chamado de Licitação. Acompanhe aqui os dados das licitações realizadas pela Prefeitura de Mogi das Cruzes, incluindo informações sobre modalidade, objeto, vencimento, participantes e demais detalhes.",
+}
+
 function Screen({
   handler: { columns, data, loading, setYear, year, years, handleByYear },
 }: PropsInput) {
   const [bidding, setBidding] = useState<any>(null);
-  const title = "Licitações";
-  const description =
-    "O procedimento administrativo pelo qual a Prefeitura contrata serviços ou adquire produtos é chamado de Licitação. Acompanhe aqui os dados das licitações realizadas pela Prefeitura de Mogi das Cruzes, incluindo informações sobre modalidade, objeto, vencimento, participantes e demais detalhes.";
+  const title = contentBids?.titlePage;
+  const description = contentBids?.description;
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 

@@ -40,6 +40,14 @@ import { contentRepostManagementSupervisor } from "../pages/transparencia/relato
 import { contentPublicWorks } from "../pages/transparencia/obras-publicas/screen";
 import { contentPublicServants } from "../pages/transparencia/servidores-publicos-estagiarios/screen";
 import { contentPROMAE } from "../pages/transparencia/promae/screen";
+import { contentRevenue } from "../pages/receitas/screen";
+import { contentContractsAndAtas } from "../pages/despesas/contratos-atas/screen";
+import { contentBids } from "../pages/despesas/licitacoes/screen";
+import { contentPayroll } from "../pages/despesas/folha-pagamento/screen";
+import { contentTransportationTickets } from "../pages/despesas/passagem-locomocao/screen";
+import { contentAdvancesAndAccommodation } from "../pages/despesas/adiantamento-hospedagem/screen";
+import { contentAdvertisements } from "../pages/despesas/propaganda/screen";
+import { contentGrants } from "../pages/despesas/subvencoes/screen";
 
 const publicRoutes: IPublicRoute[] = [
   {
@@ -243,6 +251,7 @@ const publicRoutes: IPublicRoute[] = [
     name: "Receitas",
     path: "/receitas",
     icon: BiMoney,
+    ...contentRevenue,
   },
   {
     name: "Despesas",
@@ -254,42 +263,49 @@ const publicRoutes: IPublicRoute[] = [
         name: "Contratos e Atas",
         path: "/contratos-atas",
         icon: AiOutlineTable,
+        ...contentContractsAndAtas
       },
       {
         defaultPath: "/despesas",
         name: "Licitações",
         path: "/licitacoes",
         icon: AiOutlineTable,
+        ...contentBids
       },
       {
         defaultPath: "/despesas",
         name: "Folha de Pagamento",
         path: "/folha-pagamento",
         icon: AiOutlineTable,
+        ...contentPayroll
       },
       {
         defaultPath: "/despesas",
         name: "Passagens e Locomoção",
         path: "/passagem-locomocao",
         icon: AiOutlineTable,
+        ...contentTransportationTickets
       },
       {
         defaultPath: "/despesas",
         name: "Adiantamentos e Hospedagem",
         path: "/adiantamento-hospedagem",
         icon: AiOutlineTable,
+        ...contentAdvancesAndAccommodation
       },
       {
         defaultPath: "/despesas",
         name: "Gastos com publicidade",
         path: "/propaganda",
         icon: AiOutlineTable,
+        ...contentAdvertisements
       },
       {
         defaultPath: "/despesas",
         name: "Subvenções",
         path: "/subvencoes",
         icon: AiOutlineTable,
+        ...contentGrants
       },
       {
         defaultPath: "/despesas",

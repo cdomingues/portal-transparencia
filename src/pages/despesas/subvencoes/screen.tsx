@@ -33,6 +33,12 @@ type PropsInput = {
   };
 };
 
+
+export const contentGrants = {
+  titlePage: "Subvenções",
+  description: "Subvenção é quando a Prefeitura destina recursos financeiros para que entidades cubram seus custos de atividades prestadas à população. Confira aqui as despesas relacionadas a essa natureza.",
+}
+
 function Screen({
   handler: {
     columns,
@@ -47,9 +53,8 @@ function Screen({
   },
 }: PropsInput) {
   const [grants, setGrants] = useState<any>(null);
-  const title = "Subvenções";
-  const description =
-    "Subvenção é quando a Prefeitura destina recursos financeiros para que entidades cubram seus custos de atividades prestadas à população. Confira aqui as despesas relacionadas a essa natureza.";
+  const title = contentGrants?.titlePage;
+  const description = contentGrants?.description;
   const chartConfig = {
     direction: isMobile ? "column" : "row",
     width: isMobile ? "100%" : "40%",

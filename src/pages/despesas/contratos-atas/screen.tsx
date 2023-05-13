@@ -23,14 +23,16 @@ type PropsInput = {
     handleByYear: any;
   };
 };
-
+export const contentContractsAndAtas = {
+  titlePage: "Contratos e Atas",
+  description:"Nesta página, confira as informações sobre contratos e atas celebrados pela Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por número, modalidade, processo, valor, fornecedor, objeto, entre outros itens.",
+}
 function Screen({
   handler: { columns, data, loading, handleByYear, setYear, year, years },
 }: PropsInput) {
   const [contract, setContract] = useState<any>(null);
-  const title = "Contratos e Atas";
-  const description =
-    "Nesta página, confira as informações sobre contratos e atas celebrados pela Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por número, modalidade, processo, valor, fornecedor, objeto, entre outros itens.";
+  const title = contentContractsAndAtas?.titlePage;
+  const description = contentContractsAndAtas?.description;
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
