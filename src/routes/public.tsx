@@ -58,6 +58,10 @@ import { contentExtrabudgetExpenses } from "../pages/extraorcamentario/despesas/
 import { contentExtrabudgetRevenues } from "../pages/extraorcamentario/receitas/screen";
 import { contentCovidRecipes } from "../pages/covid/receitas/screen";
 import { contentCovidExpenses } from "../pages/covid/despesas/screen";
+import { contentReportExtrabudget } from "../pages/transparencia/relatorio-resumido/screen";
+import { contentAnnualBalance } from "../pages/contas/balancos-anuais/screen";
+import { contentCourtOpinions } from "../pages/contas/pareceres-tribunal/screen";
+import { contentPatrimony } from "../pages/patrimonio/screen";
 
 const publicRoutes: IPublicRoute[] = [
   {
@@ -437,6 +441,7 @@ const publicRoutes: IPublicRoute[] = [
     path: "/transparencia/relatorio-resumido",
     icon: AiOutlineFileDone,
     link: "",
+    ...contentReportExtrabudget
   },
   {
     name: "Prestação de Conta Anual",
@@ -448,12 +453,14 @@ const publicRoutes: IPublicRoute[] = [
         path: "/balancos-anuais",
         icon: AiOutlineProfile,
         link: "",
+        ...contentAnnualBalance
       },
       {
         name: "Pareceres do Tribunal",
         path: "/pareceres-tribunal",
         icon: AiOutlineProfile,
         link: "",
+        ...contentCourtOpinions
       },
     ],
   },
@@ -461,6 +468,7 @@ const publicRoutes: IPublicRoute[] = [
     name: "Patrimônio",
     path: "/patrimonio",
     icon: AiOutlineShop,
+    ...contentPatrimony
   },
   {
     name: "Publicações",

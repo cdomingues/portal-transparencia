@@ -13,11 +13,15 @@ type PropsInput = {
   };
 };
 
+export const contentCourtOpinions = {
+  titlePage: "Pareceres do Tribunal",
+  description: "São os pareceres emitidos pelo Tribunal de Contas do Estado de São Paulo às contas do Poder Executivo, que darão suporte para o Poder Legislativo (Câmara Municipal) efetuar o devido julgamento, na forma do disposto no Inciso VIII, do Artigo 52 da Lei Orgânica do Município.",
+}
+
 function Screen({ handler }: PropsInput) {
   const { handleSelectValue, selectOptions, laws, selectValue } = handler;
-  const title = "Pareceres do Tribunal";
-  const description =
-    "São os pareceres emitidos pelo Tribunal de Contas do Estado de São Paulo às contas do Poder Executivo, que darão suporte para o Poder Legislativo (Câmara Municipal) efetuar o devido julgamento, na forma do disposto no Inciso VIII, do Artigo 52 da Lei Orgânica do Município.";
+  const title = contentCourtOpinions?.titlePage;
+  const description = contentCourtOpinions?.description;
   return (
     <ContainerBasic title={title} description={description}>
       <PlanContainer laws={laws}>
