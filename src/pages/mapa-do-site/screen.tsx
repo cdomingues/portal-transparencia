@@ -21,12 +21,13 @@ function Screen({ handler }: PropsInput) {
   const map = publicRoutes?.map((item: any, index: number) => {
     return (
       <Stack display="flex" flexDirection="column" key={index}>
-        <Text onClick={() => router.push(item?.path)}>•{item?.path}</Text>
+        <Text onClick={() => router.push(item?.path)} cursor='pointer'>•{item?.path}</Text>
         <Stack display="flex" flexDirection="column" paddingLeft="10">
           {item?.group?.map((subItem: any, index: number) => (
             <Text
               key={index}
               onClick={() => router.push(item?.path + subItem?.path)}
+              cursor='pointer'
             >
               •{subItem?.path}
             </Text>
