@@ -46,6 +46,11 @@ type PropsInput = {
   };
 };
 
+export const contentInitial = {
+  titlePage:"Boas-vindas ao Portal da Transparência de Mogi!",
+  description:"O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.",
+}
+
 function Aside({ news }: { news: Array<News> }) {
   return (
     <div style={{ padding: "10px" }}>
@@ -130,9 +135,8 @@ function HomeScreen({ handler }: PropsInput) {
     date,
   } = handler;
 
-  const titlePage = "Boas-vindas ao Portal da Transparência de Mogi!";
-  const description =
-    "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.";
+  const titlePage = contentInitial?.titlePage;
+  const description = contentInitial?.description;
 
   const stylesTranslator: any = {
     "Aplicação em Saúde": {

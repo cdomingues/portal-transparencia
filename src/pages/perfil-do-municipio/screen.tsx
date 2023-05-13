@@ -13,10 +13,14 @@ type PropsInput = {
   handler: {};
 };
 
+export const contentMunicipalityProfile = {
+  titlePage:"Perfil do Munícipio",
+  description:"Mogi das Cruzes, ou simplesmente Mogi, é um município brasileiro do estado de São Paulo, localizado na Região Metropolitana de São Paulo. É uma das cidades que integram a região geográfica do Alto Tietê.",
+}
+
 function Screen({ handler }: PropsInput) {
-  const title = "Perfil do Munícipio";
-  const description =
-    "Mogi das Cruzes, ou simplesmente Mogi, é um município brasileiro do estado de São Paulo, localizado na Região Metropolitana de São Paulo. É uma das cidades que integram a região geográfica do Alto Tietê.";
+  const title = contentMunicipalityProfile?.titlePage;
+  const description = contentMunicipalityProfile?.description;
 
   return (
     <ContainerBasic title={title} description={description}>

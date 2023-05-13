@@ -19,6 +19,8 @@ import {
 import { BiBriefcaseAlt, BiMoney } from "react-icons/bi";
 import { BsBricks, BsCameraVideo, BsFileText } from "react-icons/bs";
 import { IPublicRoute } from "../types";
+import { contentInitial } from "../pages/screen";
+import { contentMunicipalityProfile } from "../pages/perfil-do-municipio/screen";
 
 const publicRoutes: IPublicRoute[] = [
   {
@@ -26,12 +28,14 @@ const publicRoutes: IPublicRoute[] = [
     path: "/",
     icon: FiHome,
     group: undefined,
+    ...contentInitial
   },
   {
     name: "Perfil do Municipio",
     icon: AiOutlineProfile,
     path: "/perfil-do-municipio",
     group: undefined,
+    ...contentMunicipalityProfile,
   },
   {
     name: "Controle de Obras",
