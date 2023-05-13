@@ -27,6 +27,12 @@ import { contentSearchConstructions } from "../pages/controle-de-obras/pesquisar
 import { contentOpenedConstructions } from "../pages/controle-de-obras/obras-abertas/screen";
 import { contentRadarsControl } from "../pages/controle-de-radares/screen";
 import { contentMayorAgenda } from "../pages/agenda-aberta/agenda-prefeito/screen";
+import { contentContractManagement } from "../pages/terceiro-setor/contratos-gestao/screen";
+import { contentConvenants } from "../pages/terceiro-setor/convenios/screen";
+import { contentTransfers } from "../pages/terceiro-setor/repasses/screen";
+import { contentTermsColaborator } from "../pages/acordos-termos/termo-de-colaboracao/screen";
+import { contentTermsForment } from "../pages/acordos-termos/termo-de-fomento/screen";
+import { contentAgreementColaborator } from "../pages/acordos-termos/acordo-de-colaboracao/screen";
 
 const publicRoutes: IPublicRoute[] = [
   {
@@ -123,18 +129,21 @@ const publicRoutes: IPublicRoute[] = [
         name: "Contratos de Gestão",
         path: "/contratos-gestao",
         icon: AiOutlineTable,
+        ...contentContractManagement
       },
       {
         defaultPath: "/terceiro-setor",
         name: "Convênios",
         path: "/convenios",
         icon: AiOutlineTable,
+        ...contentConvenants
       },
       {
         defaultPath: "/terceiro-setor",
         name: "Repasses",
         path: "/repasses",
         icon: AiOutlineTable,
+        ...contentTransfers
       },
     ],
   },
@@ -149,18 +158,21 @@ const publicRoutes: IPublicRoute[] = [
         name: "Termo de Colaboração",
         path: "/termo-de-colaboracao",
         icon: AiOutlineTable,
+        ...contentTermsColaborator
       },
       {
         defaultPath: "/acordos-termos",
         name: "Termo de Fomento",
         path: "/termo-de-fomento",
         icon: AiOutlineTable,
+        ...contentTermsForment
       },
       {
         defaultPath: "/acordos-termos",
         name: "Acordo de Colaboração",
         path: "/acordo-de-colaboracao",
         icon: AiOutlineTable,
+        ...contentAgreementColaborator
       },
     ],
   },

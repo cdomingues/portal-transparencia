@@ -10,9 +10,14 @@ type PropsInput = {
   };
 };
 
+export const contentTransfers = {
+  titlePage: "Repasses",
+  description: "Acompanhe os repasses feitos pela Prefeitura de Mogi das Cruzes às organizações do Terceiro Setor com as quais firmou contratos ou convênios.",
+}
+
 function Screen({ handler: { columns, data, loading } }: PropsInput) {
-  const title = "Repasses";
-  const description = "Acompanhe os repasses feitos pela Prefeitura de Mogi das Cruzes às organizações do Terceiro Setor com as quais firmou contratos ou convênios.";
+  const title = contentTransfers?.titlePage;
+  const description = contentTransfers?.description;
   return (
     <ContainerBasic title={title} description={description}>
       <TableComponent loading={loading} columns={columns} data={data} />
