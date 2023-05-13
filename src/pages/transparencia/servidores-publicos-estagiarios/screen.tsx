@@ -21,6 +21,10 @@ type PropsInput = {
     dailies: Array<{ name: string; link: string }>;
   };
 };
+export const contentPublicServants = {
+  titlePage: "Cargos e Salários",
+  description: "Nesta página, confira a tabela-base dos subsídios, salários e vencimentos dos cargos e empregos públicos.",
+}
 
 function Screen({ handler }: PropsInput) {
   const { dailies, salaries } = handler;

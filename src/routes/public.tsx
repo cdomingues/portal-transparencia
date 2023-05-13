@@ -33,6 +33,13 @@ import { contentTransfers } from "../pages/terceiro-setor/repasses/screen";
 import { contentTermsColaborator } from "../pages/acordos-termos/termo-de-colaboracao/screen";
 import { contentTermsForment } from "../pages/acordos-termos/termo-de-fomento/screen";
 import { contentAgreementColaborator } from "../pages/acordos-termos/acordo-de-colaboracao/screen";
+import { contentPlanMultiannual } from "../pages/transparencia/plurianual/screen";
+import { contentGuidelines } from "../pages/transparencia/diretrizes-orcamentarias/screen";
+import { contentLawBudget } from "../pages/transparencia/lei-orcamentaria-anual/screen";
+import { contentRepostManagementSupervisor } from "../pages/transparencia/relatorio-de-gestao-fiscal/screen";
+import { contentPublicWorks } from "../pages/transparencia/obras-publicas/screen";
+import { contentPublicServants } from "../pages/transparencia/servidores-publicos-estagiarios/screen";
+import { contentPROMAE } from "../pages/transparencia/promae/screen";
 
 const publicRoutes: IPublicRoute[] = [
   {
@@ -186,42 +193,49 @@ const publicRoutes: IPublicRoute[] = [
         name: "Plano Plurianual",
         path: "/plurianual",
         icon: AiOutlineProfile,
+        ...contentPlanMultiannual
       },
       {
         defaultPath: "/transparencia",
         name: "Diretrizes Orçamentárias",
         path: "/diretrizes-orcamentarias",
         icon: AiOutlineProfile,
+        ...contentGuidelines
       },
       {
         defaultPath: "/transparencia",
         name: "Lei orçamentária Anual",
         path: "/lei-orcamentaria-anual",
         icon: AiOutlineProfile,
+        ...contentLawBudget
       },
       {
         defaultPath: "/transparencia",
         name: "Relatório de Gestão Fiscal",
         path: "/relatorio-de-gestao-fiscal",
         icon: AiOutlineProfile,
+        ...contentRepostManagementSupervisor
       },
       {
         defaultPath: "/transparencia",
         name: "Obras Públicas",
         path: "/obras-publicas",
         icon: AiOutlineProfile,
+        ...contentPublicWorks
       },
       {
         defaultPath: "/transparencia",
         name: "Servidores Públicos e Estágiarios",
         path: "/servidores-publicos-estagiarios",
         icon: AiOutlineProfile,
+        ...contentPublicServants
       },
       {
         defaultPath: "/transparencia",
         name: "PROMAE",
         path: "/promae",
         icon: AiOutlineProfile,
+        ...contentPROMAE
       },
     ],
   },

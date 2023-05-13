@@ -13,11 +13,16 @@ type PropsInput = {
   };
 };
 
+export const contentRepostManagementSupervisor = {
+  titlePage: "Relatório de Gestão Fiscal",
+  description: "O Relatório de Gestão Fiscal demonstra a execução de variáveis sujeitas a limites previstos na legislação, como, por exemplo, pessoal, dívida consolidada, operações de crédito e garantias. O relatório deve ser publicado até 30 dias após o encerramento do quadrimestre.",
+}
+
 function Screen({ handler }: PropsInput) {
   const { handleSelectValue, selectOptions, laws, selectValue } = handler;
-  const title = "Relatório de Gestão Fiscal";
-  const description =
-    "O Relatório de Gestão Fiscal demonstra a execução de variáveis sujeitas a limites previstos na legislação, como, por exemplo, pessoal, dívida consolidada, operações de crédito e garantias. O relatório deve ser publicado até 30 dias após o encerramento do quadrimestre.";
+  const title = contentRepostManagementSupervisor?.titlePage;
+  const description = contentRepostManagementSupervisor?.description;
+  
   return (
     <ContainerBasic title={title} description={description}>
       <PlanContainer laws={laws}>
