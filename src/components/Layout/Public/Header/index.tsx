@@ -254,7 +254,7 @@ const DesktopNav = ({
 
                 <p>Mapa do site</p>
               </MenuItem>
-              <MenuItem
+              {/* <MenuItem
                 display="flex"
                 flexDirection="row"
                 alignItems="center"
@@ -281,7 +281,7 @@ const DesktopNav = ({
                 )}
 
                 <p>Diminuir texto</p>
-              </MenuItem>
+              </MenuItem> */}
             </MenuList>
           </>
         )}
