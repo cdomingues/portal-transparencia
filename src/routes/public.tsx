@@ -41,21 +41,25 @@ const publicRoutes: IPublicRoute[] = [
       {
         name: "Início",
         path: "/inicio",
+        defaultPath:"/controle-de-obras",
         icon: AiOutlineHome,
       },
       {
         name: "Sobre as Obras",
         path: "/sobre-as-obras",
+        defaultPath:"/controle-de-obras",
         icon: AiOutlineInfoCircle,
       },
       {
         name: "Pesquise Obras",
         path: "/pesquisar-obras",
+        defaultPath:"/controle-de-obras",
         icon: AiOutlineSearch,
       },
       {
         name: "Obras Abertas",
         path: "/obras-abertas",
+        defaultPath:"/controle-de-obras",
         icon: AiOutlineTool,
       },
       // {

@@ -254,6 +254,7 @@ const DesktopNav = ({
   );
 };
 
+
 const findPages = (searchString: string): IPublicRoute[] => {
   const filteredRoutes: IPublicRoute[] = [];
 
@@ -281,8 +282,10 @@ const findPages = (searchString: string): IPublicRoute[] => {
     }
   });
 
+
   return filteredRoutes;
 };
+
 
 const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   const hasHref = href ? { href } : {};
