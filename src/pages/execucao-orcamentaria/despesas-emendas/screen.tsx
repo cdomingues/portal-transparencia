@@ -19,6 +19,11 @@ type PropsInput = {
   };
 };
 
+export const contentExpensesParliamentaryAmendments = {
+  titlePage: "Despesas - Emendas Parlamentares",
+  description: "Confira nesta página as despesas empenhadas, liquidadas e pagas a partir dos recursos obtidos por meio de emendas parlamentares",
+}
+
 function Screen({
   handler: {
     columns,
@@ -31,8 +36,8 @@ function Screen({
     handleByYear,
   },
 }: PropsInput) {
-  const title = "Despesas - Emendas Parlamentares";
-  const description = "Confira nesta página as despesas empenhadas, liquidadas e pagas a partir dos recursos obtidos por meio de emendas parlamentares";
+  const title = contentExpensesParliamentaryAmendments?.titlePage;
+  const description = contentExpensesParliamentaryAmendments?.description;
   return (
     <ContainerBasic title={title} description={description}>
       {chart?.datasets?.length > 0 && (

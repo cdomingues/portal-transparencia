@@ -17,6 +17,11 @@ type PropsInput = {
   };
 };
 
+export const contentGeneralCosts = {
+  titlePage: "Despesas e Investimentos - Gerais",
+  description: "Para que a cidade possa continuar se desenvolvendo e os serviços possam permanecer funcionando e melhorando, a Prefeitura precisa realizar despesas das mais diversas, assim como investimentos. Aqui você pode conferir as informações das despesas públicas gerais empenhadas, liquidadas e pagas, entendendo os valores direcionados para cada programa.",
+}
+
 function Screen({
   handler: {
     columns,
@@ -29,8 +34,8 @@ function Screen({
     handleByYear,
   },
 }: PropsInput) {
-  const title = "Despesas e Investimentos - Gerais";
-  const description = "Para que a cidade possa continuar se desenvolvendo e os serviços possam permanecer funcionando e melhorando, a Prefeitura precisa realizar despesas das mais diversas, assim como investimentos. Aqui você pode conferir as informações das despesas públicas gerais empenhadas, liquidadas e pagas, entendendo os valores direcionados para cada programa.";
+  const title = contentGeneralCosts?.titlePage;
+  const description = contentGeneralCosts?.description;
   return (
     <ContainerBasic title={title} description={description}>
       {chart?.datasets?.length > 0 && (

@@ -48,6 +48,12 @@ import { contentTransportationTickets } from "../pages/despesas/passagem-locomoc
 import { contentAdvancesAndAccommodation } from "../pages/despesas/adiantamento-hospedagem/screen";
 import { contentAdvertisements } from "../pages/despesas/propaganda/screen";
 import { contentGrants } from "../pages/despesas/subvencoes/screen";
+import { contentRecipesAmendments } from "../pages/execucao-orcamentaria/receitas-emendas/screen";
+import { contentRevenueFinesTraffic } from "../pages/execucao-orcamentaria/despesas-multas-transito/screen";
+import { contentGeneralCosts } from "../pages/execucao-orcamentaria/despesas-gerais/screen";
+import { contentExpensesRemains } from "../pages/execucao-orcamentaria/despesas-restos/screen";
+import { contentTrafficFines } from "../pages/execucao-orcamentaria/receitas-multas-transito/screen";
+import { contentExpensesParliamentaryAmendments } from "../pages/execucao-orcamentaria/despesas-emendas/screen";
 
 const publicRoutes: IPublicRoute[] = [
   {
@@ -333,36 +339,42 @@ const publicRoutes: IPublicRoute[] = [
         name: "Receitas Emendas Parlamentares",
         path: "/receitas-emendas",
         icon: AiOutlineTable,
+        ...contentRecipesAmendments
       },
       {
         defaultPath: "/execucao-orcamentaria",
         name: "Receitas Multas Trânsito",
         path: "/receitas-multas-transito",
         icon: AiOutlineTable,
+        ...contentRevenueFinesTraffic
       },
       {
         defaultPath: "/execucao-orcamentaria",
         name: "Despesas Gerais",
         path: "/despesas-gerais",
         icon: AiOutlineTable,
+        ...contentGeneralCosts
       },
       {
         defaultPath: "/execucao-orcamentaria",
         name: "Despesas - Restos à Pagar",
         path: "/despesas-restos",
         icon: AiOutlineTable,
+        ...contentExpensesRemains
       },
       {
         defaultPath: "/execucao-orcamentaria",
         name: "Despesas Multas Trânsito",
         path: "/despesas-multas-transito",
         icon: AiOutlineTable,
+        ...contentTrafficFines
       },
       {
         defaultPath: "/execucao-orcamentaria",
         name: "Despesas Emendas Parlamentares",
         path: "/despesas-emendas",
         icon: AiOutlineTable,
+        ...contentExpensesParliamentaryAmendments
       },
     ],
   },
