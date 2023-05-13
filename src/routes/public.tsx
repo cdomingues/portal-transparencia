@@ -21,6 +21,10 @@ import { BsBricks, BsCameraVideo, BsFileText } from "react-icons/bs";
 import { IPublicRoute } from "../types";
 import { contentInitial } from "../pages/screen";
 import { contentMunicipalityProfile } from "../pages/perfil-do-municipio/screen";
+import { contentConstructionsControl } from "../pages/controle-de-obras/inicio/screen";
+import { contentAboutConstructions } from "../pages/controle-de-obras/sobre-as-obras/screen";
+import { contentSearchConstructions } from "../pages/controle-de-obras/pesquisar-obras/screen";
+import { contentOpenedConstructions } from "../pages/controle-de-obras/obras-abertas/screen";
 
 const publicRoutes: IPublicRoute[] = [
   {
@@ -47,24 +51,28 @@ const publicRoutes: IPublicRoute[] = [
         path: "/inicio",
         defaultPath:"/controle-de-obras",
         icon: AiOutlineHome,
+        ...contentConstructionsControl
       },
       {
         name: "Sobre as Obras",
         path: "/sobre-as-obras",
         defaultPath:"/controle-de-obras",
         icon: AiOutlineInfoCircle,
+        ...contentAboutConstructions
       },
       {
         name: "Pesquise Obras",
         path: "/pesquisar-obras",
         defaultPath:"/controle-de-obras",
         icon: AiOutlineSearch,
+        ...contentSearchConstructions
       },
       {
         name: "Obras Abertas",
         path: "/obras-abertas",
         defaultPath:"/controle-de-obras",
         icon: AiOutlineTool,
+        ...contentOpenedConstructions
       },
       // {
       //   name: "Obra",

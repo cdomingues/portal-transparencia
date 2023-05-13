@@ -4,6 +4,11 @@ import * as Text from "../../../styles/text";
 import * as Style from "./styles";
 import { Input } from "@chakra-ui/react";
 
+export const contentAboutConstructions = {
+  titlePage:"Acerca de BA Obras",
+  description:"Conocé más sobre el sitio que pone a disposición de los vecinos y las vecinas toda la información sobre las obras públicas que están transformando los 48 barrios de la Ciudad.",
+}
+
 const AboutScreen = () => {
   const [password, setPassword] = useState("");
   if (!password || password != "abobora123") {
@@ -34,10 +39,8 @@ const AboutScreen = () => {
     <LayoutConstructions
       title="Sobre"
       bannerSrc="https://images8.alphacoders.com/368/368165.jpg"
-      bannerTitle="Acerca de BA Obras"
-      bannerDescription="Conocé más sobre el sitio que pone a disposición de los vecinos y
-    las vecinas toda la información sobre las obras públicas que están
-    transformando los 48 barrios de la Ciudad."
+      bannerTitle={contentAboutConstructions?.titlePage}
+      bannerDescription={contentAboutConstructions?.description}
     >
       <Style.Description>
         <Text.Heading5Regular>
