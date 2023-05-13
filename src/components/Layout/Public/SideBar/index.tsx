@@ -24,11 +24,18 @@ import {
   Image,
   useColorMode,
   Button,
+  MenuButton,
+  MenuList,
+  MenuItem,
 } from "@chakra-ui/react";
 import {
   BsFacebook,
   BsFillMoonFill,
+  BsGrid3X3Gap,
+  BsGrid3X3GapFill,
   BsInstagram,
+  BsMap,
+  BsMapFill,
   BsSunFill,
   BsTwitter,
   BsYoutube,
@@ -340,6 +347,66 @@ function MobileNav({ onOpen, ...rest }: MobileProps) {
           />
         </Flex>
       </Text>
+      <Menu>
+        {({ isOpen }) => (
+          <>
+            <MenuButton background="transparent" marginRight={2}>
+              <Button p={0}>
+                {colorMode === "dark" ? (
+                  <BsGrid3X3Gap size="20px" />
+                ) : (
+                  <BsGrid3X3GapFill size="16px" />
+                )}
+              </Button>
+            </MenuButton>
+            <MenuList>
+              <MenuItem
+                display="flex"
+                flexDirection="row"
+                alignItems="center"
+                gap="10px"
+                onClick={()=> router.push('/mapa-do-site')}
+              >
+                {colorMode === "dark" ? (
+                  <BsMap size="20px" />
+                ) : (
+                  <BsMapFill size="16px" />
+                )}
+
+                <p>Mapa do site</p>
+              </MenuItem>
+              {/* <MenuItem
+                display="flex"
+                flexDirection="row"
+                alignItems="center"
+                gap="10px"
+              >
+                {colorMode === "dark" ? (
+                  <BsPlusCircle size="20px" />
+                ) : (
+                  <BsPlusCircleFill size="16px" />
+                )}
+
+                <p>Aumentar texto</p>
+              </MenuItem>
+              <MenuItem
+                display="flex"
+                flexDirection="row"
+                alignItems="center"
+                gap="10px"
+              >
+                {colorMode === "dark" ? (
+                  <BsDashCircle size="20px" />
+                ) : (
+                  <BsDashCircleFill size="16px" />
+                )}
+
+                <p>Diminuir texto</p>
+              </MenuItem> */}
+            </MenuList>
+          </>
+        )}
+      </Menu>
       <Button
         onClick={toggleColorMode}
         p={0}

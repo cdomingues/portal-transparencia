@@ -27,12 +27,28 @@ import {
   ModalBody,
   ModalFooter,
   useColorMode,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
 } from "@chakra-ui/react";
 import { BiChevronRight } from "react-icons/bi";
 import navItems, { NavItem } from "./navItems";
 import publicRoutes from "../../../../routes/public";
-import { BsFillMoonFill, BsSunFill } from "react-icons/bs";
+import {
+  BsDashCircle,
+  BsDashCircleFill,
+  BsFillMoonFill,
+  BsGrid3X3Gap,
+  BsGrid3X3GapFill,
+  BsMap,
+  BsMapFill,
+  BsPlusCircle,
+  BsPlusCircleFill,
+  BsSunFill,
+} from "react-icons/bs";
 import { IPublicRoute } from "../../../../types";
+import { useRouter } from "next/router";
 
 export default function Header() {
   const [search, setSearch] = useState("");
@@ -117,7 +133,7 @@ const DesktopNav = ({
   const linkColor = useColorModeValue("gray.600", "gray.200");
   const linkHoverColor = useColorModeValue("gray.800", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
-
+  const router = useRouter()
   return (
     <Stack flex={1} direction="row">
       <Stack
@@ -210,6 +226,66 @@ const DesktopNav = ({
           );
         })}
       </Stack>
+      <Menu>
+        {({ isOpen }) => (
+          <>
+            <MenuButton background="transparent">
+              <Button p={0}>
+                {colorMode === "dark" ? (
+                  <BsGrid3X3Gap size="20px" />
+                ) : (
+                  <BsGrid3X3GapFill size="16px" />
+                )}
+              </Button>
+            </MenuButton>
+            <MenuList>
+              <MenuItem
+                display="flex"
+                flexDirection="row"
+                alignItems="center"
+                gap="10px"
+                onClick={()=> router.push('/mapa-do-site')}
+              >
+                {colorMode === "dark" ? (
+                  <BsMap size="20px" />
+                ) : (
+                  <BsMapFill size="16px" />
+                )}
+
+                <p>Mapa do site</p>
+              </MenuItem>
+              {/* <MenuItem
+                display="flex"
+                flexDirection="row"
+                alignItems="center"
+                gap="10px"
+              >
+                {colorMode === "dark" ? (
+                  <BsPlusCircle size="20px" />
+                ) : (
+                  <BsPlusCircleFill size="16px" />
+                )}
+
+                <p>Aumentar texto</p>
+              </MenuItem>
+              <MenuItem
+                display="flex"
+                flexDirection="row"
+                alignItems="center"
+                gap="10px"
+              >
+                {colorMode === "dark" ? (
+                  <BsDashCircle size="20px" />
+                ) : (
+                  <BsDashCircleFill size="16px" />
+                )}
+
+                <p>Diminuir texto</p>
+              </MenuItem> */}
+            </MenuList>
+          </>
+        )}
+      </Menu>
       <Button onClick={toggleColorMode} p={0}>
         {colorMode === "dark" ? (
           <BsSunFill size="20px" />
@@ -260,20 +336,25 @@ const findPages = (searchString: string): IPublicRoute[] => {
     const routeHasGroup = route?.group && route.group.length > 0;
     if (
       (route?.titlePage?.toLowerCase().includes(searchString.toLowerCase()) ||
-        route?.description?.toLowerCase().includes(searchString.toLowerCase()) ||
+        route?.description
+          ?.toLowerCase()
+          .includes(searchString.toLowerCase()) ||
         route.name.toLowerCase().includes(searchString.toLowerCase()) ||
         route.path.toLowerCase().includes(searchString.toLowerCase())) &&
       !routeHasGroup
     ) {
-    
       filteredRoutes.push(route);
     }
 
     if (routeHasGroup && route?.group) {
       route.group.forEach((group) => {
         if (
-          group?.titlePage?.toLowerCase().includes(searchString.toLowerCase()) ||
-          group?.description?.toLowerCase().includes(searchString.toLowerCase()) ||
+          group?.titlePage
+            ?.toLowerCase()
+            .includes(searchString.toLowerCase()) ||
+          group?.description
+            ?.toLowerCase()
+            .includes(searchString.toLowerCase()) ||
           group.name.toLowerCase().includes(searchString.toLowerCase()) ||
           group.path.toLowerCase().includes(searchString.toLowerCase())
         ) {
