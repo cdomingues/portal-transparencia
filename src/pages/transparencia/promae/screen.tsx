@@ -13,10 +13,15 @@ type PropsInput = {
   };
 };
 
+export const contentPROMAE = {
+  titlePage: "PROMAE - Incentivos fiscais",
+  description:"O Programa Mogiano de Atração de Investimentos e Geração de Empregos busca conceder benefícios fiscais e tributários para empresas que venham a se instalar ou as já instaladas no Município e que estejam em processo de expansão, conforme estabelecido pela Lei nº 7.436 de 8 de janeiro de 2019, alterada pela Lei nº 7545 de 26 de dezembro de 2019, regulamentada pelo Decreto nº 18.300 de 9 de maio de 2019. Acompanhe aqui os processos relacionados a esse programa e as empresas que aderiram a ele.",
+}
+
 function Screen({ handler }: PropsInput) {
   const { handleSelectValue, selectOptions, laws, selectValue } = handler;
-  const title = "PROMAE - Incentivos fiscais";
-  const description = "O Programa Mogiano de Atração de Investimentos e Geração de Empregos busca conceder benefícios fiscais e tributários para empresas que venham a se instalar ou as já instaladas no Município e que estejam em processo de expansão, conforme estabelecido pela Lei nº 7.436 de 8 de janeiro de 2019, alterada pela Lei nº 7545 de 26 de dezembro de 2019, regulamentada pelo Decreto nº 18.300 de 9 de maio de 2019. Acompanhe aqui os processos relacionados a esse programa e as empresas que aderiram a ele.";
+  const title = contentPROMAE?.titlePage;
+  const description = contentPROMAE?.description;
   return (
     <ContainerBasic title={title} description={description}>
       <PlanContainer laws={laws}>

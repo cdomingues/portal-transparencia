@@ -13,11 +13,16 @@ type PropsInput = {
   };
 };
 
+export const contentPlanMultiannual = {
+  titlePage: "Plano Plurianual",
+  description: "O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos. Sua construção deve contar com a maior participação possível da sociedade, afinal são os cidadãos que pagam os impostos e que ajudarão a definir o destino dos recursos.",
+}
+
 function Screen({ handler }: PropsInput) {
   const { handleSelectValue, selectOptions, laws, selectValue } = handler;
-  const title = "Plano Plurianual";
-  const description =
-    "O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos. Sua construção deve contar com a maior participação possível da sociedade, afinal são os cidadãos que pagam os impostos e que ajudarão a definir o destino dos recursos.";
+  const title = contentPlanMultiannual?.titlePage;
+  const description = contentPlanMultiannual?.description;
+  
   return (
     <ContainerBasic title={title} description={description}>
       <PlanContainer laws={laws}>

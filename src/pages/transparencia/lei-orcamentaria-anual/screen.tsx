@@ -13,11 +13,15 @@ type PropsInput = {
   };
 };
 
+export const contentLawBudget = {
+  titlePage: "Lei Orçamentária Anual",
+  description: "A Lei Orçamentária Anual (LOA) é elaborada pelo Poder Executivo e votada pela Câmara Municipal, com o objetivo de estabelecer estimativas de receita e de despesas do município para o exercício financeiro. É na LOA onde o Executivo Municipal elenca um planejamento de gastos em obras e serviços, trazendo, dessa forma, as prioridades para investimento no ano correspondente.",
+}
+
 function Screen({ handler }: PropsInput) {
   const { handleSelectValue, selectOptions, laws, selectValue } = handler;
-  const title = "Lei Orçamentária Anual";
-  const description =
-    "A Lei Orçamentária Anual (LOA) é elaborada pelo Poder Executivo e votada pela Câmara Municipal, com o objetivo de estabelecer estimativas de receita e de despesas do município para o exercício financeiro. É na LOA onde o Executivo Municipal elenca um planejamento de gastos em obras e serviços, trazendo, dessa forma, as prioridades para investimento no ano correspondente.";
+  const title = contentLawBudget?.titlePage;
+  const description = contentLawBudget?.description;
   return (
     <ContainerBasic title={title} description={description}>
       <PlanContainer laws={laws}>

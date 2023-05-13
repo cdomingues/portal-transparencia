@@ -10,9 +10,14 @@ type PropsInput = {
   };
 };
 
+export const contentAgreementColaborator = {
+  titlePage: "Acordo de Colaboração",
+  description: "",
+}
+
 function Screen({ handler: { columns, data, loading } }: PropsInput) {
-  const title = "Acordo de Colaboração";
-  const description = "";
+  const title = contentAgreementColaborator?.titlePage;
+  const description = contentAgreementColaborator?.description;
   return (
     <ContainerBasic title={title} description={description}>
       <TableComponent loading={loading} columns={columns} data={data} />

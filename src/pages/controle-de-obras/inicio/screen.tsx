@@ -23,6 +23,11 @@ type PropsInput = {
   };
 };
 
+export const contentConstructionsControl = {
+  titlePage:"MG Obras",
+  description:"Conheça as obras que estão transformando nossa cidade.",
+}
+
 function Screen({ handler }: PropsInput) {
   const router = useRouter();
   const [password, setPassword] = useState("");
@@ -56,11 +61,11 @@ function Screen({ handler }: PropsInput) {
       <Style.Banner>
         <div className="content">
           <Text.Heading1Bold color={colors.white} fontSize={2.6} marginTop={50}>
-            MG Obras
+            {contentConstructionsControl?.titlePage}
           </Text.Heading1Bold>
 
           <Text.Heading2Medium color={colors.white} marginTop={20}>
-            Conheça as obras que estão transformando nossa cidade.
+            {contentConstructionsControl?.description}
           </Text.Heading2Medium>
           <div className="banner-bottom">
             <div

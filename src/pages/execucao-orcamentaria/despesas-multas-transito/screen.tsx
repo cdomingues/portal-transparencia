@@ -17,6 +17,11 @@ type PropsInput = {
   };
 };
 
+export const contentRevenueFinesTraffic = {
+  titlePage: "Despesas - Multas de Trânsito",
+  description: "Confira nesta página as despesas empenhadas, liquidadas e pagas a partir da arrecadação com multas de trânsito",
+}
+
 function Screen({
   handler: {
     columns,
@@ -29,8 +34,8 @@ function Screen({
     handleByYear,
   },
 }: PropsInput) {
-  const title = "Despesas - Multas de Trânsito";
-  const description = "Confira nesta página as despesas empenhadas, liquidadas e pagas a partir da arrecadação com multas de trânsito";
+  const title = contentRevenueFinesTraffic?.titlePage;
+  const description = contentRevenueFinesTraffic?.description;
   return (
     <ContainerBasic title={title} description={description}>
       {chart?.datasets?.length > 0 && (

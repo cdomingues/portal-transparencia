@@ -4,6 +4,11 @@ import * as Text from "../../../styles/text";
 import * as Style from "./styles";
 import { Input } from "@chakra-ui/react";
 
+export const contentOpenedConstructions = {
+  titlePage:"Comunidad de obras abiertas",
+  description:"El código de BA Obras está abierto a fin de que las ciudades interesadas en transparentar la gestión de la obra pública, a través de la apertura de datos y el acceso a información, puedan crear sus propios portales de obras abiertas.",
+}
+
 const OpenedConstructionsScreen = () => {
   const [password, setPassword] = useState("");
   if (!password || password != "abobora123") {
@@ -34,8 +39,8 @@ const OpenedConstructionsScreen = () => {
     <LayoutConstructions
       title="Abertas"
       bannerSrc="https://wallpaperaccess.com/full/895.jpg"
-      bannerTitle="Comunidad de obras abiertas"
-      bannerDescription="El código de BA Obras está abierto a fin de que las ciudades interesadas en transparentar la gestión de la obra pública, a través de la apertura de datos y el acceso a información, puedan crear sus propios portales de obras abiertas."
+      bannerTitle={contentOpenedConstructions?.titlePage}
+      bannerDescription={contentOpenedConstructions?.description}
     >
       <Style.Description>
         <Text.Heading5Regular>

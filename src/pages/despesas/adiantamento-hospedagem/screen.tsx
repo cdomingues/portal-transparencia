@@ -31,6 +31,12 @@ type PropsInput = {
   };
 };
 
+export const contentAdvancesAndAccommodation = {
+  titlePage: "Adiantamentos e Hospedagens",
+  description: "Adiantamentos são recursos financeiros conferidos a um servidor público, a fim de que possa realizar despesas que não possam aguardar o ciclo normal de compras. Confira os gastos relacionados a adiantamentos e hospedagens dos servidores públicos no exercício de sua função.",
+}
+
+
 function Screen({
   handler: {
     columns,
@@ -44,8 +50,8 @@ function Screen({
     handleByYear,
   },
 }: PropsInput) {
-  const title = "Adiantamentos e Hospedagens";
-  const description = "Adiantamentos são recursos financeiros conferidos a um servidor público, a fim de que possa realizar despesas que não possam aguardar o ciclo normal de compras. Confira os gastos relacionados a adiantamentos e hospedagens dos servidores públicos no exercício de sua função.";
+  const title = contentAdvancesAndAccommodation?.titlePage;
+  const description = contentAdvancesAndAccommodation?.description;
   const chartConfig = {
     direction: isMobile ? "column" : "row",
     width: isMobile ? "100%" : "40%",

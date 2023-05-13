@@ -45,6 +45,11 @@ type PropsInput = {
   };
 };
 
+export const contentPayroll = {
+  titlePage: "Folha de Pagamento",
+  description: "É dever do Poder Público dar transparência à Folha de Pagamento dos funcionários. Acompanhe aqui o detalhamento dos cargos e salários dos servidores públicos municipais.",
+}
+
 function Screen({
   handler: {
     columns,
@@ -66,9 +71,8 @@ function Screen({
   },
 }: PropsInput) {
   const [payments, setPayments] = useState<any>(null);
-  const title = "Folha de Pagamento";
-  const description =
-    "É dever do Poder Público dar transparência à Folha de Pagamento dos funcionários. Acompanhe aqui o detalhamento dos cargos e salários dos servidores públicos municipais.";
+  const title = contentPayroll?.titlePage;
+  const description = contentPayroll?.description;
   const chartConfig = {
     direction: isMobile ? "column" : "row",
     width: isMobile ? "100%" : "40%",

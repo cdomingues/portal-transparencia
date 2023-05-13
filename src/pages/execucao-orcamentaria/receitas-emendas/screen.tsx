@@ -17,6 +17,11 @@ type PropsInput = {
   };
 };
 
+export const contentRecipesAmendments = {
+  titlePage: "Receitas - Emendas Parlamentares",
+  description: "A arrecadação de receitas para o município pode vir de diferentes fontes. As emendas parlamentares, indicadas por Deputados Federais e Estaduais, são uma forma da cidade ter acesso a recursos. Acompanhe nesta página o descritivo das emendas parlamentares recebidas pela Prefeitura de Mogi das Cruzes.",
+}
+
 function Screen({
   handler: {
     columns,
@@ -29,8 +34,8 @@ function Screen({
     handleByYear,
   },
 }: PropsInput) {
-  const title = "Receitas - Emendas Parlamentares";
-  const description = "A arrecadação de receitas para o município pode vir de diferentes fontes. As emendas parlamentares, indicadas por Deputados Federais e Estaduais, são uma forma da cidade ter acesso a recursos. Acompanhe nesta página o descritivo das emendas parlamentares recebidas pela Prefeitura de Mogi das Cruzes.";
+  const title = contentRecipesAmendments?.titlePage;
+  const description = contentRecipesAmendments?.description;
   return (
     <ContainerBasic title={title} description={description}>
       {chart?.datasets?.length > 0 && (

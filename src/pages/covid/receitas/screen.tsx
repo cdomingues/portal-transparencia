@@ -31,6 +31,11 @@ type PropsInput = {
   };
 };
 
+export const contentCovidRecipes = {
+  titlePage: "Receitas COVID-19",
+  description: "Dispõe das receitas recebidas pelo órgão público para enfrentamento da emergência de saúde pública de importância internacional decorrente do coronavírus (COVID-19).",
+}
+
 function Screen({
   handler: {
     columns,
@@ -44,9 +49,8 @@ function Screen({
     handleByYear,
   },
 }: PropsInput) {
-  const title = "Receitas COVID-19";
-  const description =
-    "Dispõe das receitas recebidas pelo órgão público para enfrentamento da emergência de saúde pública de importância internacional decorrente do coronavírus (COVID-19).";
+  const title = contentCovidRecipes?.titlePage;
+  const description = contentCovidRecipes?.description;
 
   const chartConfig = {
     direction: isMobile ? "column" : "row",

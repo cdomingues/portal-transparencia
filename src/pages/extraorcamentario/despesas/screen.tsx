@@ -31,6 +31,11 @@ type PropsInput = {
   };
 };
 
+export const contentExtrabudgetExpenses = {
+  titlePage: "Despesas Extraorçamentárias",
+  description: "Aqui você pode acompanhar as informações sobre as despesas que não integram o orçamento da Prefeitura, apenas transitam pelo poder público.",
+}
+
 function Screen({
   handler: {
     columns,
@@ -44,8 +49,8 @@ function Screen({
     handleByYear,
   },
 }: PropsInput) {
-  const title = "Despesas Extraorçamentárias";
-  const description = "Aqui você pode acompanhar as informações sobre as despesas que não integram o orçamento da Prefeitura, apenas transitam pelo poder público.";
+  const title = contentExtrabudgetExpenses?.titlePage;
+  const description = contentExtrabudgetExpenses?.description;
 
   const chartConfig = {
     direction: isMobile ? "column" : "row",

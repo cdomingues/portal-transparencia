@@ -10,9 +10,14 @@ type PropsInput = {
   };
 };
 
+export const contentConvenants = {
+  titlePage: "Convênios",
+  description: "Confira aqui os contratos com as organizações do terceiro setor celebrados pela Prefeitura de Mogi das Cruzes.",
+}
+
 function Screen({ handler: { columns, data, loading } }: PropsInput) {
-  const title = "Convênios";
-  const description = "Confira aqui os contratos com as organizações do Terceiro Setor celebrados pela Prefeitura de Mogi das Cruzes.";
+  const title = contentConvenants?.titlePage;
+  const description = contentConvenants?.description;
   return (
     <ContainerBasic title={title} description={description}>
       <TableComponent loading={loading} columns={columns} data={data} />

@@ -11,6 +11,11 @@ interface PropsPagination {
   onPageChange: (pageNumber: number) => void;
 }
 
+export const contentSearchConstructions = {
+  titlePage:"Pesquisar Obras",
+  description:"Conocé toda la información sobre las obras de la Ciudad.",
+}
+
 const SearchBuildingsScreen = ({ handlers }: any) => {
   const {
     arrayBuildings,
@@ -81,8 +86,8 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
     <LayoutConstructions
       title="Sobre"
       bannerSrc="https://cdn.buenosaires.gob.ar/BAObrasrenovado/NUEVA-POMPEYA-AHORA-VIADUCTO-BELGRANO-SUR-2.jpg"
-      bannerTitle="Pesquisar Obras"
-      bannerDescription="Conocé toda la información sobre las obras de la Ciudad."
+      bannerTitle={contentSearchConstructions?.titlePage}
+      bannerDescription={contentSearchConstructions?.description}
     >
       <Style.Description>
         <Style.SearchBar>

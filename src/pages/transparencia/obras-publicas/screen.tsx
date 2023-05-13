@@ -13,11 +13,15 @@ type PropsInput = {
   };
 };
 
+export const contentPublicWorks = {
+  titlePage: "Obras Públicas",
+  description: "Traz as informações sobre as obras públicas em andamento no município, bem como seu custo e origem dos recursos (municipais, estaduais e federais).",
+}
+
 function Screen({ handler }: PropsInput) {
   const { handleSelectValue, selectOptions, laws, selectValue } = handler;
-  const title = "Obras Públicas";
-  const description =
-    "Traz as informações sobre as obras públicas em andamento no município, bem como seu custo e origem dos recursos (municipais, estaduais e federais).";
+  const title = contentPublicWorks?.titlePage;
+  const description = contentPublicWorks?.description;
   return (
     <ContainerBasic title={title} description={description}>
       <PlanContainer laws={laws}>
