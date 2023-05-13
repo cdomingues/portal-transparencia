@@ -47,4 +47,6 @@ export interface IPublicRoute {
   defaultPath?: string;
   link?: string;
   group?: IPublicRoute[];
+  titlePage?: String;
+  description?: String;
 }

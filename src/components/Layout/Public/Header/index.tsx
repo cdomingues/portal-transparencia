@@ -254,23 +254,27 @@ const DesktopNav = ({
   );
 };
 
-
 const findPages = (searchString: string): IPublicRoute[] => {
   const filteredRoutes: IPublicRoute[] = [];
 
   publicRoutes.forEach((route) => {
     const routeHasGroup = route?.group && route.group.length > 0;
     if (
-      (route.name.toLowerCase().includes(searchString.toLowerCase()) ||
+      (route?.titlePage?.toLowerCase().includes(searchString.toLowerCase()) ||
+        route?.description?.toLowerCase().includes(searchString.toLowerCase()) ||
+        route.name.toLowerCase().includes(searchString.toLowerCase()) ||
         route.path.toLowerCase().includes(searchString.toLowerCase())) &&
       !routeHasGroup
     ) {
+    
       filteredRoutes.push(route);
     }
 
     if (routeHasGroup && route?.group) {
       route.group.forEach((group) => {
         if (
+          group?.titlePage?.toLowerCase().includes(searchString.toLowerCase()) ||
+          group?.description?.toLowerCase().includes(searchString.toLowerCase()) ||
           group.name.toLowerCase().includes(searchString.toLowerCase()) ||
           group.path.toLowerCase().includes(searchString.toLowerCase())
         ) {
@@ -282,10 +286,8 @@ const findPages = (searchString: string): IPublicRoute[] => {
     }
   });
 
-
   return filteredRoutes;
 };
-
 
 const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   const hasHref = href ? { href } : {};
