@@ -25,6 +25,12 @@ type Meeting = {
   Detalhes: string;
 };
 
+
+export const contentMayorAgenda = {
+  titlePage: "Agenda Aberta",
+  description: "Conforme previsto na Lei Municipal 7.653/2021 e no Decreto 21.006/22, todo cidadão pode ter acesso à agenda de compromissos oficiais das autoridades do Executivo de Mogi das Cruzes. Esta é mais uma medida de promoção da integridade no setor público.",
+}
+
 function Screen({ handler }: PropsInput) {
   const [selected, setSelected] = useState<Date>();
   const [schedule, setSchedule] = useState<Array<Meeting>>([]);
@@ -50,9 +56,8 @@ function Screen({ handler }: PropsInput) {
       item?.data === String(moment(selected).format("YYYY-MM-DDTHH:mm:ss"))
   );
 
-  const title = "Agenda Aberta";
-  const description =
-    "Conforme previsto na Lei Municipal 7.653/2021 e no Decreto 21.006/22, todo cidadão pode ter acesso à agenda de compromissos oficiais das autoridades do Executivo de Mogi das Cruzes. Esta é mais uma medida de promoção da integridade no setor público.";
+  const title = contentMayorAgenda?.titlePage;
+  const description = contentMayorAgenda?.description;
 
   const dateSelected = moment(selected).format("LL");
   const translatorMonth: any = {

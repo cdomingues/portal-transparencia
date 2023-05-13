@@ -25,6 +25,8 @@ import { contentConstructionsControl } from "../pages/controle-de-obras/inicio/s
 import { contentAboutConstructions } from "../pages/controle-de-obras/sobre-as-obras/screen";
 import { contentSearchConstructions } from "../pages/controle-de-obras/pesquisar-obras/screen";
 import { contentOpenedConstructions } from "../pages/controle-de-obras/obras-abertas/screen";
+import { contentRadarsControl } from "../pages/controle-de-radares/screen";
+import { contentMayorAgenda } from "../pages/agenda-aberta/agenda-prefeito/screen";
 
 const publicRoutes: IPublicRoute[] = [
   {
@@ -87,6 +89,7 @@ const publicRoutes: IPublicRoute[] = [
     icon: BsCameraVideo,
     path: "/controle-de-radares",
     group: undefined,
+    ...contentRadarsControl
   },
   {
     name: "Agenda Aberta",
@@ -98,12 +101,14 @@ const publicRoutes: IPublicRoute[] = [
         name: "Prefeito - Caio Cunha",
         path: "/agenda-caio",
         icon: AiOutlineProfile,
+        ...contentMayorAgenda
       },
       {
         defaultPath: "/agenda-aberta",
         name: "Prefeito",
         path: "/agenda-prefeito",
         icon: AiOutlineProfile,
+        ...contentMayorAgenda
       },
     ],
   },

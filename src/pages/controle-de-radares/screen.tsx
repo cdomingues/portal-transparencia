@@ -12,6 +12,11 @@ type PropsInput = {
   };
 };
 
+export const contentRadarsControl = {
+  titlePage:"Controle de Radares",
+  description:"Agora você tem um ambiente onde pode conferir, de forma oficial, as principais informações sobre os equipamentos de fiscalização de trânsito em Mogi das Cruzes. Acompanhe um mapa interativo com a localização de cada radar, tenha acesso ao tipo de equipamento, à velocidade máxima permitida e ao status de operação deles.",
+}
+
 const markerChildren = (data: any) => {
   return (
     <>
@@ -45,8 +50,8 @@ const MapWithNoSSR = dynamic(() => import("../../components/Map"), {
 });
 
 function Screen({ handler: { columns, data, loading } }: PropsInput) {
-  const title = "Controle de Radares";
-  const description = "Agora você tem um ambiente onde pode conferir, de forma oficial, as principais informações sobre os equipamentos de fiscalização de trânsito em Mogi das Cruzes. Acompanhe um mapa interativo com a localização de cada radar, tenha acesso ao tipo de equipamento, à velocidade máxima permitida e ao status de operação deles.";
+  const title = contentRadarsControl?.titlePage;
+  const description = contentRadarsControl?.description;
 
   return (
     <ContainerBasic title={title} description={description}>
