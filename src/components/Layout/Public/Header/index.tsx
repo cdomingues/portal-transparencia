@@ -48,6 +48,7 @@ import {
   BsSunFill,
 } from "react-icons/bs";
 import { IPublicRoute } from "../../../../types";
+import { useRouter } from "next/router";
 
 export default function Header() {
   const [search, setSearch] = useState("");
@@ -132,7 +133,7 @@ const DesktopNav = ({
   const linkColor = useColorModeValue("gray.600", "gray.200");
   const linkHoverColor = useColorModeValue("gray.800", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
-
+  const router = useRouter()
   return (
     <Stack flex={1} direction="row">
       <Stack
@@ -243,6 +244,7 @@ const DesktopNav = ({
                 flexDirection="row"
                 alignItems="center"
                 gap="10px"
+                onClick={()=> router.push('/mapa-do-site')}
               >
                 {colorMode === "dark" ? (
                   <BsMap size="20px" />
