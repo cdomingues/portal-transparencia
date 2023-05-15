@@ -15,6 +15,7 @@ import {
   AiOutlineInfoCircle,
   AiOutlineSearch,
   AiOutlineTool,
+  AiOutlineGlobal
 } from "react-icons/ai";
 import { BiBriefcaseAlt, BiMoney } from "react-icons/bi";
 import { BsBricks, BsCameraVideo, BsFileText } from "react-icons/bs";
@@ -568,6 +569,12 @@ const publicRoutes: IPublicRoute[] = [
       },
     ],
   },
+  {
+    name: "Mapa do Site",
+    path: "/mapa-do-site",
+    icon: AiOutlineGlobal,
+    group:undefined,
+  }
 ];
 
 export default publicRoutes;

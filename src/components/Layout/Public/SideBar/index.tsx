@@ -347,7 +347,7 @@ function MobileNav({ onOpen, ...rest }: MobileProps) {
           />
         </Flex>
       </Text>
-      <Menu>
+      {/* <Menu>
         {({ isOpen }) => (
           <>
             <MenuButton background="transparent" marginRight={2}>
@@ -375,7 +375,7 @@ function MobileNav({ onOpen, ...rest }: MobileProps) {
 
                 <p>Mapa do site</p>
               </MenuItem>
-              {/* <MenuItem
+              <MenuItem
                 display="flex"
                 flexDirection="row"
                 alignItems="center"
@@ -402,11 +402,11 @@ function MobileNav({ onOpen, ...rest }: MobileProps) {
                 )}
 
                 <p>Diminuir texto</p>
-              </MenuItem> */}
+              </MenuItem> 
             </MenuList>
           </>
         )}
-      </Menu>
+      </Menu> */}
       <Button
         onClick={toggleColorMode}
         p={0}
