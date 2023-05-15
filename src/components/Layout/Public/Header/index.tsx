@@ -226,7 +226,7 @@ const DesktopNav = ({
           );
         })}
       </Stack>
-      <Menu>
+      {/* <Menu>
         {({ isOpen }) => (
           <>
             <MenuButton background="transparent">
@@ -254,7 +254,7 @@ const DesktopNav = ({
 
                 <p>Mapa do site</p>
               </MenuItem>
-              {/* <MenuItem
+           <MenuItem
                 display="flex"
                 flexDirection="row"
                 alignItems="center"
@@ -281,11 +281,11 @@ const DesktopNav = ({
                 )}
 
                 <p>Diminuir texto</p>
-              </MenuItem> */}
+              </MenuItem>
             </MenuList>
           </>
         )}
-      </Menu>
+      </Menu> */}
       <Button onClick={toggleColorMode} p={0}>
         {colorMode === "dark" ? (
           <BsSunFill size="20px" />
