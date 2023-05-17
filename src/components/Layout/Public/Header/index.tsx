@@ -41,14 +41,13 @@ import {
   BsFillMoonFill,
   BsGrid3X3Gap,
   BsGrid3X3GapFill,
-  BsMap,
-  BsMapFill,
   BsPlusCircle,
   BsPlusCircleFill,
   BsSunFill,
 } from "react-icons/bs";
 import { IPublicRoute } from "../../../../types";
 import { useRouter } from "next/router";
+import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAccessibility";
 
 export default function Header() {
   const [search, setSearch] = useState("");
@@ -133,7 +132,8 @@ const DesktopNav = ({
   const linkColor = useColorModeValue("gray.600", "gray.200");
   const linkHoverColor = useColorModeValue("gray.800", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
-  const router = useRouter()
+  const router = useRouter();
+  const accessibility = useFontSizeAccessibilityContext();
   return (
     <Stack flex={1} direction="row">
       <Stack
@@ -153,7 +153,7 @@ const DesktopNav = ({
                     {...hasHref}
                     target={href ? "_blank" : undefined}
                     p={2}
-                    fontSize={"smaller"}
+                    fontSize={accessibility.fonts.small}
                     fontWeight={500}
                     color={linkColor}
                     textAlign="center"
@@ -208,7 +208,7 @@ const DesktopNav = ({
                                     ml="3"
                                     onClick={() => window.open(item.href)}
                                   >
-                                    <Text fontSize={"smaller"} fontWeight="500">
+                                    <Text fontSize={accessibility?.fonts?.small} fontWeight="500">
                                       {item.label}
                                     </Text>
                                   </Box>
@@ -226,7 +226,7 @@ const DesktopNav = ({
           );
         })}
       </Stack>
-      {/* <Menu>
+      <Menu>
         {({ isOpen }) => (
           <>
             <MenuButton background="transparent">
@@ -244,21 +244,11 @@ const DesktopNav = ({
                 flexDirection="row"
                 alignItems="center"
                 gap="10px"
-                onClick={()=> router.push('/mapa-do-site')}
-              >
-                {colorMode === "dark" ? (
-                  <BsMap size="20px" />
-                ) : (
-                  <BsMapFill size="16px" />
-                )}
-
-                <p>Mapa do site</p>
-              </MenuItem>
-           <MenuItem
-                display="flex"
-                flexDirection="row"
-                alignItems="center"
-                gap="10px"
+                onClick={() =>
+                  accessibility?.setCoefficient(
+                    accessibility?.coefficient + 0.15
+                  )
+                }
               >
                 {colorMode === "dark" ? (
                   <BsPlusCircle size="20px" />
@@ -273,6 +263,13 @@ const DesktopNav = ({
                 flexDirection="row"
                 alignItems="center"
                 gap="10px"
+                onClick={() =>
+                  accessibility?.setCoefficient(
+                    accessibility?.coefficient > 0.4
+                      ? accessibility?.coefficient - 0.15
+                      : 0.4
+                  )
+                }
               >
                 {colorMode === "dark" ? (
                   <BsDashCircle size="20px" />
@@ -285,7 +282,7 @@ const DesktopNav = ({
             </MenuList>
           </>
         )}
-      </Menu> */}
+      </Menu>
       <Button onClick={toggleColorMode} p={0}>
         {colorMode === "dark" ? (
           <BsSunFill size="20px" />
@@ -371,6 +368,7 @@ const findPages = (searchString: string): IPublicRoute[] => {
 
 const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   const hasHref = href ? { href } : {};
+  const accessibility = useFontSizeAccessibilityContext()
   return (
     <Link
       {...hasHref}
@@ -387,11 +385,11 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
             transition={"all .3s ease"}
             _groupHover={{ color: useColorModeValue("pink.400", "white") }}
             fontWeight={500}
-            fontSize="smaller"
+            fontSize={accessibility?.fonts?.small}
           >
             {label}
           </Text>
-          <Text fontSize={"sm"}>{subLabel}</Text>
+          <Text fontSize={accessibility?.fonts?.small}>{subLabel}</Text>
         </Box>
         <Flex
           transition={"all .3s ease"}

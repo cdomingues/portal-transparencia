@@ -4,6 +4,7 @@ import ContainerBasic from "../../../components/Container/Basic";
 import PlanContainer from "../../../components/Container/Plan";
 import { isMobile } from "react-device-detect";
 import NoClickIframe from "../../../components/IframeNoClick";
+import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 
 
 
@@ -46,7 +47,8 @@ function Screen({ handler }: PropsInput) {
   const title = "Agenda Aberta";
   const description =
     "Conforme previsto na Lei Municipal 7.653/2021 e no Decreto 21.006/22, todo cidadão pode ter acesso à agenda de compromissos oficiais das autoridades do Executivo de Mogi das Cruzes. Esta é mais uma medida de promoção da integridade no setor público.";
-  return (
+  
+    return (
 
 
     <ContainerBasic title={title} description={description}>

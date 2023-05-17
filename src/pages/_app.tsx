@@ -6,6 +6,7 @@ import { CookiesProvider, useCookies } from "react-cookie";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import theme from "../themes";
+import { FontSizeAccessibilityWrapper } from "../context/fontSizeAccessibility";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [loaded, setLoaded] = useState(false);
@@ -18,13 +19,15 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ChakraProvider theme={theme}>
-      <CookiesProvider>
-        {loaded && (
-          <PublicLayout>
-            <Component {...pageProps} />
-          </PublicLayout>
-        )}
-      </CookiesProvider>
+      <FontSizeAccessibilityWrapper>
+        <CookiesProvider>
+          {loaded && (
+            <PublicLayout>
+              <Component {...pageProps} />
+            </PublicLayout>
+          )}
+        </CookiesProvider>
+      </FontSizeAccessibilityWrapper>
     </ChakraProvider>
   );
 }

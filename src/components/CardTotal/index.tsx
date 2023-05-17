@@ -1,9 +1,10 @@
 import * as Style from "./styles";
-import * as Text from "../../styles/text";
 
 import { BsTree } from "react-icons/bs";
 import { ReactNode, useEffect, useState } from "react";
 import colors from "../../styles/colors";
+import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
+import { Text } from "@chakra-ui/react";
 
 type CardTotalProps = {
   icon?: ReactNode;
@@ -16,6 +17,7 @@ const CardTotal = ({
   value = "10",
   description = "teste",
 }: CardTotalProps) => {
+  const accessibility = useFontSizeAccessibilityContext();
   const [valueCounting, setValueConting] = useState("");
 
   function formatNumber(value: number): string {
@@ -38,13 +40,13 @@ const CardTotal = ({
     <Style.Container>
       {icon ? icon : <BsTree color={colors.white} fontSize={60} />}
 
-      <Text.Heading1Regular fontSize={2.2} color={colors.white} marginTop={15}>
+      <Text fontSize={accessibility?.fonts?.moreUltraLarge} color={colors.white} marginTop={15}>
         {valueCounting}
-      </Text.Heading1Regular>
+      </Text>
 
-      <Text.Heading2Regular fontSize={1.1} color={colors.white} marginTop={15}>
+      <Text fontSize={accessibility?.fonts?.regular} color={colors.white} marginTop={15}>
         {description}
-      </Text.Heading2Regular>
+      </Text>
     </Style.Container>
   );
 };

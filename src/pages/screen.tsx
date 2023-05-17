@@ -26,6 +26,7 @@ import { Chart } from "../components/HomeChart";
 import { ChartContainer } from "../utils/styles";
 import { BiBody, BiCheckShield, BiFoodMenu, BiHeart } from "react-icons/bi";
 import useWindowDimensions from "../utils/getWindowSize";
+import { useFontSizeAccessibilityContext } from "../context/fontSizeAccessibility";
 
 type PropsInput = {
   handler: {
@@ -47,9 +48,10 @@ type PropsInput = {
 };
 
 export const contentInitial = {
-  titlePage:"Boas-vindas ao Portal da Transparência de Mogi!",
-  description:"O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.",
-}
+  titlePage: "Boas-vindas ao Portal da Transparência de Mogi!",
+  description:
+    "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.",
+};
 
 function Aside({ news }: { news: Array<News> }) {
   return (
@@ -76,46 +78,58 @@ const PublicPolicyCard = ({
   valor: number;
   funcao: any;
   stylesTranslator: any;
-}) => (
-  <Stack
-    direction="row"
-    bg={useColorModeValue("white", 'gray.800')}
-    mb={5}
-    mr={5}
-    borderRadius="10"
-    height="110px"
-    boxShadow="10px 10px 18px -9px rgba(0,0,0,0.75)"
-    width="260px"
-  >
-    <Stack flex={1} justifyContent="center" alignItems="center">
-      <div
-        style={{
-          height: 60,
-          width: 60,
-          borderRadius: 30,
-          backgroundColor: stylesTranslator[funcao].backgroundColor,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Icon
-          fontSize="30px"
-          color="white"
-          as={stylesTranslator[funcao].icon}
-        />
-      </div>
+}) => {
+  const accessibility = useFontSizeAccessibilityContext();
+  return (
+    <Stack
+      direction="row"
+      bg={useColorModeValue("white", "gray.800")}
+      mb={5}
+      mr={5}
+      borderRadius="10"
+      height="110px"
+      boxShadow="10px 10px 18px -9px rgba(0,0,0,0.75)"
+      width="260px"
+    >
+      <Stack flex={1} justifyContent="center" alignItems="center">
+        <div
+          style={{
+            height: 60,
+            width: 60,
+            borderRadius: 30,
+            backgroundColor: stylesTranslator[funcao].backgroundColor,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Icon
+            fontSize="30px"
+            color="white"
+            as={stylesTranslator[funcao].icon}
+          />
+        </div>
+      </Stack>
+      <Stack flex={2} direction="column" justifyContent="center">
+        <Text
+          fontWeight="500"
+          fontSize={accessibility?.fonts?.medium}
+          color={"gray.500"}
+        >
+          {funcao}
+        </Text>
+        <Text
+          fontSize={accessibility?.fonts?.medium}
+          mb={2}
+          fontWeight="550"
+          color={useColorModeValue("#000", "#fff")}
+        >
+          {moneyFormatter(valor)}
+        </Text>
+      </Stack>
     </Stack>
-    <Stack flex={2} direction="column" justifyContent="center">
-      <Text fontWeight="500" fontSize="small" color={"gray.500"}>
-        {funcao}
-      </Text>
-      <Text fontSize="small" mb={2} fontWeight="550" color={useColorModeValue('#000', '#fff')}>
-        {moneyFormatter(valor)}
-      </Text>
-    </Stack>
-  </Stack>
-);
+  );
+};
 
 function HomeScreen({ handler }: PropsInput) {
   const {
@@ -134,7 +148,7 @@ function HomeScreen({ handler }: PropsInput) {
     chartLoading,
     date,
   } = handler;
-
+  const accessibility = useFontSizeAccessibilityContext();
   const titlePage = contentInitial?.titlePage;
   const description = contentInitial?.description;
 
@@ -173,8 +187,10 @@ function HomeScreen({ handler }: PropsInput) {
         </Head>
 
         <Stack spacing={4}>
-          <Heading fontSize="lg">{titlePage}</Heading>
-          <Text color={"gray.500"} fontSize="md">
+          <Heading fontSize={accessibility?.fonts?.highLarge}>
+            {titlePage}
+          </Heading>
+          <Text color={"gray.500"} fontSize={accessibility?.fonts?.regular}>
             {description}
           </Text>
           {/* <Text color={"gray.500"} fontSize="sm">
@@ -182,7 +198,7 @@ function HomeScreen({ handler }: PropsInput) {
           </Text> */}
         </Stack>
         <Stack>
-          <Heading mt={10} mb={4} fontSize="md">
+          <Heading mt={10} mb={4} fontSize={accessibility?.fonts?.regular}>
             Resumo {moment().year()}
           </Heading>
           <StatGroup
@@ -191,10 +207,17 @@ function HomeScreen({ handler }: PropsInput) {
             flexDirection={isMobile ? "column" : "row"}
           >
             <Stat mb={isMobile ? 6 : 0}>
-              <StatLabel height="40px" color={useColorModeValue("black", "white")}>
+              <StatLabel
+                height="40px"
+                color={useColorModeValue("black", "white")}
+              >
                 Arrecadações
               </StatLabel>
-              <StatNumber fontSize="medium" mb={2} color={useColorModeValue("black", "white")}>
+              <StatNumber
+                fontSize="medium"
+                mb={2}
+                color={useColorModeValue("black", "white")}
+              >
                 {moneyFormatter(revenueAmount)}
               </StatNumber>
               <StatHelpText mb={0} color={useColorModeValue("black", "white")}>
@@ -205,10 +228,17 @@ function HomeScreen({ handler }: PropsInput) {
               </StatHelpText>
             </Stat>
             <Stat>
-              <StatLabel height="40px" color={useColorModeValue("black", "white")}>
+              <StatLabel
+                height="40px"
+                color={useColorModeValue("black", "white")}
+              >
                 Despesas e Investimentos
               </StatLabel>
-              <StatNumber fontSize="medium" mb={2} color={useColorModeValue("black", "white")}>
+              <StatNumber
+                fontSize="medium"
+                mb={2}
+                color={useColorModeValue("black", "white")}
+              >
                 {moneyFormatter(expenseAmount)}
               </StatNumber>
               <StatHelpText mb={0} color={useColorModeValue("black", "white")}>
@@ -222,7 +252,7 @@ function HomeScreen({ handler }: PropsInput) {
         </Stack>
         <Divider mb={10} />
         <Heading
-          fontSize="md"
+          fontSize={accessibility?.fonts?.regular}
           mb={9}
           style={{ marginBottom: "30px", marginTop: "30px" }}
         >
@@ -256,7 +286,10 @@ function HomeScreen({ handler }: PropsInput) {
         <Divider mb="6%" />
 
         <Stack direction="column">
-          <Heading fontSize="md" style={{ marginTop: "30px" }}>
+          <Heading
+            fontSize={accessibility?.fonts?.regular}
+            style={{ marginTop: "30px" }}
+          >
             Políticas Públicas
           </Heading>
           <StatGroup width="100%" mb={20}>
@@ -427,7 +460,7 @@ function HomeScreen({ handler }: PropsInput) {
             </Stat>
           </StatGroup>
         </Stack>
-        <Text color={"gray.500"} fontSize="sm">
+        <Text color={"gray.500"} fontSize={accessibility?.fonts?.medium}>
           Última atualização: {date}
         </Text>
       </Stack>

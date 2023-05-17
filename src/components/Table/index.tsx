@@ -52,6 +52,8 @@ import { BsChevronDown, BsChevronExpand, BsChevronUp } from "react-icons/bs";
 import { BiCameraMovie } from "react-icons/bi";
 import { isMobile } from "react-device-detect";
 import { validURL } from "../../utils/validUrl";
+import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
+import colors from "../../styles/colors";
 
 export type TableColumns = Array<{
   title: string;
@@ -88,7 +90,7 @@ function TableComponent({
 
   const loadingBoxBgColor = useColorModeValue("white", "gray.700");
   const tdBgColor = useColorModeValue("white", "gray.800");
-
+  const accessibility = useFontSizeAccessibilityContext();
   const newColumns = useMemo<any>(
     () =>
       columns.map((column) => {
@@ -198,7 +200,7 @@ function TableComponent({
             disabled={loading}
             style={{ width: 180 }}
           >
-            Video Explicativo
+            <Text fontSize={accessibility.fonts.medium} color={colors.white}>Video explicativo</Text>
           </Button>
         </Box>
         <Box p="4" pl={0}>
@@ -215,7 +217,7 @@ function TableComponent({
             disabled={loading}
             style={{ width: 180 }}
           >
-            Dicionário de Dados
+            <Text fontSize={accessibility.fonts.medium} color={colors.white}>Dicionário de Dados</Text>
           </Button>
         </Box>
         <Box p="4" pl={0}>
@@ -231,7 +233,7 @@ function TableComponent({
               disabled={loading}
               style={{ width: 180 }}
             >
-              Dados Abertos
+              <Text fontSize={accessibility.fonts.medium} color={colors.white}>Dados Abertos</Text>
             </MenuButton>
             <MenuList color="table.primary" bg="white">
               <CsvItem>

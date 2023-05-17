@@ -29,6 +29,8 @@ import {
   MenuItem,
 } from "@chakra-ui/react";
 import {
+  BsDashCircle,
+  BsDashCircleFill,
   BsFacebook,
   BsFillMoonFill,
   BsGrid3X3Gap,
@@ -36,6 +38,8 @@ import {
   BsInstagram,
   BsMap,
   BsMapFill,
+  BsPlusCircle,
+  BsPlusCircleFill,
   BsSunFill,
   BsTwitter,
   BsYoutube,
@@ -48,6 +52,7 @@ import logoDark from "../../../../assets/images/logo_branco.png";
 import { GroupRoutes, IPublicRoute, Routes } from "../../../../types";
 import Header from "../Header";
 import { useRouter } from "next/router";
+import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAccessibility";
 
 interface SidebarProps extends BoxProps {
   onClose: () => void;
@@ -63,8 +68,9 @@ interface NavItemProps extends FlexProps {
 }
 
 function ListHeader({ children }: { children: ReactNode }) {
+  const accessibility = useFontSizeAccessibilityContext();
   return (
-    <Text fontWeight="500" fontSize="medium" mb={2}>
+    <Text fontWeight="500" fontSize={accessibility?.fonts?.regular} mb={2}>
       {children}
     </Text>
   );
@@ -78,6 +84,7 @@ function NavItem({
   children,
   key,
 }: NavItemProps) {
+  const accessibility = useFontSizeAccessibilityContext();
   if (group.length > 0) {
     return (
       <Menu>
@@ -99,12 +106,12 @@ function NavItem({
                 }}
                 fontWeight="500"
               >
-                <Box flex="1" fontSize="13" textAlign="left">
+                <Box flex="1" fontSize={accessibility?.fonts?.semiMedium} textAlign="left">
                   {icon && (
                     <Icon
                       mr="4"
                       color="primary"
-                      fontSize="18"
+                     fontSize="18"
                       _groupHover={{
                         color: "primary",
                       }}
@@ -123,7 +130,7 @@ function NavItem({
                     target={item.link ? "_blank" : "_self"}
                     style={{ textDecoration: "none" }}
                     _focus={{ boxShadow: "none" }}
-                    fontSize="13"
+                    fontSize={accessibility?.fonts?.semiMedium}
                   >
                     <Flex
                       width="100%"
@@ -136,7 +143,7 @@ function NavItem({
                         bg: "gray.100",
                         color: "primary",
                       }}
-                      fontSize="14"
+                      fontSize={accessibility?.fonts?.semiMedium}
                     >
                       <Icon
                         mr="4"
@@ -164,7 +171,7 @@ function NavItem({
       target={link ? "_blank" : "_self"}
       style={{ textDecoration: "none" }}
       _focus={{ boxShadow: "none" }}
-      fontSize="13"
+      fontSize={accessibility?.fonts?.semiMedium}
     >
       <Flex
         width="95%"
@@ -185,7 +192,7 @@ function NavItem({
             bg: "gray.100",
             color: "primary",
           }}
-          fontSize="13"
+          fontSize={accessibility?.fonts?.semiMedium}
         >
           <Icon
             mr="4"
@@ -311,6 +318,7 @@ interface MobileProps extends FlexProps {
 function MobileNav({ onOpen, ...rest }: MobileProps) {
   const { colorMode, toggleColorMode } = useColorMode();
   const router = useRouter();
+  const accessibility = useFontSizeAccessibilityContext();
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
@@ -347,10 +355,10 @@ function MobileNav({ onOpen, ...rest }: MobileProps) {
           />
         </Flex>
       </Text>
-      {/* <Menu>
+      <Menu>
         {({ isOpen }) => (
           <>
-            <MenuButton background="transparent" marginRight={2}>
+            <MenuButton background="transparent" marginRight={2} display={["flex", "flex", "none"]}>
               <Button p={0}>
                 {colorMode === "dark" ? (
                   <BsGrid3X3Gap size="20px" />
@@ -365,21 +373,11 @@ function MobileNav({ onOpen, ...rest }: MobileProps) {
                 flexDirection="row"
                 alignItems="center"
                 gap="10px"
-                onClick={()=> router.push('/mapa-do-site')}
-              >
-                {colorMode === "dark" ? (
-                  <BsMap size="20px" />
-                ) : (
-                  <BsMapFill size="16px" />
-                )}
-
-                <p>Mapa do site</p>
-              </MenuItem>
-              <MenuItem
-                display="flex"
-                flexDirection="row"
-                alignItems="center"
-                gap="10px"
+                onClick={() =>
+                  accessibility?.setCoefficient(
+                    accessibility?.coefficient + 0.15
+                  )
+                }
               >
                 {colorMode === "dark" ? (
                   <BsPlusCircle size="20px" />
@@ -394,6 +392,13 @@ function MobileNav({ onOpen, ...rest }: MobileProps) {
                 flexDirection="row"
                 alignItems="center"
                 gap="10px"
+                onClick={() =>
+                  accessibility?.setCoefficient(
+                    accessibility?.coefficient > 0.4
+                      ? accessibility?.coefficient - 0.15
+                      : 0.4
+                  )
+                }
               >
                 {colorMode === "dark" ? (
                   <BsDashCircle size="20px" />
@@ -406,7 +411,7 @@ function MobileNav({ onOpen, ...rest }: MobileProps) {
             </MenuList>
           </>
         )}
-      </Menu> */}
+      </Menu>
       <Button
         onClick={toggleColorMode}
         p={0}

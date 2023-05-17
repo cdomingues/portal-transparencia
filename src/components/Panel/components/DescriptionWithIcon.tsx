@@ -1,5 +1,6 @@
 import { Icon, Stack, Box, Text, VStack, useColorModeValue } from "@chakra-ui/react";
 import { isMobile } from "react-device-detect";
+import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 
 const DescriptionWithIcon = ({
   label,
@@ -15,8 +16,10 @@ const DescriptionWithIcon = ({
   descriptionValue: string;
   labelDescription: string;
   year: string;
-}) => (
-  <Stack
+}) => 
+  {
+    const accessibility = useFontSizeAccessibilityContext();
+    return<Stack
     bgColor={useColorModeValue("white", "gray.700")}
     direction="row"
     style={{
@@ -38,12 +41,12 @@ const DescriptionWithIcon = ({
       <Box w="130px" h="25px">
         <VStack spacing={0.5} align="stretch">
           <Box h="10px" w="90px">
-            <Text fontWeight="550" fontSize="small" padding={"0"}>
+            <Text fontWeight="550" fontSize={accessibility?.fonts?.medium} padding={"0"}>
               {label}
             </Text>
           </Box>
           <Box w="90px">
-            <Text paddingTop="6px" fontSize="8px" color="gray.600">
+            <Text paddingTop="6px" fontSize={accessibility?.fonts?.micro} color="gray.600">
               {labelDescription}
             </Text>
           </Box>
@@ -53,10 +56,10 @@ const DescriptionWithIcon = ({
       <Box w="100px" h="25px">
         <VStack spacing={0.5} align="stretch">
           <Box h="25px">
-            <Text fontSize="14px">{value}</Text>
+            <Text fontSize={accessibility?.fonts?.small}>{value}</Text>
           </Box>
           <Box h="20px">
-            <Text paddingTop="4px" fontSize="8px">
+            <Text paddingTop="4px" fontSize={accessibility?.fonts?.micro}>
               {descriptionValue}
             </Text>
           </Box>
@@ -67,14 +70,14 @@ const DescriptionWithIcon = ({
         <Text
           paddingTop="20px"
           paddingRight="5px"
-          fontSize="10px"
+          fontSize={accessibility?.fonts?.tiny}
           color="gray.600"
         >
           [{year}]
         </Text>
       </Box>
     </Stack>
-  </Stack>
-);
+  </Stack>}
+;
 
 export default DescriptionWithIcon;

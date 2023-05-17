@@ -8,6 +8,7 @@ import EducationPanel from "../../components/Panel/Education";
 import SecurityPanel from "../../components/Panel/Security";
 import EnvironmentalPanel from "../../components/Panel/Environmental";
 import "leaflet/dist/leaflet.css";
+import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
 
 type PropsInput = {
   handler: {};
@@ -19,6 +20,7 @@ export const contentMunicipalityProfile = {
 }
 
 function Screen({ handler }: PropsInput) {
+  const accessibility = useFontSizeAccessibilityContext();
   const title = contentMunicipalityProfile?.titlePage;
   const description = contentMunicipalityProfile?.description;
 
@@ -26,12 +28,12 @@ function Screen({ handler }: PropsInput) {
     <ContainerBasic title={title} description={description}>
       <Tabs variant="enclosed">
         <TabList display="flex" flexWrap={"wrap"} whiteSpace="nowrap">
-          <Tab fontSize="small">DEMOGRÁFICO</Tab>
-          <Tab fontSize="small">EMPREENDEDORISMO</Tab>
-          <Tab fontSize="small">SAÚDE</Tab>
-          <Tab fontSize="small">EDUCAÇÃO</Tab>
-          <Tab fontSize="small">SEGURANÇA</Tab>
-          <Tab fontSize="small">AMBIENTAL</Tab>
+          <Tab fontSize={accessibility?.fonts?.medium}>DEMOGRÁFICO</Tab>
+          <Tab fontSize={accessibility?.fonts?.medium}>EMPREENDEDORISMO</Tab>
+          <Tab fontSize={accessibility?.fonts?.medium}>SAÚDE</Tab>
+          <Tab fontSize={accessibility?.fonts?.medium}>EDUCAÇÃO</Tab>
+          <Tab fontSize={accessibility?.fonts?.medium}>SEGURANÇA</Tab>
+          <Tab fontSize={accessibility?.fonts?.medium}>AMBIENTAL</Tab>
         </TabList>
         <TabPanels>
           <TabPanel>
