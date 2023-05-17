@@ -29,6 +29,7 @@ import { PublicPolicyData } from "../../pages/api/totalizador/politicas-publicas
 import ChartColumnLineWithPartner from "../Antdesign/ChartPlots/ColumnLineWithPartner";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BiBody, BiCheckShield, BiFoodMenu, BiHeart } from "react-icons/bi";
+import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
 interface FeatureProps {
   text: string;
   iconBg: {
@@ -170,18 +171,18 @@ export default function FeatureComponent({
   const titlePage = "Boas-vindas ao Portal da Transparência de Mogi!";
   const description =
     "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.";
-
+    const accessibility = useFontSizeAccessibilityContext()
   return (
     <div style={{ width: "100%" }}>
       <SimpleGrid>
         <Stack spacing={4}>
-          <Heading size="lg">{titlePage}</Heading>
-          <Text color={"gray.500"} fontSize={"lg"}>
+          <Heading size={accessibility?.fonts?.highLarge}>{titlePage}</Heading>
+          <Text color={"gray.500"} fontSize={accessibility?.fonts?.highLarge}>
             {description}
           </Text>
         </Stack>
         <Flex direction="column">
-          <Heading mb={10} size="lg">
+          <Heading mb={10} size={accessibility?.fonts?.highLarge}>
             Resumo {moment().year()}
           </Heading>
           <StatGroup width="100%" mb={20}>
@@ -232,7 +233,7 @@ export default function FeatureComponent({
         })}
       </Flex>
       <Divider mb={10} />
-      <Heading size="lg" mb={9}>
+      <Heading size={accessibility?.fonts?.highLarge} mb={9}>
         Arrecações e Acumulados - {moment().year()}
       </Heading>
       {chartLoading ? (
@@ -250,7 +251,7 @@ export default function FeatureComponent({
       )}
 
       <Divider mb="6%" />
-      <Heading size="lg" mb={9}>
+      <Heading size={accessibility?.fonts?.highLarge} mb={9}>
         Políticas Públicas
       </Heading>
       {publicPoliciesLoading ? (

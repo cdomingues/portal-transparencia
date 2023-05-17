@@ -29,6 +29,8 @@ import {
   MenuItem,
 } from "@chakra-ui/react";
 import {
+  BsDashCircle,
+  BsDashCircleFill,
   BsFacebook,
   BsFillMoonFill,
   BsGrid3X3Gap,
@@ -36,6 +38,8 @@ import {
   BsInstagram,
   BsMap,
   BsMapFill,
+  BsPlusCircle,
+  BsPlusCircleFill,
   BsSunFill,
   BsTwitter,
   BsYoutube,
@@ -48,6 +52,7 @@ import logoDark from "../../../../assets/images/logo_branco.png";
 import { GroupRoutes, IPublicRoute, Routes } from "../../../../types";
 import Header from "../Header";
 import { useRouter } from "next/router";
+import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAccessibility";
 
 interface SidebarProps extends BoxProps {
   onClose: () => void;
@@ -311,6 +316,7 @@ interface MobileProps extends FlexProps {
 function MobileNav({ onOpen, ...rest }: MobileProps) {
   const { colorMode, toggleColorMode } = useColorMode();
   const router = useRouter();
+  const accessibility = useFontSizeAccessibilityContext();
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
@@ -347,7 +353,7 @@ function MobileNav({ onOpen, ...rest }: MobileProps) {
           />
         </Flex>
       </Text>
-      {/* <Menu>
+      <Menu>
         {({ isOpen }) => (
           <>
             <MenuButton background="transparent" marginRight={2}>
@@ -365,21 +371,11 @@ function MobileNav({ onOpen, ...rest }: MobileProps) {
                 flexDirection="row"
                 alignItems="center"
                 gap="10px"
-                onClick={()=> router.push('/mapa-do-site')}
-              >
-                {colorMode === "dark" ? (
-                  <BsMap size="20px" />
-                ) : (
-                  <BsMapFill size="16px" />
-                )}
-
-                <p>Mapa do site</p>
-              </MenuItem>
-              <MenuItem
-                display="flex"
-                flexDirection="row"
-                alignItems="center"
-                gap="10px"
+                onClick={() =>
+                  accessibility?.setCoefficient(
+                    accessibility?.coefficient + 0.15
+                  )
+                }
               >
                 {colorMode === "dark" ? (
                   <BsPlusCircle size="20px" />
@@ -394,6 +390,13 @@ function MobileNav({ onOpen, ...rest }: MobileProps) {
                 flexDirection="row"
                 alignItems="center"
                 gap="10px"
+                onClick={() =>
+                  accessibility?.setCoefficient(
+                    accessibility?.coefficient > 0.4
+                      ? accessibility?.coefficient - 0.15
+                      : 0.4
+                  )
+                }
               >
                 {colorMode === "dark" ? (
                   <BsDashCircle size="20px" />
@@ -406,7 +409,7 @@ function MobileNav({ onOpen, ...rest }: MobileProps) {
             </MenuList>
           </>
         )}
-      </Menu> */}
+      </Menu>
       <Button
         onClick={toggleColorMode}
         p={0}
