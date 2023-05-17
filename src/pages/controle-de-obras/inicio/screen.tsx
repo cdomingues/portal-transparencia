@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import * as Style from "./styles";
-import * as Text from "../../../styles/text";
 import { TableColumns } from "../../../components/Table";
 import LayoutConstructions from "../../../components/LayoutConstructions";
 import colors from "../../../styles/colors";
@@ -13,7 +12,8 @@ import CardTotal from "../../../components/CardTotal";
 import MapOfConstructions from "../../../components/MapOfConstructions";
 import CardBigTransformation from "../../../components/CardBigTransformation";
 import CardTransformation from "../../../components/CardTransformation";
-import { Input } from "@chakra-ui/react";
+import { Heading, Input, Text } from "@chakra-ui/react";
+import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 
 type PropsInput = {
   handler?: {
@@ -55,18 +55,18 @@ function Screen({ handler }: PropsInput) {
       </div>
     );
   }
-
+  const accessibility = useFontSizeAccessibilityContext();
   return (
     <LayoutConstructions breadcrumb={false}>
       <Style.Banner>
         <div className="content">
-          <Text.Heading1Bold color={colors.white} fontSize={2.6} marginTop={50}>
+          <Heading color={colors.white} fontSize={accessibility?.fonts?.moreUltraLarge} marginTop={50}>
             {contentConstructionsControl?.titlePage}
-          </Text.Heading1Bold>
+          </Heading>
 
-          <Text.Heading2Medium color={colors.white} marginTop={20}>
+          <Text color={colors.white} fontSize={accessibility?.fonts?.mediumLarge} marginTop={10}>
             {contentConstructionsControl?.description}
-          </Text.Heading2Medium>
+          </Text>
           <div className="banner-bottom">
             <div
               className="chip-banner"
@@ -74,9 +74,9 @@ function Screen({ handler }: PropsInput) {
             >
               <AiFillInfoCircle fontSize={18} color={colors.white} />
 
-              <Text.Heading5Medium color={colors.white} fontWeight={700}>
+              <Text color={colors.white} fontSize={accessibility?.fonts?.medium} fontWeight={700}>
                 Sobre as obras
-              </Text.Heading5Medium>
+              </Text>
             </div>
 
             <div
@@ -85,9 +85,9 @@ function Screen({ handler }: PropsInput) {
             >
               <AiOutlineSearch fontSize={18} color={colors.white} />
 
-              <Text.Heading5Bold color={colors.white} fontWeight={700}>
+              <Heading color={colors.white} fontSize={accessibility?.fonts?.medium} fontWeight={700}>
                 Pesquise obras
-              </Text.Heading5Bold>
+              </Heading>
             </div>
 
             <div
@@ -96,9 +96,9 @@ function Screen({ handler }: PropsInput) {
             >
               <IoIosConstruct fontSize={18} color={colors.white} />
 
-              <Text.Heading5Bold color={colors.white} fontWeight={700}>
+              <Text color={colors.white} fontSize={accessibility?.fonts?.medium} fontWeight={700}>
                 Obras Abertas
-              </Text.Heading5Bold>
+              </Text>
             </div>
           </div>
         </div>

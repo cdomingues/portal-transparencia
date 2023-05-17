@@ -6,6 +6,7 @@ export function FontSizeAccessibilityWrapper({ children }) {
   const [coefficient, setCoefficient] = useState(1);
 
   const fonts = {
+    moreUltraLarge: `${2 * coefficient}rem`,
     ultraLarge: `${1.5 * coefficient}rem`,
     mediumLarge: `${1.38 * coefficient}rem`,
     highLarge: `${1.25 * coefficient}rem`,
