@@ -8,6 +8,7 @@ import { ptBR } from "date-fns/locale";
 import moment from "moment";
 import { baseUrl } from "../../../config";
 import { getScheduleMayor } from "../../../calls/agenda/agenda";
+import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 
 type PropsInput = {
   handler: any;
@@ -79,11 +80,12 @@ function Screen({ handler }: PropsInput) {
   let getMonth = translatorMonth[getDateArray?.[0]?.split(" ")?.[0]];
   let getDay = getDateArray?.[0]?.split(" ")?.[1];
   let getYear = getDateArray?.[1]?.split(" ")?.[1];
+  const accessibility = useFontSizeAccessibilityContext();
 
   return (
     <ContainerBasic title={title} description={description}>
       <Stack direction="column">
-        <Heading mb={2} fontSize="2xl" color="text.dark">
+        <Heading mb={2} fontSize={accessibility?.fonts?.ultraLarge} color="text.dark">
           AGENDA DO PREFEITO
         </Heading>
 
@@ -96,12 +98,12 @@ function Screen({ handler }: PropsInput) {
             maxHeight={500}
             overflowY="auto"
           >
-            <Heading mb={2} fontSize="1xl" color="text.dark">
+            <Heading mb={2} fontSize={accessibility?.fonts?.regular} color="text.dark">
               {getDay} de {getMonth} de {getYear}
             </Heading>
             <Divider width="100%" height={"1px"} backgroundColor="red" />
             {!filteredValues || filteredValues?.length == 0 ? (
-              <Heading mb={2} fontSize="1xl" color="red">
+              <Heading mb={2} fontSize={accessibility?.fonts?.regular} color="red">
                 Nessa data não possui nada agendado!
               </Heading>
             ) : (
@@ -113,21 +115,21 @@ function Screen({ handler }: PropsInput) {
                     <Stack direction="column">
                       <Heading
                         mb={1}
-                        fontSize="small"
+                        fontSize={accessibility?.fonts?.medium}
                         color="red"
                         marginTop={2}
                       >
                         {getHours?.[0]}:{getHours?.[1]}
                       </Heading>
                       <Heading
-                        fontSize="small"
+                        fontSize={accessibility?.fonts?.medium}
                         color="text.dark"
                         style={{ margin: 0 }}
                       >
                         {item?.Detalhes}
                       </Heading>
                       <Text
-                        fontSize="small"
+                        fontSize={accessibility?.fonts?.medium}
                         color="text.dark"
                         style={{ margin: 0 }}
                       >

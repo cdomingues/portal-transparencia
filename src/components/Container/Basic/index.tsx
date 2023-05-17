@@ -3,6 +3,7 @@ import { Heading, Text, Divider } from "@chakra-ui/react";
 import Head from "next/head";
 import { Container, Body } from "./styles";
 import Breadcrumb from "../../Breadcrumb";
+import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 
 type PropsInput = {
   title: string;
@@ -17,6 +18,7 @@ function ContainerBasic({
   children,
   containerStyles = { paddingLeft: "2%" },
 }: PropsInput) {
+  const accessibility = useFontSizeAccessibilityContext();
   return (
     <Container
       style={{ maxWidth: "1280px", margin: "0 auto", ...containerStyles }}
@@ -25,11 +27,11 @@ function ContainerBasic({
       <Head>
         <title>{title} - PMMC</title>
       </Head>
-      <Heading mb={2} fontSize="2xl" color="text.dark">
+      <Heading mb={2} fontSize={accessibility?.fonts?.ultraLarge} color="text.dark">
         {title}
       </Heading>
       <Body>
-        <Text align="left" color="gray.500" fontSize="md">
+        <Text align="left" color="gray.500" fontSize={accessibility?.fonts?.regular}>
           {description}
         </Text>
       </Body>
