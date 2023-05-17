@@ -68,8 +68,9 @@ interface NavItemProps extends FlexProps {
 }
 
 function ListHeader({ children }: { children: ReactNode }) {
+  const accessibility = useFontSizeAccessibilityContext();
   return (
-    <Text fontWeight="500" fontSize="medium" mb={2}>
+    <Text fontWeight="500" fontSize={accessibility?.fonts?.regular} mb={2}>
       {children}
     </Text>
   );
@@ -83,6 +84,7 @@ function NavItem({
   children,
   key,
 }: NavItemProps) {
+  const accessibility = useFontSizeAccessibilityContext();
   if (group.length > 0) {
     return (
       <Menu>
@@ -104,12 +106,12 @@ function NavItem({
                 }}
                 fontWeight="500"
               >
-                <Box flex="1" fontSize="13" textAlign="left">
+                <Box flex="1" fontSize={accessibility?.fonts?.semiMedium} textAlign="left">
                   {icon && (
                     <Icon
                       mr="4"
                       color="primary"
-                      fontSize="18"
+                     fontSize="18"
                       _groupHover={{
                         color: "primary",
                       }}
@@ -128,7 +130,7 @@ function NavItem({
                     target={item.link ? "_blank" : "_self"}
                     style={{ textDecoration: "none" }}
                     _focus={{ boxShadow: "none" }}
-                    fontSize="13"
+                    fontSize={accessibility?.fonts?.semiMedium}
                   >
                     <Flex
                       width="100%"
@@ -141,7 +143,7 @@ function NavItem({
                         bg: "gray.100",
                         color: "primary",
                       }}
-                      fontSize="14"
+                      fontSize={accessibility?.fonts?.semiMedium}
                     >
                       <Icon
                         mr="4"
@@ -169,7 +171,7 @@ function NavItem({
       target={link ? "_blank" : "_self"}
       style={{ textDecoration: "none" }}
       _focus={{ boxShadow: "none" }}
-      fontSize="13"
+      fontSize={accessibility?.fonts?.semiMedium}
     >
       <Flex
         width="95%"
@@ -190,7 +192,7 @@ function NavItem({
             bg: "gray.100",
             color: "primary",
           }}
-          fontSize="13"
+          fontSize={accessibility?.fonts?.semiMedium}
         >
           <Icon
             mr="4"
@@ -356,7 +358,7 @@ function MobileNav({ onOpen, ...rest }: MobileProps) {
       <Menu>
         {({ isOpen }) => (
           <>
-            <MenuButton background="transparent" marginRight={2}>
+            <MenuButton background="transparent" marginRight={2} display={["flex", "flex", "none"]}>
               <Button p={0}>
                 {colorMode === "dark" ? (
                   <BsGrid3X3Gap size="20px" />

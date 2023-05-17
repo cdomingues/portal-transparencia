@@ -153,7 +153,7 @@ const DesktopNav = ({
                     {...hasHref}
                     target={href ? "_blank" : undefined}
                     p={2}
-                    fontSize={"smaller"}
+                    fontSize={accessibility.fonts.small}
                     fontWeight={500}
                     color={linkColor}
                     textAlign="center"
@@ -208,7 +208,7 @@ const DesktopNav = ({
                                     ml="3"
                                     onClick={() => window.open(item.href)}
                                   >
-                                    <Text fontSize={"smaller"} fontWeight="500">
+                                    <Text fontSize={accessibility?.fonts?.small} fontWeight="500">
                                       {item.label}
                                     </Text>
                                   </Box>
@@ -368,6 +368,7 @@ const findPages = (searchString: string): IPublicRoute[] => {
 
 const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   const hasHref = href ? { href } : {};
+  const accessibility = useFontSizeAccessibilityContext()
   return (
     <Link
       {...hasHref}
@@ -384,11 +385,11 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
             transition={"all .3s ease"}
             _groupHover={{ color: useColorModeValue("pink.400", "white") }}
             fontWeight={500}
-            fontSize="smaller"
+            fontSize={accessibility?.fonts?.small}
           >
             {label}
           </Text>
-          <Text fontSize={"sm"}>{subLabel}</Text>
+          <Text fontSize={accessibility?.fonts?.small}>{subLabel}</Text>
         </Box>
         <Flex
           transition={"all .3s ease"}
