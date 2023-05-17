@@ -111,11 +111,15 @@ const PublicPolicyCard = ({
         </div>
       </Stack>
       <Stack flex={2} direction="column" justifyContent="center">
-        <Text fontWeight="500" fontSize="small" color={"gray.500"}>
+        <Text
+          fontWeight="500"
+          fontSize={accessibility?.fonts?.medium}
+          color={"gray.500"}
+        >
           {funcao}
         </Text>
         <Text
-          fontSize="small"
+          fontSize={accessibility?.fonts?.medium}
           mb={2}
           fontWeight="550"
           color={useColorModeValue("#000", "#fff")}
@@ -456,7 +460,7 @@ function HomeScreen({ handler }: PropsInput) {
             </Stat>
           </StatGroup>
         </Stack>
-        <Text color={"gray.500"} fontSize="sm">
+        <Text color={"gray.500"} fontSize={accessibility?.fonts?.medium}>
           Última atualização: {date}
         </Text>
       </Stack>
