@@ -16,7 +16,8 @@ import {
   AiOutlineSearch,
   AiOutlineTool,
   AiOutlineGlobal,
-  AiOutlineAudit
+  AiOutlineAudit,
+  AiOutlineSwap
 } from "react-icons/ai";
 import { BiBriefcaseAlt, BiMoney } from "react-icons/bi";
 import { BsBricks, BsCameraVideo, BsFileText } from "react-icons/bs";
@@ -337,6 +338,13 @@ const publicRoutes: IPublicRoute[] = [
         path: "/diarias",
         icon: AiOutlineProfile,
         link: "http://www.transparencia.pmmc.com.br/funcionalismopublico/salarios?pagina=diarias",
+      },
+      {
+        defaultPath: "/despesas",
+        name: "Pagamentos a fornecedores",
+        path: "/pagamentos-a-fornecedores",
+        icon: AiOutlineSwap,
+        link: "http://consultacompras.pmmc.com.br/pagamento-fornecedor",
       },
     ],
   },
