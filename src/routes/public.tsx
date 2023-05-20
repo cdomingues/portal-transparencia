@@ -15,7 +15,8 @@ import {
   AiOutlineInfoCircle,
   AiOutlineSearch,
   AiOutlineTool,
-  AiOutlineGlobal
+  AiOutlineGlobal,
+  AiOutlineAudit
 } from "react-icons/ai";
 import { BiBriefcaseAlt, BiMoney } from "react-icons/bi";
 import { BsBricks, BsCameraVideo, BsFileText } from "react-icons/bs";
@@ -63,6 +64,7 @@ import { contentReportExtrabudget } from "../pages/transparencia/relatorio-resum
 import { contentAnnualBalance } from "../pages/contas/balancos-anuais/screen";
 import { contentCourtOpinions } from "../pages/contas/pareceres-tribunal/screen";
 import { contentPatrimony } from "../pages/patrimonio/screen";
+import { contentOtherInformations } from "../pages/outras-informacoes/screen";
 
 const publicRoutes: IPublicRoute[] = [
   {
@@ -435,6 +437,7 @@ const publicRoutes: IPublicRoute[] = [
         icon: AiOutlineProfile,
         link: "http://covid19.pmmc.com.br/",
       },
+      
     ],
   },
   {
@@ -568,6 +571,12 @@ const publicRoutes: IPublicRoute[] = [
         link: "https://www.mogidascruzes.sp.gov.br/pagina/chefia-de-gabinete/perguntasfrequentes",
       },
     ],
+  },
+  {
+    name: "Outras Informações",
+    path: "/outras-informacoes",
+    icon: AiOutlineAudit,
+    ...contentOtherInformations
   },
   {
     name: "Mapa do Site",
