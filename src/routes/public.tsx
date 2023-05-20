@@ -523,6 +523,13 @@ const publicRoutes: IPublicRoute[] = [
         icon: AiOutlineProfile,
         link: "http://www.transparencia.pmmc.com.br/promae-incentivos-fiscais",
       },
+      {
+        defaultPath: "/publicacoes",
+        name: "Cargos e Salários",
+        path: "/cargos-e-salarios",
+        icon: AiOutlineProfile,
+        group:undefined,
+      },
     ],
   },
   {
