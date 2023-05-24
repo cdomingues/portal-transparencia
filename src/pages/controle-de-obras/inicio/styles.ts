@@ -4,7 +4,7 @@ import colors from "../../../styles/colors";
 
 export const Banner = styled.div`
   width: 100%;
-  height: 370px;
+  height: 240px;
   display: flex;
   flex-direction: column;
   background-image: url("https://images7.alphacoders.com/372/372247.jpg");
@@ -30,8 +30,8 @@ export const Banner = styled.div`
     gap: 20px;
     align-items: flex-end;
     justify-content: flex-start;
-    padding: 25px 0px;
-
+    padding: 35px 0px;
+   
     .chip-banner {
       display: flex;
       flex-direction: row;
@@ -52,7 +52,7 @@ export const Banner = styled.div`
   }
 
   @media (max-width: 1650px) {
-    height: 460px;
+    height: 240px;
     .content {
       max-width: 900px;
     }
@@ -67,7 +67,12 @@ export const Banner = styled.div`
     }
   }
 
+  @media (max-width: 530px) {
+    height: 280px;
+  }
+
   @media (max-width: 500px) {
+    height: 420px;
     .banner-bottom {
       gap: 40px;
       flex-direction: column;
@@ -75,11 +80,12 @@ export const Banner = styled.div`
       justify-content: center;
     }
   }
+
 `;
 
 export const BannerTotals = styled.div`
   width: 100%;
-  height: 400px;
+  height: 240px;
   background-image: url("https://images8.alphacoders.com/368/368165.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -97,7 +103,7 @@ export const BannerTotals = styled.div`
   }
 
   .content {
-    margin: -400px auto 0px auto;
+    margin: -260px auto 0px auto;
     padding-top: 50px;
     max-width: 1340px;
     width: 100%;

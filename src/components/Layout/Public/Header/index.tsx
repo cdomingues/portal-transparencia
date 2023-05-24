@@ -27,10 +27,6 @@ import {
   ModalBody,
   ModalFooter,
   useColorMode,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
 } from "@chakra-ui/react";
 import { BiChevronRight } from "react-icons/bi";
 import navItems, { NavItem } from "./navItems";
@@ -39,8 +35,6 @@ import {
   BsDashCircle,
   BsDashCircleFill,
   BsFillMoonFill,
-  BsGrid3X3Gap,
-  BsGrid3X3GapFill,
   BsPlusCircle,
   BsPlusCircleFill,
   BsSunFill,
@@ -208,7 +202,10 @@ const DesktopNav = ({
                                     ml="3"
                                     onClick={() => window.open(item.href)}
                                   >
-                                    <Text fontSize={accessibility?.fonts?.small} fontWeight="500">
+                                    <Text
+                                      fontSize={accessibility?.fonts?.small}
+                                      fontWeight="500"
+                                    >
                                       {item.label}
                                     </Text>
                                   </Box>
@@ -226,63 +223,44 @@ const DesktopNav = ({
           );
         })}
       </Stack>
-      <Menu>
-        {({ isOpen }) => (
-          <>
-            <MenuButton background="transparent">
-              <Button p={0}>
-                {colorMode === "dark" ? (
-                  <BsGrid3X3Gap size="20px" />
-                ) : (
-                  <BsGrid3X3GapFill size="16px" />
-                )}
-              </Button>
-            </MenuButton>
-            <MenuList>
-              <MenuItem
-                display="flex"
-                flexDirection="row"
-                alignItems="center"
-                gap="10px"
-                onClick={() =>
-                  accessibility?.setCoefficient(
-                    accessibility?.coefficient + 0.15
-                  )
-                }
-              >
-                {colorMode === "dark" ? (
-                  <BsPlusCircle size="20px" />
-                ) : (
-                  <BsPlusCircleFill size="16px" />
-                )}
 
-                <p>Aumentar texto</p>
-              </MenuItem>
-              <MenuItem
-                display="flex"
-                flexDirection="row"
-                alignItems="center"
-                gap="10px"
-                onClick={() =>
-                  accessibility?.setCoefficient(
-                    accessibility?.coefficient > 0.4
-                      ? accessibility?.coefficient - 0.15
-                      : 0.4
-                  )
-                }
-              >
-                {colorMode === "dark" ? (
-                  <BsDashCircle size="20px" />
-                ) : (
-                  <BsDashCircleFill size="16px" />
-                )}
-
-                <p>Diminuir texto</p>
-              </MenuItem>
-            </MenuList>
-          </>
+      <Button
+        display="flex"
+        flexDirection="row"
+        alignItems="center"
+        gap="10px"
+        onClick={() =>
+          accessibility?.setCoefficient(accessibility?.coefficient + 0.15)
+        }
+        p={0}
+      >
+        {colorMode === "dark" ? (
+          <BsPlusCircle size="20px" />
+        ) : (
+          <BsPlusCircleFill size="16px" />
         )}
-      </Menu>
+      </Button>
+
+      <Button
+        display="flex"
+        flexDirection="row"
+        alignItems="center"
+        gap="10px"
+        onClick={() =>
+          accessibility?.setCoefficient(
+            accessibility?.coefficient > 0.4
+              ? accessibility?.coefficient - 0.15
+              : 0.4
+          )
+        }
+        p={0}
+      >
+        {colorMode === "dark" ? (
+          <BsDashCircle size="20px" />
+        ) : (
+          <BsDashCircleFill size="16px" />
+        )}
+      </Button>
       <Button onClick={toggleColorMode} p={0}>
         {colorMode === "dark" ? (
           <BsSunFill size="20px" />
@@ -368,7 +346,7 @@ const findPages = (searchString: string): IPublicRoute[] => {
 
 const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   const hasHref = href ? { href } : {};
-  const accessibility = useFontSizeAccessibilityContext()
+  const accessibility = useFontSizeAccessibilityContext();
   return (
     <Link
       {...hasHref}
