@@ -37,7 +37,8 @@ const MapOfConstructions = () => {
   const [constructionSelected, setConstructionSelected] = useState<any>(null);
   const [viewOption, setViewOption] = useState("map");
   const router = useRouter();
- 
+
+  const geoSplited = constructionSelected?.latitude_longitude?.split(",");
 
   return (
     <Style.Container>
@@ -200,17 +201,21 @@ const MapOfConstructions = () => {
             </div>
 
             <Text.Heading5Regular marginTop={20} marginBottom={20}>
-              Secretaria Responsável: {constructionSelected?.secretaria_responsavel}
+              Secretaria Responsável:{" "}
+              {constructionSelected?.secretaria_responsavel}
             </Text.Heading5Regular>
 
-            <MapOneMarkerComponent />
+            <MapOneMarkerComponent
+              lat={geoSplited?.[0]}
+              long={geoSplited?.[1]}
+            />
 
             <Text.Heading5Bold lineHeight={100} marginTop={20}>
-            Contratada: {constructionSelected?.razao_social_contratada}
+              Contratada: {constructionSelected?.razao_social_contratada}
             </Text.Heading5Bold>
 
             <Text.Heading5Regular marginTop={5} marginBottom={20}>
-             Categoria: {constructionSelected?.categoria}
+              Categoria: {constructionSelected?.categoria}
             </Text.Heading5Regular>
 
             <button
