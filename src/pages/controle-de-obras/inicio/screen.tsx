@@ -32,6 +32,7 @@ export const contentConstructionsControl = {
 function Screen({ handler }: PropsInput) {
   const router = useRouter();
   const [password, setPassword] = useState("");
+  const accessibility = useFontSizeAccessibilityContext();
 
   if (!password || password != "abobora123") {
     return (
@@ -57,7 +58,6 @@ function Screen({ handler }: PropsInput) {
       </div>
     );
   }
-  const accessibility = useFontSizeAccessibilityContext();
   return (
     <LayoutConstructions breadcrumb={false}>
       <Style.Banner>

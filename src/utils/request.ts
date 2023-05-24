@@ -29,7 +29,7 @@ const request = async ({
   headers,
   baseURL,
   params,
-}: any): Promise<Response | ErrorResponse> => {
+}: any): Promise<Response> => {
   try {
     const apiURL: string = baseURL || BASE_URI;
 
