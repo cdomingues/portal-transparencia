@@ -39,7 +39,7 @@ export const Content = styled.div`
 
 export const BannerDefault = styled.div`
   width: 100%;
-  height: 863px;
+  height: 350px;
   background-image: url("https://images7.alphacoders.com/372/372247.jpg");
   background-position: top;
   background-repeat: no-repeat;

@@ -158,7 +158,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                         Obra:
                       </Text.Heading4Bold>
                       <Text.Heading5Regular color={colors.black}>
-                        {item?.Nome}
+                        {item?.nome_da_obra}
                       </Text.Heading5Regular>
                     </div>
                     <div className="item">
@@ -166,7 +166,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                         Empresa:
                       </Text.Heading4Bold>
                       <Text.Heading5Regular color={colors.black}>
-                        {item?.empresa_contratada}
+                        {item?.razao_social_contratada}
                       </Text.Heading5Regular>
                     </div>
                     <div className="item">
@@ -202,7 +202,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                         Tipo:
                       </Text.Heading4Bold>
                       <Text.Heading5Regular color={colors.black}>
-                        {item?.Categoria}
+                        {item?.categoria}
                       </Text.Heading5Regular>
                     </div>
                     <div className="item">
@@ -218,7 +218,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                         Etapa:
                       </Text.Heading4Bold>
                       <Text.Heading5Regular color={colors.black}>
-                        {item?.Status}
+                        {item?.situacao}
                       </Text.Heading5Regular>
                     </div>
                   </div>
