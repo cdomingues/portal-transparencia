@@ -4,6 +4,7 @@ import useWindowDimensions from "../../../utils/useWindowDimensions";
 import "leaflet/dist/leaflet.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import request from "../../../utils/request";
 
 type Props = {
   setConstructionSelected: any;
@@ -28,9 +29,10 @@ const MapAllMarkersComponent = ({
   const icon = L.divIcon({ className: "icon-marker" });
 
   const getFileOfConstructions = async () => {
-    const { data } = await axios.get(
-      `https://dados.mogidascruzes.sp.gov.br//api/3/action/datastore_search?resource_id=c23921f1-9d90-44b1-b710-02233f9d47c5`
-    );
+    const { data } = await request({
+      baseURL:
+        "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=2a3f2bc3-551b-434d-89c7-a31da90d7e1f",
+    });
 
     if (!data) {
       return;
@@ -61,6 +63,7 @@ const MapAllMarkersComponent = ({
           .includes(nameOrDescriptionConstruction.toLowerCase())
       )
     : null;
+
   const filteredDescriptionValues = nameOrDescriptionConstruction
     ? file?.result?.records.filter((item: any) =>
         item?.descricao_da_obra
@@ -102,23 +105,26 @@ const MapAllMarkersComponent = ({
         dragging={width > 576 ? true : false}
       >
         <TileLayer url="https://api.mapbox.com/styles/v1/vinicius-branco/cl9qfukhg001g15nyia8uwz7c/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidmluaWNpdXMtYnJhbmNvIiwiYSI6ImNsMXZrZnYzNDA3YmMzanBmbXc2ZHBucGEifQ.XPwHy2qNrLE4bpGajye3qg" />
-        {filteredValues?.map((item: any, index: number) => (
-          <Marker
-            key={index}
-            position={[
-              item?.latitude != "dasd" ? item?.latitude : "-23.510053316336844",
-              item?.longitude != "asd"
-                ? item?.longitude
-                : "-46.193725156990325",
-            ]}
-            icon={translatorIcon(item?.titulo)}
-            eventHandlers={{
-              click: (e) => {
-                setConstructionSelected(item);
-              },
-            }}
-          ></Marker>
-        ))}
+        {filteredValues?.map((item: any, index: number) => {
+          const geoSplited = item?.latitude_longitude?.split(",");
+    
+
+          return (
+            <Marker
+              key={index}
+              position={[
+                geoSplited?.[0] ? geoSplited?.[0] : "-23.510053316336844",
+                geoSplited?.[1] ? geoSplited?.[1] : "-46.193725156990325",
+              ]}
+              icon={translatorIcon(item?.titulo)}
+              eventHandlers={{
+                click: (e) => {
+                  setConstructionSelected(item);
+                },
+              }}
+            ></Marker>
+          );
+        })}
         <ChangeView coords={center} />
       </MapContainer>
     </div>

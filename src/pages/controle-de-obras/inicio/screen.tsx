@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import * as Style from "./styles";
 import { TableColumns } from "../../../components/Table";
 import LayoutConstructions from "../../../components/LayoutConstructions";
@@ -14,6 +14,7 @@ import CardBigTransformation from "../../../components/CardBigTransformation";
 import CardTransformation from "../../../components/CardTransformation";
 import { Heading, Input, Text } from "@chakra-ui/react";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
+
 
 type PropsInput = {
   handler?: {
@@ -31,6 +32,8 @@ export const contentConstructionsControl = {
 function Screen({ handler }: PropsInput) {
   const router = useRouter();
   const [password, setPassword] = useState("");
+  const accessibility = useFontSizeAccessibilityContext();
+
   if (!password || password != "abobora123") {
     return (
       <div
@@ -55,7 +58,6 @@ function Screen({ handler }: PropsInput) {
       </div>
     );
   }
-  const accessibility = useFontSizeAccessibilityContext();
   return (
     <LayoutConstructions breadcrumb={false}>
       <Style.Banner>
@@ -64,7 +66,7 @@ function Screen({ handler }: PropsInput) {
             {contentConstructionsControl?.titlePage}
           </Heading>
 
-          <Text color={colors.white} fontSize={accessibility?.fonts?.mediumLarge} marginTop={10}>
+          <Text color={colors.white} fontSize={accessibility?.fonts?.large} marginTop={10}>
             {contentConstructionsControl?.description}
           </Text>
           <div className="banner-bottom">

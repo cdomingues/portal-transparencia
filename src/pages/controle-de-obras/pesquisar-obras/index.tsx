@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import SearchBuildingsScreen from "./screen";
-import axios from "axios";
+import request from "../../../utils/request";
 
 const SearchBuildingsController = () => {
   const [file, setFile] = useState<any>();
 
   const getFileOfConstructions = async () => {
-    const { data } = await axios.get(
-      `https://dados.mogidascruzes.sp.gov.br//api/3/action/datastore_search?resource_id=c23921f1-9d90-44b1-b710-02233f9d47c5`
-    );
-
+    const { data } = await request({
+      baseURL:
+        "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=2a3f2bc3-551b-434d-89c7-a31da90d7e1f",
+    });
+  
     if (!data) {
       return;
     }
@@ -44,12 +45,12 @@ const SearchBuildingsController = () => {
         item?.nome_da_obra
           ?.toLowerCase()
           ?.includes(nameBuilding?.toLowerCase()) &&
-        item?.empresa_contratada
+        item?.razao_social_contratada
           ?.toLowerCase()
           ?.includes(companyName?.toLowerCase()) &&
         item?.bairro?.toLowerCase()?.includes(neighborhood?.toLowerCase()) &&
-        item?.Status?.toLowerCase()?.includes(buildingStep?.toLowerCase()) &&
-        item?.Categoria?.toLowerCase()?.includes(buildingType?.toLowerCase())
+        item?.situacao?.toLowerCase()?.includes(buildingStep?.toLowerCase()) &&
+        item?.categoria?.toLowerCase()?.includes(buildingType?.toLowerCase())
     );
 
     setPage(0);

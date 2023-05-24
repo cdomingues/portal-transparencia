@@ -104,7 +104,7 @@ const Layout = ({
             <Text.Heading1Bold
               color={colors.white}
               fontSize={3}
-              marginTop={170}
+              marginTop={100}
             >
               {bannerTitle}
             </Text.Heading1Bold>

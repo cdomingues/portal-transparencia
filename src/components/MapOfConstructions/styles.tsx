@@ -205,7 +205,7 @@ export const ConstructionSelected = styled.div`
     0px 1px 3px 1px rgba(0, 0, 0, 0.15);
   border-radius: 20px;
   right: 15px;
-  top: 850px;
+  top: 580px;
   display: flex;
   flex-direction: column;
 

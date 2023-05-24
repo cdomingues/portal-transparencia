@@ -15,7 +15,9 @@ import {
   AiOutlineInfoCircle,
   AiOutlineSearch,
   AiOutlineTool,
-  AiOutlineGlobal
+  AiOutlineGlobal,
+  AiOutlineAudit,
+  AiOutlineSwap
 } from "react-icons/ai";
 import { BiBriefcaseAlt, BiMoney } from "react-icons/bi";
 import { BsBricks, BsCameraVideo, BsFileText } from "react-icons/bs";
@@ -63,6 +65,7 @@ import { contentReportExtrabudget } from "../pages/transparencia/relatorio-resum
 import { contentAnnualBalance } from "../pages/contas/balancos-anuais/screen";
 import { contentCourtOpinions } from "../pages/contas/pareceres-tribunal/screen";
 import { contentPatrimony } from "../pages/patrimonio/screen";
+import { contentOtherInformations } from "../pages/outras-informacoes/screen";
 
 const publicRoutes: IPublicRoute[] = [
   {
@@ -336,6 +339,13 @@ const publicRoutes: IPublicRoute[] = [
         icon: AiOutlineProfile,
         link: "http://www.transparencia.pmmc.com.br/funcionalismopublico/salarios?pagina=diarias",
       },
+      {
+        defaultPath: "/despesas",
+        name: "Pagamentos a fornecedores",
+        path: "/pagamentos-a-fornecedores",
+        icon: AiOutlineSwap,
+        link: "http://consultacompras.pmmc.com.br/pagamento-fornecedor",
+      },
     ],
   },
   {
@@ -435,6 +445,7 @@ const publicRoutes: IPublicRoute[] = [
         icon: AiOutlineProfile,
         link: "http://covid19.pmmc.com.br/",
       },
+      
     ],
   },
   {
@@ -512,6 +523,13 @@ const publicRoutes: IPublicRoute[] = [
         icon: AiOutlineProfile,
         link: "http://www.transparencia.pmmc.com.br/promae-incentivos-fiscais",
       },
+      {
+        defaultPath: "/publicacoes",
+        name: "Cargos e Salários",
+        path: "/cargos-e-salarios",
+        icon: AiOutlineProfile,
+        group:undefined,
+      },
     ],
   },
   {
@@ -568,6 +586,12 @@ const publicRoutes: IPublicRoute[] = [
         link: "https://www.mogidascruzes.sp.gov.br/pagina/chefia-de-gabinete/perguntasfrequentes",
       },
     ],
+  },
+  {
+    name: "Outras Informações",
+    path: "/outras-informacoes",
+    icon: AiOutlineAudit,
+    ...contentOtherInformations
   },
   {
     name: "Mapa do Site",

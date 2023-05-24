@@ -38,6 +38,8 @@ const MapOfConstructions = () => {
   const [viewOption, setViewOption] = useState("map");
   const router = useRouter();
 
+  const geoSplited = constructionSelected?.latitude_longitude?.split(",");
+
   return (
     <Style.Container>
       <Style.Search>
@@ -193,23 +195,27 @@ const MapOfConstructions = () => {
 
             <div className="status">
               <Text.Heading5Bold color={colors.white}>
-                {constructionSelected?.status}{" "}
-                {Number(constructionSelected?.Secretaria_contrante)}%
+                {constructionSelected?.situacao}{" "}
+                {/* {Number(constructionSelected?.situacao)}% */}
               </Text.Heading5Bold>
             </div>
 
             <Text.Heading5Regular marginTop={20} marginBottom={20}>
-              {constructionSelected?.Secretaria_contrante}
+              Secretaria Responsável:{" "}
+              {constructionSelected?.secretaria_responsavel}
             </Text.Heading5Regular>
 
-            <MapOneMarkerComponent />
+            <MapOneMarkerComponent
+              lat={geoSplited?.[0]}
+              long={geoSplited?.[1]}
+            />
 
             <Text.Heading5Bold lineHeight={100} marginTop={20}>
-              {constructionSelected?.endereco}
+              Contratada: {constructionSelected?.razao_social_contratada}
             </Text.Heading5Bold>
 
             <Text.Heading5Regular marginTop={5} marginBottom={20}>
-              Comuna {constructionSelected?.id_bairro}
+              Categoria: {constructionSelected?.categoria}
             </Text.Heading5Regular>
 
             <button

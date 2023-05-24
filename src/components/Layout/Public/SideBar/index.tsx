@@ -322,7 +322,7 @@ function MobileNav({ onOpen, ...rest }: MobileProps) {
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
-      px={{ base: 4, md: 4 }}
+      px={{ base: 2, md: 2 }}
       height="20"
       alignItems="center"
       bg={useColorModeValue("white", "gray.900")}
@@ -345,7 +345,7 @@ function MobileNav({ onOpen, ...rest }: MobileProps) {
         fontWeight="bold"
         style={{ textAlign: "center" }}
       >
-        <Flex h="20" alignItems="center" mx="8" justifyContent="center">
+        <Flex h="20" alignItems="center" mx="2" justifyContent="center">
           <Image
             alt="logo"
             width={colorMode === "dark" ? "34%" : "60%"}
@@ -355,63 +355,44 @@ function MobileNav({ onOpen, ...rest }: MobileProps) {
           />
         </Flex>
       </Text>
-      <Menu>
-        {({ isOpen }) => (
-          <>
-            <MenuButton background="transparent" marginRight={2} display={["flex", "flex", "none"]}>
-              <Button p={0}>
-                {colorMode === "dark" ? (
-                  <BsGrid3X3Gap size="20px" />
-                ) : (
-                  <BsGrid3X3GapFill size="16px" />
-                )}
-              </Button>
-            </MenuButton>
-            <MenuList>
-              <MenuItem
-                display="flex"
-                flexDirection="row"
-                alignItems="center"
-                gap="10px"
-                onClick={() =>
-                  accessibility?.setCoefficient(
-                    accessibility?.coefficient + 0.15
-                  )
-                }
-              >
-                {colorMode === "dark" ? (
-                  <BsPlusCircle size="20px" />
-                ) : (
-                  <BsPlusCircleFill size="16px" />
-                )}
 
-                <p>Aumentar texto</p>
-              </MenuItem>
-              <MenuItem
-                display="flex"
-                flexDirection="row"
-                alignItems="center"
-                gap="10px"
-                onClick={() =>
-                  accessibility?.setCoefficient(
-                    accessibility?.coefficient > 0.4
-                      ? accessibility?.coefficient - 0.15
-                      : 0.4
-                  )
-                }
-              >
-                {colorMode === "dark" ? (
-                  <BsDashCircle size="20px" />
-                ) : (
-                  <BsDashCircleFill size="16px" />
-                )}
-
-                <p>Diminuir texto</p>
-              </MenuItem> 
-            </MenuList>
-          </>
+      <Button
+        display={["flex", "flex", "none"]}
+        flexDirection="row"
+        alignItems="center"
+        gap="10px"
+        onClick={() =>
+          accessibility?.setCoefficient(accessibility?.coefficient + 0.15)
+        }
+        p={0}
+      >
+        {colorMode === "dark" ? (
+          <BsPlusCircle size="20px" />
+        ) : (
+          <BsPlusCircleFill size="16px" />
         )}
-      </Menu>
+      </Button>
+
+      <Button
+       display={["flex", "flex", "none"]}
+        flexDirection="row"
+        alignItems="center"
+        gap="10px"
+        onClick={() =>
+          accessibility?.setCoefficient(
+            accessibility?.coefficient > 0.4
+              ? accessibility?.coefficient - 0.15
+              : 0.4
+          )
+        }
+        p={0}
+      >
+        {colorMode === "dark" ? (
+          <BsDashCircle size="20px" />
+        ) : (
+          <BsDashCircleFill size="16px" />
+        )}
+      </Button>
       <Button
         onClick={toggleColorMode}
         p={0}
