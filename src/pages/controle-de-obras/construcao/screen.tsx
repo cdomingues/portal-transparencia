@@ -5,17 +5,17 @@ import moment from "moment";
 import colors from "../../../styles/colors";
 import Carousel from "../../../components/Swiper";
 import { parseMoney } from "../../../utils/mask";
-import axios from "axios";
 import { useEffect, useState } from "react";
+import request from "../../../utils/request";
 
 const ConstructionScreen = ({ id }: any) => {
   const [file, setFile] = useState<any>();
 
   const getFileOfConstructions = async () => {
-    const { data } = await axios.get(
-      `https://dados.mogidascruzes.sp.gov.br//api/3/action/datastore_search?resource_id=c23921f1-9d90-44b1-b710-02233f9d47c5`
-    );
-
+    const { data } = await request({
+      baseURL:
+        "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=2a3f2bc3-551b-434d-89c7-a31da90d7e1f",
+    });
     if (!data) {
       return;
     }
@@ -27,11 +27,11 @@ const ConstructionScreen = ({ id }: any) => {
   }, []);
 
   const buildingSelected = file?.result?.records?.filter(
-    (item: any) => item?.id === String(id)
+    (item: any) => item?._id === id
   )?.[0];
 
   const othersBuildings = file?.result?.records?.filter(
-    (item: any) => item?.id != String(id)
+    (item: any) => item?._id != id
   );
 
   const buildingData = (item: any) => {
@@ -52,8 +52,7 @@ const ConstructionScreen = ({ id }: any) => {
         <Text.Heading1Regular
           fontSize={2}
           color={colors.grayDark}
-          marginTop={80}
-          className="title"
+          marginTop={60}
         >
           {item?.escopo_da_obra}
         </Text.Heading1Regular>
@@ -82,7 +81,7 @@ const ConstructionScreen = ({ id }: any) => {
                 }}
               >
                 <Text.Heading5Bold color={colors.white}>
-                  {item?.Status} {Number(item?.percentual_exec)}%
+                  {item?.situacao} {Number(item?.percentual_exec)}%
                 </Text.Heading5Bold>
               </div>
 
@@ -110,21 +109,21 @@ const ConstructionScreen = ({ id }: any) => {
                 Tipo de obra:
               </Text.Heading4Bold>
               <Text.Heading5Regular color={colors.black}>
-                {item?.Categoria}
+                {item?.categoria}
               </Text.Heading5Regular>
 
               <Text.Heading4Bold color={colors.black} marginTop={20}>
                 Área responsável:
               </Text.Heading4Bold>
               <Text.Heading5Regular color={colors.black}>
-                {item?.Secretaria_responsavel}
+                {item?.secretaria_responsavel}
               </Text.Heading5Regular>
 
               <Text.Heading4Bold color={colors.black} marginTop={20}>
                 Empresa:
               </Text.Heading4Bold>
               <Text.Heading5Regular color={colors.black}>
-                {item?.empresa_contratada}
+                {item?.razao_social_contratada}
               </Text.Heading5Regular>
 
               <Text.Heading4Bold color={colors.black} marginTop={20}>
@@ -145,7 +144,7 @@ const ConstructionScreen = ({ id }: any) => {
                 Valor contrato:
               </Text.Heading4Bold>
               <Text.Heading5Regular color={colors.black}>
-                {parseMoney(item?.Valor_inicial)}
+                {parseMoney(item?.valor_contrato)}
               </Text.Heading5Regular>
 
               <Text.Heading4Bold color={colors.black} marginTop={20}>
@@ -155,7 +154,7 @@ const ConstructionScreen = ({ id }: any) => {
                 {item?.endereco}
               </Text.Heading5Regular>
 
-              <button className="button">
+              {/* <button className="button">
                 <Text.Heading4Regular
                   color={colors.white}
                   style={{ textTransform: "none" }}
@@ -163,13 +162,13 @@ const ConstructionScreen = ({ id }: any) => {
                 >
                   Informação da contratação
                 </Text.Heading4Regular>
-              </button>
+              </button> */}
             </div>
           </Style.Datasheet>
 
-          <Style.DivImage>
+          {/* <Style.DivImage>
             <Carousel listImages={arrayImages} className="image" />
-          </Style.DivImage>
+          </Style.DivImage> */}
         </Style.Row>
       </div>
     );
@@ -179,7 +178,7 @@ const ConstructionScreen = ({ id }: any) => {
     <LayoutConstructions
       title={buildingSelected?.escopo_da_obra}
       bannerSrc={buildingSelected?.imagen_1}
-      bannerTitle={buildingSelected?.Categoria}
+      bannerTitle={buildingSelected?.categoria}
       bannerDescription={buildingSelected?.descricao_da_obra}
     >
       <Style.Container>

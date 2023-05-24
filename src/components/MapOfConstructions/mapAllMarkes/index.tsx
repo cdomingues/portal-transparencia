@@ -31,7 +31,7 @@ const MapAllMarkersComponent = ({
   const getFileOfConstructions = async () => {
     const { data } = await request({
       baseURL:
-        "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=2a3f2bc3-551b-434d-89c7-a31da90d7e1f&limit=5",
+        "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=2a3f2bc3-551b-434d-89c7-a31da90d7e1f",
     });
 
     if (!data) {
