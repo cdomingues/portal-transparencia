@@ -83,7 +83,108 @@ const publicRoutes: IPublicRoute[] = [
     ...contentMunicipalityProfile,
   },
   {
-    name: "Controle de Obras",
+    name: "Ciclo Orçamentário",
+    path: "/terceiro-setor",
+    element: <div></div>,
+    icon: BiMoney,
+    ...contentRevenue,
+    group: [
+          
+            {
+              defaultPath: "/terceiro-setor",
+              name: "Plano Plurianual",
+              path: "/contratos-gestao",
+              icon: AiOutlineTable,
+              ...contentContractManagement
+            },
+            {
+              defaultPath: "/terceiro-setor",
+              name: "Diretrizes Orçamentárias",
+              path: "/contratos-gestao",
+              icon: AiOutlineTable,
+              ...contentContractManagement
+            },
+            {
+              defaultPath: "/terceiro-setor",
+              name: "Lei Orçamentária Anual",
+              path: "/contratos-gestao",
+              icon: AiOutlineTable,
+              ...contentContractManagement
+            },
+    ],
+  },
+  {
+    name: "Despesas",
+    path: "/terceiro-setor",
+    element: <div></div>,
+    icon: BiMoney,
+    ...contentRevenue,
+    group: [
+      
+        {
+          name: "Sapato",
+          path: "/terceiro-setor",
+          element: <div></div>,
+          icon: BiBriefcaseAlt,
+          group: [
+            {
+              defaultPath: "/terceiro-setor",
+              name: "Contratos de Gestão",
+              path: "/contratos-gestao",
+              icon: AiOutlineTable,
+              ...contentContractManagement
+            },
+            {
+              defaultPath: "/terceiro-setor",
+              name: "Contratos de Gestão",
+              path: "/contratos-gestao",
+              icon: AiOutlineTable,
+              ...contentContractManagement
+            },
+          ]
+      },
+      {
+        defaultPath: "/terceiro-setor",
+        name: "Convênios",
+        path: "/convenios",
+        icon: AiOutlineTable,
+        ...contentConvenants
+      },
+      {
+        defaultPath: "/terceiro-setor",
+        name: "Repasses",
+        path: "/repasses",
+        icon: AiOutlineTable,
+        ...contentTransfers
+      },
+    ],
+  },
+  {
+    name: "Extraorçamentário",
+    path: "/extraorcamentario",
+    element: <div></div>,
+    icon: AiOutlineException,
+    group: [
+      {
+        defaultPath: "/extraorcamentario",
+        name: "Despesas",
+        path: "/despesas",
+        icon: AiOutlineTable,
+        ...contentExtrabudgetExpenses
+      },
+      {
+        defaultPath: "/extraorcamentario",
+        name: "Receitas",
+        path: "/receitas",
+        icon: AiOutlineTable,
+        ...contentExtrabudgetRevenues
+      },
+    ],
+  },
+
+
+  {
+    name: "Portal de Obras",
     icon: BsBricks,
     path: "/controle-de-obras",
     group: [
@@ -115,12 +216,6 @@ const publicRoutes: IPublicRoute[] = [
         icon: AiOutlineTool,
         ...contentOpenedConstructions
       },
-      // {
-      //   name: "Obra",
-      //   path: "/construcao",
-      //   icon: AiOutlineTool,
-
-      // },
     ],
   },
   {

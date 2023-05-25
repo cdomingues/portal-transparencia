@@ -12,47 +12,41 @@ const PublicSpaceScreen = () => {
     >
       <Style.Description>
         <Text.Heading5Regular>
-          BA Obras pone a disposición de los vecinos y las vecinas toda la
-          información sobre las obras públicas que están transformando la
-          Ciudad.
+          O Portal de Obras de Mogi das Cruzes disponibiliza aos moradores
+          toda a informação sobre as obras públicas que estão transformando
+          a cidade.
         </Text.Heading5Regular>
 
         <Text.Heading5Regular marginTop={12}>
-          El portal, que forma parte del Ecosistema de Gobierno Abierto de la
-          Ciudad de Buenos Aires, es el resultado del Compromiso de Ciudad de
-          publicar un sistema online de obras públicas abiertas, asumido en el
-          marco del Tercer Plan de Acción Nacional de Gobierno Abierto. Desde
-          2015, La Ciudad forma parte del Programa de Entidades Subnacionales de
-          la Alianza para el Gobierno Abierto, iniciativa global con más de 69
-          países miembros que promueve la transparencia, la innovación
-          gubernamental y la participación de la ciudadanía, a través del uso de
-          nuevas tecnologías y del diálogo permanente con la sociedad civil.
+          O portal, que faz parte do Ecossistema de Governo Aberto da 
+          Cidade de Mogi das Cruzes, é o resultado do Compromisso da Cidade 
+          de publicar um sistema online de obras públicas abertas.
         </Text.Heading5Regular>
 
         <Text.Heading5Regular marginTop={12}>
-          En el sitio, podés conocer las obras destacadas del plan de obra
-          pública de la Ciudad en materia de transformación urbana, espacio
-          público y verde, transformación educativa, transporte público,
-          integración de barrios populares, seguridad y convivencia, salud y
-          calidad de vida, y cultura. Además, podés ver las obras que se
-          realizaron y las que están planificadas en cada uno de los 48 barrios,
-          conocer cuándo empiezan, cuándo terminan y cuánto cuestan, así como
-          los avances de cada una en fotos y videos.
+          No site, você pode conhecer as obras destacadas do plano de obras
+          públicas da cidade nas áreas de transformação urbana, espaço público
+          e áreas verdes, transformação educacional, transporte público, 
+          integração de bairros, segurança e convivência, saúde e
+          qualidade de vida, e cultura. Além disso, você pode ver as obras 
+          realizadas e as planejadas, saber quando
+          começam, quando terminam e quanto custam, assim como acompanhar o 
+          progresso de cada uma por meio de fotos e vídeos.
         </Text.Heading5Regular>
 
         <Text.Heading5Regular marginTop={12}>
-          La Ciudad ha ampliado y puesto en valor el espacio público y verde,
-          para que sea más seguro y cercano y que todos los vecinos y vecinas
-          puedan disfrutarlo. En el sitio web podés conocer todas las obras que
-          hicieron esto posible, así como las oportunidades de esparcimiento y
-          las ofertas comerciales, educativas y culturales renovadas.
+          A cidade de Mogi das Cruzes ampliou e revitalizou seus espaços públicos
+          e áreas verdes, tornando-os mais seguros e acessíveis para que todos os
+          moradores possam desfrutar. No site, você pode conhecer todas as obras
+          que tornaram isso possível, bem como as oportunidades de lazer e as
+          opções atualizadas de comércio, educação e cultura disponíveis na cidade.
         </Text.Heading5Regular>
 
         <Text.Heading4Regular marginTop={12}>
-          *Dado que algunas obras poseen un alcance territorial amplio, debido a
-          que residentes de barrios vecinos hacen uso de estas, en algunos casos
-          se consideró el impacto de las obras en más de un solo barrio. La
-          información se actualiza aproximadamente cada 15 días.
+          *Dado que algumas obras possuem uma abrangência territorial ampla, uma
+          vez que residentes de bairros vizinhos as utilizam, em alguns casos foi
+          considerado o impacto das obras em mais de um bairro. As informações são
+          atualizadas aproximadamente a cada 15 dias.
         </Text.Heading4Regular>
       </Style.Description>
     </LayoutConstructions>

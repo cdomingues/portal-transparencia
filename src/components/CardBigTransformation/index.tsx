@@ -30,13 +30,13 @@ const CardBigTransformation = ({
   ];
 
   const message = [
-    "Paseo del Bajo ",
-    "2 nuevos viaductos  ",
-    "5 nuevos pasos bajo nivel ",
-    "27 barreras eliminadas ",
-    " 22 aperturas de calles ",
-    "+ 1.500.000 personas",
-    "+ 6.400 nuevas viviendas en Villa",
+    "Texto destaque 1 ",
+    "Texto destaque 2 ",
+    "Texto destaque 3 ",
+    "Texto destaque 4 ",
+    "Texto destaque 5 ",
+    "Texto destaque 6 ",
+    "Texto destaque 7 ",
   ];
 
   return (

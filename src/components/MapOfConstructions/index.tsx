@@ -43,9 +43,9 @@ const MapOfConstructions = () => {
   return (
     <Style.Container>
       <Style.Search>
-        <Text.Heading3Bold color={colors.black}>
-          Buscar por obras de seu bairro
-        </Text.Heading3Bold>
+        <Text.Heading4Bold color={colors.black}>
+          Buscar de obras por bairro
+        </Text.Heading4Bold>
         <Text.Heading4Medium
           color={colors.black}
           marginTop={5}

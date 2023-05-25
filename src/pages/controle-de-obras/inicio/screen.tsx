@@ -25,7 +25,7 @@ type PropsInput = {
 };
 
 export const contentConstructionsControl = {
-  titlePage:"MG Obras",
+  titlePage:"Portal de Obras - Mogi das Cruzes",
   description:"Conheça as obras que estão transformando nossa cidade.",
 }
 
@@ -34,7 +34,7 @@ function Screen({ handler }: PropsInput) {
   const [password, setPassword] = useState("");
   const accessibility = useFontSizeAccessibilityContext();
 
-  if (!password || password != "abobora123") {
+  if (!password || password != " ") {
     return (
       <div
         style={{
@@ -110,26 +110,26 @@ function Screen({ handler }: PropsInput) {
         <div className="gradient-image"></div>
         <div className="content">
           <CardTotal
-            value="120"
-            description={`hectáreas de nuevo espacio público y verde`}
+            value="XXX"
+            description={`novas áreas de espaço público e áeras verdes`}
             icon={<BsTree color={colors.white} fontSize={50} />}
           />
 
           <CardTotal
-            value="1.500.000"
-            description="personas beneficiadas con obras hidráulicas"
+            value="XXX.XXX"
+            description="pessoas atendidas pelas obras de saneamento"
             icon={<TbUsers color={colors.white} fontSize={50} />}
           />
 
           <CardTotal
-            value="1.400.000"
-            description="de pasajeros ahorran tiempo con Metrobus"
+            value="XXXXX"
+            description="pessoas atendidas pelas obras de mobilidade"
             icon={<TbBus color={colors.white} fontSize={50} />}
           />
 
           <CardTotal
-            value={"2.000.000"}
-            description="personas con historia de salud integral"
+            value={"XXXXX"}
+            description="atendidas nas novas unidades de saúde"
             icon={<TbRibbonHealth color={colors.white} fontSize={50} />}
           />
         </div>
@@ -143,26 +143,26 @@ function Screen({ handler }: PropsInput) {
       </Style.ContainerBigTransformations>
 
       <Style.ContainerCardsTransformations>
-        <Style.Heading>Conheça mais obras em transformação</Style.Heading>
+        <Style.Heading>Conheça nossas obras em destaque</Style.Heading>
 
         <div className="align-cards">
           <CardTransformation
-            title="Grandes transformaciones de la Ciudad"
-            description="Tenemos un plan para seguir mejorando la calidad de vida de los vecinos de la Ciudad."
+            title="Grandes transformações da cidade"
+            description="Temos um plano para continuar melhorando a qualidade de vida dos moradores da cidade."
             backgroundImageSrc="https://cdn.buenosaires.gob.ar/BAObrasrenovado/MONSERRAT-PASEO-DEL-BAJO-1.jpg"
             onClick={() =>
               router.push("/controle-de-obras/grandes-transformacoes-da-cidade")
             }
           />
           <CardTransformation
-            title="Transformações de 48 bairros"
-            description="Recorré los barrios de la Ciudad para conocer qué estamos haciendo en cada uno."
+            title="Transformações em Mogi das Cruzes"
+            description="Explore os bairros da cidade para descobrir o que estamos fazendo em cada um."
             backgroundImageSrc="https://cdn.buenosaires.gob.ar/BAObrasrenovado/BALVANERA-MANZANA-66.jpg"
             onClick={() => router.push("/controle-de-obras/bairros")}
           />
           <CardTransformation
-            title="Melhor espaço público"
-            description="Trabajamos por una Ciudad con más y mejor espacio público y verde, disfrutable, seguro y cercano a los vecinos y las vecinas."
+            title="Espaço público de qualidade"
+            description="Trabalhamos por uma cidade com mais e melhor espaço público e áreas verdes, agradáveis, seguras e próximas aos moradores."
             backgroundImageSrc="https://cdn.buenosaires.gob.ar/BAObrasrenovado/CHACARITA-NICARAGUA-DORREGO.jpg"
             onClick={() => router.push("/controle-de-obras/espaco-publico")}
           />

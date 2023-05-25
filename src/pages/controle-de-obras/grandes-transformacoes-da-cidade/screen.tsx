@@ -8,53 +8,48 @@ const BigTransformationsScreen = () => {
       title="Grandes Mudanças"
       bannerSrc="https://cdn.buenosaires.gob.ar/BAObrasrenovado/FOTOSBAOBRAS2022/Mesa_de_trabajo_1.png"
       bannerTitle="Grandes Mudanças na cidade"
-      bannerDescription="Conocé más sobre el sitio que pone a disposición de los vecinos y
-  las vecinas toda la información sobre las obras públicas que están
-  transformando los 48 barrios de la Ciudad."
+      bannerDescription="Saiba mais sobre o site que disponibiliza aos moradores 
+      toda a informação sobre as obras públicas que estão transformando a cidade."
     >
       <Style.Description>
         <Text.Heading5Regular>
-          BA Obras pone a disposición de los vecinos y las vecinas toda la
-          información sobre las obras públicas que están transformando la
-          Ciudad.
+          
+        O Portal de Obras disponibiliza aos moradores toda a informação sobre 
+        as obras públicas que estão transformando a cidade.
         </Text.Heading5Regular>
 
         <Text.Heading5Regular marginTop={12}>
-          El portal, que forma parte del Ecosistema de Gobierno Abierto de la
-          Ciudad de Buenos Aires, es el resultado del Compromiso de Ciudad de
-          publicar un sistema online de obras públicas abiertas, asumido en el
-          marco del Tercer Plan de Acción Nacional de Gobierno Abierto. Desde
-          2015, La Ciudad forma parte del Programa de Entidades Subnacionales de
-          la Alianza para el Gobierno Abierto, iniciativa global con más de 69
-          países miembros que promueve la transparencia, la innovación
-          gubernamental y la participación de la ciudadanía, a través del uso de
-          nuevas tecnologías y del diálogo permanente con la sociedad civil.
+        O Portal de Obras de Mogi das Cruzes, que faz parte do Ecossistema de 
+        Governo Aberto de Mogi das Cruzes, é o resultado do Compromisso da 
+        cidade em publicar um sistema online de obras públicas abertas.
+        
         </Text.Heading5Regular>
 
         <Text.Heading5Regular marginTop={12}>
-          En el sitio, podés conocer las obras destacadas del plan de obra
-          pública de la Ciudad en materia de transformación urbana, espacio
-          público y verde, transformación educativa, transporte público,
-          integración de barrios populares, seguridad y convivencia, salud y
-          calidad de vida, y cultura. Además, podés ver las obras que se
-          realizaron y las que están planificadas en cada uno de los 48 barrios,
-          conocer cuándo empiezan, cuándo terminan y cuánto cuestan, así como
-          los avances de cada una en fotos y videos.
+          No site, você pode conhecer as obras destacadas do plano de obras 
+          públicas da cidade nas áreas de transformação urbana, espaços públicos
+           e áreas verdes, educação, transporte público, integração de bairros, 
+           segurança, saúde e cultura. Além disso, em breve será possível observar
+           obras que foram realizadas e as que estão planejadas em cada um dos 
+           bairros de Mogi das Cruzes, incluindo informações sobre datas de 
+           início, término e custos, assim como acompanhar os avanços de cada 
+           uma delas por meio de fotos e vídeos.
         </Text.Heading5Regular>
 
         <Text.Heading5Regular marginTop={12}>
-          La Ciudad ha ampliado y puesto en valor el espacio público y verde,
-          para que sea más seguro y cercano y que todos los vecinos y vecinas
-          puedan disfrutarlo. En el sitio web podés conocer todas las obras que
-          hicieron esto posible, así como las oportunidades de esparcimiento y
-          las ofertas comerciales, educativas y culturales renovadas.
+          Mogi das Cruzes tem ampliado e valorizado o espaço público e as áreas
+           verdes, buscando torná-los mais seguros e acessíveis, para que todos 
+           os moradores possam desfrutar. No portal, você poderá conhecer todas 
+           as obras que tornaram isso possível, bem como as oportunidades de 
+           lazer e as ofertas comerciais, educacionais e culturais renovadas.
         </Text.Heading5Regular>
 
         <Text.Heading4Regular marginTop={12}>
-          *Dado que algunas obras poseen un alcance territorial amplio, debido a
-          que residentes de barrios vecinos hacen uso de estas, en algunos casos
-          se consideró el impacto de las obras en más de un solo barrio. La
-          información se actualiza aproximadamente cada 15 días.
+          Considerando que algumas obras têm impacto em áreas além de um único
+          bairro, devido ao uso por moradores de bairros vizinhos, em alguns 
+          casos, o portal apresenta informações sobre o impacto das obras em 
+          mais de um bairro. As informações são atualizadas aproximadamente 
+          a cada 15 dias.
         </Text.Heading4Regular>
       </Style.Description>
     </LayoutConstructions>

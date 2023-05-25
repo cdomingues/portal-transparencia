@@ -11,7 +11,7 @@ export const contentAboutConstructions = {
 
 const AboutScreen = () => {
   const [password, setPassword] = useState("");
-  if (!password || password != "abobora123") {
+  if (!password || password != " ") {
     return (
       <div
         style={{

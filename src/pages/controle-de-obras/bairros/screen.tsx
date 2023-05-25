@@ -10,7 +10,7 @@ const NeighborhoodsScreen = () => {
   const arrayNeighborhoods = [
     {
       title: "Retiro",
-      description: "Conocé cómo se está transformando el barrio.",
+      description: "Conheça como estamos transformando seu bairro.",
       image: "https://images7.alphacoders.com/372/372247.jpg",
     },
   ];
@@ -19,8 +19,8 @@ const NeighborhoodsScreen = () => {
     <LayoutConstructions
       title="Bairros"
       bannerSrc="https://cdn.buenosaires.gob.ar/BAObrasrenovado/BALVANERA-MANZANA-66.jpg"
-      bannerTitle="Transformação de 48 bairros"
-      bannerDescription="Recorré los barrios de la Ciudad para conocer qué estamos haciendo en cada uno."
+      bannerTitle="Transformação dos nosso bairros"
+      bannerDescription="Explore os bairros da cidade para descobrir o que estamos fazendo em cada um."
     >
       <Style.Description>
         {arrayNeighborhoods?.map((item, index) => (
