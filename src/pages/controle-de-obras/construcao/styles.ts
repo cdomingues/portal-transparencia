@@ -21,6 +21,15 @@ export const Container = styled.div`
       font-size: 1.3rem;
     }
   }
+
+  .row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    cursor: pointer;
+  }
 `;
 
 export const Row = styled.div`

@@ -209,13 +209,6 @@ const publicRoutes: IPublicRoute[] = [
         icon: AiOutlineSearch,
         ...contentSearchConstructions
       },
-      {
-        name: "Obras Abertas",
-        path: "/obras-abertas",
-        defaultPath:"/controle-de-obras",
-        icon: AiOutlineTool,
-        ...contentOpenedConstructions
-      },
     ],
   },
   {
