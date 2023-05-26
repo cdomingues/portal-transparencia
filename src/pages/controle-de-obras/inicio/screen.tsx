@@ -92,16 +92,6 @@ function Screen({ handler }: PropsInput) {
               </Heading>
             </div>
 
-            <div
-              className="chip-banner"
-              onClick={() => router.push("/controle-de-obras/obras-abertas")}
-            >
-              <IoIosConstruct fontSize={18} color={colors.white} />
-
-              <Text color={colors.white} fontSize={accessibility?.fonts?.medium} fontWeight={700}>
-                Obras Abertas
-              </Text>
-            </div>
           </div>
         </div>
       </Style.Banner>
