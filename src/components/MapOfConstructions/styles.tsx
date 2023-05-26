@@ -7,7 +7,7 @@ export const Container = styled.div`
   background-color: ${colors.transparent};
   /* max-width: 1340px; */
   margin: 0 auto;
-  padding: 20px 10px;
+  padding: 50px 0px 20px 0px;
 
   .icon-marker {
     width: 10px;
@@ -257,7 +257,11 @@ export const ConstructionSelected = styled.div`
     }
   }
 
+  @media (max-width: 1230px) {
+    top: 1250px;
+  }
+
   @media (max-width: 1060px) {
-    top: 1850px;
+    top: 1600px;
   }
 `;

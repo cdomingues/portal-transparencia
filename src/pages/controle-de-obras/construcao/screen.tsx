@@ -7,9 +7,12 @@ import Carousel from "../../../components/Swiper";
 import { parseMoney } from "../../../utils/mask";
 import { useEffect, useState } from "react";
 import request from "../../../utils/request";
+import { BsFillArrowLeftCircleFill } from "react-icons/bs";
+import { useRouter } from "next/router";
 
 const ConstructionScreen = ({ id }: any) => {
   const [file, setFile] = useState<any>();
+  const router = useRouter()
 
   const getFileOfConstructions = async () => {
     const { data } = await request({
@@ -54,7 +57,7 @@ const ConstructionScreen = ({ id }: any) => {
           color={colors.grayDark}
           marginTop={60}
         >
-          {item?.escopo_da_obra}
+          {item?.escopo_da_obra || item?.nome_da_obra}
         </Text.Heading1Regular>
 
         <Text.Heading5Regular color={colors.grayDark} marginTop={15}>
@@ -182,8 +185,12 @@ const ConstructionScreen = ({ id }: any) => {
       bannerDescription={buildingSelected?.descricao_da_obra}
     >
       <Style.Container>
+        <a className="row" onClick={()=>router.push("/controle-de-obras/inicio")}>
+          <BsFillArrowLeftCircleFill fontSize={30} /> <span>Voltar</span>
+        </a>
+
         {buildingData(buildingSelected)}
-        {othersBuildings?.map((item: any) => buildingData(item))}
+        {/* {othersBuildings?.map((item: any) => buildingData(item))} */}
       </Style.Container>
     </LayoutConstructions>
   );

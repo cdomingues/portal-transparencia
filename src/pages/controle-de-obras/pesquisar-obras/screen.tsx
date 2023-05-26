@@ -35,7 +35,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
   } = handlers;
 
   const [password, setPassword] = useState("");
-  if (!password || password != "abobora123") {
+  if (!password || password != " ") {
     return (
       <div
         style={{

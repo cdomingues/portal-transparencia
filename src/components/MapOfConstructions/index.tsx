@@ -39,7 +39,6 @@ const MapOfConstructions = () => {
   const router = useRouter();
 
   const geoSplited = constructionSelected?.latitude_longitude?.split(",");
-
   return (
     <Style.Container>
       <Style.Search>
@@ -174,7 +173,7 @@ const MapOfConstructions = () => {
             }}
           >
             <a onClick={() => setConstructionSelected(null)}>
-              <AiOutlineCloseCircle fontSize={25} color={colors.white} />
+              <AiOutlineCloseCircle fontSize={25} color={colors.grayDark} />
             </a>
           </div>
 
@@ -221,7 +220,7 @@ const MapOfConstructions = () => {
             <button
               className="buttons"
               style={{ borderRadius: 10 }}
-              onClick={() => router.push(`/controle-de-obras/construcao`)}
+              onClick={() => router.push(`/controle-de-obras/construcao?${constructionSelected?._id}`)}
             >
               <Text.Heading5Medium
                 color={colors.white}
