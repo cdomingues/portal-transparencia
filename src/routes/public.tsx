@@ -27,7 +27,6 @@ import { contentMunicipalityProfile } from "../pages/perfil-do-municipio/screen"
 import { contentConstructionsControl } from "../pages/controle-de-obras/inicio/screen";
 import { contentAboutConstructions } from "../pages/controle-de-obras/sobre-as-obras/screen";
 import { contentSearchConstructions } from "../pages/controle-de-obras/pesquisar-obras/screen";
-import { contentOpenedConstructions } from "../pages/controle-de-obras/obras-abertas/screen";
 import { contentRadarsControl } from "../pages/controle-de-radares/screen";
 import { contentMayorAgenda } from "../pages/agenda-aberta/agenda-prefeito/screen";
 import { contentContractManagement } from "../pages/terceiro-setor/contratos-gestao/screen";
