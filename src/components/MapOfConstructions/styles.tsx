@@ -24,40 +24,40 @@ export const Container = styled.div`
     }
   }
 
-  .public-place {
-    background-color: ${colors.randomColors.orange} !important;
+  .environmental {
+    background-color: ${colors.randomColors.green} !important;
   }
 
-  .mobility {
-    background-color: ${colors.randomColors.orangeLight}!important;
-  }
-
-  .education {
-    background-color: ${colors.randomColors.green}!important;
-  }
-
-  .work {
-    background-color: ${colors.randomColors.yellow}!important;
-  }
-
-  .safe {
-    background-color: ${colors.randomColors.ciano}!important;
-  }
-
-  .integration {
-    background-color: ${colors.randomColors.blueLight}!important;
-  }
-
-  .health {
+  .infrastructure {
     background-color: ${colors.randomColors.blue}!important;
   }
 
-  .culture {
-    background-color: ${colors.randomColors.purple}!important;
+  .efficient {
+    background-color: ${colors.green}!important;
+  }
+
+  .health {
+    background-color: ${colors.randomColors.blueLight}!important;
+  }
+
+  .sport {
+    background-color: ${colors.randomColors.orangeLight}!important;
+  }
+
+  .mobility {
+    background-color: ${colors.randomColors.red}!important;
+  }
+
+  .security {
+    background-color: ${colors.randomColors.yellow}!important;
   }
 
   .inovation {
     background-color: ${colors.black}!important;
+  }
+
+  .steps{
+    background-color: ${colors.grayDark}!important;
   }
 
   .map-style {

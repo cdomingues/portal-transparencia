@@ -131,16 +131,15 @@ export const Card = styled.div`
     0px 1px 3px 1px rgba(0, 0, 0, 0.15);
   border-radius: 20px;
   margin: 20px 0px;
-
+  background-color: #ffff;
   display: flex;
   flex-direction: row;
   gap: 15px;
 
   .left {
     width: 300px;
-    height: 100% !important;
+    min-height: 100% !important;
     border-radius: 20px;
-
     .image {
       width: 100%;
       height: 100% !important;
@@ -161,10 +160,12 @@ export const Card = styled.div`
     padding: 20px;
     display: flex;
     flex-direction: column;
+    
 
     .row {
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
       gap: 10px;
       .item {
         flex: 1;

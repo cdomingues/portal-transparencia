@@ -50,7 +50,7 @@ const SearchBuildingsController = () => {
           ?.includes(companyName?.toLowerCase()) &&
         item?.bairro?.toLowerCase()?.includes(neighborhood?.toLowerCase()) &&
         item?.situacao?.toLowerCase()?.includes(buildingStep?.toLowerCase()) &&
-        item?.categoria?.toLowerCase()?.includes(buildingType?.toLowerCase())
+        item?.programa_ppa?.toLowerCase()?.includes(buildingType?.toLowerCase())
     );
 
     setPage(0);
