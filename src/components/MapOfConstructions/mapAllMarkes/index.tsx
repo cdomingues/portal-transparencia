@@ -5,6 +5,7 @@ import "leaflet/dist/leaflet.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import request from "../../../utils/request";
+import colors from "../../../styles/colors";
 
 type Props = {
   setConstructionSelected: any;
@@ -44,15 +45,18 @@ const MapAllMarkersComponent = ({
     getFileOfConstructions();
   }, []);
 
-  console.log('o que vem', file?.result?.records.filter)
 
   const translatorIcon = (value: string) => {
     const translator: any = {
-      "Espacio Público": L.divIcon({ className: "icon-marker public-place" }),
-      Escuelas: L.divIcon({ className: "icon-marker education" }),
-      Vivienda: L.divIcon({ className: "icon-marker education" }),
-      "Hidráulica e Infraestructura": L.divIcon({ className: "icon-marker" }),
-      Arquitectura: L.divIcon({ className: "icon-marker" }),
+      '2006 - SANEAMENTO AMBIENTAL':L.divIcon({ className: "icon-marker environmental" }),
+      '2004 - INFRAESTRUTURA':L.divIcon({ className: "icon-marker infrastructure" }),
+      '2000 - MOGI EFICIENTE':L.divIcon({ className: "icon-marker efficient" }),
+      '3100 - SAÚDE':L.divIcon({ className: "icon-marker health" }),
+      '3003 - ESPORTE':L.divIcon({ className: "icon-marker sport" }),
+      '2007 - MOBILIDADE URBANA':L.divIcon({ className: "icon-marker mobility" }),
+      '3004 - SEGURANÇA':L.divIcon({ className: "icon-marker security" }),
+      '2001 - CIDADE INTELIGENTE':L.divIcon({ className: "icon-marker inovation" }),
+      '1001 - PRIMEIROS PASSOS':L.divIcon({ className: "icon-marker steps" })
     };
 
     return translator[value] ? translator[value] : icon;
@@ -118,7 +122,7 @@ const MapAllMarkersComponent = ({
                 geoSplited?.[0] ? geoSplited?.[0] : "-23.510053316336844",
                 geoSplited?.[1] ? geoSplited?.[1] : "-46.193725156990325",
               ]}
-              icon={translatorIcon(item?.titulo)}
+              icon={translatorIcon(item?.programa_ppa)}
               eventHandlers={{
                 click: (e) => {
                   setConstructionSelected(item);
