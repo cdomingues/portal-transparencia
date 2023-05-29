@@ -12,9 +12,9 @@ interface PropsPagination {
 }
 
 export const contentSearchConstructions = {
-  titlePage:"Pesquisar Obras",
-  description:"Conocé toda la información sobre las obras de la Ciudad.",
-}
+  titlePage: "Pesquisar Obras",
+  description: "Conocé toda la información sobre las obras de la Ciudad.",
+};
 
 const SearchBuildingsScreen = ({ handlers }: any) => {
   const {
@@ -95,35 +95,81 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
             variant="outline"
             placeholder="Nome ou descrição da obra"
             onChange={(event) => setNameBuilding(event.target.value)}
+            style={{ backgroundColor: colors.white }}
           />
 
           <Input
             variant="outline"
             placeholder="Empresa"
             onChange={(event) => setCompanyName(event.target.value)}
+            style={{ backgroundColor: colors.white }}
           />
 
           <Select
             placeholder="Bairro"
             onChange={handleChangeSelectNeighborhood}
+            style={{ backgroundColor: colors.white }}
           >
             <option value="">Todos</option>
-            <option value="Villa Urquiza">Villa Urquiza</option>
-            <option value="Montserrat">Montserrat</option>
-            <option value="San Nicolás">San Nicolás</option>
-            <option value="Villa Lugano">Villa Lugano</option>
+            <option value="PARQUE MORUMBI">Parque Morumbi</option>
+            <option value="JUNDIAPEBA">Jundiapeba</option>
+            <option value="BOTUJURU">Bojuturu</option>
+            <option value="SANTO ÂNGELO">Santo Ângelo</option>
+            <option value="FAZENDA RODEIO">Fazenda Rodeio</option>
+            <option value="SANTO ÂNGELO">Santo Ângelo</option>
+            <option value="NOVA MOGILAR">Nova Mogilar</option>
+            <option value="BRAZ CUBAS">Braz Cubas</option>
+            <option value="NOVA JUNDIAPEBA">Nova Jundiapeba</option>
+            <option value="SOCORRO">Socorro</option>
+            <option value="CEZAR DE SOUZA">Cezar De Souza</option>
+            <option value="CENTRO">Centro</option>
+            <option value="MOGI MODERNO">Mogi Moderno</option>
+            <option value="TAIAÇUPEBA">Taiaçupeba</option>
+            <option value="VILA NATAL">Vila Natal</option>
+            <option value="CONJUNTO SANTO ÂNGELO">Conjunto Santo Ângelo</option>
+            <option value="PARQUE OLÍMPICO">Parque Olímpico</option>
+            <option value="VILA CINTRA">Vila Cintra</option>
+            <option value="TABOÃO">Taboão</option>
+            <option value="JARDIM ARACY">Jardim Aracy</option>
+            <option value="VILA LAVÍNIA">Vila Lavínia</option>
+            <option value="JARDIM AEROPORTO">Jardim Aeroporto</option>
+            <option value="CHÁCARA GUANABARA">Chácara Guanabara</option>
+            <option value="RESIDENCIAL NOVO HORIZONTE">
+              Residencial Novo Horizonte
+            </option>
+            <option value="JARDIM MARICÁ">Jardim Maricá</option>
+            <option value="JARDIM SANTA TEREZA">Jardim Santa Tereza</option>
           </Select>
 
-          <Select placeholder="Etapa" onChange={handleChangeSelectBuildingStep}>
+          <Select
+            placeholder="Etapa"
+            onChange={handleChangeSelectBuildingStep}
+            style={{ backgroundColor: colors.white }}
+          >
             <option value="">Todos</option>
-            <option value="Finalizada">Finalizada</option>
+            <option value="INICIADO">Iniciado</option>
+            <option value="CONCLUÍDO">Concluído</option>
+            <option value="RESCINDIDO">Rescindido</option>
           </Select>
 
-          <Select placeholder="Tipo" onChange={handleChangeSelectBuildingType}>
+          <Select
+            placeholder="Tipo"
+            onChange={handleChangeSelectBuildingType}
+            style={{ backgroundColor: colors.white }}
+          >
             <option value="">Todos</option>
-            <option value="Vivienda">Vivienda</option>
-            <option value="Espacio Público">Espacio Público</option>
-            <option value="Escuelas">Escuelas</option>
+            <option value="2006 - SANEAMENTO AMBIENTAL">
+              2006 - SANEAMENTO AMBIENTAL
+            </option>
+            <option value="2004 - INFRAESTRUTURA">2004 - INFRAESTRUTURA</option>
+            <option value="2000 - MOGI EFICIENTE">2000 - MOGI EFICIENTE</option>
+            <option value="3100 - SAÚDE">3100 - SAÚDE</option>
+            <option value="3003 - ESPORTE">3003 - ESPORTE</option>
+            <option value="3100 - SAÚDE">3100 - SAÚDE</option>
+            <option value="2007 - MOBILIDADE URBANA">2007 - MOBILIDADE URBANA</option>
+            <option value="3004 - SEGURANÇA">3004 - SEGURANÇA</option>
+            <option value="2001 - CIDADE INTELIGENTE">2001 - CIDADE INTELIGENTE</option>
+            <option value="1001 - PRIMEIROS PASSOS">1001 - PRIMEIROS PASSOS</option>
           </Select>
 
           <button className="buttons" onClick={() => handleFilterBuildings()}>
@@ -140,7 +186,10 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
           ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
           .map((item: any, index: number) => {
             let arrayImages = [];
-            item?.imagen_1 && arrayImages.push(item?.imagen_1);
+            arrayImages.push(
+              item?.imagen_1 ||
+                "https://www.stant.com.br/wp-content/uploads/2020/09/pexels-pixabay-159306_Easy-Resize.com_-1024x682.jpg"
+            );
             item?.imagen_2 && arrayImages.push(item?.imagen_2);
             item?.imagen_3 && arrayImages.push(item?.imagen_3);
             item?.imagen_4 && arrayImages.push(item?.imagen_4);
@@ -189,20 +238,20 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                   </div>
 
                   <div className="row" style={{ marginTop: 20 }}>
-                    <div className="item">
+                    {/* <div className="item">
                       <Text.Heading4Bold color={colors.black}>
                         Programa:
                       </Text.Heading4Bold>
                       <Text.Heading5Regular color={colors.black}>
                         {item?.programa_ppa}
                       </Text.Heading5Regular>
-                    </div>
+                    </div> */}
                     <div className="item">
                       <Text.Heading4Bold color={colors.black}>
                         Tipo:
                       </Text.Heading4Bold>
                       <Text.Heading5Regular color={colors.black}>
-                        {item?.categoria}
+                        {item?.programa_ppa}
                       </Text.Heading5Regular>
                     </div>
                     <div className="item">
@@ -226,15 +275,6 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
               </Style.Card>
             );
           })}
-
-        {/* <div className="bottom">
-          <Pagination
-            count={numberOfPages}
-            variant="outlined"
-            shape="rounded"
-            onChange={handleChangePage}
-          />
-        </div> */}
         <div className="bottom">
           <Pagination
             totalPages={numberOfPages}

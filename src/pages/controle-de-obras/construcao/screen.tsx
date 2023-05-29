@@ -39,7 +39,7 @@ const ConstructionScreen = ({ id }: any) => {
 
   const buildingData = (item: any) => {
     let arrayImages = [];
-    item?.imagen_1 && arrayImages.push(item?.imagen_1);
+    arrayImages.push(item?.imagen_1 || "https://www.stant.com.br/wp-content/uploads/2020/09/pexels-pixabay-159306_Easy-Resize.com_-1024x682.jpg");
     item?.imagen_2 && arrayImages.push(item?.imagen_2);
     item?.imagen_3 && arrayImages.push(item?.imagen_3);
     item?.imagen_4 && arrayImages.push(item?.imagen_4);
@@ -169,9 +169,9 @@ const ConstructionScreen = ({ id }: any) => {
             </div>
           </Style.Datasheet>
 
-          {/* <Style.DivImage>
+          <Style.DivImage>
             <Carousel listImages={arrayImages} className="image" />
-          </Style.DivImage> */}
+          </Style.DivImage>
         </Style.Row>
       </div>
     );

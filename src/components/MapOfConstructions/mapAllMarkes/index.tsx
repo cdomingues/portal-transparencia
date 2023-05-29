@@ -44,6 +44,8 @@ const MapAllMarkersComponent = ({
     getFileOfConstructions();
   }, []);
 
+  console.log('o que vem', file?.result?.records.filter)
+
   const translatorIcon = (value: string) => {
     const translator: any = {
       "Espacio Público": L.divIcon({ className: "icon-marker public-place" }),

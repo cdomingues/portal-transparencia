@@ -39,6 +39,12 @@ const MapOfConstructions = () => {
   const router = useRouter();
 
   const geoSplited = constructionSelected?.latitude_longitude?.split(",");
+
+  const translatorSituationColor: any = {
+    INICIADO: colors.primaryDefault,
+    CONCLUÍDO: colors.green,
+    RESCINDIDO: colors.red,
+  };
   return (
     <Style.Container>
       <Style.Search>
@@ -169,10 +175,16 @@ const MapOfConstructions = () => {
           <div
             className="top"
             style={{
-              backgroundImage: `url(${constructionSelected?.imagen_1})`,
+              backgroundImage: `url(${
+                constructionSelected?.imagen_1 ||
+                "https://www.stant.com.br/wp-content/uploads/2020/09/pexels-pixabay-159306_Easy-Resize.com_-1024x682.jpg"
+              })`,
             }}
           >
-            <a onClick={() => setConstructionSelected(null)}>
+            <a
+              onClick={() => setConstructionSelected(null)}
+              style={{ cursor: "pointer" }}
+            >
               <AiOutlineCloseCircle fontSize={25} color={colors.grayDark} />
             </a>
           </div>
@@ -192,8 +204,15 @@ const MapOfConstructions = () => {
               </div>
             </div>
 
-            <div className="status">
-              <Text.Heading5Bold color={colors.white}>
+            <div
+              className="status"
+              style={{
+                backgroundColor:
+                  translatorSituationColor[constructionSelected?.situacao] ||
+                  colors.grayDark,
+              }}
+            >
+              <Text.Heading5Bold color={colors.white} >
                 {constructionSelected?.situacao}{" "}
                 {/* {Number(constructionSelected?.situacao)}% */}
               </Text.Heading5Bold>
@@ -220,7 +239,11 @@ const MapOfConstructions = () => {
             <button
               className="buttons"
               style={{ borderRadius: 10 }}
-              onClick={() => router.push(`/controle-de-obras/construcao?${constructionSelected?._id}`)}
+              onClick={() =>
+                router.push(
+                  `/controle-de-obras/construcao?${constructionSelected?._id}`
+                )
+              }
             >
               <Text.Heading5Medium
                 color={colors.white}
