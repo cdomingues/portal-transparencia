@@ -101,7 +101,7 @@ const publicRoutes: IPublicRoute[] = [
               name: "Diretrizes Orçamentárias",
               path: "/contratos-gestao",
               icon: AiOutlineTable,
-              ...contentContractManagement
+              ...contentContractManagement,
             },
             {
               defaultPath: "/terceiro-setor",
