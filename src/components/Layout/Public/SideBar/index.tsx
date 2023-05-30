@@ -106,12 +106,16 @@ function NavItem({
                 }}
                 fontWeight="500"
               >
-                <Box flex="1" fontSize={accessibility?.fonts?.semiMedium} textAlign="left">
+                <Box
+                  flex="1"
+                  fontSize={accessibility?.fonts?.semiMedium}
+                  textAlign="left"
+                >
                   {icon && (
                     <Icon
                       mr="4"
                       color="primary"
-                     fontSize="18"
+                      fontSize="18"
                       _groupHover={{
                         color: "primary",
                       }}
@@ -123,41 +127,125 @@ function NavItem({
                 <AccordionIcon />
               </AccordionButton>
               <AccordionPanel pb={4}>
-                {group.map((item) => (
-                  <Link
-                    key={`${path}${item.path}`}
-                    href={item.link ? item.link : `${path}${item.path}`}
-                    target={item.link ? "_blank" : "_self"}
-                    style={{ textDecoration: "none" }}
-                    _focus={{ boxShadow: "none" }}
-                    fontSize={accessibility?.fonts?.semiMedium}
-                  >
-                    <Flex
-                      width="100%"
-                      p="2"
-                      mx="2"
-                      borderRadius="lg"
-                      role="group"
-                      cursor="pointer"
-                      _hover={{
-                        bg: "gray.100",
-                        color: "primary",
-                      }}
-                      fontSize={accessibility?.fonts?.semiMedium}
+                {group?.map((item) => {
+                  if (!item?.group) {
+                    return (
+                      <Link
+                        key={`${path}${item.path}`}
+                        href={item.link ? item.link : `${path}${item.path}`}
+                        target={item.link ? "_blank" : "_self"}
+                        style={{ textDecoration: "none" }}
+                        _focus={{ boxShadow: "none" }}
+                        fontSize={accessibility?.fonts?.semiMedium}
+                      >
+                        <Flex
+                          width="100%"
+                          p="2"
+                          mx="2"
+                          borderRadius="lg"
+                          role="group"
+                          cursor="pointer"
+                          _hover={{
+                            bg: "gray.100",
+                            color: "primary",
+                          }}
+                          fontSize={accessibility?.fonts?.semiMedium}
+                        >
+                          <Icon
+                            mr="4"
+                            color="primary"
+                            fontSize="18"
+                            _groupHover={{
+                              color: "primary",
+                            }}
+                            as={item.icon}
+                          />
+                          {item.name}
+                        </Flex>
+                      </Link>
+                    );
+                  }
+
+                  return (
+                    <Accordion
+                      borderColor="transparent"
+                      width="95%"
+                      allowToggle
                     >
-                      <Icon
-                        mr="4"
-                        color="primary"
-                        fontSize="18"
-                        _groupHover={{
-                          color: "primary",
-                        }}
-                        as={item.icon}
-                      />
-                      {item.name}
-                    </Flex>
-                  </Link>
-                ))}
+                      <AccordionItem>
+                        <AccordionButton
+                          borderRadius="lg"
+                          _hover={{
+                            bg: "gray.100",
+                            color: "primary",
+                          }}
+                          fontWeight="500"
+                        >
+                          <Box
+                            flex="1"
+                            fontSize={accessibility?.fonts?.semiMedium}
+                            textAlign="left"
+                          >
+                            {item?.icon && (
+                              <Icon
+                                mr="4"
+                                color="primary"
+                                fontSize="18"
+                                _groupHover={{
+                                  color: "primary",
+                                }}
+                                as={item?.icon}
+                              />
+                            )}
+                            {item?.name}
+                          </Box>
+                          <AccordionIcon />
+                        </AccordionButton>
+                        <AccordionPanel pb={4}>
+                          {item?.group?.map((secondItem) => (
+                            <Link
+                              key={`${path}${item?.path}${secondItem.path}`}
+                              href={
+                                secondItem.link
+                                  ? secondItem.link
+                                  : `${path}${item?.path}${secondItem.path}`
+                              }
+                              target={secondItem.link ? "_blank" : "_self"}
+                              style={{ textDecoration: "none" }}
+                              _focus={{ boxShadow: "none" }}
+                              fontSize={accessibility?.fonts?.semiMedium}
+                            >
+                              <Flex
+                                width="100%"
+                                p="2"
+                                mx="2"
+                                borderRadius="lg"
+                                role="group"
+                                cursor="pointer"
+                                _hover={{
+                                  bg: "gray.100",
+                                  color: "primary",
+                                }}
+                                fontSize={accessibility?.fonts?.semiMedium}
+                              >
+                                <Icon
+                                  mr="4"
+                                  color="primary"
+                                  fontSize="18"
+                                  _groupHover={{
+                                    color: "primary",
+                                  }}
+                                  as={secondItem.icon}
+                                />
+                                {secondItem?.name}
+                              </Flex>
+                            </Link>
+                          ))}
+                        </AccordionPanel>
+                      </AccordionItem>
+                    </Accordion>
+                  );
+                })}
               </AccordionPanel>
             </AccordionItem>
           </Accordion>
@@ -374,7 +462,7 @@ function MobileNav({ onOpen, ...rest }: MobileProps) {
       </Button>
 
       <Button
-       display={["flex", "flex", "none"]}
+        display={["flex", "flex", "none"]}
         flexDirection="row"
         alignItems="center"
         gap="10px"

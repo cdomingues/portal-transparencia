@@ -22,6 +22,7 @@ export type Routes = Array<{
   element?: JSX.Element;
   icon: IconType;
   link?: string;
+  group?: any[]
 }>;
 
 export type GroupRoutes = Array<{
