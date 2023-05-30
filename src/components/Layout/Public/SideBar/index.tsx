@@ -127,7 +127,7 @@ function NavItem({
                 <AccordionIcon />
               </AccordionButton>
               <AccordionPanel pb={4}>
-                {group?.map((item) => {
+                {group?.map((item, index) => {
                   if (!item?.group) {
                     return (
                       <Link
@@ -171,6 +171,7 @@ function NavItem({
                       borderColor="transparent"
                       width="95%"
                       allowToggle
+                      key={index}
                     >
                       <AccordionItem>
                         <AccordionButton
