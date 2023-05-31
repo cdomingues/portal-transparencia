@@ -49,8 +49,9 @@ export const getPayroll = async ({
     return { payroll: mappingRows };
   } catch (error) {
     if (axios.isAxiosError(error)) {
+      const url = error.config?.url ?? "Unknown URL";
       console.log(
-        `Error on get ${error.config.url}, data: ${error.response?.data}`
+        `Error on get ${url}, data: ${error.response?.data}`
       );
     }
     return { payroll: [] };
@@ -86,8 +87,9 @@ export const getChart = async () => {
     return { chart: config };
   } catch (error) {
     if (axios.isAxiosError(error)) {
+      const url = error.config?.url ?? "Unknown URL";
       console.log(
-        `Error on get ${error.config.url}, data: ${error.response?.data}`
+        `Error on get ${url}, data: ${error.response?.data}`
       );
     }
     return { chart: { data: [] } };
@@ -113,8 +115,9 @@ export const getChartYear = async () => {
     return { chartYear: config };
   } catch (error) {
     if (axios.isAxiosError(error)) {
+      const url = error.config?.url ?? "Unknown URL";
       console.log(
-        `Error on get ${error.config.url}, data: ${error.response?.data}`
+        `Error on get ${url}, data: ${error.response?.data}`
       );
     }
     return { chartYear: { data: [] } };

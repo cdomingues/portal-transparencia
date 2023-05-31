@@ -32,8 +32,9 @@ export const getRemainders = async (year?: number) => {
     return { remainders: mappingRows, years };
   } catch (error) {
     if (axios.isAxiosError(error)) {
+      const url = error.config?.url ?? "Unknown URL";
       console.log(
-        `Error on get ${error.config.url}, data: ${error.response?.data}`
+        `Error on get ${url}, data: ${error.response?.data}`
       );
     }
     return { remainders: [], years: [] };
@@ -59,8 +60,9 @@ export const getChart = async () => {
     return { chart: config };
   } catch (error) {
     if (axios.isAxiosError(error)) {
+      const url = error.config?.url ?? "Unknown URL";
       console.log(
-        `Error on get ${error.config.url}, data: ${error.response?.data}`
+        `Error on get ${url}, data: ${error.response?.data}`
       );
     }
     return { chart: { datasets: [] } };

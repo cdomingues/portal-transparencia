@@ -22,8 +22,9 @@ export const getPatrimonies = async () => {
     return { patrimonies: mappingRows };
   } catch (error) {
     if (axios.isAxiosError(error)) {
+      const url = error.config?.url ?? "Unknown URL";
       console.log(
-        `Error on get ${error.config.url}, data: ${error.response?.data}`
+        `Error on get ${url}, data: ${error.response?.data}`
       );
     }
 

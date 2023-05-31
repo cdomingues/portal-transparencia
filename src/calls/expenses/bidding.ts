@@ -27,8 +27,9 @@ export const getBiddings = async (year?: number) => {
     return { biddings: mappingRows, years };
   } catch (error) {
     if (axios.isAxiosError(error)) {
+      const url = error.config?.url ?? "Unknown URL";
       console.log(
-        `Error on get ${error.config.url}, data: ${error.response?.data}`
+        `Error on get ${url}, data: ${error.response?.data}`
       );
     }
     return { biddings: [], years: [] };

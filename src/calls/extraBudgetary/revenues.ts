@@ -48,8 +48,9 @@ export const getRevenues = async (year?: number) => {
     return { revenues: mappingData, years };
   } catch (error) {
     if (axios.isAxiosError(error)) {
+      const url = error.config?.url ?? "Unknown URL";
       console.log(
-        `Error on get ${error.config.url}, data: ${error.response?.data}`
+        `Error on get ${url}, data: ${error.response?.data}`
       );
     }
     return { revenues: [], years: [] };
@@ -75,8 +76,9 @@ export const getChartYear = async () => {
     return { chartYear: config };
   } catch (error) {
     if (axios.isAxiosError(error)) {
+      const url = error.config?.url ?? "Unknown URL";
       console.log(
-        `Error on get ${error.config.url}, data: ${error.response?.data}`
+        `Error on get ${url}, data: ${error.response?.data}`
       );
     }
     return { chartYear: { datasets: [] } };
@@ -117,8 +119,9 @@ export const getChart = async (year?: number) => {
     return { chart: config };
   } catch (error) {
     if (axios.isAxiosError(error)) {
+      const url = error.config?.url ?? "Unknown URL";
       console.log(
-        `Error on get ${error.config.url}, data: ${error.response?.data}`
+        `Error on get ${url}, data: ${error.response?.data}`
       );
     }
     return { chart: { datasets: [] } };

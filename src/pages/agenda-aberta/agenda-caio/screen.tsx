@@ -5,7 +5,7 @@ import PlanContainer from "../../../components/Container/Plan";
 import { isMobile } from "react-device-detect";
 import NoClickIframe from "../../../components/IframeNoClick";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
-
+import LicitacaoDetails from "../../../calls/licitacaoDetails/LicitacaoDetails";
 
 
 function Clock10Seconds() {
@@ -52,7 +52,6 @@ function Screen({ handler }: PropsInput) {
 
 
     <ContainerBasic title={title} description={description}>
-
       <AspectRatio maxWidth={900} ratio={isMobile ? [ 9 / 16 ] : [ 16 / 9 ]}>
 
 
@@ -68,7 +67,11 @@ function Screen({ handler }: PropsInput) {
       <div>
         <Clock10Seconds />
         <Clock30Seconds />
+
       </div>
+      
+      <h1>Detalhes da Licitação</h1>
+      <LicitacaoDetails />
 
     </ContainerBasic>
 
