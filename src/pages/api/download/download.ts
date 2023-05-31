@@ -118,7 +118,6 @@
 
 // export default DownloadAPI;
 
-
 // import { NextApiRequest, NextApiResponse } from 'next';
 // import axios from 'axios';
 // import fs from 'fs';
@@ -170,7 +169,6 @@
 
 // export default DownloadAPI;
 
-
 // import { NextApiRequest, NextApiResponse } from 'next';
 // import axios from 'axios';
 // import fs from 'fs';
@@ -237,11 +235,9 @@
 // import mime from 'mime-types';
 // import React, { useState } from 'react';
 
-
 // dotenv.config();
 
 // console.log("Iniciando API...");
-
 
 // const ftpConfig = {
 //   user: process.env.FTP_USER,
@@ -260,7 +256,7 @@
 //   if (!extension) {
 //     extension = '.dat'; // default extension if none found
 //   }
-  
+
 //   console.log(`A extensão do arquivo é: ${extension}`);
 
 //   const fileName = `${url.slice(-5)}${extension}`;
@@ -303,7 +299,6 @@
 
 // export default DownloadAPI;
 
-
 // import { NextApiRequest, NextApiResponse } from 'next';
 // import axios from 'axios';
 // import fs from 'fs';
@@ -312,11 +307,9 @@
 // import mime from 'mime-types';
 // import React, { useState } from 'react';
 
-
 // dotenv.config();
 
 // console.log("Iniciando API...");
-
 
 // const ftpConfig = {
 //   user: process.env.FTP_USER,
@@ -335,7 +328,7 @@
 //   if (!extension) {
 //     extension = '.dat'; // default extension if none found
 //   }
-  
+
 //   console.log(`A extensão do arquivo é: ${extension}`);
 
 //   const finalFileName = `${url.slice(-5)}${extension}`;
@@ -377,7 +370,7 @@
 //   if (!extension) {
 //     extension = '.dat'; // default extension if none found
 //   }
-  
+
 //   console.log(`A extensão do arquivo é: ${extension}`);
 
 //   const finalFileName = `${url.slice(-5)}${extension}`;
@@ -390,7 +383,6 @@
 // };
 
 // export default DownloadAPI;
-
 
 // import { NextApiRequest, NextApiResponse } from 'next';
 // import axios from 'axios';
@@ -416,7 +408,7 @@
 
 //   let extension = path.extname(url);
 //   if (!extension) {
-//     extension = '.dat'; 
+//     extension = '.dat';
 //   }
 
 //   console.log(`A extensão do arquivo é: ${extension}`);
@@ -460,13 +452,10 @@
 
 // export default DownloadAPI;
 
-
-import { NextApiRequest, NextApiResponse } from 'next';
-import axios from 'axios';
-import fs from 'fs';
-import path from 'path';
-import dotenv from 'dotenv';
-import mime from 'mime-types';
+import { NextApiRequest, NextApiResponse } from "next";
+import axios from "axios";
+import fs from "fs";
+import dotenv from "dotenv";
 
 dotenv.config();
 
@@ -476,61 +465,34 @@ const ftpConfig = {
   user: process.env.FTP_USER,
   password: process.env.FTP_PASS,
   host: process.env.FTP_HOST,
-  port: parseInt(process.env.FTP_PORT || '21'),
+  port: parseInt(process.env.FTP_PORT || "21"),
 };
 
 const DownloadAPI = async (req: NextApiRequest, res: NextApiResponse) => {
   const fileNameParam = req.query.fileName;
-  if (typeof fileNameParam !== 'string') {
-    res.status(400).send('Invalid file name');
+  if (typeof fileNameParam !== "string") {
+    res.status(400).send("Invalid file name");
     return;
+  }
+
+  async function convertToBase64(url: string) {
+    try {
+      const response = await axios.get(url, { responseType: "arraybuffer" });
+      const data = Buffer.from(response.data).toString("base64");
+      return data;
+    } catch (error) {
+      console.error("Erro ao converter o PDF para base64:", error);
+      throw error;
+    }
   }
 
   const url = `http://licitacao-mgcon.mogidascruzes.sp.gov.br/arquivo/download/${fileNameParam}`;
 
-  let extension = path.extname(url);
-  if (!extension) {
-    extension = '.dat'; 
-  }
+  const base64 = await convertToBase64(url);
 
-  console.log(`A extensão do arquivo é: ${extension}`);
-
-  const fileName = `${url.slice(-5)}${extension}`;
-  const basePath = path.join(process.cwd(), 'public', 'Base64');
-  const filePath = path.join(basePath, fileName);
-
-  console.log(`Caminho do arquivo: ${filePath}`);
-
-  if (!fs.existsSync(filePath)) {
-    console.log('Arquivo não existe. Tentando baixar...');
-    try {
-      const response = await axios.get(url, { responseType: 'arraybuffer' });
-      console.log('Resposta recebida. Tentando gravar no arquivo...');
-      try {
-        fs.writeFileSync(filePath, response.data);
-        console.log('Arquivo baixado com sucesso!');
-      } catch (error) {
-        console.error('Error writing file:', error);
-        res.status(500).send('Error writing file');
-        return;
-      }
-    } catch (error) {
-      console.error('Error downloading file:', error);
-      res.status(500).send('Error downloading file');
-      return;
-    }
-  } else {
-    console.log('Arquivo já existe.');
-  }
-
-  const mimeType = mime.lookup(filePath) || 'application/octet-stream';
-  console.log(`MimeType do arquivo: ${mimeType}`);
-
-  res.setHeader('Content-disposition', 'attachment; filename=' + path.basename(filePath));
-  res.setHeader('Content-type', mimeType);
-  const filestream = fs.createReadStream(filePath);
-  filestream.pipe(res);
+  return res.status(200).json({
+    base64,
+  });
 };
 
 export default DownloadAPI;
-

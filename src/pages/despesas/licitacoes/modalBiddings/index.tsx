@@ -16,7 +16,7 @@ import Participants from "./components/participants";
 import Apliccants from "./components/applicants";
 import Files from "./components/files";
 
-const ModalBiddings = ({ isOpen, onClose, bidding }: any) => {
+const ModalBiddings = ({ isOpen, onClose, bidding, details }: any) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose} size={"1xl"}>
       <ModalContainer>
@@ -30,9 +30,9 @@ const ModalBiddings = ({ isOpen, onClose, bidding }: any) => {
           <Tabs style={{ padding: 0, margin: 0 }}>
             <ListTabs>
               <TabItem>Detalhes</TabItem>
-              <TabItem>Itens da licitação</TabItem>
+              {/* <TabItem>Itens da licitação</TabItem>
               <TabItem>Participantes</TabItem>
-              <TabItem>Requisitantes</TabItem>
+              <TabItem>Requisitantes</TabItem> */}
               <TabItem>Arquivos</TabItem>
             </ListTabs>
 
@@ -41,8 +41,8 @@ const ModalBiddings = ({ isOpen, onClose, bidding }: any) => {
                 <Details bidding={bidding} />
               </Panel>
 
-              <Panel>
-                <ItemsBidding />
+              {/* <Panel>
+                <ItemsBidding details={details}/>
               </Panel>
 
               <Panel>
@@ -51,10 +51,10 @@ const ModalBiddings = ({ isOpen, onClose, bidding }: any) => {
 
               <Panel>
                 <Apliccants />
-              </Panel>
+              </Panel> */}
 
               <Panel>
-                <Files />
+                <Files  details={details} />
               </Panel>
             </TabPanels>
           </Tabs>

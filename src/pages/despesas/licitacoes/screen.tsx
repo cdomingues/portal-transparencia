@@ -22,6 +22,7 @@ import ContainerBasic from "../../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../../components/Table";
 import ModalBiddings from "./modalBiddings";
 import { ContainerSearch } from "./styles";
+import fileBiddings from "../../../assets/file";
 
 type PropsInput = {
   handler: {
@@ -37,21 +38,55 @@ type PropsInput = {
 
 export const contentBids = {
   titlePage: "Licitações",
-  description: "O procedimento administrativo pelo qual a Prefeitura contrata serviços ou adquire produtos é chamado de Licitação. Acompanhe aqui os dados das licitações realizadas pela Prefeitura de Mogi das Cruzes, incluindo informações sobre modalidade, objeto, vencimento, participantes e demais detalhes.",
-}
+  description:
+    "O procedimento administrativo pelo qual a Prefeitura contrata serviços ou adquire produtos é chamado de Licitação. Acompanhe aqui os dados das licitações realizadas pela Prefeitura de Mogi das Cruzes, incluindo informações sobre modalidade, objeto, vencimento, participantes e demais detalhes.",
+};
 
 function Screen({
   handler: { columns, data, loading, setYear, year, years, handleByYear },
 }: PropsInput) {
   const [bidding, setBidding] = useState<any>(null);
+  const [details, setDetails]= useState<any>(null);
   const title = contentBids?.titlePage;
   const description = contentBids?.description;
-
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const handleOpenModal = (item: any) => {
+  function removeCharacters(string: string): string {
+    const charactersToRemove = [" .", "\r", "\n"];
+    let result = string;
+    for (const char of charactersToRemove) {
+      result = result.split(char).join("");
+    }
+    result = result.replace(" .", ".");
+    return result;
+  }
+
+  const handleOpenModal = async (biddinSelected: any) => {
+    const array = fileBiddings[String(biddinSelected?.row?.values?.ano)];
+    const getArraySimilar = await array?.filter((item: any) => {
+      if (item?.dados?.licitacao === biddinSelected?.row?.values?.numero) {
+        return item;
+      }
+      return;
+    });
+
+    let newArray =
+      getArraySimilar?.length > 1
+        ? getArraySimilar?.filter((item: any) => {
+            if (
+              item?.descricao.includes(
+                removeCharacters(biddinSelected?.row?.values?.objeto)
+              )
+            ) {
+              return item;
+            }
+            return;
+          })
+        : getArraySimilar;
+
+    setDetails(newArray?.[0]);
     onOpen();
-    setBidding(item?.row?.values);
+    setBidding(biddinSelected?.row?.values);
   };
 
   return (
@@ -98,7 +133,7 @@ function Screen({
         openModal={handleOpenModal}
       />
 
-      <ModalBiddings isOpen={isOpen} onClose={onClose} bidding={bidding} />
+      <ModalBiddings isOpen={isOpen} onClose={onClose} bidding={bidding} details={details} />
     </ContainerBasic>
   );
 }

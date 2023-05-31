@@ -9,7 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { TColumn } from "../styles";
 
-const ItemsBidding = () => {
+const ItemsBidding = ({details}:any) => {
   const mockTable = [
     {
       group: "1.11.03 - GASES ENGARRAFADOS",
