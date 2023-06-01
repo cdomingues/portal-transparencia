@@ -9,6 +9,8 @@ import {
 import React, { useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../../components/Table";
+import ModalContracts from "./modalContracts";
+import { ContainerSearch } from "../../../styles/components/contratos-atas/styles";
 
 type PropsInput = {
   handler: {
@@ -23,8 +25,9 @@ type PropsInput = {
 };
 export const contentContractsAndAtas = {
   titlePage: "Contratos e Atas",
-  description:"Nesta página, confira as informações sobre contratos e atas celebrados pela Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por número, modalidade, processo, valor, fornecedor, objeto, entre outros itens.",
-}
+  description:
+    "Nesta página, confira as informações sobre contratos e atas celebrados pela Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por número, modalidade, processo, valor, fornecedor, objeto, entre outros itens.",
+};
 function Screen({
   handler: { columns, data, loading, handleByYear, setYear, year, years },
 }: PropsInput) {
@@ -35,13 +38,13 @@ function Screen({
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleOpenModal = (item: any) => {
-    // onOpen();
-    // setContract(item?.row?.values);
+    onOpen();
+    setContract(item?.row?.values);
   };
 
   return (
     <ContainerBasic title={title} description={description}>
-      <Stack direction="row">
+      <ContainerSearch direction="row">
         <Stack minW={86} width="25%">
           <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
             Ano
@@ -72,7 +75,7 @@ function Screen({
             Buscar
           </Button>
         </Stack>
-      </Stack>
+      </ContainerSearch>
 
       <Divider borderWidth="2px" mt="10" mb="10" />
       <TableComponent
@@ -82,7 +85,7 @@ function Screen({
         openModal={handleOpenModal}
       />
 
-     
+      <ModalContracts isOpen={isOpen} onClose={onClose} contract={contract} />
     </ContainerBasic>
   );
 }
