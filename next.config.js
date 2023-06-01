@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  pageExtensions: ['mdx', 'md', 'jsx', 'js', 'tsx'],
+
   async rewrites() {
     return [
       {
