@@ -24,9 +24,9 @@ import { BsBricks, BsCameraVideo, BsFileText } from "react-icons/bs";
 import { IPublicRoute } from "../types";
 import { contentInitial } from "../pages/screen";
 import { contentMunicipalityProfile } from "../pages/perfil-do-municipio/screen";
-import { contentConstructionsControl } from "../pages/controle-de-obras/inicio/screen";
-import { contentAboutConstructions } from "../pages/controle-de-obras/sobre-as-obras/screen";
-import { contentSearchConstructions } from "../pages/controle-de-obras/pesquisar-obras/screen";
+// import { contentConstructionsControl } from "../pages/controle-de-obras/inicio/screen";
+// import { contentAboutConstructions } from "../pages/controle-de-obras/sobre-as-obras/screen";
+// import { contentSearchConstructions } from "../pages/controle-de-obras/pesquisar-obras/screen";
 import { contentRadarsControl } from "../pages/controle-de-radares/screen";
 import { contentMayorAgenda } from "../pages/agenda-aberta/agenda-prefeito/screen";
 import { contentContractManagement } from "../pages/terceiro-setor/contratos-gestao/screen";
@@ -182,34 +182,34 @@ const publicRoutes: IPublicRoute[] = [
   },
 
 
-  {
-    name: "Portal de Obras",
-    icon: BsBricks,
-    path: "/controle-de-obras",
-    group: [
-      {
-        name: "Início",
-        path: "/inicio",
-        defaultPath:"/controle-de-obras",
-        icon: AiOutlineHome,
-        ...contentConstructionsControl
-      },
-      {
-        name: "Sobre as Obras",
-        path: "/sobre-as-obras",
-        defaultPath:"/controle-de-obras",
-        icon: AiOutlineInfoCircle,
-        ...contentAboutConstructions
-      },
-      {
-        name: "Pesquise Obras",
-        path: "/pesquisar-obras",
-        defaultPath:"/controle-de-obras",
-        icon: AiOutlineSearch,
-        ...contentSearchConstructions
-      },
-    ],
-  },
+  // {
+  //   name: "Portal de Obras",
+  //   icon: BsBricks,
+  //   path: "/controle-de-obras",
+  //   group: [
+  //     {
+  //       name: "Início",
+  //       path: "/inicio",
+  //       defaultPath:"/controle-de-obras",
+  //       icon: AiOutlineHome,
+  //       ...contentConstructionsControl
+  //     },
+  //     {
+  //       name: "Sobre as Obras",
+  //       path: "/sobre-as-obras",
+  //       defaultPath:"/controle-de-obras",
+  //       icon: AiOutlineInfoCircle,
+  //       ...contentAboutConstructions
+  //     },
+  //     {
+  //       name: "Pesquise Obras",
+  //       path: "/pesquisar-obras",
+  //       defaultPath:"/controle-de-obras",
+  //       icon: AiOutlineSearch,
+  //       ...contentSearchConstructions
+  //     },
+  //   ],
+  // },
   {
     name: "Controle de Radares",
     icon: BsCameraVideo,

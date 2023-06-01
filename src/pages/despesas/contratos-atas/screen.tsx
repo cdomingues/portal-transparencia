@@ -9,8 +9,6 @@ import {
 import React, { useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../../components/Table";
-import ModalContracts from "./modalContracts";
-import { ContainerSearch } from "./styles";
 
 type PropsInput = {
   handler: {
@@ -37,13 +35,13 @@ function Screen({
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleOpenModal = (item: any) => {
-    onOpen();
-    setContract(item?.row?.values);
+    // onOpen();
+    // setContract(item?.row?.values);
   };
 
   return (
     <ContainerBasic title={title} description={description}>
-      <ContainerSearch direction="row">
+      <Stack direction="row">
         <Stack minW={86} width="25%">
           <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
             Ano
@@ -74,7 +72,7 @@ function Screen({
             Buscar
           </Button>
         </Stack>
-      </ContainerSearch>
+      </Stack>
 
       <Divider borderWidth="2px" mt="10" mb="10" />
       <TableComponent
@@ -84,7 +82,7 @@ function Screen({
         openModal={handleOpenModal}
       />
 
-      <ModalContracts isOpen={isOpen} onClose={onClose} contract={contract} />
+     
     </ContainerBasic>
   );
 }

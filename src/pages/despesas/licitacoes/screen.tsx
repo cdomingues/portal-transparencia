@@ -20,8 +20,6 @@ import {
 import React, { useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../../components/Table";
-import ModalBiddings from "./modalBiddings";
-import { ContainerSearch } from "./styles";
 import fileBiddings from "../../../assets/file";
 
 type PropsInput = {
@@ -62,36 +60,36 @@ function Screen({
   }
 
   const handleOpenModal = async (biddinSelected: any) => {
-    const array = fileBiddings[String(biddinSelected?.row?.values?.ano)];
-    const getArraySimilar = await array?.filter((item: any) => {
-      if (item?.dados?.licitacao === biddinSelected?.row?.values?.numero) {
-        return item;
-      }
-      return;
-    });
+    // const array = fileBiddings[String(biddinSelected?.row?.values?.ano)];
+    // const getArraySimilar = await array?.filter((item: any) => {
+    //   if (item?.dados?.licitacao === biddinSelected?.row?.values?.numero) {
+    //     return item;
+    //   }
+    //   return;
+    // });
 
-    let newArray =
-      getArraySimilar?.length > 1
-        ? getArraySimilar?.filter((item: any) => {
-            if (
-              item?.descricao.includes(
-                removeCharacters(biddinSelected?.row?.values?.objeto)
-              )
-            ) {
-              return item;
-            }
-            return;
-          })
-        : getArraySimilar;
+    // let newArray =
+    //   getArraySimilar?.length > 1
+    //     ? getArraySimilar?.filter((item: any) => {
+    //         if (
+    //           item?.descricao.includes(
+    //             removeCharacters(biddinSelected?.row?.values?.objeto)
+    //           )
+    //         ) {
+    //           return item;
+    //         }
+    //         return;
+    //       })
+    //     : getArraySimilar;
 
-    setDetails(newArray?.[0]);
-    onOpen();
-    setBidding(biddinSelected?.row?.values);
+    // setDetails(newArray?.[0]);
+    // onOpen();
+    // setBidding(biddinSelected?.row?.values);
   };
 
   return (
     <ContainerBasic title={title} description={description}>
-      <ContainerSearch direction="row">
+      <Stack direction="row">
         <Stack minW={86} width="25%">
           <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
             Ano
@@ -122,7 +120,7 @@ function Screen({
             Buscar
           </Button>
         </Stack>
-      </ContainerSearch>
+      </Stack>
 
       <Divider borderWidth="2px" mt="10" mb="10" />
 
@@ -133,7 +131,7 @@ function Screen({
         openModal={handleOpenModal}
       />
 
-      <ModalBiddings isOpen={isOpen} onClose={onClose} bidding={bidding} details={details} />
+
     </ContainerBasic>
   );
 }
