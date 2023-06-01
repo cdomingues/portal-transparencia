@@ -33,7 +33,7 @@ const Files = ({ details }: any) => {
           </Tr>
         </Thead>
         <Tbody>
-          {details?.anexos?.map((item: any, index: number) => {
+          {details?.map((item: any, index: number) => {
             return (
               <Tr
                 key={index}
@@ -42,9 +42,9 @@ const Files = ({ details }: any) => {
                     (index + 1) % 2 === 0 ? "#f7f7f7" : "transparent",
                   cursor: "pointer",
                 }}
-                onClick={() => handleDownload(item?.link)}
+                onClick={() => handleDownload(item?.href)}
               >
-                <Td>{item?.descricao}</Td>
+                <Td>{item?.content}</Td>
               </Tr>
             );
           })}

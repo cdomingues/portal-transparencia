@@ -23,6 +23,8 @@ import TableComponent, { TableColumns } from "../../../components/Table";
 import ModalBiddings from "./modalBiddings";
 import { ContainerSearch } from "../../../styles/components/licitacoes/styles";
 import fileBiddings from "../../../assets/file";
+import axios from "axios";
+import cheerio from 'cheerio';
 
 type PropsInput = {
   handler: {
@@ -46,10 +48,80 @@ function Screen({
   handler: { columns, data, loading, setYear, year, years, handleByYear },
 }: PropsInput) {
   const [bidding, setBidding] = useState<any>(null);
-  const [details, setDetails]= useState<any>(null);
+  const [details, setDetails] = useState<any>(null);
   const title = contentBids?.titlePage;
   const description = contentBids?.description;
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const handleAPIResponse = (response:any) => {
+    const html = response;
+
+    const $ = cheerio.load(html);
+    const links = $('a');
+    const hrefs = links
+    .map((index, element) => {
+      const td = $(element).parent().prev('td');
+      return {
+        content: td.text().trim(),
+        href: $(element).attr('href'),
+        text: $(element).text()
+      };
+    })
+    .filter((index, link) => !link.href?.endsWith('#tab'))
+    .get();
+
+    const filteredValues = hrefs.filter((item)=> !item?.href?.includes('#tab'))
+
+    const updatedLinks = filteredValues.map((link) => {
+      const contentParts: any = link?.href?.split('/');
+      const newHref = contentParts[contentParts?.length - 1];
+    
+      return {
+        ...link,
+        href: newHref
+      };
+    });
+    
+  }
+
+
+  const getDetails = async (id: number) => {
+    const { data } = await axios.request({
+      baseURL:`https://portaldatransparencia.mogidascruzes.sp.gov.br/index.php/licitacao/details/${id}`
+    });
+
+    if (!data) {
+      return null;
+    }
+
+    const $ = cheerio.load(data);
+    const links = $('a');
+    const hrefs = links
+    .map((index, element) => {
+      const td = $(element).parent().prev('td');
+      return {
+        content: td.text().trim(),
+        href: $(element).attr('href'),
+        text: $(element).text()
+      };
+    })
+    .filter((index, link) => !link?.href?.endsWith('#tab'))
+    .get();
+
+    const filteredValues = hrefs.filter((item)=> !item?.href?.includes('#tab'))
+
+    const updatedLinks = filteredValues.map((link) => {
+      const contentParts: any = link?.href?.split('/');
+      const newHref = contentParts[contentParts?.length - 1];
+    
+      return {
+        ...link,
+        href: newHref
+      };
+    });
+
+    return updatedLinks
+  };
 
   function removeCharacters(string: string): string {
     const charactersToRemove = [" .", "\r", "\n"];
@@ -62,32 +134,14 @@ function Screen({
   }
 
   const handleOpenModal = async (biddinSelected: any) => {
-    const array = fileBiddings[String(biddinSelected?.row?.values?.ano)];
-    const getArraySimilar = await array?.filter((item: any) => {
-      if (item?.dados?.licitacao === biddinSelected?.row?.values?.numero) {
-        return item;
-      }
-      return;
-    });
+   const details = await getDetails(Number(biddinSelected?.row?.original?.id))
 
-    let newArray =
-      getArraySimilar?.length > 1
-        ? getArraySimilar?.filter((item: any) => {
-            if (
-              item?.descricao.includes(
-                removeCharacters(biddinSelected?.row?.values?.objeto)
-              )
-            ) {
-              return item;
-            }
-            return;
-          })
-        : getArraySimilar;
-
-    setDetails(newArray?.[0]);
+    setDetails(details);
     onOpen();
     setBidding(biddinSelected?.row?.values);
   };
+
+ 
 
   return (
     <ContainerBasic title={title} description={description}>
@@ -133,7 +187,12 @@ function Screen({
         openModal={handleOpenModal}
       />
 
-<ModalBiddings isOpen={isOpen} onClose={onClose} bidding={bidding} details={details} />
+      <ModalBiddings
+        isOpen={isOpen}
+        onClose={onClose}
+        bidding={bidding}
+        details={details}
+      />
     </ContainerBasic>
   );
 }
