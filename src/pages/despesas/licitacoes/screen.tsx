@@ -67,7 +67,7 @@ function Screen({
         text: $(element).text()
       };
     })
-    .filter((index, link) => !link.href.endsWith('#tab'))
+    .filter((index, link) => !link.href?.endsWith('#tab'))
     .get();
 
     const filteredValues = hrefs.filter((item)=> !item?.href?.includes('#tab'))
@@ -105,7 +105,7 @@ function Screen({
         text: $(element).text()
       };
     })
-    .filter((index, link) => !link.href.endsWith('#tab'))
+    .filter((index, link) => !link?.href?.endsWith('#tab'))
     .get();
 
     const filteredValues = hrefs.filter((item)=> !item?.href?.includes('#tab'))
