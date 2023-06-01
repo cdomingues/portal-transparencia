@@ -5,7 +5,7 @@ import PlanContainer from "../../../components/Container/Plan";
 import { isMobile } from "react-device-detect";
 import NoClickIframe from "../../../components/IframeNoClick";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
-import LicitacaoDetails from "../../../calls/licitacaoDetails/LicitacaoDetails";
+import LicitacaoDetails from "../../api/licitacaoDetails/LicitacaoDetails";
 
 
 function Clock10Seconds() {
