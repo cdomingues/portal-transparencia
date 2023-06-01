@@ -6,19 +6,25 @@ import colors from "../../../styles/colors";
 import Carousel from "../../../components/Swiper";
 import { parseMoney } from "../../../utils/mask";
 import { useEffect, useState } from "react";
-import request from "../../../utils/request";
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { useRouter } from "next/router";
 
 const ConstructionScreen = ({ id }: any) => {
   const [file, setFile] = useState<any>();
-  const router = useRouter()
+  const router = useRouter();
 
   const getFileOfConstructions = async () => {
-    const { data } = await request({
-      baseURL:
-        "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=2a3f2bc3-551b-434d-89c7-a31da90d7e1f",
-    });
+    const response = await fetch(
+      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=2a3f2bc3-551b-434d-89c7-a31da90d7e1f",
+      {
+        headers: {
+          Authorization:
+            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJ4T2VWV29pdlZVTG9WTjJzZk1UQ0JrQmtmMjJGRVp5QWJ0bHdyajU0ZFJNIiwiaWF0IjoxNjc5Njg4ODYyfQ.N7uwCTBg9g21vHc3brf7ayK4rKK2zuUJnglptS6k__g",
+        },
+      }
+    );
+
+    const data = await response.json();
     if (!data) {
       return;
     }
@@ -39,7 +45,10 @@ const ConstructionScreen = ({ id }: any) => {
 
   const buildingData = (item: any) => {
     let arrayImages = [];
-    arrayImages.push(item?.imagen_1 || "https://www.stant.com.br/wp-content/uploads/2020/09/pexels-pixabay-159306_Easy-Resize.com_-1024x682.jpg");
+    arrayImages.push(
+      item?.imagen_1 ||
+        "https://www.stant.com.br/wp-content/uploads/2020/09/pexels-pixabay-159306_Easy-Resize.com_-1024x682.jpg"
+    );
     item?.imagen_2 && arrayImages.push(item?.imagen_2);
     item?.imagen_3 && arrayImages.push(item?.imagen_3);
     item?.imagen_4 && arrayImages.push(item?.imagen_4);
@@ -185,7 +194,10 @@ const ConstructionScreen = ({ id }: any) => {
       bannerDescription={buildingSelected?.descricao_da_obra}
     >
       <Style.Container>
-        <a className="row" onClick={()=>router.push("/controle-de-obras/inicio")}>
+        <a
+          className="row"
+          onClick={() => router.push("/controle-de-obras/inicio")}
+        >
           <BsFillArrowLeftCircleFill fontSize={30} /> <span>Voltar</span>
         </a>
 
