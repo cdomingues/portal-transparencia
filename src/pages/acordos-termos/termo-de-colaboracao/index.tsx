@@ -23,20 +23,20 @@ function Controller() {
     { title: "Objeto", field: "objeto" },
   ];
 
-  const getData = async () => {
-    setLoading(true);
-    const { data, error } = await getFile("");
-    setLoading(false);
+  // const getData = async () => {
+  //   setLoading(true);
+  //   const { data, error } = await getFile("");
+  //   setLoading(false);
 
-    if (error) {
-      return;
-    }
-    setData(data);
-  };
+  //   if (error) {
+  //     return;
+  //   }
+  //   setData(data);
+  // };
 
-  useEffect(() => {
-    getData();
-  }, []);
+  // useEffect(() => {
+  //   getData();
+  // }, []);
 
   const handler = {
     data,
