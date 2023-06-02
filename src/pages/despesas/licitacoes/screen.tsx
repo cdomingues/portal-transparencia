@@ -89,7 +89,7 @@ function Screen({
     const { data } = await axios.request({
       url: `${baseUrl}/api/track`,
       method: "get",
-      params: { id },
+      params: { id, type: "licitacoes" },
     });
 
     if (!data) {
@@ -129,13 +129,10 @@ function Screen({
 
   const handleOpenModal = async (biddinSelected: any) => {
     onOpen();
-    console.log({ bidding: biddinSelected?.row });
     setBidding(biddinSelected?.row?.values);
 
     const details = await getDetails(Number(biddinSelected?.row?.original?.id));
     setDetails(details);
-
-    // console.log({ details });
   };
 
   return (
