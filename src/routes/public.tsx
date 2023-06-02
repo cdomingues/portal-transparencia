@@ -64,6 +64,7 @@ import { contentAnnualBalance } from "../pages/contas/balancos-anuais/screen";
 import { contentCourtOpinions } from "../pages/contas/pareceres-tribunal/screen";
 import { contentPatrimony } from "../pages/patrimonio/screen";
 import { contentOtherInformations } from "../pages/outras-informacoes/screen";
+import { contentTermsColaborator } from "../pages/acordos-termos/termo-de-colaboracao/screen";
 
 const publicRoutes: IPublicRoute[] = [
   {
