@@ -10,7 +10,7 @@ import React, { useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../../components/Table";
 import ModalContracts from "./modalContracts";
-import { ContainerSearch } from "./styles";
+import { ContainerSearch } from "../../../styles/components/contratos-e-atas/styles";
 
 type PropsInput = {
   handler: {

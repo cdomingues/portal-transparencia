@@ -1,5 +1,5 @@
 import React, {  useState } from "react";
-import * as Style from "./styles";
+import * as Style from "../../../styles/components/inicio/styles";
 import { TableColumns } from "../../../components/Table";
 import LayoutConstructions from "../../../components/LayoutConstructions";
 import colors from "../../../styles/colors";

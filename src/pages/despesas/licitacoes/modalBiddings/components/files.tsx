@@ -1,5 +1,5 @@
 import { Table, TableContainer, Tbody, Td, Thead, Tr } from "@chakra-ui/react";
-import { TColumn } from "../styles";
+import { TColumn } from "../../../../../styles/components/contratos-e-atas/modal/styles";
 import axios from "axios";
 
 const Files = ({ details }: any) => {

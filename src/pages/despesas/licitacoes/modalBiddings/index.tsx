@@ -9,7 +9,7 @@ import {
   TabPanels,
   Tabs,
 } from "@chakra-ui/react";
-import { ListTabs, ModalContainer, Panel, RowDetails, TabItem } from "./styles";
+import { ListTabs, ModalContainer, Panel, RowDetails, TabItem } from "../../../../styles/components/contratos-e-atas/modal/styles";
 import Details from "./components/details";
 import ItemsBidding from "./components/itemsBidding";
 import Participants from "./components/participants";

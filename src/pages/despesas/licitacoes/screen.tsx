@@ -21,7 +21,7 @@ import React, { useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../../components/Table";
 import ModalBiddings from "./modalBiddings";
-import { ContainerSearch } from "./styles";
+import { ContainerSearch } from "../../../styles/components/contratos-e-atas/styles";
 import fileBiddings from "../../../assets/file";
 
 type PropsInput = {
