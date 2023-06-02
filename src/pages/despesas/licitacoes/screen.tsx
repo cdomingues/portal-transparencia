@@ -23,7 +23,8 @@ import TableComponent, { TableColumns } from "../../../components/Table";
 import ModalBiddings from "./modalBiddings";
 import { ContainerSearch } from "../../../styles/components/licitacoes/styles";
 import axios from "axios";
-import cheerio from 'cheerio';
+import cheerio from "cheerio";
+import { baseUrl } from "../../../config";
 
 type PropsInput = {
   handler: {
@@ -52,41 +53,43 @@ function Screen({
   const description = contentBids?.description;
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const handleAPIResponse = (response:any) => {
+  const handleAPIResponse = (response: any) => {
     const html = response;
 
     const $ = cheerio.load(html);
-    const links = $('a');
+    const links = $("a");
     const hrefs = links
-    .map((index, element) => {
-      const td = $(element).parent().prev('td');
-      return {
-        content: td.text().trim(),
-        href: $(element).attr('href'),
-        text: $(element).text()
-      };
-    })
-    .filter((index, link) => !link.href?.endsWith('#tab'))
-    .get();
+      .map((index, element) => {
+        const td = $(element).parent().prev("td");
+        return {
+          content: td.text().trim(),
+          href: $(element).attr("href"),
+          text: $(element).text(),
+        };
+      })
+      .filter((index, link) => !link.href?.endsWith("#tab"))
+      .get();
 
-    const filteredValues = hrefs.filter((item)=> !item?.href?.includes('#tab'))
+    const filteredValues = hrefs.filter(
+      (item) => !item?.href?.includes("#tab")
+    );
 
     const updatedLinks = filteredValues.map((link) => {
-      const contentParts: any = link?.href?.split('/');
+      const contentParts: any = link?.href?.split("/");
       const newHref = contentParts[contentParts?.length - 1];
-    
+
       return {
         ...link,
-        href: newHref
+        href: newHref,
       };
     });
-    
-  }
-
+  };
 
   const getDetails = async (id: number) => {
     const { data } = await axios.request({
-      baseURL:`https://portaldatransparencia.mogidascruzes.sp.gov.br/index.php/licitacao/details/${id}`
+      url: `${baseUrl}/api/track`,
+      method: "get",
+      params: { id },
     });
 
     if (!data) {
@@ -94,45 +97,46 @@ function Screen({
     }
 
     const $ = cheerio.load(data);
-    const links = $('a');
+    const links = $("a");
     const hrefs = links
-    .map((index, element) => {
-      const td = $(element).parent().prev('td');
-      return {
-        content: td.text().trim(),
-        href: $(element).attr('href'),
-        text: $(element).text()
-      };
-    })
-    .filter((index, link) => !link?.href?.endsWith('#tab'))
-    .get();
+      .map((index, element) => {
+        const td = $(element).parent().prev("td");
+        return {
+          content: td.text().trim(),
+          href: $(element).attr("href"),
+          text: $(element).text(),
+        };
+      })
+      .filter((index, link) => !link?.href?.endsWith("#tab"))
+      .get();
 
-    const filteredValues = hrefs.filter((item)=> !item?.href?.includes('#tab'))
+    const filteredValues = hrefs.filter(
+      (item) => !item?.href?.includes("#tab")
+    );
 
     const updatedLinks = filteredValues.map((link) => {
-      const contentParts: any = link?.href?.split('/');
+      const contentParts: any = link?.href?.split("/");
       const newHref = contentParts[contentParts?.length - 1];
-    
+
       return {
         ...link,
-        href: newHref
+        href: newHref,
       };
     });
 
-    return updatedLinks
+    return updatedLinks;
   };
-
- 
 
   const handleOpenModal = async (biddinSelected: any) => {
     onOpen();
+    console.log({ bidding: biddinSelected?.row });
     setBidding(biddinSelected?.row?.values);
 
-    const details = await getDetails(Number(biddinSelected?.row?.original?.id))
+    const details = await getDetails(Number(biddinSelected?.row?.original?.id));
     setDetails(details);
-  };
 
- 
+    // console.log({ details });
+  };
 
   return (
     <ContainerBasic title={title} description={description}>
