@@ -134,10 +134,11 @@ function Screen({
   }
 
   const handleOpenModal = async (biddinSelected: any) => {
-   const details = await getDetails(Number(biddinSelected?.row?.original?.id))
+    onOpen();
+    const details = await getDetails(Number(biddinSelected?.row?.original?.id))
 
     setDetails(details);
-    onOpen();
+    
     setBidding(biddinSelected?.row?.values);
   };
 

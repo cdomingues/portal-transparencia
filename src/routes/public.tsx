@@ -193,7 +193,6 @@ const publicRoutes: IPublicRoute[] = [
         name: "Acordo de Colaboração",
         path: "/acordo-de-colaboracao",
         icon: AiOutlineTable,
-        ...contentAgreementColaborator
       },
     ],
   },

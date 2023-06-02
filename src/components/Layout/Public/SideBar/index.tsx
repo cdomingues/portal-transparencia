@@ -202,47 +202,7 @@ function NavItem({
                           </Box>
                           <AccordionIcon />
                         </AccordionButton>
-                        <AccordionPanel pb={4}>
-                          {item?.group?.map((secondItem) => (
-                            <Link
-                              key={`${path}${item?.path}${secondItem.path}`}
-                              href={
-                                secondItem.link
-                                  ? secondItem.link
-                                  : `${path}${item?.path}${secondItem.path}`
-                              }
-                              target={secondItem.link ? "_blank" : "_self"}
-                              style={{ textDecoration: "none" }}
-                              _focus={{ boxShadow: "none" }}
-                              fontSize={accessibility?.fonts?.semiMedium}
-                            >
-                              <Flex
-                                width="100%"
-                                p="2"
-                                mx="2"
-                                borderRadius="lg"
-                                role="group"
-                                cursor="pointer"
-                                _hover={{
-                                  bg: "gray.100",
-                                  color: "primary",
-                                }}
-                                fontSize={accessibility?.fonts?.semiMedium}
-                              >
-                                <Icon
-                                  mr="4"
-                                  color="primary"
-                                  fontSize="18"
-                                  _groupHover={{
-                                    color: "primary",
-                                  }}
-                                  as={secondItem.icon}
-                                />
-                                {secondItem?.name}
-                              </Flex>
-                            </Link>
-                          ))}
-                        </AccordionPanel>
+                        
                       </AccordionItem>
                     </Accordion>
                   );
