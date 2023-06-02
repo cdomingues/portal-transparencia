@@ -32,7 +32,6 @@ import { contentMayorAgenda } from "../pages/agenda-aberta/agenda-prefeito/scree
 import { contentContractManagement } from "../pages/terceiro-setor/contratos-gestao/screen";
 import { contentConvenants } from "../pages/terceiro-setor/convenios/screen";
 import { contentTransfers } from "../pages/terceiro-setor/repasses/screen";
-import { contentTermsColaborator } from "../pages/acordos-termos/termo-de-colaboracao/screen";
 import { contentTermsForment } from "../pages/acordos-termos/termo-de-fomento/screen";
 import { contentAgreementColaborator } from "../pages/acordos-termos/acordo-de-colaboracao/screen";
 import { contentPlanMultiannual } from "../pages/transparencia/plurianual/screen";
@@ -86,102 +85,7 @@ const publicRoutes: IPublicRoute[] = [
     path: "/terceiro-setor",
     element: <div></div>,
     icon: BiMoney,
-    ...contentRevenue,
-    group: [
-          
-            {
-              defaultPath: "/terceiro-setor",
-              name: "Plano Plurianual",
-              path: "/contratos-gestao",
-              icon: AiOutlineTable,
-              ...contentContractManagement
-            },
-            {
-              defaultPath: "/terceiro-setor",
-              name: "Diretrizes Orçamentárias",
-              path: "/contratos-gestao",
-              icon: AiOutlineTable,
-              ...contentContractManagement,
-            },
-            {
-              defaultPath: "/terceiro-setor",
-              name: "Lei Orçamentária Anual",
-              path: "/contratos-gestao",
-              icon: AiOutlineTable,
-              ...contentContractManagement
-            },
-    ],
   },
-  {
-    name: "Despesas",
-    path: "/terceiro-setor",
-    element: <div></div>,
-    icon: BiMoney,
-    ...contentRevenue,
-    group: [
-      
-        {
-          name: "Sapato",
-          path: "/terceiro-setor",
-          element: <div></div>,
-          icon: BiBriefcaseAlt,
-          group: [
-            {
-              defaultPath: "/terceiro-setor",
-              name: "Contratos de Gestão",
-              path: "/contratos-gestao",
-              icon: AiOutlineTable,
-              ...contentContractManagement
-            },
-            {
-              defaultPath: "/terceiro-setor",
-              name: "Contratos de Gestão",
-              path: "/contratos-gestao",
-              icon: AiOutlineTable,
-              ...contentContractManagement
-            },
-          ]
-      },
-      {
-        defaultPath: "/terceiro-setor",
-        name: "Convênios",
-        path: "/convenios",
-        icon: AiOutlineTable,
-        ...contentConvenants
-      },
-      {
-        defaultPath: "/terceiro-setor",
-        name: "Repasses",
-        path: "/repasses",
-        icon: AiOutlineTable,
-        ...contentTransfers
-      },
-    ],
-  },
-  {
-    name: "Extraorçamentário",
-    path: "/extraorcamentario",
-    element: <div></div>,
-    icon: AiOutlineException,
-    group: [
-      {
-        defaultPath: "/extraorcamentario",
-        name: "Despesas",
-        path: "/despesas",
-        icon: AiOutlineTable,
-        ...contentExtrabudgetExpenses
-      },
-      {
-        defaultPath: "/extraorcamentario",
-        name: "Receitas",
-        path: "/receitas",
-        icon: AiOutlineTable,
-        ...contentExtrabudgetRevenues
-      },
-    ],
-  },
-
-
   {
     name: "Portal de Obras",
     icon: BsBricks,
