@@ -9,14 +9,10 @@ type PropsInput = {
     loading: boolean;
   };
 };
-export const contentTermsForment = {
-  titlePage: "Termo de Fomento",
-  description: "",
-}
 
 function Screen({ handler: { columns, data, loading } }: PropsInput) {
-  const title = contentTermsForment?.titlePage;
-  const description = contentTermsForment?.description;
+  const title = "Termo de Fomento";
+  const description = "";
   return (
     <ContainerBasic title={title} description={description}>
       <TableComponent loading={loading} columns={columns} data={data} />
