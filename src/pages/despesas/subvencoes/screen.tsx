@@ -17,7 +17,7 @@ import {
 } from "../../../components/GraphWrapper";
 import { MultiAxisChart } from "../../../components/MultiAxisChart";
 import TableComponent, { TableColumns } from "../../../components/Table";
-import ModalGrants from "./modalGrants";
+
 
 type PropsInput = {
   handler: {
@@ -66,8 +66,8 @@ function Screen({
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleOpenModal = (item: any) => {
-    onOpen();
-    setGrants(item?.row?.values);
+    // onOpen();
+    // setGrants(item?.row?.values);
   };
 
   return (
@@ -134,7 +134,6 @@ function Screen({
         openModal={handleOpenModal}
       />
 
-      <ModalGrants isOpen={isOpen} onClose={onClose} grants={grants} />
     </ContainerBasic>
   );
 }

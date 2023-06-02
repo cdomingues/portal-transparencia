@@ -21,8 +21,9 @@ import React, { useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../../components/Table";
 import ModalBiddings from "./modalBiddings";
-import { ContainerSearch } from "../../../styles/components/contratos-e-atas/styles";
-import fileBiddings from "../../../assets/file";
+import { ContainerSearch } from "../../../styles/components/licitacoes/styles";
+import axios from "axios";
+import cheerio from 'cheerio';
 
 type PropsInput = {
   handler: {
@@ -46,48 +47,92 @@ function Screen({
   handler: { columns, data, loading, setYear, year, years, handleByYear },
 }: PropsInput) {
   const [bidding, setBidding] = useState<any>(null);
-  const [details, setDetails]= useState<any>(null);
+  const [details, setDetails] = useState<any>(null);
   const title = contentBids?.titlePage;
   const description = contentBids?.description;
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  function removeCharacters(string: string): string {
-    const charactersToRemove = [" .", "\r", "\n"];
-    let result = string;
-    for (const char of charactersToRemove) {
-      result = result.split(char).join("");
-    }
-    result = result.replace(" .", ".");
-    return result;
+  const handleAPIResponse = (response:any) => {
+    const html = response;
+
+    const $ = cheerio.load(html);
+    const links = $('a');
+    const hrefs = links
+    .map((index, element) => {
+      const td = $(element).parent().prev('td');
+      return {
+        content: td.text().trim(),
+        href: $(element).attr('href'),
+        text: $(element).text()
+      };
+    })
+    .filter((index, link) => !link.href?.endsWith('#tab'))
+    .get();
+
+    const filteredValues = hrefs.filter((item)=> !item?.href?.includes('#tab'))
+
+    const updatedLinks = filteredValues.map((link) => {
+      const contentParts: any = link?.href?.split('/');
+      const newHref = contentParts[contentParts?.length - 1];
+    
+      return {
+        ...link,
+        href: newHref
+      };
+    });
+    
   }
 
-  const handleOpenModal = async (biddinSelected: any) => {
-    const array = fileBiddings[String(biddinSelected?.row?.values?.ano)];
-    const getArraySimilar = await array?.filter((item: any) => {
-      if (item?.dados?.licitacao === biddinSelected?.row?.values?.numero) {
-        return item;
-      }
-      return;
+
+  const getDetails = async (id: number) => {
+    const { data } = await axios.request({
+      baseURL:`https://portaldatransparencia.mogidascruzes.sp.gov.br/index.php/licitacao/details/${id}`
     });
 
-    let newArray =
-      getArraySimilar?.length > 1
-        ? getArraySimilar?.filter((item: any) => {
-            if (
-              item?.descricao.includes(
-                removeCharacters(biddinSelected?.row?.values?.objeto)
-              )
-            ) {
-              return item;
-            }
-            return;
-          })
-        : getArraySimilar;
+    if (!data) {
+      return null;
+    }
 
-    setDetails(newArray?.[0]);
+    const $ = cheerio.load(data);
+    const links = $('a');
+    const hrefs = links
+    .map((index, element) => {
+      const td = $(element).parent().prev('td');
+      return {
+        content: td.text().trim(),
+        href: $(element).attr('href'),
+        text: $(element).text()
+      };
+    })
+    .filter((index, link) => !link?.href?.endsWith('#tab'))
+    .get();
+
+    const filteredValues = hrefs.filter((item)=> !item?.href?.includes('#tab'))
+
+    const updatedLinks = filteredValues.map((link) => {
+      const contentParts: any = link?.href?.split('/');
+      const newHref = contentParts[contentParts?.length - 1];
+    
+      return {
+        ...link,
+        href: newHref
+      };
+    });
+
+    return updatedLinks
+  };
+
+ 
+
+  const handleOpenModal = async (biddinSelected: any) => {
     onOpen();
     setBidding(biddinSelected?.row?.values);
+
+    const details = await getDetails(Number(biddinSelected?.row?.original?.id))
+    setDetails(details);
   };
+
+ 
 
   return (
     <ContainerBasic title={title} description={description}>
@@ -133,7 +178,12 @@ function Screen({
         openModal={handleOpenModal}
       />
 
-      <ModalBiddings isOpen={isOpen} onClose={onClose} bidding={bidding} details={details} />
+      <ModalBiddings
+        isOpen={isOpen}
+        onClose={onClose}
+        bidding={bidding}
+        details={details}
+      />
     </ContainerBasic>
   );
 }

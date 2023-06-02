@@ -5,7 +5,6 @@ import {
 import React, { useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../../components/Table";
-import ModalPositions from "./modal";
 
 type PropsInput = {
   handler: {
@@ -46,7 +45,7 @@ function Screen({
         openModal={handleOpenModal}
       />
 
-      <ModalPositions isOpen={isOpen} onClose={onClose} contract={contract} />
+
     </ContainerBasic>
   );
 }

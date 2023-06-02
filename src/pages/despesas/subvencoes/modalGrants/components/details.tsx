@@ -1,4 +1,4 @@
-import { RowDetails } from "../../../../../styles/components/contratos-e-atas/modal/styles";
+import { RowDetails } from "../../../../../styles/components/licitacoes/modal/styles";
 
 const Details = ({ grants }: any) => {
   const mockData = [

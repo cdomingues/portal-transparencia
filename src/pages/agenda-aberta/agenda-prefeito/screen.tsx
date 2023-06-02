@@ -37,9 +37,17 @@ function Screen({ handler }: PropsInput) {
   const [schedule, setSchedule] = useState<Array<Meeting>>([]);
 
   const handleGetOpenSchedule = async () => {
-    const { data } = await axios.get(
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=abf2e6db-bd7d-49de-a504-483eb95cb744&q=Claudio"
+    const response = await fetch(
+      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=abf2e6db-bd7d-49de-a504-483eb95cb744&q=Claudio",
+      {
+        headers: {
+          Authorization:
+            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJ4T2VWV29pdlZVTG9WTjJzZk1UQ0JrQmtmMjJGRVp5QWJ0bHdyajU0ZFJNIiwiaWF0IjoxNjc5Njg4ODYyfQ.N7uwCTBg9g21vHc3brf7ayK4rKK2zuUJnglptS6k__g",
+        },
+      }
     );
+
+    const data = await response.json();
 
     if (!data) {
       return;

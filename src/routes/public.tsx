@@ -24,16 +24,13 @@ import { BsBricks, BsCameraVideo, BsFileText } from "react-icons/bs";
 import { IPublicRoute } from "../types";
 import { contentInitial } from "../pages/screen";
 import { contentMunicipalityProfile } from "../pages/perfil-do-municipio/screen";
-import { contentConstructionsControl } from "../pages/controle-de-obras/inicio/screen";
-import { contentAboutConstructions } from "../pages/controle-de-obras/sobre-as-obras/screen";
-import { contentSearchConstructions } from "../pages/controle-de-obras/pesquisar-obras/screen";
+import { contentConstructionsControl } from "../pages/controle-de-obras/inicio";
+import { contentAboutConstructions } from "../pages/controle-de-obras/sobre-as-obras";
 import { contentRadarsControl } from "../pages/controle-de-radares/screen";
 import { contentMayorAgenda } from "../pages/agenda-aberta/agenda-prefeito/screen";
 import { contentContractManagement } from "../pages/terceiro-setor/contratos-gestao/screen";
 import { contentConvenants } from "../pages/terceiro-setor/convenios/screen";
 import { contentTransfers } from "../pages/terceiro-setor/repasses/screen";
-import { contentTermsColaborator } from "../pages/acordos-termos/termo-de-colaboracao/screen";
-import { contentTermsForment } from "../pages/acordos-termos/termo-de-fomento/screen";
 import { contentAgreementColaborator } from "../pages/acordos-termos/acordo-de-colaboracao/screen";
 import { contentPlanMultiannual } from "../pages/transparencia/plurianual/screen";
 import { contentGuidelines } from "../pages/transparencia/diretrizes-orcamentarias/screen";
@@ -65,6 +62,7 @@ import { contentAnnualBalance } from "../pages/contas/balancos-anuais/screen";
 import { contentCourtOpinions } from "../pages/contas/pareceres-tribunal/screen";
 import { contentPatrimony } from "../pages/patrimonio/screen";
 import { contentOtherInformations } from "../pages/outras-informacoes/screen";
+import { contentSearchConstructions } from "../pages/controle-de-obras/pesquisar-obras/screen";
 
 const publicRoutes: IPublicRoute[] = [
   {
@@ -86,102 +84,7 @@ const publicRoutes: IPublicRoute[] = [
     path: "/terceiro-setor",
     element: <div></div>,
     icon: BiMoney,
-    ...contentRevenue,
-    group: [
-          
-            {
-              defaultPath: "/terceiro-setor",
-              name: "Plano Plurianual",
-              path: "/contratos-gestao",
-              icon: AiOutlineTable,
-              ...contentContractManagement
-            },
-            {
-              defaultPath: "/terceiro-setor",
-              name: "Diretrizes Orçamentárias",
-              path: "/contratos-gestao",
-              icon: AiOutlineTable,
-              ...contentContractManagement,
-            },
-            {
-              defaultPath: "/terceiro-setor",
-              name: "Lei Orçamentária Anual",
-              path: "/contratos-gestao",
-              icon: AiOutlineTable,
-              ...contentContractManagement
-            },
-    ],
   },
-  {
-    name: "Despesas",
-    path: "/terceiro-setor",
-    element: <div></div>,
-    icon: BiMoney,
-    ...contentRevenue,
-    group: [
-      
-        {
-          name: "Sapato",
-          path: "/terceiro-setor",
-          element: <div></div>,
-          icon: BiBriefcaseAlt,
-          group: [
-            {
-              defaultPath: "/terceiro-setor",
-              name: "Contratos de Gestão",
-              path: "/contratos-gestao",
-              icon: AiOutlineTable,
-              ...contentContractManagement
-            },
-            {
-              defaultPath: "/terceiro-setor",
-              name: "Contratos de Gestão",
-              path: "/contratos-gestao",
-              icon: AiOutlineTable,
-              ...contentContractManagement
-            },
-          ]
-      },
-      {
-        defaultPath: "/terceiro-setor",
-        name: "Convênios",
-        path: "/convenios",
-        icon: AiOutlineTable,
-        ...contentConvenants
-      },
-      {
-        defaultPath: "/terceiro-setor",
-        name: "Repasses",
-        path: "/repasses",
-        icon: AiOutlineTable,
-        ...contentTransfers
-      },
-    ],
-  },
-  {
-    name: "Extraorçamentário",
-    path: "/extraorcamentario",
-    element: <div></div>,
-    icon: AiOutlineException,
-    group: [
-      {
-        defaultPath: "/extraorcamentario",
-        name: "Despesas",
-        path: "/despesas",
-        icon: AiOutlineTable,
-        ...contentExtrabudgetExpenses
-      },
-      {
-        defaultPath: "/extraorcamentario",
-        name: "Receitas",
-        path: "/receitas",
-        icon: AiOutlineTable,
-        ...contentExtrabudgetRevenues
-      },
-    ],
-  },
-
-
   {
     name: "Portal de Obras",
     icon: BsBricks,
@@ -278,21 +181,18 @@ const publicRoutes: IPublicRoute[] = [
         name: "Termo de Colaboração",
         path: "/termo-de-colaboracao",
         icon: AiOutlineTable,
-        ...contentTermsColaborator
       },
       {
         defaultPath: "/acordos-termos",
         name: "Termo de Fomento",
         path: "/termo-de-fomento",
         icon: AiOutlineTable,
-        ...contentTermsForment
       },
       {
         defaultPath: "/acordos-termos",
         name: "Acordo de Colaboração",
         path: "/acordo-de-colaboracao",
         icon: AiOutlineTable,
-        ...contentAgreementColaborator
       },
     ],
   },

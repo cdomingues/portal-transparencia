@@ -7,7 +7,7 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
-import { TColumn } from "../../../../../styles/components/contratos-e-atas/modal/styles";
+import { TColumn } from "../../../../../styles/components/licitacoes/modal/styles";
 
 const ItemsBidding = ({details}:any) => {
   const mockTable = [

@@ -10,7 +10,7 @@ import React, { useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../../components/Table";
 import ModalContracts from "./modalContracts";
-import { ContainerSearch } from "../../../styles/components/contratos-e-atas/styles";
+import { ContainerSearch } from "../../../styles/components/contratos-atas/styles";
 
 type PropsInput = {
   handler: {
@@ -25,8 +25,9 @@ type PropsInput = {
 };
 export const contentContractsAndAtas = {
   titlePage: "Contratos e Atas",
-  description:"Nesta página, confira as informações sobre contratos e atas celebrados pela Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por número, modalidade, processo, valor, fornecedor, objeto, entre outros itens.",
-}
+  description:
+    "Nesta página, confira as informações sobre contratos e atas celebrados pela Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por número, modalidade, processo, valor, fornecedor, objeto, entre outros itens.",
+};
 function Screen({
   handler: { columns, data, loading, handleByYear, setYear, year, years },
 }: PropsInput) {
