@@ -1,4 +1,4 @@
-import { RowDetails } from "../styles";
+import { RowDetails } from "../../../../../styles/components/contratos-e-atas/modal/styles";
 
 const Details = ({ bidding }: any) => {
   return (

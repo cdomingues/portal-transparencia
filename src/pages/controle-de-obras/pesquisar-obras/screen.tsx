@@ -1,6 +1,6 @@
 import LayoutConstructions from "../../../components/LayoutConstructions";
 import * as Text from "../../../styles/text";
-import * as Style from "./styles";
+import * as Style from "../../../styles/components/pesquisar-obras/styles";
 import { parseMoney } from "../../../utils/mask";
 import colors from "../../../styles/colors";
 import Carousel from "../../../components/Swiper";

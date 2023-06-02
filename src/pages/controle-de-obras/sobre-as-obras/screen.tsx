@@ -1,7 +1,7 @@
 import { useState } from "react";
 import LayoutConstructions from "../../../components/LayoutConstructions";
 import * as Text from "../../../styles/text";
-import * as Style from "./styles";
+import * as Style from "../../../styles/components/sobre-as-obras/styles";
 import { Input } from "@chakra-ui/react";
 
 export const contentAboutConstructions = {

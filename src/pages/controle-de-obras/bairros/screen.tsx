@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import LayoutConstructions from "../../../components/LayoutConstructions";
 import colors from "../../../styles/colors";
 import * as Text from "../../../styles/text";
-import * as Style from "./styles";
+import * as Style from "../../../styles/components/bairros/styles";
 
 const NeighborhoodsScreen = () => {
   const router = useRouter();
