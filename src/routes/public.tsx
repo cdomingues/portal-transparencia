@@ -32,7 +32,6 @@ import { contentMayorAgenda } from "../pages/agenda-aberta/agenda-prefeito/scree
 import { contentContractManagement } from "../pages/terceiro-setor/contratos-gestao/screen";
 import { contentConvenants } from "../pages/terceiro-setor/convenios/screen";
 import { contentTransfers } from "../pages/terceiro-setor/repasses/screen";
-import { contentTermsForment } from "../pages/acordos-termos/termo-de-fomento/screen";
 import { contentAgreementColaborator } from "../pages/acordos-termos/acordo-de-colaboracao/screen";
 import { contentPlanMultiannual } from "../pages/transparencia/plurianual/screen";
 import { contentGuidelines } from "../pages/transparencia/diretrizes-orcamentarias/screen";
@@ -64,7 +63,6 @@ import { contentAnnualBalance } from "../pages/contas/balancos-anuais/screen";
 import { contentCourtOpinions } from "../pages/contas/pareceres-tribunal/screen";
 import { contentPatrimony } from "../pages/patrimonio/screen";
 import { contentOtherInformations } from "../pages/outras-informacoes/screen";
-import { contentTermsColaborator } from "../pages/acordos-termos/termo-de-colaboracao/screen";
 
 const publicRoutes: IPublicRoute[] = [
   {
@@ -183,14 +181,12 @@ const publicRoutes: IPublicRoute[] = [
         name: "Termo de Colaboração",
         path: "/termo-de-colaboracao",
         icon: AiOutlineTable,
-        ...contentTermsColaborator
       },
       {
         defaultPath: "/acordos-termos",
         name: "Termo de Fomento",
         path: "/termo-de-fomento",
         icon: AiOutlineTable,
-        ...contentTermsForment
       },
       {
         defaultPath: "/acordos-termos",
