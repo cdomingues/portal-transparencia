@@ -22,7 +22,6 @@ import ContainerBasic from "../../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../../components/Table";
 import ModalBiddings from "./modalBiddings";
 import { ContainerSearch } from "../../../styles/components/licitacoes/styles";
-import fileBiddings from "../../../assets/file";
 import axios from "axios";
 import cheerio from 'cheerio';
 
@@ -123,23 +122,14 @@ function Screen({
     return updatedLinks
   };
 
-  function removeCharacters(string: string): string {
-    const charactersToRemove = [" .", "\r", "\n"];
-    let result = string;
-    for (const char of charactersToRemove) {
-      result = result.split(char).join("");
-    }
-    result = result.replace(" .", ".");
-    return result;
-  }
+ 
 
   const handleOpenModal = async (biddinSelected: any) => {
     onOpen();
-    const details = await getDetails(Number(biddinSelected?.row?.original?.id))
-
-    setDetails(details);
-    
     setBidding(biddinSelected?.row?.values);
+
+    const details = await getDetails(Number(biddinSelected?.row?.original?.id))
+    setDetails(details);
   };
 
  
