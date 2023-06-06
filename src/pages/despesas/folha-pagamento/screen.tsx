@@ -22,6 +22,7 @@ import {
 import { MultiAxisChart } from "../../../components/MultiAxisChart";
 import { TableColumns } from "../../../components/Table";
 import TableWithOutFilterComponent from "../../../components/Table/TableWithoutFilter";
+import ModalPayments from "./modalPayments";
 
 type PropsInput = {
   handler: {
@@ -83,8 +84,9 @@ function Screen({
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleOpenModal = (item: any) => {
-    // onOpen();
-    // setPayments(item?.row?.values);
+    onOpen();
+    setPayments(item?.row?.values);
+    console.log(item);
   };
 
   return (
@@ -212,7 +214,10 @@ function Screen({
         loading={loading}
         columns={columns}
         data={data}
+        handleOpenModal={handleOpenModal}
       />
+
+    <ModalPayments isOpen={isOpen} onClose={onClose} payments={payments} />
 
     </ContainerBasic>
   );
