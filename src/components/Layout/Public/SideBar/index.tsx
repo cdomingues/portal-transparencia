@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState } from "react";
 import {
   IconButton,
   Box,
@@ -85,6 +85,12 @@ function NavItem({
   key,
 }: NavItemProps) {
   const accessibility = useFontSizeAccessibilityContext();
+  const [expanded, setExpanded] = useState(false);
+
+  const handleClick = () => {
+    setExpanded(!expanded);
+  };
+
   if (group.length > 0) {
     return (
       <Menu>
@@ -105,6 +111,7 @@ function NavItem({
                   color: "primary",
                 }}
                 fontWeight="500"
+                onClick={handleClick}
               >
                 <Box
                   flex="1"
@@ -127,86 +134,18 @@ function NavItem({
                 <AccordionIcon />
               </AccordionButton>
               <AccordionPanel pb={4}>
-                {group?.map((item, index) => {
-                  if (!item?.group) {
-                    return (
-                      <Link
-                        key={`${path}${item.path}`}
-                        href={item.link ? item.link : `${path}${item.path}`}
-                        target={item.link ? "_blank" : "_self"}
-                        style={{ textDecoration: "none" }}
-                        _focus={{ boxShadow: "none" }}
-                        fontSize={accessibility?.fonts?.semiMedium}
-                      >
-                        <Flex
-                          width="100%"
-                          p="2"
-                          mx="2"
-                          borderRadius="lg"
-                          role="group"
-                          cursor="pointer"
-                          _hover={{
-                            bg: "gray.100",
-                            color: "primary",
-                          }}
-                          fontSize={accessibility?.fonts?.semiMedium}
-                        >
-                          <Icon
-                            mr="4"
-                            color="primary"
-                            fontSize="18"
-                            _groupHover={{
-                              color: "primary",
-                            }}
-                            as={item.icon}
-                          />
-                          {item.name}
-                        </Flex>
-                      </Link>
-                    );
-                  }
-
-                  return (
-                    <Accordion
-                      borderColor="transparent"
-                      width="95%"
-                      allowToggle
-                      key={index}
+                {expanded &&
+                  group.map((item) => (
+                    <NavItem
+                      key={`${path}${item.path}`}
+                      icon={item.icon}
+                      path={item.path}
+                      group={item.group}
+                      link={item.link}
                     >
-                      <AccordionItem>
-                        <AccordionButton
-                          borderRadius="lg"
-                          _hover={{
-                            bg: "gray.100",
-                            color: "primary",
-                          }}
-                          fontWeight="500"
-                        >
-                          <Box
-                            flex="1"
-                            fontSize={accessibility?.fonts?.semiMedium}
-                            textAlign="left"
-                          >
-                            {item?.icon && (
-                              <Icon
-                                mr="4"
-                                color="primary"
-                                fontSize="18"
-                                _groupHover={{
-                                  color: "primary",
-                                }}
-                                as={item?.icon}
-                              />
-                            )}
-                            {item?.name}
-                          </Box>
-                          <AccordionIcon />
-                        </AccordionButton>
-                        
-                      </AccordionItem>
-                    </Accordion>
-                  );
-                })}
+                      {item.name}
+                    </NavItem>
+                  ))}
               </AccordionPanel>
             </AccordionItem>
           </Accordion>
@@ -214,6 +153,7 @@ function NavItem({
       </Menu>
     );
   }
+
   return (
     <Link
       href={link || path}
