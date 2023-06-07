@@ -1,3 +1,59 @@
+// import {
+//   Modal,
+//   ModalBody,
+//   ModalCloseButton,
+//   ModalContent,
+//   ModalHeader,
+//   Tab,
+//   TabList,
+//   TabPanel,
+//   TabPanels,
+//   Tabs,
+// } from "@chakra-ui/react";
+// import Details from "./components/details";
+
+// import Files from "./components/files";
+// import { ListTabs, ModalContainer, Panel, TabItem } from "../../../../styles/components/folha-pagamento/modal/styles";
+
+// const ModalPayments = ({ isOpen, onClose, payments }: any) => {
+//   return (
+//     <Modal isOpen={isOpen} onClose={onClose} size={"5xl"}>
+//       <ModalContainer>
+//         <ModalHeader style={{ backgroundColor: "#185DA6", color: "white" }}>
+//           Matrícula Nº {payments?.matricula}
+//         </ModalHeader>
+//         <ModalCloseButton style={{ color: "white" }} />
+//         <ModalBody
+//           style={{ paddingLeft: 0, paddingRight: 0, paddingBottom: 0 }}
+//         >
+//           <Tabs style={{ padding: 0, margin: 0 }}>
+//             <ListTabs>
+//               <TabItem>Detalhes</TabItem>
+
+//               {/* <TabItem>Arquivos</TabItem> */}
+//             </ListTabs>
+
+//             <TabPanels>
+//               <Panel>
+//                 <Details payments={payments} />
+//                 console.log(payments)
+//               </Panel>
+
+//               {/* <Panel>
+//                 <Files />
+//               </Panel> */}
+//             </TabPanels>
+//           </Tabs>
+//         </ModalBody>
+//       </ModalContainer>
+//     </Modal>
+//   );
+// };
+
+// export default ModalPayments;
+
+
+import React, { useEffect, useState } from 'react';
 import {
   Modal,
   ModalBody,
@@ -15,7 +71,23 @@ import Details from "./components/details";
 import Files from "./components/files";
 import { ListTabs, ModalContainer, Panel, TabItem } from "../../../../styles/components/folha-pagamento/modal/styles";
 
+import { getPayrollData } from "../../../../calls/expenses/payrolldata"
+
 const ModalPayments = ({ isOpen, onClose, payments }: any) => {
+
+  // Define a state to hold the payroll data
+  const [payrollData, setPayrollData] = useState<any>([]);
+
+  useEffect(() => {
+    // Call the function here and store the returned data in the state
+    const fetchData = async () => {
+      const result = await getPayrollData(payments.Ano, payments.Mes, payments.matricula);
+      setPayrollData(result.payrollData);
+    };
+
+    fetchData();
+  }, [payments]);
+
   return (
     <Modal isOpen={isOpen} onClose={onClose} size={"5xl"}>
       <ModalContainer>
@@ -35,8 +107,10 @@ const ModalPayments = ({ isOpen, onClose, payments }: any) => {
 
             <TabPanels>
               <Panel>
-                <Details payments={payments} />
+                <Details payments={payments} payrollData={payrollData} /> {/* Pass payrollData as a prop */}
               </Panel>
+              console.log(payments)
+              console.log(payrollData)
 
               {/* <Panel>
                 <Files />
@@ -50,3 +124,4 @@ const ModalPayments = ({ isOpen, onClose, payments }: any) => {
 };
 
 export default ModalPayments;
+
