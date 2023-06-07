@@ -59,6 +59,7 @@ type Props = {
   data: Array<any>;
   loading?: boolean;
   withFilter?: boolean;
+  handleOpenModal?: any;
 };
 
 function HeaderComponent({ title }: { title: string }) {
@@ -76,6 +77,7 @@ function TableWithOutFilterComponent({
   data,
   loading = false,
   withFilter = true,
+  handleOpenModal
 }: Props) {
   const [modelType, setModelType] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -362,6 +364,7 @@ function TableWithOutFilterComponent({
                     {row.cells.map((cell, index) => {
                       return (
                         <Td
+                        onClick={() => handleOpenModal(cell) } 
                           style={{
                             padding: "8px",
                             backgroundColor: "white",
