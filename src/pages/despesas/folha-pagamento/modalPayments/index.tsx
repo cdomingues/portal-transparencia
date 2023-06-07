@@ -20,7 +20,7 @@ const ModalPayments = ({ isOpen, onClose, payments }: any) => {
     <Modal isOpen={isOpen} onClose={onClose} size={"5xl"}>
       <ModalContainer>
         <ModalHeader style={{ backgroundColor: "#185DA6", color: "white" }}>
-          Contrato Nº {payments?.numero}
+          Matrícula Nº {payments?.matricula}
         </ModalHeader>
         <ModalCloseButton style={{ color: "white" }} />
         <ModalBody
@@ -30,7 +30,7 @@ const ModalPayments = ({ isOpen, onClose, payments }: any) => {
             <ListTabs>
               <TabItem>Detalhes</TabItem>
 
-              <TabItem>Arquivos</TabItem>
+              {/* <TabItem>Arquivos</TabItem> */}
             </ListTabs>
 
             <TabPanels>
@@ -38,9 +38,9 @@ const ModalPayments = ({ isOpen, onClose, payments }: any) => {
                 <Details payments={payments} />
               </Panel>
 
-              <Panel s>
+              {/* <Panel>
                 <Files />
-              </Panel>
+              </Panel> */}
             </TabPanels>
           </Tabs>
         </ModalBody>
