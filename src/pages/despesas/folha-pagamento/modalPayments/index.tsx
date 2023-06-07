@@ -81,11 +81,16 @@ const ModalPayments = ({ isOpen, onClose, payments }: any) => {
   useEffect(() => {
     // Call the function here and store the returned data in the state
     const fetchData = async () => {
-      const result = await getPayrollData(payments.Ano, payments.Mes, payments.matricula);
+      const result = await getPayrollData(payments?.ano, payments?.mes, payments?.matricula);
+      console.log("Result", result)
+
       setPayrollData(result.payrollData);
     };
 
+  if(payments){
     fetchData();
+  }
+
   }, [payments]);
 
   return (
@@ -109,8 +114,6 @@ const ModalPayments = ({ isOpen, onClose, payments }: any) => {
               <Panel>
                 <Details payments={payments} payrollData={payrollData} /> {/* Pass payrollData as a prop */}
               </Panel>
-              console.log(payments)
-              console.log(payrollData)
 
               {/* <Panel>
                 <Files />

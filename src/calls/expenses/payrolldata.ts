@@ -3,7 +3,7 @@ import { baseUrl } from "../../config";
 
 export const getPayrollData = async (Ano: number, Mes: number, Matricula: string) => {
   try {
-    const response = await axios.post(`${baseUrl}/api/despesas/folha-pagamento-detalhes`, {
+    const response = await axios.post(`/api/despesas/folha-pagamento-detalhes`, {
       Ano, Mes, Matricula
     });
 
