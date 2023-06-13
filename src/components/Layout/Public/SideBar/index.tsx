@@ -135,11 +135,11 @@ function NavItem({
               </AccordionButton>
               <AccordionPanel pb={4}>
                 {expanded &&
-                  group.map((item) => (
+                  group.map((item:any) => (
                     <NavItem
                       key={`${path}${item.path}`}
                       icon={item.icon}
-                      path={item.path}
+                      path={item.defaultPath ? `${item.defaultPath}/${item.path}` : item.path}
                       group={item.group}
                       link={item.link}
                     >
