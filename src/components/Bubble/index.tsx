@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
-import useWindowDimensions from "../../utils/useWindowDimensions";
 
 const Bubble = ({ buildingsData, setConstructionSelected, reference }: any) => {
   const svgRef = useRef();
@@ -11,7 +10,7 @@ const Bubble = ({ buildingsData, setConstructionSelected, reference }: any) => {
         .select("#" + reference)
         .append("svg")
         .attr("width", "100%")
-        .attr("height", 400);
+        .attr("height", 100);
 
       var node = svg
         .append("g")
@@ -21,7 +20,7 @@ const Bubble = ({ buildingsData, setConstructionSelected, reference }: any) => {
         .append("circle")
         .attr("r", 5)
         .attr("cx", "50%")
-        .attr("cy", 400 / 2)
+        .attr("cy", 100 / 2)
         .style("fill", function (d: any) {
           return d.color;
         })
@@ -48,7 +47,7 @@ const Bubble = ({ buildingsData, setConstructionSelected, reference }: any) => {
           d3
             .forceCenter()
             .x(400 / 2)
-            .y(400 / 2)
+            .y(100 / 2)
         ) // Attraction to the center of the svg area
         .force("charge", d3.forceManyBody().strength(0.5)) // Nodes are attracted one each other of value is > 0
         .force(

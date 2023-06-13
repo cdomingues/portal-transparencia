@@ -11,12 +11,14 @@ const BubbleGroups = ({
   directionConstruction,
 }: any) => {
   const [file, setFile] = useState<any>();
-
   const getFileOfConstructions = async () => {
-    const { data } = await axios.get(
-      `https://dados.mogidascruzes.sp.gov.br//api/3/action/datastore_search?resource_id=c23921f1-9d90-44b1-b710-02233f9d47c5`
-    );
-
+    const response = await fetch("https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=2a3f2bc3-551b-434d-89c7-a31da90d7e1f", {
+      headers: {
+        Authorization: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJ4T2VWV29pdlZVTG9WTjJzZk1UQ0JrQmtmMjJGRVp5QWJ0bHdyajU0ZFJNIiwiaWF0IjoxNjc5Njg4ODYyfQ.N7uwCTBg9g21vHc3brf7ayK4rKK2zuUJnglptS6k__g"
+      }
+    });
+    
+    const data = await response.json();
     if (!data) {
       return;
     }

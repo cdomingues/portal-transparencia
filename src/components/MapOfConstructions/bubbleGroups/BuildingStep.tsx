@@ -5,20 +5,21 @@ import { useEffect, useMemo } from "react";
 import colors from "../../../styles/colors";
 
 const BuildingSteps = ({ setConstructionSelected, filteredValues }: any) => {
-  const translatorColor: any = {
-    Escuelas: colors.randomColors.blue,
-    "Espacio Público": colors.green,
-    Vivienda: colors.red,
+
+  const translatorSituationColor: any = {
+    INICIADO: colors.primaryDefault,
+    CONCLUÍDO: colors.green,
+    RESCINDIDO: colors.red,
   };
 
   let buildingsStopped = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.Status === "Parada")
+        ?.filter((item: any) => item?.situacao === "INICIADO")
         ?.map((item: any) => {
           return {
             ...item,
-            color: translatorColor[item?.Categoria],
+            color: translatorSituationColor[item?.situacao],
           };
         }),
     [filteredValues]
@@ -27,11 +28,11 @@ const BuildingSteps = ({ setConstructionSelected, filteredValues }: any) => {
   let buildingsUnderConstruction = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.Status === "Em Construção")
+        ?.filter((item: any) => item?.situacao === "RESCINDIDO")
         ?.map((item: any) => {
           return {
             ...item,
-            color: translatorColor[item?.Categoria],
+            color: translatorSituationColor[item?.situacao],
           };
         }),
     [filteredValues]
@@ -40,35 +41,22 @@ const BuildingSteps = ({ setConstructionSelected, filteredValues }: any) => {
   let buildingsFinished = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.Status === "Finalizada")
+        ?.filter((item: any) => item?.situacao === "CONCLUÍDO")
         ?.map((item: any) => {
           return {
             ...item,
-            color: translatorColor[item?.Categoria],
+            color: translatorSituationColor[item?.situacao],
           };
         }),
     [filteredValues]
   );
 
-  let buildingsOpened = useMemo(
-    () =>
-      filteredValues
-        ?.filter((item: any) => item?.Status === "Aberto")
-        ?.map((item: any) => {
-          return {
-            ...item,
-            color: translatorColor[item?.Categoria],
-          };
-        }),
-    [filteredValues]
-  );
 
-  useEffect(() => {}, [filteredValues]);
 
   return (
     <Style.StepContainer>
       <div className="box-step">
-        <Text.Heading4Bold>Parada</Text.Heading4Bold>
+        <Text.Heading4Bold>INICIADO</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsStopped?.length !== 0 && (
             <Bubble
@@ -80,7 +68,7 @@ const BuildingSteps = ({ setConstructionSelected, filteredValues }: any) => {
         </div>
       </div>
       <div className="box-step">
-        <Text.Heading4Bold>Em construção</Text.Heading4Bold>
+        <Text.Heading4Bold>RESCINDIDO</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsUnderConstruction?.length !== 0 && (
             <Bubble
@@ -92,7 +80,7 @@ const BuildingSteps = ({ setConstructionSelected, filteredValues }: any) => {
         </div>
       </div>
       <div className="box-step">
-        <Text.Heading4Bold>Finalizada</Text.Heading4Bold>
+        <Text.Heading4Bold>CONCLUÍDO</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsFinished?.length !== 0 && (
             <Bubble
@@ -103,18 +91,7 @@ const BuildingSteps = ({ setConstructionSelected, filteredValues }: any) => {
           )}
         </div>
       </div>
-      <div className="box-step">
-        <Text.Heading4Bold>Abertura de ofertas</Text.Heading4Bold>
-        <div className="svg-bubble">
-          {buildingsOpened?.length !== 0 && (
-            <Bubble
-              buildingsData={buildingsOpened}
-              setConstructionSelected={setConstructionSelected}
-              reference="bubble-opened"
-            />
-          )}
-        </div>
-      </div>
+ 
     </Style.StepContainer>
   );
 };
