@@ -199,7 +199,7 @@ const MapOfConstructions = () => {
                   {constructionSelected?.nome_da_obra}
                 </Text.Heading4Bold>
                 <Text.Heading5Regular marginTop={5}>
-                  {constructionSelected?.bairro}
+                  {constructionSelected?.bairro_desc}
                 </Text.Heading5Regular>
               </div>
             </div>

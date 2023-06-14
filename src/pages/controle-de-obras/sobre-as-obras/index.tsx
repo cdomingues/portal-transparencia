@@ -1,40 +1,15 @@
-import { useState } from "react";
 import LayoutConstructions from "../../../components/LayoutConstructions";
 import * as Text from "../../../styles/text";
 import * as Style from "../../../styles/components/sobre-as-obras/styles";
 import { Input } from "@chakra-ui/react";
 
 export const contentAboutConstructions = {
-  titlePage:"Acerca de BA Obras",
-  description:"Conocé más sobre el sitio que pone a disposición de los vecinos y las vecinas toda la información sobre las obras públicas que están transformando los 48 barrios de la Ciudad.",
-}
+  titlePage: "Conheça as Obras",
+  description:
+    "Saiba mais sobre todas as informações das obras que estão acontecendo nos bairros de Mogi das Cruzes",
+};
 
 const AboutScreen = () => {
-  const [password, setPassword] = useState("");
-  if (!password || password != " ") {
-    return (
-      <div
-        style={{
-          width: "500px",
-          height: "200px",
-          margin: "0 auto",
-          display: "flex",
-          flexDirection: "column",
-          backgroundColor: "white",
-          padding: 20,
-          borderRadius: 30,
-        }}
-      >
-        <span>Digite a senha para acessar:</span>
-        <Input
-          placeholder="Senha"
-          onChange={(event) => setPassword(event.target.value)}
-          type="password"
-          style={{ marginTop: 5 }}
-        />
-      </div>
-    );
-  }
   return (
     <LayoutConstructions
       title="Sobre"
@@ -44,47 +19,23 @@ const AboutScreen = () => {
     >
       <Style.Description>
         <Text.Heading5Regular>
-          BA Obras pone a disposición de los vecinos y las vecinas toda la
-          información sobre las obras públicas que están transformando la
-          Ciudad.
+        O Portal da Transparência de Mogi faz parte do Ecossistema de Governo Aberto da cidade e disponibiliza aos munícipes todas as informações sobre as obras que estão acontecendo em Mogi das Cruzes.
         </Text.Heading5Regular>
 
         <Text.Heading5Regular marginTop={12}>
-          El portal, que forma parte del Ecosistema de Gobierno Abierto de la
-          Ciudad de Buenos Aires, es el resultado del Compromiso de Ciudad de
-          publicar un sistema online de obras públicas abiertas, asumido en el
-          marco del Tercer Plan de Acción Nacional de Gobierno Abierto. Desde
-          2015, La Ciudad forma parte del Programa de Entidades Subnacionales de
-          la Alianza para el Gobierno Abierto, iniciativa global con más de 69
-          países miembros que promueve la transparencia, la innovación
-          gubernamental y la participación de la ciudadanía, a través del uso de
-          nuevas tecnologías y del diálogo permanente con la sociedad civil.
+        A pauta de Governo Aberto é uma novidade na gestão pública de cidades e estados. Mogi, mais uma vez, assume essa vanguarda de trabalhar essas iniciativas na Administração Municipal.
         </Text.Heading5Regular>
 
         <Text.Heading5Regular marginTop={12}>
-          En el sitio, podés conocer las obras destacadas del plan de obra
-          pública de la Ciudad en materia de transformación urbana, espacio
-          público y verde, transformación educativa, transporte público,
-          integración de barrios populares, seguridad y convivencia, salud y
-          calidad de vida, y cultura. Además, podés ver las obras que se
-          realizaron y las que están planificadas en cada uno de los 48 barrios,
-          conocer cuándo empiezan, cuándo terminan y cuánto cuestan, así como
-          los avances de cada una en fotos y videos.
+        No Portal da Transparência de Mogi, você pode conhecer os destaques do Plano de Obras da Cidade em termos de transformação urbana, como novas obras de espaço público e áreas verdes, obras de saneamento básico, de mobilidade urbana e atendimentos nas novas unidades de saúde.
         </Text.Heading5Regular>
 
         <Text.Heading5Regular marginTop={12}>
-          La Ciudad ha ampliado y puesto en valor el espacio público y verde,
-          para que sea más seguro y cercano y que todos los vecinos y vecinas
-          puedan disfrutarlo. En el sitio web podés conocer todas las obras que
-          hicieron esto posible, así como las oportunidades de esparcimiento y
-          las ofertas comerciales, educativas y culturales renovadas.
+        Além disso, você poderá ver as obras realizadas e as que estão previstas em cada um dos bairros, saber quando começam, quando terminam e quanto custam, bem como o andamento de cada uma em fotos e vídeos.
         </Text.Heading5Regular>
 
         <Text.Heading4Regular marginTop={12}>
-          *Dado que algunas obras poseen un alcance territorial amplio, debido a
-          que residentes de barrios vecinos hacen uso de estas, en algunos casos
-          se consideró el impacto de las obras en más de un solo barrio. La
-          información se actualiza aproximadamente cada 15 días.
+        É preciso expandir este processo para que toda a população possa participar e se engajar. Nosso objetivo é fazer um governo cada vez mais transparente e guiado pelo que a população mais espera.
         </Text.Heading4Regular>
       </Style.Description>
     </LayoutConstructions>
@@ -92,3 +43,4 @@ const AboutScreen = () => {
 };
 
 export default AboutScreen;
+

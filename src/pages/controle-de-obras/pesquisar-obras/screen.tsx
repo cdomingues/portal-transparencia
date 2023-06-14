@@ -12,8 +12,8 @@ interface PropsPagination {
 }
 
 export const contentSearchConstructions = {
-  titlePage: "Pesquisar Obras",
-  description: "Conocé toda la información sobre las obras de la Ciudad.",
+  titlePage: "Pesquise sobre as Obras",
+  description: "Conheça todas as informações sobre as obras da Prefeitura",
 };
 
 const SearchBuildingsScreen = ({ handlers }: any) => {
@@ -33,32 +33,6 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
     numberOfPages,
     handleChangePage,
   } = handlers;
-
-  const [password, setPassword] = useState("");
-  if (!password || password != " ") {
-    return (
-      <div
-        style={{
-          width: "500px",
-          height: "200px",
-          margin: "0 auto",
-          display: "flex",
-          flexDirection: "column",
-          backgroundColor: "white",
-          padding: 20,
-          borderRadius: 30,
-        }}
-      >
-        <span>Digite a senha para acessar:</span>
-        <Input
-          placeholder="Senha"
-          onChange={(event) => setPassword(event.target.value)}
-          type="password"
-          style={{ marginTop: 5 }}
-        />
-      </div>
-    );
-  }
 
   function Pagination({ totalPages, onPageChange }: PropsPagination) {
     const pageNumbers = [];
@@ -259,7 +233,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                         Bairro:
                       </Text.Heading4Bold>
                       <Text.Heading5Regular color={colors.black}>
-                        {item?.bairro}
+                        {item?.bairro_desc}
                       </Text.Heading5Regular>
                     </div>
                     <div className="item">

@@ -15,7 +15,7 @@ const ConstructionScreen = ({ id }: any) => {
 
   const getFileOfConstructions = async () => {
     const response = await fetch(
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=2a3f2bc3-551b-434d-89c7-a31da90d7e1f",
+      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=03146785-57db-4207-8924-85c492e8b9a8",
       {
         headers: {
           Authorization:

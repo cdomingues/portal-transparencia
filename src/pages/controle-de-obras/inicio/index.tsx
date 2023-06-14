@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import * as Style from "../../../styles/components/controle-de-obras-inicio/styles";
 import { TableColumns } from "../../../components/Table";
 import LayoutConstructions from "../../../components/LayoutConstructions";
@@ -15,7 +15,6 @@ import CardTransformation from "../../../components/CardTransformation";
 import { Heading, Input, Text } from "@chakra-ui/react";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 
-
 type PropsInput = {
   handler?: {
     columns?: TableColumns;
@@ -25,73 +24,67 @@ type PropsInput = {
 };
 
 export const contentConstructionsControl = {
-  titlePage:"Portal de Obras - Mogi das Cruzes",
-  description:"Conheça as obras que estão transformando nossa cidade.",
-}
+  titlePage: "Portal de Obras - Mogi das Cruzes",
+  description: "Conheça as obras que estão transformando nossa cidade.",
+};
 
 function Screen({ handler }: PropsInput) {
   const router = useRouter();
-  const [password, setPassword] = useState("");
   const accessibility = useFontSizeAccessibilityContext();
 
-  if (!password || password != " ") {
-    return (
-      <div
-        style={{
-          width: "500px",
-          height: "200px",
-          margin: "0 auto",
-          display: "flex",
-          flexDirection: "column",
-          backgroundColor: "white",
-          padding: 20,
-          borderRadius: 30,
-        }}
-      >
-        <span>Digite a senha para acessar:</span>
-        <Input
-          placeholder="Senha"
-          onChange={(event) => setPassword(event.target.value)}
-          type="password"
-          style={{ marginTop: 5 }}
-        />
-      </div>
-    );
-  }
   return (
     <LayoutConstructions breadcrumb={false}>
       <Style.Banner>
         <div className="content">
-          <Heading color={colors.white} fontSize={accessibility?.fonts?.moreUltraLarge} marginTop={50}>
+          <Heading
+            color={colors.white}
+            fontSize={accessibility?.fonts?.moreUltraLarge}
+            marginTop={50}
+          >
             {contentConstructionsControl?.titlePage}
           </Heading>
 
-          <Text color={colors.white} fontSize={accessibility?.fonts?.large} marginTop={10}>
+          <Text
+            color={colors.white}
+            fontSize={accessibility?.fonts?.large}
+            marginTop={10}
+          >
             {contentConstructionsControl?.description}
           </Text>
           <div className="banner-bottom">
             <div
               className="chip-banner"
-              onClick={() => router.push("/controle-de-obras/sobre-as-obras")}
+              onClick={() =>
+                router.push("/controle-de-obras/sobre-as-obras")
+              }
             >
               <AiFillInfoCircle fontSize={18} color={colors.white} />
 
-              <Text color={colors.white} fontSize={accessibility?.fonts?.medium} fontWeight={700}>
+              <Text
+                color={colors.white}
+                fontSize={accessibility?.fonts?.medium}
+                fontWeight={700}
+              >
                 Sobre as obras
               </Text>
             </div>
 
             <div
               className="chip-banner"
-              onClick={() => router.push("/controle-de-obras/pesquisar-obras")}
+              onClick={() =>
+                router.push("/controle-de-obras/pesquisar-obras")
+              }
             >
               <AiOutlineSearch fontSize={18} color={colors.white} />
 
-              <Heading color={colors.white} fontSize={accessibility?.fonts?.medium} fontWeight={700}>
+              <Heading
+                color={colors.white}
+                fontSize={accessibility?.fonts?.medium}
+                fontWeight={700}
+              >
                 Pesquise obras
               </Heading>
             </div>
-
           </div>
         </div>
       </Style.Banner>

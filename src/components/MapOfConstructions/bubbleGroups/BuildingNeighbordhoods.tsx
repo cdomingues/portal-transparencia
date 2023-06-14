@@ -24,7 +24,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsMorumbi = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro?.toUpperCase()?.includes("PARQUE MORUMBI"))
+        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("PARQUE MORUMBI"))
         ?.map((item: any) => {
           return {
             ...item,
@@ -37,7 +37,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsJundiapeba = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro?.toUpperCase()?.includes("JUNDIAPEBA"))
+        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("JUNDIAPEBA"))
         ?.map((item: any) => {
           return {
             ...item,
@@ -50,7 +50,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsBojuturu = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro?.toUpperCase()?.includes("BOTUJURU"))
+        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("BOTUJURU"))
         ?.map((item: any) => {
           return {
             ...item,
@@ -63,7 +63,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsSantoAngelo = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro?.toUpperCase()?.includes("SANTO ÂNGELO"))
+        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("SANTO ÂNGELO"))
         ?.map((item: any) => {
           return {
             ...item,
@@ -76,7 +76,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsRodeio = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro?.toUpperCase()?.includes("FAZENDA RODEIO"))
+        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("FAZENDA RODEIO"))
         ?.map((item: any) => {
           return {
             ...item,
@@ -89,7 +89,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsMogilar = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro?.toUpperCase()?.includes("NOVA MOGILAR"))
+        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("NOVA MOGILAR"))
         ?.map((item: any) => {
           return {
             ...item,
@@ -102,7 +102,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsBrazCubas = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro?.toUpperCase()?.includes("BRAZ CUBAS"))
+        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("BRAZ CUBAS"))
         ?.map((item: any) => {
           return {
             ...item,
@@ -115,7 +115,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsNovaJundiapeba = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro?.toUpperCase()?.includes("NOVA JUNDIAPEBA"))
+        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("NOVA JUNDIAPEBA"))
         ?.map((item: any) => {
           return {
             ...item,
@@ -128,7 +128,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsSocorro = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro?.toUpperCase()?.includes("SOCORRO"))
+        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("SOCORRO"))
         ?.map((item: any) => {
           return {
             ...item,
@@ -141,7 +141,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsCezarDeSouza = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro?.toUpperCase()?.includes("CEZAR DE SOUZA"))
+        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("CEZAR DE SOUZA"))
         ?.map((item: any) => {
           return {
             ...item,
@@ -154,7 +154,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsCentro = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro?.toUpperCase()?.includes("CENTRO"))
+        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("CENTRO"))
         ?.map((item: any) => {
           return {
             ...item,
@@ -167,7 +167,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsMogiModerno = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro?.toUpperCase()?.includes("MOGI MODERNO"))
+        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("MOGI MODERNO"))
         ?.map((item: any) => {
           return {
             ...item,
@@ -180,7 +180,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsTaiacupeba = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro?.toUpperCase()?.includes("TAIAÇUPEBA"))
+        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("TAIAÇUPEBA"))
         ?.map((item: any) => {
           return {
             ...item,
@@ -193,7 +193,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsVilaNatal = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro?.toUpperCase()?.includes("VILA NATAL"))
+        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("VILA NATAL"))
         ?.map((item: any) => {
           return {
             ...item,
@@ -206,7 +206,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsConjuntoSantoAngelo = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro?.toUpperCase()?.includes("CONJUNTO SANTO ÂNGELO"))
+        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("CONJUNTO SANTO ÂNGELO"))
         ?.map((item: any) => {
           return {
             ...item,
@@ -219,7 +219,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsParqueOlimpico = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro?.toUpperCase()?.includes("PARQUE OLÍMPICO"))
+        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("PARQUE OLÍMPICO"))
         ?.map((item: any) => {
           return {
             ...item,
@@ -232,7 +232,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsVilaCintra = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro?.toUpperCase()?.includes("VILA CINTRA"))
+        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("VILA CINTRA"))
         ?.map((item: any) => {
           return {
             ...item,
@@ -245,7 +245,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsTaboao = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro?.toUpperCase()?.includes("TABOÃO"))
+        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("TABOÃO"))
         ?.map((item: any) => {
           return {
             ...item,
@@ -258,7 +258,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsJardimAracy = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro?.toUpperCase()?.includes("JARDIM ARACY"))
+        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("JARDIM ARACY"))
         ?.map((item: any) => {
           return {
             ...item,
@@ -271,7 +271,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsVilaLavinia = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro?.toUpperCase()?.includes("VILA LAVÍNIA"))
+        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("VILA LAVÍNIA"))
         ?.map((item: any) => {
           return {
             ...item,
@@ -284,7 +284,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsJardimAeroporto = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro?.toUpperCase()?.includes("JARDIM AEROPORTO"))
+        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("JARDIM AEROPORTO"))
         ?.map((item: any) => {
           return {
             ...item,
@@ -297,7 +297,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsChacaraGuanabara = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro?.toUpperCase()?.includes("CHÁCARA GUANABARA"))
+        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("CHÁCARA GUANABARA"))
         ?.map((item: any) => {
           return {
             ...item,
@@ -310,7 +310,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsResidencialNovoHorizonte = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro?.toUpperCase()?.includes("RESIDENCIAL NOVO HORIZONTE"))
+        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("RESIDENCIAL NOVO HORIZONTE"))
         ?.map((item: any) => {
           return {
             ...item,
@@ -323,7 +323,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsJardimMarica = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro?.toUpperCase()?.includes("JARDIM MARICÁ"))
+        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("JARDIM MARICÁ"))
         ?.map((item: any) => {
           return {
             ...item,
@@ -336,7 +336,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsJardimSantaTereza = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro?.toUpperCase()?.includes("JARDIM SANTA TEREZA"))
+        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("JARDIM SANTA TEREZA"))
         ?.map((item: any) => {
           return {
             ...item,
