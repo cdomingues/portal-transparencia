@@ -194,7 +194,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                     </div>
                     <div className="item">
                       <Text.Heading4Bold color={colors.black}>
-                        Monto:
+                        Montante:
                       </Text.Heading4Bold>
                       <Text.Heading5Regular color={colors.black}>
                         {parseMoney(item?.valor_contrato)}
@@ -204,7 +204,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
 
                   <div style={{ marginTop: 20 }}>
                     <Text.Heading4Bold color={colors.black}>
-                      Descripción:
+                      Descrição:
                     </Text.Heading4Bold>
                     <Text.Heading5Regular color={colors.black}>
                       {item?.descricao_da_obra}
@@ -222,7 +222,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                     </div> */}
                     <div className="item">
                       <Text.Heading4Bold color={colors.black}>
-                        Tipo:
+                        Programa:
                       </Text.Heading4Bold>
                       <Text.Heading5Regular color={colors.black}>
                         {item?.programa_ppa}

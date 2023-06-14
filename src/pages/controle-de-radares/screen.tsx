@@ -21,7 +21,7 @@ const markerChildren = (data: any) => {
   return (
     <>
       <p>
-        <b>Tipo:</b> {data?.tipo}
+        <b>Programa:</b> {data?.tipo}
       </p>
       <p>
         <b>Velocidade (km/h):</b> {data?.velocidade}
