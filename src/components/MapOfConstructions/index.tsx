@@ -139,7 +139,7 @@ const MapOfConstructions = () => {
             </Text.SmallerBold>
           </Style.RoundedButton>
 
-          <Style.RoundedButton
+          {/* <Style.RoundedButton
             onClick={() => setViewOption("highlights")}
             color={colors.primaryDefault}
           >
@@ -151,7 +151,7 @@ const MapOfConstructions = () => {
             >
               Destaques
             </Text.SmallerBold>
-          </Style.RoundedButton>
+          </Style.RoundedButton> */}
         </div>
       </Style.Options>
 

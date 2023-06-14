@@ -3,6 +3,7 @@ import * as Style from "./styles";
 import BuildingSteps from "./BuildingStep";
 import BuildingValues from "./BuildingValues";
 import axios from "axios";
+import BuildingNeighbordhoods from "./BuildingNeighbordhoods";
 
 const BubbleGroups = ({
   viewOption,
@@ -69,7 +70,7 @@ const BubbleGroups = ({
 
   const translator: any = {
     neighborhood: (
-      <BuildingSteps
+      <BuildingNeighbordhoods
         setConstructionSelected={setConstructionSelected}
         filteredValues={filteredValues}
       />

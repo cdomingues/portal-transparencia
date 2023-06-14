@@ -5,10 +5,21 @@ import { useEffect, useMemo } from "react";
 import colors from "../../../styles/colors";
 
 const BuildingValues = ({ setConstructionSelected, filteredValues }: any) => {
-  const translatorColor: any = {
-    Escuelas: colors.randomColors.blue,
-    "Espacio Público": colors.green,
-    Vivienda: colors.red,
+
+  const translatorColor = (value: string) => {
+    const translator: {[key:string]: string} = {
+      '2006 - SANEAMENTO AMBIENTAL': colors.randomColors.green,
+      '2004 - INFRAESTRUTURA': colors.randomColors.blue,
+      '2000 - MOGI EFICIENTE': colors.green,
+      '3100 - SAÚDE': colors.randomColors.blueLight,
+      '3003 - ESPORTE': colors.randomColors.orangeLight,
+      '2007 - MOBILIDADE URBANA': colors.randomColors.red,
+      '3004 - SEGURANÇA': colors.randomColors.yellow,
+      '2001 - CIDADE INTELIGENTE': colors.black,
+      '1001 - PRIMEIROS PASSOS': colors.grayDark
+    };
+
+    return translator[value] ? translator[value] : colors.graySemiMedium;
   };
 
   const ONE_THOUSAND = 100000;
@@ -21,13 +32,13 @@ const BuildingValues = ({ setConstructionSelected, filteredValues }: any) => {
       filteredValues
         ?.filter(
           (item: any) =>
-            Number(item.Valor_inicial) > ONE_THOUSAND &&
-            Number(item.Valor_inicial) < FIVE_THOUSAND
+            Number(item.valor_contrato) > ONE_THOUSAND &&
+            Number(item.valor_contrato) < FIVE_THOUSAND
         )
         ?.map((item: any) => {
           return {
             ...item,
-            color: translatorColor[item?.Categoria],
+            color: translatorColor(item?.programa_ppa),
           };
         }),
     [filteredValues]
@@ -38,13 +49,13 @@ const BuildingValues = ({ setConstructionSelected, filteredValues }: any) => {
       filteredValues
         ?.filter(
           (item: any) =>
-            Number(item.Valor_inicial) > FIVE_THOUSAND &&
-            Number(item.Valor_inicial) < ONE_MILLION
+            Number(item.valor_contrato) > FIVE_THOUSAND &&
+            Number(item.valor_contrato) < ONE_MILLION
         )
         ?.map((item: any) => {
           return {
             ...item,
-            color: translatorColor[item?.Categoria],
+            color: translatorColor(item?.programa_ppa),
           };
         }),
     [filteredValues]
@@ -55,13 +66,13 @@ const BuildingValues = ({ setConstructionSelected, filteredValues }: any) => {
       filteredValues
         ?.filter(
           (item: any) =>
-            Number(item.Valor_inicial) > ONE_MILLION &&
-            Number(item.Valor_inicial) < TEEN_MILLION
+            Number(item.valor_contrato) > ONE_MILLION &&
+            Number(item.valor_contrato) < TEEN_MILLION
         )
         ?.map((item: any) => {
           return {
             ...item,
-            color: translatorColor[item?.Categoria],
+            color: translatorColor(item?.programa_ppa),
           };
         }),
     [filteredValues]
@@ -70,11 +81,11 @@ const BuildingValues = ({ setConstructionSelected, filteredValues }: any) => {
   let buildingsMoreThanTeenMillion = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => Number(item.Valor_inicial) > TEEN_MILLION)
+        ?.filter((item: any) => Number(item.valor_contrato) > TEEN_MILLION)
         ?.map((item: any) => {
           return {
             ...item,
-            color: translatorColor[item?.Categoria],
+            color: translatorColor(item?.programa_ppa),
           };
         }),
     [filteredValues]

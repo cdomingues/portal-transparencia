@@ -117,7 +117,7 @@ export const Options = styled.div`
   height: auto;
   background-color: ${colors.white};
   margin-top: 45px;
-  margin-bottom: -600px;
+  margin-bottom: -500px;
   margin-left: 45px;
   z-index: 10000;
   position: relative;
