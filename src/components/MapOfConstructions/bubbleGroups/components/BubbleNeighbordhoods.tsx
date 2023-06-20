@@ -12,19 +12,21 @@ const BubbleNeighbordhoods = ({
     try {
       var svg = d3
         .select("#" + reference)
+        // .style("background-color", "black")
         .append("svg")
         .attr("width", "100%")
-        .attr("height", 60);
+        .attr("height", 200);
 
       var node = svg
         .append("g")
+        .attr("transform", "translate(" + 100 / 2 + "," + 60 / 2 + ")")
         .selectAll("circle")
         .data(buildingsData)
         .enter()
         .append("circle")
-        .attr("r", 5)
-        .attr("cx", "50%")
-        .attr("cy", 100 / 2)
+        .attr("r", 7)
+        .attr("cx", "80%")
+        .attr("cy", 50 / 2)
         .style("fill", function (d: any) {
           return d.color;
         })
@@ -37,7 +39,7 @@ const BubbleNeighbordhoods = ({
           d3.select(this).style("r", 8).style("cursor", "pointer");
         })
         .on("mouseout", function (d) {
-          d3.select(this).style("r", 5).style("cursor", "default");
+          d3.select(this).style("r", 7).style("cursor", "default");
         })
         .on("click", function (d) {
           let item = d3.select(this) as any;
@@ -50,13 +52,13 @@ const BubbleNeighbordhoods = ({
           "center",
           d3
             .forceCenter()
-            .x(250 / 2)
-            .y(50 / 2)
+            .x(80 / 2)
+            .y(120 / 2)
         ) // Attraction to the center of the svg area
-        .force("charge", d3.forceManyBody().strength(0.5)) // Nodes are attracted one each other of value is > 0
+        .force("charge", d3.forceManyBody().strength(-1)) // Nodes are attracted one each other of value is > 0
         .force(
           "collide",
-          d3.forceCollide().strength(0.01).radius(5).iterations(1)
+          d3.forceCollide(1).strength(1).radius(2).iterations(1)
         );
 
       simulation.nodes(buildingsData).on("tick", () => {

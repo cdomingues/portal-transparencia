@@ -6,10 +6,20 @@ import colors from "../../../styles/colors";
 
 const BuildingSteps = ({ setConstructionSelected, filteredValues }: any) => {
 
-  const translatorSituationColor: any = {
-    INICIADO: colors.primaryDefault,
-    CONCLUÍDO: colors.green,
-    RESCINDIDO: colors.red,
+  const translatorColor = (value: string) => {
+    const translator: {[key:string]: string} = {
+      '2006 - SANEAMENTO AMBIENTAL': colors.programColors.green,
+      '2004 - INFRAESTRUTURA': colors.programColors.purple,
+      '2000 - MOGI EFICIENTE': colors.programColors.pink,
+      '3100 - SAÚDE': colors.programColors.blueLight,
+      '3003 - ESPORTE': colors.programColors.red,
+      '2007 - MOBILIDADE URBANA': colors.programColors.orange,
+      '3004 - SEGURANÇA': colors.programColors.blue,
+      '2001 - CIDADE INTELIGENTE': colors.programColors.greeLight,
+      '1001 - PRIMEIROS PASSOS': colors.programColors.yellow,
+    };
+
+    return translator[value] ? translator[value] : colors.graySemiMedium;
   };
 
   let buildingsStopped = useMemo(
@@ -19,7 +29,7 @@ const BuildingSteps = ({ setConstructionSelected, filteredValues }: any) => {
         ?.map((item: any) => {
           return {
             ...item,
-            color: translatorSituationColor[item?.situacao],
+            color: translatorColor(item?.programa_ppa),
           };
         }),
     [filteredValues]
@@ -32,7 +42,7 @@ const BuildingSteps = ({ setConstructionSelected, filteredValues }: any) => {
         ?.map((item: any) => {
           return {
             ...item,
-            color: translatorSituationColor[item?.situacao],
+            color: translatorColor(item?.programa_ppa),
           };
         }),
     [filteredValues]
@@ -45,7 +55,7 @@ const BuildingSteps = ({ setConstructionSelected, filteredValues }: any) => {
         ?.map((item: any) => {
           return {
             ...item,
-            color: translatorSituationColor[item?.situacao],
+            color: translatorColor(item?.programa_ppa),
           };
         }),
     [filteredValues]

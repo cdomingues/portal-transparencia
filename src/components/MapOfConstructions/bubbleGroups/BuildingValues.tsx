@@ -8,22 +8,22 @@ const BuildingValues = ({ setConstructionSelected, filteredValues }: any) => {
 
   const translatorColor = (value: string) => {
     const translator: {[key:string]: string} = {
-      '2006 - SANEAMENTO AMBIENTAL': colors.randomColors.green,
-      '2004 - INFRAESTRUTURA': colors.randomColors.blue,
-      '2000 - MOGI EFICIENTE': colors.green,
-      '3100 - SAÚDE': colors.randomColors.blueLight,
-      '3003 - ESPORTE': colors.randomColors.orangeLight,
-      '2007 - MOBILIDADE URBANA': colors.randomColors.red,
-      '3004 - SEGURANÇA': colors.randomColors.yellow,
-      '2001 - CIDADE INTELIGENTE': colors.black,
-      '1001 - PRIMEIROS PASSOS': colors.grayDark
+      '2006 - SANEAMENTO AMBIENTAL': colors.programColors.green,
+      '2004 - INFRAESTRUTURA': colors.programColors.purple,
+      '2000 - MOGI EFICIENTE': colors.programColors.pink,
+      '3100 - SAÚDE': colors.programColors.blueLight,
+      '3003 - ESPORTE': colors.programColors.red,
+      '2007 - MOBILIDADE URBANA': colors.programColors.orange,
+      '3004 - SEGURANÇA': colors.programColors.blue,
+      '2001 - CIDADE INTELIGENTE': colors.programColors.greeLight,
+      '1001 - PRIMEIROS PASSOS': colors.programColors.yellow,
     };
 
     return translator[value] ? translator[value] : colors.graySemiMedium;
   };
 
   const ONE_THOUSAND = 100000;
-  const FIVE_THOUSAND = 100000;
+  const FIVE_THOUSAND = 500000;
   const ONE_MILLION = 1000000;
   const TEEN_MILLION = 10000000;
 
@@ -95,7 +95,7 @@ const BuildingValues = ({ setConstructionSelected, filteredValues }: any) => {
   return (
     <Style.StepContainer>
       <div className="box-step">
-        <Text.Heading4Bold>+ 100 mil</Text.Heading4Bold>
+        <Text.Heading4Bold>Obras até 500 Mil Reais</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsMoreOneThousand?.length !== 0 && (
             <Bubble
@@ -107,7 +107,7 @@ const BuildingValues = ({ setConstructionSelected, filteredValues }: any) => {
         </div>
       </div>
       <div className="box-step">
-        <Text.Heading4Bold>+ 500 mil</Text.Heading4Bold>
+        <Text.Heading4Bold>Obras acima de 500 Mil Reais</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsMoreFiveHundredThousand?.length !== 0 && (
             <Bubble
@@ -119,7 +119,7 @@ const BuildingValues = ({ setConstructionSelected, filteredValues }: any) => {
         </div>
       </div>
       <div className="box-step">
-        <Text.Heading4Bold>+ 1 milhão</Text.Heading4Bold>
+        <Text.Heading4Bold>Obras acima de 1 Milhão de Reais</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsMoreThanOneMillion?.length !== 0 && (
             <Bubble
@@ -131,7 +131,7 @@ const BuildingValues = ({ setConstructionSelected, filteredValues }: any) => {
         </div>
       </div>
       <div className="box-step">
-        <Text.Heading4Bold>+ 10 milhões</Text.Heading4Bold>
+        <Text.Heading4Bold>Obras acima de 10 milhões</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsMoreThanTeenMillion?.length !== 0 && (
             <Bubble

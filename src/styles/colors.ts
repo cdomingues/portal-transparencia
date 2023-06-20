@@ -45,6 +45,22 @@ const colors = {
       pink:"#FF02EA",
     },
 
+
+    programColors:{
+      red:'#DD4134',
+      orange:"#F88B2A",
+      orangeLight:"#FF9200",
+      yellow:"#F8C336",
+      green:'#8AC43F',
+      greeLight: "#22BFBD",
+      ciano:"#00FFE5",
+      blueLight:"#0093D3",
+      blue:"#1C3C6E",
+      purple:"#7F3F96",
+      pink:"#FF588D",
+    },
+
+
     footer:"#333333"
   };
   

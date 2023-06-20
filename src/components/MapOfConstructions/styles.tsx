@@ -25,39 +25,39 @@ export const Container = styled.div`
   }
 
   .environmental {
-    background-color: ${colors.randomColors.green} !important;
+    background-color: ${colors.programColors.green} !important;
   }
 
   .infrastructure {
-    background-color: ${colors.randomColors.blue}!important;
+    background-color: ${colors.programColors.purple}!important;
   }
 
   .efficient {
-    background-color: ${colors.green}!important;
+    background-color: ${colors.programColors.pink}!important;
   }
 
   .health {
-    background-color: ${colors.randomColors.blueLight}!important;
+    background-color: ${colors.programColors.blueLight}!important;
   }
 
   .sport {
-    background-color: ${colors.randomColors.orangeLight}!important;
+    background-color: ${colors.programColors.red}!important;
   }
 
   .mobility {
-    background-color: ${colors.randomColors.red}!important;
+    background-color: ${colors.programColors.orange}!important;
   }
 
   .security {
-    background-color: ${colors.randomColors.yellow}!important;
+    background-color: ${colors.programColors.blue}!important;
   }
 
   .inovation {
-    background-color: ${colors.black}!important;
+    background-color: ${colors.programColors.greeLight}!important;
   }
 
   .steps{
-    background-color: ${colors.grayDark}!important;
+    background-color: ${colors.programColors.yellow}!important;
   }
 
   .map-style {

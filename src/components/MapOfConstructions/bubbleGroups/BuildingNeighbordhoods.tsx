@@ -10,15 +10,15 @@ const BuildingNeighbordhoods = ({
 }: any) => {
   const translatorColor = (value: string) => {
     const translator: { [key: string]: string } = {
-      "2006 - SANEAMENTO AMBIENTAL": colors.randomColors.green,
-      "2004 - INFRAESTRUTURA": colors.randomColors.blue,
-      "2000 - MOGI EFICIENTE": colors.green,
-      "3100 - SAÚDE": colors.randomColors.blueLight,
-      "3003 - ESPORTE": colors.randomColors.orangeLight,
-      "2007 - MOBILIDADE URBANA": colors.randomColors.red,
-      "3004 - SEGURANÇA": colors.randomColors.yellow,
-      "2001 - CIDADE INTELIGENTE": colors.black,
-      "1001 - PRIMEIROS PASSOS": colors.grayDark,
+      '2006 - SANEAMENTO AMBIENTAL': colors.programColors.green,
+      '2004 - INFRAESTRUTURA': colors.programColors.purple,
+      '2000 - MOGI EFICIENTE': colors.programColors.pink,
+      '3100 - SAÚDE': colors.programColors.blueLight,
+      '3003 - ESPORTE': colors.programColors.red,
+      '2007 - MOBILIDADE URBANA': colors.programColors.orange,
+      '3004 - SEGURANÇA': colors.programColors.blue,
+      '2001 - CIDADE INTELIGENTE': colors.programColors.greeLight,
+      '1001 - PRIMEIROS PASSOS': colors.programColors.yellow,
     };
 
     return translator[value] ? translator[value] : colors.graySemiMedium;
@@ -572,7 +572,7 @@ const BuildingNeighbordhoods = ({
         </div>
       </div>
       <div className="box-step-neighbordhoods">
-        <Text.Heading4Bold>CONJUNTO SANTO ÂNGELO</Text.Heading4Bold>
+        <Text.Heading4Bold>CONJ. SANTO ÂNGELO</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsConjuntoSantoAngelo?.length !== 0 && (
             <Bubble
@@ -668,7 +668,7 @@ const BuildingNeighbordhoods = ({
         </div>
       </div>
       <div className="box-step-neighbordhoods">
-        <Text.Heading4Bold>RESIDENCIAL NOVO HORIZONTE</Text.Heading4Bold>
+        <Text.Heading4Bold>RES. NOVO HORIZONTE</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsResidencialNovoHorizonte?.length !== 0 && (
             <Bubble

@@ -14,6 +14,13 @@
     "data_noticia": "13 de Junho de 2023"
   },
   {
+    "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/1/20230615150822648b5396ee063.jpeg",
+    "titulo": "Prefeitura de Mogi das Cruzes apresenta Laboratório de Inovação em Governo Aberto em evento da  Controladoria Geral da União",
+    "descricao": "A Prefeitura de Mogi das Cruzes, por meio da secretaria Municipal de Transparência e Dados Abertos, apresentou em um evento da Controladoria Geral da União (CGU) o trabalho realizado no Laboratório...",
+    "link": "https://www.mogidascruzes.sp.gov.br/noticia/prefeitura-de-mogi-das-cruzes-apresenta-laboratorio-de-inovacao-em-governo-aberto-em-evento-da-controladoria-geral-da-uniao",
+    "data_noticia": "12 de Junho de 2023"
+  },
+  {
     "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/1/20230524171342646e6ff604687.jpg",
     "titulo": "Mogi Cidade da Criança recebe prêmio InovaCidade do Smart City Business America 2023",
     "descricao": "O Programa Mogi Cidade da Criança - Primeira Infância conquistou o Prêmio InovaCidade 2023, do Instituto Smart City Business America (SCBA), na noite desta última terça-feira...",
@@ -131,12 +138,5 @@
     "descricao": "A Prefeitura de Mogi das Cruzes, por meio da Secretaria Municipal de Transparência e Dados Abertos, dá um importante passo na regulamentação da LGPD (Lei Geral de Proteção...",
     "link": "https://www.mogidascruzes.sp.gov.br/noticia/prefeitura-de-mogi-das-cruzes-capacita-servidores-sobre-a-lgpd",
     "data_noticia": "10 de Fevereiro de 2023"
-  },
-  {
-    "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/1/202003240900225e79f656d5589.jpg",
-    "titulo": "Mogi das Cruzes participa de painel de discussões com líderes internacionais",
-    "descricao": "A Secretaria Municipal de Transparência e Dados Abertos da Prefeitura de Mogi das Cruzes foi convidada a participar do Painel de Discussão com Líderes Internacionais do Programa City...",
-    "link": "https://www.mogidascruzes.sp.gov.br/noticia/mogi-das-cruzes-participa-de-painel-de-discussoes-com-lideres-internacionais",
-    "data_noticia": "03 de Fevereiro de 2023"
   }
 ]

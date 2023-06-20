@@ -17,23 +17,27 @@ export const BubbleGroups = styled.div`
 `;
 
 export const StepContainer = styled.div`
-  width: 100%;
+  width: 60%;
   height: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  gap: 20px;
 
   .box-step {
-    padding: 10px 20px;
+    padding: 5px;
     background-color: ${colors.grayLight};
     display: flex;
     flex-direction: column;
     min-height: 400px;
+    max-height: 650px;
+    
     .svg-bubble {
-      width: 100%;
+      width: 400px;
       height: 400px;
+      // background-color: blue; // Adicionado para visualizar o container
     }
   }
+  
 
   @media (max-width: 760px) {
     grid-template-columns: 1fr;
@@ -41,21 +45,22 @@ export const StepContainer = styled.div`
 `;
 
 export const StepContainerNeighbordhoods = styled.div`
-  width: 100%;
+  width: 80%;
   height: auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 30px;
 
   .box-step-neighbordhoods {
-    padding: 10px 20px;
+    padding: 10px;
     background-color: ${colors.grayLight};
     display: flex;
     flex-direction: column;
     max-height: 240px;
     .svg-bubble {
       width: 100%;
-      height: 200px;
+      height: 240px;
+      // background-color: blue; // Adicionado para visualizar o container
     }
   }
 

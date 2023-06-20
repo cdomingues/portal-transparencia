@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
+import { max } from "lodash";
 
 const Bubble = ({ buildingsData, setConstructionSelected, reference }: any) => {
   const svgRef = useRef();
@@ -9,18 +10,21 @@ const Bubble = ({ buildingsData, setConstructionSelected, reference }: any) => {
       var svg = d3
         .select("#" + reference)
         .append("svg")
-        .attr("width", "100%")
-        .attr("height", 100);
+        // .style("background-color", "black")
+        .attr("width", 400)
+        .attr("height", 400)
 
+ 
       var node = svg
         .append("g")
+        .attr("transform", "translate(" + 200 / 2 + "," + 200 / 2 + ")")
         .selectAll("circle")
         .data(buildingsData)
         .enter()
         .append("circle")
-        .attr("r", 5)
-        .attr("cx", "50%")
-        .attr("cy", 100 / 2)
+        .attr("r", 7)
+        .attr("cx", "80%")
+        .attr("cy", 50 / 2)
         .style("fill", function (d: any) {
           return d.color;
         })
@@ -33,7 +37,7 @@ const Bubble = ({ buildingsData, setConstructionSelected, reference }: any) => {
           d3.select(this).style("r", 8).style("cursor", "pointer");
         })
         .on("mouseout", function (d) {
-          d3.select(this).style("r", 5).style("cursor", "default");
+          d3.select(this).style("r", 7).style("cursor", "default");
         })
         .on("click", function (d) {
           let item = d3.select(this) as any;
@@ -45,14 +49,14 @@ const Bubble = ({ buildingsData, setConstructionSelected, reference }: any) => {
         .force(
           "center",
           d3
-            .forceCenter()
-            .x(400 / 2)
-            .y(100 / 2)
-        ) // Attraction to the center of the svg area
-        .force("charge", d3.forceManyBody().strength(0.5)) // Nodes are attracted one each other of value is > 0
+          .forceCenter()
+          .x(200 /2)
+          .y(200 / 2)
+      )
+        .force("charge", d3.forceManyBody().strength(-1)) // Nodes are attracted one each other of value is > 0
         .force(
           "collide",
-          d3.forceCollide().strength(0.01).radius(5).iterations(1)
+          d3.forceCollide(1).strength(1).radius(2).iterations(1)
         );
 
       simulation.nodes(buildingsData).on("tick", () => {
