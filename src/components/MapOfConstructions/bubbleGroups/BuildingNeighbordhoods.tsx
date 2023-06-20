@@ -1,10 +1,13 @@
 import * as Style from "./styles";
 import * as Text from "../../../styles/text";
-import Bubble from "../../Bubble";
+import Bubble from "./components/BubbleNeighbordhoods";
 import { useMemo } from "react";
 import colors from "../../../styles/colors";
 
-const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any) => {
+const BuildingNeighbordhoods = ({
+  setConstructionSelected,
+  filteredValues,
+}: any) => {
   const translatorColor = (value: string) => {
     const translator: { [key: string]: string } = {
       "2006 - SANEAMENTO AMBIENTAL": colors.randomColors.green,
@@ -24,7 +27,9 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsMorumbi = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("PARQUE MORUMBI"))
+        ?.filter((item: any) =>
+          item?.bairro_desc?.toUpperCase()?.includes("PARQUE MORUMBI")
+        )
         ?.map((item: any) => {
           return {
             ...item,
@@ -37,7 +42,9 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsJundiapeba = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("JUNDIAPEBA"))
+        ?.filter((item: any) =>
+          item?.bairro_desc?.toUpperCase()?.includes("JUNDIAPEBA")
+        )
         ?.map((item: any) => {
           return {
             ...item,
@@ -50,7 +57,9 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsBojuturu = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("BOTUJURU"))
+        ?.filter((item: any) =>
+          item?.bairro_desc?.toUpperCase()?.includes("BOTUJURU")
+        )
         ?.map((item: any) => {
           return {
             ...item,
@@ -63,7 +72,9 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsSantoAngelo = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("SANTO ÂNGELO"))
+        ?.filter((item: any) =>
+          item?.bairro_desc?.toUpperCase()?.includes("SANTO ÂNGELO")
+        )
         ?.map((item: any) => {
           return {
             ...item,
@@ -76,7 +87,9 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsRodeio = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("FAZENDA RODEIO"))
+        ?.filter((item: any) =>
+          item?.bairro_desc?.toUpperCase()?.includes("FAZENDA RODEIO")
+        )
         ?.map((item: any) => {
           return {
             ...item,
@@ -89,7 +102,9 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsMogilar = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("NOVA MOGILAR"))
+        ?.filter((item: any) =>
+          item?.bairro_desc?.toUpperCase()?.includes("NOVA MOGILAR")
+        )
         ?.map((item: any) => {
           return {
             ...item,
@@ -102,7 +117,9 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsBrazCubas = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("BRAZ CUBAS"))
+        ?.filter((item: any) =>
+          item?.bairro_desc?.toUpperCase()?.includes("BRAZ CUBAS")
+        )
         ?.map((item: any) => {
           return {
             ...item,
@@ -115,7 +132,9 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsNovaJundiapeba = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("NOVA JUNDIAPEBA"))
+        ?.filter((item: any) =>
+          item?.bairro_desc?.toUpperCase()?.includes("NOVA JUNDIAPEBA")
+        )
         ?.map((item: any) => {
           return {
             ...item,
@@ -128,7 +147,9 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsSocorro = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("SOCORRO"))
+        ?.filter((item: any) =>
+          item?.bairro_desc?.toUpperCase()?.includes("SOCORRO")
+        )
         ?.map((item: any) => {
           return {
             ...item,
@@ -141,7 +162,9 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsCezarDeSouza = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("CEZAR DE SOUZA"))
+        ?.filter((item: any) =>
+          item?.bairro_desc?.toUpperCase()?.includes("CEZAR DE SOUZA")
+        )
         ?.map((item: any) => {
           return {
             ...item,
@@ -150,11 +173,13 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
         }),
     [filteredValues]
   );
-  
+
   let buildingsCentro = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("CENTRO"))
+        ?.filter((item: any) =>
+          item?.bairro_desc?.toUpperCase()?.includes("CENTRO")
+        )
         ?.map((item: any) => {
           return {
             ...item,
@@ -167,7 +192,9 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsMogiModerno = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("MOGI MODERNO"))
+        ?.filter((item: any) =>
+          item?.bairro_desc?.toUpperCase()?.includes("MOGI MODERNO")
+        )
         ?.map((item: any) => {
           return {
             ...item,
@@ -180,7 +207,9 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsTaiacupeba = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("TAIAÇUPEBA"))
+        ?.filter((item: any) =>
+          item?.bairro_desc?.toUpperCase()?.includes("TAIAÇUPEBA")
+        )
         ?.map((item: any) => {
           return {
             ...item,
@@ -193,7 +222,9 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsVilaNatal = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("VILA NATAL"))
+        ?.filter((item: any) =>
+          item?.bairro_desc?.toUpperCase()?.includes("VILA NATAL")
+        )
         ?.map((item: any) => {
           return {
             ...item,
@@ -206,7 +237,9 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsConjuntoSantoAngelo = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("CONJUNTO SANTO ÂNGELO"))
+        ?.filter((item: any) =>
+          item?.bairro_desc?.toUpperCase()?.includes("CONJUNTO SANTO ÂNGELO")
+        )
         ?.map((item: any) => {
           return {
             ...item,
@@ -219,7 +252,9 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsParqueOlimpico = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("PARQUE OLÍMPICO"))
+        ?.filter((item: any) =>
+          item?.bairro_desc?.toUpperCase()?.includes("PARQUE OLÍMPICO")
+        )
         ?.map((item: any) => {
           return {
             ...item,
@@ -232,7 +267,9 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsVilaCintra = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("VILA CINTRA"))
+        ?.filter((item: any) =>
+          item?.bairro_desc?.toUpperCase()?.includes("VILA CINTRA")
+        )
         ?.map((item: any) => {
           return {
             ...item,
@@ -245,7 +282,9 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsTaboao = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("TABOÃO"))
+        ?.filter((item: any) =>
+          item?.bairro_desc?.toUpperCase()?.includes("TABOÃO")
+        )
         ?.map((item: any) => {
           return {
             ...item,
@@ -258,7 +297,9 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsJardimAracy = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("JARDIM ARACY"))
+        ?.filter((item: any) =>
+          item?.bairro_desc?.toUpperCase()?.includes("JARDIM ARACY")
+        )
         ?.map((item: any) => {
           return {
             ...item,
@@ -271,7 +312,9 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsVilaLavinia = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("VILA LAVÍNIA"))
+        ?.filter((item: any) =>
+          item?.bairro_desc?.toUpperCase()?.includes("VILA LAVÍNIA")
+        )
         ?.map((item: any) => {
           return {
             ...item,
@@ -284,7 +327,9 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsJardimAeroporto = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("JARDIM AEROPORTO"))
+        ?.filter((item: any) =>
+          item?.bairro_desc?.toUpperCase()?.includes("JARDIM AEROPORTO")
+        )
         ?.map((item: any) => {
           return {
             ...item,
@@ -297,7 +342,9 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsChacaraGuanabara = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("CHÁCARA GUANABARA"))
+        ?.filter((item: any) =>
+          item?.bairro_desc?.toUpperCase()?.includes("CHÁCARA GUANABARA")
+        )
         ?.map((item: any) => {
           return {
             ...item,
@@ -310,7 +357,11 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsResidencialNovoHorizonte = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("RESIDENCIAL NOVO HORIZONTE"))
+        ?.filter((item: any) =>
+          item?.bairro_desc
+            ?.toUpperCase()
+            ?.includes("RESIDENCIAL NOVO HORIZONTE")
+        )
         ?.map((item: any) => {
           return {
             ...item,
@@ -323,7 +374,9 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsJardimMarica = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("JARDIM MARICÁ"))
+        ?.filter((item: any) =>
+          item?.bairro_desc?.toUpperCase()?.includes("JARDIM MARICÁ")
+        )
         ?.map((item: any) => {
           return {
             ...item,
@@ -336,7 +389,9 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   let buildingsJardimSantaTereza = useMemo(
     () =>
       filteredValues
-        ?.filter((item: any) => item?.bairro_desc?.toUpperCase()?.includes("JARDIM SANTA TEREZA"))
+        ?.filter((item: any) =>
+          item?.bairro_desc?.toUpperCase()?.includes("JARDIM SANTA TEREZA")
+        )
         ?.map((item: any) => {
           return {
             ...item,
@@ -347,8 +402,8 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
   );
 
   return (
-    <Style.StepContainer>
-      <div className="box-step">
+    <Style.StepContainerNeighbordhoods>
+      <div className="box-step-neighbordhoods">
         <Text.Heading4Bold>PARQUE MORUMBI</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsMorumbi?.length !== 0 && (
@@ -360,7 +415,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
           )}
         </div>
       </div>
-      <div className="box-step">
+      <div className="box-step-neighbordhoods">
         <Text.Heading4Bold>JUNDIAPEBA</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsJundiapeba?.length !== 0 && (
@@ -372,7 +427,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
           )}
         </div>
       </div>
-      <div className="box-step">
+      <div className="box-step-neighbordhoods">
         <Text.Heading4Bold>BOTUJURU</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsBojuturu?.length !== 0 && (
@@ -384,7 +439,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
           )}
         </div>
       </div>
-      <div className="box-step">
+      <div className="box-step-neighbordhoods">
         <Text.Heading4Bold>SANTO ÂNGELO</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsSantoAngelo?.length !== 0 && (
@@ -396,7 +451,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
           )}
         </div>
       </div>
-      <div className="box-step">
+      <div className="box-step-neighbordhoods">
         <Text.Heading4Bold>FAZENDA RODEIO</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsRodeio?.length !== 0 && (
@@ -408,7 +463,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
           )}
         </div>
       </div>
-      <div className="box-step">
+      <div className="box-step-neighbordhoods">
         <Text.Heading4Bold>NOVA MOGILAR</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsMogilar?.length !== 0 && (
@@ -420,7 +475,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
           )}
         </div>
       </div>
-      <div className="box-step">
+      <div className="box-step-neighbordhoods">
         <Text.Heading4Bold>BRAZ CUBAS</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsBrazCubas?.length !== 0 && (
@@ -432,7 +487,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
           )}
         </div>
       </div>
-      <div className="box-step">
+      <div className="box-step-neighbordhoods">
         <Text.Heading4Bold>NOVA JUNDIAPEBA</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsNovaJundiapeba?.length !== 0 && (
@@ -444,7 +499,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
           )}
         </div>
       </div>
-      <div className="box-step">
+      <div className="box-step-neighbordhoods">
         <Text.Heading4Bold>SOCORRO</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsSocorro?.length !== 0 && (
@@ -456,7 +511,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
           )}
         </div>
       </div>
-      <div className="box-step">
+      <div className="box-step-neighbordhoods">
         <Text.Heading4Bold>CEZAR DE SOUZA</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsCezarDeSouza?.length !== 0 && (
@@ -468,7 +523,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
           )}
         </div>
       </div>
-      <div className="box-step">
+      <div className="box-step-neighbordhoods">
         <Text.Heading4Bold>CENTRO</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsCentro?.length !== 0 && (
@@ -480,7 +535,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
           )}
         </div>
       </div>
-      <div className="box-step">
+      <div className="box-step-neighbordhoods">
         <Text.Heading4Bold>MOGI MODERNO</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsMogiModerno?.length !== 0 && (
@@ -492,7 +547,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
           )}
         </div>
       </div>
-      <div className="box-step">
+      <div className="box-step-neighbordhoods">
         <Text.Heading4Bold>TAIAÇUPEBA</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsTaiacupeba?.length !== 0 && (
@@ -504,7 +559,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
           )}
         </div>
       </div>
-      <div className="box-step">
+      <div className="box-step-neighbordhoods">
         <Text.Heading4Bold>VILA NATAL</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsVilaNatal?.length !== 0 && (
@@ -516,7 +571,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
           )}
         </div>
       </div>
-      <div className="box-step">
+      <div className="box-step-neighbordhoods">
         <Text.Heading4Bold>CONJUNTO SANTO ÂNGELO</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsConjuntoSantoAngelo?.length !== 0 && (
@@ -528,7 +583,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
           )}
         </div>
       </div>
-      <div className="box-step">
+      <div className="box-step-neighbordhoods">
         <Text.Heading4Bold>PARQUE OLÍMPICO</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsParqueOlimpico?.length !== 0 && (
@@ -540,7 +595,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
           )}
         </div>
       </div>
-      <div className="box-step">
+      <div className="box-step-neighbordhoods">
         <Text.Heading4Bold>VILA CINTRA</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsVilaCintra?.length !== 0 && (
@@ -552,7 +607,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
           )}
         </div>
       </div>
-      <div className="box-step">
+      <div className="box-step-neighbordhoods">
         <Text.Heading4Bold>TABOÃO</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsTaboao?.length !== 0 && (
@@ -564,7 +619,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
           )}
         </div>
       </div>
-      <div className="box-step">
+      <div className="box-step-neighbordhoods">
         <Text.Heading4Bold>JARDIM ARACY</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsJardimAracy?.length !== 0 && (
@@ -576,7 +631,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
           )}
         </div>
       </div>
-      <div className="box-step">
+      <div className="box-step-neighbordhoods">
         <Text.Heading4Bold>VILA LAVÍNIA</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsVilaLavinia?.length !== 0 && (
@@ -588,7 +643,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
           )}
         </div>
       </div>
-      <div className="box-step">
+      <div className="box-step-neighbordhoods">
         <Text.Heading4Bold>JARDIM AEROPORTO</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsJardimAeroporto?.length !== 0 && (
@@ -600,7 +655,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
           )}
         </div>
       </div>
-      <div className="box-step">
+      <div className="box-step-neighbordhoods">
         <Text.Heading4Bold>CHÁCARA GUANABARA</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsChacaraGuanabara?.length !== 0 && (
@@ -612,7 +667,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
           )}
         </div>
       </div>
-      <div className="box-step">
+      <div className="box-step-neighbordhoods">
         <Text.Heading4Bold>RESIDENCIAL NOVO HORIZONTE</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsResidencialNovoHorizonte?.length !== 0 && (
@@ -624,7 +679,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
           )}
         </div>
       </div>
-      <div className="box-step">
+      <div className="box-step-neighbordhoods">
         <Text.Heading4Bold>JARDIM MARICÁ</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsJardimMarica?.length !== 0 && (
@@ -636,7 +691,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
           )}
         </div>
       </div>
-      <div className="box-step">
+      <div className="box-step-neighbordhoods">
         <Text.Heading4Bold>JARDIM SANTA TEREZA</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsJardimSantaTereza?.length !== 0 && (
@@ -648,8 +703,7 @@ const BuildingNeighbordhoods = ({ setConstructionSelected, filteredValues }: any
           )}
         </div>
       </div>
-
-    </Style.StepContainer>
+    </Style.StepContainerNeighbordhoods>
   );
 };
 

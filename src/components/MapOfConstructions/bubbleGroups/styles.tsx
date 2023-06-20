@@ -39,3 +39,39 @@ export const StepContainer = styled.div`
     grid-template-columns: 1fr;
   }
 `;
+
+export const StepContainerNeighbordhoods = styled.div`
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 30px;
+
+  .box-step-neighbordhoods {
+    padding: 10px 20px;
+    background-color: ${colors.grayLight};
+    display: flex;
+    flex-direction: column;
+    max-height: 240px;
+    .svg-bubble {
+      width: 100%;
+      height: 200px;
+    }
+  }
+
+  @media (max-width: 1670px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media (max-width: 1360px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 1080px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr;
+  }
+`;
