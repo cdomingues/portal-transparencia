@@ -17,16 +17,16 @@ const CardBigTransformation = ({
 }: CardTransformationProps) => {
   const router = useRouter();
   const arrayButton = [
-    { title: "Obras", color: colors.randomColors.red },
-    { title: "Espaço Público", color: colors.randomColors.orange },
-    { title: "Mobilidade", color: colors.randomColors.orangeLight },
-    { title: "Educação", color: colors.randomColors.yellow },
-    { title: "Trabalho", color: colors.randomColors.green },
-    { title: "Seguro", color: colors.randomColors.ciano },
-    { title: "Integração", color: colors.randomColors.blueLight },
-    { title: "Saúde", color: colors.randomColors.blue },
-    { title: "Cultura", color: colors.randomColors.purple },
-    { title: "Inovação", color: colors.black },
+    { title: 'SANEAMENTO AMBIENTAL', color: colors.programColors.green},
+    { title: 'INFRAESTRUTURA', color: colors.programColors.purple},
+    { title: 'MOGI EFICIENTE', color: colors.programColors.pink},
+    { title: 'SAÚDE', color: colors.programColors.blueLight},
+    { title: 'ESPORTE', color: colors.programColors.red},
+    { title: 'MOBILIDADE URBANA', color: colors.programColors.orange},
+    { title: 'SEGURANÇA', color: colors.programColors.blue},
+    { title: 'CIDADE INTELIGENTE', color: colors.programColors.greeLight},
+    { title: 'PRIMEIROS PASSOS', color: colors.programColors.yellow}
+
   ];
 
   const message = [

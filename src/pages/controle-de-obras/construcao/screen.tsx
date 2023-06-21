@@ -61,17 +61,19 @@ const ConstructionScreen = ({ id }: any) => {
 
     return (
       <div>
+        <div style={{ backgroundColor: colors.white, borderRadius: '10px', padding: '10px', marginTop: '25px', marginRight: '15px' }}>
         <Text.Heading1Regular
           fontSize={2}
           color={colors.grayDark}
-          marginTop={60}
+          marginTop={10}
         >
           {item?.escopo_da_obra || item?.nome_da_obra}
         </Text.Heading1Regular>
+        </div>
 
-        <Text.Heading5Regular color={colors.grayDark} marginTop={15}>
+        {/* <Text.Heading5Regular color={colors.grayDark} marginTop={15}>
           {item?.descricao_da_obra}
-        </Text.Heading5Regular>
+        </Text.Heading5Regular> */}
 
         <Style.Row>
           <Style.Datasheet>
@@ -118,10 +120,17 @@ const ConstructionScreen = ({ id }: any) => {
               </div>
 
               <Text.Heading4Bold color={colors.black} marginTop={20}>
+                Programa:
+              </Text.Heading4Bold>
+              <Text.Heading5Regular color={colors.black}>
+                {item?.programa_ppa}
+              </Text.Heading5Regular>
+
+              <Text.Heading4Bold color={colors.black} marginTop={20}>
                 Tipo de obra:
               </Text.Heading4Bold>
               <Text.Heading5Regular color={colors.black}>
-                {item?.categoria}
+                {item?.categoria && item?.categoria.toUpperCase()}
               </Text.Heading5Regular>
 
               <Text.Heading4Bold color={colors.black} marginTop={20}>
@@ -134,7 +143,7 @@ const ConstructionScreen = ({ id }: any) => {
               <Text.Heading4Bold color={colors.black} marginTop={20}>
                 Empresa:
               </Text.Heading4Bold>
-              <Text.Heading5Regular color={colors.black}>
+              <Text.Heading5Regular color={colors.black} textAlign="left">
                 {item?.razao_social_contratada}
               </Text.Heading5Regular>
 
@@ -162,7 +171,7 @@ const ConstructionScreen = ({ id }: any) => {
               <Text.Heading4Bold color={colors.black} marginTop={20}>
                 Endereço:
               </Text.Heading4Bold>
-              <Text.Heading5Regular color={colors.black}>
+              <Text.Heading5Regular color={colors.black} textAlign="left">
                 {item?.endereco}
               </Text.Heading5Regular>
 
