@@ -25,9 +25,12 @@ export const StepContainer = styled.div`
 
   .box-step {
     padding: 5px;
-    background-color: ${colors.grayLight};
+    background-color: ${colors.white};
     display: flex;
     flex-direction: column;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3),
+    0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
     min-height: 400px;
     max-height: 650px;
     
@@ -53,9 +56,12 @@ export const StepContainerNeighbordhoods = styled.div`
 
   .box-step-neighbordhoods {
     padding: 10px;
-    background-color: ${colors.grayLight};
+    background-color: ${colors.white};
     display: flex;
     flex-direction: column;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3),
+    0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
     max-height: 240px;
     .svg-bubble {
       width: 100%;

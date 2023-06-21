@@ -17,6 +17,7 @@ const BuildingValues = ({ setConstructionSelected, filteredValues }: any) => {
       '3004 - SEGURANÇA': colors.programColors.blue,
       '2001 - CIDADE INTELIGENTE': colors.programColors.greeLight,
       '1001 - PRIMEIROS PASSOS': colors.programColors.yellow,
+      '1000 - EDUCA MOGI': colors.randomColors.blue,
     };
 
     return translator[value] ? translator[value] : colors.graySemiMedium;
@@ -95,7 +96,7 @@ const BuildingValues = ({ setConstructionSelected, filteredValues }: any) => {
   return (
     <Style.StepContainer>
       <div className="box-step">
-        <Text.Heading4Bold>Obras até 500 Mil Reais</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '15px 0 0 15px' }}>Obras até 500 Mil Reais</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsMoreOneThousand?.length !== 0 && (
             <Bubble
@@ -107,7 +108,7 @@ const BuildingValues = ({ setConstructionSelected, filteredValues }: any) => {
         </div>
       </div>
       <div className="box-step">
-        <Text.Heading4Bold>Obras acima de 500 Mil Reais</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '15px 0 0 15px' }}>Obras acima de 500 Mil Reais</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsMoreFiveHundredThousand?.length !== 0 && (
             <Bubble
@@ -119,7 +120,7 @@ const BuildingValues = ({ setConstructionSelected, filteredValues }: any) => {
         </div>
       </div>
       <div className="box-step">
-        <Text.Heading4Bold>Obras acima de 1 Milhão de Reais</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '15px 0 0 15px' }}>Obras acima de 1 Milhão de Reais</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsMoreThanOneMillion?.length !== 0 && (
             <Bubble
@@ -131,7 +132,7 @@ const BuildingValues = ({ setConstructionSelected, filteredValues }: any) => {
         </div>
       </div>
       <div className="box-step">
-        <Text.Heading4Bold>Obras acima de 10 milhões</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '15px 0 0 15px' }}>Obras acima de 10 milhões</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsMoreThanTeenMillion?.length !== 0 && (
             <Bubble

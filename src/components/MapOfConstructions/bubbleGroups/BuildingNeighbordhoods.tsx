@@ -19,6 +19,7 @@ const BuildingNeighbordhoods = ({
       '3004 - SEGURANÇA': colors.programColors.blue,
       '2001 - CIDADE INTELIGENTE': colors.programColors.greeLight,
       '1001 - PRIMEIROS PASSOS': colors.programColors.yellow,
+      '1000 - EDUCA MOGI': colors.randomColors.blue,
     };
 
     return translator[value] ? translator[value] : colors.graySemiMedium;
@@ -404,7 +405,7 @@ const BuildingNeighbordhoods = ({
   return (
     <Style.StepContainerNeighbordhoods>
       <div className="box-step-neighbordhoods">
-        <Text.Heading4Bold>PARQUE MORUMBI</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '5px 0 0 5px' }}>PARQUE MORUMBI</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsMorumbi?.length !== 0 && (
             <Bubble
@@ -416,7 +417,7 @@ const BuildingNeighbordhoods = ({
         </div>
       </div>
       <div className="box-step-neighbordhoods">
-        <Text.Heading4Bold>JUNDIAPEBA</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '5px 0 0 5px' }}>JUNDIAPEBA</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsJundiapeba?.length !== 0 && (
             <Bubble
@@ -428,7 +429,7 @@ const BuildingNeighbordhoods = ({
         </div>
       </div>
       <div className="box-step-neighbordhoods">
-        <Text.Heading4Bold>BOTUJURU</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '5px 0 0 5px' }}>BOTUJURU</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsBojuturu?.length !== 0 && (
             <Bubble
@@ -440,7 +441,7 @@ const BuildingNeighbordhoods = ({
         </div>
       </div>
       <div className="box-step-neighbordhoods">
-        <Text.Heading4Bold>SANTO ÂNGELO</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '5px 0 0 5px' }}>SANTO ÂNGELO</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsSantoAngelo?.length !== 0 && (
             <Bubble
@@ -452,7 +453,7 @@ const BuildingNeighbordhoods = ({
         </div>
       </div>
       <div className="box-step-neighbordhoods">
-        <Text.Heading4Bold>FAZENDA RODEIO</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '5px 0 0 5px' }}>FAZENDA RODEIO</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsRodeio?.length !== 0 && (
             <Bubble
@@ -464,7 +465,7 @@ const BuildingNeighbordhoods = ({
         </div>
       </div>
       <div className="box-step-neighbordhoods">
-        <Text.Heading4Bold>NOVA MOGILAR</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '5px 0 0 5px' }}>NOVA MOGILAR</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsMogilar?.length !== 0 && (
             <Bubble
@@ -476,7 +477,7 @@ const BuildingNeighbordhoods = ({
         </div>
       </div>
       <div className="box-step-neighbordhoods">
-        <Text.Heading4Bold>BRAZ CUBAS</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '5px 0 0 5px' }}>BRAZ CUBAS</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsBrazCubas?.length !== 0 && (
             <Bubble
@@ -488,7 +489,7 @@ const BuildingNeighbordhoods = ({
         </div>
       </div>
       <div className="box-step-neighbordhoods">
-        <Text.Heading4Bold>NOVA JUNDIAPEBA</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '5px 0 0 5px' }}>NOVA JUNDIAPEBA</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsNovaJundiapeba?.length !== 0 && (
             <Bubble
@@ -500,7 +501,7 @@ const BuildingNeighbordhoods = ({
         </div>
       </div>
       <div className="box-step-neighbordhoods">
-        <Text.Heading4Bold>SOCORRO</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '5px 0 0 5px' }}>SOCORRO</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsSocorro?.length !== 0 && (
             <Bubble
@@ -512,7 +513,7 @@ const BuildingNeighbordhoods = ({
         </div>
       </div>
       <div className="box-step-neighbordhoods">
-        <Text.Heading4Bold>CEZAR DE SOUZA</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '5px 0 0 5px' }}>CEZAR DE SOUZA</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsCezarDeSouza?.length !== 0 && (
             <Bubble
@@ -524,7 +525,7 @@ const BuildingNeighbordhoods = ({
         </div>
       </div>
       <div className="box-step-neighbordhoods">
-        <Text.Heading4Bold>CENTRO</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '5px 0 0 5px' }}>CENTRO</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsCentro?.length !== 0 && (
             <Bubble
@@ -536,7 +537,7 @@ const BuildingNeighbordhoods = ({
         </div>
       </div>
       <div className="box-step-neighbordhoods">
-        <Text.Heading4Bold>MOGI MODERNO</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '5px 0 0 5px' }}>MOGI MODERNO</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsMogiModerno?.length !== 0 && (
             <Bubble
@@ -548,7 +549,7 @@ const BuildingNeighbordhoods = ({
         </div>
       </div>
       <div className="box-step-neighbordhoods">
-        <Text.Heading4Bold>TAIAÇUPEBA</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '5px 0 0 5px' }}>TAIAÇUPEBA</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsTaiacupeba?.length !== 0 && (
             <Bubble
@@ -560,7 +561,7 @@ const BuildingNeighbordhoods = ({
         </div>
       </div>
       <div className="box-step-neighbordhoods">
-        <Text.Heading4Bold>VILA NATAL</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '5px 0 0 5px' }}>VILA NATAL</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsVilaNatal?.length !== 0 && (
             <Bubble
@@ -572,7 +573,7 @@ const BuildingNeighbordhoods = ({
         </div>
       </div>
       <div className="box-step-neighbordhoods">
-        <Text.Heading4Bold>CONJ. SANTO ÂNGELO</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '5px 0 0 5px' }}>CONJ. SANTO ÂNGELO</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsConjuntoSantoAngelo?.length !== 0 && (
             <Bubble
@@ -584,7 +585,7 @@ const BuildingNeighbordhoods = ({
         </div>
       </div>
       <div className="box-step-neighbordhoods">
-        <Text.Heading4Bold>PARQUE OLÍMPICO</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '5px 0 0 5px' }}>PARQUE OLÍMPICO</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsParqueOlimpico?.length !== 0 && (
             <Bubble
@@ -596,7 +597,7 @@ const BuildingNeighbordhoods = ({
         </div>
       </div>
       <div className="box-step-neighbordhoods">
-        <Text.Heading4Bold>VILA CINTRA</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '5px 0 0 5px' }}>VILA CINTRA</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsVilaCintra?.length !== 0 && (
             <Bubble
@@ -608,7 +609,7 @@ const BuildingNeighbordhoods = ({
         </div>
       </div>
       <div className="box-step-neighbordhoods">
-        <Text.Heading4Bold>TABOÃO</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '5px 0 0 5px' }}>TABOÃO</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsTaboao?.length !== 0 && (
             <Bubble
@@ -620,7 +621,7 @@ const BuildingNeighbordhoods = ({
         </div>
       </div>
       <div className="box-step-neighbordhoods">
-        <Text.Heading4Bold>JARDIM ARACY</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '5px 0 0 5px' }}>JARDIM ARACY</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsJardimAracy?.length !== 0 && (
             <Bubble
@@ -632,7 +633,7 @@ const BuildingNeighbordhoods = ({
         </div>
       </div>
       <div className="box-step-neighbordhoods">
-        <Text.Heading4Bold>VILA LAVÍNIA</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '5px 0 0 5px' }}>VILA LAVÍNIA</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsVilaLavinia?.length !== 0 && (
             <Bubble
@@ -644,7 +645,7 @@ const BuildingNeighbordhoods = ({
         </div>
       </div>
       <div className="box-step-neighbordhoods">
-        <Text.Heading4Bold>JARDIM AEROPORTO</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '5px 0 0 5px' }}>JARDIM AEROPORTO</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsJardimAeroporto?.length !== 0 && (
             <Bubble
@@ -656,7 +657,7 @@ const BuildingNeighbordhoods = ({
         </div>
       </div>
       <div className="box-step-neighbordhoods">
-        <Text.Heading4Bold>CHÁCARA GUANABARA</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '5px 0 0 5px' }}>CHÁCARA GUANABARA</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsChacaraGuanabara?.length !== 0 && (
             <Bubble
@@ -668,7 +669,7 @@ const BuildingNeighbordhoods = ({
         </div>
       </div>
       <div className="box-step-neighbordhoods">
-        <Text.Heading4Bold>RES. NOVO HORIZONTE</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '5px 0 0 5px' }}>RES. NOVO HORIZONTE</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsResidencialNovoHorizonte?.length !== 0 && (
             <Bubble
@@ -680,7 +681,7 @@ const BuildingNeighbordhoods = ({
         </div>
       </div>
       <div className="box-step-neighbordhoods">
-        <Text.Heading4Bold>JARDIM MARICÁ</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '5px 0 0 5px' }}>JARDIM MARICÁ</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsJardimMarica?.length !== 0 && (
             <Bubble
@@ -692,7 +693,7 @@ const BuildingNeighbordhoods = ({
         </div>
       </div>
       <div className="box-step-neighbordhoods">
-        <Text.Heading4Bold>JARDIM SANTA TEREZA</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '5px 0 0 5px' }}>JARDIM SANTA TEREZA</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsJardimSantaTereza?.length !== 0 && (
             <Bubble

@@ -56,7 +56,8 @@ const MapAllMarkersComponent = ({
       '2007 - MOBILIDADE URBANA':L.divIcon({ className: "icon-marker mobility" }),
       '3004 - SEGURANÇA':L.divIcon({ className: "icon-marker security" }),
       '2001 - CIDADE INTELIGENTE':L.divIcon({ className: "icon-marker inovation" }),
-      '1001 - PRIMEIROS PASSOS':L.divIcon({ className: "icon-marker steps" })
+      '1001 - PRIMEIROS PASSOS':L.divIcon({ className: "icon-marker steps" }),
+      '1000 - EDUCA MOGI':L.divIcon({ className: "icon-marker education" })
     };
 
     return translator[value] ? translator[value] : icon;

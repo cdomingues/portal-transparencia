@@ -44,7 +44,22 @@ const MapOfConstructions = () => {
     INICIADO: colors.primaryDefault,
     CONCLUÍDO: colors.green,
     RESCINDIDO: colors.red,
+    '2006 - SANEAMENTO AMBIENTAL': colors.programColors.green,
+    '2004 - INFRAESTRUTURA': colors.programColors.purple,
+    '2000 - MOGI EFICIENTE': colors.programColors.pink,
+    '3100 - SAÚDE': colors.programColors.blueLight,
+    '3003 - ESPORTE': colors.programColors.red,
+    '2007 - MOBILIDADE URBANA': colors.programColors.orange,
+    '3004 - SEGURANÇA': colors.programColors.blue,
+    '2001 - CIDADE INTELIGENTE': colors.programColors.greeLight,
+    '1001 - PRIMEIROS PASSOS': colors.programColors.yellow,
+    '1000 - EDUCA MOGI': colors.randomColors.blue,
   };
+
+
+
+   
+
   return (
     <Style.Container>
       <Style.Search>
@@ -171,7 +186,12 @@ const MapOfConstructions = () => {
       )}
 
       {constructionSelected && (
-        <Style.ConstructionSelected>
+        <Style.ConstructionSelected style={{
+          position: 'fixed',
+          top: '50%',
+          
+          transform: 'translate(-5%, -50%)',
+        }}>
           <div
             className="top"
             style={{
@@ -185,7 +205,7 @@ const MapOfConstructions = () => {
               onClick={() => setConstructionSelected(null)}
               style={{ cursor: "pointer" }}
             >
-              <AiOutlineCloseCircle fontSize={25} color={colors.grayDark} />
+              <AiOutlineCloseCircle fontSize={35} color={colors.white} />
             </a>
           </div>
 
@@ -218,6 +238,21 @@ const MapOfConstructions = () => {
               </Text.Heading5Bold>
             </div>
 
+
+            <div
+              className="status"
+              style={{
+                backgroundColor:
+                  translatorSituationColor[constructionSelected?.programa_ppa] ||
+                  colors.grayDark,
+              }}
+            >
+              <Text.Heading5Bold color={colors.white} >
+                {constructionSelected?.programa_ppa}{" "}
+                {/* {Number(constructionSelected?.situacao)}% */}
+              </Text.Heading5Bold>
+            </div>
+ 
             <Text.Heading5Regular marginTop={20} marginBottom={20}>
               Secretaria Responsável:{" "}
               {constructionSelected?.secretaria_responsavel}

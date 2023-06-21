@@ -144,6 +144,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
             <option value="3004 - SEGURANÇA">3004 - SEGURANÇA</option>
             <option value="2001 - CIDADE INTELIGENTE">2001 - CIDADE INTELIGENTE</option>
             <option value="1001 - PRIMEIROS PASSOS">1001 - PRIMEIROS PASSOS</option>
+            <option value="1000 - EDUCA MOGI">1000 - EDUCA MOGI</option>
           </Select>
 
           <button className="buttons" onClick={() => handleFilterBuildings()}>

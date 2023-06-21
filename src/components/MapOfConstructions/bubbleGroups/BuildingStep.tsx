@@ -17,6 +17,7 @@ const BuildingSteps = ({ setConstructionSelected, filteredValues }: any) => {
       '3004 - SEGURANÇA': colors.programColors.blue,
       '2001 - CIDADE INTELIGENTE': colors.programColors.greeLight,
       '1001 - PRIMEIROS PASSOS': colors.programColors.yellow,
+      '1000 - EDUCA MOGI': colors.randomColors.blue,    
     };
 
     return translator[value] ? translator[value] : colors.graySemiMedium;
@@ -66,7 +67,7 @@ const BuildingSteps = ({ setConstructionSelected, filteredValues }: any) => {
   return (
     <Style.StepContainer>
       <div className="box-step">
-        <Text.Heading4Bold>INICIADO</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '15px 0 0 15px' }}>INICIADO</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsStopped?.length !== 0 && (
             <Bubble
@@ -78,7 +79,7 @@ const BuildingSteps = ({ setConstructionSelected, filteredValues }: any) => {
         </div>
       </div>
       <div className="box-step">
-        <Text.Heading4Bold>RESCINDIDO</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '15px 0 0 15px' }}>RESCINDIDO</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsUnderConstruction?.length !== 0 && (
             <Bubble
@@ -90,7 +91,7 @@ const BuildingSteps = ({ setConstructionSelected, filteredValues }: any) => {
         </div>
       </div>
       <div className="box-step">
-        <Text.Heading4Bold>CONCLUÍDO</Text.Heading4Bold>
+        <Text.Heading4Bold style={{ margin: '15px 0 0 15px' }}>CONCLUÍDO</Text.Heading4Bold>
         <div className="svg-bubble">
           {buildingsFinished?.length !== 0 && (
             <Bubble

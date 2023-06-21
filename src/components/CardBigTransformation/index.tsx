@@ -25,7 +25,9 @@ const CardBigTransformation = ({
     { title: 'MOBILIDADE URBANA', color: colors.programColors.orange},
     { title: 'SEGURANÇA', color: colors.programColors.blue},
     { title: 'CIDADE INTELIGENTE', color: colors.programColors.greeLight},
-    { title: 'PRIMEIROS PASSOS', color: colors.programColors.yellow}
+    { title: 'PRIMEIROS PASSOS', color: colors.programColors.yellow},
+    { title: 'EDUCA MOGI', color: colors.randomColors.blue},
+
 
   ];
 

@@ -56,6 +56,10 @@ export const Container = styled.div`
     background-color: ${colors.programColors.greeLight}!important;
   }
 
+  .education {
+    background-color: ${colors.randomColors.blue}!important;
+  }
+
   .steps{
     background-color: ${colors.programColors.yellow}!important;
   }
