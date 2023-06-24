@@ -486,7 +486,7 @@ const DownloadAPI = async (req: NextApiRequest, res: NextApiResponse) => {
     }
   }
 
-  const url = `https://licitacao-mgcon.mogidascruzes.sp.gov.br/arquivo/download/${fileNameParam}`;
+  const url = `http://licitacao-mgcon.mogidascruzes.sp.gov.br/arquivo/download/${fileNameParam}`;
 
   const base64 = await convertToBase64(url);
 
