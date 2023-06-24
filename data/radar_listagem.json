@@ -1,0 +1,436 @@
+[
+  {
+    "Lon": -46.172711,
+    "Lat": -23.508056,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radaravanco.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radaravanco.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Av. Francisco Rodrigues Filho (Parque Centenário) ",
+        "sentido": "Bairro-Centro e Centro-Bairro",
+        "job": "AVANÇO DE SEMÁFORO"
+      }
+    ]
+  },
+  {
+    "Lon": -46.206026,
+    "Lat": -23.546117,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radaravanco.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radaravanco.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Av. Henrique Peres X Av. Dom Luiz de Souza ",
+        "sentido": "Bairro-Centro e Centro-Bairro",
+        "job": "AVANÇO DE SEMÁFORO"
+      }
+    ]
+  },
+  {
+    "Lon": -46.169386,
+    "Lat": -23.515637,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radaravanco.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radaravanco.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Av. João XXIII x Av. Júlio Perotti ",
+        "sentido": "Bairro-Centro e Centro-Bairro",
+        "job": "AVANÇO DE SEMÁFORO"
+      }
+    ]
+  },
+  {
+    "Lon": -46.18594,
+    "Lat": -23.52042,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radaravanco.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radaravanco.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Rua Dr. Ricardo Vilela X Rua Dom Antônio Candido Alvarenga ",
+        "sentido": "Bairro-Centro",
+        "job": "AVANÇO DE SEMÁFORO"
+      }
+    ]
+  },
+  {
+    "Lon": -46.196599,
+    "Lat": -23.555434,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Av. Dr. Álvaro de Campos Carneiro 1155",
+        "sentido": "Bairro-Centro",
+        "job": "FIXO"
+      }
+    ]
+  },
+  {
+    "Lon": -46.201685,
+    "Lat": -23.55152,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Av. Dr. Álvaro de Campos Carneiro 450",
+        "sentido": "Centro-Bairro",
+        "job": "FIXO"
+      }
+    ]
+  },
+  {
+    "Lon": -46.241881,
+    "Lat": -23.542278,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Av. Francisco Ferreira Lopes 4410 + 40m",
+        "sentido": "Centro-Bairro",
+        "job": "FIXO"
+      }
+    ]
+  },
+  {
+    "Lon": -46.219185,
+    "Lat": -23.537036,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Av. Henrique Peres 190",
+        "sentido": "Centro-Bairro",
+        "job": "FIXO"
+      }
+    ]
+  },
+  {
+    "Lon": -46.221594,
+    "Lat": -23.5768,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Av. Japão 7200",
+        "sentido": "Bairro-Centro e Centro-Bairro",
+        "job": "FIXO"
+      }
+    ]
+  },
+  {
+    "Lon": -46.207671,
+    "Lat": -23.556983,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Av. Julio Simões 2751",
+        "sentido": "Bairro-Centro",
+        "job": "FIXO"
+      }
+    ]
+  },
+  {
+    "Lon": -46.20664,
+    "Lat": -23.557907,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Av. Julio Simões oposto 2905",
+        "sentido": "Centro-Bairro",
+        "job": "FIXO"
+      }
+    ]
+  },
+  {
+    "Lon": -46.253476,
+    "Lat": -23.54468,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Av. Lourenço de Souza Franco 1231",
+        "sentido": "Bairro-Centro e Centro-Bairro",
+        "job": "FIXO"
+      }
+    ]
+  },
+  {
+    "Lon": -46.268609,
+    "Lat": -23.541762,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Av. Lourenço de Souza Franco 2442",
+        "sentido": "Bairro-Centro e Centro-Bairro",
+        "job": "FIXO"
+      }
+    ]
+  },
+  {
+    "Lon": -46.183097,
+    "Lat": -23.542077,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Av. Prefeito Carlos Alberto Lopes 635",
+        "sentido": "Bairro-Centro e Centro-Bairro",
+        "job": "FIXO"
+      }
+    ]
+  },
+  {
+    "Lon": -46.187818,
+    "Lat": -23.563713,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Av. Pref. Francisco Ribeiro Nogueira oposto 5001",
+        "sentido": "Centro-Bairro",
+        "job": "FIXO"
+      }
+    ]
+  },
+  {
+    "Lon": -46.226991,
+    "Lat": -23.551289,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Av. Shozo Sakai 1081",
+        "sentido": "Bairro-Centro e Centro-Bairro",
+        "job": "FIXO"
+      }
+    ]
+  },
+  {
+    "Lon": -46.214586,
+    "Lat": -23.526382,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Av. Ten. Onofre Rodrigues de Aguiar 901",
+        "sentido": "Bairro-Centro e Centro-Bairro",
+        "job": "FIXO"
+      }
+    ]
+  },
+  {
+    "Lon": -46.221675,
+    "Lat": -23.528575,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Av. Valentina Mello Freire Borenstein Parque Leon Feffer",
+        "sentido": "Bairro-Centro e Centro-Bairro",
+        "job": "FIXO"
+      }
+    ]
+  },
+  {
+    "Lon": -46.193645,
+    "Lat": -23.531213,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarfixo.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Rua Dr. Deodato Wertheimer 2351 e 2362",
+        "sentido": "Bairro-Centro e Centro-Bairro",
+        "job": "FIXO"
+      }
+    ]
+  },
+  {
+    "Lon": -46.181309,
+    "Lat": -23.503111,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarlombada.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarlombada.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Av. Antonio de Almeida 1111  -180m",
+        "sentido": "Centro-Bairro",
+        "job": "REDUTOR DE VELOCIDADE"
+      }
+    ]
+  },
+  {
+    "Lon": -46.191597,
+    "Lat": -23.560408,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarlombada.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarlombada.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Av. Dr. Álvaro de Campos Carneiro 443 + 500m",
+        "sentido": "Centro-Bairro",
+        "job": "REDUTOR DE VELOCIDADE"
+      }
+    ]
+  },
+  {
+    "Lon": -46.270343,
+    "Lat": -23.540459,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarlombada.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarlombada.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "AVENIDA GUILHERME GEORGE 2336",
+        "sentido": "Bairro-Centro e Centro-Bairro",
+        "job": "REDUTOR DE VELOCIDADE"
+      }
+    ]
+  },
+  {
+    "Lon": -46.203577,
+    "Lat": -23.537181,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarlombada.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarlombada.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "AVENIDA JAPÃO 961",
+        "sentido": "Bairro-Centro e Centro-Bairro",
+        "job": "REDUTOR DE VELOCIDADE"
+      }
+    ]
+  },
+  {
+    "Lon": -46.209744,
+    "Lat": -23.533149,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarlombada.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarlombada.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Av. Francisco Ferreira Lopes 101",
+        "sentido": "Bairro-Centro",
+        "job": "REDUTOR DE VELOCIDADE"
+      }
+    ]
+  },
+  {
+    "Lon": -46.21482,
+    "Lat": -23.568048,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarlombada.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarlombada.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Av. Japão 3978 + 850m",
+        "sentido": "Centro-Bairro",
+        "job": "REDUTOR DE VELOCIDADE"
+      }
+    ]
+  },
+  {
+    "Lon": -46.21392,
+    "Lat": -23.514086,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarlombada.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarlombada.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Av. Joaquim Pereira de Carvalho 518",
+        "sentido": "Centro-Bairro e Bairro-Centro",
+        "job": "REDUTOR DE VELOCIDADE"
+      }
+    ]
+  },
+  {
+    "Lon": -46.216021,
+    "Lat": -23.57395,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarlombada.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarlombada.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Av. Kaoru Hiramatsu 2390",
+        "sentido": "Centro-Bairro",
+        "job": "REDUTOR DE VELOCIDADE"
+      }
+    ]
+  },
+  {
+    "Lon": -46.195268,
+    "Lat": -23.504187,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarlombada.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarlombada.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Av. Lothar Waldemar Hoehne 1747",
+        "sentido": "Bairro-Centro",
+        "job": "REDUTOR DE VELOCIDADE"
+      }
+    ]
+  },
+  {
+    "Lon": -46.217628,
+    "Lat": -23.505716,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarlombada.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarlombada.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Estrada do Evangelho Pleno x Rodovia Pedro Eroles 1887",
+        "sentido": "Bairro-Centro",
+        "job": "REDUTOR DE VELOCIDADE"
+      }
+    ]
+  },
+  {
+    "Lon": -46.214201,
+    "Lat": -23.506079,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarlombada.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarlombada.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Rodovia Pedro Eroles 1060",
+        "sentido": "Bairro-Centro e Centro-Bairro",
+        "job": "REDUTOR DE VELOCIDADE"
+      }
+    ]
+  },
+  {
+    "Lon": -46.203451,
+    "Lat": -23.514668,
+    "Icon": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarlombada.png",
+    "Desc": [
+      {
+        "img": "https://mobilidade.mogidascruzes.sp.gov.br/arquivos/imagens/radarlombada.png",
+        "link": "https://mobilidade.mogidascruzes.sp.gov.br/public/radar_listagem",
+        "name": "Rua Cabo Diogo Oliver 1077",
+        "sentido": "Bairro-Centro e Centro-Bairro",
+        "job": "REDUTOR DE VELOCIDADE"
+      }
+    ]
+  }
+]

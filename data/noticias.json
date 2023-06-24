@@ -1,5 +1,12 @@
 [
   {
+    "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/1/2023062115240364934043b4a0b.jpeg",
+    "titulo": "Mogi das Cruzes recebe certificação internacional de excelência de uso de dados na gestão pública",
+    "descricao": "Mogi das Cruzes é a única cidade do Estado de São Paulo e uma das duas do país, ao lado de Fortaleza, a representar o Brasil em nível mundial sobre o uso de dados na...",
+    "link": "https://www.mogidascruzes.sp.gov.br/noticia/mogi-das-cruzes-recebe-certificacao-internacional-de-excelencia-de-uso-de-dados-na-gestao-publica",
+    "data_noticia": "21 de Junho de 2023"
+  },
+  {
     "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/1/202306131813436488dc0715895.jpeg",
     "titulo": "Secretaria de Transparência e Dados Abertos inicia implementação da ferramenta Alertas da Primeira Infância ",
     "descricao": "A Prefeitura de Mogi das Cruzes, por meio da Secretaria Municipal de Transparência e Dados Abertos, realizou nesta terça-feira (13), a primeira reunião para implementação...",
@@ -131,12 +138,5 @@
     "descricao": "A Prefeitura de Mogi das Cruzes, por meio da Secretaria Municipal de Transparência e Dados Abertos, realizará nos dias 6 e 7 de março, a segunda edição do Open Data Day...",
     "link": "https://www.mogidascruzes.sp.gov.br/noticia/inscricoes-abertas-para-o-open-data-day-com-dois-dias-de-acoes-informativas-presenciais",
     "data_noticia": "23 de Fevereiro de 2023"
-  },
-  {
-    "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/1/2023021017332763e69c0757ece.jpg",
-    "titulo": "Prefeitura de Mogi das Cruzes capacita servidores sobre a LGPD",
-    "descricao": "A Prefeitura de Mogi das Cruzes, por meio da Secretaria Municipal de Transparência e Dados Abertos, dá um importante passo na regulamentação da LGPD (Lei Geral de Proteção...",
-    "link": "https://www.mogidascruzes.sp.gov.br/noticia/prefeitura-de-mogi-das-cruzes-capacita-servidores-sobre-a-lgpd",
-    "data_noticia": "10 de Fevereiro de 2023"
   }
 ]

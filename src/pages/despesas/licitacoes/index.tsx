@@ -57,7 +57,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const mapBiddings = biddings.map((bidding) => {
     return {
       ...bidding,
-      linkdownload: `http://licitacao-mgcon.mogidascruzes.sp.gov.br/?orgao=&id_tipolicitacao=&numero=${bidding.nro}&ano=${bidding.ano}&periodopublicacao=2&situacao=&descricao`,
+      linkdownload: `https://licitacao-mgcon.mogidascruzes.sp.gov.br/?orgao=&id_tipolicitacao=&numero=${bidding.nro}&ano=${bidding.ano}&periodopublicacao=2&situacao=&descricao`,
     };
   });
 
