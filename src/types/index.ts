@@ -22,7 +22,7 @@ export type Routes = Array<{
   element?: JSX.Element;
   icon: IconType;
   link?: string;
-  group?: any[]
+  group?: any[];
 }>;
 
 export type GroupRoutes = Array<{
@@ -50,4 +50,5 @@ export interface IPublicRoute {
   group?: IPublicRoute[];
   titlePage?: String;
   description?: String;
+  subgroup?: boolean;
 }

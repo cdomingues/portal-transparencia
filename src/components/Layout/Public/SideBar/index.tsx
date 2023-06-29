@@ -27,6 +27,9 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
 } from "@chakra-ui/react";
 import {
   BsDashCircle,
@@ -53,6 +56,7 @@ import { GroupRoutes, IPublicRoute, Routes } from "../../../../types";
 import Header from "../Header";
 import { useRouter } from "next/router";
 import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAccessibility";
+import useWindowDimensions from "../../../../utils/useWindowDimensions";
 
 interface SidebarProps extends BoxProps {
   onClose: () => void;
@@ -65,6 +69,8 @@ interface NavItemProps extends FlexProps {
   path?: string;
   link?: string;
   group?: Routes;
+  subgroup?: boolean;
+  removePadding?: boolean;
 }
 
 function ListHeader({ children }: { children: ReactNode }) {
@@ -76,6 +82,70 @@ function ListHeader({ children }: { children: ReactNode }) {
   );
 }
 
+function GroupMenu({
+  icon,
+  path,
+  group = [],
+  link,
+  children,
+  key,
+}: NavItemProps) {
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
+      }}
+    >
+      <Flex
+        fontWeight="500"
+        fontSize="0.81rem"
+        style={{
+          height: "38px",
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "row",
+          width: "100%",
+          justifyContent: "flex-start",
+          margin: 0,
+          padding: 0,
+        }}
+      >
+        {children}
+      </Flex>
+      {group?.map((item) => (
+        <Button
+          style={{
+            cursor: "pointer",
+            height: "38px",
+            paddingLeft: "10px",
+            fontSize: "14px",
+            fontWeight: "400",
+            backgroundColor: "transparent",
+          }}
+          _hover={{
+            color: "primary",
+          }}
+        >
+          {item?.icon && (
+            <Icon
+              mr="4"
+              color="primary"
+              fontSize="18"
+              _groupHover={{
+                color: "primary",
+              }}
+              as={item?.icon}
+            />
+          )}
+          {item.name}
+        </Button>
+      ))}
+    </div>
+  );
+}
+
 function NavItem({
   icon,
   path,
@@ -83,6 +153,7 @@ function NavItem({
   link,
   children,
   key,
+  removePadding,
 }: NavItemProps) {
   const accessibility = useFontSizeAccessibilityContext();
   const [expanded, setExpanded] = useState(false);
@@ -94,20 +165,13 @@ function NavItem({
   if (group.length > 0) {
     return (
       <Menu>
-        <Flex
-          width="95%"
-          p="2"
-          mx="2"
-          borderRadius="lg"
-          role="group"
-          cursor="pointer"
-        >
-          <Accordion borderColor="transparent" width="95%" allowToggle>
+        <Flex width="100%" borderRadius="lg" role="group" cursor="pointer">
+          <Accordion borderColor="transparent" width="100%" allowToggle>
             <AccordionItem>
               <AccordionButton
                 borderRadius="lg"
                 _hover={{
-                  bg: "gray.100",
+                  // bg: "gray.100",
                   color: "primary",
                 }}
                 fontWeight="500"
@@ -133,19 +197,48 @@ function NavItem({
                 </Box>
                 <AccordionIcon />
               </AccordionButton>
-              <AccordionPanel pb={4}>
+              <AccordionPanel pb={4} background="#f2f2f2">
                 {expanded &&
-                  group.map((item:any) => (
-                    <NavItem
-                      key={`${path}${item.path}`}
-                      icon={item.icon}
-                      path={item.defaultPath ? `${item.defaultPath}/${item.path}` : item.path}
-                      group={item.group}
-                      link={item.link}
-                    >
-                      {item.name}
-                    </NavItem>
-                  ))}
+                  group.map((item: any) => {
+                    const isSubGroup = item.subgroup;
+
+                    if (isSubGroup) {
+                      return (
+                        <GroupMenu
+                          key={`${path}${item.path}`}
+                          icon={item.icon}
+                          path={
+                            item.defaultPath
+                              ? `${item.defaultPath}/${item.path}`
+                              : item.path
+                          }
+                          group={item.group}
+                          link={item.link}
+                          subgroup={item.subgroup}
+                        >
+                          {item.name}
+                        </GroupMenu>
+                      );
+                    }
+
+                    return (
+                      <NavItem
+                        removePadding={true}
+                        key={`${path}${item.path}`}
+                        icon={item.icon}
+                        path={
+                          item.defaultPath
+                            ? `${item.defaultPath}/${item.path}`
+                            : item.path
+                        }
+                        group={item.group}
+                        link={item.link}
+                        subgroup={item.subgroup || false}
+                      >
+                        {item.name}
+                      </NavItem>
+                    );
+                  })}
               </AccordionPanel>
             </AccordionItem>
           </Accordion>
@@ -158,22 +251,15 @@ function NavItem({
     <Link
       href={link || path}
       target={link ? "_blank" : "_self"}
-      style={{ textDecoration: "none" }}
+      style={{ textDecoration: "none", margin: 0, padding: 0 }}
       _focus={{ boxShadow: "none" }}
       fontSize={accessibility?.fonts?.semiMedium}
     >
-      <Flex
-        width="95%"
-        p="2"
-        mx="2"
-        borderRadius="lg"
-        role="group"
-        cursor="pointer"
-      >
+      <Flex width="95%" borderRadius="lg" role="group" cursor="pointer">
         <Flex
           width="100%"
-          p="2"
-          mx="2"
+          p={removePadding ? "0" : "2"}
+          mx={removePadding ? "0" : "2"}
           borderRadius="lg"
           role="group"
           cursor="pointer"
@@ -182,6 +268,13 @@ function NavItem({
             color: "primary",
           }}
           fontSize={accessibility?.fonts?.semiMedium}
+          style={{
+            height: "38px",
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "row",
+            width: "100%",
+          }}
         >
           <Icon
             mr="4"
@@ -224,8 +317,8 @@ function SidebarContent({ onClose, routes, ...rest }: SidebarProps) {
     },
   ];
   return (
-    <Box
-      transition="3s ease"
+    <Flex
+      transition="1s ease"
       bg={useColorModeValue("white", "gray.900")}
       borderRight="1px"
       borderRightColor={useColorModeValue("gray.200", "gray.700")}
@@ -233,9 +326,8 @@ function SidebarContent({ onClose, routes, ...rest }: SidebarProps) {
       pos="fixed"
       h="full"
       fontWeight="600"
-      {...rest}
-      overflowY="auto"
-      overflowX="hidden"
+      height="100%"
+      flexDirection="column"
       css={{
         "&::-webkit-scrollbar": {
           width: "2px",
@@ -249,7 +341,13 @@ function SidebarContent({ onClose, routes, ...rest }: SidebarProps) {
         },
       }}
     >
-      <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
+      <Flex
+        h="20"
+        alignItems="center"
+        mx="8"
+        justifyContent="space-between"
+        flex={1}
+      >
         <Link
           href={"/"}
           target={"_self"}
@@ -265,22 +363,54 @@ function SidebarContent({ onClose, routes, ...rest }: SidebarProps) {
         </Link>
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
-      {routes.map((route, index) => (
-        <div key={index}>
-          <NavItem
-            group={route?.group}
-            path={route?.path}
-            icon={route.icon}
-            link={route.link}
-          >
-            {route.name}
-          </NavItem>
-        </div>
-      ))}
-      <Flex justifyContent="center" alignItems="center" flexDirection="column">
+      <Flex
+        direction="column"
+        css={{
+          "&::-webkit-scrollbar": {
+            width: "3px",
+            borderRadius: "3px",
+          },
+          "&::-webkit-scrollbar-track": {
+            width: "6px",
+            background: "#d6d6d6",
+            borderRadius: "3px",
+          },
+          "&::-webkit-scrollbar-thumb": {
+            background: "#DB334F",
+            borderRadius: "3px",
+          },
+        }}
+        overflowY="scroll"
+        flex={5}
+      >
+        {routes.map((route, index) => (
+          <div key={index} style={{ height: "100%" }}>
+            <NavItem
+              group={route?.group}
+              path={route?.path}
+              icon={route.icon}
+              link={route.link}
+            >
+              {route.name}
+            </NavItem>
+          </div>
+        ))}
+      </Flex>
+
+      <Flex
+        justifyContent="center"
+        alignItems="center"
+        flexDirection="column"
+        flex={1}
+      >
         <Divider mb={4} />
         <ListHeader>Canais Oficiais</ListHeader>
-        <Flex flexDirection="row" justifyContent="center" alignItems="center">
+        <Flex
+          flexDirection="row"
+          justifyContent="center"
+          alignItems="center"
+          height="auto"
+        >
           {media.map(({ url, name, icon }, index) => (
             <IconButton
               key={index}
@@ -297,7 +427,7 @@ function SidebarContent({ onClose, routes, ...rest }: SidebarProps) {
         </Flex>
         <Divider mt={4} />
       </Flex>
-    </Box>
+    </Flex>
   );
 }
 
@@ -413,13 +543,19 @@ export default function SidebarWithHeader({
   routes: IPublicRoute[];
 }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const { width } = useWindowDimensions();
+
   return (
     <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
-      <SidebarContent
-        routes={routes}
-        onClose={() => onClose}
-        display={{ base: "none", md: "block" }}
-      />
+      {width > 664 && (
+        <SidebarContent
+          routes={routes}
+          onClose={() => onClose}
+          display={{ base: "none", md: "block" }}
+        />
+      )}
+
       <Drawer
         autoFocus={false}
         isOpen={isOpen}
