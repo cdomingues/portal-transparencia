@@ -17,7 +17,7 @@ import {
   AiOutlineTool,
   AiOutlineGlobal,
   AiOutlineAudit,
-  AiOutlineSwap
+  AiOutlineSwap,
 } from "react-icons/ai";
 import { BiBriefcaseAlt, BiMoney } from "react-icons/bi";
 import { BsBricks, BsCameraVideo, BsFileText } from "react-icons/bs";
@@ -70,7 +70,7 @@ const publicRoutes: IPublicRoute[] = [
     path: "/",
     icon: FiHome,
     group: undefined,
-    ...contentInitial
+    ...contentInitial,
   },
   {
     name: "Perfil do Municipio",
@@ -93,23 +93,23 @@ const publicRoutes: IPublicRoute[] = [
       {
         name: "Início",
         path: "/inicio",
-        defaultPath:"/controle-de-obras",
+        defaultPath: "/controle-de-obras",
         icon: AiOutlineHome,
-        ...contentConstructionsControl
+        ...contentConstructionsControl,
       },
       {
         name: "Sobre as Obras",
         path: "/sobre-as-obras",
-        defaultPath:"/controle-de-obras",
+        defaultPath: "/controle-de-obras",
         icon: AiOutlineInfoCircle,
-        ...contentAboutConstructions
+        ...contentAboutConstructions,
       },
       {
         name: "Pesquise Obras",
         path: "/pesquisar-obras",
-        defaultPath:"/controle-de-obras",
+        defaultPath: "/controle-de-obras",
         icon: AiOutlineSearch,
-        ...contentSearchConstructions
+        ...contentSearchConstructions,
       },
     ],
   },
@@ -118,7 +118,7 @@ const publicRoutes: IPublicRoute[] = [
     icon: BsCameraVideo,
     path: "/controle-de-radares",
     group: undefined,
-    ...contentRadarsControl
+    ...contentRadarsControl,
   },
   {
     name: "Agenda Aberta",
@@ -130,14 +130,14 @@ const publicRoutes: IPublicRoute[] = [
         name: "Prefeito - Caio Cunha",
         path: "/agenda-caio",
         icon: AiOutlineProfile,
-        ...contentMayorAgenda
+        ...contentMayorAgenda,
       },
       {
         defaultPath: "/agenda-aberta",
         name: "Prefeito",
         path: "/agenda-prefeito",
         icon: AiOutlineProfile,
-        ...contentMayorAgenda
+        ...contentMayorAgenda,
       },
     ],
   },
@@ -152,21 +152,21 @@ const publicRoutes: IPublicRoute[] = [
         name: "Contratos de Gestão",
         path: "/contratos-gestao",
         icon: AiOutlineTable,
-        ...contentContractManagement
+        ...contentContractManagement,
       },
       {
         defaultPath: "/terceiro-setor",
         name: "Convênios",
         path: "/convenios",
         icon: AiOutlineTable,
-        ...contentConvenants
+        ...contentConvenants,
       },
       {
         defaultPath: "/terceiro-setor",
         name: "Repasses",
         path: "/repasses",
         icon: AiOutlineTable,
-        ...contentTransfers
+        ...contentTransfers,
       },
     ],
   },
@@ -206,49 +206,49 @@ const publicRoutes: IPublicRoute[] = [
         name: "Plano Plurianual",
         path: "/plurianual",
         icon: AiOutlineProfile,
-        ...contentPlanMultiannual
+        ...contentPlanMultiannual,
       },
       {
         defaultPath: "/transparencia",
         name: "Diretrizes Orçamentárias",
         path: "/diretrizes-orcamentarias",
         icon: AiOutlineProfile,
-        ...contentGuidelines
+        ...contentGuidelines,
       },
       {
         defaultPath: "/transparencia",
         name: "Lei orçamentária Anual",
         path: "/lei-orcamentaria-anual",
         icon: AiOutlineProfile,
-        ...contentLawBudget
+        ...contentLawBudget,
       },
       {
         defaultPath: "/transparencia",
         name: "Relatório de Gestão Fiscal",
         path: "/relatorio-de-gestao-fiscal",
         icon: AiOutlineProfile,
-        ...contentRepostManagementSupervisor
+        ...contentRepostManagementSupervisor,
       },
       {
         defaultPath: "/transparencia",
         name: "Obras Públicas",
         path: "/obras-publicas",
         icon: AiOutlineProfile,
-        ...contentPublicWorks
+        ...contentPublicWorks,
       },
       {
         defaultPath: "/transparencia",
         name: "Servidores Públicos e Estágiarios",
         path: "/servidores-publicos-estagiarios",
         icon: AiOutlineProfile,
-        ...contentPublicServants
+        ...contentPublicServants,
       },
       {
         defaultPath: "/transparencia",
         name: "PROMAE",
         path: "/promae",
         icon: AiOutlineProfile,
-        ...contentPROMAE
+        ...contentPROMAE,
       },
     ],
   },
@@ -268,49 +268,49 @@ const publicRoutes: IPublicRoute[] = [
         name: "Contratos e Atas",
         path: "/contratos-atas",
         icon: AiOutlineTable,
-        ...contentContractsAndAtas
+        ...contentContractsAndAtas,
       },
       {
         defaultPath: "/despesas",
         name: "Licitações",
         path: "/licitacoes",
         icon: AiOutlineTable,
-        ...contentBids
+        ...contentBids,
       },
       {
         defaultPath: "/despesas",
         name: "Folha de Pagamento",
         path: "/folha-pagamento",
         icon: AiOutlineTable,
-        ...contentPayroll
+        ...contentPayroll,
       },
       {
         defaultPath: "/despesas",
         name: "Passagens e Locomoção",
         path: "/passagem-locomocao",
         icon: AiOutlineTable,
-        ...contentTransportationTickets
+        ...contentTransportationTickets,
       },
       {
         defaultPath: "/despesas",
         name: "Adiantamentos e Hospedagem",
         path: "/adiantamento-hospedagem",
         icon: AiOutlineTable,
-        ...contentAdvancesAndAccommodation
+        ...contentAdvancesAndAccommodation,
       },
       {
         defaultPath: "/despesas",
         name: "Gastos com publicidade",
         path: "/propaganda",
         icon: AiOutlineTable,
-        ...contentAdvertisements
+        ...contentAdvertisements,
       },
       {
         defaultPath: "/despesas",
         name: "Subvenções",
         path: "/subvencoes",
         icon: AiOutlineTable,
-        ...contentGrants
+        ...contentGrants,
       },
       {
         defaultPath: "/despesas",
@@ -345,42 +345,42 @@ const publicRoutes: IPublicRoute[] = [
         name: "Receitas Emendas Parlamentares",
         path: "/receitas-emendas",
         icon: AiOutlineTable,
-        ...contentRecipesAmendments
+        ...contentRecipesAmendments,
       },
       {
         defaultPath: "/execucao-orcamentaria",
         name: "Receitas Multas Trânsito",
         path: "/receitas-multas-transito",
         icon: AiOutlineTable,
-        ...contentRevenueFinesTraffic
+        ...contentRevenueFinesTraffic,
       },
       {
         defaultPath: "/execucao-orcamentaria",
         name: "Despesas Gerais",
         path: "/despesas-gerais",
         icon: AiOutlineTable,
-        ...contentGeneralCosts
+        ...contentGeneralCosts,
       },
       {
         defaultPath: "/execucao-orcamentaria",
         name: "Despesas - Restos à Pagar",
         path: "/despesas-restos",
         icon: AiOutlineTable,
-        ...contentExpensesRemains
+        ...contentExpensesRemains,
       },
       {
         defaultPath: "/execucao-orcamentaria",
         name: "Despesas Multas Trânsito",
         path: "/despesas-multas-transito",
         icon: AiOutlineTable,
-        ...contentTrafficFines
+        ...contentTrafficFines,
       },
       {
         defaultPath: "/execucao-orcamentaria",
         name: "Despesas Emendas Parlamentares",
         path: "/despesas-emendas",
         icon: AiOutlineTable,
-        ...contentExpensesParliamentaryAmendments
+        ...contentExpensesParliamentaryAmendments,
       },
     ],
   },
@@ -395,14 +395,14 @@ const publicRoutes: IPublicRoute[] = [
         name: "Despesas",
         path: "/despesas",
         icon: AiOutlineTable,
-        ...contentExtrabudgetExpenses
+        ...contentExtrabudgetExpenses,
       },
       {
         defaultPath: "/extraorcamentario",
         name: "Receitas",
         path: "/receitas",
         icon: AiOutlineTable,
-        ...contentExtrabudgetRevenues
+        ...contentExtrabudgetRevenues,
       },
     ],
   },
@@ -423,7 +423,7 @@ const publicRoutes: IPublicRoute[] = [
         name: "Despesas Covid",
         path: "/despesas",
         icon: AiOutlineTable,
-        ...contentCovidExpenses
+        ...contentCovidExpenses,
       },
       {
         defaultPath: "/covid",
@@ -432,7 +432,6 @@ const publicRoutes: IPublicRoute[] = [
         icon: AiOutlineProfile,
         link: "http://covid19.pmmc.com.br/",
       },
-      
     ],
   },
   {
@@ -440,7 +439,7 @@ const publicRoutes: IPublicRoute[] = [
     path: "/transparencia/relatorio-resumido",
     icon: AiOutlineFileDone,
     link: "",
-    ...contentReportExtrabudget
+    ...contentReportExtrabudget,
   },
   {
     name: "Prestação de Conta Anual",
@@ -452,14 +451,14 @@ const publicRoutes: IPublicRoute[] = [
         path: "/balancos-anuais",
         icon: AiOutlineProfile,
         link: "",
-        ...contentAnnualBalance
+        ...contentAnnualBalance,
       },
       {
         name: "Pareceres do Tribunal",
         path: "/pareceres-tribunal",
         icon: AiOutlineProfile,
         link: "",
-        ...contentCourtOpinions
+        ...contentCourtOpinions,
       },
     ],
   },
@@ -467,7 +466,7 @@ const publicRoutes: IPublicRoute[] = [
     name: "Patrimônio",
     path: "/patrimonio",
     icon: AiOutlineShop,
-    ...contentPatrimony
+    ...contentPatrimony,
   },
   {
     name: "Publicações",
@@ -515,7 +514,7 @@ const publicRoutes: IPublicRoute[] = [
         name: "Cargos e Salários",
         path: "/cargos-e-salarios",
         icon: AiOutlineProfile,
-        group:undefined,
+        group: undefined,
       },
     ],
   },
@@ -578,14 +577,52 @@ const publicRoutes: IPublicRoute[] = [
     name: "Outras Informações",
     path: "/outras-informacoes",
     icon: AiOutlineAudit,
-    ...contentOtherInformations
+    ...contentOtherInformations,
   },
   {
     name: "Mapa do Site",
     path: "/mapa-do-site",
     icon: AiOutlineGlobal,
-    group:undefined,
-  }
+    group: undefined,
+  },
+  {
+    name: "Nivel 1",
+    path: "/nivel1",
+    element: <div></div>,
+    icon: BsFileText,
+    group: [
+      {
+        defaultPath: "/nivel1",
+        name: "Nivel 2",
+        path: "/nivel2",
+        icon: AiOutlineGlobal,
+        group: [
+          {
+            defaultPath: "/nivel1",
+            name: "Nivel 3 - Link",
+            path: "/nivel2/nivel3",
+            icon: AiOutlineAudit,
+            subgroup: false,
+          },
+          {
+            defaultPath: "/nivel1",
+            name: "Nivel 3",
+            path: "/nivel2/nivel3",
+            icon: AiOutlineAudit,
+            subgroup: true,
+            group: [
+              {
+                defaultPath: "/nivel1",
+                name: "Nivel4",
+                path: "/nivel2/nivel3/nivel4",
+                icon: AiOutlineTable,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export default publicRoutes;

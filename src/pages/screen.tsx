@@ -206,7 +206,41 @@ function HomeScreen({ handler }: PropsInput) {
             mb={20}
             flexDirection={isMobile ? "column" : "row"}
           >
-            <Stat mb={isMobile ? 6 : 0}>
+            {/* <div>
+              <Text
+                height="40px"
+                fontWeight="500"
+                fontSize="sm"
+                color={useColorModeValue("black", "white")}
+              >
+                Arrecadações
+              </Text>
+              <Text
+                fontSize="medium"
+                mb={2}
+                fontWeight="500"
+                color={useColorModeValue("black", "white")}
+              >
+                {moneyFormatter(revenueAmount)}
+              </Text>
+              <Text
+                mb={0}
+                fontSize="sm"
+                opacity={1}
+                color={useColorModeValue("black", "white")}
+              >
+                Valor Previsto para o ano: <br />
+                {moneyFormatter(revenueProvided)}
+              </Text>
+              <Text
+                fontSize="sm"
+                opacity={1}
+                color={useColorModeValue("black", "white")}
+              >
+                Alcançado: {revenuePercentageReached}%
+              </Text>
+            </div> */}
+            <Stat mb={isMobile ? 6 : 0} position="unset">
               <StatLabel
                 height="40px"
                 color={useColorModeValue("black", "white")}
@@ -220,14 +254,21 @@ function HomeScreen({ handler }: PropsInput) {
               >
                 {moneyFormatter(revenueAmount)}
               </StatNumber>
-              <StatHelpText mb={0} color={useColorModeValue("black", "white")}>
+              <StatHelpText
+                mb={0}
+                opacity={1}
+                color={useColorModeValue("black", "white")}
+              >
                 Valor Previsto para o ano: {moneyFormatter(revenueProvided)}
               </StatHelpText>
-              <StatHelpText color={useColorModeValue("black", "white")}>
+              <StatHelpText
+                opacity={1}
+                color={useColorModeValue("black", "white")}
+              >
                 Alcançado: {revenuePercentageReached}%
               </StatHelpText>
             </Stat>
-            <Stat>
+            <Stat position="unset">
               <StatLabel
                 height="40px"
                 color={useColorModeValue("black", "white")}
@@ -241,10 +282,17 @@ function HomeScreen({ handler }: PropsInput) {
               >
                 {moneyFormatter(expenseAmount)}
               </StatNumber>
-              <StatHelpText mb={0} color={useColorModeValue("black", "white")}>
+              <StatHelpText
+                opacity={1}
+                mb={0}
+                color={useColorModeValue("black", "white")}
+              >
                 Valor Previsto para o ano: {moneyFormatter(expenseProvided)}
               </StatHelpText>
-              <StatHelpText color={useColorModeValue("black", "white")}>
+              <StatHelpText
+                opacity={1}
+                color={useColorModeValue("black", "white")}
+              >
                 Alcançado: {expensePercentageReached}%
               </StatHelpText>
             </Stat>
@@ -293,7 +341,7 @@ function HomeScreen({ handler }: PropsInput) {
             Políticas Públicas
           </Heading>
           <StatGroup width="100%" mb={20}>
-            <Stat>
+            <Stat position="unset">
               <Stack
                 direction={isMobile ? "column" : "row"}
                 align={isMobile ? "left" : "center"}
@@ -333,7 +381,7 @@ function HomeScreen({ handler }: PropsInput) {
                 )}
               </Stack>
             </Stat>
-            <Stat>
+            <Stat position="unset">
               <Stack
                 direction={isMobile ? "column" : "row"}
                 align={isMobile ? "left" : "center"}
@@ -378,7 +426,7 @@ function HomeScreen({ handler }: PropsInput) {
 
         <Stack direction="column">
           <StatGroup width="100%" mb={20}>
-            <Stat>
+            <Stat position="unset">
               <Stack
                 direction={isMobile ? "column" : "row"}
                 align={isMobile ? "left" : "center"}
@@ -418,7 +466,7 @@ function HomeScreen({ handler }: PropsInput) {
                 )}
               </Stack>
             </Stat>
-            <Stat>
+            <Stat position="unset">
               <Stack
                 direction={isMobile ? "column" : "row"}
                 align={isMobile ? "left" : "center"}
