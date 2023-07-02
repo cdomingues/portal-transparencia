@@ -32,10 +32,10 @@ import { contentContractManagement } from "../pages/terceiro-setor/contratos-ges
 import { contentConvenants } from "../pages/terceiro-setor/convenios/screen";
 import { contentTransfers } from "../pages/terceiro-setor/repasses/screen";
 import { contentAgreementColaborator } from "../pages/acordos-termos/acordo-de-colaboracao/screen";
-import { contentPlanMultiannual } from "../pages/transparencia/plurianual/screen";
-import { contentGuidelines } from "../pages/transparencia/diretrizes-orcamentarias/screen";
-import { contentLawBudget } from "../pages/transparencia/lei-orcamentaria-anual/screen";
-import { contentRepostManagementSupervisor } from "../pages/transparencia/relatorio-de-gestao-fiscal/screen";
+import { contentPlanMultiannual } from "../pages/ciclo-orcamentario/plurianual/screen";
+import { contentGuidelines } from "../pages/ciclo-orcamentario/diretrizes-orcamentarias/screen";
+import { contentLawBudget } from "../pages/ciclo-orcamentario/lei-orcamentaria-anual/screen";
+import { contentRepostManagementSupervisor } from "../pages/ciclo-orcamentario/relatorio-de-gestao-fiscal/screen";
 import { contentPublicWorks } from "../pages/transparencia/obras-publicas/screen";
 import { contentPublicServants } from "../pages/transparencia/servidores-publicos-estagiarios/screen";
 import { contentPROMAE } from "../pages/transparencia/promae/screen";
@@ -47,16 +47,16 @@ import { contentTransportationTickets } from "../pages/despesas/passagem-locomoc
 import { contentAdvancesAndAccommodation } from "../pages/despesas/adiantamento-hospedagem/screen";
 import { contentAdvertisements } from "../pages/despesas/propaganda/screen";
 import { contentGrants } from "../pages/despesas/subvencoes/screen";
-import { contentRecipesAmendments } from "../pages/execucao-orcamentaria/receitas-emendas/screen";
-import { contentRevenueFinesTraffic } from "../pages/execucao-orcamentaria/despesas-multas-transito/screen";
-import { contentGeneralCosts } from "../pages/execucao-orcamentaria/despesas-gerais/screen";
-import { contentExpensesRemains } from "../pages/execucao-orcamentaria/despesas-restos/screen";
-import { contentTrafficFines } from "../pages/execucao-orcamentaria/receitas-multas-transito/screen";
-import { contentExpensesParliamentaryAmendments } from "../pages/execucao-orcamentaria/despesas-emendas/screen";
-import { contentExtrabudgetExpenses } from "../pages/extraorcamentario/despesas/screen";
-import { contentExtrabudgetRevenues } from "../pages/extraorcamentario/receitas/screen";
-import { contentCovidRecipes } from "../pages/covid/receitas/screen";
-import { contentCovidExpenses } from "../pages/covid/despesas/screen";
+import { contentRecipesAmendments } from "../pages/orcamento-municipal/execucao-orcamentaria/receitas/receitas-emendas/screen";
+import { contentRevenueFinesTraffic } from "../pages/orcamento-municipal/execucao-orcamentaria/despesas/despesas-multas-transito/screen";
+import { contentGeneralCosts } from "../pages/orcamento-municipal/execucao-orcamentaria/despesas/despesas-gerais/screen";
+import { contentExpensesRemains } from "../pages/orcamento-municipal/execucao-orcamentaria/despesas/despesas-restos/screen";
+import { contentTrafficFines } from "../pages/orcamento-municipal/execucao-orcamentaria/receitas/receitas-multas-transito/screen";
+import { contentExpensesParliamentaryAmendments } from "../pages/orcamento-municipal/execucao-orcamentaria/despesas/despesas-emendas/screen";
+import { contentExtrabudgetExpenses } from "../pages/orcamento-municipal/extraorcamentario/despesas/screen";
+import { contentExtrabudgetRevenues } from "../pages/orcamento-municipal/extraorcamentario/receitas/screen";
+import { contentCovidRecipes } from "../pages/orcamento-municipal/covid/receitas/screen";
+import { contentCovidExpenses } from "../pages/orcamento-municipal/covid/despesas/screen";
 import { contentReportExtrabudget } from "../pages/transparencia/relatorio-resumido/screen";
 import { contentAnnualBalance } from "../pages/contas/balancos-anuais/screen";
 import { contentCourtOpinions } from "../pages/contas/pareceres-tribunal/screen";
@@ -73,6 +73,13 @@ const publicRoutes: IPublicRoute[] = [
     ...contentInitial,
   },
   {
+    name: "Sobre o Portal",
+    path: "/",
+    icon: FiHome,
+    group: undefined,
+    ...contentInitial,
+  },
+  {
     name: "Perfil do Municipio",
     icon: AiOutlineProfile,
     path: "/perfil-do-municipio",
@@ -80,11 +87,465 @@ const publicRoutes: IPublicRoute[] = [
     ...contentMunicipalityProfile,
   },
   {
-    name: "Ciclo Orçamentário",
-    path: "/terceiro-setor",
+    name: "Ciclo Orcamentário",
+    path: "/ciclo-orcamentario",
     element: <div></div>,
-    icon: BiMoney,
+    icon: BsFileText,
+    group: [
+      {
+        defaultPath: "/ciclo-orcamentario",
+        name: "Plano Plurianual",
+        path: "/plurianual",
+        icon: AiOutlineGlobal,
+      },
+      {
+        defaultPath: "/ciclo-orcamentario",
+        name: "Diretrizes Orçamentárias",
+        path: "/diretrizes-orcamentarias",
+        icon: AiOutlineGlobal,
+      },
+      {
+        defaultPath: "/ciclo-orcamentario",
+        name: "Lei Orcamentária Anual",
+        path: "/lei-orcamentaria-anual",
+        icon: AiOutlineGlobal,
+      },
+      {
+        defaultPath: "/ciclo-orcamentario",
+        name: "Relatório de Gestão Fiscal",
+        path: "relatorio-de-gestao-fiscal",
+        icon: AiOutlineGlobal,
+      },
+    ],
   },
+  {
+    name: "Orçamento Municipal",
+    path: "/orcamento-municipal",
+    element: <div></div>,
+    icon: BsFileText,
+    group: [
+      {
+        defaultPath: "/orcamento-municipal",
+        name: "Execução Orçamentaria",
+        path: "/execucao-orcamentaria",
+        icon: AiOutlineGlobal,
+        group: [
+          {
+            defaultPath: "/orcamento-municipal",
+            name: "Receitas",
+            path: "/receitas",
+            icon: AiOutlineAudit,
+            subgroup: true,
+            group: [
+              {
+                defaultPath: "orcamento-municipal",
+                name: "Emenda Parlamentar",
+                path: "/receitas/receitas-emendas",
+                icon: AiOutlineTable,
+              },
+              {
+                defaultPath: "orcamento-municipal",
+                name: "Multa de transito",
+                path: "/receitas/receitas-multas-transito",
+                icon: AiOutlineTable,
+              },
+            ],
+          },
+          {
+            defaultPath: "/orcamento-municipal",
+            name: "Despesas",
+            path: "/despesas",
+            icon: AiOutlineAudit,
+            subgroup: true,
+            group: [
+              {
+                defaultPath: "/orcamento-municipal",
+                name: "Emendas",
+                path: "/despesas/despesas-emendas",
+                icon: AiOutlineTable,
+              },
+              {
+                defaultPath: "/orcamento-municipal",
+                name: "Gerais",
+                path: "/despesas/despesas-gerais",
+                icon: AiOutlineTable,
+              },
+              {
+                defaultPath: "/orcamento-municipal",
+                name: "Multas de Transito",
+                path: "/despesas/despesas-multas-transito",
+                icon: AiOutlineTable,
+              },
+              {
+                defaultPath: "/orcamento-municipal",
+                name: "Restos",
+                path: "/despesas/despesas-restos",
+                icon: AiOutlineTable,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        defaultPath: "/orcamento-municipal",
+        name: "Extra Orçamentaria",
+        path: "/execucao-orcamentaria",
+        icon: AiOutlineGlobal,
+        group: [
+          {
+            defaultPath: "/orcamento-municipal",
+            name: "Receitas",
+            path: "/receitas",
+            icon: AiOutlineAudit,
+            subgroup: true,
+            group: [
+              {
+                defaultPath: "orcamento-municipal",
+                name: "Emenda Parlamentar",
+                path: "/receitas/receitas-emendas",
+                icon: AiOutlineTable,
+              },
+              {
+                defaultPath: "orcamento-municipal",
+                name: "Multa de transito",
+                path: "/receitas/receitas-multas-transito",
+                icon: AiOutlineTable,
+              },
+            ],
+          },
+          {
+            defaultPath: "/orcamento-municipal",
+            name: "Despesas",
+            path: "/despesas",
+            icon: AiOutlineAudit,
+            subgroup: true,
+            group: [
+              {
+                defaultPath: "/orcamento-municipal",
+                name: "Emendas",
+                path: "/despesas/despesas-emendas",
+                icon: AiOutlineTable,
+              },
+              {
+                defaultPath: "/orcamento-municipal",
+                name: "Gerais",
+                path: "/despesas/despesas-gerais",
+                icon: AiOutlineTable,
+              },
+              {
+                defaultPath: "/orcamento-municipal",
+                name: "Multas de Transito",
+                path: "/despesas/despesas-multas-transito",
+                icon: AiOutlineTable,
+              },
+              {
+                defaultPath: "/orcamento-municipal",
+                name: "Restos",
+                path: "/despesas/despesas-restos",
+                icon: AiOutlineTable,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        defaultPath: "/nivel1",
+        name: "Incentivos Fiscais",
+        path: "/nivel2",
+        icon: AiOutlineGlobal,
+        group: [
+          {
+            defaultPath: "/nivel1",
+            name: "Promae",
+            path: "/nivel2/nivel3",
+            icon: AiOutlineAudit,
+            subgroup: false,
+          },
+          {
+            defaultPath: "/nivel1",
+            name: "Nivel 3",
+            path: "/nivel2/nivel3",
+            icon: AiOutlineAudit,
+            subgroup: true,
+            group: [
+              {
+                defaultPath: "/nivel1",
+                name: "Nivel4",
+                path: "/nivel2/nivel3/nivel4",
+                icon: AiOutlineTable,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: "Prestação de Contas",
+    path: "/nivel1",
+    element: <div></div>,
+    icon: BsFileText,
+    group: [
+      {
+        defaultPath: "/nivel1",
+        name: "Balanço Anual",
+        path: "/nivel2",
+        icon: AiOutlineGlobal,
+        group: [
+          {
+            defaultPath: "/nivel1",
+            name: "Receitas",
+            path: "/nivel2/nivel3",
+            icon: AiOutlineAudit,
+            subgroup: true,
+            group: [
+              {
+                defaultPath: "/nivel1",
+                name: "Nivel4",
+                path: "/nivel2/nivel3/nivel4",
+                icon: AiOutlineTable,
+              },
+            ],
+          },
+          {
+            defaultPath: "/nivel1",
+            name: "Parecer Tribunal",
+            path: "/nivel2/nivel3",
+            icon: AiOutlineAudit,
+            subgroup: true,
+            group: [
+              {
+                defaultPath: "/nivel1",
+                name: "Nivel4",
+                path: "/nivel2/nivel3/nivel4",
+                icon: AiOutlineTable,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        defaultPath: "/nivel1",
+        name: "Demonstrativos",
+        path: "/nivel2",
+        icon: AiOutlineGlobal,
+        group: [
+          {
+            defaultPath: "/nivel1",
+            name: "Contabil",
+            path: "/nivel2/nivel3",
+            icon: AiOutlineAudit,
+            subgroup: true,
+            group: [
+              {
+                defaultPath: "/nivel1",
+                name: "Nivel4",
+                path: "/nivel2/nivel3/nivel4",
+                icon: AiOutlineTable,
+              },
+            ],
+          },
+          {
+            defaultPath: "/nivel1",
+            name: "Despesas",
+            path: "/nivel2/nivel3",
+            icon: AiOutlineAudit,
+            subgroup: true,
+            group: [
+              {
+                defaultPath: "/nivel1",
+                name: "Nivel4",
+                path: "/nivel2/nivel3/nivel4",
+                icon: AiOutlineTable,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        defaultPath: "/nivel1",
+        name: "Incentivos Fiscais",
+        path: "/nivel2",
+        icon: AiOutlineGlobal,
+        group: [
+          {
+            defaultPath: "/transparencia",
+            name: "Promae",
+            path: "/promae",
+            icon: AiOutlineAudit,
+            subgroup: false,
+          },
+          {
+            defaultPath: "/nivel1",
+            name: "Nivel 3",
+            path: "/nivel2/nivel3",
+            icon: AiOutlineAudit,
+            subgroup: true,
+            group: [
+              {
+                defaultPath: "/nivel1",
+                name: "Nivel4",
+                path: "/nivel2/nivel3/nivel4",
+                icon: AiOutlineTable,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: "Compras Públicas",
+    path: "/nivel1",
+    element: <div></div>,
+    icon: BsFileText,
+    group: [
+      {
+        defaultPath: "/nivel1",
+        name: "Balanço Anual",
+        path: "/nivel2",
+        icon: AiOutlineGlobal,
+        group: [
+          {
+            defaultPath: "/nivel1",
+            name: "Receitas",
+            path: "/nivel2/nivel3",
+            icon: AiOutlineAudit,
+            subgroup: true,
+            group: [
+              {
+                defaultPath: "/nivel1",
+                name: "Nivel4",
+                path: "/nivel2/nivel3/nivel4",
+                icon: AiOutlineTable,
+              },
+            ],
+          },
+          {
+            defaultPath: "/nivel1",
+            name: "Parecer Tribunal",
+            path: "/nivel2/nivel3",
+            icon: AiOutlineAudit,
+            subgroup: true,
+            group: [
+              {
+                defaultPath: "/nivel1",
+                name: "Nivel4",
+                path: "/nivel2/nivel3/nivel4",
+                icon: AiOutlineTable,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        defaultPath: "/nivel1",
+        name: "Demonstrativos",
+        path: "/nivel2",
+        icon: AiOutlineGlobal,
+        group: [
+          {
+            defaultPath: "/nivel1",
+            name: "Contabil",
+            path: "/nivel2/nivel3",
+            icon: AiOutlineAudit,
+            subgroup: true,
+            group: [
+              {
+                defaultPath: "/nivel1",
+                name: "Nivel4",
+                path: "/nivel2/nivel3/nivel4",
+                icon: AiOutlineTable,
+              },
+            ],
+          },
+          {
+            defaultPath: "/nivel1",
+            name: "Despesas",
+            path: "/nivel2/nivel3",
+            icon: AiOutlineAudit,
+            subgroup: true,
+            group: [
+              {
+                defaultPath: "/nivel1",
+                name: "Nivel4",
+                path: "/nivel2/nivel3/nivel4",
+                icon: AiOutlineTable,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        defaultPath: "/nivel1",
+        name: "Incentivos Fiscais",
+        path: "/nivel2",
+        icon: AiOutlineGlobal,
+        group: [
+          {
+            defaultPath: "/nivel1",
+            name: "Promae",
+            path: "/transparencia/promae",
+            icon: AiOutlineAudit,
+            subgroup: false,
+          },
+          {
+            defaultPath: "/nivel1",
+            name: "Nivel 3",
+            path: "/nivel2/nivel3",
+            icon: AiOutlineAudit,
+            subgroup: true,
+            group: [
+              {
+                defaultPath: "/nivel1",
+                name: "Nivel4",
+                path: "/nivel2/nivel3/nivel4",
+                icon: AiOutlineTable,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+      name: "Gestão de Pessoas",
+      path: "/nivel1",
+      element: <div></div>,
+      icon: BsFileText,
+      group: [
+        {
+          defaultPath: "/nivel1",
+          name: "Cargos e Salarios",
+          path: "/publicacoes/cargos-e-salarios",
+          icon: AiOutlineGlobal,
+          group: [
+            {
+              defaultPath: "/nivel1",
+              name: "Nivel 3 - Link",
+              path: "/nivel2/nivel3",
+              icon: AiOutlineAudit,
+              subgroup: false,
+            },
+            {
+              defaultPath: "/nivel1",
+              name: "Nivel 3",
+              path: "/nivel2/nivel3",
+              icon: AiOutlineAudit,
+              subgroup: true,
+              group: [
+                {
+                  defaultPath: "/nivel1",
+                  name: "Nivel4",
+                  path: "/nivel2/nivel3/nivel4",
+                  icon: AiOutlineTable,
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
   {
     name: "Portal de Obras",
     icon: BsBricks,
@@ -221,13 +682,6 @@ const publicRoutes: IPublicRoute[] = [
         path: "/lei-orcamentaria-anual",
         icon: AiOutlineProfile,
         ...contentLawBudget,
-      },
-      {
-        defaultPath: "/transparencia",
-        name: "Relatório de Gestão Fiscal",
-        path: "/relatorio-de-gestao-fiscal",
-        icon: AiOutlineProfile,
-        ...contentRepostManagementSupervisor,
       },
       {
         defaultPath: "/transparencia",
@@ -469,6 +923,44 @@ const publicRoutes: IPublicRoute[] = [
     ...contentPatrimony,
   },
   {
+      name: "Lei de Acesso à Informação",
+      path: "/nivel1",
+      element: <div></div>,
+      icon: BsFileText,
+      group: [
+        {
+          defaultPath: "/nivel1",
+          name: "Nivel 2",
+          path: "/nivel2",
+          icon: AiOutlineGlobal,
+          group: [
+            {
+              defaultPath: "/nivel1",
+              name: "Nivel 3 - Link",
+              path: "/nivel2/nivel3",
+              icon: AiOutlineAudit,
+              subgroup: false,
+            },
+            {
+              defaultPath: "/nivel1",
+              name: "Nivel 3",
+              path: "/nivel2/nivel3",
+              icon: AiOutlineAudit,
+              subgroup: true,
+              group: [
+                {
+                  defaultPath: "/nivel1",
+                  name: "Nivel4",
+                  path: "/nivel2/nivel3/nivel4",
+                  icon: AiOutlineTable,
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  {
     name: "Publicações",
     path: "/publicacoes",
     icon: AiOutlineSnippets,
@@ -585,44 +1077,44 @@ const publicRoutes: IPublicRoute[] = [
     icon: AiOutlineGlobal,
     group: undefined,
   },
-  {
-    name: "Nivel 1",
-    path: "/nivel1",
-    element: <div></div>,
-    icon: BsFileText,
-    group: [
-      {
-        defaultPath: "/nivel1",
-        name: "Nivel 2",
-        path: "/nivel2",
-        icon: AiOutlineGlobal,
-        group: [
-          {
-            defaultPath: "/nivel1",
-            name: "Nivel 3 - Link",
-            path: "/nivel2/nivel3",
-            icon: AiOutlineAudit,
-            subgroup: false,
-          },
-          {
-            defaultPath: "/nivel1",
-            name: "Nivel 3",
-            path: "/nivel2/nivel3",
-            icon: AiOutlineAudit,
-            subgroup: true,
-            group: [
-              {
-                defaultPath: "/nivel1",
-                name: "Nivel4",
-                path: "/nivel2/nivel3/nivel4",
-                icon: AiOutlineTable,
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  },
+  // {
+  //   name: "Nivel 1",
+  //   path: "/nivel1",
+  //   element: <div></div>,
+  //   icon: BsFileText,
+  //   group: [
+  //     {
+  //       defaultPath: "/nivel1",
+  //       name: "Nivel 2",
+  //       path: "/nivel2",
+  //       icon: AiOutlineGlobal,
+  //       group: [
+  //         {
+  //           defaultPath: "/nivel1",
+  //           name: "Nivel 3 - Link",
+  //           path: "/nivel2/nivel3",
+  //           icon: AiOutlineAudit,
+  //           subgroup: false,
+  //         },
+  //         {
+  //           defaultPath: "/nivel1",
+  //           name: "Nivel 3",
+  //           path: "/nivel2/nivel3",
+  //           icon: AiOutlineAudit,
+  //           subgroup: true,
+  //           group: [
+  //             {
+  //               defaultPath: "/nivel1",
+  //               name: "Nivel4",
+  //               path: "/nivel2/nivel3/nivel4",
+  //               icon: AiOutlineTable,
+  //             },
+  //           ],
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
 ];
 
 export default publicRoutes;
