@@ -4,8 +4,8 @@ import Screen from "./screen";
 import {
   getChart,
   getRemainders,
-} from "../../../calls/budgetExecution/remains";
-import { revalidate } from "../../../config";
+} from "../../../../../calls/budgetExecution/remains";
+import { revalidate } from "../../../../../config";
 import moment from "moment";
 
 function Controller({ chart = { datasets: [] }, remainders = [], years }: any) {

@@ -4,9 +4,9 @@ import Screen from "./screen";
 import {
   getChart,
   getGeneralExpenses,
-} from "../../../calls/budgetExecution/generalExpenses";
-import { revalidate } from "../../../config";
+} from "../../../../../calls/budgetExecution/generalExpenses";
 import moment from "moment";
+import { revalidate } from "../../../../../config";
 
 function Controller({
   chart = { datasets: [] },

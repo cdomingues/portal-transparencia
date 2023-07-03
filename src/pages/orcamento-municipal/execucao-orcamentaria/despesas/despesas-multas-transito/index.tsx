@@ -4,8 +4,8 @@ import Screen from "./screen";
 import {
   getChart,
   getFinesExpenses,
-} from "../../../calls/budgetExecution/finesExpenses";
-import { revalidate } from "../../../config";
+} from "../../../../../calls/budgetExecution/finesExpenses";
+import { revalidate } from "../../../../../config";
 import moment from "moment";
 
 function Controller({ chart = { datasets: [] }, fines = [], years }: any) {

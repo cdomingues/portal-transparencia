@@ -114,8 +114,9 @@ function GroupMenu({
       >
         {children}
       </Flex>
-      {group?.map((item) => (
+      {group?.map((item, index) => (
         <Button
+          key={index}
           style={{
             cursor: "pointer",
             height: "38px",
