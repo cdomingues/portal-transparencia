@@ -101,11 +101,18 @@ const MapOfConstructions = () => {
           placeholder="Selecionar programa"
           onChange={(event) => setProgram(event.target.value)}
         >
-          <option value="2004 - INFRAESTRUTURA">Infraestrutura</option>
           <option value="2006 - SANEAMENTO AMBIENTAL">
             Saneamento Ambiental
           </option>
+          <option value="2004 - INFRAESTRUTURA">Infraestrutura</option>
           <option value="2000 - MOGI EFICIENTE">Mogi Eficiente</option>
+          <option value="3100 - SAÚDE">Saúde</option>
+          <option value="3003 - ESPORTE">Esporte</option>
+          <option value="2007 - MOBILIDADE URBANA">Mobilidade Urbana</option>
+          <option value="3004 - SEGURANÇA">Segurança</option>
+          <option value="2001 - CIDADE INTELIGENTE">Cidade Inteligente</option>
+          <option value="1001 - PRIMEIROS PASSOS">Primeiros Passos</option>
+          <option value="1000 - EDUCA MOGI">Educa Mogi</option>
           <option value="">Todos</option>
         </Select>
         <Text.Heading4Medium
@@ -137,7 +144,7 @@ const MapOfConstructions = () => {
           onChange={(event) => setStep(event.target.value)}
         >
           <option value="INICIADO">Iniciado</option>
-          <option value="CONCLUIDO">Concluído</option>
+          <option value="CONCLUÍDO">Concluído</option>
           <option value="RESCINDIDO">Rescindido</option>
           <option value="">Todos</option>
         </Select>

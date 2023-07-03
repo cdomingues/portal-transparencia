@@ -147,9 +147,10 @@ export const Card = styled.div`
     font-weight: 500;
 
     @media (max-width: 550px) {
-      flex-direction: row;
+      flex-direction: row-reverse;
       height: 50px;
       width: 100%;
+      border-radius: 0px;
     }
   }
 
@@ -166,6 +167,10 @@ export const Card = styled.div`
     justify-content: center;
     align-items: center;
     border-top-right-radius: 20px;
+
+    @media (max-width: 550px) {
+      border-radius: 0px;
+    }
   }
 
   .vertical-text {

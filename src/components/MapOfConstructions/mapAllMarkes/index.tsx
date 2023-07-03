@@ -160,12 +160,9 @@ const MapAllMarkersComponent = ({
     const isLessThan = label === "above" ? false : true;
 
     const filtered = constructions.filter((item) => {
-      const stepMatch =
-        step === "CONCLUIDO"
-          ? item.concluida === true
-          : step
-          ? step?.toLowerCase() === item.situacao?.toLowerCase()
-          : true;
+      const stepMatch = step
+        ? step?.toLowerCase() === item.situacao?.toLowerCase()
+        : true;
 
       const programMatch = program ? program === item?.programa_ppa : true;
 
