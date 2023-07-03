@@ -169,63 +169,64 @@
 
 // export default DownloadAPI;
 
-// import { NextApiRequest, NextApiResponse } from 'next';
-// import axios from 'axios';
-// import fs from 'fs';
-// import path from 'path';
-// import dotenv from 'dotenv';
-// import mime from 'mime-types';
+import { NextApiRequest, NextApiResponse } from 'next';
+import axios from 'axios';
+import fs from 'fs';
+import path from 'path';
+import dotenv from 'dotenv';
+import mime from 'mime-types';
 
-// dotenv.config();
+dotenv.config();
 
-// const ftpConfig = {
-//   user: process.env.FTP_USER,
-//   password: process.env.FTP_PASS,
-//   host: process.env.FTP_HOST,
-//   port: parseInt(process.env.FTP_PORT || '21'),
-// };
+const ftpConfig = {
+  user: process.env.FTP_USER,
+  password: process.env.FTP_PASS,
+  host: process.env.FTP_HOST,
+  port: parseInt(process.env.FTP_PORT || '21'),
+};
 
-// const DownloadAPI = async (req: NextApiRequest, res: NextApiResponse) => {
-//   const url = 'http://licitacao-mgcon.mogidascruzes.sp.gov.br/arquivo/download/62598';
+const DownloadAPI = async (req: NextApiRequest, res: NextApiResponse) => {
+  const url = 'https://licitacao-mgcon.mogidascruzes.sp.gov.br/arquivo/download/62598';
 
-//   // Extract extension from the url
-//   let extension = path.extname(url);
-//   if (!extension) {
-//     extension = '.dat'; // default extension if none found
-//   }
+  // Extract extension from the url
+  let extension = path.extname(url);
+  if (!extension) {
+    extension = '.dat'; // default extension if none found
+  }
 
-//   const fileName = `${url.slice(-5)}${extension}`;
-//   const basePath = path.join(process.cwd(), 'public', 'Base64');
-//   const filePath = path.join(basePath, fileName);
+  const fileName = `${url.slice(-5)}${extension}`;
+  const basePath = path.join(process.cwd(), 'public', 'Base64');
+  const filePath = path.join(basePath, fileName);
 
-//   // Check if the file already exists
-//   if (!fs.existsSync(filePath)) {
-//     try {
-//       const response = await axios.get(url, { responseType: 'arraybuffer' });
-//       try {
-//         fs.writeFileSync(filePath, response.data);
-//         console.log('Arquivo baixado com sucesso!');
-//       } catch (error) {
-//         console.error('Error writing file:', error);
-//         res.status(500).send('Error writing file');
-//         return;
-//       }
-//     } catch (error) {
-//       console.error('Error downloading file:', error);
-//       res.status(500).send('Error downloading file');
-//       return;
-//     }
-//   }
+  // Check if the file already exists
+  if (!fs.existsSync(filePath)) {
+    try {
+      const response = await axios.get(url, { responseType: 'arraybuffer' });
+      try {
+        fs.writeFileSync(filePath, response.data);
+        console.log('Arquivo baixado com sucesso!');
+        
+      } catch (error) {
+        console.error('Error writing file:', error);
+        res.status(500).send('Error writing file');
+        return;
+      }
+    } catch (error) {
+      console.error('Error downloading file:', error);
+      res.status(500).send('Error downloading file');
+      return;
+    }
+  }
 
-//   const mimeType = mime.lookup(filePath) || 'application/octet-stream';
+  const mimeType = mime.lookup(filePath) || 'application/octet-stream';
 
-//   res.setHeader('Content-disposition', 'attachment; filename=' + path.basename(filePath));
-//   res.setHeader('Content-type', mimeType);
-//   const filestream = fs.createReadStream(filePath);
-//   filestream.pipe(res);
-// };
+  res.setHeader('Content-disposition', 'attachment; filename=' + path.basename(filePath));
+  res.setHeader('Content-type', mimeType);
+  const filestream = fs.createReadStream(filePath);
+  filestream.pipe(res);
+};
 
-// export default DownloadAPI;
+export default DownloadAPI;
 
 // import { NextApiRequest, NextApiResponse } from 'next';
 // import axios from 'axios';
@@ -452,40 +453,40 @@
 
 // export default DownloadAPI;
 
-import { NextApiRequest, NextApiResponse } from "next";
-import axios from "axios";
-import fs from "fs";
-import dotenv from "dotenv";
+// import { NextApiRequest, NextApiResponse } from "next";
+// import axios from "axios";
+// import fs from "fs";
+// import dotenv from "dotenv";
 
-dotenv.config();
+// dotenv.config();
 
-const ftpConfig = {
-  user: process.env.FTP_USER,
-  password: process.env.FTP_PASS,
-  host: process.env.FTP_HOST,
-  port: parseInt(process.env.FTP_PORT || "21"),
-};
+// const ftpConfig = {
+//   user: process.env.FTP_USER,
+//   password: process.env.FTP_PASS,
+//   host: process.env.FTP_HOST,
+//   port: parseInt(process.env.FTP_PORT || "21"),
+// };
 
-const DownloadAPI = async (req: NextApiRequest, res: NextApiResponse) => {
-  try {
-    const fileNameParam = req.query.fileName;
-    if (typeof fileNameParam !== "string") {
-      res.status(400).send("Invalid file name");
-      return;
-    }
+// const DownloadAPI = async (req: NextApiRequest, res: NextApiResponse) => {
+//   try {
+//     const fileNameParam = req.query.fileName;
+//     if (typeof fileNameParam !== "string") {
+//       res.status(400).send("Invalid file name");
+//       return;
+//     }
 
-    const url = `http://licitacao-mgcon.mogidascruzes.sp.gov.br/arquivo/download/${fileNameParam}`;
+//     const url = `http://licitacao-mgcon.mogidascruzes.sp.gov.br/arquivo/download/${fileNameParam}`;
 
-    const response = await axios.get(url, { responseType: "arraybuffer" });
+//     const response = await axios.get(url, { responseType: "arraybuffer" });
 
-    const base64 = Buffer.from(response.data).toString("base64");
+//     const base64 = Buffer.from(response.data).toString("base64");
 
-    return res.status(200).json({
-      base64,
-    });
-  } catch (error) {
-    return res.status(500).json(error);
-  }
-};
+//     return res.status(200).json({
+//       base64,
+//     });
+//   } catch (error) {
+//     return res.status(500).json(error);
+//   }
+// };
 
-export default DownloadAPI;
+// export default DownloadAPI;
