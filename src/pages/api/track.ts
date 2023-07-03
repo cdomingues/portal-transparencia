@@ -20,6 +20,7 @@ export default async function handler(
   if (type === "licitacoes") {
     const { data } = await axios.request({
       baseURL: `http://portaldatransparencia.mogidascruzes.sp.gov.br/index.php/licitacao/details/${id}`,
+      method: "GET",
     });
 
     return res.status(200).json(data);
@@ -28,6 +29,7 @@ export default async function handler(
   if (type === "folha_pagamento") {
     const { data } = await axios.request({
       baseURL: `http://portaldatransparencia.mogidascruzes.sp.gov.br/index.php/rh_verbas/details/${id}`,
+      method: "GET",
     });
 
     return res.status(200).json(data);
