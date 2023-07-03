@@ -469,30 +469,29 @@ const ftpConfig = {
 };
 
 const DownloadAPI = async (req: NextApiRequest, res: NextApiResponse) => {
-  const fileNameParam = req.query.fileName;
-  if (typeof fileNameParam !== "string") {
-    res.status(400).send("Invalid file name");
-    return;
-  }
+  try {
+    const fileNameParam = req.query.fileName;
+    if (typeof fileNameParam !== "string") {
+      res.status(400).send("Invalid file name");
+      return;
+    }
 
-  async function convertToBase64(url: string) {
-    try {
+    async function convertToBase64(url: string) {
       const response = await axios.get(url, { responseType: "arraybuffer" });
       const data = Buffer.from(response.data).toString("base64");
       return data;
-    } catch (error) {
-      console.error("Erro ao converter o PDF para base64:", error);
-      throw error;
     }
+
+    const url = `http://licitacao-mgcon.mogidascruzes.sp.gov.br/arquivo/download/${fileNameParam}`;
+
+    const base64 = await convertToBase64(url);
+
+    return res.status(200).json({
+      base64,
+    });
+  } catch (error) {
+    return res.status(500).json(error);
   }
-
-  const url = `http://licitacao-mgcon.mogidascruzes.sp.gov.br/arquivo/download/${fileNameParam}`;
-
-  const base64 = await convertToBase64(url);
-
-  return res.status(200).json({
-    base64,
-  });
 };
 
 export default DownloadAPI;
