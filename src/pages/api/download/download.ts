@@ -459,8 +459,6 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-console.log("Iniciando API...");
-
 const ftpConfig = {
   user: process.env.FTP_USER,
   password: process.env.FTP_PASS,
@@ -476,15 +474,11 @@ const DownloadAPI = async (req: NextApiRequest, res: NextApiResponse) => {
       return;
     }
 
-    async function convertToBase64(url: string) {
-      const response = await axios.get(url, { responseType: "arraybuffer" });
-      const data = Buffer.from(response.data).toString("base64");
-      return data;
-    }
-
     const url = `http://licitacao-mgcon.mogidascruzes.sp.gov.br/arquivo/download/${fileNameParam}`;
 
-    const base64 = await convertToBase64(url);
+    const response = await axios.get(url, { responseType: "arraybuffer" });
+
+    const base64 = Buffer.from(response.data).toString("base64");
 
     return res.status(200).json({
       base64,
