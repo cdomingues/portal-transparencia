@@ -8,12 +8,11 @@ type PropsInput = {
     link: string;
     foto: string;
     data_noticia: string;
-     
-    
+       
     
 }
 
-function DisplayNews({titulo,descricao,link, foto,data_noticia,...rest}:PropsInput){
+function DisplayNews({titulo,descricao,link, foto,data_noticia,}:PropsInput){
    
             return(
                 
@@ -31,9 +30,7 @@ function DisplayNews({titulo,descricao,link, foto,data_noticia,...rest}:PropsInp
        marginBottom="15px"
        >
         
-        <Box display={{ base: "none", md: "flex" }} >
-         <Image maxWidth="350px"  borderRadius="20px" alt="image" objectFit="cover" src={foto}></Image>
-        </Box>
+       
 
           
    <Box paddingLeft="10px" >
@@ -63,7 +60,7 @@ function DisplayNews({titulo,descricao,link, foto,data_noticia,...rest}:PropsInp
           {data_noticia}
           </Text>
 
-           <Box display={{ base: "flex", md: "none" }} flexDirection="column" alignItems="flex-end" paddingBottom="10px">
+           <Box display=  "flex" flexDirection="column" alignItems="flex-end" paddingBottom="10px">
   <Image maxWidth="280px" borderRadius="20px" alt="image" objectFit="cover" src={foto}></Image>
 </Box> 
 
