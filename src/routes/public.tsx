@@ -63,6 +63,7 @@ import { contentCourtOpinions } from "../pages/contas/pareceres-tribunal/screen"
 import { contentPatrimony } from "../pages/patrimonio/screen";
 import { contentOtherInformations } from "../pages/outras-informacoes/screen";
 import { contentSearchConstructions } from "../pages/controle-de-obras/pesquisar-obras/screen";
+import { contentAbout } from "../pages/sobre-portal/screen";
 
 const publicRoutes: IPublicRoute[] = [
   {
@@ -74,10 +75,10 @@ const publicRoutes: IPublicRoute[] = [
   },
   {
     name: "Sobre o Portal",
-    path: "/",
-    icon: FiHome,
+    icon: AiOutlineProfile,
+    path: "/sobre-portal",
     group: undefined,
-    ...contentInitial,
+    ...contentAbout,
   },
   {
     name: "Perfil do Municipio",

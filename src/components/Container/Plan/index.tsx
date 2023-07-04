@@ -2,7 +2,6 @@ import { Stack, Link, Text, useColorModeValue, Icon } from "@chakra-ui/react";
 import React, { ReactNode } from "react";
 import { isMobile } from "react-device-detect";
 import { AiOutlineDownload, AiOutlineInfoCircle } from "react-icons/ai";
-import DownloadOff from "../../../pages/downloadOff/downloadOff";
 import Testimonial, { TestimonialContent } from "../../Testimonial";
 
 type PropsInput = {
@@ -53,7 +52,7 @@ const PlanContainer = ({ laws, children }: PropsInput) => {
                 A Lei nº 12.527/2011 regulamenta o direito constitucional de
                 acesso às informações públicas.
               </Link>
-              <DownloadOff />
+         
             </TestimonialContent>
           
         </div>
