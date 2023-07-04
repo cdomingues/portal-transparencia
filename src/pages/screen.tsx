@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
-import BlogComponent from "../components/Blog";
-import { News } from "../types";
+//import BlogComponent from "../components/Blog";
+//import { News } from "../types";
 import { PublicPolicyData } from "./api/totalizador/politicas-publicas";
 import {
   Box,
@@ -27,10 +27,15 @@ import { ChartContainer } from "../utils/styles";
 import { BiBody, BiCheckShield, BiFoodMenu, BiHeart } from "react-icons/bi";
 import useWindowDimensions from "../utils/getWindowSize";
 import { useFontSizeAccessibilityContext } from "../context/fontSizeAccessibility";
+import noticias from '../../data/noticias.json'
+//import News from "../../components/News";
+//import News from "../components/News";
+import DisplayNews from "../components/NewsHome";
+
 
 type PropsInput = {
   handler: {
-    news: Array<News>;
+    //news: Array<News>;
     expenseAmount: number;
     expensePercentageReached: number;
     expenseProvided: number;
@@ -44,6 +49,7 @@ type PropsInput = {
     publicPoliciesLoading: boolean;
     chartLoading: boolean;
     date: string;
+        
   };
 };
 
@@ -53,22 +59,29 @@ export const contentInitial = {
     "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.",
 };
 
-function Aside({ news }: { news: Array<News> }) {
+ function Aside() {
   return (
-    <div style={{ padding: "10px" }}>
-      {news.map((item) => (
-        <BlogComponent
-          title={item.title}
-          description={item.description}
-          image={item.image}
-          link={item.link}
-          key={item.title}
-          date={item.date}
-        />
-      ))}
+    <div style={{ padding: "10px", width:"400px"}}>
+      {
+            noticias.slice(0,2).map((info)=>{
+             return( 
+             
+              <DisplayNews 
+                 key={info.descricao}
+                 data_noticia={info.data_noticia}
+                 descricao={info.descricao}
+                 foto={info.foto} 
+                 titulo={info.titulo} 
+                 link={info.link}   
+                 
+                
+            />
+             )
+            })
+          }
     </div>
   );
-}
+} 
 
 const PublicPolicyCard = ({
   funcao,
@@ -133,7 +146,7 @@ const PublicPolicyCard = ({
 
 function HomeScreen({ handler }: PropsInput) {
   const {
-    news,
+    //news,
     expenseAmount,
     expensePercentageReached,
     expenseProvided,
@@ -513,7 +526,7 @@ function HomeScreen({ handler }: PropsInput) {
         </Text>
       </Stack>
       <Stack flex={width > 1024 ? 1 : 2}>
-        <Aside news={news} />
+      <Aside />
       </Stack>
     </Stack>
   );
