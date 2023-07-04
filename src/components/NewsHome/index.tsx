@@ -64,11 +64,15 @@ function DisplayNews({titulo,descricao,link, foto,data_noticia,}:PropsInput){
   <Image maxWidth="280px" borderRadius="20px" alt="image" objectFit="cover" src={foto}></Image>
 </Box> 
 
-          <Button  
+          <Button  minW={55}
+            w={'70%'}
+            _hover={{ bg: "gray.500", color: "white" }}
+            bg="table.primary"
+            color="white"  
           
           onClick={() => window.open(link,"_blank")}
           >
-            <Text color="gray.500">Leia mais ...</Text>
+            <Text>Leia mais ...</Text>
           </Button></Box>
 
           

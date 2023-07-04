@@ -11,7 +11,7 @@ import PaginationSelector from "../../components/PaginationSelector";
 
 
 export const contentOtherInformations = {
-  titlePage: "INFORMAÇÕES",
+  titlePage: "ÚLTIMAS NOTICIAS",
   description:
     "Caso tenha dificuldade em encontrar alguma informação ou dúvida referente ao conteúdo publicado neste portal, você pode entrar em contato conosco preenchendo o formulário abaixo ou dirigir-se pessoalmente à Ouvidoria Geral, localizada no 3º andar do prédio sede da Prefeitura, de segunda a sexta-feira, das 8 às 17 horas.",
 };
@@ -86,68 +86,7 @@ function Screen(PropsInput: any) {
 
           <PaginationComponent pages={pages} setCurrentPage = {setCurrentPage}/>
 
-        <Heading
-          fontSize={accessibility?.fonts?.regular}
-          color="text.dark"
-          marginBottom={5}
-        >
-                    Qual o Assunto?
-        </Heading>
 
-        {checkboxes.map((checked, index) => (
-          <Checkbox
-            key={index}
-            isChecked={checked}
-            onChange={() => handleCheckboxChange(index)}
-          >
-            {translatorCheckbox[index]}
-          </Checkbox>
-        ))}
-
-        {hasCheckboxSelected && (
-          <>
-            <Input
-              bg="white"
-              width="100%"
-              maxWidth={500}
-              placeholder="Nome"
-              marginTop={5}
-            />
-
-            <Input
-              bg="white"
-              width="100%"
-              maxWidth={400}
-              placeholder="CPF"
-              marginTop={2.5}
-            />
-            <Input
-              bg="white"
-              width="100%"
-              maxWidth={400}
-              placeholder="Telefone"
-              marginTop={2.5}
-            />
-            <Input
-              bg="white"
-              width="100%"
-              maxWidth={500}
-              placeholder="Email"
-              marginTop={2.5}
-            />
-
-            <Textarea
-              bg="white"
-              value={text}
-              onChange={handleTextChange}
-              maxLength={300}
-              placeholder="Digite até 300 caracteres"
-              maxWidth={500}
-              marginTop={2.5}
-              minHeight={200}
-            />
-          </>
-        )}
       </Flex>
      <Box marginTop="50px" width="800px">
       

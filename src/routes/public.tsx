@@ -61,7 +61,7 @@ import { contentReportExtrabudget } from "../pages/transparencia/relatorio-resum
 import { contentAnnualBalance } from "../pages/contas/balancos-anuais/screen";
 import { contentCourtOpinions } from "../pages/contas/pareceres-tribunal/screen";
 import { contentPatrimony } from "../pages/patrimonio/screen";
-import { contentOtherInformations } from "../pages/outras-informacoes/screen";
+import { contentOtherInformations } from "../pages/ultimas-noticias/screen";
 import { contentSearchConstructions } from "../pages/controle-de-obras/pesquisar-obras/screen";
 import { contentAbout } from "../pages/sobre-portal/screen";
 
@@ -1067,8 +1067,8 @@ const publicRoutes: IPublicRoute[] = [
     ],
   },
   {
-    name: "Outras Informações",
-    path: "/outras-informacoes",
+    name: "Últimas Noticias",
+    path: "/ultimas-noticias",
     icon: AiOutlineAudit,
     ...contentOtherInformations,
   },

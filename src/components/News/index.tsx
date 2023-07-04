@@ -1,4 +1,5 @@
 import {Box,Text,useColorModeValue,Image, Button } from "@chakra-ui/react";
+import { isMobile } from "react-device-detect";
 //import JsonData from '../../../data/noticias.json'
 
 
@@ -26,7 +27,7 @@ function DisplayNews({titulo,descricao,link, foto,data_noticia,...rest}:PropsInp
        rounded="md"
        p={3}
        overflow="hidden"
-       maxWidth="100%"
+       maxWidth = {isMobile ? '100%' : '80%'}
        borderRadius="18px"
        marginBottom="15px"
        >
@@ -58,20 +59,24 @@ function DisplayNews({titulo,descricao,link, foto,data_noticia,...rest}:PropsInp
           
           </Text>
           
-          <Box display="flex" alignItems="center" flexDirection="column" >
+          <Box display="flex" alignItems="right" flexDirection="column" >
           <Text color="gray.500" fontSize="smaller" paddingBottom="10px">
           {data_noticia}
           </Text>
 
-           <Box display={{ base: "flex", md: "none" }} flexDirection="column" alignItems="flex-end" paddingBottom="10px">
-  <Image maxWidth="280px" borderRadius="20px" alt="image" objectFit="cover" src={foto}></Image>
+           <Box display={{ base: "flex", md: "none" }} flexDirection="column" alignItems="center" paddingBottom="10px">
+  <Image justifyContent={'center'} maxWidth="280px" borderRadius="20px" alt="image" objectFit="cover" src={foto}></Image>
 </Box> 
 
-          <Button  
-          
+          <Button
+           minW={55}
+           w={'100%'}
+           _hover={{ bg: "gray.500", color: "white" }}
+           bg="table.primary"
+           color="white"
           onClick={() => window.open(link,"_blank")}
           >
-            <Text color="gray.500">Leia mais ...</Text>
+            <Text>Leia mais ...</Text>
           </Button></Box>
 
           

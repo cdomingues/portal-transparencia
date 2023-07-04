@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next';
 import axios from 'axios';
-import Screen from '../noticias/screen';
+import Screen from './screen';
 
 interface NewsItem {
   foto: string;
