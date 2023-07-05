@@ -32,7 +32,7 @@ function ContainerBasic({
         {title}
       </Heading>
       <div style={{paddingRight: isMobile? "0%" : "20%"}}>
-      <Text align= {'left'} color="gray.500" fontSize={accessibility?.fonts?.regular}>
+      <Text align= {isMobile? 'justify' : "left"} color="gray.500" fontSize={accessibility?.fonts?.regular}>
           {description}
         </Text>
       {/* <Body style={{backgroundColor: 'black', maxWidth: '100%' }}>
