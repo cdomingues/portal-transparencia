@@ -1,89 +1,79 @@
-import {Box,Text,useColorModeValue,Image, Button } from "@chakra-ui/react";
-//import JsonData from '../../../data/noticias.json'
-
+import { Box, Text, useColorModeValue, Image } from "@chakra-ui/react";
 
 type PropsInput = {
-    titulo: string;
-    descricao: string;
-    link: string;
-    foto: string;
-    data_noticia: string;
-       
-    
-}
+  titulo: string;
+  descricao: string;
+  link: string;
+  foto: string;
+  data_noticia: string;
+};
 
-function DisplayNews({titulo,descricao,link, foto,data_noticia,}:PropsInput){
-   
-            return(
-                
-                <Box 
-                key={titulo}
-      display="flex" justifyContent="flex-start" 
+function DisplayNews({
+  titulo,
+  descricao,
+  link,
+  foto,
+  data_noticia,
+}: PropsInput) {
+  return (
+    <a href={link} target="_blank" rel="noopener noreferrer">
+      <Box
+        key={titulo}
+        display="flex"
+        justifyContent="flex-start"
         m={0}
-       bg={useColorModeValue("white", "gray.800")}
-       boxShadow="2xl"
-       rounded="md"
-       p={3}
-       overflow="hidden"
-       maxWidth="100%"
-       borderRadius="18px"
-       marginBottom="15px"
-       >
-        
-       
-
-          
-   <Box paddingLeft="10px" >
-  
-       <Text
+        bg={useColorModeValue("white", "gray.800")}
+        boxShadow="2xl"
+        rounded="md"
+        overflow="hidden"
+        maxWidth="100%"
+        borderRadius="18px"
+        marginBottom="15px"
+        _hover={{ bg: 'gray.100'}}
+      >
+        <Box>
+          <Text
             color={useColorModeValue("gray.700", "white")}
             fontSize="medium"
             fontFamily="body"
-            paddingBottom="10px"
+            padding="10px"
             flex="1"
           >
-           {titulo}
-
+            {titulo}
           </Text>
           <Text
             color={useColorModeValue("gray.700", "white")}
             fontSize="small"
             fontFamily="body"
             flex="end"
-            paddingBottom="10px"
-          >{descricao}
-          
-          </Text>
-          
-          <Box display="flex" alignItems="center" flexDirection="column" >
-          <Text color="gray.500" fontSize="smaller" paddingBottom="10px">
-          {data_noticia}
-          </Text>
-
-           <Box display=  "flex" flexDirection="column" alignItems="flex-end" paddingBottom="10px">
-  <Image maxWidth="280px" borderRadius="20px" alt="image" objectFit="cover" src={foto}></Image>
-</Box> 
-
-          <Button  minW={55}
-            w={'70%'}
-            _hover={{ bg: "gray.500", color: "white" }}
-            bg="table.primary"
-            color="white"  
-          
-          onClick={() => window.open(link,"_blank")}
+            padding="10px"
           >
-            <Text>Leia mais ...</Text>
-          </Button></Box>
+            {descricao}
+          </Text>
 
-          
-    
-    
-    </Box>
-   </Box>
-            )
-        
-    
+          <Box display="flex" alignItems="left" flexDirection="column">
+            <Text
+              color="gray.500"
+              fontSize="smaller"
+              paddingBottom="10px"
+              paddingLeft="10px"
+            >
+              {data_noticia}
+            </Text>
 
+            <Box
+              display="flex"
+              flexDirection="column"
+              alignItems="flex-end"
+              paddingBottom="0px"
+            >
+              <Image maxWidth="380px" alt="image" objectFit="cover" src={foto}></Image>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+    </a>
+  );
 }
 
-export default DisplayNews
+export default DisplayNews;

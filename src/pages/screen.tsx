@@ -62,7 +62,7 @@ export const contentInitial = {
 
  function Aside() {
   return (
-    <div style={{ padding: "10px", width:"400px"}}>
+    <div style={{ width:"380px", justifyContent:"left"}}>
       {
             noticias.slice(0,2).map((info)=>{
              return( 
@@ -82,13 +82,6 @@ export const contentInitial = {
           }
           <div style={{ padding: "50px", width:"100%"}} >
 
-<Button      
-            minW={55}
-            w={'100%'}
-            _hover={{ bg: "gray.500", color: "white" }}
-            bg="table.primary"
-            color="white"
-            >Veja outras noticias</Button>
 </div>
 
     </div>
