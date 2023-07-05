@@ -1,17 +1,14 @@
 import moment from "moment";
 import React, { useEffect, useState } from "react";
-import { getFile } from "../../../services/cloudStorage";
-import { removeDuplicates } from "../../../utils/removeDuplicate";
 import Screen from "./screen";
 import axios from "axios";
 
 export type Laws = Array<{ name: string; link: string; year: number }>;
 function Controller() {
   const [selectValue, setSelectValue] = useState(moment().year());
-  const [selectOptions, setSelectOptions] = useState<Array<string | number>>([
-    moment().year(),
-  ]);
-  const [lawsFiltered, setLawsFiltered] = useState<Laws | []>([]);
+  const [selectOptions, setSelectOptions] = useState<Array<string | number>>(
+    []
+  );
   const [data, setData] = useState<Laws | []>([]);
 
   useEffect(() => {
@@ -19,11 +16,14 @@ function Controller() {
   }, []);
 
   const makeRequestFile = async () => {
-    const response = await axios.get("/api/download/licitacao", {
-      params: {
-        type: 1,
-      },
-    });
+    const response = await axios.get(
+      "https://dadosabertos.mogidascruzes.sp.gov.br/api/download/proxy",
+      {
+        params: {
+          url: `http://www.licitacao.pmmc.com.br/Transparencia/arquivos?ano=&tipo=1&pagina=1&tamanho=100000`,
+        },
+      }
+    );
 
     if (!response.data) {
       return;
@@ -37,15 +37,18 @@ function Controller() {
         };
       })
     );
-    setSelectOptions(response.data.anos);
+
+    const years = response.data.anos.sort(function (a: number, b: number) {
+      return Number(b) - Number(a);
+    });
+    setSelectOptions(years);
   };
 
   const handleSelectValue = async (value: number) => {
     setSelectValue(value);
-    const response = await axios.get("/api/download/licitacao", {
+    const response = await axios.get("/api/download/proxy", {
       params: {
-        type: 1,
-        year: value,
+        url: `http://www.licitacao.pmmc.com.br/Transparencia/arquivos?ano=${value}&tipo=1&pagina=1&tamanho=100000`,
       },
     });
 
