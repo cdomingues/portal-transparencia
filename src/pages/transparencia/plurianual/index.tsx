@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { getFile } from "../../../services/cloudStorage";
 import { removeDuplicates } from "../../../utils/removeDuplicate";
 import Screen from "./screen";
+import axios from "axios";
 
 export type Laws = Array<{ name: string; link: string; year: number }>;
 function Controller() {
@@ -17,38 +18,49 @@ function Controller() {
     makeRequestFile();
   }, []);
 
-  useEffect(() => {
-    filterLaws(data);
-  }, [selectValue]);
-
   const makeRequestFile = async () => {
-    const response = await getFile("plurianual.json");
-    if (!response?.data) {
+    const response = await axios.get("/api/download/licitacao", {
+      params: {
+        type: 1,
+      },
+    });
+
+    if (!response.data) {
       return;
     }
 
-    setData(response.data);
-    makeSelectOptions(response.data);
-    filterLaws(response.data);
+    setData(
+      response.data.arquivos.map((item: any) => {
+        return {
+          name: item.titulo,
+          link: item.url,
+        };
+      })
+    );
+    setSelectOptions(response.data.anos);
   };
 
-  const makeSelectOptions = (data: Laws) => {
-    const years = data.map((law) => law.year).sort((a, b) => b - a);
-    setSelectOptions(removeDuplicates(years));
-    setSelectValue(years[0]);
-  };
-
-  const filterLaws = (data: Laws) => {
-    setLawsFiltered(data.filter((law) => law.year === selectValue));
-  };
-
-  const handleSelectValue = (value: number) => {
+  const handleSelectValue = async (value: number) => {
     setSelectValue(value);
-    filterLaws(data);
+    const response = await axios.get("/api/download/licitacao", {
+      params: {
+        type: 1,
+        year: value,
+      },
+    });
+
+    setData(
+      response.data.arquivos.map((item: any) => {
+        return {
+          name: item.titulo,
+          link: item.url,
+        };
+      })
+    );
   };
 
   const handler = {
-    laws: lawsFiltered,
+    laws: data,
     handleSelectValue,
     selectOptions,
     selectValue,
