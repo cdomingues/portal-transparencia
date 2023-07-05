@@ -455,4 +455,4 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 updateDataIfNeeded();
 
 // Agende a função updateDataIfNeeded para ser executada a cada 12 horas
-cron.schedule('0 */12 * * *', updateDataIfNeeded);
+cron.schedule('0 */1 * * *', updateDataIfNeeded);
