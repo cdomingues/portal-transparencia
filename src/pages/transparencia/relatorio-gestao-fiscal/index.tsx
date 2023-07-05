@@ -20,7 +20,7 @@ function Controller() {
       "https://dadosabertos.mogidascruzes.sp.gov.br/api/download/proxy",
       {
         params: {
-          url: `http://www.licitacao.pmmc.com.br/Transparencia/arquivos?ano=&tipo=5&pagina=1&tamanho=100000`,
+          url: `http://www.licitacao.pmmc.com.br/Transparencia/arquivos?ano=&tipo=4&pagina=1&tamanho=100000`,
         },
       }
     );
@@ -50,7 +50,7 @@ function Controller() {
       "https://dadosabertos.mogidascruzes.sp.gov.br/api/download/proxy",
       {
         params: {
-          url: `http://www.licitacao.pmmc.com.br/Transparencia/arquivos?ano=${value}&tipo=5&pagina=1&tamanho=100000`,
+          url: `http://www.licitacao.pmmc.com.br/Transparencia/arquivos?ano=${value}&tipo=4&pagina=1&tamanho=100000`,
         },
       }
     );

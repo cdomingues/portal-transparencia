@@ -510,43 +510,43 @@ const publicRoutes: IPublicRoute[] = [
     ],
   },
   {
-      name: "Gestão de Pessoas",
-      path: "/nivel1",
-      element: <div></div>,
-      icon: BsFileText,
-      group: [
-        {
-          defaultPath: "/nivel1",
-          name: "Cargos e Salarios",
-          path: "/publicacoes/cargos-e-salarios",
-          icon: AiOutlineGlobal,
-          group: [
-            {
-              defaultPath: "/nivel1",
-              name: "Nivel 3 - Link",
-              path: "/nivel2/nivel3",
-              icon: AiOutlineAudit,
-              subgroup: false,
-            },
-            {
-              defaultPath: "/nivel1",
-              name: "Nivel 3",
-              path: "/nivel2/nivel3",
-              icon: AiOutlineAudit,
-              subgroup: true,
-              group: [
-                {
-                  defaultPath: "/nivel1",
-                  name: "Nivel4",
-                  path: "/nivel2/nivel3/nivel4",
-                  icon: AiOutlineTable,
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
+    name: "Gestão de Pessoas",
+    path: "/nivel1",
+    element: <div></div>,
+    icon: BsFileText,
+    group: [
+      {
+        defaultPath: "/nivel1",
+        name: "Cargos e Salarios",
+        path: "/publicacoes/cargos-e-salarios",
+        icon: AiOutlineGlobal,
+        group: [
+          {
+            defaultPath: "/nivel1",
+            name: "Nivel 3 - Link",
+            path: "/nivel2/nivel3",
+            icon: AiOutlineAudit,
+            subgroup: false,
+          },
+          {
+            defaultPath: "/nivel1",
+            name: "Nivel 3",
+            path: "/nivel2/nivel3",
+            icon: AiOutlineAudit,
+            subgroup: true,
+            group: [
+              {
+                defaultPath: "/nivel1",
+                name: "Nivel4",
+                path: "/nivel2/nivel3/nivel4",
+                icon: AiOutlineTable,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
   {
     name: "Portal de Obras",
     icon: BsBricks,
@@ -684,6 +684,35 @@ const publicRoutes: IPublicRoute[] = [
         icon: AiOutlineProfile,
         ...contentLawBudget,
       },
+
+      {
+        defaultPath: "/transparencia",
+        name: "Relatório Resumido",
+        path: "/relatorio-resumido",
+        icon: AiOutlineProfile,
+      },
+
+      {
+        defaultPath: "/transparencia",
+        name: "Relatório de gestão fiscal",
+        path: "/relatorio-gestao-fiscal",
+        icon: AiOutlineProfile,
+      },
+
+      {
+        defaultPath: "/transparencia",
+        name: "Balanços Anuais",
+        path: "/balancos-anuais",
+        icon: AiOutlineProfile,
+      },
+
+      {
+        defaultPath: "/transparencia",
+        name: "Pareceres do Tribunal",
+        path: "/pareceres-do-tribunal",
+        icon: AiOutlineProfile,
+      },
+
       {
         defaultPath: "/transparencia",
         name: "Obras Públicas",
@@ -924,43 +953,43 @@ const publicRoutes: IPublicRoute[] = [
     ...contentPatrimony,
   },
   {
-      name: "Lei de Acesso à Informação",
-      path: "/nivel1",
-      element: <div></div>,
-      icon: BsFileText,
-      group: [
-        {
-          defaultPath: "/nivel1",
-          name: "Nivel 2",
-          path: "/nivel2",
-          icon: AiOutlineGlobal,
-          group: [
-            {
-              defaultPath: "/nivel1",
-              name: "Nivel 3 - Link",
-              path: "/nivel2/nivel3",
-              icon: AiOutlineAudit,
-              subgroup: false,
-            },
-            {
-              defaultPath: "/nivel1",
-              name: "Nivel 3",
-              path: "/nivel2/nivel3",
-              icon: AiOutlineAudit,
-              subgroup: true,
-              group: [
-                {
-                  defaultPath: "/nivel1",
-                  name: "Nivel4",
-                  path: "/nivel2/nivel3/nivel4",
-                  icon: AiOutlineTable,
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
+    name: "Lei de Acesso à Informação",
+    path: "/nivel1",
+    element: <div></div>,
+    icon: BsFileText,
+    group: [
+      {
+        defaultPath: "/nivel1",
+        name: "Nivel 2",
+        path: "/nivel2",
+        icon: AiOutlineGlobal,
+        group: [
+          {
+            defaultPath: "/nivel1",
+            name: "Nivel 3 - Link",
+            path: "/nivel2/nivel3",
+            icon: AiOutlineAudit,
+            subgroup: false,
+          },
+          {
+            defaultPath: "/nivel1",
+            name: "Nivel 3",
+            path: "/nivel2/nivel3",
+            icon: AiOutlineAudit,
+            subgroup: true,
+            group: [
+              {
+                defaultPath: "/nivel1",
+                name: "Nivel4",
+                path: "/nivel2/nivel3/nivel4",
+                icon: AiOutlineTable,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
   {
     name: "Publicações",
     path: "/publicacoes",

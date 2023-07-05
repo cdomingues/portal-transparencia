@@ -46,11 +46,14 @@ function Controller() {
 
   const handleSelectValue = async (value: number) => {
     setSelectValue(value);
-    const response = await axios.get("/api/download/proxy", {
-      params: {
-        url: `http://www.licitacao.pmmc.com.br/Transparencia/arquivos?ano=${value}&tipo=1&pagina=1&tamanho=100000`,
-      },
-    });
+    const response = await axios.get(
+      "https://dadosabertos.mogidascruzes.sp.gov.br/api/download/proxy",
+      {
+        params: {
+          url: `http://www.licitacao.pmmc.com.br/Transparencia/arquivos?ano=${value}&tipo=1&pagina=1&tamanho=100000`,
+        },
+      }
+    );
 
     setData(
       response.data.arquivos.map((item: any) => {
