@@ -37,9 +37,9 @@ function Home({
     setNews(response.data);
   };
 
-  useEffect(() => {
-    getNews();
-  }, []);
+  // useEffect(() => {
+  //   getNews();
+  // }, []);
 
   const handler = {
     news,

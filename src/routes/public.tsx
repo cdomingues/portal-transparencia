@@ -1096,6 +1096,13 @@ const publicRoutes: IPublicRoute[] = [
     ],
   },
   {
+    name: "Perguntas Frequentes",
+    path: "/perguntas-frequentes",
+    icon: AiOutlineAudit,
+    ...contentAbout,
+  },
+
+  {
     name: "Últimas Noticias",
     path: "/ultimas-noticias",
     icon: AiOutlineAudit,

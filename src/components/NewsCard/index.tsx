@@ -31,7 +31,7 @@ const Card = styled.div`
 `;
 
 const NewsCard: React.FC<NewsItem> = ({ foto, titulo, descricao, link, data_noticia }) => (
-  <Card style={{ alignItems: isMobile ? 'center' : 'flex-start' }}>
+  <Card style={{alignItems: isMobile ? 'center' : 'flex-start' }}>
     <div style={{display: 'flex', flexDirection: 'column', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center'}}>
       <div>
         <Text.Heading3Bold marginBottom={7} color={colors.grayDark70p}>{titulo}</Text.Heading3Bold>

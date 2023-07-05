@@ -4,6 +4,7 @@ import Head from "next/head";
 import { Container, Body } from "./styles";
 import Breadcrumb from "../../Breadcrumb";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
+import { isMobile } from "react-device-detect";
 
 type PropsInput = {
   title: string;
@@ -30,11 +31,16 @@ function ContainerBasic({
       <Heading mb={2} fontSize={accessibility?.fonts?.ultraLarge} color="text.dark">
         {title}
       </Heading>
-      <Body>
-        <Text align="left" color="gray.500" fontSize={accessibility?.fonts?.regular}>
+      <div style={{paddingRight: isMobile? "0%" : "20%"}}>
+      <Text align= {isMobile? 'justify' : "left"} color="gray.500" fontSize={accessibility?.fonts?.regular}>
           {description}
         </Text>
-      </Body>
+      {/* <Body style={{backgroundColor: 'black', maxWidth: '100%' }}>
+        <Text align= {isMobile? 'center' : 'left'} color="gray.500" fontSize={accessibility?.fonts?.regular}>
+          {description}
+        </Text>
+      </Body> */}
+      </div>
       <Divider borderWidth="2px" mt="10" mb="10" />
       {children}
     </Container>

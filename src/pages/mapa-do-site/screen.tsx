@@ -14,31 +14,43 @@ export const contentMapSite = {
     "Confira aqui as informações sobre o mapa do site da Prefeitura de Mogi das Cruzes",
 };
 
+function capitalizeFirstLetter(str: string) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 function Screen({ handler }: PropsInput) {
   const title = contentMapSite?.titlePage;
   const description = contentMapSite?.description;
   const router = useRouter();
   const map = publicRoutes?.map((item: any, index: number) => {
+    const itemPath = item?.path?.replace(/\//g, ""); // Remove the "/" character
+    const isFirstItem = index === 0;
+    const itemTitle = isFirstItem ? "Home" : capitalizeFirstLetter(itemPath);
+    const itemOnClick = isFirstItem ? () => router.push("/") : () => router.push(item?.path);
+
     return (
       <Stack display="flex" flexDirection="column" key={index}>
         <Text
-          onClick={() =>
-            item?.group?.length > 0 ? {} : router.push(item?.path)
-          }
-          cursor={item?.group?.length > 0 ? "default" :"pointer"}
+          color="blue"
+          onClick={itemOnClick}
+          cursor={item?.group?.length > 0 ? "default" : "pointer"}
         >
-          •{item?.path}
+          | {itemTitle}
         </Text>
         <Stack display="flex" flexDirection="column" paddingLeft="10">
-          {item?.group?.map((subItem: any, index: number) => (
-            <Text
-              key={index}
-              onClick={() => router.push(item?.path + subItem?.path)}
-              cursor="pointer"
-            >
-              •{subItem?.path}
-            </Text>
-          ))}
+          {item?.group?.map((subItem: any, subIndex: number) => {
+            const subItemPath = subItem?.path?.replace(/\//g, ""); // Remove the "/" character
+            return (
+              <Text
+                key={subIndex}
+                onClick={() => router.push(item?.path + subItem?.path)}
+                cursor="pointer"
+                color="blue"
+              >
+                | {capitalizeFirstLetter(subItemPath)}
+              </Text>
+            );
+          })}
         </Stack>
       </Stack>
     );

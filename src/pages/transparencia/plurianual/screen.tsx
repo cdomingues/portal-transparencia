@@ -37,7 +37,7 @@ function Screen({ handler }: PropsInput) {
           mb={5}
           onChange={(event) => {
             handleSelectValue(Number(event.target.value));
-          }}
+          }} 
         >
           {selectOptions.map((value, index) => (
             <option key={index} value={value}>
