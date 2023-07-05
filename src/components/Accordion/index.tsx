@@ -32,7 +32,7 @@ export default function AccordionCommponent()
   return (
 
 <Center backgroundColor='black' width="100%"  boxShadow={'md'} borderRadius="40px" alignContent={'center'}>
-            <Accordion defaultIndex={[0]}  style={{width: '100%', backgroundColor: 'white'}}>
+            <Accordion  allowToggle  style={{width: '100%', backgroundColor: 'white'}}>
           <AccordionItem>
             <h2>
               <AccordionButton style={{backgroundColor: "#185DA6" }}>
@@ -57,7 +57,7 @@ export default function AccordionCommponent()
             <h2>
             <AccordionButton style={{backgroundColor: "#185DA6" }}>
                 <Box as="span" flex='1' textAlign='left' textColor={'white'}>
-                O que é a LAI - Lei de Acesso à Informação? O que é transparência ativa? O que é transparência passiva? 
+                O que é a LAI - Lei de Acesso à Informação? 
                 </Box>
                 <AccordionIcon textColor={'white'}/>
               </AccordionButton>
