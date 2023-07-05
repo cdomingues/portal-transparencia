@@ -29,6 +29,8 @@ function Controller() {
       return;
     }
 
+    console.log(response)
+
     setData(
       response.data.arquivos.map((item: any) => {
         return {
