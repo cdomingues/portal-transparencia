@@ -32,35 +32,35 @@ type TData = {
   }[];
 };
 
-export function Chart({ data: dataProps, moneyFormat }: IChart) {
+export function Chart2({ data: dataProps, moneyFormat }: IChart) {
   const { labels, datasets } = dataProps;
   const data: TData = {
     labels,
     datasets: [
-      {
-        ...lineChartConfig,
-        label: "Arrecadações Acumuladas",
-        data: datasets[0],
-        yAxisID: "y1",
-      },
-      {
-        ...lineChartConfig2,
-        label: "Despesas Acumuladas",
-        data: datasets[1],
-        yAxisID: "y1",
-      },
       // {
-      //   ...barChartConfig,
-      //   label: "Arrecadações",
-      //   data: datasets[2],
-      //   yAxisID: "y",
+      //   ...lineChartConfig,
+      //   label: "Arrecadações Acumuladas",
+      //   data: datasets[0],
+      //   yAxisID: "y1",
       // },
       // {
-      //   ...barChartConfig2,
-      //   label: "Despesas",
-      //   data: datasets[3],
-      //   yAxisID: "y",
+      //   ...lineChartConfig2,
+      //   label: "Despesas Acumuladas",
+      //   data: datasets[1],
+      //   yAxisID: "y1",
       // },
+      {
+        ...barChartConfig,
+        label: "Arrecadações",
+        data: datasets[2],
+        yAxisID: "y",
+      },
+      {
+        ...barChartConfig2,
+        label: "Despesas",
+        data: datasets[3],
+        yAxisID: "y",
+      },
     ],
   };
 
@@ -98,15 +98,13 @@ export function Chart({ data: dataProps, moneyFormat }: IChart) {
         display: true, // Hide the x-axis
       },
       y: {
-        display: false, // Hide the y-axis
+        display: true, // Hide the y-axis
       },
       y1: {
-        display: true, // Hide the secondary y-axis
+        display: false, // Hide the secondary y-axis
       },
     },
   };
 
   return <_Chart type="bar" datasetIdKey="id" options={options} data={data} />;
 }
-
-

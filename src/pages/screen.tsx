@@ -24,6 +24,7 @@ import moneyFormatter from "../utils/moneyFormatter";
 import moment from "moment";
 import { isMobile } from "react-device-detect";
 import { Chart } from "../components/HomeChart";
+import { Chart2 } from "../components/HomeChart2";
 import { ChartContainer } from "../utils/styles";
 import { BiBody, BiCheckShield, BiFoodMenu, BiHeart } from "react-icons/bi";
 import useWindowDimensions from "../utils/getWindowSize";
@@ -357,6 +358,31 @@ marginBottom="15px"
         >
           Arrecadações e Acumulados - {moment().year()}
         </Heading>
+        <Stack
+          mb={10}
+          direction={isMobile ? "column" : "row"}
+          align={isMobile ? "left" : "center"}
+          justifyContent={isMobile ? "flex-start" : "center"}
+        >
+          {chartLoading ? (
+            <Box padding="6" bg="transparent">
+              {[1, 2, 3, 4, 4, 5, 6, 7].map((number, index) => (
+                <Skeleton height="20px" mt="4" key={index} />
+              ))}
+            </Box>
+          ) : graphConfig?.datasets?.length > 0 ? (
+            <ChartContainer>
+              <Chart2
+                moneyFormat
+                data={{
+                  labels: graphConfig?.labels,
+                  datasets: graphConfig?.datasets,
+                }}
+              />
+            </ChartContainer>
+          ) : null}
+        </Stack>
+
         <Stack
           mb={10}
           direction={isMobile ? "column" : "row"}
