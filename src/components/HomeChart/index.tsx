@@ -82,7 +82,9 @@ export function Chart({ data: dataProps, moneyFormat }: IChart) {
       },
       stacked: false,
       legend: {
-        position: "top" as const,
+        position: "bottom" as const,
+        spacing: 300, // Set the spacing to 100px
+        color: 'white',
       },
       tooltip: {
         callbacks: {
@@ -93,23 +95,14 @@ export function Chart({ data: dataProps, moneyFormat }: IChart) {
       },
     },
     scales: {
+      x: {
+        display: false, // Hide the x-axis
+      },
       y: {
-        position: "left" as const,
-        ticks: {
-          callback: (value: any) => {
-            return responsiveMoneyFormat(value);
-          },
-          beginAtZero: true,
-        },
+        display: false, // Hide the y-axis
       },
       y1: {
-        position: "right" as const,
-        ticks: {
-          callback: (value: any) => {
-            return responsiveMoneyFormat(value);
-          },
-          beginAtZero: true,
-        },
+        display: false, // Hide the secondary y-axis
       },
     },
   };

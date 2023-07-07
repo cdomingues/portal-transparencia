@@ -86,7 +86,7 @@ export const contentInitial = {
              )
             })
           }
-          <div style={{ padding: "50px", width:"100%"}} >
+          <div style={{ padding: "0px", width:"100%"}} >
 
 </div>
 
@@ -205,12 +205,23 @@ function HomeScreen({ handler }: PropsInput) {
     >
       <Stack
         flex={width > 1024 ? 2 : 2}
-        style={{ paddingLeft: isMobile ? 0 : "2%" }}
+        style={{ paddingLeft: isMobile ? 0 : "0%", paddingRight: isMobile ? 0 : "1%" }}
       >
         <Head>
           <title>Início</title>
         </Head>
+<Box
 
+m={0}
+bg={useColorModeValue("white", "gray.800")}
+boxShadow="2xl"
+padding={"15px"}
+rounded="md"
+overflow="hidden"
+maxWidth="100%"
+borderRadius="18px"
+marginBottom="15px"
+>
         <Stack spacing={4}>
           <Heading fontSize={accessibility?.fonts?.highLarge}>
             {titlePage}
@@ -222,6 +233,20 @@ function HomeScreen({ handler }: PropsInput) {
             Ultima atualização: {date}
           </Text> */}
         </Stack>
+        </Box>
+<Box
+       
+        m={0}
+        bg={useColorModeValue("white", "gray.800")}
+        boxShadow="2xl"
+        padding={"15px"}
+        rounded="md"
+        overflow="hidden"
+        maxWidth="100%"
+        borderRadius="18px"
+        marginBottom="15px"
+        >
+
         <Stack>
           <Heading mt={10} mb={4} fontSize={accessibility?.fonts?.regular}>
             Resumo {moment().year()}
@@ -323,6 +348,7 @@ function HomeScreen({ handler }: PropsInput) {
             </Stat>
           </StatGroup>
         </Stack>
+        
         <Divider mb={10} />
         <Heading
           fontSize={accessibility?.fonts?.regular}
@@ -355,8 +381,21 @@ function HomeScreen({ handler }: PropsInput) {
             </ChartContainer>
           ) : null}
         </Stack>
+</Box>
 
         <Divider mb="6%" />
+
+<Box
+m={0}
+bg={useColorModeValue("white", "gray.800")}
+boxShadow="2xl"
+padding={"15px"}
+rounded="md"
+overflow="hidden"
+maxWidth="100%"
+borderRadius="18px"
+marginBottom="15px"
+>
 
         <Stack direction="column">
           <Heading
@@ -369,7 +408,7 @@ function HomeScreen({ handler }: PropsInput) {
             <Stat position="unset">
               <Stack
                 direction={isMobile ? "column" : "row"}
-                align={isMobile ? "left" : "center"}
+                align={isMobile ? "center" : "center"}
                 justifyContent={isMobile ? "flex-start" : "center"}
               >
                 {publicPoliciesLoading ? (
@@ -409,7 +448,7 @@ function HomeScreen({ handler }: PropsInput) {
             <Stat position="unset">
               <Stack
                 direction={isMobile ? "column" : "row"}
-                align={isMobile ? "left" : "center"}
+                align={isMobile ? "center" : "center"}
                 justifyContent={isMobile ? "flex-start" : "center"}
               >
                 {publicPoliciesLoading ? (
@@ -449,12 +488,13 @@ function HomeScreen({ handler }: PropsInput) {
           </StatGroup>
         </Stack>
 
+
         <Stack direction="column">
           <StatGroup width="100%" mb={20}>
             <Stat position="unset">
               <Stack
                 direction={isMobile ? "column" : "row"}
-                align={isMobile ? "left" : "center"}
+                align={isMobile ? "center" : "center"}
                 justifyContent={isMobile ? "flex-start" : "center"}
               >
                 {publicPoliciesLoading ? (
@@ -494,7 +534,7 @@ function HomeScreen({ handler }: PropsInput) {
             <Stat position="unset">
               <Stack
                 direction={isMobile ? "column" : "row"}
-                align={isMobile ? "left" : "center"}
+                align={isMobile ? "center" : "center"}
                 justifyContent={isMobile ? "flex-start" : "center"}
               >
                 {publicPoliciesLoading ? (
@@ -533,6 +573,7 @@ function HomeScreen({ handler }: PropsInput) {
             </Stat>
           </StatGroup>
         </Stack>
+</Box>
         <Text color={"gray.500"} fontSize={accessibility?.fonts?.medium}>
           Última atualização: {date}
         </Text>
