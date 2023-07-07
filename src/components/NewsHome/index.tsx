@@ -1,4 +1,5 @@
 import { Box, Text, useColorModeValue, Image } from "@chakra-ui/react";
+import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility"
 
 type PropsInput = {
   titulo: string;
@@ -15,6 +16,7 @@ function DisplayNews({
   foto,
   data_noticia,
 }: PropsInput) {
+  const accessibility = useFontSizeAccessibilityContext();
   return (
     <a href={link} target="_blank" rel="noopener noreferrer">
       <Box
@@ -31,12 +33,16 @@ function DisplayNews({
         marginBottom="15px"
         _hover={{ bg: 'gray.100'}}
       >
-        <Box>
+        <Box
+        >
           <Text
-            color={useColorModeValue("gray.700", "white")}
-            fontSize="medium"
-            fontFamily="body"
-            padding="10px"
+          color={"black.500"} fontSize={accessibility?.fonts?.regular}
+            // color={useColorModeValue("gray.700", "white")}
+            // fontSize="medium"
+            // fontFamily="body"
+            padding="5%"
+            maxWidth={'90%'}
+            textAlign={'justify'}
             flex="1"
           >
             {titulo}
@@ -45,8 +51,10 @@ function DisplayNews({
             color={useColorModeValue("gray.700", "white")}
             fontSize="small"
             fontFamily="body"
+            padding="5%"
+            maxWidth={'90%'}
+            textAlign={'justify'}
             flex="end"
-            padding="10px"
           >
             {descricao}
           </Text>
@@ -55,8 +63,10 @@ function DisplayNews({
             <Text
               color="gray.500"
               fontSize="smaller"
+              width={'90%'}
+              maxWidth={'90%'}
               paddingBottom="10px"
-              paddingLeft="10px"
+              paddingLeft="5%"
             >
               {data_noticia}
             </Text>

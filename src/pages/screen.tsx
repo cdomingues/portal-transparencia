@@ -64,6 +64,19 @@ export const contentInitial = {
  function Aside() {
   return (
     <div style={{ width:"380px", justifyContent:"left"}}>
+
+<Box       
+m={0}
+bg={useColorModeValue("white", "gray.800")}
+boxShadow="2xl"
+padding={"15px"}
+rounded="md"
+overflow="hidden"
+maxWidth="95%"
+borderRadius="18px"
+marginBottom="15px"
+>
+
       <div style={{padding: "10px"}}>
         <Text
         fontWeight="500"
@@ -90,8 +103,10 @@ export const contentInitial = {
           <div style={{ padding: "0px", width:"100%"}} >
 
 </div>
+</Box>
 
     </div>
+    
 
   );
 } 
@@ -227,7 +242,7 @@ marginBottom="15px"
           <Heading fontSize={accessibility?.fonts?.highLarge}>
             {titlePage}
           </Heading>
-          <Text color={"gray.500"} fontSize={accessibility?.fonts?.regular}>
+          <Text color={"gray.500"} fontSize={accessibility?.fonts?.regular} textAlign={'justify'}>
             {description}
           </Text>
           {/* <Text color={"gray.500"} fontSize="sm">
@@ -600,9 +615,6 @@ marginBottom="15px"
           </StatGroup>
         </Stack>
 </Box>
-        <Text color={"gray.500"} fontSize={accessibility?.fonts?.medium}>
-          Última atualização: {date}
-        </Text>
       </Stack>
       <Stack flex={width > 1024 ? 1 : 2}>
       <Aside />
