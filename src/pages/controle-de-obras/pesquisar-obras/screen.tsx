@@ -197,6 +197,41 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                 imageBackgroundColor: "#CD507D",
                 imageName: "mogi-eficiente",
               },
+              "1000 - EDUCA MOGI": {
+                backgroundColor: "#008C57",
+                imageBackgroundColor: "#087D4D",
+                imageName: "educa-mogi",
+              },
+              "1001 - PRIMEIROS PASSOS": {
+                backgroundColor: "#F8C336",
+                imageBackgroundColor: "#DBAE2F",
+                imageName: "primeiros-passos",
+              },
+              "2001 - CIDADE INTELIGENTE": {
+                backgroundColor: "#22BFBD",
+                imageBackgroundColor: "#31A4A4",
+                imageName: "cidade-inteligente",
+              },
+              "3004 - SEGURANÇA": {
+                backgroundColor: "#1C3C6E",
+                imageBackgroundColor: "#183560",
+                imageName: "seguranca",
+              },
+              "2007 - MOBILIDADE URBANA": {
+                backgroundColor: "#F88B2A",
+                imageBackgroundColor: "#D67B28",
+                imageName: "mobilidade-urbana",
+              },
+              "3003 - ESPORTE": {
+                backgroundColor: "#DD4134",
+                imageBackgroundColor: "#DD4134",
+                imageName: "esporte",
+              },
+              "3100 - SAÚDE": {
+                backgroundColor: "#0093D3",
+                imageBackgroundColor: "#0E83BB",
+                imageName: "saude",
+              },
             };
 
             const programConfig = programConfigTranslator[program] || {
@@ -294,9 +329,9 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                     <p className="vertical-text">
                       {capitalizeFirstLetter(
                         String(
-                          item?.programa_ppa.split("-")[1]?.replace(" ", "")
+                          item?.programa_ppa?.split("-")?.[1]?.replace(" ", "")
                         ).toLowerCase()
-                      )}
+                      ) || ""}
                     </p>
                   </div>
                   <div
