@@ -60,7 +60,7 @@ export const Container = styled.div`
     background-color: ${colors.randomColors.blue}!important;
   }
 
-  .steps{
+  .steps {
     background-color: ${colors.programColors.yellow}!important;
   }
 
@@ -88,10 +88,10 @@ export const Search = styled.div`
   z-index: 1000;
   background-color: ${colors.white};
   margin-top: 0px;
-  margin-bottom: 0px;
+  margin-bottom: -448px;
   border-radius: 20px;
   padding: 20px;
-  margin-left: 45px;
+  margin-left: 55px;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3),
     0px 1px 3px 1px rgba(0, 0, 0, 0.15);
   @media (max-width: 1060px) {
@@ -121,7 +121,7 @@ export const Options = styled.div`
   height: auto;
   background-color: ${colors.white};
   margin-top: 45px;
-  margin-bottom: -500px;
+  margin-bottom: -530px;
   margin-left: 45px;
   z-index: 10000;
   position: relative;

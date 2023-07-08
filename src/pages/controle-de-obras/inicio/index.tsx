@@ -54,9 +54,7 @@ function Screen({ handler }: PropsInput) {
           <div className="banner-bottom">
             <div
               className="chip-banner"
-              onClick={() =>
-                router.push("/controle-de-obras/sobre-as-obras")
-              }
+              onClick={() => router.push("/controle-de-obras/sobre-as-obras")}
             >
               <AiFillInfoCircle fontSize={18} color={colors.white} />
 
@@ -71,9 +69,7 @@ function Screen({ handler }: PropsInput) {
 
             <div
               className="chip-banner"
-              onClick={() =>
-                router.push("/controle-de-obras/pesquisar-obras")
-              }
+              onClick={() => router.push("/controle-de-obras/pesquisar-obras")}
             >
               <AiOutlineSearch fontSize={18} color={colors.white} />
 
@@ -93,25 +89,25 @@ function Screen({ handler }: PropsInput) {
         <div className="gradient-image"></div>
         <div className="content">
           <CardTotal
-            value="XXX"
+            value="0"
             description={`novas áreas de espaço público e áeras verdes`}
             icon={<BsTree color={colors.white} fontSize={50} />}
           />
 
           <CardTotal
-            value="XXX.XXX"
+            value="0"
             description="pessoas atendidas pelas obras de saneamento"
             icon={<TbUsers color={colors.white} fontSize={50} />}
           />
 
           <CardTotal
-            value="XXXXX"
+            value="0"
             description="pessoas atendidas pelas obras de mobilidade"
             icon={<TbBus color={colors.white} fontSize={50} />}
           />
 
           <CardTotal
-            value={"XXXXX"}
+            value={"0"}
             description="atendidas nas novas unidades de saúde"
             icon={<TbRibbonHealth color={colors.white} fontSize={50} />}
           />

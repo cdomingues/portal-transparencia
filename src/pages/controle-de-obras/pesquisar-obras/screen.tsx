@@ -16,6 +16,10 @@ export const contentSearchConstructions = {
   description: "Conheça todas as informações sobre as obras da Prefeitura",
 };
 
+function capitalizeFirstLetter(text: string) {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
 const SearchBuildingsScreen = ({ handlers }: any) => {
   const {
     arrayBuildings,
@@ -140,10 +144,16 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
             <option value="3100 - SAÚDE">3100 - SAÚDE</option>
             <option value="3003 - ESPORTE">3003 - ESPORTE</option>
             <option value="3100 - SAÚDE">3100 - SAÚDE</option>
-            <option value="2007 - MOBILIDADE URBANA">2007 - MOBILIDADE URBANA</option>
+            <option value="2007 - MOBILIDADE URBANA">
+              2007 - MOBILIDADE URBANA
+            </option>
             <option value="3004 - SEGURANÇA">3004 - SEGURANÇA</option>
-            <option value="2001 - CIDADE INTELIGENTE">2001 - CIDADE INTELIGENTE</option>
-            <option value="1001 - PRIMEIROS PASSOS">1001 - PRIMEIROS PASSOS</option>
+            <option value="2001 - CIDADE INTELIGENTE">
+              2001 - CIDADE INTELIGENTE
+            </option>
+            <option value="1001 - PRIMEIROS PASSOS">
+              1001 - PRIMEIROS PASSOS
+            </option>
             <option value="1000 - EDUCA MOGI">1000 - EDUCA MOGI</option>
           </Select>
 
@@ -169,10 +179,74 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
             item?.imagen_3 && arrayImages.push(item?.imagen_3);
             item?.imagen_4 && arrayImages.push(item?.imagen_4);
 
+            const program = item?.programa_ppa;
+
+            const programConfigTranslator: any = {
+              "2006 - SANEAMENTO AMBIENTAL": {
+                backgroundColor: "#87C13F",
+                imageBackgroundColor: "#7DA83C",
+                imageName: "saneamento",
+              },
+              "2004 - INFRAESTRUTURA": {
+                backgroundColor: "#7F3F93",
+                imageBackgroundColor: "#713A80",
+                imageName: "infraestrutura",
+              },
+              "2000 - MOGI EFICIENTE": {
+                backgroundColor: "#FF588A",
+                imageBackgroundColor: "#CD507D",
+                imageName: "mogi-eficiente",
+              },
+              "1000 - EDUCA MOGI": {
+                backgroundColor: "#008C57",
+                imageBackgroundColor: "#087D4D",
+                imageName: "educa-mogi",
+              },
+              "1001 - PRIMEIROS PASSOS": {
+                backgroundColor: "#F8C336",
+                imageBackgroundColor: "#DBAE2F",
+                imageName: "primeiros-passos",
+              },
+              "2001 - CIDADE INTELIGENTE": {
+                backgroundColor: "#22BFBD",
+                imageBackgroundColor: "#31A4A4",
+                imageName: "cidade-inteligente",
+              },
+              "3004 - SEGURANÇA": {
+                backgroundColor: "#1C3C6E",
+                imageBackgroundColor: "#183560",
+                imageName: "seguranca",
+              },
+              "2007 - MOBILIDADE URBANA": {
+                backgroundColor: "#F88B2A",
+                imageBackgroundColor: "#D67B28",
+                imageName: "mobilidade-urbana",
+              },
+              "3003 - ESPORTE": {
+                backgroundColor: "#DD4134",
+                imageBackgroundColor: "#DD4134",
+                imageName: "esporte",
+              },
+              "3100 - SAÚDE": {
+                backgroundColor: "#0093D3",
+                imageBackgroundColor: "#0E83BB",
+                imageName: "saude",
+              },
+            };
+
+            const programConfig = programConfigTranslator[program] || {
+              backgroundColor: "#7F3F93",
+              imageBackgroundColor: "#713A80",
+            };
+
             return (
               <Style.Card key={index}>
                 <div className="left">
-                  <Carousel listImages={arrayImages} className="image" />
+                  <img
+                    src={`/icons/${programConfig.imageName}.svg`}
+                    width="50%"
+                    alt="Meu Ícone"
+                  />
                 </div>
 
                 <div className="right">
@@ -245,6 +319,34 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                         {item?.situacao}
                       </Text.Heading5Regular>
                     </div>
+                  </div>
+                </div>
+                <div
+                  className="program"
+                  style={{ backgroundColor: programConfig.backgroundColor }}
+                >
+                  <div className="program-top">
+                    <p className="vertical-text">
+                      {capitalizeFirstLetter(
+                        String(
+                          item?.programa_ppa?.split("-")?.[1]?.replace(" ", "")
+                        ).toLowerCase()
+                      ) || ""}
+                    </p>
+                  </div>
+                  <div
+                    className="program-bottom"
+                    style={{
+                      backgroundColor: programConfig.imageBackgroundColor,
+                    }}
+                  >
+                    {programConfig.imageName && (
+                      <img
+                        src={`/icons/${programConfig.imageName}.svg`}
+                        width={25}
+                        alt="Meu Ícone"
+                      />
+                    )}
                   </div>
                 </div>
               </Style.Card>

@@ -130,27 +130,78 @@ export const Card = styled.div`
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3),
     0px 1px 3px 1px rgba(0, 0, 0, 0.15);
   border-radius: 20px;
+  border-bottom-right-radius: 0px;
   margin: 20px 0px;
   background-color: #ffff;
   display: flex;
   flex-direction: row;
   gap: 15px;
 
+  .program {
+    width: 50px;
+    min-height: 100% !important;
+    border-top-right-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-weight: 500;
+
+    @media (max-width: 550px) {
+      flex-direction: row-reverse;
+      height: 50px;
+      width: 100%;
+      border-radius: 0px;
+    }
+  }
+
+  .program-top {
+    display: flex;
+    flex: 4;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .program-bottom {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 20px;
+
+    @media (max-width: 550px) {
+      border-radius: 0px;
+    }
+  }
+
+  .vertical-text {
+    transform: rotate(-90deg);
+    white-space: nowrap;
+    font-size: 12px;
+
+    @media (max-width: 550px) {
+      transform: rotate(0deg);
+    }
+  }
+
   .left {
     width: 300px;
     min-height: 100% !important;
     border-radius: 20px;
-    .image {
-      width: 100%;
-      height: 100% !important;
-      border-radius: 20px;
-      .swiper,
-      .swiper-slide,
-      img {
-        height: 100% !important;
-        border-radius: 20px !important;
-      }
-    }
+    background-color: #44485a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // .image {
+    //   width: 100%;
+    //   height: 100% !important;
+    //   border-radius: 20px;
+    //   .swiper,
+    //   .swiper-slide,
+    //   img {
+    //     height: 100% !important;
+    //     border-radius: 20px !important;
+    //   }
+    // }
   }
 
   .right {
@@ -160,7 +211,6 @@ export const Card = styled.div`
     padding: 20px;
     display: flex;
     flex-direction: column;
-    
 
     .row {
       display: flex;

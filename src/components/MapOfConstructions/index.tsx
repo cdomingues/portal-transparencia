@@ -9,7 +9,7 @@ import { MdPark } from "react-icons/md";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import colors from "../../styles/colors";
-import { Input } from "@chakra-ui/react";
+import { Input, Select } from "@chakra-ui/react";
 
 const MapWithNoSSR = dynamic(() => import("../../components/Map"), {
   ssr: false,
@@ -35,7 +35,10 @@ const MapOfConstructions = () => {
     useState("");
   const [directionConstruction, setDirectionConstruction] = useState("");
   const [constructionSelected, setConstructionSelected] = useState<any>(null);
-  const [viewOption, setViewOption] = useState("map");
+  const [value, setValue] = useState("");
+  const [program, setProgram] = useState("");
+  const [step, setStep] = useState("");
+  // const [viewOption, setViewOption] = useState("map");
   const router = useRouter();
 
   const geoSplited = constructionSelected?.latitude_longitude?.split(",");
@@ -44,21 +47,17 @@ const MapOfConstructions = () => {
     INICIADO: colors.primaryDefault,
     CONCLUÍDO: colors.green,
     RESCINDIDO: colors.red,
-    '2006 - SANEAMENTO AMBIENTAL': colors.programColors.green,
-    '2004 - INFRAESTRUTURA': colors.programColors.purple,
-    '2000 - MOGI EFICIENTE': colors.programColors.pink,
-    '3100 - SAÚDE': colors.programColors.blueLight,
-    '3003 - ESPORTE': colors.programColors.red,
-    '2007 - MOBILIDADE URBANA': colors.programColors.orange,
-    '3004 - SEGURANÇA': colors.programColors.blue,
-    '2001 - CIDADE INTELIGENTE': colors.programColors.greeLight,
-    '1001 - PRIMEIROS PASSOS': colors.programColors.yellow,
-    '1000 - EDUCA MOGI': colors.randomColors.blue,
+    "2006 - SANEAMENTO AMBIENTAL": colors.programColors.green,
+    "2004 - INFRAESTRUTURA": colors.programColors.purple,
+    "2000 - MOGI EFICIENTE": colors.programColors.pink,
+    "3100 - SAÚDE": colors.programColors.blueLight,
+    "3003 - ESPORTE": colors.programColors.red,
+    "2007 - MOBILIDADE URBANA": colors.programColors.orange,
+    "3004 - SEGURANÇA": colors.programColors.blue,
+    "2001 - CIDADE INTELIGENTE": colors.programColors.greeLight,
+    "1001 - PRIMEIROS PASSOS": colors.programColors.yellow,
+    "1000 - EDUCA MOGI": colors.randomColors.blue,
   };
-
-
-
-   
 
   return (
     <Style.Container>
@@ -90,10 +89,69 @@ const MapOfConstructions = () => {
           placeholder="Endereço"
           onChange={(event) => setDirectionConstruction(event.target.value)}
         />
+
+        <Text.Heading4Medium
+          color={colors.black}
+          marginTop={5}
+          marginBottom={7}
+        >
+          Programa
+        </Text.Heading4Medium>
+        <Select
+          placeholder="Selecionar programa"
+          onChange={(event) => setProgram(event.target.value)}
+        >
+          <option value="2006 - SANEAMENTO AMBIENTAL">
+            Saneamento Ambiental
+          </option>
+          <option value="2004 - INFRAESTRUTURA">Infraestrutura</option>
+          <option value="2000 - MOGI EFICIENTE">Mogi Eficiente</option>
+          <option value="3100 - SAÚDE">Saúde</option>
+          <option value="3003 - ESPORTE">Esporte</option>
+          <option value="2007 - MOBILIDADE URBANA">Mobilidade Urbana</option>
+          <option value="3004 - SEGURANÇA">Segurança</option>
+          <option value="2001 - CIDADE INTELIGENTE">Cidade Inteligente</option>
+          <option value="1001 - PRIMEIROS PASSOS">Primeiros Passos</option>
+          <option value="1000 - EDUCA MOGI">Educa Mogi</option>
+          <option value="">Todos</option>
+        </Select>
+        <Text.Heading4Medium
+          color={colors.black}
+          marginTop={5}
+          marginBottom={7}
+        >
+          Valor
+        </Text.Heading4Medium>
+        <Select
+          placeholder="Selecionar valor"
+          onChange={(event) => setValue(event.target.value)}
+        >
+          <option value={"up_500000"}>Até R$ 500.000,00</option>
+          <option value={"up_1000000"}>Até R$ 1.000.000,00</option>
+          <option value={"up_10000000"}>Até R$ 10.000.000,00</option>
+          <option value={"above_10000000"}>Acima de R$ 10.000.000,00</option>
+          <option value="">Todos</option>
+        </Select>
+        <Text.Heading4Medium
+          color={colors.black}
+          marginTop={5}
+          marginBottom={7}
+        >
+          Etapa
+        </Text.Heading4Medium>
+        <Select
+          placeholder="Selecionar etapa"
+          onChange={(event) => setStep(event.target.value)}
+        >
+          <option value="INICIADO">Iniciado</option>
+          <option value="CONCLUÍDO">Concluído</option>
+          <option value="RESCINDIDO">Rescindido</option>
+          <option value="">Todos</option>
+        </Select>
       </Style.Search>
 
-      <Style.Options>
-        <Text.Heading3Bold marginBottom={7} color={colors.black}>
+      {/* <Style.Options>
+      <Text.Heading3Bold marginBottom={7} color={colors.black}>
           Opções de visualização
         </Text.Heading3Bold>
 
@@ -154,7 +212,7 @@ const MapOfConstructions = () => {
             </Text.SmallerBold>
           </Style.RoundedButton>
 
-          {/* <Style.RoundedButton
+          <Style.RoundedButton
             onClick={() => setViewOption("highlights")}
             color={colors.primaryDefault}
           >
@@ -166,32 +224,35 @@ const MapOfConstructions = () => {
             >
               Destaques
             </Text.SmallerBold>
-          </Style.RoundedButton> */}
+          </Style.RoundedButton>
         </div>
-      </Style.Options>
+      </Style.Options> */}
 
-      {viewOption === "map" ? (
-        <MapAllMarkersComponent
-          nameOrDescriptionConstruction={nameOrDescriptionConstruction}
-          directionConstruction={directionConstruction}
-          setConstructionSelected={setConstructionSelected}
-        />
-      ) : (
-        <BubbleGroupComponent
+      <MapAllMarkersComponent
+        nameOrDescriptionConstruction={nameOrDescriptionConstruction}
+        directionConstruction={directionConstruction}
+        setConstructionSelected={setConstructionSelected}
+        value={value}
+        step={step}
+        program={program}
+      />
+
+      {/* <BubbleGroupComponent
           viewOption={viewOption}
           nameOrDescriptionConstruction={nameOrDescriptionConstruction}
           directionConstruction={directionConstruction}
           setConstructionSelected={setConstructionSelected}
-        />
-      )}
+        /> */}
 
       {constructionSelected && (
-        <Style.ConstructionSelected style={{
-          position: 'fixed',
-          top: '50%',
-          
-          transform: 'translate(-5%, -50%)',
-        }}>
+        <Style.ConstructionSelected
+          style={{
+            position: "fixed",
+            top: "50%",
+
+            transform: "translate(-5%, -50%)",
+          }}
+        >
           <div
             className="top"
             style={{
@@ -232,27 +293,27 @@ const MapOfConstructions = () => {
                   colors.grayDark,
               }}
             >
-              <Text.Heading5Bold color={colors.white} >
+              <Text.Heading5Bold color={colors.white}>
                 {constructionSelected?.situacao}{" "}
                 {/* {Number(constructionSelected?.situacao)}% */}
               </Text.Heading5Bold>
             </div>
 
-
             <div
               className="status"
               style={{
                 backgroundColor:
-                  translatorSituationColor[constructionSelected?.programa_ppa] ||
-                  colors.grayDark,
+                  translatorSituationColor[
+                    constructionSelected?.programa_ppa
+                  ] || colors.grayDark,
               }}
             >
-              <Text.Heading5Bold color={colors.white} >
+              <Text.Heading5Bold color={colors.white}>
                 {constructionSelected?.programa_ppa}{" "}
                 {/* {Number(constructionSelected?.situacao)}% */}
               </Text.Heading5Bold>
             </div>
- 
+
             <Text.Heading5Regular marginTop={20} marginBottom={20}>
               Secretaria Responsável:{" "}
               {constructionSelected?.secretaria_responsavel}
