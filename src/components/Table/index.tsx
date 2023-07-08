@@ -141,6 +141,18 @@ function TableComponent({
 
   return (
     <>
+
+<Box       
+m={0}
+bg={useColorModeValue("white", "gray.800")}
+boxShadow="2xl"
+padding={"15px"}
+rounded="md"
+overflow="hidden"
+maxWidth="95%"
+borderRadius="18px"
+marginBottom="15px"
+>
       <Modal onClose={onClose} size={"xs"} isOpen={isOpen}>
         <ModalOverlay />
         {modelType !== "movie" ? (
@@ -496,6 +508,7 @@ function TableComponent({
           ))}
         </Select>
       </Center>
+      </Box>
     </>
   );
 }

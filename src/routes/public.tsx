@@ -18,9 +18,11 @@ import {
   AiOutlineGlobal,
   AiOutlineAudit,
   AiOutlineSwap,
+  AiFillTag,
+  AiFillCaretRight,
 } from "react-icons/ai";
 import { BiBriefcaseAlt, BiMoney } from "react-icons/bi";
-import { BsBricks, BsCameraVideo, BsFileText } from "react-icons/bs";
+import { BsArrow90DegRight, BsArrowDownLeftSquare, BsBricks, BsCameraVideo, BsFileText } from "react-icons/bs";
 import { IPublicRoute } from "../types";
 import { contentInitial } from "../pages/screen";
 import { contentMunicipalityProfile } from "../pages/perfil-do-municipio/screen";
@@ -64,6 +66,7 @@ import { contentPatrimony } from "../pages/patrimonio/screen";
 import { contentOtherInformations } from "../pages/ultimas-noticias/screen";
 import { contentSearchConstructions } from "../pages/controle-de-obras/pesquisar-obras/screen";
 import { contentAbout } from "../pages/sobre-portal/screen";
+import { pointRadial } from "d3";
 
 const publicRoutes: IPublicRoute[] = [
   {
@@ -97,25 +100,37 @@ const publicRoutes: IPublicRoute[] = [
         defaultPath: "/ciclo-orcamentario",
         name: "Plano Plurianual",
         path: "/plurianual",
-        icon: AiOutlineGlobal,
+        icon: BsFileText,
       },
       {
         defaultPath: "/ciclo-orcamentario",
         name: "Diretrizes Orçamentárias",
         path: "/diretrizes-orcamentarias",
-        icon: AiOutlineGlobal,
+        icon: AiFillCaretRight,
       },
       {
         defaultPath: "/ciclo-orcamentario",
         name: "Lei Orcamentária Anual",
         path: "/lei-orcamentaria-anual",
-        icon: AiOutlineGlobal,
+        icon: BsFileText,
       },
       {
         defaultPath: "/ciclo-orcamentario",
         name: "Relatório de Gestão Fiscal",
         path: "relatorio-de-gestao-fiscal",
-        icon: AiOutlineGlobal,
+        icon: AiFillCaretRight,
+      },
+      {
+        defaultPath: "/ciclo-orcamentario",
+        name: "Relatório de Gestão Fiscal",
+        path: "relatorio-de-gestao-fiscal",
+        icon: AiFillCaretRight,
+      },
+      {
+        defaultPath: "/ciclo-orcamentario",
+        name: "Relatório de Gestão Fiscal",
+        path: "relatorio-de-gestao-fiscal",
+        icon: AiFillCaretRight,
       },
     ],
   },

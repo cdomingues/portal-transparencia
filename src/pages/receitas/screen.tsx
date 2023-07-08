@@ -5,6 +5,8 @@ import {
   Select,
   Stack,
   Text,
+  Box,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import React from "react";
 import { isMobile } from "react-device-detect";
@@ -70,6 +72,18 @@ function RevenueScreen({
             <MultiAxisChart moneyFormat data={chart} />
           )}
         </GraphWrapper>
+
+<Box       
+m={0}
+bg={useColorModeValue("white", "gray.800")}
+boxShadow="2xl"
+padding={"15px"}
+rounded="md"
+overflow="hidden"
+maxWidth="95%"
+borderRadius="18px"
+marginBottom="15px"
+>
         <GraphWrapper>
           <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
             Receitas últimos 5 anos
@@ -78,6 +92,7 @@ function RevenueScreen({
             <Chart type="bar" moneyFormat data={chartYear} />
           )}
         </GraphWrapper>
+        </Box>
       </MultipleGraphWrapper>
       <Divider borderWidth="2px" mt="10" mb="10" />
       <Stack direction="row">

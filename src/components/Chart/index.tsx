@@ -1,4 +1,5 @@
 import { Chart as _Chart } from "react-chartjs-2";
+import { Box, useColorModeValue } from "@chakra-ui/react";
 import { Chart as ChartConfig, registerables } from "chart.js";
 import moneyFormatter from "../../utils/moneyFormatter";
 import { ChartWrapper } from "../ChartWrapper";
@@ -62,8 +63,21 @@ export function Chart({ data, type, moneyFormat, style }: IChart) {
     },
   };
   return (
+
+<Box       
+m={0}
+bg={useColorModeValue("white", "gray.800")}
+boxShadow="2xl"
+padding={"15px"}
+rounded="md"
+overflow="hidden"
+maxWidth="95%"
+borderRadius="18px"
+marginBottom="15px"
+>
     <ChartWrapper style={style}>
       <_Chart type={type} datasetIdKey="id" options={options} data={data} />
     </ChartWrapper>
+    </Box>
   );
 }

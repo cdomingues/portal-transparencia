@@ -1,8 +1,10 @@
 import React from "react";
 import ContainerBasic from "../../components/Container/Basic";
 import publicRoutes from "../../routes/public";
-import { Stack, Text } from "@chakra-ui/react";
+import { Box, Stack, Text, useColorModeValue } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import { isMobile } from "react-device-detect";
+import { color } from "highcharts";
 
 type PropsInput = {
   handler: {};
@@ -30,18 +32,36 @@ function Screen({ handler }: PropsInput) {
 
     return (
       <Stack display="flex" flexDirection="column" key={index}>
+
+{/* <Box       
+m={0}
+bg={useColorModeValue("white", "gray.800")}
+boxShadow="2xl"
+padding={"15px"}
+rounded="md"
+overflow="hidden"
+maxWidth= "95%"
+borderRadius="18px"
+marginBottom="15px"
+> */}
         <Text
+          
+         
           color="blue"
           onClick={itemOnClick}
           cursor={item?.group?.length > 0 ? "default" : "pointer"}
         >
           | {itemTitle}
         </Text>
+
         <Stack display="flex" flexDirection="column" paddingLeft="10">
+          
           {item?.group?.map((subItem: any, subIndex: number) => {
             const subItemPath = subItem?.path?.replace(/\//g, ""); // Remove the "/" character
             return (
+              
               <Text
+                
                 key={subIndex}
                 onClick={() => router.push(item?.path + subItem?.path)}
                 cursor="pointer"
@@ -49,17 +69,37 @@ function Screen({ handler }: PropsInput) {
               >
                 | {capitalizeFirstLetter(subItemPath)}
               </Text>
+              
             );
+            
+
+
           })}
+          
         </Stack>
+  {/* </Box> */}
       </Stack>
     );
   });
   return (
     <ContainerBasic title={title} description={description}>
+
+<Box       
+m={0}
+bg={useColorModeValue("white", "gray.800")}
+boxShadow="2xl"
+padding={"15px"}
+rounded="md"
+overflow="hidden"
+maxWidth="95%"
+borderRadius="18px"
+marginBottom="15px"
+>
       <Stack display="flex" flexDirection="column">
         {map}
       </Stack>
+
+      </Box>
     </ContainerBasic>
   );
 }
