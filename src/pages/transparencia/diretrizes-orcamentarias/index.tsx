@@ -1,14 +1,13 @@
 import moment from "moment";
 import React, { useEffect, useState } from "react";
-import Screen from "./screen";
+import Screen  from "./screen";
 import axios from "axios";
 
 export type Laws = Array<{ name: string; link: string; year: number }>;
+
 function Controller() {
   const [selectValue, setSelectValue] = useState(moment().year());
-  const [selectOptions, setSelectOptions] = useState<Array<string | number>>(
-    []
-  );
+  const [selectOptions, setSelectOptions] = useState<Array<string | number>>([]);
   const [data, setData] = useState<Laws | []>([]);
 
   useEffect(() => {
@@ -73,5 +72,14 @@ function Controller() {
   };
   return <Screen handler={handler} />;
 }
+
+type PropsInput = {
+  handler: {
+    laws: Laws;
+    handleSelectValue: (value: number) => void;
+    selectOptions: Array<string | number>;
+    selectValue: number;
+  };
+};
 
 export default Controller;

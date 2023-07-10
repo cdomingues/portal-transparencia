@@ -20,27 +20,33 @@ export const contentGuidelines = {
 
 function Screen({ handler }: PropsInput) {
   const { handleSelectValue, selectOptions, laws, selectValue } = handler;
+
+  const handleOpenLink = (link: string) => {
+        window.open(link, "_blank", "noopener noreferrer");
+      };
+
   const title = contentGuidelines?.titlePage;
   const description = contentGuidelines?.description;
   return (
     <ContainerBasic title={title} description={description}>
       <PlanContainer laws={laws}>
-        <Select
+       <Select
           minW={90}
-          width="20%"
+         width="20%"
           bg={useColorModeValue("white", "gray.800")}
-          value={selectValue}
-          textAlign="center"
-          mb={5}
-          onChange={(event) => {
-            handleSelectValue(Number(event.target.value));
-          }}
-        >
-          {selectOptions.map((value, index) => (
-            <option key={index} value={value}>
+         value={selectValue}
+         textAlign="center"
+         mb={5}
+         onChange={(event) => {
+           handleSelectValue(Number(event.target.value));
+       }}
+          
+         >
+       {selectOptions.map((value, index) => (
+             <option key={index} value={value}>
               {value}
-            </option>
-          ))}
+           </option>
+        ))}
         </Select>
       </PlanContainer>
     </ContainerBasic>
