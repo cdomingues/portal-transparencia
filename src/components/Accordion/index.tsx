@@ -31,7 +31,21 @@ export default function AccordionCommponent()
 {
   return (
 
-<Center backgroundColor='black' width="100%"  boxShadow={'md'} borderRadius="40px" alignContent={'center'}>
+    <Box       
+m={0}
+bg={useColorModeValue("white", "gray.800")}
+boxShadow="2xl"
+padding={"15px"}
+rounded="md"
+overflow="hidden"
+maxWidth="95%"
+borderRadius="18px"
+marginBottom="15px"
+>
+
+<Center width="100%"  boxShadow={'md'} borderRadius="40px" alignContent={'center'}>
+
+
             <Accordion  allowToggle  style={{width: '100%', backgroundColor: 'white'}}>
           <AccordionItem>
             <h2>
@@ -117,6 +131,8 @@ export default function AccordionCommponent()
             </AccordionPanel>
           </AccordionItem>
         </Accordion>
+       
     </Center>
+    </Box>
   );
 }

@@ -4,6 +4,7 @@ import moneyFormatter from "../../utils/moneyFormatter";
 import { ChartWrapper } from "../ChartWrapper";
 import { CSSProperties } from "styled-components";
 import { isMobile } from "react-device-detect";
+import { Box, useColorModeValue } from "@chakra-ui/react";
 import { formatNumber } from "../../config/defaultChartConfig";
 ChartConfig.register(...registerables);
 
@@ -77,8 +78,20 @@ export function MultiAxisChart({ data, moneyFormat, style }: IMultiAxisChart) {
     },
   };
   return (
+    <Box       
+m={0}
+bg={useColorModeValue("white", "gray.800")}
+boxShadow="2xl"
+padding={"15px"}
+rounded="md"
+overflow="hidden"
+maxWidth="95%"
+borderRadius="18px"
+marginBottom="15px"
+>
     <ChartWrapper style={style}>
       <_Chart type="bar" datasetIdKey="id" options={options} data={data} />
     </ChartWrapper>
+    </Box>
   );
 }
