@@ -97,15 +97,18 @@ function Screen({ handler }: PropsInput) {
   const [downloadLink, setDownloadLink] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
+  const [isDownloadCompleted, setIsDownloadCompleted] = useState(false);
+
+
   const handleClick = async () => {
     setIsLoading(true);
-
+  
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ link: 'http://www.licitacao.pmmc.com.br/Transparencia/download?arquivo=c296c80128dacf95862399dfcb0b4bd5' })
     };
-
+  
     try {
       const result = await Promise.race([
         fetch('../../api/download/proxy1', requestOptions),
@@ -113,13 +116,14 @@ function Screen({ handler }: PropsInput) {
           setTimeout(() => reject(new Error('Timeout after 5 minutes')), 300000)
         ),
       ]);
-
+  
       if (!(result instanceof Error)) {
         const response = result as Response;
         const data = await response.json();
-
+  
         if (data.status === 'Download Completed') {
           setDownloadLink(data.downloadLink);
+          setIsDownloadCompleted(true);  // Adicionado aqui
         } else {
           console.error('Failed to download file');
         }
@@ -130,6 +134,8 @@ function Screen({ handler }: PropsInput) {
       setIsLoading(false);
     }
   };
+  
+
   
 
   const title = contentGuidelines?.titlePage;
@@ -160,11 +166,11 @@ function Screen({ handler }: PropsInput) {
           {isLoading ? "Aguarde..." : "Download File"}
         </Button>
 
-        {downloadLink && !isLoading && (
-          <Button colorScheme="teal" onClick={() => window.open(downloadLink, '_blank')}>
-            Baixar Arquivo
-          </Button>
-        )}
+        {downloadLink && isDownloadCompleted && !isLoading && (
+    <Button colorScheme="teal" onClick={() => window.open(`/api/download/proxy1?file=${downloadLink}`, '_blank')}>
+      Baixar Arquivo
+    </Button>
+  )}
 
         {isLoading && (
           <Alert status="info">
