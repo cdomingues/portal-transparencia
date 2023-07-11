@@ -107,7 +107,7 @@ export default async function Proxy1(req: NextApiRequest, res: NextApiResponse) 
             fileName = fileName + '.pdf';
 
             // Create a write stream for the destination file
-            const downloadPath = path.resolve('./public/data', fileName);
+            const downloadPath = path.resolve('./data', fileName);
             const writer = fs.createWriteStream(downloadPath);
 
             // Pipe the read stream from the response into the write stream of the file
