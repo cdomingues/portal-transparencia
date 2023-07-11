@@ -2,20 +2,25 @@ import { NextApiRequest, NextApiResponse } from "next";
 import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
-import contentDisposition from "content-disposition";
-
+import url from 'url';
 
 export default async function Proxy1(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === 'POST') {
         const { link } = req.body;
 
         try {
-            const response = await axios.get(link, { responseType: 'stream', headers: { 'Accept': 'application/pdf' } });
-            const contentDispositionHeader = response.headers['content-disposition'];
-            const parsed = contentDisposition.parse(contentDispositionHeader);
-            const downloadPath = path.resolve('./data', parsed.parameters.filename);
+            // Use Axios para fazer uma requisição GET ao link de download
+            const response = await axios.get(link, { responseType: 'stream' });
+
+            // Analise o link para obter o nome do arquivo e a extensão
+            const parsedUrl = url.parse(link, true);
+            const fileName = parsedUrl.query.arquivo as string;
+
+            // Crie um stream de escrita para o arquivo de destino
+            const downloadPath = path.resolve('./data', fileName);
             const writer = fs.createWriteStream(downloadPath);
-            
+
+            // Pipe o stream de leitura da resposta no stream de escrita do arquivo
             response.data.pipe(writer);
 
             writer.on('finish', () => {
