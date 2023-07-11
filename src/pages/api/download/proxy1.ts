@@ -2,26 +2,30 @@ import { NextApiRequest, NextApiResponse } from "next";
 import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
-import stream from 'stream';
-import { promisify } from 'util';
+import contentDisposition from 'content-disposition';
 
-const pipeline = promisify(stream.pipeline);
 
 export default async function Proxy1(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === 'POST') {
         const { link } = req.body;
+
         try {
-            // Use Axios para fazer uma requisição GET ao link de download
-            const response = await axios.get(link, { responseType: 'stream' });
-
-            // Crie um stream de escrita para o arquivo de destino
-            const downloadPath = path.resolve('./data', path.basename(link));
+            const response = await axios.get(link, { responseType: 'stream', headers: { 'Accept': 'application/pdf' } });
+            const contentDispositionHeader = response.headers['content-disposition'];
+            const parsed = contentDisposition.parse(contentDispositionHeader);
+            const downloadPath = path.resolve('./data', parsed.parameters.filename);
             const writer = fs.createWriteStream(downloadPath);
+            
+            response.data.pipe(writer);
 
-            // Pipe o stream de leitura da resposta no stream de escrita do arquivo
-            await pipeline(response.data, writer);
+            writer.on('finish', () => {
+                res.json({ status: 'Download Completed' });
+            });
 
-            res.json({ status: 'Download Completed' });
+            writer.on('error', (err) => {
+                console.error(err);
+                res.status(500).json({ status: 'Download Failed' });
+            });
         } catch (err) {
             console.error(err);
             res.status(500).json({ status: 'Download Failed' });
@@ -31,4 +35,3 @@ export default async function Proxy1(req: NextApiRequest, res: NextApiResponse) 
         res.status(405).end('Method Not Allowed');
     }
 }
-
