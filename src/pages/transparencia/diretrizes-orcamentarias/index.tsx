@@ -37,6 +37,10 @@ function Controller() {
       })
     );
 
+    <a onClick={() => handleOpenLink('https://www.example.com')}>
+    Clique aqui para abrir o link
+  </a>
+
     const years = response.data.anos.sort(function (a: number, b: number) {
       return Number(b) - Number(a);
     });
