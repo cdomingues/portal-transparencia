@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
-import contentDisposition from 'content-disposition';
+import contentDisposition from "content-disposition";
 
 
 export default async function Proxy1(req: NextApiRequest, res: NextApiResponse) {
