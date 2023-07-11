@@ -88,6 +88,11 @@ export const contentGuidelines = {
 
 function Screen({ handler }: PropsInput) {
   const { handleSelectValue, selectOptions, laws, selectValue } = handler;
+
+  const handleOpenLink = (link: string) => {
+    window.open(link, '_blank', 'height=600,width=600');
+  };
+
   
   const [downloadLink, setDownloadLink] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
