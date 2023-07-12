@@ -165,6 +165,7 @@ function NavItem({
 
   if (group.length > 0) {
     return (
+      
       <Menu>
         <Flex width="100%" borderRadius="lg" role="group" cursor="pointer">
           <Accordion borderColor="transparent" width="100%" allowToggle>
@@ -176,13 +177,21 @@ function NavItem({
                   color: "primary",
                 }}
                 fontWeight="500"
-                onClick={handleClick}
+                
               >
+                                       <Link
+      href={link || path}
+      target={link ? "_blank" : "_self"}
+    >   
                 <Box
+                
                   flex="1"
                   fontSize={accessibility?.fonts?.semiMedium}
                   textAlign="left"
+                  paddingRight={'10px'} 
+                  minWidth={'180px'}
                 >
+
                   {icon && (
                     <Icon
                       mr="4"
@@ -194,9 +203,14 @@ function NavItem({
                       as={icon}
                     />
                   )}
+                  
                   {children}
                 </Box>
-                <AccordionIcon />
+                
+                </Link>
+
+                <AccordionIcon textAlign="right" onClick={handleClick}/>
+
               </AccordionButton>
               <AccordionPanel pb={4} background="#f2f2f2">
                 {expanded &&
@@ -245,6 +259,7 @@ function NavItem({
           </Accordion>
         </Flex>
       </Menu>
+     
     );
   }
 
