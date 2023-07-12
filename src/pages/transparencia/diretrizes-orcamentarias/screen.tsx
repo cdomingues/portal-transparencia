@@ -2,7 +2,7 @@
 // import React from "react";
 // import { Laws } from ".";
 // import ContainerBasic from "../../../components/Container/Basic";
-// import PlanContainer from "../../../components/Container/Plan";
+// import PlanContainerLaw from "../../../components/Container/PlanLaw";
 
 // type PropsInput = {
 //   handler: {
@@ -533,11 +533,354 @@
 
 // export default Screen;
 
-import { Select, Stack, useColorModeValue, Button, Link, Alert, AlertIcon, Popover, PopoverTrigger, PopoverContent, PopoverBody } from "@chakra-ui/react";
-import React, { useState } from "react";
+
+// Codigo funcional!!
+
+// import { Select, Stack, useColorModeValue, Button, Link, Alert, AlertIcon, Popover, PopoverTrigger, PopoverContent, PopoverBody } from "@chakra-ui/react";
+// import React, { useState } from "react";
+// import { Laws } from ".";
+// import ContainerBasic from "../../../components/Container/Basic";
+// import PlanContainer from "../../../components/Container/Plan";
+
+// type PropsInput = {
+//   handler: {
+//     laws: Laws;
+//     handleSelectValue: (value: number) => void;
+//     selectOptions: Array<string | number>;
+//     selectValue: number;
+//   };
+// };
+
+// export const contentGuidelines = {
+//   titlePage: "Lei de Diretrizes Orçamentárias",
+//   description: "A Lei de Diretrizes Orçamentárias (LDO) permite a ligação entre o planejamento de curto prazo, no caso o Orçamento Anual, e o planejamento de longo prazo, que é o Plano Plurianual (PPA). A LDO define metas e prioridades da Administração Pública, além de estabelecer metas fiscais e apontar os riscos que poderão afetar as contas públicas. O projeto deve ser enviado até dia 15 de abril de cada ano à Câmara Municipal, que deve concluir sua votação até 30 de junho. São realizadas duas audiências públicas até a votação. Os trabalhos legislativos do primeiro semestre não podem terminar sem a aprovação da LDO.",
+// };
+
+// function Screen({ handler }: PropsInput) {
+//   const { handleSelectValue, selectOptions, laws, selectValue } = handler;
+
+//   const [downloadLinks, setDownloadLinks] = useState<Record<number, string>>({});
+//   const [isLoading, setIsLoading] = useState<Record<number, boolean>>({});
+//   const [isDownloadCompleted, setIsDownloadCompleted] = useState<Record<number, boolean>>({});
+//   const [selectedItemIndex, setSelectedItemIndex] = useState<number | null>(null);
+
+//   const handleClick = async (link: string, index: number) => {
+//     setSelectedItemIndex(index);
+//     setIsLoading((prevIsLoading) => ({
+//       ...prevIsLoading,
+//       [index]: true,
+//     }));
+
+//     const requestOptions = {
+//       method: 'POST',
+//       headers: { 'Content-Type': 'application/json' },
+//       body: JSON.stringify({ link }),
+//     };
+
+//     try {
+//       const result = await Promise.race([
+//         fetch('../../api/download/proxy1', requestOptions),
+//         new Promise((_, reject) =>
+//           setTimeout(() => reject(new Error('Timeout after 5 minutes')), 300000)
+//         ),
+//       ]);
+
+//       if (!(result instanceof Error)) {
+//         const response = result as Response;
+//         const data = await response.json();
+
+//         if (data.status === 'Download Completed') {
+//           setDownloadLinks((prevDownloadLinks) => ({
+//             ...prevDownloadLinks,
+//             [index]: data.fileName,
+//           }));
+//           setIsDownloadCompleted((prevIsDownloadCompleted) => ({
+//             ...prevIsDownloadCompleted,
+//             [index]: true,
+//           }));
+//         } else {
+//           console.error('Failed to download file');
+//         }
+//       }
+//     } catch (error) {
+//       console.error('Error:', error);
+//     } finally {
+//       setIsLoading((prevIsLoading) => ({
+//         ...prevIsLoading,
+//         [index]: false,
+//       }));
+//     }
+//   };
+
+//   const handleOpenPopover = (index: number) => {
+//     setSelectedItemIndex(index);
+//   };
+
+//   const handleClosePopover = () => {
+//     setSelectedItemIndex(null);
+//   };
+
+//   const title = contentGuidelines?.titlePage;
+//   const description = contentGuidelines?.description;
+
+//   return (
+//     <ContainerBasic title={title} description={description}>
+//       <PlanContainer laws={laws}>
+//         <Select
+//           minW={90}
+//           width="20%"
+//           bg={useColorModeValue("white", "gray.800")}
+//           value={selectValue}
+//           textAlign="center"
+//           mb={5}
+//           onChange={(event) => {
+//             handleSelectValue(Number(event.target.value));
+//           }}
+//         >
+//           {selectOptions.map((value: string | number, index: number) => (
+//             <option key={index} value={value}>
+//               {value}
+//             </option>
+//           ))}
+//         </Select>
+
+//         {laws.map((law, index) => (
+//           <Stack direction="row" justifyContent="space-between" key={index}>
+//             <Popover
+//               isOpen={selectedItemIndex === index}
+//               onClose={handleClosePopover}
+//               placement='auto'
+//             >
+//               <PopoverTrigger>
+//                 <Button
+//                   colorScheme="teal"
+//                   variant="outline"
+//                   onClick={() => handleClick(law.link, index)}
+//                   disabled={isLoading[index]}
+//                 >
+//                   {isLoading[index] ? 'Preparando o arquivo...' : law.name}
+//                 </Button>
+//               </PopoverTrigger>
+//               <PopoverContent style={{ width: '340px', height: '200px' }}>
+//                 <PopoverBody>
+//                   {selectedItemIndex === index && isLoading[index] && (
+//                     <Alert status="info" textAlign="center">
+//                       <AlertIcon />
+//                       Aguarde...
+//                     </Alert>
+//                   )}
+//                   {selectedItemIndex === index && !isLoading[index] && isDownloadCompleted[index] && downloadLinks[index] && (
+//                     <>
+
+//                       <Alert status="success" textAlign="center">
+//                         <AlertIcon />
+//                         Arquivo pronto para download!
+//                       </Alert>
+//                       <Button
+//                         colorScheme="teal"
+//                         variant="outline"
+//                         padding="10px"
+//                         margin="20px"
+//                         as={Link}
+//                         href={`https://dadosabertos.mogidascruzes.sp.gov.br/api/download/downloadProxy2?filename=${downloadLinks[index]}`}
+//                         isExternal
+//                       >
+//                         Acessar o arquivo.
+//                       </Button>
+//                       <br />
+//                     </>
+//                   )}
+//                 </PopoverBody>
+//               </PopoverContent>
+//             </Popover>
+//           </Stack>
+//         ))}
+//       </PlanContainer>
+//     </ContainerBasic>
+//   );
+// }
+
+// export default Screen;
+
+// import { Select, Stack, useColorModeValue, Button, Link, Alert, AlertIcon, Popover, PopoverTrigger, PopoverContent, PopoverBody } from "@chakra-ui/react";
+// import React, { useState } from "react";
+// import { Laws } from ".";
+// import ContainerBasic from "../../../components/Container/Basic";
+// import PlanContainer from "../../../components/Container/Plan";
+
+// type PropsInput = {
+//   handler: {
+//     laws: Laws;
+//     handleSelectValue: (value: number) => void;
+//     selectOptions: Array<string | number>;
+//     selectValue: number;
+//   };
+// };
+
+// export const contentGuidelines = {
+//   titlePage: "Lei de Diretrizes Orçamentárias",
+//   description: "A Lei de Diretrizes Orçamentárias (LDO) permite a ligação entre o planejamento de curto prazo, no caso o Orçamento Anual, e o planejamento de longo prazo, que é o Plano Plurianual (PPA). A LDO define metas e prioridades da Administração Pública, além de estabelecer metas fiscais e apontar os riscos que poderão afetar as contas públicas. O projeto deve ser enviado até dia 15 de abril de cada ano à Câmara Municipal, que deve concluir sua votação até 30 de junho. São realizadas duas audiências públicas até a votação. Os trabalhos legislativos do primeiro semestre não podem terminar sem a aprovação da LDO.",
+// };
+
+// function Screen({ handler }: PropsInput) {
+//   const { handleSelectValue, selectOptions, laws, selectValue } = handler;
+
+//   const [downloadLinks, setDownloadLinks] = useState<Record<number, string>>({});
+//   const [isLoading, setIsLoading] = useState<Record<number, boolean>>({});
+//   const [isDownloadCompleted, setIsDownloadCompleted] = useState<Record<number, boolean>>({});
+//   const [selectedItemIndex, setSelectedItemIndex] = useState<number | null>(null);
+
+//   const handleDownload = (url: string) => {
+//     window.open(url, '_blank');
+//   };
+
+//   const handleClick = async (link: string, index: number) => {
+//     setSelectedItemIndex(index);
+//     setIsLoading((prevIsLoading) => ({
+//       ...prevIsLoading,
+//       [index]: true,
+//     }));
+
+//     const requestOptions = {
+//       method: 'POST',
+//       headers: { 'Content-Type': 'application/json' },
+//       body: JSON.stringify({ link }),
+//     };
+
+//     try {
+//       const result = await Promise.race([
+//         fetch('../../api/download/proxy1', requestOptions),
+//         new Promise((_, reject) =>
+//           setTimeout(() => reject(new Error('Timeout after 5 minutes')), 300000)
+//         ),
+//       ]);
+
+//       if (!(result instanceof Error)) {
+//         const response = result as Response;
+//         const data = await response.json();
+
+//         if (data.status === 'Download Completed') {
+//           setDownloadLinks((prevDownloadLinks) => ({
+//             ...prevDownloadLinks,
+//             [index]: data.fileName,
+//           }));
+
+//           const downloadUrl = `https://dadosabertos.mogidascruzes.sp.gov.br/api/download/downloadProxy2?filename=${data.fileName}`;
+//           handleDownload(downloadUrl);
+
+//           setIsDownloadCompleted((prevIsDownloadCompleted) => ({
+//             ...prevIsDownloadCompleted,
+//             [index]: true,
+//           }));
+//         } else {
+//           console.error('Failed to download file');
+//         }
+//       }
+//     } catch (error) {
+//       console.error('Error:', error);
+//     } finally {
+//       setIsLoading((prevIsLoading) => ({
+//         ...prevIsLoading,
+//         [index]: false,
+//       }));
+//     }
+//   };
+
+//   const handleOpenPopover = (index: number) => {
+//     setSelectedItemIndex(index);
+//   };
+
+//   const handleClosePopover = () => {
+//     setSelectedItemIndex(null);
+//   };
+
+//   const title = contentGuidelines?.titlePage;
+//   const description = contentGuidelines?.description;
+
+//   return (
+//     <ContainerBasic title={title} description={description}>
+//       <PlanContainer laws={laws}>
+//         <Select
+//           minW={90}
+//           width="20%"
+//           bg={useColorModeValue("white", "gray.800")}
+//           value={selectValue}
+//           textAlign="center"
+//           mb={5}
+//           onChange={(event) => {
+//             handleSelectValue(Number(event.target.value));
+//           }}
+//         >
+//           {selectOptions.map((value: string | number, index: number) => (
+//             <option key={index} value={value}>
+//               {value}
+//             </option>
+//           ))}
+//         </Select>
+
+//         {laws.map((law, index) => (
+//           <Stack direction="row" justifyContent="space-between" key={index}>
+//             <Popover
+//               isOpen={selectedItemIndex === index}
+//               onClose={handleClosePopover}
+//               placement='auto'
+//             >
+//               <PopoverTrigger>
+//                 <Button
+//                   colorScheme="teal"
+//                   variant="outline"
+//                   onClick={() => handleClick(law.link, index)}
+//                   disabled={isLoading[index]}
+//                 >
+//                   {isLoading[index] ? 'Preparando o arquivo...' : law.name}
+//                 </Button>
+//               </PopoverTrigger>
+//               <PopoverContent style={{ width: '340px', height: '200px' }}>
+//                 <PopoverBody>
+//                   {selectedItemIndex === index && isLoading[index] && (
+//                     <Alert status="info" textAlign="center">
+//                       <AlertIcon />
+//                       Aguarde...
+//                     </Alert>
+//                   )}
+//                   {selectedItemIndex === index && !isLoading[index] && isDownloadCompleted[index] && downloadLinks[index] && (
+//                     <>
+//                       <Alert status="success" textAlign="center">
+//                         <AlertIcon />
+//                         Arquivo pronto para download!
+//                       </Alert>
+//                       <Button
+//                         colorScheme="teal"
+//                         variant="outline"
+//                         padding="10px"
+//                         margin="20px"
+//                         onClick={() => {
+//                           const downloadUrl = `https://dadosabertos.mogidascruzes.sp.gov.br/api/download/downloadProxy2?filename=${downloadLinks[index]}`;
+//                           handleDownload(downloadUrl);
+//                         }}
+//                       >
+//                         Acessar o arquivo.
+//                       </Button>
+//                       <br />
+//                     </>
+//                   )}
+//                 </PopoverBody>
+//               </PopoverContent>
+//             </Popover>
+//           </Stack>
+//         ))}
+//       </PlanContainer>
+//     </ContainerBasic>
+//   );
+// }
+
+// export default Screen;
+
+import { useColorModeValue } from "@chakra-ui/react";
+import React from "react";
 import { Laws } from ".";
 import ContainerBasic from "../../../components/Container/Basic";
-import PlanContainer from "../../../components/Container/Plan";
+import PlanContainerLaw from "../../../components/Container/PlanLaw";
 
 type PropsInput = {
   handler: {
@@ -556,142 +899,12 @@ export const contentGuidelines = {
 function Screen({ handler }: PropsInput) {
   const { handleSelectValue, selectOptions, laws, selectValue } = handler;
 
-  const [downloadLinks, setDownloadLinks] = useState<Record<number, string>>({});
-  const [isLoading, setIsLoading] = useState<Record<number, boolean>>({});
-  const [isDownloadCompleted, setIsDownloadCompleted] = useState<Record<number, boolean>>({});
-  const [selectedItemIndex, setSelectedItemIndex] = useState<number | null>(null);
-
-  const handleClick = async (link: string, index: number) => {
-    setSelectedItemIndex(index);
-    setIsLoading((prevIsLoading) => ({
-      ...prevIsLoading,
-      [index]: true,
-    }));
-
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ link }),
-    };
-
-    try {
-      const result = await Promise.race([
-        fetch('../../api/download/proxy1', requestOptions),
-        new Promise((_, reject) =>
-          setTimeout(() => reject(new Error('Timeout after 5 minutes')), 300000)
-        ),
-      ]);
-
-      if (!(result instanceof Error)) {
-        const response = result as Response;
-        const data = await response.json();
-
-        if (data.status === 'Download Completed') {
-          setDownloadLinks((prevDownloadLinks) => ({
-            ...prevDownloadLinks,
-            [index]: data.fileName,
-          }));
-          setIsDownloadCompleted((prevIsDownloadCompleted) => ({
-            ...prevIsDownloadCompleted,
-            [index]: true,
-          }));
-        } else {
-          console.error('Failed to download file');
-        }
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    } finally {
-      setIsLoading((prevIsLoading) => ({
-        ...prevIsLoading,
-        [index]: false,
-      }));
-    }
-  };
-
-  const handleOpenPopover = (index: number) => {
-    setSelectedItemIndex(index);
-  };
-
-  const handleClosePopover = () => {
-    setSelectedItemIndex(null);
-  };
-
   const title = contentGuidelines?.titlePage;
   const description = contentGuidelines?.description;
 
   return (
     <ContainerBasic title={title} description={description}>
-      <PlanContainer laws={laws}>
-        <Select
-          minW={90}
-          width="20%"
-          bg={useColorModeValue("white", "gray.800")}
-          value={selectValue}
-          textAlign="center"
-          mb={5}
-          onChange={(event) => {
-            handleSelectValue(Number(event.target.value));
-          }}
-        >
-          {selectOptions.map((value: string | number, index: number) => (
-            <option key={index} value={value}>
-              {value}
-            </option>
-          ))}
-        </Select>
-
-        {laws.map((law, index) => (
-          <Stack direction="row" justifyContent="space-between" key={index}>
-            <Popover
-              isOpen={selectedItemIndex === index}
-              onClose={handleClosePopover}
-              placement="top"
-            >
-              <PopoverTrigger>
-                <Button
-                  colorScheme="teal"
-                  variant="outline"
-                  onClick={() => handleClick(law.link, index)}
-                  disabled={isLoading[index]}
-                >
-                  {isLoading[index] ? 'Aguarde...' : law.name}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent style={{ width: '400px', height: '400px' }}>
-                <PopoverBody>
-                  {selectedItemIndex === index && isLoading[index] && (
-                    <Alert status="info" textAlign="center">
-                      <AlertIcon />
-                      Aguarde...
-                    </Alert>
-                  )}
-                  {selectedItemIndex === index && !isLoading[index] && isDownloadCompleted[index] && downloadLinks[index] && (
-                    <>
-                      <Button
-                        colorScheme="teal"
-                        variant="outline"
-                        padding="10px"
-                        margin="20px"
-                        as={Link}
-                        href={`https://dadosabertos.mogidascruzes.sp.gov.br/api/download/downloadProxy2?filename=${downloadLinks[index]}`}
-                        isExternal
-                      >
-                        Click here to download
-                      </Button>
-                      <br />
-                      <Alert status="success" textAlign="center">
-                        <AlertIcon />
-                        Download completo!
-                      </Alert>
-                    </>
-                  )}
-                </PopoverBody>
-              </PopoverContent>
-            </Popover>
-          </Stack>
-        ))}
-      </PlanContainer>
+      <PlanContainerLaw laws={laws} selectOptions={selectOptions} selectValue={selectValue} handleSelectValue={handleSelectValue} />
     </ContainerBasic>
   );
 }
