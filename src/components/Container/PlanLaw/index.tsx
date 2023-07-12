@@ -146,7 +146,7 @@ const PlanContainerLaw = ({ laws, children, selectOptions, selectValue, handleSe
           ))}
         </Select>
         {laws.map((law, index) => (
-  <Stack direction="row" justifyContent="space-between" key={index}>
+  <Stack direction="row" justifyContent="space-between" key={index} >
     <Popover
       isOpen={selectedItemIndex === index}
       onClose={() => setSelectedItemIndex(null)}
@@ -165,12 +165,12 @@ const PlanContainerLaw = ({ laws, children, selectOptions, selectValue, handleSe
         >
           <Icon as={AiOutlineDownload} />
           <Text>
-            {isLoading[index] ? 'Preparando o arquivo...' : law.name}
+            {isLoading[index] ? 'Aguarde! Preparando o arquivo...' : law.name}
           </Text>
         </Stack>
       </PopoverTrigger>
-      <PopoverContent style={{ width: '340px', height: '200px' }}>
-        <PopoverBody>
+      <PopoverContent boxShadow={'dark-lg'} alignItems={'left'} style={{ width: '340px', height: '150px'}}>
+        <PopoverBody alignContent={'center'}>
           {selectedItemIndex === index && isLoading[index] && (
             <Alert status="info" textAlign="center">
               <AlertIcon />
@@ -186,14 +186,14 @@ const PlanContainerLaw = ({ laws, children, selectOptions, selectValue, handleSe
               <Button
                 colorScheme="teal"
                 variant="outline"
-                padding="10px"
-                margin="20px"
+                
+                marginTop={"20px"}
                 onClick={() => {
                   const downloadUrl = `https://dadosabertos.mogidascruzes.sp.gov.br/api/download/downloadProxy2?filename=${downloadLinks[index]}`;
                   handleDownload(downloadUrl);
                 }}
               >
-                Acessar o arquivo.
+                Acessar o arquivo
               </Button>
               <br />
             </>

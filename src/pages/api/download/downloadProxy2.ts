@@ -72,10 +72,10 @@ export default async function downloadProxy2(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  if (req.method === 'GET') {
+  if (req.method === 'GET' || req.method === 'HEAD') {
     const { filename } = req.query;
 
-    const filePath = path.join(process.cwd(), 'data', filename as string);
+    const filePath = path.join(process.cwd(), 'data/filesLaw', filename as string);
 
     try {
       if (fs.existsSync(filePath)) {
@@ -86,7 +86,13 @@ export default async function downloadProxy2(
           'Content-Disposition',
           'inline; filename=' + (filename as string)
         );
-        res.status(200).send(file);
+
+        // Only send the file if it's a GET request
+        if (req.method === 'GET') {
+          res.status(200).send(file);
+        } else {
+          res.status(200).end();
+        }
       } else {
         res.status(404).json({ error: 'File not found.' });
       }
@@ -94,7 +100,7 @@ export default async function downloadProxy2(
       res.status(500).json({ error: 'Error reading file.' });
     }
   } else {
-    res.setHeader('Allow', 'GET');
+    res.setHeader('Allow', 'GET, HEAD');
     res.status(405).end('Method Not Allowed');
   }
 }

@@ -1,17 +1,14 @@
+
 import moment from "moment";
 import React, { useEffect, useState } from "react";
-import { getFile } from "../../../services/cloudStorage";
-import { removeDuplicates } from "../../../utils/removeDuplicate";
 import Screen from "./screen";
 import axios from "axios";
 
 export type Laws = Array<{ name: string; link: string; year: number }>;
+
 function Controller() {
   const [selectValue, setSelectValue] = useState(moment().year());
-  const [selectOptions, setSelectOptions] = useState<Array<string | number>>(
-    []
-  );
-  const [lawsFiltered, setLawsFiltered] = useState<Laws | []>([]);
+  const [selectOptions, setSelectOptions] = useState<Array<string | number>>([]);
   const [data, setData] = useState<Laws | []>([]);
 
   useEffect(() => {
@@ -23,7 +20,7 @@ function Controller() {
       "https://dadosabertos.mogidascruzes.sp.gov.br/api/download/proxy",
       {
         params: {
-          url: `http://www.licitacao.pmmc.com.br/Transparencia/arquivos?ano=&tipo=3&pagina=1&tamanho=100000`,
+          url: `http://www.licitacao.pmmc.com.br/Transparencia/arquivos?ano=&tipo=2&pagina=1&tamanho=100000`,
         },
       }
     );
@@ -58,14 +55,14 @@ function Controller() {
       }
     );
 
-    setData(
-      response.data.arquivos.map((item: any) => {
-        return {
-          name: item.titulo,
-          link: item.url,
-        };
-      })
-    );
+    const lawsData = response.data.arquivos.map((item: any) => {
+      return {
+        name: item.titulo,
+        link: item.url,
+      };
+    });
+
+    setData(lawsData);
   };
 
   const handler = {
