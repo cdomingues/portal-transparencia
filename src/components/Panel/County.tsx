@@ -1,4 +1,4 @@
-import { Stack } from "@chakra-ui/react";
+import { Stack, useColorModeValue } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 import { isMobile } from "react-device-detect";
 import descriptionData from "../../data/perfil-do-municipio";
@@ -34,7 +34,6 @@ const CountyPanel = () => {
         </Stack>
         <Stack
           style={{
-            
             borderRadius: "5px",
             marginBottom: "0px",
             marginTop: "0px",
@@ -42,11 +41,11 @@ const CountyPanel = () => {
             marginLeft: "0px",
           }}
         >
-          <Description  label="Prefeito" value="CAIO CÉSAR MACHADO DA CUNHA" />
+          <Description label="Prefeito" value="CAIO CÉSAR MACHADO DA CUNHA" />
           <Description label="Gentílico" value="MOGIANO" />
         </Stack>
       </Stack>
-      <Stack flex={4} width="100%" >
+      <Stack flex={4} width="100%">
         <Stack
           direction={isMobile ? "column" : "row"}
           flex={1}

@@ -6,8 +6,9 @@ const Description = ({ label, value }: { label: string; value: string }) => {
   const accessibility = useFontSizeAccessibilityContext();
   return (
     <Stack
+    bgColor={useColorModeValue("white", "gray.700")}
+      shadow={"2xl"}
       direction="row"
-      bgColor={useColorModeValue("white", "gray.700")}
       justifyContent="space-between"
       alignItems="center"
       style={{

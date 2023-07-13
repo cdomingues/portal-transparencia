@@ -30,10 +30,10 @@ function CardHorizon({
       borderRadius="18px"
       marginBottom="15px"
       >
-        <Center w='30%'>
-        <Flex as={icon} fontSize='3xl' color={useColorModeValue("black", "white")} />
+        <Center width={'30%'}>
+        <Icon fontSize='3xl' color={useColorModeValue("black", "white")} />
         </Center>
-        <Square w='70%'>
+        <Square maxWidth={'70%'}>
           <Text color={useColorModeValue("black", "white")}>{title}</Text>
         </Square>
       </Flex>

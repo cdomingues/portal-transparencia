@@ -1,107 +1,331 @@
-import React, { useState } from "react";
-import ContainerBasic from "../../components/Container/Basic";
-import { Checkbox, Flex, Heading, Input, Textarea } from "@chakra-ui/react";
+import React from "react";
+import Head from "next/head";
+//import BlogComponent from "../components/Blog";
+//import { News } from "../types";
+import { PublicPolicyData } from "../api/totalizador/politicas-publicas";
+import CardHorizon from "../../components/CardHorizon";
+import {
+  Box,
+  Divider,
+  Flex,
+  Heading,
+  Icon,
+  Skeleton,
+  Stack,
+  Stat,
+  StatGroup,
+  StatHelpText,
+  StatLabel,
+  StatNumber,
+  Button,
+  Text,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import moneyFormatter from "../../utils/moneyFormatter";
+import moment from "moment";
+import { isMobile } from "react-device-detect";
+import { Chart } from "../../components/HomeChart";
+import { Chart2 } from "../../components/HomeChart2";
+import { ChartContainer } from "../../utils/styles";
+import {
+  BiBell,
+  BiBody,
+  BiCheckShield,
+  BiFlag,
+  BiFoodMenu,
+  BiHeart,
+} from "react-icons/bi";
+import useWindowDimensions from "../../utils/getWindowSize";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
+import noticias from "../../../data/noticias.json";
+//import News from "../../components/News";
+//import News from "../components/News";
+import DisplayNews from "../../components/NewsHome";
 
-export const contentAbout = {
-  titlePage: "INFORMAÇÕES",
-  description:
-    "Caso tenha dificuldade em encontrar alguma informação ou dúvida referente ao conteúdo publicado neste portal, você pode entrar em contato conosco preenchendo o formulário abaixo ou dirigir-se pessoalmente à Ouvidoria Geral, localizada no 3º andar do prédio sede da Prefeitura, de segunda a sexta-feira, das 8 às 17 horas.",
+type PropsInput = {
+  handler: {
+    expenseAmount: number;
+    expensePercentageReached: number;
+    expenseProvided: number;
+    revenueAmount: number;
+    revenuePercentageReached: number;
+    revenueProvided: number;
+    expenseLoanding: boolean;
+    revenueLoading: boolean;
+    publicPolicies: PublicPolicyData[];
+    graphConfig: any;
+    publicPoliciesLoading: boolean;
+    chartLoading: boolean;
+    date: string;
+  };
 };
 
-function Screen() {
-  const title = contentAbout?.titlePage;
-  const description = contentAbout?.description;
-  const accessibility = useFontSizeAccessibilityContext();
-  const [checkboxes, setCheckboxes] = useState([false, false, false]);
-  const [text, setText] = useState("");
+export const contentAbout = {
+  titlePage: "Sobre o Portal de Transparência",
+  description:
+    "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.",
+};
 
-  const handleTextChange = (event: any) => {
-    const newText = event.target.value;
-    setText(newText);
-  };
-
-  const handleCheckboxChange = (index: number) => {
-    const updatedCheckboxes = checkboxes.map((checked, i) => i === index);
-
-    setCheckboxes(updatedCheckboxes);
-  };
-
-  const translatorCheckbox: any = {
-    0: "TRANSPARÊNCIA (INFORMAÇÕES SOBRE GASTOS PÚBLICOS)",
-    1: "OUVIDORIA (SOLICITAÇÕES E RECLAMAÇÕES)",
-    2: "SEMAE: INFORMAÇÕES OU RECLAMAÇÕES DE ÁGUA OU ESGOTO.",
-  };
-  const hasCheckboxSelected = checkboxes[0] || checkboxes[1] || checkboxes[2];
-
+function Aside() {
   return (
-    <ContainerBasic title={title} description={description}>
-      <Flex direction="column">
-        <Heading
-          fontSize={accessibility?.fonts?.regular}
-          color="text.dark"
-          marginBottom={5}
-        >
-          Qual o Assunto?
-        </Heading>
-
-        {checkboxes.map((checked, index) => (
-          <Checkbox
-            key={index}
-            isChecked={checked}
-            onChange={() => handleCheckboxChange(index)}
-          >
-            {translatorCheckbox[index]}
-          </Checkbox>
-        ))}
-
-        {hasCheckboxSelected && (
-          <>
-            <Input
-              bg="white"
-              width="100%"
-              maxWidth={500}
-              placeholder="Nome"
-              marginTop={5}
+    <div style={{ width: "380px", justifyContent: "left" }}>
+      <Box
+        m={0}
+        bg={useColorModeValue("white", "gray.800")}
+        boxShadow="2xl"
+        padding={"15px"}
+        rounded="md"
+        overflow="hidden"
+        maxWidth="95%"
+        borderRadius="18px"
+        marginBottom="15px"
+      >
+        <div style={{ padding: "10px" }}>
+          <Text fontWeight="500" color={"gray.500"}>
+            Últimas Noticias
+          </Text>
+        </div>
+        {noticias.slice(0, 2).map((info) => {
+          return (
+            <DisplayNews
+              key={info.descricao}
+              data_noticia={info.data_noticia}
+              descricao={info.descricao}
+              foto={info.foto}
+              titulo={info.titulo}
+              link={info.link}
             />
-
-            <Input
-              bg="white"
-              width="100%"
-              maxWidth={400}
-              placeholder="CPF"
-              marginTop={2.5}
-            />
-            <Input
-              bg="white"
-              width="100%"
-              maxWidth={400}
-              placeholder="Telefone"
-              marginTop={2.5}
-            />
-            <Input
-              bg="white"
-              width="100%"
-              maxWidth={500}
-              placeholder="Email"
-              marginTop={2.5}
-            />
-
-            <Textarea
-              bg="white"
-              value={text}
-              onChange={handleTextChange}
-              maxLength={300}
-              placeholder="Digite até 300 caracteres"
-              maxWidth={500}
-              marginTop={2.5}
-              minHeight={200}
-            />
-          </>
-        )}
-      </Flex>
-    </ContainerBasic>
+          );
+        })}
+        <div style={{ padding: "0px", width: "100%" }}></div>
+      </Box>
+    </div>
   );
 }
 
-export default Screen;
+function HomeScreen({ handler }: PropsInput) {
+  const {
+    //news,
+    expenseAmount,
+    expensePercentageReached,
+    expenseProvided,
+    revenueAmount,
+    revenuePercentageReached,
+    revenueProvided,
+    expenseLoanding,
+    revenueLoading,
+    publicPolicies,
+    graphConfig,
+    publicPoliciesLoading,
+    chartLoading,
+    date,
+  } = handler;
+  const accessibility = useFontSizeAccessibilityContext();
+  const titlePage = contentAbout?.titlePage;
+  const description = contentAbout?.description;
+
+  const { height, width } = useWindowDimensions();
+
+  return (
+    <Stack
+      direction={isMobile ? "column" : "row"}
+      style={{ width: "100%", height: "100%" }}
+    >
+      <Stack
+        flex={width > 1024 ? 2 : 2}
+        style={{
+          paddingLeft: isMobile ? 0 : "0%",
+          paddingRight: isMobile ? 0 : "1%",
+        }}
+      >
+        <Box
+          m={0}
+          bg={useColorModeValue("white", "gray.800")}
+          boxShadow="2xl"
+          padding={"15px"}
+          rounded="md"
+          overflow="hidden"
+          maxWidth="100%"
+          borderRadius="18px"
+          marginBottom="15px"
+        >
+          <Stack spacing={4}>
+            <Heading fontSize={accessibility?.fonts?.highLarge}>
+              {titlePage}
+            </Heading>
+            <Text
+              color={"gray.500"}
+              fontSize={accessibility?.fonts?.regular}
+              textAlign={"justify"}
+            >
+              {description}
+            </Text>
+          </Stack>
+        </Box>
+
+        {/* <Divider mb="6%" /> */}
+
+        <Box
+          m={0}
+          bg={useColorModeValue("white", "gray.800")}
+          boxShadow="2xl"
+          padding={"15px"}
+          rounded="md"
+          overflow="hidden"
+          maxWidth="100%"
+          borderRadius="18px"
+          marginBottom="15px"
+        >
+          <Stack direction={isMobile ? "column" : "row"} spacing={2}></Stack>
+
+          <Stack direction="column">
+            <Heading
+              fontSize={accessibility?.fonts?.regular}
+              style={{ marginTop: "0px" }}
+            >
+              Políticas Públicas
+            </Heading>
+
+            <StatGroup width="100%" mb={20}>
+              <Stat position="unset">
+                <Stack
+                  direction={isMobile ? "column" : "row"}
+                  align={isMobile ? "center" : "center"}
+                  justifyContent={isMobile ? "flex-start" : "center"}
+                >
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Plano Plurianual do Ano de 2023 de Mogi das Cruzes"
+                      imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
+                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
+                      link="./relatorio-gestao-fiscal"
+                      icon='BiFlag'
+                    />
+                  </Box>
+
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Plano Plurianual do Ano de 2023 de Mogi das Cruzes"
+                      imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
+                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
+                      link="URL do link"
+                      icon='BiBell'
+                    />
+                  </Box>
+                </Stack>
+                <Stack
+                  direction={isMobile ? "column" : "row"}
+                  align={isMobile ? "center" : "center"}
+                  justifyContent={isMobile ? "flex-start" : "center"}
+                >
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Plano Plurianual do Ano de 2023 de Mogi das Cruzes"
+                      imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
+                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
+                      link="URL do link"
+                      icon='BiFlag'
+                    />
+                  </Box>
+
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Plano Plurianual do Ano de 2023 de Mogi das Cruzes"
+                      imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
+                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
+                      link="URL do link"
+                      icon='BiFlag'
+                    />
+                  </Box>
+                </Stack>
+              </Stat>
+            </StatGroup>
+          </Stack>
+        </Box>
+
+        <Box
+          m={0}
+          bg={useColorModeValue("white", "gray.800")}
+          boxShadow="2xl"
+          padding={"15px"}
+          rounded="md"
+          overflow="hidden"
+          maxWidth="100%"
+          borderRadius="18px"
+          marginBottom="15px"
+        >
+          <Stack direction={isMobile ? "column" : "row"} spacing={2}></Stack>
+
+          <Stack direction="column">
+            <Heading
+              fontSize={accessibility?.fonts?.regular}
+              style={{ marginTop: "0px" }}
+            >
+              Prêmios e Reconhecimentos
+            </Heading>
+
+            <StatGroup width="100%" mb={20}>
+              <Stat position="unset">
+                <Stack
+                  direction={isMobile ? "column" : "row"}
+                  align={isMobile ? "center" : "center"}
+                  justifyContent={isMobile ? "flex-start" : "center"}
+                >
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Plano Plurianual do Ano de 2023 de Mogi das Cruzes"
+                      imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
+                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
+                      link="./relatorio-gestao-fiscal"
+                      icon='BiFlag'
+                    />
+                  </Box>
+
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Plano Plurianual do Ano de 2023 de Mogi das Cruzes"
+                      imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
+                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
+                      link="URL do link"
+                      icon='BiBell'
+                    />
+                  </Box>
+                </Stack>
+                <Stack
+                  direction={isMobile ? "column" : "row"}
+                  align={isMobile ? "center" : "center"}
+                  justifyContent={isMobile ? "flex-start" : "center"}
+                >
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Plano Plurianual do Ano de 2023 de Mogi das Cruzes"
+                      imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
+                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
+                      link="URL do link"
+                      icon='BiFlag'
+                    />
+                  </Box>
+
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Plano Plurianual do Ano de 2023 de Mogi das Cruzes"
+                      imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
+                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
+                      link="URL do link"
+                      icon='BiFlag'
+                    />
+                  </Box>
+                </Stack>
+              </Stat>
+            </StatGroup>
+          </Stack>
+        </Box>
+      </Stack>
+      <Stack flex={width > 1024 ? 1 : 2}>
+        <Aside />
+      </Stack>
+    </Stack>
+  );
+}
+
+export default HomeScreen;

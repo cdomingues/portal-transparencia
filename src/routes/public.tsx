@@ -22,7 +22,13 @@ import {
   AiFillCaretRight,
 } from "react-icons/ai";
 import { BiBall, BiBriefcaseAlt, BiMoney } from "react-icons/bi";
-import { BsArrow90DegRight, BsArrowDownLeftSquare, BsBricks, BsCameraVideo, BsFileText } from "react-icons/bs";
+import {
+  BsArrow90DegRight,
+  BsArrowDownLeftSquare,
+  BsBricks,
+  BsCameraVideo,
+  BsFileText,
+} from "react-icons/bs";
 import { IPublicRoute } from "../types";
 import { contentInitial } from "../pages/screen";
 import { contentMunicipalityProfile } from "../pages/perfil-do-municipio/screen";
@@ -325,7 +331,6 @@ const publicRoutes: IPublicRoute[] = [
     //     subgroup: false,
     //   },
     // ]
-
 
     // group: [
     //   {
@@ -835,32 +840,32 @@ const publicRoutes: IPublicRoute[] = [
       },
     ],
   },
-  {
-    name: "Acordos e Termos",
-    path: "/acordos-termos",
-    element: <div></div>,
-    icon: BsFileText,
-    group: [
-      {
-        defaultPath: "/acordos-termos",
-        name: "Termo de Colaboração",
-        path: "/termo-de-colaboracao",
-        icon: AiOutlineTable,
-      },
-      {
-        defaultPath: "/acordos-termos",
-        name: "Termo de Fomento",
-        path: "/termo-de-fomento",
-        icon: AiOutlineTable,
-      },
-      {
-        defaultPath: "/acordos-termos",
-        name: "Acordo de Colaboração",
-        path: "/acordo-de-colaboracao",
-        icon: AiOutlineTable,
-      },
-    ],
-  },
+  // {
+  //   name: "Acordos e Termos",
+  //   path: "/acordos-termos", 
+  //   element: <div></div>,
+  //   icon: BsFileText,
+  //   group: [
+  //     {
+  //       defaultPath: "/acordos-termos",
+  //       name: "Termo de Colaboração",
+  //       path: "/termo-de-colaboracao",
+  //       icon: AiOutlineTable,
+  //     },
+  //     {
+  //       defaultPath: "/acordos-termos",
+  //       name: "Termo de Fomento",
+  //       path: "/termo-de-fomento",
+  //       icon: AiOutlineTable,
+  //     },
+  //     {
+  //       defaultPath: "/acordos-termos",
+  //       name: "Acordo de Colaboração",
+  //       path: "/acordo-de-colaboracao",
+  //       icon: AiOutlineTable,
+  //     },
+  //   ],
+  // },
   {
     name: "Transparência Pública",
     path: "/transparencia",

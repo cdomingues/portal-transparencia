@@ -12,7 +12,7 @@ type PropsInput = {
 
 function Screen({ handler: { columns, data, loading } }: PropsInput) {
   const title = "Termo de Colaboração";
-  const description = "";
+  const description = "O termo...";
   return (
     <ContainerBasic title={title} description={description}>
       <TableComponent loading={loading} columns={columns} data={data} />
