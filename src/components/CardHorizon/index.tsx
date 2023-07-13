@@ -1,68 +1,41 @@
-import { Flex, Box, Image, useColorModeValue, Text, Textarea, useMediaQuery } from "@chakra-ui/react";
+import { Flex, Box, Image, useColorModeValue, Text, Textarea, useMediaQuery, Center, Square, Icon, Stack } from "@chakra-ui/react";
+import { IconRight } from "react-day-picker";
 import { isMobile } from "react-device-detect";
+import { BiBell } from "react-icons/bi";
 
 function CardHorizon({
   title,
   imageURL,
   description,
   link,
+  icon,
 }: {
   title: string;
   imageURL: string;
   description: string;
   link: string;
+  icon: string;
 }) {
 
   return (
-    <a href="https://www.uol.com.br" target="_self" rel="noopener noreferrer">
-      {/* Usar o elemento "a" para redirecionar para uma URL externa */}
-      <Flex
-       
-        alignItems="center"
-        direction={isMobile ? "column" : "row"}
-        justifyContent="center"
-        w={isMobile ? '100%' : '300px'}
-        flexDirection={"row"}
+    <a href={link} target="_self" rel="noopener noreferrer">
+      <Flex 
+      m={0}
+      bg={useColorModeValue("white", "gray.800")}
+      boxShadow="2xl"
+      padding={"15px"}
+      rounded="md"
+      overflow="hidden"
+      maxWidth="100%"
+      borderRadius="18px"
+      marginBottom="15px"
       >
-        <Box
-          bg={useColorModeValue("white", "gray.800")}
-          maxW="sm"
-          borderWidth="1px"
-          rounded="lg"
-          shadow="lg"
-          width={isMobile ? "100%" : "350px"}
-          flexDirection={"row"}
-        >
-          <Image maxWidth='100px' src={imageURL} alt={`Picture of ${title}`} roundedTop="lg" />
-          <Box p="1" >
-            <Flex mt="1" direction="column" alignContent="center" width="100%">
-              <Textarea
-              height={'10px'}
-                textAlign="left"
-                overflow="auto"
-                outline="none"
-                boxShadow="none"
-                resize="none"
-                border="none"
-                fontSize="md"
-                fontWeight="550"
-                value={title}
-                _selection={{ border: "none" }}
-              />
-              {/* <Textarea
-               height={'10px'}
-                contentEditable="false"
-                overflow="auto"
-                outline="none"
-                boxShadow="none"
-                resize="none"
-                border="none"
-                fontSize="smaller"
-                value={description}
-              /> */}
-            </Flex>
-          </Box>
-        </Box>
+        <Center w='30%'>
+        <Flex as={icon} fontSize='3xl' color={useColorModeValue("black", "white")} />
+        </Center>
+        <Square w='70%'>
+          <Text color={useColorModeValue("black", "white")}>{title}</Text>
+        </Square>
       </Flex>
     </a>
   );

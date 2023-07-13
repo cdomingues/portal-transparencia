@@ -27,7 +27,7 @@ import { isMobile } from "react-device-detect";
 import { Chart } from "../../components/HomeChart";
 import { Chart2 } from "../../components/HomeChart2";
 import { ChartContainer } from "../../utils/styles";
-import { BiBell, BiBody, BiCheckShield, BiFlag, BiFoodMenu, BiHeart } from "react-icons/bi";
+import { BiBody, BiCheckShield, BiFoodMenu, BiHeart } from "react-icons/bi";
 import useWindowDimensions from "../../utils/getWindowSize";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
 import noticias from '../../../data/noticias.json'
@@ -208,8 +208,7 @@ marginBottom="15px"
         title="Plano Plurianual do Ano de 2023 de Mogi das Cruzes"
         imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
         description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-        link="./relatorio-gestao-fiscal"
-        icon={BiFlag}
+        link="URL do link"
       />
 
 
@@ -221,8 +220,6 @@ marginBottom="15px"
         imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
         description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
         link="URL do link"
-        icon={BiBell}
-
       />
 
 
@@ -240,7 +237,6 @@ marginBottom="15px"
         imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
         description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
         link="URL do link"
-        icon={BiFlag}
       />
 
 
@@ -252,7 +248,6 @@ marginBottom="15px"
         imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
         description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
         link="URL do link"
-        icon={BiFlag}
       />
 
 

@@ -21,7 +21,7 @@ import {
   AiFillTag,
   AiFillCaretRight,
 } from "react-icons/ai";
-import { BiBriefcaseAlt, BiMoney } from "react-icons/bi";
+import { BiBall, BiBriefcaseAlt, BiMoney } from "react-icons/bi";
 import { BsArrow90DegRight, BsArrowDownLeftSquare, BsBricks, BsCameraVideo, BsFileText } from "react-icons/bs";
 import { IPublicRoute } from "../types";
 import { contentInitial } from "../pages/screen";
@@ -34,13 +34,13 @@ import { contentContractManagement } from "../pages/terceiro-setor/contratos-ges
 import { contentConvenants } from "../pages/terceiro-setor/convenios/screen";
 import { contentTransfers } from "../pages/terceiro-setor/repasses/screen";
 import { contentAgreementColaborator } from "../pages/acordos-termos/acordo-de-colaboracao/screen";
-import { contentPlanMultiannual } from "../pages/ciclo-orcamentario/plurianual/screen";
-import { contentGuidelines } from "../pages/ciclo-orcamentario/diretrizes-orcamentarias/screen";
-import { contentLawBudget } from "../pages/ciclo-orcamentario/lei-orcamentaria-anual/screen";
-import { contentRepostManagementSupervisor } from "../pages/ciclo-orcamentario/relatorio-de-gestao-fiscal/screen";
-import { contentPublicWorks } from "../pages/transparencia/obras-publicas/screen";
-import { contentPublicServants } from "../pages/transparencia/servidores-publicos-estagiarios/screen";
-import { contentPROMAE } from "../pages/transparencia/promae/screen";
+import { contentPlanMultiannual } from "../pages/ciclo-orcamentario_old/plurianual/screen";
+import { contentGuidelines } from "../pages/ciclo-orcamentario_old/diretrizes-orcamentarias/screen";
+import { contentLawBudget } from "../pages/ciclo-orcamentario_old/lei-orcamentaria-anual/screen";
+import { contentRepostManagementSupervisor } from "../pages/ciclo-orcamentario_old/relatorio-de-gestao-fiscal/screen";
+import { contentPublicWorks } from "../pages/ciclo-orcamentario/obras-publicas/screen";
+import { contentPublicServants } from "../pages/ciclo-orcamentario/servidores-publicos-estagiarios/screen";
+import { contentPROMAE } from "../pages/ciclo-orcamentario/promae/screen";
 import { contentRevenue } from "../pages/receitas/screen";
 import { contentContractsAndAtas } from "../pages/despesas/contratos-atas/screen";
 import { contentBids } from "../pages/despesas/licitacoes/screen";
@@ -59,7 +59,7 @@ import { contentExtrabudgetExpenses } from "../pages/orcamento-municipal/extraor
 import { contentExtrabudgetRevenues } from "../pages/orcamento-municipal/extraorcamentario/receitas/screen";
 import { contentCovidRecipes } from "../pages/orcamento-municipal/covid/receitas/screen";
 import { contentCovidExpenses } from "../pages/orcamento-municipal/covid/despesas/screen";
-import { contentReportExtrabudget } from "../pages/transparencia/relatorio-resumido/screen";
+import { contentReportExtrabudget } from "../pages/ciclo-orcamentario/relatorio-resumido/screen";
 import { contentAnnualBalance } from "../pages/contas/balancos-anuais/screen";
 import { contentCourtOpinions } from "../pages/contas/pareceres-tribunal/screen";
 import { contentPatrimony } from "../pages/patrimonio/screen";
@@ -100,7 +100,7 @@ const publicRoutes: IPublicRoute[] = [
         defaultPath: "/ciclo-orcamentario",
         name: "Plano Plurianual",
         path: "/plurianual",
-        icon: BsFileText,
+        icon: AiFillCaretRight,
       },
       {
         defaultPath: "/ciclo-orcamentario",
@@ -112,12 +112,6 @@ const publicRoutes: IPublicRoute[] = [
         defaultPath: "/ciclo-orcamentario",
         name: "Lei Orcamentária Anual",
         path: "/lei-orcamentaria-anual",
-        icon: BsFileText,
-      },
-      {
-        defaultPath: "/ciclo-orcamentario",
-        name: "Relatório de Gestão Fiscal",
-        path: "relatorio-de-gestao-fiscal",
         icon: AiFillCaretRight,
       },
       {
@@ -128,8 +122,26 @@ const publicRoutes: IPublicRoute[] = [
       },
       {
         defaultPath: "/ciclo-orcamentario",
+        name: "Relatório Resumido",
+        path: "relatorio-resumido",
+        icon: AiFillCaretRight,
+      },
+      {
+        defaultPath: "/ciclo-orcamentario",
         name: "Relatório de Gestão Fiscal",
         path: "relatorio-de-gestao-fiscal",
+        icon: AiFillCaretRight,
+      },
+      {
+        defaultPath: "/ciclo-orcamentario",
+        name: "Balanços Anuais",
+        path: "balancos-anuais",
+        icon: AiFillCaretRight,
+      },
+      {
+        defaultPath: "/ciclo-orcamentario",
+        name: "Pareceres do Tribunal",
+        path: "pareceres-do-tribunal",
         icon: AiFillCaretRight,
       },
     ],
@@ -142,144 +154,29 @@ const publicRoutes: IPublicRoute[] = [
     group: [
       {
         defaultPath: "/orcamento-municipal",
-        name: "Execução Orçamentaria",
-        path: "/execucao-orcamentaria",
+        name: "Orçamentário",
+        path: "/receitas",
         icon: AiOutlineGlobal,
+        subgroup: false,
         group: [
           {
             defaultPath: "/orcamento-municipal",
-            name: "Receitas",
-            path: "/receitas",
+            name: "Receitas Orcamentarias",
+            path: "/receitas/orcamentarias",
             icon: AiOutlineAudit,
             subgroup: true,
             group: [
               {
-                defaultPath: "orcamento-municipal",
-                name: "Emenda Parlamentar",
-                path: "/receitas/receitas-emendas",
-                icon: AiOutlineTable,
-              },
-              {
-                defaultPath: "orcamento-municipal",
-                name: "Multa de transito",
-                path: "/receitas/receitas-multas-transito",
+                defaultPath: "/nivel1",
+                name: "Nivel4",
+                path: "/nivel2/nivel3/nivel4",
                 icon: AiOutlineTable,
               },
             ],
-          },
-          {
-            defaultPath: "/orcamento-municipal",
-            name: "Despesas",
-            path: "/despesas",
-            icon: AiOutlineAudit,
-            subgroup: true,
-            group: [
-              {
-                defaultPath: "/orcamento-municipal",
-                name: "Emendas",
-                path: "/despesas/despesas-emendas",
-                icon: AiOutlineTable,
-              },
-              {
-                defaultPath: "/orcamento-municipal",
-                name: "Gerais",
-                path: "/despesas/despesas-gerais",
-                icon: AiOutlineTable,
-              },
-              {
-                defaultPath: "/orcamento-municipal",
-                name: "Multas de Transito",
-                path: "/despesas/despesas-multas-transito",
-                icon: AiOutlineTable,
-              },
-              {
-                defaultPath: "/orcamento-municipal",
-                name: "Restos",
-                path: "/despesas/despesas-restos",
-                icon: AiOutlineTable,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        defaultPath: "/orcamento-municipal",
-        name: "Extra Orçamentaria",
-        path: "/execucao-orcamentaria",
-        icon: AiOutlineGlobal,
-        group: [
-          {
-            defaultPath: "/orcamento-municipal",
-            name: "Receitas",
-            path: "/receitas",
-            icon: AiOutlineAudit,
-            subgroup: true,
-            group: [
-              {
-                defaultPath: "orcamento-municipal",
-                name: "Emenda Parlamentar",
-                path: "/receitas/receitas-emendas",
-                icon: AiOutlineTable,
-              },
-              {
-                defaultPath: "orcamento-municipal",
-                name: "Multa de transito",
-                path: "/receitas/receitas-multas-transito",
-                icon: AiOutlineTable,
-              },
-            ],
-          },
-          {
-            defaultPath: "/orcamento-municipal",
-            name: "Despesas",
-            path: "/despesas",
-            icon: AiOutlineAudit,
-            subgroup: true,
-            group: [
-              {
-                defaultPath: "/orcamento-municipal",
-                name: "Emendas",
-                path: "/despesas/despesas-emendas",
-                icon: AiOutlineTable,
-              },
-              {
-                defaultPath: "/orcamento-municipal",
-                name: "Gerais",
-                path: "/despesas/despesas-gerais",
-                icon: AiOutlineTable,
-              },
-              {
-                defaultPath: "/orcamento-municipal",
-                name: "Multas de Transito",
-                path: "/despesas/despesas-multas-transito",
-                icon: AiOutlineTable,
-              },
-              {
-                defaultPath: "/orcamento-municipal",
-                name: "Restos",
-                path: "/despesas/despesas-restos",
-                icon: AiOutlineTable,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        defaultPath: "/nivel1",
-        name: "Incentivos Fiscais",
-        path: "/nivel2",
-        icon: AiOutlineGlobal,
-        group: [
-          {
-            defaultPath: "/nivel1",
-            name: "Promae",
-            path: "/nivel2/nivel3",
-            icon: AiOutlineAudit,
-            subgroup: false,
           },
           {
             defaultPath: "/nivel1",
-            name: "Nivel 3",
+            name: "Parecer Tribunal",
             path: "/nivel2/nivel3",
             icon: AiOutlineAudit,
             subgroup: true,
@@ -294,7 +191,298 @@ const publicRoutes: IPublicRoute[] = [
           },
         ],
       },
+      {
+        defaultPath: "/orcamento-municipal",
+        name: "Extra Orçamentário",
+        path: "/receitas",
+        icon: AiOutlineGlobal,
+        subgroup: false,
+        group: [
+          {
+            defaultPath: "/orcamento-municipal",
+            name: "Receitas Orcamentarias",
+            path: "/receitas/orcamentarias",
+            icon: AiOutlineAudit,
+            subgroup: true,
+            group: [
+              {
+                defaultPath: "/nivel1",
+                name: "Nivel4",
+                path: "/nivel2/nivel3/nivel4",
+                icon: AiOutlineTable,
+              },
+            ],
+          },
+          {
+            defaultPath: "/nivel1",
+            name: "Parecer Tribunal",
+            path: "/nivel2/nivel3",
+            icon: AiOutlineAudit,
+            subgroup: true,
+            group: [
+              {
+                defaultPath: "/nivel1",
+                name: "Nivel4",
+                path: "/nivel2/nivel3/nivel4",
+                icon: AiOutlineTable,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        defaultPath: "/orcamento-municipal",
+        name: "Receitas",
+        path: "/receitas",
+        icon: AiOutlineGlobal,
+        subgroup: true,
+        group: [
+          {
+            defaultPath: "/orcamento-municipal",
+            name: "Receitas Orcamentarias",
+            path: "/receitas/orcamentarias",
+            icon: AiOutlineAudit,
+            subgroup: true,
+            group: [
+              {
+                defaultPath: "/nivel1",
+                name: "Nivel4",
+                path: "/nivel2/nivel3/nivel4",
+                icon: AiOutlineTable,
+              },
+            ],
+          },
+          {
+            defaultPath: "/nivel1",
+            name: "Parecer Tribunal",
+            path: "/nivel2/nivel3",
+            icon: AiOutlineAudit,
+            subgroup: true,
+            group: [
+              {
+                defaultPath: "/nivel1",
+                name: "Nivel4",
+                path: "/nivel2/nivel3/nivel4",
+                icon: AiOutlineTable,
+              },
+            ],
+          },
+        ],
+      },
+
+      {
+        defaultPath: "/nivel1",
+        name: "Incentivos Fiscais",
+        path: "/nivel2",
+        icon: AiOutlineGlobal,
+
+        group: [
+          {
+            defaultPath: "/transparencia",
+            name: "Promae",
+            path: "/promae",
+            icon: AiOutlineAudit,
+            subgroup: true,
+          },
+          {
+            defaultPath: "/transparencia",
+            name: ">>Promae",
+            path: "/promae",
+            icon: AiOutlineAudit,
+            subgroup: true,
+          },
+          // {
+          //   defaultPath: "/nivel1",
+          //   name: "Nivel 3",
+          //   path: "/nivel2/nivel3",
+          //   icon: AiOutlineAudit,
+          //   subgroup: true,
+          //   group: [
+          //     {
+          //       defaultPath: "/nivel1",
+          //       name: "Nivel4",
+          //       path: "/nivel2/nivel3/nivel4",
+          //       icon: AiOutlineTable,
+          //     },
+          //   ],
+          // },
+        ],
+      },
     ],
+    // group: [
+    //   {
+    //     defaultPath: "/ciclo-orcamentario",
+    //     name: "Plano Plurianual",
+    //     path: '',
+    //     icon: AiFillCaretRight,
+    //   },
+    //   {
+    //     defaultPath: "/transparencia",
+    //     name: "Promae",
+    //     path: '',
+    //     element: <div></div>,
+    //     icon: BiBall,
+    //     subgroup: false,
+    //   },
+    // ]
+
+
+    // group: [
+    //   {
+    //     defaultPath: "/orcamento-municipal",
+    //     name: "Execução Orçamentaria",
+    //     path: "/execucao-orcamentaria",
+    //     icon: AiOutlineGlobal,
+    //     group: [
+    //       {
+    //         defaultPath: "/orcamento-municipal",
+    //         name: "Receitas",
+    //         path: "/receitas",
+    //         icon: AiOutlineAudit,
+    //         subgroup: true,
+    //         group: [
+    //           {
+    //             defaultPath: "orcamento-municipal",
+    //             name: "Emenda Parlamentar",
+    //             path: "/receitas/receitas-emendas",
+    //             icon: AiOutlineTable,
+    //           },
+    //           {
+    //             defaultPath: "orcamento-municipal",
+    //             name: "Multa de transito",
+    //             path: "/receitas/receitas-multas-transito",
+    //             icon: AiOutlineTable,
+    //           },
+    //         ],
+    //       },
+    //       {
+    //         defaultPath: "/orcamento-municipal",
+    //         name: "Despesas",
+    //         path: "/despesas",
+    //         icon: AiOutlineAudit,
+    //         subgroup: true,
+    //         group: [
+    //           {
+    //             defaultPath: "/orcamento-municipal",
+    //             name: "Emendas",
+    //             path: "/despesas/despesas-emendas",
+    //             icon: AiOutlineTable,
+    //           },
+    //           {
+    //             defaultPath: "/orcamento-municipal",
+    //             name: "Gerais",
+    //             path: "/despesas/despesas-gerais",
+    //             icon: AiOutlineTable,
+    //           },
+    //           {
+    //             defaultPath: "/orcamento-municipal",
+    //             name: "Multas de Transito",
+    //             path: "/despesas/despesas-multas-transito",
+    //             icon: AiOutlineTable,
+    //           },
+    //           {
+    //             defaultPath: "/orcamento-municipal",
+    //             name: "Restos",
+    //             path: "/despesas/despesas-restos",
+    //             icon: AiOutlineTable,
+    //           },
+    //         ],
+    //       },
+    //     ],
+    //   },
+    //   {
+    //     defaultPath: "/orcamento-municipal",
+    //     name: "Extra Orçamentaria",
+    //     path: "/execucao-orcamentaria",
+    //     icon: AiOutlineGlobal,
+    //     group: [
+    //       {
+    //         defaultPath: "/orcamento-municipal",
+    //         name: "Receitas",
+    //         path: "/receitas",
+    //         icon: AiOutlineAudit,
+    //         subgroup: true,
+    //         group: [
+    //           {
+    //             defaultPath: "orcamento-municipal",
+    //             name: "Emenda Parlamentar",
+    //             path: "/receitas/receitas-emendas",
+    //             icon: AiOutlineTable,
+    //           },
+    //           {
+    //             defaultPath: "orcamento-municipal",
+    //             name: "Multa de transito",
+    //             path: "/receitas/receitas-multas-transito",
+    //             icon: AiOutlineTable,
+    //           },
+    //         ],
+    //       },
+    //       {
+    //         defaultPath: "/orcamento-municipal",
+    //         name: "Despesas",
+    //         path: "/despesas",
+    //         icon: AiOutlineAudit,
+    //         subgroup: true,
+    //         group: [
+    //           {
+    //             defaultPath: "/orcamento-municipal",
+    //             name: "Emendas",
+    //             path: "/despesas/despesas-emendas",
+    //             icon: AiOutlineTable,
+    //           },
+    //           {
+    //             defaultPath: "/orcamento-municipal",
+    //             name: "Gerais",
+    //             path: "/despesas/despesas-gerais",
+    //             icon: AiOutlineTable,
+    //           },
+    //           {
+    //             defaultPath: "/orcamento-municipal",
+    //             name: "Multas de Transito",
+    //             path: "/despesas/despesas-multas-transito",
+    //             icon: AiOutlineTable,
+    //           },
+    //           {
+    //             defaultPath: "/orcamento-municipal",
+    //             name: "Restos",
+    //             path: "/despesas/despesas-restos",
+    //             icon: AiOutlineTable,
+    //           },
+    //         ],
+    //       },
+    //     ],
+    //   },
+    //   {
+    //     defaultPath: "/nivel1",
+    //     name: "Incentivos Fiscais",
+    //     path: "/nivel2",
+    //     icon: AiOutlineGlobal,
+    //     group: [
+    //       {
+    //         defaultPath: "/nivel1",
+    //         name: "Promae",
+    //         path: "/nivel2/nivel3",
+    //         icon: AiOutlineAudit,
+    //         subgroup: false,
+    //       },
+    //       {
+    //         defaultPath: "/nivel1",
+    //         name: "Nivel 3",
+    //         path: "/nivel2/nivel3",
+    //         icon: AiOutlineAudit,
+    //         subgroup: true,
+    //         group: [
+    //           {
+    //             defaultPath: "/nivel1",
+    //             name: "Nivel4",
+    //             path: "/nivel2/nivel3/nivel4",
+    //             icon: AiOutlineTable,
+    //           },
+    //         ],
+    //       },
+    //     ],
+    //   },
+    // ],
   },
   {
     name: "Prestação de Contas",
@@ -883,252 +1071,252 @@ const publicRoutes: IPublicRoute[] = [
       },
     ],
   },
-  {
-    name: "Extraorçamentário",
-    path: "/extraorcamentario",
-    element: <div></div>,
-    icon: AiOutlineException,
-    group: [
-      {
-        defaultPath: "/extraorcamentario",
-        name: "Despesas",
-        path: "/despesas",
-        icon: AiOutlineTable,
-        ...contentExtrabudgetExpenses,
-      },
-      {
-        defaultPath: "/extraorcamentario",
-        name: "Receitas",
-        path: "/receitas",
-        icon: AiOutlineTable,
-        ...contentExtrabudgetRevenues,
-      },
-    ],
-  },
-  {
-    name: "Covid-19",
-    path: "/covid",
-    icon: FiThermometer,
-    group: [
-      {
-        defaultPath: "/covid",
-        name: "Receitas Covid",
-        path: "/receitas",
-        icon: AiOutlineTable,
-        ...contentCovidRecipes,
-      },
-      {
-        defaultPath: "/covid",
-        name: "Despesas Covid",
-        path: "/despesas",
-        icon: AiOutlineTable,
-        ...contentCovidExpenses,
-      },
-      {
-        defaultPath: "/covid",
-        name: "Compras Covid",
-        path: "/compras",
-        icon: AiOutlineProfile,
-        link: "http://covid19.pmmc.com.br/",
-      },
-    ],
-  },
-  {
-    name: "Relatório Resumido da Execução Orçamentária",
-    path: "/transparencia/relatorio-resumido",
-    icon: AiOutlineFileDone,
-    link: "",
-    ...contentReportExtrabudget,
-  },
-  {
-    name: "Prestação de Conta Anual",
-    path: "/contas",
-    icon: AiOutlineFileText,
-    group: [
-      {
-        name: "Balanços Anuais",
-        path: "/balancos-anuais",
-        icon: AiOutlineProfile,
-        link: "",
-        ...contentAnnualBalance,
-      },
-      {
-        name: "Pareceres do Tribunal",
-        path: "/pareceres-tribunal",
-        icon: AiOutlineProfile,
-        link: "",
-        ...contentCourtOpinions,
-      },
-    ],
-  },
-  {
-    name: "Patrimônio",
-    path: "/patrimonio",
-    icon: AiOutlineShop,
-    ...contentPatrimony,
-  },
-  {
-    name: "Lei de Acesso à Informação",
-    path: "/nivel1",
-    element: <div></div>,
-    icon: BsFileText,
-    group: [
-      {
-        defaultPath: "/nivel1",
-        name: "Nivel 2",
-        path: "/nivel2",
-        icon: AiOutlineGlobal,
-        group: [
-          {
-            defaultPath: "/nivel1",
-            name: "Nivel 3 - Link",
-            path: "/nivel2/nivel3",
-            icon: AiOutlineAudit,
-            subgroup: false,
-          },
-          {
-            defaultPath: "/nivel1",
-            name: "Nivel 3",
-            path: "/nivel2/nivel3",
-            icon: AiOutlineAudit,
-            subgroup: true,
-            group: [
-              {
-                defaultPath: "/nivel1",
-                name: "Nivel4",
-                path: "/nivel2/nivel3/nivel4",
-                icon: AiOutlineTable,
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  },
-  {
-    name: "Publicações",
-    path: "/publicacoes",
-    icon: AiOutlineSnippets,
-    group: [
-      {
-        name: "Compras e Contratações",
-        path: "/compras-contratacoes",
-        icon: AiOutlineProfile,
-        link: "http://licitacao-mgcon.mogidascruzes.sp.gov.br/",
-      },
-      {
-        name: "Arquivos Contratos e Convênios",
-        path: "/arquivos-contratos-convenios",
-        icon: AiOutlineProfile,
-        link: "http://ged.pmmc.com.br/weblink7/Browse.aspx",
-      },
-      {
-        name: "Leis, Decretos e Portarias",
-        path: "/leis-decretos-portarias",
-        icon: AiOutlineProfile,
-        link: "http://ged.pmmc.com.br/weblink7/Browse.aspx",
-      },
-      {
-        name: "Plano Diretor",
-        path: "/plano-diretor",
-        icon: AiOutlineProfile,
-        link: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-planejamento-e-urbanismo/plano-diretor-vigente",
-      },
-      {
-        name: "Cargo e Salários",
-        path: "/cargo-salarios",
-        icon: AiOutlineProfile,
-        link: "http://www.transparencia.pmmc.com.br/funcionalismopublico/salarios?pagina=cargosesalarios#cargos",
-      },
-      {
-        name: "PROMAE - Incentivos Fiscais",
-        path: "/incentivos-fiscais",
-        icon: AiOutlineProfile,
-        link: "http://www.transparencia.pmmc.com.br/promae-incentivos-fiscais",
-      },
-      {
-        defaultPath: "/publicacoes",
-        name: "Cargos e Salários",
-        path: "/cargos-e-salarios",
-        icon: AiOutlineProfile,
-        group: undefined,
-      },
-    ],
-  },
-  {
-    name: "Acesso Direto",
-    path: "/acesso-direto",
-    icon: AiOutlineSolution,
-    group: [
-      {
-        name: "Protocolo Geral",
-        path: "/protocolo-geral",
-        icon: AiOutlineProfile,
-        link: "https://servicossmar.mogidascruzes.sp.gov.br/falacidadao/#!/demanda",
-      },
-      {
-        name: "Acesso a Informação LAI",
-        path: "/acesso-informacao",
-        icon: AiOutlineProfile,
-        link: "https://mogidascruzes.1doc.com.br/b.php?pg=wp/detalhes&itd=3",
-      },
-      {
-        name: "Relatório de Demandas LAI",
-        path: "/relatori-demanda",
-        icon: AiOutlineProfile,
-        link: "https://mogidascruzes.1doc.com.br/b.php?pg=o/transparencia",
-      },
-      {
-        name: "Pregão Eletrônico",
-        path: "/pregao-eletronico",
-        icon: AiOutlineProfile,
-        link: "https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/pregao-eletronico",
-      },
-      {
-        name: "Cadastro de Fornecedor",
-        path: "/cadastro-fornecedor",
-        icon: AiOutlineProfile,
-        link: "https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/cadastro-de-fornecedor",
-      },
-      {
-        name: "Transparência SEMAE",
-        path: "/transparencia-semae",
-        icon: AiOutlineProfile,
-        link: "http://www.transparenciasemae.pmmc.com.br/",
-      },
-      {
-        name: "Transparência IPREM",
-        path: "/transparencia-iprem",
-        icon: AiOutlineProfile,
-        link: "http://www.iprem.pmmc.com.br/?page_id=1542",
-      },
-      {
-        name: "Perguntas Frequentes",
-        path: "/perguntas-frequentes",
-        icon: AiOutlineProfile,
-        link: "https://www.mogidascruzes.sp.gov.br/pagina/chefia-de-gabinete/perguntasfrequentes",
-      },
-    ],
-  },
-  {
-    name: "Perguntas Frequentes",
-    path: "/perguntas-frequentes",
-    icon: AiOutlineAudit,
-    ...contentAbout,
-  },
+  // {
+  //   name: "Extraorçamentário",
+  //   path: "/extraorcamentario",
+  //   element: <div></div>,
+  //   icon: AiOutlineException,
+  //   group: [
+  //     {
+  //       defaultPath: "/extraorcamentario",
+  //       name: "Despesas",
+  //       path: "/despesas",
+  //       icon: AiOutlineTable,
+  //       ...contentExtrabudgetExpenses,
+  //     },
+  //     {
+  //       defaultPath: "/extraorcamentario",
+  //       name: "Receitas",
+  //       path: "/receitas",
+  //       icon: AiOutlineTable,
+  //       ...contentExtrabudgetRevenues,
+  //     },
+  //   ],
+  // },
+  // {
+  //   name: "Covid-19",
+  //   path: "/covid",
+  //   icon: FiThermometer,
+  //   group: [
+  //     {
+  //       defaultPath: "/covid",
+  //       name: "Receitas Covid",
+  //       path: "/receitas",
+  //       icon: AiOutlineTable,
+  //       ...contentCovidRecipes,
+  //     },
+  //     {
+  //       defaultPath: "/covid",
+  //       name: "Despesas Covid",
+  //       path: "/despesas",
+  //       icon: AiOutlineTable,
+  //       ...contentCovidExpenses,
+  //     },
+  //     {
+  //       defaultPath: "/covid",
+  //       name: "Compras Covid",
+  //       path: "/compras",
+  //       icon: AiOutlineProfile,
+  //       link: "http://covid19.pmmc.com.br/",
+  //     },
+  //   ],
+  // },
+  // {
+  //   name: "Relatório Resumido da Execução Orçamentária",
+  //   path: "/transparencia/relatorio-resumido",
+  //   icon: AiOutlineFileDone,
+  //   link: "",
+  //   ...contentReportExtrabudget,
+  // },
+  // {
+  //   name: "Prestação de Conta Anual",
+  //   path: "/contas",
+  //   icon: AiOutlineFileText,
+  //   group: [
+  //     {
+  //       name: "Balanços Anuais",
+  //       path: "/balancos-anuais",
+  //       icon: AiOutlineProfile,
+  //       link: "",
+  //       ...contentAnnualBalance,
+  //     },
+  //     {
+  //       name: "Pareceres do Tribunal",
+  //       path: "/pareceres-tribunal",
+  //       icon: AiOutlineProfile,
+  //       link: "",
+  //       ...contentCourtOpinions,
+  //     },
+  //   ],
+  // },
+  // {
+  //   name: "Patrimônio",
+  //   path: "/patrimonio",
+  //   icon: AiOutlineShop,
+  //   ...contentPatrimony,
+  // },
+  // {
+  //   name: "Lei de Acesso à Informação",
+  //   path: "/nivel1",
+  //   element: <div></div>,
+  //   icon: BsFileText,
+  //   group: [
+  //     {
+  //       defaultPath: "/nivel1",
+  //       name: "Nivel 2",
+  //       path: "/nivel2",
+  //       icon: AiOutlineGlobal,
+  //       group: [
+  //         {
+  //           defaultPath: "/nivel1",
+  //           name: "Nivel 3 - Link",
+  //           path: "/nivel2/nivel3",
+  //           icon: AiOutlineAudit,
+  //           subgroup: false,
+  //         },
+  //         {
+  //           defaultPath: "/nivel1",
+  //           name: "Nivel 3",
+  //           path: "/nivel2/nivel3",
+  //           icon: AiOutlineAudit,
+  //           subgroup: true,
+  //           group: [
+  //             {
+  //               defaultPath: "/nivel1",
+  //               name: "Nivel4",
+  //               path: "/nivel2/nivel3/nivel4",
+  //               icon: AiOutlineTable,
+  //             },
+  //           ],
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
+  // {
+  //   name: "Publicações",
+  //   path: "/publicacoes",
+  //   icon: AiOutlineSnippets,
+  //   group: [
+  //     {
+  //       name: "Compras e Contratações",
+  //       path: "/compras-contratacoes",
+  //       icon: AiOutlineProfile,
+  //       link: "http://licitacao-mgcon.mogidascruzes.sp.gov.br/",
+  //     },
+  //     {
+  //       name: "Arquivos Contratos e Convênios",
+  //       path: "/arquivos-contratos-convenios",
+  //       icon: AiOutlineProfile,
+  //       link: "http://ged.pmmc.com.br/weblink7/Browse.aspx",
+  //     },
+  //     {
+  //       name: "Leis, Decretos e Portarias",
+  //       path: "/leis-decretos-portarias",
+  //       icon: AiOutlineProfile,
+  //       link: "http://ged.pmmc.com.br/weblink7/Browse.aspx",
+  //     },
+  //     {
+  //       name: "Plano Diretor",
+  //       path: "/plano-diretor",
+  //       icon: AiOutlineProfile,
+  //       link: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-planejamento-e-urbanismo/plano-diretor-vigente",
+  //     },
+  //     {
+  //       name: "Cargo e Salários",
+  //       path: "/cargo-salarios",
+  //       icon: AiOutlineProfile,
+  //       link: "http://www.transparencia.pmmc.com.br/funcionalismopublico/salarios?pagina=cargosesalarios#cargos",
+  //     },
+  //     {
+  //       name: "PROMAE - Incentivos Fiscais",
+  //       path: "/incentivos-fiscais",
+  //       icon: AiOutlineProfile,
+  //       link: "http://www.transparencia.pmmc.com.br/promae-incentivos-fiscais",
+  //     },
+  //     {
+  //       defaultPath: "/publicacoes",
+  //       name: "Cargos e Salários",
+  //       path: "/cargos-e-salarios",
+  //       icon: AiOutlineProfile,
+  //       group: undefined,
+  //     },
+  //   ],
+  // },
+  // {
+  //   name: "Acesso Direto",
+  //   path: "/acesso-direto",
+  //   icon: AiOutlineSolution,
+  //   group: [
+  //     {
+  //       name: "Protocolo Geral",
+  //       path: "/protocolo-geral",
+  //       icon: AiOutlineProfile,
+  //       link: "https://servicossmar.mogidascruzes.sp.gov.br/falacidadao/#!/demanda",
+  //     },
+  //     {
+  //       name: "Acesso a Informação LAI",
+  //       path: "/acesso-informacao",
+  //       icon: AiOutlineProfile,
+  //       link: "https://mogidascruzes.1doc.com.br/b.php?pg=wp/detalhes&itd=3",
+  //     },
+  //     {
+  //       name: "Relatório de Demandas LAI",
+  //       path: "/relatori-demanda",
+  //       icon: AiOutlineProfile,
+  //       link: "https://mogidascruzes.1doc.com.br/b.php?pg=o/transparencia",
+  //     },
+  //     {
+  //       name: "Pregão Eletrônico",
+  //       path: "/pregao-eletronico",
+  //       icon: AiOutlineProfile,
+  //       link: "https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/pregao-eletronico",
+  //     },
+  //     {
+  //       name: "Cadastro de Fornecedor",
+  //       path: "/cadastro-fornecedor",
+  //       icon: AiOutlineProfile,
+  //       link: "https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/cadastro-de-fornecedor",
+  //     },
+  //     {
+  //       name: "Transparência SEMAE",
+  //       path: "/transparencia-semae",
+  //       icon: AiOutlineProfile,
+  //       link: "http://www.transparenciasemae.pmmc.com.br/",
+  //     },
+  //     {
+  //       name: "Transparência IPREM",
+  //       path: "/transparencia-iprem",
+  //       icon: AiOutlineProfile,
+  //       link: "http://www.iprem.pmmc.com.br/?page_id=1542",
+  //     },
+  //     {
+  //       name: "Perguntas Frequentes",
+  //       path: "/perguntas-frequentes",
+  //       icon: AiOutlineProfile,
+  //       link: "https://www.mogidascruzes.sp.gov.br/pagina/chefia-de-gabinete/perguntasfrequentes",
+  //     },
+  //   ],
+  // },
+  // {
+  //   name: "Perguntas Frequentes",
+  //   path: "/perguntas-frequentes",
+  //   icon: AiOutlineAudit,
+  //   ...contentAbout,
+  // },
 
-  {
-    name: "Últimas Noticias",
-    path: "/ultimas-noticias",
-    icon: AiOutlineAudit,
-    ...contentOtherInformations,
-  },
-  {
-    name: "Mapa do Site",
-    path: "/mapa-do-site",
-    icon: AiOutlineGlobal,
-    group: undefined,
-  },
+  // {
+  //   name: "Últimas Noticias",
+  //   path: "/ultimas-noticias",
+  //   icon: AiOutlineAudit,
+  //   ...contentOtherInformations,
+  // },
+  // {
+  //   name: "Mapa do Site",
+  //   path: "/mapa-do-site",
+  //   icon: AiOutlineGlobal,
+  //   group: undefined,
+  // },
   // {
   //   name: "Nivel 1",
   //   path: "/nivel1",
