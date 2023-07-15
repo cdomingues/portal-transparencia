@@ -1,8 +1,8 @@
 import { GetStaticProps } from "next";
 import React, { useState } from "react";
 import Screen from "./screen";
-import { getChart, getChartYears, getRevenues } from "../../calls/revenues";
-import { revalidate } from "../../config";
+import { getChart, getChartYears, getRevenues } from "../../../../calls/revenues";
+import { revalidate } from "../../../../config";
 import moment from "moment";
 
 function Controller({
