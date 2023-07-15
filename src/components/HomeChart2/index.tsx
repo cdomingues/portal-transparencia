@@ -37,18 +37,18 @@ export function Chart2({ data: dataProps, moneyFormat }: IChart) {
   const data: TData = {
     labels,
     datasets: [
-      // {
-      //   ...lineChartConfig,
-      //   label: "Arrecadações Acumuladas",
-      //   data: datasets[0],
-      //   yAxisID: "y1",
-      // },
-      // {
-      //   ...lineChartConfig2,
-      //   label: "Despesas Acumuladas",
-      //   data: datasets[1],
-      //   yAxisID: "y1",
-      // },
+      {
+        ...lineChartConfig,
+        label: "Arrecadações Acumuladas",
+        data: datasets[0],
+        yAxisID: "y1",
+      },
+      {
+        ...lineChartConfig2,
+        label: "Despesas Acumuladas",
+        data: datasets[1],
+        yAxisID: "y1",
+      },
       {
         ...barChartConfig,
         label: "Arrecadações",
