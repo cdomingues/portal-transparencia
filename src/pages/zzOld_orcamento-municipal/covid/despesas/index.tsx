@@ -5,8 +5,8 @@ import {
   getChartYears,
   getExpenses,
   getGraph,
-} from "../../../calls/covid/expenses";
-import { revalidate } from "../../../config";
+} from "../../../../calls/covid/expenses";
+import { revalidate } from "../../../../config";
 import Screen from "./screen";
 
 export default function Controller({

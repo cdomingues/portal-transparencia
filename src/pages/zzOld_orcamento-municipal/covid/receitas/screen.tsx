@@ -8,14 +8,14 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { isMobile } from "react-device-detect";
-import { Chart } from "../../../components/Chart";
-import ContainerBasic from "../../../components/Container/Basic";
+import { Chart } from "../../../../components/Chart";
+import ContainerBasic from "../../../../components/Container/Basic";
 import {
   GraphWrapper,
   MultipleGraphWrapper,
-} from "../../../components/GraphWrapper";
-import { MultiAxisChart } from "../../../components/MultiAxisChart";
-import TableComponent, { TableColumns } from "../../../components/Table";
+} from "../../../../components/GraphWrapper";
+import { MultiAxisChart } from "../../../../components/MultiAxisChart";
+import TableComponent, { TableColumns } from "../../../../components/Table";
 
 type PropsInput = {
   handler: {
@@ -31,9 +31,9 @@ type PropsInput = {
   };
 };
 
-export const contentAdvertisements = {
-  titlePage: "Gastos com publicidade",
-  description: "A publicidade legal e institucional realizada pelo Poder Público é um importante serviço cujo objetivo final é favorecer o acesso da população a todos os outros serviços públicos, além de contribuir com a transparência dos atos administrativos. Confira as despesas com publicidade da Prefeitura de Mogi das Cruzes.",
+export const contentCovidRecipes = {
+  titlePage: "Receitas COVID-19",
+  description: "Dispõe das receitas recebidas pelo órgão público para enfrentamento da emergência de saúde pública de importância internacional decorrente do coronavírus (COVID-19).",
 }
 
 function Screen({
@@ -49,8 +49,8 @@ function Screen({
     handleByYear,
   },
 }: PropsInput) {
-  const title = contentAdvertisements?.titlePage;
-  const description = contentAdvertisements?.description;
+  const title = contentCovidRecipes?.titlePage;
+  const description = contentCovidRecipes?.description;
 
   const chartConfig = {
     direction: isMobile ? "column" : "row",
@@ -62,24 +62,14 @@ function Screen({
 
   return (
     <ContainerBasic title={title} description={description}>
-      <MultipleGraphWrapper>
-        <GraphWrapper>
-          <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
-            Publicidade e Propaganda Mensal Acumulado
-          </Heading>
-          {chart?.datasets?.length > 0 && (
-            <MultiAxisChart moneyFormat data={chart} />
-          )}
-        </GraphWrapper>
-        <GraphWrapper>
-          <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
-            Publicidade e Propaganda últimos 5 anos
-          </Heading>
-          {chartYear?.datasets?.length > 0 && (
-            <Chart type="bar" moneyFormat data={chartYear} />
-          )}
-        </GraphWrapper>
-      </MultipleGraphWrapper>
+      <GraphWrapper>
+        <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
+          Receitas últimos 5 anos
+        </Heading>
+        {chartYear?.datasets?.length > 0 && (
+          <Chart type="bar" moneyFormat data={chartYear} />
+        )}
+      </GraphWrapper>
       <Divider borderWidth="2px" mt="10" mb="10" />
 
       <Stack direction="row">
@@ -116,7 +106,7 @@ function Screen({
       </Stack>
 
       <Divider borderWidth="2px" mt="10" mb="10" />
-      <TableComponent loading={loading} columns={columns} data={data} />
+      <TableComponent columns={columns} loading={loading} data={data} />
     </ContainerBasic>
   );
 }

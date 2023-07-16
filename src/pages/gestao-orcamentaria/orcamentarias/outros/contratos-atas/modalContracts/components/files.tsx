@@ -1,5 +1,5 @@
 import { Table, TableContainer, Tbody, Td, Thead, Tr } from "@chakra-ui/react";
-import { TColumn } from ".././../../../../styles/components/contratos-atas/modal/styles";
+import { TColumn } from "../../../../../../../styles/components/contratos-atas/modal/styles";
 
 const Files = () => {
   const mockTable = [

@@ -7,10 +7,10 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import ContainerBasic from "../../../components/Container/Basic";
-import TableComponent, { TableColumns } from "../../../components/Table";
+import ContainerBasic from "../../../../../components/Container/Basic";
+import TableComponent, { TableColumns } from "../../../../../components/Table";
 import ModalContracts from "./modalContracts";
-import { ContainerSearch } from "../../../styles/components/contratos-atas/styles";
+import { ContainerSearch } from "../../../../../styles/components/contratos-atas/styles";
 
 type PropsInput = {
   handler: {

@@ -5,19 +5,17 @@ import {
   Select,
   Stack,
   Text,
-  useDisclosure,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React from "react";
 import { isMobile } from "react-device-detect";
-import { Chart } from "../../../components/Chart";
-import ContainerBasic from "../../../components/Container/Basic";
+import { Chart } from "../../../../components/Chart";
+import ContainerBasic from "../../../../components/Container/Basic";
 import {
   GraphWrapper,
   MultipleGraphWrapper,
-} from "../../../components/GraphWrapper";
-import { MultiAxisChart } from "../../../components/MultiAxisChart";
-import TableComponent, { TableColumns } from "../../../components/Table";
-
+} from "../../../../components/GraphWrapper";
+import { MultiAxisChart } from "../../../../components/MultiAxisChart";
+import TableComponent, { TableColumns } from "../../../../components/Table";
 
 type PropsInput = {
   handler: {
@@ -33,10 +31,9 @@ type PropsInput = {
   };
 };
 
-
-export const contentGrants = {
-  titlePage: "Subvenções",
-  description: "Subvenção é quando a Prefeitura destina recursos financeiros para que entidades cubram seus custos de atividades prestadas à população. Confira aqui as despesas relacionadas a essa natureza.",
+export const contentCovidExpenses = {
+  titlePage: "Despesas COVID-19",
+  description: "Dispõe das despesas empenhadas, liquidadas e pagas realizadas pelo órgão público para enfrentamento da emergência de saúde pública de importância internacional decorrente do coronavírus (COVID-19).",
 }
 
 function Screen({
@@ -52,9 +49,8 @@ function Screen({
     handleByYear,
   },
 }: PropsInput) {
-  const [grants, setGrants] = useState<any>(null);
-  const title = contentGrants?.titlePage;
-  const description = contentGrants?.description;
+  const title = contentCovidExpenses?.titlePage;
+  const description = contentCovidExpenses?.description;
   const chartConfig = {
     direction: isMobile ? "column" : "row",
     width: isMobile ? "100%" : "40%",
@@ -63,33 +59,16 @@ function Screen({
     fontSize: isMobile ? "medium" : "larger",
   };
 
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const handleOpenModal = (item: any) => {
-    // onOpen();
-    // setGrants(item?.row?.values);
-  };
-
   return (
     <ContainerBasic title={title} description={description}>
-      <MultipleGraphWrapper>
-        <GraphWrapper>
-          <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
-            Subvenções Mensal Acumulado
-          </Heading>
-          {chart?.datasets?.length > 0 && (
-            <MultiAxisChart moneyFormat data={chart} />
-          )}
-        </GraphWrapper>
-        <GraphWrapper>
-          <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
-            Subvenções últimos 5 anos
-          </Heading>
-          {chartYear?.datasets?.length > 0 && (
-            <Chart type="bar" moneyFormat data={chartYear} />
-          )}
-        </GraphWrapper>
-      </MultipleGraphWrapper>
+      <GraphWrapper>
+        <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
+          Despesas últimos 5 anos
+        </Heading>
+        {chartYear?.datasets?.length > 0 && (
+          <Chart type="bar" data={chartYear} moneyFormat />
+        )}
+      </GraphWrapper>
       <Divider borderWidth="2px" mt="10" mb="10" />
 
       <Stack direction="row">
@@ -126,14 +105,7 @@ function Screen({
       </Stack>
 
       <Divider borderWidth="2px" mt="10" mb="10" />
-
-      <TableComponent
-        loading={loading}
-        columns={columns}
-        data={data}
-        openModal={handleOpenModal}
-      />
-
+      <TableComponent loading={loading} columns={columns} data={data} />
     </ContainerBasic>
   );
 }

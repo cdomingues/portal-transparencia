@@ -5,8 +5,8 @@ import {
   getChartYears,
   getRevenues,
   getGraph,
-} from "../../../calls/covid/revenues";
-import { revalidate } from "../../../config";
+} from "../../../../calls/covid/revenues";
+import { revalidate } from "../../../../config";
 import moment from "moment";
 
 function Controller({

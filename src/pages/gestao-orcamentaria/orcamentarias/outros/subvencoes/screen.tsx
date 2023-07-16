@@ -5,17 +5,19 @@ import {
   Select,
   Stack,
   Text,
+  useDisclosure,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import { isMobile } from "react-device-detect";
-import { Chart } from "../../../components/Chart";
-import ContainerBasic from "../../../components/Container/Basic";
+import { Chart } from "../../../../../components/Chart";
+import ContainerBasic from "../../../../../components/Container/Basic";
 import {
   GraphWrapper,
   MultipleGraphWrapper,
-} from "../../../components/GraphWrapper";
-import { MultiAxisChart } from "../../../components/MultiAxisChart";
-import TableComponent, { TableColumns } from "../../../components/Table";
+} from "../../../../../components/GraphWrapper";
+import { MultiAxisChart } from "../../../../../components/MultiAxisChart";
+import TableComponent, { TableColumns } from "../../../../../components/Table";
+
 
 type PropsInput = {
   handler: {
@@ -31,9 +33,10 @@ type PropsInput = {
   };
 };
 
-export const contentCovidRecipes = {
-  titlePage: "Receitas COVID-19",
-  description: "Dispõe das receitas recebidas pelo órgão público para enfrentamento da emergência de saúde pública de importância internacional decorrente do coronavírus (COVID-19).",
+
+export const contentGrants = {
+  titlePage: "Subvenções",
+  description: "Subvenção é quando a Prefeitura destina recursos financeiros para que entidades cubram seus custos de atividades prestadas à população. Confira aqui as despesas relacionadas a essa natureza.",
 }
 
 function Screen({
@@ -49,9 +52,9 @@ function Screen({
     handleByYear,
   },
 }: PropsInput) {
-  const title = contentCovidRecipes?.titlePage;
-  const description = contentCovidRecipes?.description;
-
+  const [grants, setGrants] = useState<any>(null);
+  const title = contentGrants?.titlePage;
+  const description = contentGrants?.description;
   const chartConfig = {
     direction: isMobile ? "column" : "row",
     width: isMobile ? "100%" : "40%",
@@ -60,16 +63,33 @@ function Screen({
     fontSize: isMobile ? "medium" : "larger",
   };
 
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const handleOpenModal = (item: any) => {
+    // onOpen();
+    // setGrants(item?.row?.values);
+  };
+
   return (
     <ContainerBasic title={title} description={description}>
-      <GraphWrapper>
-        <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
-          Receitas últimos 5 anos
-        </Heading>
-        {chartYear?.datasets?.length > 0 && (
-          <Chart type="bar" moneyFormat data={chartYear} />
-        )}
-      </GraphWrapper>
+      <MultipleGraphWrapper>
+        <GraphWrapper>
+          <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
+            Subvenções Mensal Acumulado
+          </Heading>
+          {chart?.datasets?.length > 0 && (
+            <MultiAxisChart moneyFormat data={chart} />
+          )}
+        </GraphWrapper>
+        <GraphWrapper>
+          <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
+            Subvenções últimos 5 anos
+          </Heading>
+          {chartYear?.datasets?.length > 0 && (
+            <Chart type="bar" moneyFormat data={chartYear} />
+          )}
+        </GraphWrapper>
+      </MultipleGraphWrapper>
       <Divider borderWidth="2px" mt="10" mb="10" />
 
       <Stack direction="row">
@@ -106,7 +126,14 @@ function Screen({
       </Stack>
 
       <Divider borderWidth="2px" mt="10" mb="10" />
-      <TableComponent columns={columns} loading={loading} data={data} />
+
+      <TableComponent
+        loading={loading}
+        columns={columns}
+        data={data}
+        openModal={handleOpenModal}
+      />
+
     </ContainerBasic>
   );
 }

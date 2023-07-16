@@ -13,7 +13,7 @@ import {
 import Details from "./components/details";
 
 import Files from "./components/files";
-import { ListTabs, ModalContainer, Panel, TabItem } from "../../../../styles/components/contratos-atas/modal/styles";
+import { ListTabs, ModalContainer, Panel, TabItem } from "../../../../../../styles/components/contratos-atas/modal/styles";
 
 const ModalContracts = ({ isOpen, onClose, contract }: any) => {
   return (
