@@ -63,20 +63,23 @@ function ContainerBasic({
 }: PropsInput) {
   const { height, width } = useWindowDimensions();
   const accessibility = useFontSizeAccessibilityContext();
+  const maxWidth = width < 1500 ? "780px" : "1200px";
   return (
-    <Stack
+    <Stack 
       direction={isMobile ? "column" : "row"}
-      style={{ width: "100%", height: "100%" }}
+      style={{  height: "100%", alignContent: 'flex-start'}}
+      
     >
       <Stack
         flex={width > 1024 ? 2 : 2}
         style={{
           paddingLeft: isMobile ? 0 : "0%",
-          paddingRight: isMobile ? 0 : "1%",
+          paddingRight: isMobile ? 0 : "2%",
+          alignContent: 'flex-start'
         }}
       >
         <Container
-          style={{ maxWidth: "1280px", margin: "0 auto", ...containerStyles }}
+          style={{maxWidth, margin: "0 auto", ...containerStyles }}
         >
           <Breadcrumb />
 
@@ -87,9 +90,10 @@ function ContainerBasic({
             padding={"15px"}
             rounded="md"
             overflow="hidden"
-            maxWidth="95%"
+            maxWidth="100%"
             borderRadius="18px"
             marginBottom="15px"
+            
           >
             <Head>
               <title>{title} - PMMC</title>
@@ -98,10 +102,11 @@ function ContainerBasic({
               mb={2}
               fontSize={accessibility?.fonts?.ultraLarge}
               color="text.dark"
+              
             >
               {title}
             </Heading>
-            <div style={{ paddingRight: isMobile ? "0%" : "20%" }}>
+            <div style={{ paddingRight: isMobile ? "0%" : "0%" }}>
               <Text
                 align={isMobile ? "justify" : "left"}
                 color="gray.500"

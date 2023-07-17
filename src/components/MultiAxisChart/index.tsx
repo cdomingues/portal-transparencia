@@ -6,6 +6,7 @@ import { CSSProperties } from "styled-components";
 import { isMobile } from "react-device-detect";
 import { Box, useColorModeValue } from "@chakra-ui/react";
 import { formatNumber } from "../../config/defaultChartConfig";
+import useWindowDimensions from "../../utils/useWindowDimensions";
 ChartConfig.register(...registerables);
 
 interface IMultiAxisChart {
@@ -33,6 +34,7 @@ export function MultiAxisChart({ data, moneyFormat, style }: IMultiAxisChart) {
   const responsiveMoneyFormat = (value: number) => {
     return isMobile ? formatNumber(value) : formatMoney(value);
   };
+
   
   const options = {
     type: "scatter",
@@ -77,6 +79,7 @@ export function MultiAxisChart({ data, moneyFormat, style }: IMultiAxisChart) {
       },
     },
   };
+  const { width } = useWindowDimensions();
   return (
     <Box       
 m={0}
@@ -85,7 +88,7 @@ boxShadow="2xl"
 padding={"15px"}
 rounded="md"
 overflow="hidden"
-maxWidth="95%"
+flex={width > 1024 ? 1 : 2}
 borderRadius="18px"
 marginBottom="15px"
 >

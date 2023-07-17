@@ -7,5 +7,5 @@ export function ChartWrapper({
   children: ReactNode;
   style?: CSSProperties;
 }) {
-  return <div style={{ height: "400px", ...style }}>{children}</div>;
+  return  <div style={{ height: "400px", ...style }}>{children}</div>;
 }

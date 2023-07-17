@@ -4,13 +4,26 @@ import { isMobile } from "react-device-detect";
 import descriptionData from "../../data/perfil-do-municipio";
 import Description from "./components/Description";
 import DescriptionWithIcon from "./components/DescriptionWithIcon";
+import useWindowDimensions from "../../utils/useWindowDimensions";
 
 const MapWithNoSSR = dynamic(() => import("../Map"), {
   ssr: false,
 });
 
 const CountyPanel = () => {
+  const { height, width } = useWindowDimensions();
   return (
+    <Stack 
+    direction={isMobile ? "column" : "row"}
+    style={{ width: "100%", height: "100%"}}
+  >
+    <Stack
+      flex={width > 1024 ? 2 : 2}
+      style={{
+        paddingLeft: isMobile ? 0 : "0%",
+        paddingRight: isMobile ? 0 : "1%"
+      }}
+    >
     <Stack direction={isMobile ? "column" : "row"}>
       <Stack direction="column" flex={2}>
         <Stack
@@ -83,6 +96,9 @@ const CountyPanel = () => {
         </Stack>
       </Stack>
     </Stack>
+    </Stack>
+    </Stack>
+
   );
 };
 

@@ -8,6 +8,7 @@ import {
 } from "@chakra-ui/react";
 import { isMobile } from "react-device-detect";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
+import useWindowDimensions from "../../../utils/useWindowDimensions";
 
 const DescriptionWithIcon = ({
   label,
@@ -25,7 +26,20 @@ const DescriptionWithIcon = ({
   year: string;
 }) => {
   const accessibility = useFontSizeAccessibilityContext();
+  const { height, width } = useWindowDimensions();
   return (
+
+    <Stack 
+    direction={isMobile ? "column" : "row"}
+    style={{ width: "100%", height: "100%"}}
+  >
+    <Stack
+      flex={width > 1024 ? 2 : 2}
+      style={{
+        paddingLeft: isMobile ? 0 : "0%",
+        paddingRight: isMobile ? 0 : "1%"
+      }}
+    >
     <Stack
       bgColor={useColorModeValue("white", "gray.700")}
       shadow={'2xl'}
@@ -39,6 +53,7 @@ const DescriptionWithIcon = ({
         marginTop: "0px",
         marginRight: "19px",
         marginLeft: isMobile ? "0px" : "19px",
+        backgroundColor: 'red'
       }}
     >
       <Stack direction={["row"]} spacing="5px">
@@ -93,6 +108,8 @@ const DescriptionWithIcon = ({
           </Text>
         </Box>
       </Stack>
+    </Stack>
+    </Stack>
     </Stack>
   );
 };

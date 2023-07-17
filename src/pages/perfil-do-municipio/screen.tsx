@@ -8,6 +8,7 @@ import {
   TabPanel,
   Box,
   useColorModeValue,
+  Stack,
 } from "@chakra-ui/react";
 import CountyPanel from "../../components/Panel/County";
 import TourismPanel from "../../components/Panel/Tourism";
@@ -18,6 +19,7 @@ import EnvironmentalPanel from "../../components/Panel/Environmental";
 import "leaflet/dist/leaflet.css";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
 import { isMobile } from "react-device-detect";
+import useWindowDimensions from "../../utils/useWindowDimensions";
 
 type PropsInput = {
   handler: {};
@@ -33,52 +35,57 @@ function Screen({ handler }: PropsInput) {
   const accessibility = useFontSizeAccessibilityContext();
   const title = contentMunicipalityProfile?.titlePage;
   const description = contentMunicipalityProfile?.description;
+  const { height, width } = useWindowDimensions();
 
   return (
     <ContainerBasic title={title} description={description}>
-      <Box
-        m={0}
-        bgColor={useColorModeValue("white", "gray.700")}
-        shadow={"2xl"}
-        border="0.5px solid"
-        boxShadow="2xl"
-        padding={"15px"}
-        rounded="md"
-        overflow="hidden"
-        maxWidth={isMobile ? "100%" : "85%"}
-        borderRadius="18px"
-        marginBottom="15px"
-      >
-        <Tabs>
-          <TabList display="flex" flexWrap={"wrap"} whiteSpace="nowrap">
-            <Tab fontSize={accessibility?.fonts?.medium}>DEMOGRÁFICO</Tab>
-            <Tab fontSize={accessibility?.fonts?.medium}>EMPREENDEDORISMO</Tab>
-            <Tab fontSize={accessibility?.fonts?.medium}>SAÚDE</Tab>
-            <Tab fontSize={accessibility?.fonts?.medium}>EDUCAÇÃO</Tab>
-            <Tab fontSize={accessibility?.fonts?.medium}>SEGURANÇA</Tab>
-            <Tab fontSize={accessibility?.fonts?.medium}>AMBIENTAL</Tab>
-          </TabList>
-          <TabPanels>
-            <TabPanel>
-              <CountyPanel />
-            </TabPanel>
-            <TabPanel>
-              <TourismPanel />
-            </TabPanel>
-            <TabPanel>
-              <HealthPanel />
-            </TabPanel>
-            <TabPanel>
-              <EducationPanel />
-            </TabPanel>
-            <TabPanel>
-              <SecurityPanel />
-            </TabPanel>
-            <TabPanel>
-              <EnvironmentalPanel />
-            </TabPanel>
-          </TabPanels>
-        </Tabs>
+       <Box
+m={0}
+bg={useColorModeValue("white", "gray.800")}
+boxShadow="2xl"
+padding={"15px"}
+rounded="md"
+overflow="hidden"
+
+borderRadius="18px"
+marginBottom="15px"
+>
+<Stack direction={isMobile ? "column" : "row"} flex={1}>
+      <Stack direction="column" flex={3}>
+  <Tabs>
+    <TabList>
+      <Tab fontSize={accessibility?.fonts?.medium}>DEMOGRÁFICO</Tab>
+      <Tab fontSize={accessibility?.fonts?.medium}>EMPREENDEDORISMO</Tab>
+      <Tab fontSize={accessibility?.fonts?.medium}>SAÚDE</Tab>
+      <Tab fontSize={accessibility?.fonts?.medium}>EDUCAÇÃO</Tab>
+      <Tab fontSize={accessibility?.fonts?.medium}>SEGURANÇA</Tab>
+      <Tab fontSize={accessibility?.fonts?.medium}>AMBIENTAL</Tab>
+    </TabList>
+    <TabPanels>
+      <TabPanel>
+        <CountyPanel />
+      </TabPanel>
+      <TabPanel>
+        <TourismPanel />
+      </TabPanel>
+      <TabPanel>
+        <HealthPanel />
+      </TabPanel>
+      <TabPanel>
+        <EducationPanel />
+      </TabPanel>
+      <TabPanel>
+        <SecurityPanel />
+      </TabPanel>
+      <TabPanel>
+        <EnvironmentalPanel />
+      </TabPanel>
+    </TabPanels>
+  </Tabs>
+
+  </Stack>
+  </Stack>
+
       </Box>
     </ContainerBasic>
   );
