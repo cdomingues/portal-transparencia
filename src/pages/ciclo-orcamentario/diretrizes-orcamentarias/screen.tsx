@@ -876,7 +876,7 @@
 
 // export default Screen;
 
-import { useColorModeValue } from "@chakra-ui/react";
+import { useColorModeValue, Box } from "@chakra-ui/react";
 import React from "react";
 import { Laws } from ".";
 import ContainerBasic from "../../../components/Container/Basic";
@@ -904,7 +904,20 @@ function Screen({ handler }: PropsInput) {
 
   return (
     <ContainerBasic title={title} description={description}>
+      <Box
+
+m={0}
+bg={useColorModeValue("white", "gray.800")}
+boxShadow="2xl"
+padding={"15px"}
+rounded="md"
+overflow="hidden"
+maxWidth="100%"
+borderRadius="18px"
+marginBottom="15px"
+>
       <PlanContainerLaw laws={laws} selectOptions={selectOptions} selectValue={selectValue} handleSelectValue={handleSelectValue} />
+      </Box>
     </ContainerBasic>
   );
 }

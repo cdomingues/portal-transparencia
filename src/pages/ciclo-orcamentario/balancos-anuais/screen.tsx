@@ -50,9 +50,7 @@
 
 // export default Screen;
 
-
-
-import { useColorModeValue } from "@chakra-ui/react";
+import { useColorModeValue, Box } from "@chakra-ui/react";
 import React from "react";
 import { Laws } from ".";
 import ContainerBasic from "../../../components/Container/Basic";
@@ -68,10 +66,10 @@ type PropsInput = {
 };
 
 export const contentReportExtrabudget = {
-    titlePage: "Balanços Anuais",
-    description:
-      "O Balanço Anual mostra as principais ações e o orçamento dos órgãos e entidades do Poder Executivo e está de acordo com as instruções básicas do Tribunal de Contas do Estado de São Paulo, órgão do Poder Legislativo que auxilia a Câmara Municipal na fiscalização contábil, financeira, orçamentária, operacional e patrimonial da administração pública.\nO Balanço Anual é elaborado seguindo os preceitos da Lei de Responsabilidade Fiscal, que pressupõe ações planejadas e transparentes que mantêm o equilíbrio das contas públicas, e da Lei do Orçamento, que contém a discriminação da receita e despesa de forma a evidenciar a política econômico-financeira e o programa de trabalho do Governo.\nA divulgação desse documento amplia a transparência pública, estimula a participação da sociedade e conscientiza a população para o controle social dos gastos públicos. O cidadão pode acompanhar como os recursos públicos estão sendo usados e saber sobre a eficiência dos programas e projetos governamentais.",
-  };
+  titlePage: "Balanços Anuais",
+  description:
+    "O Balanço Anual mostra as principais ações e o orçamento dos órgãos e entidades do Poder Executivo e está de acordo com as instruções básicas do Tribunal de Contas do Estado de São Paulo, órgão do Poder Legislativo que auxilia a Câmara Municipal na fiscalização contábil, financeira, orçamentária, operacional e patrimonial da administração pública.\nO Balanço Anual é elaborado seguindo os preceitos da Lei de Responsabilidade Fiscal, que pressupõe ações planejadas e transparentes que mantêm o equilíbrio das contas públicas, e da Lei do Orçamento, que contém a discriminação da receita e despesa de forma a evidenciar a política econômico-financeira e o programa de trabalho do Governo.\nA divulgação desse documento amplia a transparência pública, estimula a participação da sociedade e conscientiza a população para o controle social dos gastos públicos. O cidadão pode acompanhar como os recursos públicos estão sendo usados e saber sobre a eficiência dos programas e projetos governamentais.",
+};
 
 function Screen({ handler }: PropsInput) {
   const { handleSelectValue, selectOptions, laws, selectValue } = handler;
@@ -81,7 +79,26 @@ function Screen({ handler }: PropsInput) {
 
   return (
     <ContainerBasic title={title} description={description}>
-      <PlanContainerLaw laws={laws} selectOptions={selectOptions} selectValue={selectValue} handleSelectValue={handleSelectValue} />
+      <Box
+
+m={0}
+bg={useColorModeValue("white", "gray.800")}
+boxShadow="2xl"
+padding={"15px"}
+rounded="md"
+overflow="hidden"
+maxWidth="100%"
+borderRadius="18px"
+marginBottom="15px"
+>
+      <PlanContainerLaw
+      
+        laws={laws}
+        selectOptions={selectOptions}
+        selectValue={selectValue}
+        handleSelectValue={handleSelectValue}
+      />
+      </Box>
     </ContainerBasic>
   );
 }

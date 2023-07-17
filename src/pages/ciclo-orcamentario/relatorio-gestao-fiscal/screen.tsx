@@ -50,9 +50,7 @@
 
 // export default Screen;
 
-
-
-import { useColorModeValue } from "@chakra-ui/react";
+import { useColorModeValue, Box } from "@chakra-ui/react";
 import React from "react";
 import { Laws } from ".";
 import ContainerBasic from "../../../components/Container/Basic";
@@ -73,7 +71,6 @@ export const contentLawBudget = {
     "O Relatório de Gestão Fiscal demonstra a execução de variáveis sujeitas a limites previstos na legislação, como, por exemplo, pessoal, dívida consolidada, operações de crédito e garantias. O relatório deve ser publicado até 30 dias após o encerramento do quadrimestre.",
 };
 
-
 function Screen({ handler }: PropsInput) {
   const { handleSelectValue, selectOptions, laws, selectValue } = handler;
 
@@ -82,14 +79,26 @@ function Screen({ handler }: PropsInput) {
 
   return (
     <ContainerBasic title={title} description={description}>
-      <PlanContainerLaw laws={laws} selectOptions={selectOptions} selectValue={selectValue} handleSelectValue={handleSelectValue} />
+      <Box
+        m={0}
+        bg={useColorModeValue("white", "gray.800")}
+        boxShadow="2xl"
+        padding={"15px"}
+        rounded="md"
+        overflow="hidden"
+        maxWidth="100%"
+        borderRadius="18px"
+        marginBottom="15px"
+      >
+        <PlanContainerLaw
+          laws={laws}
+          selectOptions={selectOptions}
+          selectValue={selectValue}
+          handleSelectValue={handleSelectValue}
+        />
+      </Box>
     </ContainerBasic>
   );
 }
 
 export default Screen;
-
-
-
-
-

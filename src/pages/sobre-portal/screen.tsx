@@ -129,7 +129,7 @@ function HomeScreen({ handler }: PropsInput) {
   return (
     <Stack
       direction={isMobile ? "column" : "row"}
-      style={{ width: "100%", height: "100%" }}
+      style={{ width: "100%", height: "100%"}}
     >
       <Stack
         flex={width > 1024 ? 2 : 2}

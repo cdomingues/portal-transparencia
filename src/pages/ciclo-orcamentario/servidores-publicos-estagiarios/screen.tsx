@@ -10,6 +10,7 @@ import {
   useColorModeValue,
   Link,
   Icon,
+  Box
 } from "@chakra-ui/react";
 import React from "react";
 import { AiOutlineDownload } from "react-icons/ai";
