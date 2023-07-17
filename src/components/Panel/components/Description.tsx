@@ -30,6 +30,7 @@ const Description = ({ label, value }: { label: string; value: string }) => {
         borderRadius: "5px",
         marginBottom: isMobile ? "19px" : "0px",
         marginTop: "19px"
+        
       }}
     >
       <Text fontWeight="550" fontSize={accessibility?.fonts?.medium}>

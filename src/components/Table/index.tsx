@@ -147,7 +147,7 @@ boxShadow="2xl"
 padding={"15px"}
 rounded="md"
 overflow="hidden"
-maxWidth="95%"
+maxWidth="100%"
 borderRadius="18px"
 marginBottom="15px"
 >
@@ -173,7 +173,7 @@ marginBottom="15px"
             </ModalFooter>
           </ModalContent>
         ) : (
-          <ModalContent maxH="750" maxW="700" alignSelf="center">
+          <ModalContent maxH="750" maxW="100%" alignSelf="center">
             <ModalHeader>Video Explicativo</ModalHeader>
             <ModalCloseButton />
             <ModalBody height={450} width={600} bg="white">

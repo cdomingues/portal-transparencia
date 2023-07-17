@@ -1,54 +1,26 @@
-import { Stack, useColorModeValue } from "@chakra-ui/react";
+import { Image, Stack } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 import { isMobile } from "react-device-detect";
-import descriptionData from "../../data/perfil-do-municipio";
+import descriptionEducacao from "../../data/perfil-educacao";
 import Description from "./components/Description";
 import DescriptionWithIcon from "./components/DescriptionWithIcon";
-import useWindowDimensions from "../../utils/useWindowDimensions";
-
-const MapWithNoSSR = dynamic(() => import("../Map"), {
-  ssr: false,
-});
+import image from "../../assets/images/business.jpg";
 
 const CountyPanel = () => {
-  const { height, width } = useWindowDimensions();
   return (
-    <Stack 
-    direction={isMobile ? "column" : "row"}
-    style={{ width: "100%", height: "100%"}}
-  >
-    <Stack
-      flex={width > 1024 ? 2 : 2}
-      style={{
-        paddingLeft: isMobile ? 0 : "0%",
-        paddingRight: isMobile ? 0 : "1%"
-      }}
-    >
     <Stack direction={isMobile ? "column" : "row"}>
       <Stack direction="column" flex={2}>
-        <Stack
-          style={
-            isMobile
-              ? {
-                  height: "300px",
-                  width: "100%",
-                  marginBottom: "3%",
-                  zIndex: 0,
-                }
-              : {
-                  height: "570px",
-                  width: "520px",
-                  marginBottom: "0%",
-                  zIndex: 0,
-                }
-          }
-        >
-          <MapWithNoSSR coords={[-23.528986, -46.192973]} />
-        </Stack>
-        <Stack
+        <Image
+          height={isMobile ? "300px" : "100%"}
+          width={isMobile ? "100%" : "100%"}
+          alt="image"
+          objectFit="cover"
+          src={image.src}
+        />
+        {/* <div
           style={{
             borderRadius: "5px",
-            marginBottom: "0px",
+            marginBottom: "19px",
             marginTop: "0px",
             marginRight: "0px",
             marginLeft: "0px",
@@ -56,7 +28,7 @@ const CountyPanel = () => {
         >
           <Description label="Prefeito" value="CAIO CÉSAR MACHADO DA CUNHA" />
           <Description label="Gentílico" value="MOGIANO" />
-        </Stack>
+        </div> */}
       </Stack>
       <Stack flex={4} width="100%">
         <Stack
@@ -69,7 +41,7 @@ const CountyPanel = () => {
           }
         >
           <Stack direction="column" flex={3}>
-            {descriptionData.map(
+            {descriptionEducacao.map(
               (
                 {
                   label,
@@ -96,9 +68,6 @@ const CountyPanel = () => {
         </Stack>
       </Stack>
     </Stack>
-    </Stack>
-    </Stack>
-
   );
 };
 

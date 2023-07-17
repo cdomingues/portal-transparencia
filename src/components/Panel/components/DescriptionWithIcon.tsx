@@ -53,7 +53,6 @@ const DescriptionWithIcon = ({
         marginTop: "0px",
         marginRight: "19px",
         marginLeft: isMobile ? "0px" : "19px",
-        backgroundColor: 'red'
       }}
     >
       <Stack direction={["row"]} spacing="5px">

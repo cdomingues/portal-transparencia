@@ -11,8 +11,8 @@ const EducationPanel = () => {
     <Stack direction={isMobile ? "column" : "row"}>
       <Stack direction="column" flex={2}>
         <Image
-          height={isMobile ? "300px" : "570px"}
-          width={isMobile ? "100%" : "520px"}
+          height={isMobile ? "300px" : "100%"}
+          width={isMobile ? "100%" : "100%"}
           alt="image"
           objectFit="cover"
           src={image.src}

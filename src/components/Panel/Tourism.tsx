@@ -1,6 +1,8 @@
-import { Stack, Image } from "@chakra-ui/react";
+import { Image, Stack } from "@chakra-ui/react";
+import dynamic from "next/dynamic";
 import { isMobile } from "react-device-detect";
-import descriptionData from "../../data/perfil-do-municipio";
+import descriptionEducacao from "../../data/perfil-educacao";
+import Description from "./components/Description";
 import DescriptionWithIcon from "./components/DescriptionWithIcon";
 import image from "../../assets/images/business.jpg";
 
@@ -9,8 +11,8 @@ const TourismPanel = () => {
     <Stack direction={isMobile ? "column" : "row"}>
       <Stack direction="column" flex={2}>
         <Image
-          height={isMobile ? "300px" : "570px"}
-          width={isMobile ? "100%" : "520px"}
+          height={isMobile ? "300px" : "100%"}
+          width={isMobile ? "100%" : "100%"}
           alt="image"
           objectFit="cover"
           src={image.src}
@@ -39,7 +41,7 @@ const TourismPanel = () => {
           }
         >
           <Stack direction="column" flex={3}>
-            {descriptionData.map(
+            {descriptionEducacao.map(
               (
                 {
                   label,
