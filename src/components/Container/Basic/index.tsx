@@ -28,7 +28,7 @@ function Aside() {
         padding={"15px"}
         rounded="md"
         overflow="hidden"
-        maxWidth="95%"
+        maxWidth="100%"
         borderRadius="18px"
         marginBottom="15px"
       >
@@ -59,7 +59,7 @@ function ContainerBasic({
   title,
   description,
   children,
-  containerStyles = { paddingLeft: "2%" },
+  containerStyles = { paddingLeft: "0%" },
 }: PropsInput) {
   const { height, width } = useWindowDimensions();
   const accessibility = useFontSizeAccessibilityContext();
@@ -74,7 +74,7 @@ function ContainerBasic({
         flex={width > 1024 ? 2 : 2}
         style={{
           paddingLeft: isMobile ? 0 : "0%",
-          paddingRight: isMobile ? 0 : "2%",
+          paddingRight: isMobile ? 0 : "0%",
           alignContent: 'flex-start'
         }}
       >
