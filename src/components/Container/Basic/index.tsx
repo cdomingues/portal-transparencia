@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState } from "react";
 import { Box, Heading, Text, Divider, Stack } from "@chakra-ui/react";
 import Head from "next/head";
 import { Container, Body } from "./styles";
@@ -28,7 +28,7 @@ function Aside() {
         padding={"15px"}
         rounded="md"
         overflow="hidden"
-        maxWidth="100%"
+        maxWidth="%"
         borderRadius="18px"
         marginBottom="15px"
       >
@@ -63,23 +63,28 @@ function ContainerBasic({
 }: PropsInput) {
   const { height, width } = useWindowDimensions();
   const accessibility = useFontSizeAccessibilityContext();
-  const maxWidth = width < 1500 ? "780px" : "1200px";
+  const [showAside, setShowAside] = useState(false);
+  const toggleAside = () => {
+    setShowAside(!showAside);
+  };
+
+  const maxWidth = showAside ? (width < 1500 ? "800px" : "1200px") : (width < 1500 ? "1100px" : "1500px");
+
   return (
     <Stack 
       direction={isMobile ? "column" : "row"}
-      style={{  height: "100%", alignContent: 'flex-start'}}
-      
+      style={{  height: "100%", alignContent: 'flex-start',     justifyContent: 'flex-start'}}
     >
       <Stack
         flex={width > 1024 ? 2 : 2}
         style={{
           paddingLeft: isMobile ? 0 : "0%",
           paddingRight: isMobile ? 0 : "0%",
-          alignContent: 'flex-start'
+          justifyContent: 'flex-start', // Adicionado
         }}
       >
-        <Container
-          style={{maxWidth, margin: "0 auto", ...containerStyles }}
+        <Container 
+          style={{maxWidth, alignContent: 'flex-start', margin: "0 auto", ...containerStyles  }}
         >
           <Breadcrumb />
 
@@ -93,7 +98,6 @@ function ContainerBasic({
             maxWidth="100%"
             borderRadius="18px"
             marginBottom="15px"
-            
           >
             <Head>
               <title>{title} - PMMC</title>
@@ -102,7 +106,6 @@ function ContainerBasic({
               mb={2}
               fontSize={accessibility?.fonts?.ultraLarge}
               color="text.dark"
-              
             >
               {title}
             </Heading>
@@ -125,9 +128,56 @@ function ContainerBasic({
           {children}
         </Container>
       </Stack>
-      <Stack flex={width > 1024 ? 1 : 2}>
-        <Aside />
-      </Stack>
+      {showAside && (
+        <Stack flex={1}>
+          <Aside />
+        </Stack>
+      )}
+      <button
+        onClick={toggleAside}
+        style={{
+          position: "fixed",
+          right: "20px",
+          top: "50%",
+          transform: "translateY(-50%)",
+          backgroundColor: "transparent",
+          border: "none",
+          outline: "none",
+          cursor: "pointer",
+          width: "25px",
+          height: "25px",
+        }}
+      >
+        {showAside ? (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <line x1="12" y1="4" x2="12" y2="20" />
+          </svg>
+        ) : (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <line x1="4" y1="12" x2="20" y2="12" />
+          </svg>
+        )}
+      </button>
     </Stack>
   );
 }
