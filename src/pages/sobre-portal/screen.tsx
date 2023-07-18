@@ -150,13 +150,14 @@ function HomeScreen({ handler }: PropsInput) {
           marginBottom="15px"
         >
           <Stack spacing={4}>
-            <Heading fontSize={accessibility?.fonts?.highLarge}>
+            <Heading fontSize={accessibility?.fonts?.highLarge} padding={"2%"}>
               {titlePage}
             </Heading>
             <Text
               color={"gray.500"}
               fontSize={accessibility?.fonts?.regular}
               textAlign={"justify"}
+              padding={"2%"}
             >
               {description}
             </Text>
@@ -179,66 +180,61 @@ function HomeScreen({ handler }: PropsInput) {
           <Stack direction={isMobile ? "column" : "row"} spacing={2}></Stack>
 
           <Stack direction="column">
-            <Heading
-              fontSize={accessibility?.fonts?.regular}
-              style={{ marginTop: "0px" }}
-            >
-              Políticas Públicas
+            <Heading fontSize={accessibility?.fonts?.highLarge} padding={"2%"}>
+              O que é o portal?
             </Heading>
 
             <StatGroup width="100%" mb={20}>
-              <Stat position="unset">
-                <Stack
-                  direction={isMobile ? "column" : "row"}
-                  align={isMobile ? "center" : "center"}
-                  justifyContent={isMobile ? "flex-start" : "center"}
-                >
-                  <Box padding="6" bg="transparent" flexDirection="row">
-                    <CardHorizon
-                      title="Plano Plurianual do Ano de 2023 de Mogi das Cruzes"
-                      imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="./relatorio-gestao-fiscal"
-                      icon="BiFlag"
-                    />
-                  </Box>
-
-                  <Box padding="6" bg="transparent" flexDirection="row">
-                    <CardHorizon
-                      title="Plano Plurianual do Ano de 2023 de Mogi das Cruzes"
-                      imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="URL do link"
-                      icon="BiBell"
-                    />
-                  </Box>
-                </Stack>
-                <Stack
-                  direction={isMobile ? "column" : "row"}
-                  align={isMobile ? "center" : "center"}
-                  justifyContent={isMobile ? "flex-start" : "center"}
-                >
-                  <Box padding="6" bg="transparent" flexDirection="row">
-                    <CardHorizon
-                      title="Plano Plurianual do Ano de 2023 de Mogi das Cruzes"
-                      imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="URL do link"
-                      icon="BiFlag"
-                    />
-                  </Box>
-
-                  <Box padding="6" bg="transparent" flexDirection="row">
-                    <CardHorizon
-                      title="Plano Plurianual do Ano de 2023 de Mogi das Cruzes"
-                      imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="URL do link"
-                      icon="BiFlag"
-                    />
-                  </Box>
-                </Stack>
-              </Stat>
+              <Text
+                color={"gray.500"}
+                fontSize={accessibility?.fonts?.regular}
+                textAlign={"justify"}
+                padding={"2%"}
+              >
+                O Portal da Transparência do Município de Mogi das Cruzes é
+                administrado pela Secretaria de Transparência e Dados Abertos,
+                sendo um site que disponibiliza informações ao cidadão sobre
+                diversos assuntos relacionados à gestão pública de Mogi das
+                Cruzes, incluindo a arrecadação e a utilização do dinheiro
+                público.
+              </Text>
+              <Text
+                color={"gray.500"}
+                fontSize={accessibility?.fonts?.regular}
+                textAlign={"justify"}
+                padding={"2%"}
+              >
+                Instituído pela Lei de Acesso à Informação, Lei n° 12.527, de 18
+                de novembro de 2011, uma lei ordinária federal que regulamenta o
+                acesso a informações, previsto no inciso XXXIII do art. 5º, no
+                inciso II do § 3º do art. 37 e no § 2º do art. 216 da
+                Constituição Federal.
+              </Text>
+              <Text
+                color={"gray.500"}
+                fontSize={accessibility?.fonts?.regular}
+                textAlign={"justify"}
+                padding={"2%"}
+              >
+                O Portal tem como objetivo centralizar, divulgar informações e
+                dados de interesse público referentes à transparência na gestão,
+                sendo um importante instrumento de controle social. Por meio do
+                Portal, os cidadãos podem consultar, acompanhar e fiscalizar as
+                ações realizadas pelos órgãos e entidades do Poder Executivo de
+                Mogi das Cruzes.
+              </Text>
+              <Text
+                color={"gray.500"}
+                fontSize={accessibility?.fonts?.regular}
+                textAlign={"justify"}
+                padding={"2%"}
+              >
+                Aqui o cidadão encontrará informações sobre orçamento, despesas,
+                licitações, contratos, salários de funcionários e outros dados
+                públicos relevantes. Eles são criados para aumentar a prestação
+                de contas e a transparência na gestão pública, bem como
+                fortalecer a participação cidadã e o controle social.
+              </Text>
             </StatGroup>
           </Stack>
         </Box>
@@ -273,7 +269,7 @@ function HomeScreen({ handler }: PropsInput) {
                 >
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Plano Plurianual do Ano de 2023 de Mogi das Cruzes"
+                      title="What Work Cities - Silver 2023"
                       imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                       link="./relatorio-gestao-fiscal"

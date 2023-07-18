@@ -26,7 +26,7 @@ function CardHorizon({
       padding={"15px"}
       rounded="md"
       overflow="hidden"
-      maxWidth="100%"
+      width="320px"
       borderRadius="18px"
       marginBottom="15px"
       >
