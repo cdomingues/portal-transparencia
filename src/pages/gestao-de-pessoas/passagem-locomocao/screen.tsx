@@ -10,7 +10,7 @@ import React from "react";
 import { isMobile } from "react-device-detect";
 import ChartColumn from "../../../components/Antdesign/ChartPlots/ChartColumn";
 import ChartColumnLineWithPartner from "../../../components/Antdesign/ChartPlots/ColumnLineWithPartner";
-import { Chart } from "../../../components/Chart";
+import Chart from "../../../components/Chart";
 import ContainerBasic from "../../../components/Container/Basic";
 import {
   GraphWrapper,

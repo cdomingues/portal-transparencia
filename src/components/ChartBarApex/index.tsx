@@ -280,6 +280,9 @@ export function ChartComponent({
         horizontal: false
       }
     },
+    xaxis: {
+      categories: data.labels,
+    },
     title: {
       text: title || "Default Title",
       align: "left",

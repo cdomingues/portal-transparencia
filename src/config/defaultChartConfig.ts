@@ -31,6 +31,7 @@ export const lineChartConfig: TGenericChartConfig = {
   type: "line",
   backgroundColor: "#fac534",
   borderColor: "#fac534A0",
+  borderWidth: 2,
 };
 
 export const barChartConfig2: TGenericChartConfig = {
@@ -44,6 +45,7 @@ export const lineChartConfig2: TGenericChartConfig = {
   type: "line",
   backgroundColor: "#fa6328",
   borderColor: "#fa6328A0",
+  borderWidth: 2,
 };
 
 

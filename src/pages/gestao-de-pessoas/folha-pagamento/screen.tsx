@@ -7,13 +7,15 @@ import {
   Stack,
   Text,
   useDisclosure,
+  useColorModeValue,
+  Box,
 } from "@chakra-ui/react";
 import moment from "moment";
 import React, { useState } from "react";
 import { isMobile } from "react-device-detect";
 import ChartColumn from "../../../components/Antdesign/ChartPlots/ChartColumn";
 import ChartColumnLineWithPartner from "../../../components/Antdesign/ChartPlots/ColumnLineWithPartner";
-import { Chart } from "../../../components/Chart";
+import Chart from "../../../components/Chart";
 import ContainerBasic from "../../../components/Container/Basic";
 import {
   GraphWrapper,
@@ -47,8 +49,9 @@ type PropsInput = {
 
 export const contentPayroll = {
   titlePage: "Folha de Pagamento",
-  description: "É dever do Poder Público dar transparência à Folha de Pagamento dos funcionários. Acompanhe aqui o detalhamento dos cargos e salários dos servidores públicos municipais.",
-}
+  description:
+    "É dever do Poder Público dar transparência à Folha de Pagamento dos funcionários. Acompanhe aqui o detalhamento dos cargos e salários dos servidores públicos municipais.",
+};
 
 function Screen({
   handler: {
@@ -91,134 +94,178 @@ function Screen({
 
   return (
     <ContainerBasic title={title} description={description}>
-      <MultipleGraphWrapper>
-        <GraphWrapper>
-          <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
-            Folha de pagamento Mensal Acumulado
-          </Heading>
-          {chart?.datasets?.length > 0 && (
-            <MultiAxisChart moneyFormat data={chart} />
-          )}
-        </GraphWrapper>
+      <Box>
+        <Box
+          m={0}
+          bg={useColorModeValue("white", "gray.800")}
+          boxShadow="2xl"
+          padding={"15px"}
+          rounded="md"
+          overflow="hidden"
+          maxWidth="100%"
+          borderRadius="18px"
+          marginBottom="15px"
+        >
+          <MultipleGraphWrapper>
+            <GraphWrapper>
+              <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
+                Folha de pagamento Mensal Acumulado
+              </Heading>
+              {chart?.datasets?.length > 0 && (
+                <MultiAxisChart moneyFormat data={chart} />
+              )}
+            </GraphWrapper>
 
-        <GraphWrapper>
-          <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
-            Folha de pagamento últimos 5 anos
-          </Heading>
-          {chartYear?.datasets?.length > 0 && (
-            <Chart type="bar" moneyFormat data={chartYear} />
-          )}
-        </GraphWrapper>
-      </MultipleGraphWrapper>
-      <Divider height="3px" marginTop="10px" marginBottom="4px" />
+            <GraphWrapper>
+              <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
+                Folha de pagamento últimos 5 anos
+              </Heading>
+              {chartYear?.datasets?.length > 0 && (
+                <Chart type="bar" moneyFormat data={chartYear} />
+              )}
+            </GraphWrapper>
+          </MultipleGraphWrapper>
+        </Box>
 
-      <Stack direction="row">
-        <Stack minW={86} width="25%">
-          <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
-            Ano
-          </Text>
-          <Select
-            defaultValue={year}
-            onChange={(e) => setYear(e.target.value)}
-            bg="white"
-            variant="outline"
-            placeholder="Selecionar Ano"
-          >
-            {Array.from({ length: 5 }).map((value, index) => {
-              const newYear = moment().subtract(index, "years").year();
-              return (
-                <option key={index} value={newYear}>
-                  {newYear}
-                </option>
-              );
-            })}
-          </Select>
-        </Stack>
-        <Stack minW={86} width="25%">
-          <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
-            Mês
-          </Text>
-          <Select
-            defaultValue={month}
-            onChange={(e) => setMonth(e.target.value)}
-            bg="white"
-            variant="outline"
-            placeholder="Selecionar Mês"
-          >
-            {Array.from({ length: 12 }).map((value, index) => (
-              <option key={index} value={index + 1}>
-                {index + 1}
-              </option>
-            ))}
-          </Select>
-        </Stack>
-      </Stack>
-      <Divider width="50%" height="3px" marginTop="10px" marginBottom="4px" />
-      <Stack direction="row">
-        <Stack minW={86} width="25%">
-          <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
-            Nome
-          </Text>
-          <Input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            bg="white"
-            width="100%"
-            placeholder="Nome"
+        <Divider height="3px" marginTop="10px" marginBottom="4px" />
+
+        <Box
+          m={0}
+          bg={useColorModeValue("white", "gray.800")}
+          boxShadow="2xl"
+          paddingTop={15}
+          paddingBottom={15}
+          paddingLeft={15}
+          rounded="md"
+          overflow="hidden"
+          maxWidth="100%"
+          borderRadius="18px"
+          marginBottom="15px"
+        >
+          <Stack direction="row">
+            <Stack minW={86} width="25%">
+              <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
+                Ano
+              </Text>
+              <Select
+                defaultValue={year}
+                onChange={(e) => setYear(e.target.value)}
+                bg="white"
+                variant="outline"
+                placeholder="Selecionar Ano"
+              >
+                {Array.from({ length: 5 }).map((value, index) => {
+                  const newYear = moment().subtract(index, "years").year();
+                  return (
+                    <option key={index} value={newYear}>
+                      {newYear}
+                    </option>
+                  );
+                })}
+              </Select>
+            </Stack>
+            <Stack minW={86} width="25%">
+              <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
+                Mês
+              </Text>
+              <Select
+                defaultValue={month}
+                onChange={(e) => setMonth(e.target.value)}
+                bg="white"
+                variant="outline"
+                placeholder="Selecionar Mês"
+              >
+                {Array.from({ length: 12 }).map((value, index) => (
+                  <option key={index} value={index + 1}>
+                    {index + 1}
+                  </option>
+                ))}
+              </Select>
+            </Stack>
+          </Stack>
+
+          <Divider
+            width="50%"
+            height="3px"
+            marginTop="10px"
+            marginBottom="4px"
           />
-        </Stack>
-        <Stack minW={86} width="25%">
-          <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
-            Cargo
-          </Text>
-          <Input
-            value={role}
-            onChange={(e) => setRole(e.target.value)}
-            bg="white"
-            width="100%"
-            placeholder="Cargo"
+          <Stack direction="row">
+            <Stack minW={86} width="25%">
+              <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
+                Nome
+              </Text>
+              <Input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                bg="white"
+                width="100%"
+                placeholder="Nome"
+              />
+            </Stack>
+            <Stack minW={86} width="25%">
+              <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
+                Cargo
+              </Text>
+              <Input
+                value={role}
+                onChange={(e) => setRole(e.target.value)}
+                bg="white"
+                width="100%"
+                placeholder="Cargo"
+              />
+            </Stack>
+          </Stack>
+          <Divider
+            width="50%"
+            height="3px"
+            marginTop="10px"
+            marginBottom="4px"
           />
-        </Stack>
-      </Stack>
-      <Divider width="50%" height="3px" marginTop="10px" marginBottom="4px" />
-      <Stack direction="row">
-        <Stack minW={140} width="25%">
-          <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
-            Matricula
-          </Text>
-          <Input
-            value={enrollment}
-            onChange={(e) => setEnrollment(e.target.value)}
-            bg="white"
-            width="100%"
-            placeholder="Matricula"
+          <Stack direction="row">
+            <Stack minW={140} width="25%">
+              <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
+                Matricula
+              </Text>
+              <Input
+                value={enrollment}
+                onChange={(e) => setEnrollment(e.target.value)}
+                bg="white"
+                width="100%"
+                placeholder="Matricula"
+              />
+            </Stack>
+            <Stack width="10%" justifyContent="flex-end">
+              <Button
+                minW={110}
+                disabled={loading}
+                onClick={() => handlePayroll()}
+                _hover={{ bg: "gray.500", color: "white" }}
+                bg="table.primary"
+                color="white"
+                fontSize="small"
+              >
+                Buscar
+              </Button>
+            </Stack>
+          </Stack>
+          <Divider width="50%" marginTop="10px" marginBottom="10px" />
+          <TableWithOutFilterComponent
+            withFilter={false}
+            loading={loading}
+            columns={columns}
+            data={data}
+            handleOpenModal={handleOpenModal}
           />
-        </Stack>
-        <Stack width="10%" justifyContent="flex-end">
-          <Button
-            minW={55}
-            disabled={loading}
-            onClick={() => handlePayroll()}
-            _hover={{ bg: "gray.500", color: "white" }}
-            bg="table.primary"
-            color="white"
-            fontSize="small"
-          >
-            Buscar
-          </Button>
-        </Stack>
-      </Stack>
-      <Divider width="50%" marginTop="10px" marginBottom="10px" />
-      <TableWithOutFilterComponent
-        withFilter={false}
-        loading={loading}
-        columns={columns}
-        data={data}
-        handleOpenModal={handleOpenModal}
-      />
 
-    <ModalPayments isOpen={isOpen} onClose={onClose} payments={payments} />
-
+          <ModalPayments
+            isOpen={isOpen}
+            onClose={onClose}
+            payments={payments}
+            backgroundColor={"red"}
+          />
+        </Box>
+      </Box>
     </ContainerBasic>
   );
 }

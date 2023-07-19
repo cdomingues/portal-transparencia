@@ -1,6 +1,6 @@
 import { Button, Divider, Select, Stack, Text } from "@chakra-ui/react";
 import React from "react";
-import { Chart } from "../../../components/Chart";
+import Chart from "../../../components/Chart";
 import ContainerBasic from "../../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../../components/Table";
 

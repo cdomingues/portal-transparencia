@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { isMobile } from "react-device-detect";
-import { Chart } from "../../../components/Chart";
+import Chart from "../../../components/Chart";
 import ContainerBasic from "../../../components/Container/Basic";
 import { MultiAxisChart } from "../../../components/MultiAxisChart";
 import {
@@ -71,7 +71,6 @@ function Screen({
             <MultiAxisChart
               moneyFormat
               data={chart}
-              style={{ maxHeight: "330px" }}
             />
           )}
         </GraphWrapper>
