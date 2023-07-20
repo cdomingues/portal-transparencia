@@ -76,7 +76,7 @@ function Screen({
             Publicidade e Propaganda últimos 5 anos
           </Heading>
           {chartYear?.datasets?.length > 0 && (
-            <Chart type="bar" moneyFormat data={chartYear} />
+            <Chart type="bar" data={chartYear} />
           )}
         </GraphWrapper>
       </MultipleGraphWrapper>

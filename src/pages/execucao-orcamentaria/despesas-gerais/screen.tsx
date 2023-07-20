@@ -39,7 +39,7 @@ function Screen({
   return (
     <ContainerBasic title={title} description={description}>
       {chart?.datasets?.length > 0 && (
-        <Chart type="bar" moneyFormat data={chart} />
+        <Chart type="bar" data={chart} />
       )}
       <Divider height="3px" marginTop="10px" marginBottom="4px" />
 

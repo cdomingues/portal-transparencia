@@ -81,7 +81,7 @@ function Screen({
           {chartYear?.datasets?.length > 0 && (
             <Chart
               type="bar"
-              moneyFormat
+              
               data={chartYear}
               style={{ maxHeight: "330px" }}
             />
