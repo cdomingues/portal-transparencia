@@ -30,6 +30,8 @@ interface IMultiAxisChart {
   moneyFormat?: boolean;
   title?: string;
   yaxisLabel?: string;
+  options?: Partial<ApexOptions>; 
+  names?: string[];  // Added the names prop here
 }
 
 export function MultiAxisChart({
@@ -37,6 +39,8 @@ export function MultiAxisChart({
   moneyFormat,
   title,
   yaxisLabel,
+  options = {},
+  names = [],  // Added the names prop here
 }: IMultiAxisChart) {
   const formatMoney = (value: number) => {
     return moneyFormat ? moneyFormatter(value) : value.toString();
@@ -54,33 +58,30 @@ export function MultiAxisChart({
   const series: SeriesType = data.datasets.map((dataset, index) => {
     const config = dataset.type === "line" ? lineChartConfig : barChartConfig;
 
-    // Assign name based on index
     let name;
-    if (index === 0) {
-      name = "Valor Mensal"; // "Valor Acumulado"
+    if (index < names.length) {
+      name = names[index];  // Use the provided name if it exists
+    } else if (index === 0) {
+      name = "Valor Mensal";
     } else if (index === 1) {
-      name = "Valor Acumulado"; // "Valor"
-      
+      name = "Valor Acumulado";
     } else {
-      name = dataset.yAxisID; // Use 'yAxisID' as name for other datasets
+      name = dataset.yAxisID;
     }
 
-    // Create a variable to hold the return value
     const returnValue = {
       name: name,
-      data: dataset.data, // Map data directly
+      data: dataset.data,
       borderWidth: dataset.borderWidth,
       ...config,
     };
 
-    // Log the return value
     console.log(returnValue);
 
-    // Return the value
     return returnValue;
   });
 
-  const options: ApexOptions = {
+  const defaultOptions: ApexOptions = {
     chart: {
       width: "100%",
       height: 380,
@@ -106,14 +107,6 @@ export function MultiAxisChart({
     xaxis: {
       categories: data.labels,
     },
-    // title: 
-    
-    // {
-    //   enable: true,
-    //   text: title || "Default Title",
-    //   align: "left",
-    //   offsetX: 0,
-    // },
     yaxis: [
       {
         opposite: true,
@@ -122,10 +115,10 @@ export function MultiAxisChart({
         },
         labels: {
           formatter: function (val: number) {
-            return (val / 1000000).toFixed(0); // Divide by one million and keep 2 decimal places
+            return (val / 1000000).toFixed(0);
           }},
         floating: false,
-      decimalsInFloat: 2,
+        decimalsInFloat: 2,
       },
       {
         title: {
@@ -133,14 +126,12 @@ export function MultiAxisChart({
         },
         labels: {
           formatter: function (val: number) {
-            return (val / 1000000).toFixed(0); // Divide by one million and keep 2 decimal places
+            return (val / 1000000).toFixed(0);
           }},
         floating: false,
         decimalsInFloat: 2,
       },
     ],
-    
-
     tooltip: {
       shared: true,
       intersect: false,
@@ -162,6 +153,9 @@ export function MultiAxisChart({
     ],
   };
 
+  // Merge defaultOptions with the passed in options prop
+  const mergedOptions = { ...defaultOptions, ...options };
+
   const { width } = useWindowDimensions();
 
   return (
@@ -177,7 +171,7 @@ export function MultiAxisChart({
       marginBottom="15px"
     >
       <div id="chart">
-        <ChartBarApex series={series} options={options} />
+        <ChartBarApex series={series} options={mergedOptions} />
       </div>
     </Box>
   );

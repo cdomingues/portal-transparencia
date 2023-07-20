@@ -66,7 +66,7 @@ function Screen({
           Despesas últimos 5 anos
         </Heading>
         {chartYear?.datasets?.length > 0 && (
-          <Chart type="bar" data={chartYear} moneyFormat />
+          <Chart type="bar" data={chartYear} />
         )}
       </GraphWrapper>
       <Divider borderWidth="2px" mt="10" mb="10" />

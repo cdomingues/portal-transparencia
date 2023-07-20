@@ -8,7 +8,7 @@
 // import { formatNumber } from "../../config/defaultChartConfig";
 // ChartConfig.register(...registerables);
 
-// interface IChart { 
+// interface IChart {
 //   data: {
 //     labels?: string[];
 //     datasets: {
@@ -64,7 +64,7 @@
 //   };
 //   return (
 
-// <Box       
+// <Box
 // m={0}
 // bg={useColorModeValue("white", "gray.800")}
 // boxShadow="2xl"
@@ -81,19 +81,13 @@
 //     </Box>
 //   );
 // }
+
 import React from "react";
 import { ApexOptions } from "apexcharts";
 import dynamic from "next/dynamic";
-import moneyFormatter from "../../utils/moneyFormatter";
 import { CSSProperties } from "react";
 import { Box, useColorModeValue } from "@chakra-ui/react";
-import { isMobile } from "react-device-detect";
-import { formatNumber } from "../../config/defaultChartConfig";
 import { ChartWrapper } from "../ChartWrapper";
-import {
-  lineChartConfig,
-  barChartConfig,
-} from "../../config/defaultChartConfig";
 
 const ChartBarApex = dynamic(() => import("react-apexcharts"), { ssr: false });
 
@@ -110,93 +104,60 @@ interface IChart {
     }[];
   };
   type: "line" | "bar";
-  moneyFormat?: boolean; 
   style?: CSSProperties;
+  options?: Partial<ApexOptions>; // add this line
 }
 
-const Chart: React.FC<IChart> = ({ data, type, moneyFormat, style }) => {
-  const formatMoney = (value: number) => {
-    return moneyFormat ? moneyFormatter(value) : value.toString();
-  };
-
-  const responsiveMoneyFormat = (value: number) => {
-    return isMobile ? formatNumber(value) : formatMoney(value);
-  };
-
-
-
-
-  
+const Chart: React.FC<IChart> = ({ data, type, style, options = {} }) => {
+  // include the options prop in your function component
   const series = data.datasets.map((dataset) => ({
     name: dataset.label,
     data: dataset.data,
   }));
 
-
-//   plotOptions: {
-//     bar: {
-//       horizontal: false,
-//       columnWidth: "55%",
-//       endingShape: "rounded",
-//     },
-//   },
-//   dataLabels: {
-//     enabled: false,
-//   },
-//   stroke: {
-//     show: true,
-//     width: 2,
-//     colors: ["transparent"],
-//   },
-//   xaxis: {},
-//   yaxis: {
-//     title: {
-//       text: "R$ (Milhões)",
-//     },
-//     labels: {
-//       formatter: function (val: number, index: any) {
-//         return val.toFixed(0);
-//       },
-//     },
-//   },
-//   fill: {
-//     opacity: 1,
-//   },
-// };
-
-
-
-  const options: ApexOptions = {
+  const defaultOptions: ApexOptions = {
     chart: {
+      toolbar: {
+        show: true,
+        tools: {
+        download: true,  
+        selection: true,
+        zoom: true,
+        zoomin: true,
+        zoomout: true,
+        pan: true,
+        }
+      },
+
       width: "100%",
       height: 380,
       animations: {
         enabled: true,
-        easing: 'easeinout',
+        easing: "easeinout",
         speed: 800,
         animateGradually: {
           enabled: true,
-          delay: 150
+          delay: 150,
         },
         dynamicAnimation: {
           enabled: true,
-          speed: 350
-        }
-      }
+          speed: 350,
+        },
+      },
     },
+
     plotOptions: {
-      bar:  {
+      bar: {
         horizontal: false,
         columnWidth: "55%",
       },
     },
     dataLabels: {
-      enabled: false
+      enabled: false,
     },
     stroke: {
       show: true,
       width: 5,
-   
     },
     xaxis: {
       categories: data.labels,
@@ -209,15 +170,13 @@ const Chart: React.FC<IChart> = ({ data, type, moneyFormat, style }) => {
         labels: {
           formatter: function (val: number) {
             return (val / 1000000).toFixed(0); // Divide by one million and keep 2 decimal places
-          }},
+          },
+        },
         floating: false,
-      decimalsInFloat: 2,
+        decimalsInFloat: 2,
       },
     ],
-    tooltip: {
-      shared: true,
-      intersect: false,
-    },
+
     responsive: [
       {
         breakpoint: 1000,
@@ -235,25 +194,28 @@ const Chart: React.FC<IChart> = ({ data, type, moneyFormat, style }) => {
     ],
   };
 
+  // Merge defaultOptions with the passed in options prop
+  const mergedOptions = { ...defaultOptions, ...options };
+
   return (
     <Box
-    m={0}
-    bg={useColorModeValue("white", "gray.800")}
-    boxShadow="2xl"
-    paddingTop={15}
-    paddingBottom={15}
-    paddingLeft={15}
-    rounded="md"
-    overflow="hidden"
-    maxWidth="100%"
-    borderRadius="18px"
-    marginBottom="15px"
-  >
-       <div id="chart">
-        <ChartBarApex options={options} series={series} type={type} />
-        </div>
+      m={0}
+      bg={useColorModeValue("white", "gray.800")}
+      boxShadow="2xl"
+      paddingTop={15}
+      paddingBottom={15}
+      paddingLeft={15}
+      rounded="md"
+      overflow="hidden"
+      maxWidth="100%"
+      borderRadius="18px"
+      marginBottom="15px"
+    >
+      <div id="chart">
+        <ChartBarApex options={mergedOptions} series={series} type={type} />
+      </div>
     </Box>
   );
-} 
+};
 
 export default Chart;

@@ -61,17 +61,30 @@ function RevenueScreen({
     marginBottom: isMobile ? 0.7 : 0,
   };
 
+
   return (
     <ContainerBasic title={title} description={description}>
       <MultipleGraphWrapper>
+      <Box       
+m={0}
+bg={useColorModeValue("white", "gray.800")}
+boxShadow="2xl"
+padding={"15px"}
+rounded="md"
+overflow="hidden"
+maxWidth="95%"
+borderRadius="18px"
+marginBottom="15px"
+>
         <GraphWrapper>
           <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
             Receitas Mensal Acumulado
           </Heading>
           {chart?.datasets?.length > 0 && (
-            <MultiAxisChart moneyFormat data={chart} />
+            <MultiAxisChart moneyFormat data={chart} names={['Valor Acumulado', 'Valor Mensal']}/>
           )}
         </GraphWrapper>
+        </Box>
 
 <Box       
 m={0}
@@ -89,7 +102,8 @@ marginBottom="15px"
             Receitas últimos 5 anos
           </Heading>
           {chartYear?.datasets?.length > 0 && (
-            <Chart type="bar" moneyFormat data={chartYear} />
+            <Chart type="bar" data={chartYear}  />
+
           )}
         </GraphWrapper>
         </Box>

@@ -249,9 +249,10 @@ function ContainerBasic({
 }: PropsInput) {
   const { height, width } = useWindowDimensions();
   const accessibility = useFontSizeAccessibilityContext();
-  const [showAside, setShowAside] = useState(isMobile);
-  const [isHovered, setIsHovered] = useState(false);
+  const [showAside, setShowAside] = useState(!isMobile);
 
+  const [isHovered, setIsHovered] = useState(false);
+  
   const toggleAside = () => {
     if (!isMobile) {
       setShowAside(!showAside);
