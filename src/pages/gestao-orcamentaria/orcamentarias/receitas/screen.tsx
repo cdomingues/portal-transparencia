@@ -63,7 +63,7 @@ function RevenueScreen({
 
 
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic  title={title} description={description}>
       <MultipleGraphWrapper>
       <Box       
 m={0}

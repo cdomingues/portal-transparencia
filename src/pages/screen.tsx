@@ -654,6 +654,7 @@ import useWindowDimensions from "../utils/getWindowSize";
 import { useFontSizeAccessibilityContext } from "../context/fontSizeAccessibility";
 import noticias from "../../data/noticias.json";
 import DisplayNews from "../components/NewsHome";
+import ContainerBasic from "../components/Container/Basic";
 
 type PropsInput = {
   handler: {
@@ -674,7 +675,7 @@ type PropsInput = {
 };
 
 export const contentInitial = {
-  titlePage: "Boas-vindas ao Portal da Transparência de Mogi!",
+  title: "Boas-vindas ao Portal da Transparência de Mogi!",
   description:
     "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.",
 };
@@ -799,7 +800,7 @@ function HomeScreen({ handler }: PropsInput) {
     date,
   } = handler;
   const accessibility = useFontSizeAccessibilityContext();
-  const titlePage = contentInitial?.titlePage;
+  const title = contentInitial?.title;
   const description = contentInitial?.description;
 
   const chartOptions = {
@@ -859,12 +860,13 @@ function HomeScreen({ handler }: PropsInput) {
   const { height, width } = useWindowDimensions();
 
   return (
-    <Stack
+    <ContainerBasic  title={title} description={description}>
+    {/* <Stack
       direction={isMobile ? "column" : "row"}
       style={{ width: "100%", height: "100%" }}
-    >
+    > */}
       <Stack
-        flex={width > 1024 ? 2 : 2}
+        // flex={width > 1024 ? 2 : 2}
         style={{
           paddingLeft: isMobile ? 0 : "0%",
           paddingRight: isMobile ? 0 : "1%",
@@ -873,7 +875,7 @@ function HomeScreen({ handler }: PropsInput) {
         <Head>
           <title>Início</title>
         </Head>
-        <Box
+        {/* <Box
           m={0}
           bg={useColorModeValue("white", "gray.800")}
           boxShadow="2xl"
@@ -886,7 +888,7 @@ function HomeScreen({ handler }: PropsInput) {
         >
           <Stack spacing={4}>
             <Heading fontSize={accessibility?.fonts?.highLarge}>
-              {titlePage}
+              {title}
             </Heading>
             <Text
               color={"gray.500"}
@@ -896,7 +898,7 @@ function HomeScreen({ handler }: PropsInput) {
               {description}
             </Text>
           </Stack>
-        </Box>
+        </Box> */}
         <Box
           m={0}
           bg={useColorModeValue("white", "gray.800")}
@@ -1258,10 +1260,11 @@ function HomeScreen({ handler }: PropsInput) {
           </Stack>
         </Box>
       </Stack>
-      <Stack flex={width > 1024 ? 1 : 2}>
+      {/* <Stack flex={width > 1024 ? 1 : 2}>
         <Aside />
-      </Stack>
-    </Stack>
+      </Stack> */}
+    {/* </Stack> */}
+    </ContainerBasic>
   );
 }
 

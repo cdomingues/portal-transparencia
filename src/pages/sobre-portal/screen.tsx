@@ -41,6 +41,7 @@ import noticias from "../../../data/noticias.json";
 //import News from "../../components/News";
 //import News from "../components/News";
 import DisplayNews from "../../components/NewsHome";
+import ContainerBasic from "../../components/Container/Basic";
 
 type PropsInput = {
   handler: {
@@ -127,18 +128,16 @@ function HomeScreen({ handler }: PropsInput) {
   const { height, width } = useWindowDimensions();
 
   return (
-    <Stack
-      direction={isMobile ? "column" : "row"}
-      style={{ width: "100%", height: "100%" }}
-    >
-      <Stack
+    <ContainerBasic  title={titlePage} description={description}>
+  
+      {/* <Stack
         flex={width > 1024 ? 2 : 2}
         style={{
           paddingLeft: isMobile ? 0 : "0%",
           paddingRight: isMobile ? 0 : "1%",
         }}
-      >
-        <Box
+      > */}
+        {/* <Box
           m={0}
           bg={useColorModeValue("white", "gray.800")}
           boxShadow="2xl"
@@ -162,9 +161,9 @@ function HomeScreen({ handler }: PropsInput) {
               {description}
             </Text>
           </Stack>
-        </Box>
+        </Box> */}
 
-        {/* <Divider mb="6%" /> */}
+      
 
         <Box
           m={0}
@@ -316,11 +315,8 @@ function HomeScreen({ handler }: PropsInput) {
             </StatGroup>
           </Stack>
         </Box>
-      </Stack>
-      <Stack flex={width > 1024 ? 1 : 2}>
-        <Aside />
-      </Stack>
-    </Stack>
+      {/* </Stack> */}
+      </ContainerBasic>
   );
 }
 

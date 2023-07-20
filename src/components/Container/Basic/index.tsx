@@ -207,6 +207,7 @@ type PropsInput = {
 function Aside() {
   return (
     <div style={{ width: "380px", justifyContent: "left" }}>
+      
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
@@ -325,7 +326,7 @@ function ContainerBasic({
               </Text>
             </div>
           </Box>
-          <Divider borderWidth="2px" mt="10" mb="10" />
+          {/* <Divider borderWidth="2px" mt="10" mb="10" /> */}
           {children}
         </Container>
       </Stack>
@@ -340,12 +341,12 @@ function ContainerBasic({
           onMouseOver={() => setIsHovered(true)}
           onMouseOut={() => setIsHovered(false)}
           style={{
-            position: "fixed",
-            right: "2px",
-            top: "50%",
+            position: "absolute",
+            right: "10px",
+            top: "120px",
             transform: "translateY(-50%)",
-            backgroundColor: "white",
-            border: "1px solid black",
+            backgroundColor: "transparent",
+            border: "1px solid transparent",
             borderRadius: "50%",
             outline: "none",
             cursor: "pointer",

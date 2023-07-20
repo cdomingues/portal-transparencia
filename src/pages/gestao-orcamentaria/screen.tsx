@@ -34,6 +34,7 @@ import noticias from '../../../data/noticias.json'
 //import News from "../../components/News";
 //import News from "../components/News";
 import DisplayNews from "../../components/NewsHome";
+import ContainerBasic from "../../components/Container/Basic";
 
 
 type PropsInput = {
@@ -139,6 +140,7 @@ function HomeScreen({ handler }: PropsInput) {
   const { height, width } = useWindowDimensions();
 
   return (
+    
     <Stack
       direction={isMobile ? "column" : "row"}
       style={{ width: "100%", height: "100%" }}
