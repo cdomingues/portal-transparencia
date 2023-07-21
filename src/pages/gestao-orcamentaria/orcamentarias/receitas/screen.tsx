@@ -34,8 +34,9 @@ type PropsInput = {
 };
 export const contentRevenue = {
   titlePage: "Receitas",
-  description: "De modo acessível e de fácil compreensão, acompanhe os valores e fontes de arrecadação do município, comparando a evolução entre os últimos anos e também a variação entre receita prevista e efetivamente arrecadada.",
-}
+  description:
+    "De modo acessível e de fácil compreensão, acompanhe os valores e fontes de arrecadação do município, comparando a evolução entre os últimos anos e também a variação entre receita prevista e efetivamente arrecadada.",
+};
 function RevenueScreen({
   handler: {
     columns,
@@ -61,51 +62,73 @@ function RevenueScreen({
     marginBottom: isMobile ? 0.7 : 0,
   };
 
-
   return (
-    <ContainerBasic  title={title} description={description}>
+    <ContainerBasic title={title} description={description}>
       <MultipleGraphWrapper>
-      <Box       
-m={0}
-bg={useColorModeValue("white", "gray.800")}
-boxShadow="2xl"
-padding={"15px"}
-rounded="md"
-overflow="hidden"
-maxWidth="95%"
-borderRadius="18px"
-marginBottom="15px"
->
-        <GraphWrapper>
-          <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
-            Receitas Mensal Acumulado
-          </Heading>
-          {chart?.datasets?.length > 0 && (
-            <MultiAxisChart moneyFormat data={chart} names={['Valor Acumulado', 'Valor Mensal']}/>
-          )}
-        </GraphWrapper>
+        <Box
+          m={0}
+          bg={useColorModeValue("white", "gray.800")}
+          boxShadow="2xl"
+          padding={"15px"}
+          rounded="md"
+          overflow="hidden"
+          maxWidth="100%"
+              
+          borderRadius="18px"
+          marginBottom="15px"
+        >
+          <GraphWrapper>
+            <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
+              Receitas Mensal Acumulado
+            </Heading>
+            {chart?.datasets?.length > 0 && (
+              <React.Fragment>
+                <MultiAxisChart
+                  data={chart}
+                  moneyFormat={true}
+                  seriesName="Valor"
+                  chartType="bar"
+                />
+                <MultiAxisChart
+                  data={chart}
+                  moneyFormat={true}
+                  seriesName="Valor Acumulado"
+                  chartType="line"
+                />
+              </React.Fragment>
+            )}
+          </GraphWrapper>
         </Box>
 
-<Box       
-m={0}
-bg={useColorModeValue("white", "gray.800")}
-boxShadow="2xl"
-padding={"15px"}
-rounded="md"
-overflow="hidden"
-maxWidth="95%"
-borderRadius="18px"
-marginBottom="15px"
->
-        <GraphWrapper>
-          <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
-            Receitas últimos 5 anos
-          </Heading>
-          {chartYear?.datasets?.length > 0 && (
-            <Chart type="bar" data={chartYear}  />
-
-          )}
-        </GraphWrapper>
+        <Box
+          m={0}
+          bg={useColorModeValue("white", "gray.800")}
+          boxShadow="2xl"
+          padding={"15px"}
+          rounded="md"
+          overflow="hidden"
+          maxWidth="100%"
+              
+          borderRadius="18px"
+          marginBottom="15px"
+        >
+          <GraphWrapper>
+            <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
+              Receitas últimos 5 anos
+            </Heading>
+            {chartYear?.datasets?.length > 0 && (
+              // <Chart type="bar" data={chartYear} />
+              <React.Fragment>
+              <MultiAxisChart
+              data={chartYear}
+              moneyFormat={true}
+             
+              chartType="bar"
+            />
+        
+            </React.Fragment>
+                )}
+          </GraphWrapper>
         </Box>
       </MultipleGraphWrapper>
       <Divider borderWidth="2px" mt="10" mb="10" />

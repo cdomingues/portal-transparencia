@@ -55,7 +55,7 @@ import { contentAdvancesAndAccommodation } from "../pages/gestao-de-pessoas/adia
 import { contentRecipesAmendments } from "../pages/gestao-orcamentaria/orcamentarias/receitas/receitas-emendas/screen";
 import { contentGeneralCosts } from "../pages/gestao-orcamentaria/orcamentarias/despesas/despesas-gerais/screen";
 import { contentExpensesRemains } from "../pages/gestao-orcamentaria/orcamentarias/despesas/despesas-restos/screen";
-import { contentTrafficFines } from "../pages/gestao-orcamentaria/orcamentarias/receitas/receitas-multas-transito/screen";
+import { contentTrafficFines } from "../pages/gestao-orcamentaria/orcamentarias/receitas/multa-transito/screen";
 import { contentExpensesParliamentaryAmendments } from "../pages/gestao-orcamentaria/orcamentarias/despesas/despesas-emendas/screen";
 import { contentExtrabudgetExpenses } from "../pages/zzOld_orcamento-municipal/extraorcamentario/despesas/screen";
 import { contentExtrabudgetRevenues } from "../pages/zzOld_orcamento-municipal/extraorcamentario/receitas/screen";
@@ -275,7 +275,7 @@ const publicRoutes: IPublicRoute[] = [
         path: "covid/despesas",
         icon: AiFillCaretRight,
       },
-    ],
+    ], 
   },
   {
     name: "Gestão Extra Orçamentária",

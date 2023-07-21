@@ -27,6 +27,7 @@ function CardHorizon({
       rounded="md"
       overflow="hidden"
       width="320px"
+      height={20}
       borderRadius="18px"
       marginBottom="15px"
       >

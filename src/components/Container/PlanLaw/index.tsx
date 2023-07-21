@@ -155,12 +155,12 @@ const PlanContainerLaw = ({ laws, children, selectOptions, selectValue, handleSe
       <PopoverTrigger>
         <Stack
           direction="row"
-          bg={isLoading[index] ? 'gray.200' : 'teal.500'}
-          color={isLoading[index] ? 'gray.500' : 'white'}
+          bg={isLoading[index] ? 'gray.200' : 'transparent'}
+          color={isLoading[index] ? 'black' : 'gray'}
           p={2}
           borderRadius="md"
           cursor="pointer"
-          _hover={{ bg: isLoading[index] ? 'gray.200' : 'teal.600' }}
+          _hover={{ bg: isLoading[index] ? 'gray.200' : 'gray.200' }}
           onClick={() => handleClick(law.link, index)}
         >
           <Icon as={AiOutlineDownload} />

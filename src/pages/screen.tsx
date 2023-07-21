@@ -71,7 +71,8 @@
 // padding={"15px"}
 // rounded="md"
 // overflow="hidden"
-// maxWidth="95%"
+// maxWidth="100%"
+              
 // borderRadius="18px"
 // marginBottom="15px"
 // >
@@ -694,7 +695,8 @@ function Aside() {
         padding={"15px"}
         rounded="md"
         overflow="hidden"
-        maxWidth="95%"
+        maxWidth="100%"
+              
         borderRadius="18px"
         marginBottom="15px"
       >
@@ -804,12 +806,17 @@ function HomeScreen({ handler }: PropsInput) {
   const description = contentInitial?.description;
 
   const chartOptions = {
+
+    chart: {
+      width: "100%",
+    },
     plotOptions: {
       bar: {
         horizontal: false,
         columnWidth: "55%",
         endingShape: "rounded",
       },
+      
     },
     dataLabels: {
       enabled: false,

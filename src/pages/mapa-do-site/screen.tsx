@@ -28,12 +28,13 @@ function Screen({ handler }: PropsInput) {
     const itemPath = item?.path?.replace(/\//g, ""); // Remove the "/" character
     const isFirstItem = index === 0;
     const itemTitle = isFirstItem ? "Home" : capitalizeFirstLetter(itemPath);
-    const itemOnClick = isFirstItem ? () => router.push("/") : () => router.push(item?.path);
+    const itemOnClick = isFirstItem
+      ? () => router.push("/")
+      : () => router.push(item?.path);
 
     return (
       <Stack display="flex" flexDirection="column" key={index}>
-
-{/* <Box       
+        {/* <Box       
 m={0}
 bg={useColorModeValue("white", "gray.800")}
 boxShadow="2xl"
@@ -45,9 +46,16 @@ borderRadius="18px"
 marginBottom="15px"
 > */}
         <Text
-          
-         
-          color="blue"
+          // direction="row"
+          bg={"transparent"}
+          color={"gray"}
+          p={2}
+          borderRadius="md"
+          // cursor="pointer"
+          _hover={{ bg: "gray.200" }}
+          // onClick={() => handleClick(law.link, index)}
+
+          // color="blue"
           onClick={itemOnClick}
           cursor={item?.group?.length > 0 ? "default" : "pointer"}
         >
@@ -55,50 +63,50 @@ marginBottom="15px"
         </Text>
 
         <Stack display="flex" flexDirection="column" paddingLeft="10">
-          
           {item?.group?.map((subItem: any, subIndex: number) => {
             const subItemPath = subItem?.path?.replace(/\//g, ""); // Remove the "/" character
             return (
-              
               <Text
-                
+              bg={"transparent"}
+              color={"gray"}
+              p={2}
+              borderRadius="md"
+              // cursor="pointer"
+              _hover={{ bg: "gray.200" }}
+              // onClick={() => handleClick(law.link, index)}
+    
+              // color="blue"
                 key={subIndex}
                 onClick={() => router.push(item?.path + subItem?.path)}
                 cursor="pointer"
-                color="blue"
+            
               >
                 | {capitalizeFirstLetter(subItemPath)}
               </Text>
-              
             );
-            
-
-
           })}
-          
         </Stack>
-  {/* </Box> */}
+        {/* </Box> */}
       </Stack>
     );
   });
   return (
     <ContainerBasic title={title} description={description}>
-
-<Box       
-m={0}
-bg={useColorModeValue("white", "gray.800")}
-boxShadow="2xl"
-padding={"15px"}
-rounded="md"
-overflow="hidden"
-maxWidth="95%"
-borderRadius="18px"
-marginBottom="15px"
->
-      <Stack display="flex" flexDirection="column">
-        {map}
-      </Stack>
-
+      <Box
+        m={0}
+        bg={useColorModeValue("white", "gray.800")}
+        boxShadow="2xl"
+        padding={"15px"}
+        rounded="md"
+        overflow="hidden"
+        maxWidth="100%"
+              
+        borderRadius="18px"
+        marginBottom="15px"
+      >
+        <Stack display="flex" flexDirection="column">
+          {map}
+        </Stack>
       </Box>
     </ContainerBasic>
   );

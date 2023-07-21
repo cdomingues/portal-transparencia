@@ -77,7 +77,8 @@ function Aside() {
         padding={"15px"}
         rounded="md"
         overflow="hidden"
-        maxWidth="95%"
+        maxWidth="100%"
+              
         borderRadius="18px"
         marginBottom="15px"
       >

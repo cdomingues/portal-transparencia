@@ -11,7 +11,7 @@ import {
   barChartConfig,
 } from "../../config/defaultChartConfig";
 
-const ChartBarApex = dynamic(() => import("react-apexcharts"), { ssr: false });
+const ChartBarApex1 = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 interface IMultiAxisChart {
   data: {
@@ -31,9 +31,7 @@ interface IMultiAxisChart {
   title?: string;
   yaxisLabel?: string;
   options?: Partial<ApexOptions>; 
-  names?: string[];  
-  seriesName?: string;  // seriesName é agora opcional
-  chartType?: "line" | "bar";  
+  names?: string[];  // Added the names prop here
 }
 
 export function MultiAxisChart({
@@ -42,9 +40,7 @@ export function MultiAxisChart({
   title,
   yaxisLabel,
   options = {},
-  names = [], 
-  seriesName,  
-  chartType,
+  names = [],  // Added the names prop here
 }: IMultiAxisChart) {
   const formatMoney = (value: number) => {
     return moneyFormat ? moneyFormatter(value) : value.toString();
@@ -54,39 +50,41 @@ export function MultiAxisChart({
     return isMobile ? formatNumber(value) : formatMoney(value);
   };
 
-  const targetSeries = seriesName || (data.datasets.length > 0 ? data.datasets[0].label : "");
-
   type SeriesType = {
     name: string;
     data: number[];
   }[];
 
-  const series: SeriesType = data.datasets
-    .filter((dataset) => dataset.label === targetSeries)
-    .map((dataset) => {
-      const config = chartType === "line" ? lineChartConfig : barChartConfig;
+  const series: SeriesType = data.datasets.map((dataset, index) => {
+    const config = dataset.type === "line" ? lineChartConfig : barChartConfig;
 
-      const returnValue = {
-        name: dataset.label,
-        data: dataset.data,
-        borderWidth: dataset.borderWidth,
-        ...config,
-      };
+    let name;
+    if (index < names.length) {
+      name = names[index];  // Use the provided name if it exists
+    } else if (index === 0) {
+      name = "Valor Mensal";
+    } else if (index === 1) {
+      name = "Valor Acumulado";
+    } else {
+      name = dataset.yAxisID;
+    }
 
-      console.log(returnValue);
+    const returnValue = {
+      name: name,
+      data: dataset.data,
+      borderWidth: dataset.borderWidth,
+      ...config,
+    };
 
-      return returnValue;
-    });
+    console.log(returnValue);
 
-  
-  
-  
+    return returnValue;
+  });
 
   const defaultOptions: ApexOptions = {
     chart: {
       width: "100%",
       height: 380,
-      background: "transparent",
       animations: {
         enabled: true,
         easing: "easeinout",
@@ -111,10 +109,20 @@ export function MultiAxisChart({
     },
     yaxis: [
       {
-        opposite: false,
-        min: 0,
+        opposite: true,
         title: {
           text: "Valor Acumulado (R$ milhões)",
+        },
+        labels: {
+          formatter: function (val: number) {
+            return (val / 1000000).toFixed(0);
+          }},
+        floating: false,
+        decimalsInFloat: 2,
+      },
+      {
+        title: {
+          text: "Valor Mensal (R$ milhões)",
         },
         labels: {
           formatter: function (val: number) {
@@ -154,7 +162,7 @@ export function MultiAxisChart({
     <Box
       m={0}
       bg={useColorModeValue("white", "gray.800")}
-    
+      boxShadow="2xl"
       padding={"15px"}
       rounded="md"
       overflow="hidden"
@@ -163,7 +171,7 @@ export function MultiAxisChart({
       marginBottom="15px"
     >
       <div id="chart">
-        <ChartBarApex series={series} options={mergedOptions} />
+        <ChartBarApex1 series={series} options={mergedOptions} />
       </div>
     </Box>
   );
