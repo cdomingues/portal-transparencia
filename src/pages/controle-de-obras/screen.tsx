@@ -57,7 +57,7 @@ type PropsInput = {
 };
 
 export const contentInitial = {
-  titlePage: "Ciclo Orçamentário",
+  titlePage: "Portal de Obras",
   description:
     "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.",
 };

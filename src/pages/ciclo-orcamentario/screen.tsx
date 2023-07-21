@@ -136,7 +136,8 @@ function HomeScreen({ handler }: PropsInput) {
         flex={width > 1024 ? 2 : 2}
         style={{
           paddingLeft: isMobile ? 0 : "0%",
-          paddingRight: isMobile ? 0 : "1%",
+          paddingRight: isMobile ? 0 : "0%",
+              
         }}
       >
         <Box

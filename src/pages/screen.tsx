@@ -656,6 +656,7 @@ import { useFontSizeAccessibilityContext } from "../context/fontSizeAccessibilit
 import noticias from "../../data/noticias.json";
 import DisplayNews from "../components/NewsHome";
 import ContainerBasic from "../components/Container/Basic";
+import { ChartComponentLine } from "../components/ChartLineApex";
 
 type PropsInput = {
   handler: {
@@ -805,10 +806,10 @@ function HomeScreen({ handler }: PropsInput) {
   const title = contentInitial?.title;
   const description = contentInitial?.description;
 
-  const chartOptions = {
+  const chartOptions1 = {
 
     chart: {
-      width: "100%",
+      width: 'auto',
     },
     plotOptions: {
       bar: {
@@ -876,7 +877,7 @@ function HomeScreen({ handler }: PropsInput) {
         // flex={width > 1024 ? 2 : 2}
         style={{
           paddingLeft: isMobile ? 0 : "0%",
-          paddingRight: isMobile ? 0 : "1%",
+          paddingRight: isMobile ? 0 : "0%",
         }}
       >
         <Head>
@@ -1069,12 +1070,25 @@ function HomeScreen({ handler }: PropsInput) {
                 labels: graphConfig?.labels,
                 datasets: graphConfig?.datasets,
               }}
-              chartOptions={chartOptions}
+              chartOptions={chartOptions1}
               dataMapper={(value) => value / 1000000}
               title={chartTitle}
               yaxisLabel={"R$ (milhões)"}
             />
           </div>
+          <div id="chart">
+            <ChartComponentLine
+              data={{
+                labels: graphConfig?.labels,
+                datasets: graphConfig?.datasets,
+              }}
+              chartOptions={chartOptions1}
+              dataMapper={(value) => value / 1000000}
+              title={chartTitle}
+              yaxisLabel={"R$ (milhões)"}
+            />
+          </div>
+
         </Box>
 
         <Divider  />

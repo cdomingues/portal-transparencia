@@ -134,12 +134,12 @@ import { ApexOptions } from "apexcharts";
 import dynamic from "next/dynamic";
 
 import {
-  lineChartConfig,
-  barChartConfig,
+  lineChartConfig2,
+  barChartConfig2,
 } from "../../config/defaultChartConfig";
 import { Box, Divider, Flex } from "@chakra-ui/react";
 
-const ChartBarApex = dynamic(() => import("react-apexcharts"), { ssr: false });
+const ChartLineApex = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 interface IChart {
   data: {
@@ -167,7 +167,7 @@ type TData = {
   }[];
 };
 
-export function ChartComponent({
+export function ChartComponentLine({
   data: dataProps,
   moneyFormat,
   chartOptions,
@@ -188,40 +188,26 @@ export function ChartComponent({
     labels,
     datasets: [
       {
-        ...barChartConfig,
+        ...lineChartConfig2,
         label: "Arrecadações Acumuladas",
         data: roundedDatasets[0],
-        yAxisID: "y",
-        type: "bar",
+        yAxisID: "y1",
+        type: "line",
       },
 
       {
-        ...barChartConfig,
+        ...lineChartConfig2,
         label: "Despesas Acumuladas",
         data: roundedDatasets[1],
-        yAxisID: "y",
-        type: "bar",
-      },
-
-      {
-        ...lineChartConfig,
-        label: "Arrecadações",
-        data: roundedDatasets[2],
-        yAxisID: "y",
+        yAxisID: "y1",
         type: "line",
       },
 
-      {
-        ...lineChartConfig,
-        label: "Despesas",
-        data: roundedDatasets[3],
-        yAxisID: "y",
-        type: "line",
-      },
+
     ],
   };
 
-  const chartTypes = ["line", "line", "bar", "bar"];
+  const chartTypes = ["line", "line"];
 
   const series1 = data.datasets.slice(0, 2).map((dataset, index) => {
     const type = chartTypes[index];
@@ -237,21 +223,9 @@ export function ChartComponent({
     };
   });
 
-  const series2 = data.datasets.slice(2).map((dataset, index) => {
-    const type = chartTypes[index + 2];
-    const data = dataset.data;
+  
 
-    return {
-      name: dataset.label,
-      data: data,
-      type: type,
-      backgroundColor: dataset.backgroundColor,
-      borderColor: dataset.borderColor,
-      borderWidth: dataset.borderWidth,
-    };
-  });
-
-  const options: ApexOptions = {
+  const options1: ApexOptions = {
     chart: {
       width: "auto",
       height: 380,
@@ -297,27 +271,11 @@ export function ChartComponent({
     },
   };
 
-  const options1: ApexOptions = {
-    stroke: {
-      curve: ["smooth", "straight", "stepline"],
-    },
-    yaxis: {
-      show: true,
-      showAlways: false,
-      title: {
-        text: yaxisLabel || "Default Label",
-      },
-      labels: {
-        formatter: function (val, index) {
-          return val.toFixed(2);
-        },
-      },
-    },
-  };
+  
 
   return (
     <div>
-      <ChartBarApex series={series2} options={options} width={'100%'} height={380}/>
+      <ChartLineApex series={series1} options={options1} width={'100%'} height={380} />
 
     </div>
   );

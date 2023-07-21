@@ -71,6 +71,7 @@ function Screen({
             <MultiAxisChart
               moneyFormat
               data={chart}
+              chartType='line'
             />
           )}
         </GraphWrapper>
@@ -80,7 +81,7 @@ function Screen({
           </Heading>
           {chartYear?.datasets?.length > 0 && (
             <Chart
-              type="bar"
+              type="line"
               
               data={chartYear}
               style={{ maxHeight: "330px" }}
