@@ -1,14 +1,16 @@
-import { Flex, Box, Image, useColorModeValue, Text, Textarea, useMediaQuery, Center, Square, Stack } from "@chakra-ui/react";
+import { Flex, Box, useColorModeValue, Text, Center, Square, Stack } from "@chakra-ui/react";
 import { IconRight } from "react-day-picker";
 import { isMobile } from "react-device-detect";
 import { BiBell } from "react-icons/bi";
+import Image from 'next/image';
+
+import Diretriz_orcamentaria from "../../assets/images/icones/diretriz_orcamentaria.svg"
 
 interface CardHorizonProps {
   title: string;
   imageURL: string;
   description: string;
   link: string;
-  icon: React.ReactNode;
   backgroundColor: string;
 }
 
@@ -17,7 +19,6 @@ const CardHorizon: React.FC<CardHorizonProps> = ({
   imageURL,
   description,
   link,
-  icon,
   backgroundColor,
 }) => {
   return (
@@ -29,7 +30,7 @@ const CardHorizon: React.FC<CardHorizonProps> = ({
       padding={"15px"}
       rounded="md"
       overflow="hidden"
-      width="350px"
+      width="320px"
       height="85px"
       borderRadius="18px"
       marginBottom="15px"
@@ -43,7 +44,7 @@ const CardHorizon: React.FC<CardHorizonProps> = ({
             justifyContent: "center",
             alignItems: "center",
         }}>
-          {icon}
+         <Image src={imageURL} alt="icone" width={40} height={40}/>
         </Center>
         <Square maxWidth={'70%'}>
           <Text paddingLeft={5} color={useColorModeValue("black", "white")}>{title}</Text>
@@ -55,11 +56,10 @@ const CardHorizon: React.FC<CardHorizonProps> = ({
 
 CardHorizon.defaultProps = {
   title: "Default Title",
-  imageURL: "https://default-url.com",
+  imageURL: Diretriz_orcamentaria, // Use the imported SVG as the default image
   description: "Default Description",
   link: "#",
-  icon: <BiBell style={{ fontSize: "30px", color: "white" }} />,
-  backgroundColor: "blue"
+  backgroundColor: "transparent"
 }
 
 export default CardHorizon;

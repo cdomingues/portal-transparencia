@@ -268,27 +268,19 @@ function HomeScreen({ handler }: PropsInput) {
                 <Box padding="6" bg="transparent" flexDirection="row">
                   <CardHorizon
                     title="What Work Cities - Silver 2023"
-                    imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
+                    imageURL=""
                     description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                     link="./relatorio-gestao-fiscal"
-                    icon={
-                      <BiBell style={{ fontSize: "35px", color: "white" }} />
-                    }
-                    backgroundColor="blue"
-                  />
+                backgroundColor="transparent"/>
                 </Box>
 
                 <Box padding="6" bg="transparent" flexDirection="row">
                   <CardHorizon
                     title="Plano Plurianual do Ano de 2023 de Mogi das Cruzes"
-                    imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
+                    imageURL=""
                     description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                     link="URL do link"
-                    icon={
-                      <BiBell style={{ fontSize: "35px", color: "white" }} />
-                    }
-                    backgroundColor="blue"
-                  />
+                backgroundColor="transparent"/>
                 </Box>
               </Stack>
               <Stack
@@ -299,27 +291,19 @@ function HomeScreen({ handler }: PropsInput) {
                 <Box padding="6" bg="transparent" flexDirection="row">
                   <CardHorizon
                     title="Plano Plurianual do Ano de 2023 de Mogi das Cruzes"
-                    imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
+                    imageURL=""
                     description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                     link="URL do link"
-                    icon={
-                      <BiBell style={{ fontSize: "35px", color: "white" }} />
-                    }
-                    backgroundColor="blue"
-                  />
+                backgroundColor="transparent"/>
                 </Box>
 
                 <Box padding="6" bg="transparent" flexDirection="row">
                   <CardHorizon
                     title="Plano Plurianual do Ano de 2023 de Mogi das Cruzes"
-                    imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
+                    imageURL=""
                     description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                     link="URL do link"
-                    icon={
-                      <BiBell style={{ fontSize: "35px", color: "white" }} />
-                    }
-                    backgroundColor="blue"
-                  />
+                backgroundColor="transparent"/>
                 </Box>
               </Stack>
             </Stat>

@@ -41,6 +41,13 @@ import noticias from "../../../data/noticias.json";
 //import News from "../../components/News";
 //import News from "../components/News";
 import DisplayNews from "../../components/NewsHome";
+import diretriz_orcamentaria from "../../assets/images/icones/diretriz_orcamentaria.svg"
+import balanco_anual from "../../assets/images/icones/balanco_anual.svg"
+import lei_orcamentaria from "../../assets/images/icones/lei_orcamentaria_anual.svg"
+import parecer_tribunal from "../../assets/images/icones/parecer_tribunal.svg"
+import plano_plurianual from "../../assets/images/icones/plano_plurianual.svg"
+import relatorio_gestao_fiscal from "../../assets/images/icones/relatorio_gestao_fiscal.svg"
+import relatorio_resumido from "../../assets/images/icones/relatorio_resumido.svg"
 
 type PropsInput = {
   handler: {
@@ -198,27 +205,19 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Balanço Anual"
-                      imageURL="./balancos-anuais"
+                      imageURL={balanco_anual}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                       link="ciclo-orcamentario/balancos-anuais"
-                     icon={
-                      <BiBell style={{ fontSize: "35px", color: "white" }} />
-                    }
-                    backgroundColor="blue"
-                  />
+                 backgroundColor="transparent"/>
                   </Box>
 
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Diretriz Orçamentária"
-                      imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
+                      imageURL={diretriz_orcamentaria}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                       link="ciclo-orcamentario/diretrizes-orcamentarias"
-                  icon={
-                      <BiBell style={{ fontSize: "35px", color: "white" }} />
-                    }
-                    backgroundColor="blue"
-                  />
+              backgroundColor="transparent"/>
                   </Box>
                 </Stack>
                 <Stack
@@ -229,27 +228,19 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Lei Orçamentaria Anual"
-                      imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
+                      imageURL={lei_orcamentaria}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                       link="ciclo-orcamentario/lei-orcamentaria-anual"
-                     icon={
-                      <BiBell style={{ fontSize: "35px", color: "white" }} />
-                    }
-                    backgroundColor="blue"
-                  />
+                 backgroundColor="transparent"/>
                   </Box>
 
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Parecer do Tribunal de Contas"
-                      imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
+                      imageURL={parecer_tribunal}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                       link="URL do link"
-                     icon={
-                      <BiBell style={{ fontSize: "35px", color: "white" }} />
-                    }
-                    backgroundColor="blue"
-                  />
+                 backgroundColor="transparent"/>
                   </Box>
                 </Stack>
                 <Stack
@@ -260,27 +251,19 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Plano Plurianual"
-                      imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
+                      imageURL={plano_plurianual}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                       link="URL do link"
-                     icon={
-                      <BiBell style={{ fontSize: "35px", color: "white" }} />
-                    }
-                    backgroundColor="blue"
-                  />
+                 backgroundColor="transparent"/>
                   </Box>
 
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Relatorio de Gestão Fiscal"
-                      imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
+                      imageURL={relatorio_gestao_fiscal}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                       link="URL do link"
-                     icon={
-                      <BiBell style={{ fontSize: "35px", color: "white" }} />
-                    }
-                    backgroundColor="blue"
-                  />
+                 backgroundColor="transparent"/>
                   </Box>
                   
                 </Stack>
@@ -292,14 +275,10 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Relatório Resumido"
-                      imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
+                      imageURL={relatorio_resumido}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                       link="URL do link"
-                     icon={
-                      <BiBell style={{ fontSize: "35px", color: "white" }} />
-                    }
-                    backgroundColor="blue"
-                  />
+                 backgroundColor="transparent"/>
                   </Box>
                 </Stack>
               </Stat>
