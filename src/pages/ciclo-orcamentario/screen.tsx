@@ -83,7 +83,7 @@ function Aside() {
         padding={"15px"}
         rounded="md"
         overflow="hidden"
-        maxWidth="100%"
+        maxWidth={isMobile? "95%": "100%"}
               
         borderRadius="18px"
         marginBottom="15px"
