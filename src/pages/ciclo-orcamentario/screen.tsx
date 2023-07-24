@@ -239,7 +239,7 @@ function HomeScreen({ handler }: PropsInput) {
                       title="Parecer do Tribunal de Contas"
                       imageURL={parecer_tribunal}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="URL do link"
+                      link="ciclo-orcamentario/pareceres-do-tribunal"
                  backgroundColor="transparent"/>
                   </Box>
                 </Stack>
@@ -253,7 +253,7 @@ function HomeScreen({ handler }: PropsInput) {
                       title="Plano Plurianual"
                       imageURL={plano_plurianual}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="URL do link"
+                      link="ciclo-orcamentario/plurianual"
                  backgroundColor="transparent"/>
                   </Box>
 
@@ -262,7 +262,7 @@ function HomeScreen({ handler }: PropsInput) {
                       title="Relatorio de Gestão Fiscal"
                       imageURL={relatorio_gestao_fiscal}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="URL do link"
+                      link="ciclo-orcamentario/relatorio-gestao-fiscal"
                  backgroundColor="transparent"/>
                   </Box>
                   
@@ -277,7 +277,7 @@ function HomeScreen({ handler }: PropsInput) {
                       title="Relatório Resumido"
                       imageURL={relatorio_resumido}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="URL do link"
+                      link="ciclo-orcamentario/relatorio-resumido"
                  backgroundColor="transparent"/>
                   </Box>
                 </Stack>
