@@ -27,7 +27,7 @@ import { isMobile } from "react-device-detect";
 import { Chart } from "../../components/HomeChart";
 import { Chart2 } from "../../components/HomeChart2";
 import { ChartContainer } from "../../utils/styles";
-import { BiBody, BiCheckShield, BiFoodMenu, BiHeart } from "react-icons/bi";
+import { BiBell, BiBody, BiCheckShield, BiFoodMenu, BiHeart } from "react-icons/bi";
 import useWindowDimensions from "../../utils/getWindowSize";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
 import noticias from '../../../data/noticias.json'
@@ -210,8 +210,11 @@ marginBottom="15px"
         imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
         description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
         link="URL do link"
-        icon='BiBell'
-      />
+     icon={
+                      <BiBell style={{ fontSize: "35px", color: "white" }} />
+                    }
+                    backgroundColor="blue"
+                  />
 
 
                   </Box>
@@ -222,8 +225,11 @@ marginBottom="15px"
         imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
         description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
         link="URL do link"
-        icon="BiBall"
-      />
+        icon={
+                      <BiBell style={{ fontSize: "35px", color: "white" }} />
+                    }
+                    backgroundColor="blue"
+                  />
 
 
                   </Box>
@@ -240,8 +246,11 @@ marginBottom="15px"
         imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
         description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
         link="URL do link"
-        icon="BiFlag"
-      />
+         icon={
+                      <BiBell style={{ fontSize: "35px", color: "white" }} />
+                    }
+                    backgroundColor="blue"
+                  />
 
 
                   </Box>
@@ -252,8 +261,11 @@ marginBottom="15px"
         imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
         description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
         link="URL do link"
-        icon="BiFlag"
-      />
+           icon={
+                      <BiBell style={{ fontSize: "35px", color: "white" }} />
+                    }
+                    backgroundColor="blue"
+                  />
 
 
                   </Box>

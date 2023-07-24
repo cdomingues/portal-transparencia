@@ -201,8 +201,11 @@ function HomeScreen({ handler }: PropsInput) {
                       imageURL="./balancos-anuais"
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                       link="ciclo-orcamentario/balancos-anuais"
-                      icon="BiFlag"
-                    />
+                     icon={
+                      <BiBell style={{ fontSize: "35px", color: "white" }} />
+                    }
+                    backgroundColor="blue"
+                  />
                   </Box>
 
                   <Box padding="6" bg="transparent" flexDirection="row">
@@ -211,8 +214,11 @@ function HomeScreen({ handler }: PropsInput) {
                       imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                       link="ciclo-orcamentario/diretrizes-orcamentarias"
-                      icon="BiBell"
-                    />
+                  icon={
+                      <BiBell style={{ fontSize: "35px", color: "white" }} />
+                    }
+                    backgroundColor="blue"
+                  />
                   </Box>
                 </Stack>
                 <Stack
@@ -226,8 +232,11 @@ function HomeScreen({ handler }: PropsInput) {
                       imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                       link="ciclo-orcamentario/lei-orcamentaria-anual"
-                      icon="BiFlag"
-                    />
+                     icon={
+                      <BiBell style={{ fontSize: "35px", color: "white" }} />
+                    }
+                    backgroundColor="blue"
+                  />
                   </Box>
 
                   <Box padding="6" bg="transparent" flexDirection="row">
@@ -236,8 +245,11 @@ function HomeScreen({ handler }: PropsInput) {
                       imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                       link="URL do link"
-                      icon="BiFlag"
-                    />
+                     icon={
+                      <BiBell style={{ fontSize: "35px", color: "white" }} />
+                    }
+                    backgroundColor="blue"
+                  />
                   </Box>
                 </Stack>
                 <Stack
@@ -251,8 +263,11 @@ function HomeScreen({ handler }: PropsInput) {
                       imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                       link="URL do link"
-                      icon="BiFlag"
-                    />
+                     icon={
+                      <BiBell style={{ fontSize: "35px", color: "white" }} />
+                    }
+                    backgroundColor="blue"
+                  />
                   </Box>
 
                   <Box padding="6" bg="transparent" flexDirection="row">
@@ -261,8 +276,11 @@ function HomeScreen({ handler }: PropsInput) {
                       imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                       link="URL do link"
-                      icon="BiFlag"
-                    />
+                     icon={
+                      <BiBell style={{ fontSize: "35px", color: "white" }} />
+                    }
+                    backgroundColor="blue"
+                  />
                   </Box>
                   
                 </Stack>
@@ -277,8 +295,11 @@ function HomeScreen({ handler }: PropsInput) {
                       imageURL="https://thenounproject.com/api/private/icons/2356257/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                       link="URL do link"
-                      icon="BiFlag"
-                    />
+                     icon={
+                      <BiBell style={{ fontSize: "35px", color: "white" }} />
+                    }
+                    backgroundColor="blue"
+                  />
                   </Box>
                 </Stack>
               </Stat>
