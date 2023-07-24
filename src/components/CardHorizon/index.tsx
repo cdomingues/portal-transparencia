@@ -33,7 +33,7 @@ const CardHorizon: React.FC<CardHorizonProps> = ({
       width="320px"
       height="85px"
       borderRadius="18px"
-      marginBottom="15px"
+      marginBottom={isMobile?"0px": "15px"} 
       >
         <Center width={'30%'}   style={{
             height: 60,
