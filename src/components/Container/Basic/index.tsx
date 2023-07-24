@@ -236,7 +236,7 @@ function Aside() {
             />
           );
         })}
-        <div style={{ padding: "0px", width: "100%" }}></div>
+        <div style={{ padding: "0px", width: "95%" }}></div>
       </Box>
     </div>
   );
