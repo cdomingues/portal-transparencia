@@ -192,23 +192,21 @@ marginBottom="15px"
                 justifyContent={isMobile ? "flex-start" : "center"}
               >
                   <Box padding="6" bg="transparent" flexDirection="row">
-                  <CardHorizon
-        title="Plano Plurianual do Ano de 2023 de Mogi das Cruzes"
-        imageURL=""
-        description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-        link="./relatorio-gestao-fiscal"
-   backgroundColor="transparent"/>
-
-
-                  </Box>
-
+                   <CardHorizon
+                      title="Relatorio de Gestão Fiscal"
+                      imageURL={relatorio_gestao_fiscal}
+                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
+                      link="ciclo-orcamentario/relatorio-gestao-fiscal"
+                 backgroundColor="transparent"/>
+                                    </Box>
+                 
                   <Box padding="6" bg="transparent" flexDirection="row">
-                  <CardHorizon
-        title="Plano Plurianual do Ano de 2023 de Mogi das Cruzes"
-        imageURL=""
-        description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-        link="URL do link"
-   backgroundColor="transparent"/>
+                    <CardHorizon
+                      title="Relatório Resumido"
+                      imageURL={relatorio_resumido}
+                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
+                      link="ciclo-orcamentario/relatorio-resumido"
+                 backgroundColor="transparent"/>
 
 
                   </Box>
