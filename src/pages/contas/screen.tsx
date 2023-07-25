@@ -34,6 +34,7 @@ import noticias from '../../../data/noticias.json'
 //import News from "../../components/News";
 //import News from "../components/News";
 import DisplayNews from "../../components/NewsHome";
+import ContainerBasic from "../../components/Container/Basic";
 
 
 type PropsInput = {
