@@ -48,6 +48,7 @@ import parecer_tribunal from "../../assets/images/icones/parecer_tribunal.svg"
 import plano_plurianual from "../../assets/images/icones/plano_plurianual.svg"
 import relatorio_gestao_fiscal from "../../assets/images/icones/relatorio_gestao_fiscal.svg"
 import relatorio_resumido from "../../assets/images/icones/relatorio_resumido.svg"
+import ContainerBasic from "../../components/Container/Basic";
 
 type PropsInput = {
   handler: {
@@ -73,43 +74,43 @@ export const contentInitial = {
     "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.",
 };
 
-function Aside() {
-  return (
-    <div style={{ width: "380px", justifyContent: "left" }}>
-      <Box
-        m={0}
-        bg={useColorModeValue("white", "gray.800")}
-        boxShadow="2xl"
-        padding={"15px"}
-        rounded="md"
-        overflow="hidden"
-        maxWidth={isMobile? "95%": "100%"}
+// function Aside() {
+//   return (
+//     <div style={{ width: "380px", justifyContent: "left" }}>
+//       <Box
+//         m={0}
+//         bg={useColorModeValue("white", "gray.800")}
+//         boxShadow="2xl"
+//         padding={"15px"}
+//         rounded="md"
+//         overflow="hidden"
+//         maxWidth={isMobile? "95%": "100%"}
               
-        borderRadius="18px"
-        marginBottom="15px"
-      >
-        <div style={{ padding: "10px" }}>
-          <Text fontWeight="500" color={"gray.500"}>
-            Últimas Noticias
-          </Text>
-        </div>
-        {noticias.slice(0, 2).map((info) => {
-          return (
-            <DisplayNews
-              key={info.descricao}
-              data_noticia={info.data_noticia}
-              descricao={info.descricao}
-              foto={info.foto}
-              titulo={info.titulo}
-              link={info.link}
-            />
-          );
-        })}
-        <div style={{ padding: "0px", width: "100%" }}></div>
-      </Box>
-    </div>
-  );
-}
+//         borderRadius="18px"
+//         marginBottom="15px"
+//       >
+//         <div style={{ padding: "10px" }}>
+//           <Text fontWeight="500" color={"gray.500"}>
+//             Últimas Noticias
+//           </Text>
+//         </div>
+//         {noticias.slice(0, 2).map((info) => {
+//           return (
+//             <DisplayNews
+//               key={info.descricao}
+//               data_noticia={info.data_noticia}
+//               descricao={info.descricao}
+//               foto={info.foto}
+//               titulo={info.titulo}
+//               link={info.link}
+//             />
+//           );
+//         })}
+//         <div style={{ padding: "0px", width: "100%" }}></div>
+//       </Box>
+//     </div>
+//   );
+// }
 
 function HomeScreen({ handler }: PropsInput) {
   const {
@@ -135,42 +136,17 @@ function HomeScreen({ handler }: PropsInput) {
   const { height, width } = useWindowDimensions();
 
   return (
+
+    <ContainerBasic  title={titlePage} description={description}>
+
     <Stack
-      direction={isMobile ? "column" : "row"}
-      style={{ width: "100%", height: "100%" }}
-    >
-      <Stack
-        flex={width > 1024 ? 2 : 2}
-        style={{
+ style={{
           paddingLeft: isMobile ? 0 : "0%",
           paddingRight: isMobile ? 0 : "0%",
               
         }}
       >
-        <Box
-          m={0}
-          bg={useColorModeValue("white", "gray.800")}
-          boxShadow="2xl"
-          padding={"15px"}
-          rounded="md"
-          overflow="hidden"
-          maxWidth="100%"
-          borderRadius="18px"
-          marginBottom="15px"
-        >
-          <Stack spacing={4}>
-            <Heading fontSize={accessibility?.fonts?.highLarge}>
-              {titlePage}
-            </Heading>
-            <Text
-              color={"gray.500"}
-              fontSize={accessibility?.fonts?.regular}
-              textAlign={"justify"}
-            >
-              {description}
-            </Text>
-          </Stack>
-        </Box>
+        
 
         {/* <Divider mb="6%" /> */}
 
@@ -285,11 +261,10 @@ function HomeScreen({ handler }: PropsInput) {
             </StatGroup>
           </Stack>
         </Box>
-      </Stack>
-      <Stack flex={width > 1024 ? 1 : 2}>
-        <Aside />
-      </Stack>
-    </Stack>
+</Stack>
+        </ContainerBasic>
+
+  
   );
 }
 
