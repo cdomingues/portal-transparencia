@@ -165,7 +165,6 @@ function NavItem({
 
   if (group.length > 0) {
     return (
-      
       <Menu>
         <Flex width="100%" borderRadius="lg" role="group" cursor="pointer">
           <Accordion borderColor="transparent" width="100%" allowToggle>
@@ -177,40 +176,32 @@ function NavItem({
                   color: "primary",
                 }}
                 fontWeight="500"
-                
               >
-                                       <Link
-      href={link || path}
-      target={link ? "_blank" : "_self"}
-    >   
-                <Box
-                
-                  flex="1"
-                  fontSize={accessibility?.fonts?.semiMedium}
-                  textAlign="left"
-                  paddingRight={'10px'} 
-                  minWidth={'180px'}
-                >
+                <Link href={link || path} target={link ? "_blank" : "_self"}>
+                  <Box
+                    flex="1"
+                    fontSize={accessibility?.fonts?.semiMedium}
+                    textAlign="left"
+                    paddingRight={"10px"}
+                    minWidth={"180px"}
+                  >
+                    {icon && (
+                      <Icon
+                        mr="4"
+                        color="primary"
+                        fontSize="18"
+                        _groupHover={{
+                          color: "primary",
+                        }}
+                        as={icon}
+                      />
+                    )}
 
-                  {icon && (
-                    <Icon
-                      mr="4"
-                      color="primary"
-                      fontSize="18"
-                      _groupHover={{
-                        color: "primary",
-                      }}
-                      as={icon}
-                    />
-                  )}
-                  
-                  {children}
-                </Box>
-                
+                    {children}
+                  </Box>
                 </Link>
 
-                <AccordionIcon textAlign="right" onClick={handleClick}/>
-
+                <AccordionIcon textAlign="right" onClick={handleClick} />
               </AccordionButton>
               <AccordionPanel pb={4} background="#f2f2f2">
                 {expanded &&
@@ -259,7 +250,6 @@ function NavItem({
           </Accordion>
         </Flex>
       </Menu>
-     
     );
   }
 
@@ -492,6 +482,7 @@ function MobileNav({ onOpen, ...rest }: MobileProps) {
       </Text>
 
       <Button
+        size="sm"
         display={["flex", "flex", "none"]}
         flexDirection="row"
         alignItems="center"
@@ -509,6 +500,7 @@ function MobileNav({ onOpen, ...rest }: MobileProps) {
       </Button>
 
       <Button
+        size="sm"
         display={["flex", "flex", "none"]}
         flexDirection="row"
         alignItems="center"
@@ -529,6 +521,7 @@ function MobileNav({ onOpen, ...rest }: MobileProps) {
         )}
       </Button>
       <Button
+        size="sm"
         onClick={toggleColorMode}
         p={0}
         display={["flex", "flex", "none"]}
