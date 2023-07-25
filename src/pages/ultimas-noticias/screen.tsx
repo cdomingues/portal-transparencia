@@ -214,7 +214,7 @@ function Screen(PropsInput: any) {
       type="search"
     /> 
 
-      <Box display="flex" alignContent="center" flexDirection={isMobile ?  "row" : "column"}>
+      <Box display="flex" alignContent="center" flexDirection={isMobile ?  "column" : "column"}>
       {
             filteredItems.map((info)=>{
              return( 
