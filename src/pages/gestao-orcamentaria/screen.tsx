@@ -142,37 +142,15 @@ function HomeScreen({ handler }: PropsInput) {
 
   return (
     
+     <ContainerBasic  title={titlePage} description={description}>
+
     <Stack
-      direction={isMobile ? "column" : "row"}
-      style={{ width: "100%", height: "100%" }}
-    >
-      <Stack
-        flex={width > 1024 ? 2 : 2}
-        style={{ paddingLeft: isMobile ? 0 : "0%", paddingRight: isMobile ? 0 : "1%" }}
+ style={{
+          paddingLeft: isMobile ? 0 : "0%",
+          paddingRight: isMobile ? 0 : "0%",
+              
+        }}
       >
-
-<Box
-
-m={0}
-bg={useColorModeValue("white", "gray.800")}
-boxShadow="2xl"
-padding={"15px"}
-rounded="md"
-overflow="hidden"
-maxWidth="100%"
-borderRadius="18px"
-marginBottom="15px"
->
-        <Stack spacing={4}>
-          <Heading fontSize={accessibility?.fonts?.highLarge}>
-            {titlePage}
-          </Heading>
-          <Text color={"gray.500"} fontSize={accessibility?.fonts?.regular} textAlign={'justify'}>
-            {description}
-          </Text>
-
-        </Stack>
-        </Box>
 
         {/* <Divider mb="6%" /> */}
 
@@ -266,11 +244,10 @@ marginBottom="15px"
 
 
 
-      </Stack>
-      <Stack flex={width > 1024 ? 1 : 2}>
-      <Aside />
-      </Stack>
-    </Stack>
+</Stack>
+        </ContainerBasic>
+
+  
   );
 }
 
