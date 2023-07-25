@@ -482,6 +482,7 @@ function MobileNav({ onOpen, ...rest }: MobileProps) {
       </Text>
 
       <Button
+      paddingLeft="2px"
         size="sm"
         display={["flex", "flex", "none"]}
         flexDirection="row"
@@ -500,6 +501,7 @@ function MobileNav({ onOpen, ...rest }: MobileProps) {
       </Button>
 
       <Button
+      paddingLeft="2px"
         size="sm"
         display={["flex", "flex", "none"]}
         flexDirection="row"
@@ -521,6 +523,7 @@ function MobileNav({ onOpen, ...rest }: MobileProps) {
         )}
       </Button>
       <Button
+      paddingLeft="2px"
         size="sm"
         onClick={toggleColorMode}
         p={0}
