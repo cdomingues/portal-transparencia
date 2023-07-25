@@ -225,7 +225,7 @@ const DesktopNav = ({
       </Stack>
 
       <Button
-        
+        size="xs"
         display="flex"
         flexDirection="row"
         alignItems="center"
@@ -243,6 +243,7 @@ const DesktopNav = ({
       </Button>
 
       <Button
+        size="xs"
         display="flex"
         flexDirection="row"
         alignItems="center"
@@ -262,7 +263,7 @@ const DesktopNav = ({
           <BsDashCircleFill size="16px" />
         )}
       </Button>
-      <Button onClick={toggleColorMode} p={0}>
+      <Button size="xs" onClick={toggleColorMode} p={0}>
         {colorMode === "dark" ? (
           <BsSunFill size="20px" />
         ) : (
