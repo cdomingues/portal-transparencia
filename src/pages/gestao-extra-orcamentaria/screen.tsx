@@ -192,57 +192,26 @@ marginBottom="15px"
               >
                   <Box padding="6" bg="transparent" flexDirection="row">
                    <CardHorizon
-                      title="Relatorio de Gestão Fiscal"
+                      title="Despesas Extraorçamentárias"
                       imageURL={relatorio_gestao_fiscal}
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/relatorio-gestao-fiscal"
+                      description="Aqui você pode acompanhar as informações sobre as despesas que não integram o orçamento da Prefeitura, apenas transitam pelo poder público."
+                      link="gestao-extra-orcamentaria/despesas"
                  backgroundColor="transparent"/>
                                     </Box>
                  
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Relatório Resumido"
+                      title="Receitas Extraorçamentárias"
                       imageURL={relatorio_resumido}
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/relatorio-resumido"
+                      description="Aqui você pode acompanhar as informações sobre as receitas que não figuram no orçamento e, por isso, não são renda do município, apenas transitam pelo poder público."
+                      link="gestao-extra-orcamentaria/receitas"
                  backgroundColor="transparent"/>
 
 
                   </Box>
                
               </Stack>
-              <Stack
-                direction={isMobile ? "column" : "row"}
-                align={isMobile ? "center" : "center"}
-                justifyContent={isMobile ? "flex-start" : "center"}
-              >
-                  <Box padding="6" bg="transparent" flexDirection="row">
-                  <CardHorizon
-                      title="Relatorio de Gestão Fiscal"
-                      imageURL={relatorio_gestao_fiscal}
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/relatorio-gestao-fiscal"
-                 backgroundColor="transparent"/>
-                  </Box>
-                  
-                </Stack>
-                <Stack
-                  direction={isMobile ? "column" : "row"}
-                  align={isMobile ? "center" : "center"}
-                  justifyContent={isMobile ? "flex-start" : "center"}
-                >
-                  <Box padding="6" bg="transparent" flexDirection="row">
-                    <CardHorizon
-                      title="Relatório Resumido"
-                      imageURL={relatorio_resumido}
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/relatorio-resumido"
-                 backgroundColor="transparent"/>
-
-
-                  </Box>
-               
-              </Stack>
+              
             </Stat>
 
           </StatGroup>

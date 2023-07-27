@@ -65,7 +65,7 @@ type PropsInput = {
 };
 
 export const contentInitial = {
-  titlePage: "Ciclo Orçamentário",
+  titlePage: "Agenda Aberta",
   description:
     "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.",
 };
@@ -192,19 +192,19 @@ marginBottom="15px"
               >
                   <Box padding="6" bg="transparent" flexDirection="row">
                    <CardHorizon
-                      title="Relatorio de Gestão Fiscal"
+                      title="Agenda Aberta"
                       imageURL={relatorio_gestao_fiscal}
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/relatorio-gestao-fiscal"
+                      description="Conforme previsto na Lei Municipal 7.653/2021 e no Decreto 21.006/22, todo cidadão pode ter acesso à agenda de compromissos oficiais das autoridades do Executivo de Mogi das Cruzes. Esta é mais uma medida de promoção da integridade no setor público."
+                      link="agenda-aberta/agenda-caio"
                  backgroundColor="transparent"/>
                                     </Box>
                  
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Relatório Resumido"
+                      title="Agenda Aberta"
                       imageURL={relatorio_resumido}
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/relatorio-resumido"
+                      description="Conforme previsto na Lei Municipal 7.653/2021 e no Decreto 21.006/22, todo cidadão pode ter acesso à agenda de compromissos oficiais das autoridades do Executivo de Mogi das Cruzes. Esta é mais uma medida de promoção da integridade no setor público."
+                      link="agenda-aberta/agenda-coprefeita"
                  backgroundColor="transparent"/>
 
 
@@ -218,31 +218,15 @@ marginBottom="15px"
               >
                   <Box padding="6" bg="transparent" flexDirection="row">
                   <CardHorizon
-                      title="Relatorio de Gestão Fiscal"
+                      title="Agenda Aberta"
                       imageURL={relatorio_gestao_fiscal}
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/relatorio-gestao-fiscal"
+                      description="Conforme previsto na Lei Municipal 7.653/2021 e no Decreto 21.006/22, todo cidadão pode ter acesso à agenda de compromissos oficiais das autoridades do Executivo de Mogi das Cruzes. Esta é mais uma medida de promoção da integridade no setor público."
+                      link="agenda-aberta/agenda-prefeito"
                  backgroundColor="transparent"/>
                   </Box>
                   
                 </Stack>
-                <Stack
-                  direction={isMobile ? "column" : "row"}
-                  align={isMobile ? "center" : "center"}
-                  justifyContent={isMobile ? "flex-start" : "center"}
-                >
-                  <Box padding="6" bg="transparent" flexDirection="row">
-                    <CardHorizon
-                      title="Relatório Resumido"
-                      imageURL={relatorio_resumido}
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/relatorio-resumido"
-                 backgroundColor="transparent"/>
-
-
-                  </Box>
-               
-              </Stack>
+                
             </Stat>
 
           </StatGroup>

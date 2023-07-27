@@ -65,7 +65,7 @@ type PropsInput = {
 };
 
 export const contentInitial = {
-  titlePage: "Compras Públicas",
+  titlePage: "Covid",
   description:
     "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.",
 };
@@ -148,6 +148,7 @@ function HomeScreen({ handler }: PropsInput) {
   const { height, width } = useWindowDimensions();
 
   return (
+    
      <ContainerBasic  title={titlePage} description={description}>
 
     <Stack
@@ -192,43 +193,28 @@ marginBottom="15px"
               >
                   <Box padding="6" bg="transparent" flexDirection="row">
                    <CardHorizon
-                      title="Licitações"
+                      title="Despesas COVID-19"
                       imageURL={relatorio_gestao_fiscal}
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="compras-publicas/licitacoes"
+                      description="Dispõe das despesas empenhadas, liquidadas e pagas realizadas pelo órgão público para enfrentamento da emergência de saúde pública de importância internacional decorrente do coronavírus (COVID-19)."
+                      link="covid/despesas"
                  backgroundColor="transparent"/>
                                     </Box>
                  
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Pregão Eletrônico"
+                      title="Receitas COVID-19"
                       imageURL={relatorio_resumido}
-                      description="São disponibilizados no site da Prefeitura os editais de licitação de pregões eletrônicos para aquisição de bens e serviços, para acesso de qualquer interessado."
-                      link="https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/pregao-eletronico"
-                 backgroundColor="transparent"
-                
-                 />
+                      description="Dispõe das receitas recebidas pelo órgão público para enfrentamento da emergência de saúde pública de importância internacional decorrente do coronavírus (COVID-19)."
+                      link="covid/receitas"
+                 backgroundColor="transparent"/>
 
 
                   </Box>
                
               </Stack>
-              <Stack
-                direction={isMobile ? "column" : "row"}
-                align={isMobile ? "center" : "center"}
-                justifyContent={isMobile ? "flex-start" : "center"}
-              >
-                  <Box padding="6" bg="transparent" flexDirection="row">
-                  <CardHorizon
-                      title="Cadastro de Fornecedor"
-                      imageURL={relatorio_gestao_fiscal}
-                      description="A empresa interessada em participar de licitações na modalidade Tomada de Preços ou que pretenda manifestar interesse em licitações ..."
-                      link="https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/cadastro-de-fornecedor"
-                 backgroundColor="transparent"/>
-                  </Box>
-                  
-                </Stack>
+              
                 
+             
             </Stat>
 
           </StatGroup>

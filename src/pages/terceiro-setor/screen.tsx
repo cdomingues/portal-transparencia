@@ -65,7 +65,7 @@ type PropsInput = {
 };
 
 export const contentInitial = {
-  titlePage: "Ciclo Orçamentário",
+  titlePage: "Terceiro Setor",
   description:
     "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.",
 };
@@ -192,19 +192,19 @@ marginBottom="15px"
               >
                   <Box padding="6" bg="transparent" flexDirection="row">
                    <CardHorizon
-                      title="Relatorio de Gestão Fiscal"
+                      title="Contratos de Gestão"
                       imageURL={relatorio_gestao_fiscal}
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/relatorio-gestao-fiscal"
+                      description="Confira aqui os contratos com as organizações do terceiro setor celebrados pela Prefeitura de Mogi das Cruzes."
+                      link="terceiro-setor/contratos-gestao"
                  backgroundColor="transparent"/>
                                     </Box>
                  
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Relatório Resumido"
+                      title="Convênios"
                       imageURL={relatorio_resumido}
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/relatorio-resumido"
+                      description="Confira aqui os contratos com as organizações do terceiro setor celebrados pela Prefeitura de Mogi das Cruzes."
+                      link="terceiro-setor/convenios"
                  backgroundColor="transparent"/>
 
 
@@ -218,31 +218,15 @@ marginBottom="15px"
               >
                   <Box padding="6" bg="transparent" flexDirection="row">
                   <CardHorizon
-                      title="Relatorio de Gestão Fiscal"
+                      title="Repasses"
                       imageURL={relatorio_gestao_fiscal}
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/relatorio-gestao-fiscal"
+                      description="Acompanhe os repasses feitos pela Prefeitura de Mogi das Cruzes às organizações do Terceiro Setor com as quais firmou contratos ou convênios."
+                      link="terceiro-setor/repasses"
                  backgroundColor="transparent"/>
                   </Box>
                   
                 </Stack>
-                <Stack
-                  direction={isMobile ? "column" : "row"}
-                  align={isMobile ? "center" : "center"}
-                  justifyContent={isMobile ? "flex-start" : "center"}
-                >
-                  <Box padding="6" bg="transparent" flexDirection="row">
-                    <CardHorizon
-                      title="Relatório Resumido"
-                      imageURL={relatorio_resumido}
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/relatorio-resumido"
-                 backgroundColor="transparent"/>
-
-
-                  </Box>
-               
-              </Stack>
+                
             </Stat>
 
           </StatGroup>

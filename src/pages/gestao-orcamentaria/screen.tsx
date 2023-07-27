@@ -193,19 +193,19 @@ marginBottom="15px"
               >
                   <Box padding="6" bg="transparent" flexDirection="row">
                    <CardHorizon
-                      title="Relatorio de Gestão Fiscal"
+                      title="Despesas COVID-19"
                       imageURL={relatorio_gestao_fiscal}
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/relatorio-gestao-fiscal"
+                      description="Dispõe das despesas empenhadas, liquidadas e pagas realizadas pelo órgão público para enfrentamento da emergência de saúde pública de importância internacional decorrente do coronavírus (COVID-19)."
+                      link="gestao-orcamentaria/covid/despesas"
                  backgroundColor="transparent"/>
                                     </Box>
                  
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Relatório Resumido"
+                      title="Receitas COVID-19"
                       imageURL={relatorio_resumido}
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/relatorio-resumido"
+                      description="Dispõe das receitas recebidas pelo órgão público para enfrentamento da emergência de saúde pública de importância internacional decorrente do coronavírus (COVID-19)."
+                      link="gestao-orcamentaria/covid/receitas"
                  backgroundColor="transparent"/>
 
 
@@ -219,11 +219,21 @@ marginBottom="15px"
               >
                   <Box padding="6" bg="transparent" flexDirection="row">
                   <CardHorizon
-                      title="Relatorio de Gestão Fiscal"
+                      title="Despesas - Emendas Parlamentares"
                       imageURL={relatorio_gestao_fiscal}
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/relatorio-gestao-fiscal"
+                      description="Confira nesta página as despesas empenhadas, liquidadas e pagas a partir dos recursos obtidos por meio de emendas parlamentares"
+                      link="gestao-orcamentaria/orcamentarias/despesas/despesas-emendas"
                  backgroundColor="transparent"/>
+                  </Box>
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Despesas e Investimentos - Gerais"
+                      imageURL={relatorio_resumido}
+                      description="Para que a cidade possa continuar se desenvolvendo e os serviços possam permanecer funcionando e melhorando, a Prefeitura precisa realizar despesas das mais diversas, assim como investimentos. Aqui você pode conferir as informações das despesas públicas gerais empenhadas, liquidadas e pagas, entendendo os valores direcionados para cada programa."
+                      link="gestao-orcamentaria/orcamentarias/despesas/despesas-gerais"
+                 backgroundColor="transparent"/>
+
+
                   </Box>
                   
                 </Stack>
@@ -234,10 +244,101 @@ marginBottom="15px"
                 >
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Relatório Resumido"
+                      title="Despesas - Multas de Trânsito"
                       imageURL={relatorio_resumido}
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/relatorio-resumido"
+                      description="Confira nesta página as despesas empenhadas, liquidadas e pagas a partir da arrecadação com multas de trânsito."
+                      link="gestao-orcamentaria/orcamentarias/despesas/despesas-multas-transito"
+                 backgroundColor="transparent"/>
+
+
+                  </Box>
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Despesas - Restos a pagar"
+                      imageURL={relatorio_resumido}
+                      description="Os restos a pagar são as despesas que a com compromisso de serem utilizadas dentro do orçamento, mas que não foram pagas até o final do exercício. Confira aqui as informações sobre as despesas empenhadas, liquidadas e pagas relativas a essa natureza."
+                      link="gestao-orcamentaria/orcamentarias/despesas/despesas-restos"
+                 backgroundColor="transparent"/>
+
+
+                  </Box>
+               
+              </Stack>
+              <Stack
+                  direction={isMobile ? "column" : "row"}
+                  align={isMobile ? "center" : "center"}
+                  justifyContent={isMobile ? "flex-start" : "center"}
+                >
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Contratos e Atas"
+                      imageURL={relatorio_resumido}
+                      description="Nesta página, confira as informações sobre contratos e atas celebrados pela Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por número, modalidade, processo, valor, fornecedor, objeto, entre outros itens."
+                      link="gestao-orcamentaria/orcamentarias/outros/contratos-atas"
+                 backgroundColor="transparent"/>
+
+
+                  </Box>
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Gastos com publicidade"
+                      imageURL={relatorio_resumido}
+                      description="A publicidade legal e institucional realizada pelo Poder Público é um importante serviço cujo objetivo final é favorecer o acesso da população a todos os outros serviços públicos, além de contribuir com a transparência dos atos administrativos. Confira as despesas com publicidade da Prefeitura de Mogi das Cruzes."
+                      link="gestao-orcamentaria/orcamentarias/outros/propaganda"
+                 backgroundColor="transparent"/>
+
+
+                  </Box>
+               
+              </Stack>
+              <Stack
+                  direction={isMobile ? "column" : "row"}
+                  align={isMobile ? "center" : "center"}
+                  justifyContent={isMobile ? "flex-start" : "center"}
+                >
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Subvenções"
+                      imageURL={relatorio_resumido}
+                      description="Subvenção é quando a Prefeitura destina recursos financeiros para que entidades cubram seus custos de atividades prestadas à população. Confira aqui as despesas relacionadas a essa natureza."
+                      link="gestao-orcamentaria/orcamentarias/outros/subvencoes"
+                 backgroundColor="transparent"/>
+
+
+                  </Box>
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Receitas - Multas de Trânsito e Concessões"
+                      imageURL={relatorio_resumido}
+                      description="As receitas para o município podem vir de diferentes fontes. Uma delas são as multas de trânsito - que, por lei, essa arrecadação é destinada a fins específicos ligados à Mobilidade. Há também as concessões e outorgas, que também geram receita. Acompanhe nesta página o descritivo dos recursos provenientes de multas de trânsito e outorgas e concessões pela Prefeitura de Mogi das Cruzes."
+                      link="gestao-orcamentaria/orcamentarias/receitas/multa-transito"
+                 backgroundColor="transparent"/>
+
+
+                  </Box>
+               
+              </Stack>
+              <Stack
+                  direction={isMobile ? "column" : "row"}
+                  align={isMobile ? "center" : "center"}
+                  justifyContent={isMobile ? "flex-start" : "center"}
+                >
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Receitas - Emendas Parlamentares"
+                      imageURL={relatorio_resumido}
+                      description="A arrecadação de receitas para o município pode vir de diferentes fontes. As emendas parlamentares, indicadas por Deputados Federais e Estaduais, são uma forma da cidade ter acesso a recursos. Acompanhe nesta página o descritivo das emendas parlamentares recebidas pela Prefeitura de Mogi das Cruzes."
+                      link="gestao-orcamentaria/orcamentarias/receitas/receitas-emendas"
+                 backgroundColor="transparent"/>
+
+
+                  </Box>
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Receitas - Multas de Trânsito e Concessões"
+                      imageURL={relatorio_resumido}
+                      description="As receitas para o município podem vir de diferentes fontes. Uma delas são as multas de trânsito - que, por lei, essa arrecadação é destinada a fins específicos ligados à Mobilidade. Há também as concessões e outorgas, que também geram receita. Acompanhe nesta página o descritivo dos recursos provenientes de multas de trânsito e outorgas e concessões pela Prefeitura de Mogi das Cruzes."
+                      link="gestao-orcamentaria/orcamentarias/receitas/receitas-multas-transito"
                  backgroundColor="transparent"/>
 
 
