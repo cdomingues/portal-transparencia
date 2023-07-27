@@ -65,7 +65,7 @@ type PropsInput = {
 };
 
 export const contentInitial = {
-  titlePage: "Finanças Municipal",
+  titlePage: "Gestão de Pessoas",
   description:
     "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.",
 };
@@ -192,19 +192,19 @@ marginBottom="15px"
               >
                   <Box padding="6" bg="transparent" flexDirection="row">
                    <CardHorizon
-                      title="Relatorio de Gestão Fiscal"
+                      title="Adiantamentos e Hospedagens"
                       imageURL={relatorio_gestao_fiscal}
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/relatorio-gestao-fiscal"
+                      description="Adiantamentos são recursos financeiros conferidos a um servidor público, a fim de que possa realizar despesas que não possam aguardar o ciclo normal de compras."
+                      link="gestao-de-pessoas/adiantamento-hospedagem"
                  backgroundColor="transparent"/>
                                     </Box>
                  
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Relatório Resumido"
+                      title="Cargos e salários"
                       imageURL={relatorio_resumido}
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/relatorio-resumido"
+                      description="Nesta página, confira as informações sobre cargos e salários na Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por matrícula, nome, cargo entre outros itens."
+                      link="gestao-de-pessoas/cargos-e-salarios"
                  backgroundColor="transparent"/>
 
 
@@ -218,31 +218,22 @@ marginBottom="15px"
               >
                   <Box padding="6" bg="transparent" flexDirection="row">
                   <CardHorizon
-                      title="Relatorio de Gestão Fiscal"
+                      title="Folha de Pagamento"
                       imageURL={relatorio_gestao_fiscal}
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/relatorio-gestao-fiscal"
+                      description="É dever do Poder Público dar transparência à Folha de Pagamento dos funcionários. Acompanhe aqui o detalhamento dos cargos e salários dos servidores públicos municipais."
+                      link="gestao-de-pessoas/folha-pagamento"
                  backgroundColor="transparent"/>
                   </Box>
-                  
-                </Stack>
-                <Stack
-                  direction={isMobile ? "column" : "row"}
-                  align={isMobile ? "center" : "center"}
-                  justifyContent={isMobile ? "flex-start" : "center"}
-                >
                   <Box padding="6" bg="transparent" flexDirection="row">
-                    <CardHorizon
-                      title="Relatório Resumido"
-                      imageURL={relatorio_resumido}
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/relatorio-resumido"
+                  <CardHorizon
+                      title="Passagens e Locomoção"
+                      imageURL={relatorio_gestao_fiscal}
+                      description="Os agentes públicos podem realizar também diversas atividades além dos limites do município, no exercício de sua função e em benefício da cidade. Você pode acompanhar os gastos relacionados a passagens e locomoção nesta página."
+                      link="gestao-de-pessoas/passagem-locomocao"
                  backgroundColor="transparent"/>
-
-
                   </Box>
+                </Stack>
                
-              </Stack>
             </Stat>
 
           </StatGroup>

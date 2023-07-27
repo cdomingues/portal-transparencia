@@ -252,25 +252,25 @@ const publicRoutes: IPublicRoute[] = [
   },
   {
     name: "Orçamento Covid-19",
-    path: "/gestao-orcamentaria",
+    path: "/covid",
     element: <div></div>,
     icon: BsFileText,
     group: [
       {
-        defaultPath: "/gestao-orcamentaria",
+        defaultPath: "/covid",
         name: "Covid-19",
         path: "covid",
         icon: AiFillCaretRight,
         subgroup: true,
       },
       {
-        defaultPath: "/gestao-orcamentaria",
+        defaultPath: "/covid",
         name: "Receitas",
         path: "covid/receitas",
         icon: AiFillCaretRight,
       },
       {
-        defaultPath: "/gestao-orcamentaria",
+        defaultPath: "/covid",
         name: "Despesas",
         path: "covid/despesas",
         icon: AiFillCaretRight,
@@ -730,7 +730,7 @@ const publicRoutes: IPublicRoute[] = [
   },
   {
     name: "LAI - Lei de Acesso a Informação",
-    path: "/acesso-direto",
+    path: "/acesso-a-informacao",
     icon: AiOutlineSolution,
     group: [
       {
@@ -756,7 +756,7 @@ const publicRoutes: IPublicRoute[] = [
 
   {
     name: "Institutos e Autarquias",
-    path: "/acesso-direto",
+    path: "/institutos-autarquias",
     icon: AiOutlineSolution,
     group: [
       {
