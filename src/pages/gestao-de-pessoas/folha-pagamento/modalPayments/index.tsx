@@ -65,6 +65,7 @@ import {
   TabPanel,
   TabPanels,
   Tabs,
+  useColorModeValue
 } from "@chakra-ui/react";
 import Details from "./components/details";
 
@@ -94,25 +95,26 @@ const ModalPayments = ({ isOpen, onClose, payments }: any) => {
   }, [payments]);
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} size={"5xl"}>
-      <ModalContainer>
-        <ModalHeader style={{ backgroundColor: "#185DA6", color: "white" }}>
+    <Modal isOpen={isOpen} onClose={onClose} size={"5xl"} >
+      <ModalContainer bg={useColorModeValue("white", "gray.800")}>
+        <ModalHeader bg="transparent">
           Matrícula Nº {payments?.matricula}
         </ModalHeader>
         <ModalCloseButton style={{ color: "white" }} />
         <ModalBody
+        bg={useColorModeValue("white", "gray.800")}
           style={{ paddingLeft: 0, paddingRight: 0, paddingBottom: 0 }}
         >
-          <Tabs style={{ padding: 0, margin: 0 }}>
-            <ListTabs>
+          <Tabs bg={useColorModeValue("white", "gray.800")} style={{ padding: 0, margin: 0 }}>
+            <ListTabs bg={useColorModeValue("white", "gray.800")}>
               <TabItem>Detalhes</TabItem>
 
               {/* <TabItem>Arquivos</TabItem> */}
-            </ListTabs>
+            </ListTabs >
 
-            <TabPanels>
-              <Panel>
-                <Details payments={payments} payrollData={payrollData} /> {/* Pass payrollData as a prop */}
+            <TabPanels bg={useColorModeValue("white", "gray.800")}>
+              <Panel bg={useColorModeValue("white", "gray.800")}>
+                <Details bg={useColorModeValue("white", "gray.800")} payments={payments} payrollData={payrollData} /> {/* Pass payrollData as a prop */}
               </Panel>
 
               {/* <Panel>

@@ -1,6 +1,8 @@
 import {
   Divider,
   useDisclosure,
+  Box,
+  useColorModeValue
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
@@ -37,14 +39,24 @@ function Screen({
 
   return (
     <ContainerBasic title={title} description={description}>
-   
+         <Box
+        m={0}
+        bg={useColorModeValue("white", "gray.800")}
+        boxShadow="2xl"
+        padding={"15px"}
+        rounded="md"
+        overflow="hidden"
+        width="100%"
+        borderRadius="18px"
+        marginBottom="15px"
+      >
       <TableComponent
         loading={loading}
         columns={columns}
         data={data}
         openModal={handleOpenModal}
       />
-
+</Box>
 
     </ContainerBasic>
   );

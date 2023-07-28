@@ -321,120 +321,7 @@ const publicRoutes: IPublicRoute[] = [
       },
     ],
   },
-  {
-    name: "Prestação de Contas",
-    path: "/nivel1",
-    element: <div></div>,
-    icon: BsFileText,
-    group: [
-      {
-        defaultPath: "/nivel1",
-        name: "Balanço Anual",
-        path: "/nivel2",
-        icon: AiOutlineGlobal,
-        group: [
-          {
-            defaultPath: "/nivel1",
-            name: "Receitas",
-            path: "/nivel2/nivel3",
-            icon: AiOutlineAudit,
-            subgroup: true,
-            group: [
-              {
-                defaultPath: "/nivel1",
-                name: "Nivel4",
-                path: "/nivel2/nivel3/nivel4",
-                icon: AiOutlineTable,
-              },
-            ],
-          },
-          {
-            defaultPath: "/nivel1",
-            name: "Parecer Tribunal",
-            path: "/nivel2/nivel3",
-            icon: AiOutlineAudit,
-            subgroup: true,
-            group: [
-              {
-                defaultPath: "/nivel1",
-                name: "Nivel4",
-                path: "/nivel2/nivel3/nivel4",
-                icon: AiOutlineTable,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        defaultPath: "/nivel1",
-        name: "Demonstrativos",
-        path: "/nivel2",
-        icon: AiOutlineGlobal,
-        group: [
-          {
-            defaultPath: "/nivel1",
-            name: "Contabil",
-            path: "/nivel2/nivel3",
-            icon: AiOutlineAudit,
-            subgroup: true,
-            group: [
-              {
-                defaultPath: "/nivel1",
-                name: "Nivel4",
-                path: "/nivel2/nivel3/nivel4",
-                icon: AiOutlineTable,
-              },
-            ],
-          },
-          {
-            defaultPath: "/nivel1",
-            name: "Despesas",
-            path: "/nivel2/nivel3",
-            icon: AiOutlineAudit,
-            subgroup: true,
-            group: [
-              {
-                defaultPath: "/nivel1",
-                name: "Nivel4",
-                path: "/nivel2/nivel3/nivel4",
-                icon: AiOutlineTable,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        defaultPath: "/nivel1",
-        name: "Incentivos Fiscais",
-        path: "/nivel2",
-        icon: AiOutlineGlobal,
-        group: [
-          {
-            defaultPath: "/transparencia",
-            name: "Promae",
-            path: "/promae",
-            icon: AiOutlineAudit,
-            subgroup: false,
-          },
-          {
-            defaultPath: "/nivel1",
-            name: "Nivel 3",
-            path: "/nivel2/nivel3",
-            icon: AiOutlineAudit,
-            subgroup: true,
-            group: [
-              {
-                defaultPath: "/nivel1",
-                name: "Nivel4",
-                path: "/nivel2/nivel3/nivel4",
-                icon: AiOutlineTable,
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  },
+
   {
     name: "Compras Públicas",
     path: "/compras-publicas",
@@ -481,52 +368,32 @@ const publicRoutes: IPublicRoute[] = [
         name: "Folha de Pagamento",
         path: "/folha-pagamento",
         icon: AiFillCaretRight,
-        subgroup: true,
+        subgroup: false,
       },
-      {
-        defaultPath: "/gestao-de-pessoas",
-        name: "Folha de Pagamento",
-        path: "/folha-pagamento",
-        icon: AiFillCaretRight,
-      },
+
       {
         defaultPath: "/gestao-de-pessoas",
         name: "Passagens e Locomoção",
         path: "/passagem-locomocao",
         icon: AiFillCaretRight,
-        subgroup: true,
+        subgroup: false,
       },
-      {
-        defaultPath: "/gestao-de-pessoas",
-        name: "Passagens e Locomoção",
-        path: "/passagem-locomocao",
-        icon: AiFillCaretRight,
-      },
+
       {
         defaultPath: "/gestao-de-pessoas",
         name: "Adiantamento e Hospedagem",
         path: "/adiantamento-hospedagem",
         icon: AiFillCaretRight,
-        subgroup: true,
+        subgroup: false,
       },
-      {
-        defaultPath: "/gestao-de-pessoas",
-        name: "Adiantamento e Hospedagem",
-        path: "/adiantamento-hospedagem",
-        icon: AiFillCaretRight,
-      },
+
+
       {
         defaultPath: "/gestao-de-pessoas",
         name: "Cargos e Salarios",
         path: "/cargos-e-salarios",
         icon: AiFillCaretRight,
-        subgroup: true,
-      },
-      {
-        defaultPath: "/gestao-de-pessoas",
-        name: "Cargo e Salarios",
-        path: "/cargos-e-salarios",
-        icon: AiFillCaretRight,
+        subgroup: false,
       },
     ],
   },

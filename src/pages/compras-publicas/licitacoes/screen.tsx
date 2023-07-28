@@ -16,6 +16,8 @@ import {
   Tabs,
   Text,
   useDisclosure,
+  Box,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
@@ -137,29 +139,40 @@ function Screen({
 
   return (
     <ContainerBasic title={title} description={description}>
-      <ContainerSearch direction="row">
-        <Stack minW={86} width="25%">
-          <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
-            Ano
-          </Text>
-          <Select
-            defaultValue={year}
-            onChange={(e) => setYear(e.target.value)}
-            bg="white"
-            variant="outline"
-            placeholder="Selecionar Ano"
-          >
-            {years?.map((year, index) => (
-              <option key={index} value={String(year)}>
-                {String(year)}
-              </option>
-            ))}
-          </Select>
-        </Stack>
-        <Stack minW={50} justifyContent="flex-end" className="button-search">
-               <Button
-            w={'100px'}
-            h={'40px'}
+      <Box
+        m={0}
+        bg={useColorModeValue("white", "gray.800")}
+        boxShadow="2xl"
+        padding={"15px"}
+        rounded="md"
+        overflow="hidden"
+        width="100%"
+        borderRadius="18px"
+        marginBottom="15px"
+      >
+        <ContainerSearch direction="row">
+          <Stack minW={86} width="25%">
+            <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
+              Ano
+            </Text>
+            <Select
+              defaultValue={year}
+              onChange={(e) => setYear(e.target.value)}
+              bg="white"
+              variant="outline"
+              placeholder="Selecionar Ano"
+            >
+              {years?.map((year, index) => (
+                <option key={index} value={String(year)}>
+                  {String(year)}
+                </option>
+              ))}
+            </Select>
+          </Stack>
+          <Stack minW={50} justifyContent="flex-end" className="button-search">
+            <Button
+              w={"100px"}
+              h={"40px"}
               disabled={loading}
               onClick={() => handleByYear(year)}
               _hover={{ bg: "gray.500", color: "white" }}
@@ -167,20 +180,20 @@ function Screen({
               color="white"
               fontSize="small"
             >
-         
-            Buscar
-          </Button>
-        </Stack>
-      </ContainerSearch>
+              Buscar
+            </Button>
+          </Stack>
+        </ContainerSearch>
 
-      <Divider borderWidth="2px" mt="10" mb="10" />
+        <Divider borderWidth="2px" mt="10" mb="10" />
 
-      <TableComponent
-        loading={loading}
-        columns={columns}
-        data={data}
-        openModal={handleOpenModal}
-      />
+        <TableComponent
+          loading={loading}
+          columns={columns}
+          data={data}
+          openModal={handleOpenModal}
+        />
+      </Box>
 
       <ModalBiddings
         isOpen={isOpen}

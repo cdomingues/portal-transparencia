@@ -84,6 +84,7 @@ function Screen({
             <MultiAxisChart
               moneyFormat
               data={chart}
+              chartType="line"
               
             />
           )}

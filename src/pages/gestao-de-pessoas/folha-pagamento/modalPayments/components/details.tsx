@@ -87,7 +87,7 @@
 
 
 import { RowDetails } from "../../../../../styles/components/folha-pagamento/modal/styles";
-import { Table, TableContainer, Tbody, Td, Thead, Tr } from "@chakra-ui/react";
+import { Table, TableContainer, Tbody, Td, Thead, Tr, background } from "@chakra-ui/react";
 import { TColumn } from "../../../../../styles/components/licitacoes/modal/styles";
 
 const Details = ({ payments, payrollData }: any) => {
@@ -110,8 +110,8 @@ const Details = ({ payments, payrollData }: any) => {
         });
 
         return (
-          <div style={{ overflowX: "auto" }} >
-        <RowDetails style={{ fontSize: "sm" }}>
+          <div style={{ overflowX: "auto",  background: 'transparent'}} >
+        <RowDetails  style={{ fontSize: "sm", backgroundColor: 'transparent' }}>
           <div className="column" style={{ fontSize: "sm" }}>
             <div className="title" style={{ fontSize: "sm" }}>Nome:</div>
             <div className="value" style={{ fontSize: "sm" }}>{payments?.nome}</div>
@@ -129,18 +129,18 @@ const Details = ({ payments, payrollData }: any) => {
             <div className="value" style={{ fontSize: "sm" }}>{payments?.situacao}</div>
           </div>
 
-          <div className="column" style={{ fontSize: "sm" }}>
+          <div className="column" style={{ fontSize: "sm", backgroundColor: 'transparent' }}>
             <div className="title" style={{ fontSize: "sm" }}>Salário Base:</div>
             <div className="value" style={{ fontSize: "sm" }}>{formatCurrency(payments?.salariobase)}</div>
           </div>
 
-          <div className="column" style={{ fontSize: "sm" }}>
+          <div className="column" style={{ fontSize: "sm", backgroundColor: 'transparent' }}>
             <div className="title" style={{ fontSize: "sm" }}>Secretaria:</div>
             <div className="value" style={{ fontSize: "sm" }}>{payments?.secretaria}</div>
           </div>
         </RowDetails>
 
-        <RowDetails style={{ fontSize: "sm" }}>
+        <RowDetails style={{ fontSize: "sm", backgroundColor: 'transparent' }}>
           <div className="column" style={{ fontSize: "sm" }}>
             <div className="title" style={{ fontSize: "sm" }}>Data de Admissao:</div>
             <div className="value" style={{ fontSize: "sm" }}>{payments?.dataadmissao}</div>
@@ -151,7 +151,7 @@ const Details = ({ payments, payrollData }: any) => {
       <br />
   
       <TableContainer>
-        <Table variant="simple" style={{ overflowX: "auto" }}>
+        <Table variant="simple" style={{ overflowX: "auto", backgroundColor: 'transparent'}}>
           <Thead>
             <Tr>
               <TColumn>Descrição</TColumn>
@@ -166,7 +166,7 @@ const Details = ({ payments, payrollData }: any) => {
                   key={index}
                   style={{
                     backgroundColor:
-                      (index + 1) % 2 === 0 ? "#f7f7f7" : "transparent",
+                      (index + 1) % 2 === 0 ? "transparent" : "transparent",
                   }}
                 >
                   <Td whiteSpace="break-spaces" fontSize="small">
