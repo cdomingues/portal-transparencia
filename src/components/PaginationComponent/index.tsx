@@ -26,9 +26,7 @@
 // };
 
 // export default PaginationComponent;
-
-
-import { Box, Button,Icon } from "@chakra-ui/react";
+import { Box, Button,Icon , Text} from "@chakra-ui/react";
 import React from "react";
 import pages from "../../pages";
 import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from "react-icons/ai";
@@ -39,6 +37,7 @@ interface PaginationComponentProps {
   currentPage: any;
   onNextClick:any;
   onPrevClick:any;
+  
 }
 
 
@@ -48,12 +47,12 @@ interface PaginationComponentProps {
 
 
     
-const PaginationComponent: React.FC<PaginationComponentProps> = ({ pages, setCurrentPage , onNextClick,onPrevClick}) => {
+const PaginationComponent: React.FC<PaginationComponentProps> = ({ currentPage,pages, setCurrentPage , onNextClick,onPrevClick}) => {
   return (
     <Box display="flex" width="50%" alignContent="center"  paddingBottom="10px" >
       
       <button onClick={onPrevClick} 
-      
+      disabled= {currentPage === 0}
       > <Icon
               color="table.primary"
               fontSize="18"
@@ -62,24 +61,15 @@ const PaginationComponent: React.FC<PaginationComponentProps> = ({ pages, setCur
               }}
               as={AiOutlineDoubleLeft}
             /></button>
-      {Array.from(Array(pages), (_item, index) => (
-        <Button
-          key={index}
-          marginLeft="20px"
-          marginRight="20px"
-          color="table.primary"
-          onClick={(e: React.MouseEvent<HTMLButtonElement>) => setCurrentPage(Number(e.currentTarget.value))}
-          value={index}
-          alignSelf="center"
-        >
-              {index + 1}
-                   
-          
-        </Button>
-        
-      ))}
+
+            <Text color="table.primary" bg="transparent" alignSelf="center" fontWeight="600" marginLeft="20px"
+                marginRight="20px">
+                {currentPage +1 } - {pages}
+          </Text>
+      
 
 <button onClick={onNextClick} 
+ disabled= {currentPage === pages - 1} 
   
 ><Icon
               color="table.primary"
