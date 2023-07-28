@@ -31,7 +31,7 @@ function DisplayNews({
         maxWidth="100%"
         borderRadius="18px"
         marginBottom="15px"
-        _hover={{ bg: 'gray.100'}}
+        _hover={{ bg:useColorModeValue("white", "gray.800")}}
       >
         <Box
         >
