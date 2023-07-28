@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
 import axios from "axios";
-import { Divider, Heading, Stack, Text } from "@chakra-ui/react";
+import {
+  Divider,
+  Heading,
+  Stack,
+  Text,
+  Box,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import { ptBR } from "date-fns/locale";
@@ -15,28 +22,25 @@ type PropsInput = {
 };
 
 type Meeting = {
-  _id:              number;
-  id:               string;
-  created_at:       string;
-  updated_at:       string;
+  _id: number;
+  id: string;
+  created_at: string;
+  updated_at: string;
   tipo_compromisso: null | string;
   data_compromisso: string;
-  descricao_breve:  string;
-  local:            string;
-  detalhe:          string;
-  pessoa:           string;
-  cargo:            string;
-  rank:             number;
-
-
-
+  descricao_breve: string;
+  local: string;
+  detalhe: string;
+  pessoa: string;
+  cargo: string;
+  rank: number;
 };
-
 
 export const contentMayorAgenda = {
   titlePage: "Agenda Aberta",
-  description: "Conforme previsto na Lei Municipal 7.653/2021 e no Decreto 21.006/22, todo cidadão pode ter acesso à agenda de compromissos oficiais das autoridades do Executivo de Mogi das Cruzes. Esta é mais uma medida de promoção da integridade no setor público.",
-}
+  description:
+    "Conforme previsto na Lei Municipal 7.653/2021 e no Decreto 21.006/22, todo cidadão pode ter acesso à agenda de compromissos oficiais das autoridades do Executivo de Mogi das Cruzes. Esta é mais uma medida de promoção da integridade no setor público.",
+};
 
 function Screen({ handler }: PropsInput) {
   const [selected, setSelected] = useState<Date>();
@@ -66,10 +70,18 @@ function Screen({ handler }: PropsInput) {
     handleGetOpenSchedule();
   }, []);
 
-  const filteredValues = schedule?.filter(
+  const filteredValues = schedule
+  ?.filter(
     (item: Meeting) =>
-      item?.data_compromisso?.split("T")[0] === String(moment(selected).format("YYYY-MM-DD"))
-      );
+      item?.data_compromisso?.split("T")[0] ===
+      String(moment(selected).format("YYYY-MM-DD"))
+  )
+  .sort((a: Meeting, b: Meeting) => {
+    const aHours = a?.data_compromisso?.split("T")[1];
+    const bHours = b?.data_compromisso?.split("T")[1];
+
+    return aHours > bHours ? 1 : -1;
+  });
 
   const title = contentMayorAgenda?.titlePage;
   const description = contentMayorAgenda?.description;
@@ -98,88 +110,114 @@ function Screen({ handler }: PropsInput) {
 
   return (
     <ContainerBasic title={title} description={description}>
-      <Stack direction="column">
-        <Heading mb={2} fontSize={accessibility?.fonts?.ultraLarge} color="text.dark">
-          AGENDA DO PREFEITO
-        </Heading>
-
-        <Stack direction="row" flexWrap="wrap-reverse">
-          <Stack
-            flex={1}
-            minWidth={270}
-            direction="column"
-            marginRight="20px"
-            maxHeight={500}
-            overflowY="auto"
+      <Box
+        m={0}
+        bg={useColorModeValue("white", "gray.800")}
+        boxShadow="2xl"
+        padding={"15px"}
+        rounded="md"
+        overflow="hidden"
+        width="100%"
+        borderRadius="18px"
+        marginBottom="15px"
+      >
+        <Stack direction="column">
+          <Heading
+            mb={2}
+            fontSize={accessibility?.fonts?.ultraLarge}
+            color="text.dark"
           >
-            <Heading mb={2} fontSize={accessibility?.fonts?.regular} color="text.dark">
-              {getDay} de {getMonth} de {getYear}
-            </Heading>
-            <Divider width="100%" height={"1px"} backgroundColor="red" />
-            {!filteredValues || filteredValues?.length == 0 ? (
-              <Heading mb={2} fontSize={accessibility?.fonts?.regular} color="red">
-                Nessa data não possui nada agendado!
+            AGENDA DO PREFEITO
+          </Heading>
+
+          <Stack direction="row" flexWrap="wrap-reverse">
+            <Stack
+              flex={1}
+              minWidth={270}
+              direction="column"
+              marginRight="20px"
+              maxHeight={500}
+              overflowY="auto"
+            >
+              <Heading
+                mb={2}
+                fontSize={accessibility?.fonts?.regular}
+                color="text.dark"
+              >
+                {getDay} de {getMonth} de {getYear}
               </Heading>
-            ) : (
-              filteredValues?.map((item: Meeting, index: any) => {
-                let getHours = item?.data_compromisso?.split("T")[1]?.split(":");
+              <Divider width="100%" height={"1px"} backgroundColor="red" />
+              {!filteredValues || filteredValues?.length == 0 ? (
+                <Heading
+                  mb={2}
+                  fontSize={accessibility?.fonts?.regular}
+                  color="red"
+                >
+                  Nessa data não possui nada agendado!
+                </Heading>
+              ) : (
+                filteredValues?.map((item: Meeting, index: any) => {
+                  let getHours = item?.data_compromisso
+                    ?.split("T")[1]
+                    ?.split(":");
 
-                return (
-                  <>
-                    <Stack direction="column">
-                      <Heading
-                        mb={1}
-                        fontSize={accessibility?.fonts?.medium}
-                        color="red"
-                        marginTop={2}
-                      >
-                        {getHours?.[0]}:{getHours?.[1]}
-                      </Heading>
-                      <Heading
-                        fontSize={accessibility?.fonts?.medium}
-                        color="text.dark"
-                        style={{ margin: 0 }}
-                      >
-                        {item?.descricao_breve}
-                      </Heading>
-                      <Text
-                        fontSize={accessibility?.fonts?.medium}
-                        color="text.dark"
-                        style={{ margin: 0 }}
-                      >
-                        {item?.local}
-                      </Text>
-                      <div style={{ marginTop: 8 }}></div>
-                      <Divider
-                        width="100%"
-                        height={"1px"}
-                        backgroundColor="#d7d7d7"
-                      />
-                    </Stack>
-                  </>
-                );
-              })
-            )}
-          </Stack>
-          <Stack
-            minW={350}
-            direction="column"
-            backgroundColor="white"
-            borderRadius={10}
-            boxShadow="0px 1px 2px rgba(0, 0, 0, 0.3),
+                  return (
+                    <>
+                      <Stack direction="column">
+                        <Heading
+                          mb={1}
+                          fontSize={accessibility?.fonts?.medium}
+                          color="red"
+                          marginTop={2}
+                        >
+                          {getHours?.[0]}:{getHours?.[1]}
+                        </Heading>
+                        <Heading
+                          fontSize={accessibility?.fonts?.medium}
+                          color="text.dark"
+                          style={{ margin: 0 }}
+                        >
+                          {item?.descricao_breve}
+                        </Heading>
+                        <Text
+                          fontSize={accessibility?.fonts?.medium}
+                          color="text.dark"
+                          style={{ margin: 0 }}
+                        >
+                          {item?.local}
+                        </Text>
+                        <div style={{ marginTop: 8 }}></div>
+                        <Divider
+                          width="100%"
+                          height={"1px"}
+                          backgroundColor="#d7d7d7"
+                        />
+                      </Stack>
+                    </>
+                  );
+                })
+              )}
+            </Stack>
+            <Stack
+              minW={350}
+              direction="column"
+              backgroundColor={useColorModeValue("white", "gray.800")}
+              borderRadius={10}
+              boxShadow="0px 1px 2px rgba(0, 0, 0, 0.3),
             0px 1px 3px 1px rgba(0, 0, 0, 0.15)"
-            maxH={350}
-            style={{ marginBottom: 30 }}
-          >
-            <DayPicker
-              mode="single"
-              selected={selected}
-              onSelect={setSelected}
-              locale={ptBR}
-            />
+              maxH={350}
+              style={{ marginBottom: 30 }}
+            >
+              <DayPicker
+                mode="single"
+                selected={selected}
+                onSelect={setSelected}
+                locale={ptBR}
+              />
+            </Stack>
           </Stack>
         </Stack>
-      </Stack>
+      </Box>
     </ContainerBasic>
   );
 }

@@ -69,47 +69,12 @@ type PropsInput = {
 };
 
 export const contentInitial = {
-  titlePage: "Agenda Aberta",
+  titlePage: "Instituto e Autarquias",
   description:
     "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.",
 };
 
-function Aside() {
-  return (
-    <div style={{ width: "380px", justifyContent: "left" }}>
-      <Box
-        m={0}
-        bg={useColorModeValue("white", "gray.800")}
-        boxShadow="2xl"
-        padding={"15px"}
-        rounded="md"
-        overflow="hidden"
-        maxWidth="100%"
-        borderRadius="18px"
-        marginBottom="15px"
-      >
-        <div style={{ padding: "10px" }}>
-          <Text fontWeight="500" color={"gray.500"}>
-            Últimas Noticias
-          </Text>
-        </div>
-        {noticias.slice(0, 2).map((info) => {
-          return (
-            <DisplayNews
-              key={info.descricao}
-              data_noticia={info.data_noticia}
-              descricao={info.descricao}
-              foto={info.foto}
-              titulo={info.titulo}
-              link={info.link}
-            />
-          );
-        })}
-        <div style={{ padding: "0px", width: "100%" }}></div>
-      </Box>
-    </div>
-  );
-}
+
 
 function HomeScreen({ handler }: PropsInput) {
   const {
@@ -162,7 +127,7 @@ function HomeScreen({ handler }: PropsInput) {
               fontSize={accessibility?.fonts?.regular}
               style={{ marginTop: "0px" }}
             >
-              Agenda pública das autoridades municipais
+              Receitas
             </Heading>
 
             <StatGroup width="100%" mb={20}>
@@ -174,26 +139,28 @@ function HomeScreen({ handler }: PropsInput) {
                 >
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Agenda Prefeito - Caio Cunha"
-                      imageURL={relatorio_gestao_fiscal}
-                      description="Conforme previsto na Lei Municipal 7.653/2021 e no Decreto 21.006/22, todo cidadão pode ter acesso à agenda de compromissos oficiais das autoridades do Executivo de Mogi das Cruzes. Esta é mais uma medida de promoção da integridade no setor público."
-                      link="agenda-aberta/agenda-prefeito"
+                      title="IPREM"
+                      imageURL={relatorio_resumido}
+                      description="Subvenção é quando a Prefeitura destina recursos financeiros para que entidades cubram seus custos de atividades prestadas à população. Confira aqui as despesas relacionadas a essa natureza."
+                      link="https://iprem.mogidascruzes.sp.gov.br/?page_id=1542"
                       backgroundColor="transparent"
                     />
                   </Box>
-
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Agenda Co - Prefeita
-                    Priscila Yamagami"
+                      title="SEMAE"
                       imageURL={relatorio_resumido}
-                      description="Conforme previsto na Lei Municipal 7.653/2021 e no Decreto 21.006/22, todo cidadão pode ter acesso à agenda de compromissos oficiais das autoridades do Executivo de Mogi das Cruzes. Esta é mais uma medida de promoção da integridade no setor público."
-                      link="agenda-aberta/agenda-coprefeita"
+                      description="A arrecadação de receitas para o município pode vir de diferentes fontes. As emendas parlamentares, indicadas por Deputados Federais e Estaduais, são uma forma da cidade ter acesso a recursos. Acompanhe nesta página o descritivo das emendas parlamentares recebidas pela Prefeitura de Mogi das Cruzes."
+                      link="http://www.transparenciasemae.pmmc.com.br/"
                       backgroundColor="transparent"
                     />
                   </Box>
                 </Stack>
                 
+                
+                
+                
+             
               </Stat>
             </StatGroup>
           </Stack>

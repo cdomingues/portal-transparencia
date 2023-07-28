@@ -1,4 +1,4 @@
-import { Divider } from "@chakra-ui/react";
+import { Divider, Box, useColorModeValue } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 import React from "react";
 import ContainerBasic from "../../components/Container/Basic";
@@ -55,6 +55,17 @@ function Screen({ handler: { columns, data, loading } }: PropsInput) {
 
   return (
     <ContainerBasic title={title} description={description}>
+            <Box
+        m={0}
+        bg={useColorModeValue("white", "gray.800")}
+        boxShadow="2xl"
+        padding={"15px"}
+        rounded="md"
+        overflow="hidden"
+        width="100%"
+        borderRadius="18px"
+        marginBottom="15px"
+      >
       <div style={{ height: "500px", width: "100%" }}>
         <MapWithNoSSR
           coords={[ -23.528986, -46.192973 ]}
@@ -67,8 +78,21 @@ function Screen({ handler: { columns, data, loading } }: PropsInput) {
           })}
         />
       </div>
-      <Divider borderWidth="2px" mt="10" mb="10" />
+      </Box>
+      
+      <Box
+        m={0}
+        bg={useColorModeValue("white", "gray.800")}
+        boxShadow="2xl"
+        padding={"15px"}
+        rounded="md"
+        overflow="hidden"
+        width="100%"
+        borderRadius="18px"
+        marginBottom="15px"
+      >
       <TableComponent columns={columns} loading={loading} data={data} />
+      </Box>
     </ContainerBasic>
   );
 }

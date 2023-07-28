@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useMemo, useState } from "react";
 import { useTable, usePagination, useFilters, useSortBy } from "react-table";
 import {
@@ -290,7 +291,7 @@ function TableComponent({
             }}
             {...getTableProps()}
           >
-            <Thead bg="table.primary">
+           <Thead backgroundColor={useColorModeValue('table.primary', "gray.800")}>
               {headerGroups.map((group, index) => (
                 <Tr {...group.getHeaderGroupProps()} key={index}>
                   {group.headers.map((column, index) => {

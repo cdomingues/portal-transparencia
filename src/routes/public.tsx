@@ -454,14 +454,14 @@ const publicRoutes: IPublicRoute[] = [
     group: [
       {
         defaultPath: "/agenda-aberta",
-        name: "Prefeito",
+        name: "Prefeito - Caio Cunha",
         path: "/agenda-prefeito",
         icon: AiOutlineProfile,
         ...contentMayorAgenda,
       },
       {
         defaultPath: "/agenda-aberta",
-        name: "Co Prefeita",
+        name: "Co Prefeita - Priscila Yamagami",
         path: "/agenda-coprefeita",
         icon: AiOutlineProfile,
         ...contentMayorAgenda,
@@ -497,84 +497,7 @@ const publicRoutes: IPublicRoute[] = [
       },
     ],
   },
-  {
-    name: "Transparência Pública",
-    path: "/transparencia",
-    icon: AiOutlineAppstore,
-    group: [
-      {
-        defaultPath: "/transparencia",
-        name: "Plano Plurianual",
-        path: "/plurianual",
-        icon: AiOutlineProfile,
-        ...contentPlanMultiannual,
-      },
-      {
-        defaultPath: "/transparencia",
-        name: "Diretrizes Orçamentárias",
-        path: "/diretrizes-orcamentarias",
-        icon: AiOutlineProfile,
-        ...contentGuidelines,
-      },
-      {
-        defaultPath: "/transparencia",
-        name: "Lei orçamentária Anual",
-        path: "/lei-orcamentaria-anual",
-        icon: AiOutlineProfile,
-        ...contentLawBudget,
-      },
 
-      {
-        defaultPath: "/transparencia",
-        name: "Relatório Resumido",
-        path: "/relatorio-resumido",
-        icon: AiOutlineProfile,
-      },
-
-      {
-        defaultPath: "/transparencia",
-        name: "Relatório de gestão fiscal",
-        path: "/relatorio-gestao-fiscal",
-        icon: AiOutlineProfile,
-      },
-
-      {
-        defaultPath: "/transparencia",
-        name: "Balanços Anuais",
-        path: "/balancos-anuais",
-        icon: AiOutlineProfile,
-      },
-
-      {
-        defaultPath: "/transparencia",
-        name: "Pareceres do Tribunal",
-        path: "/pareceres-do-tribunal",
-        icon: AiOutlineProfile,
-      },
-
-      {
-        defaultPath: "/transparencia",
-        name: "Obras Públicas",
-        path: "/obras-publicas",
-        icon: AiOutlineProfile,
-        ...contentPublicWorks,
-      },
-      {
-        defaultPath: "/transparencia",
-        name: "Servidores Públicos e Estágiarios",
-        path: "/servidores-publicos-estagiarios",
-        icon: AiOutlineProfile,
-        ...contentPublicServants,
-      },
-      {
-        defaultPath: "/transparencia",
-        name: "PROMAE",
-        path: "/promae",
-        icon: AiOutlineProfile,
-        ...contentPROMAE,
-      },
-    ],
-  },
   {
     name: "LAI - Lei de Acesso a Informação",
     path: "/acesso-a-informacao",
@@ -603,7 +526,7 @@ const publicRoutes: IPublicRoute[] = [
 
   {
     name: "Institutos e Autarquias",
-    path: "/institutos-autarquias",
+    path: "/instituto-autarquia",
     icon: AiOutlineSolution,
     group: [
       {
