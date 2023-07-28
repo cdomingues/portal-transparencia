@@ -157,14 +157,17 @@ function Screen({
           </Select>
         </Stack>
         <Stack minW={50} justifyContent="flex-end" className="button-search">
-          <Button
-            disabled={loading}
-            onClick={() => handleByYear(year)}
-            _hover={{ bg: "gray.500", color: "white" }}
-            bg="table.primary"
-            color="white"
-            fontSize="small"
-          >
+               <Button
+            w={'100px'}
+            h={'40px'}
+              disabled={loading}
+              onClick={() => handleByYear(year)}
+              _hover={{ bg: "gray.500", color: "white" }}
+              bg="table.primary"
+              color="white"
+              fontSize="small"
+            >
+         
             Buscar
           </Button>
         </Stack>

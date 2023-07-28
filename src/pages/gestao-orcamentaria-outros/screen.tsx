@@ -74,6 +74,7 @@ export const contentInitial = {
     "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.",
 };
 
+
 function HomeScreen({ handler }: PropsInput) {
   const {
     //news,
@@ -125,11 +126,12 @@ function HomeScreen({ handler }: PropsInput) {
               fontSize={accessibility?.fonts?.regular}
               style={{ marginTop: "0px" }}
             >
-              Políticas Públicas
+              Gestão Orçamentária - Outros
             </Heading>
 
             <StatGroup width="100%" mb={20}>
               <Stat position="unset">
+                
                 <Stack
                   direction={isMobile ? "column" : "row"}
                   align={isMobile ? "center" : "center"}
@@ -137,23 +139,38 @@ function HomeScreen({ handler }: PropsInput) {
                 >
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Receitas Extraorçamentárias"
+                      title="Contratos e Atas"
                       imageURL={relatorio_resumido}
-                      description="Aqui você pode acompanhar as informações sobre as receitas que não figuram no orçamento e, por isso, não são renda do município, apenas transitam pelo poder público."
-                      link="gestao-extra-orcamentaria/receitas"
+                      description="Nesta página, confira as informações sobre contratos e atas celebrados pela Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por número, modalidade, processo, valor, fornecedor, objeto, entre outros itens."
+                      link="gestao-orcamentaria/orcamentarias/outros/contratos-atas"
                       backgroundColor="transparent"
                     />
                   </Box>
-
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Despesas Extraorçamentárias"
-                      imageURL={relatorio_gestao_fiscal}
-                      description="Aqui você pode acompanhar as informações sobre as despesas que não integram o orçamento da Prefeitura, apenas transitam pelo poder público."
-                      link="gestao-extra-orcamentaria/despesas"
+                      title="Gastos com publicidade"
+                      imageURL={relatorio_resumido}
+                      description="A publicidade legal e institucional realizada pelo Poder Público é um importante serviço cujo objetivo final é favorecer o acesso da população a todos os outros serviços públicos, além de contribuir com a transparência dos atos administrativos. Confira as despesas com publicidade da Prefeitura de Mogi das Cruzes."
+                      link="gestao-orcamentaria/orcamentarias/outros/propaganda"
                       backgroundColor="transparent"
                     />
                   </Box>
+                </Stack>
+                <Stack
+                  direction={isMobile ? "column" : "row"}
+                  align={isMobile ? "center" : "center"}
+                  justifyContent={isMobile ? "flex-start" : "center"}
+                >
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Subvenções"
+                      imageURL={relatorio_resumido}
+                      description="Subvenção é quando a Prefeitura destina recursos financeiros para que entidades cubram seus custos de atividades prestadas à população. Confira aqui as despesas relacionadas a essa natureza."
+                      link="gestao-orcamentaria/orcamentarias/outros/subvencoes"
+                      backgroundColor="transparent"
+                    />
+                  </Box>
+                  
                 </Stack>
               </Stat>
             </StatGroup>

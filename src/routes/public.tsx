@@ -48,7 +48,7 @@ import { contentPublicWorks } from "../pages/ciclo-orcamentario/obras-publicas/s
 import { contentPublicServants } from "../pages/ciclo-orcamentario/servidores-publicos-estagiarios/screen";
 import { contentPROMAE } from "../pages/ciclo-orcamentario/promae/screen";
 import { contentRevenue } from "../pages/gestao-orcamentaria/orcamentarias/receitas/screen";
-import { contentContractsAndAtas } from "../pages/gestao-orcamentaria/orcamentarias/outros/contratos-atas/screen";
+import { contentContractsAndAtas } from "../pages/gestao-orcamentaria-outros/outros/contratos-atas/screen";
 import { contentBids } from "../pages/compras-publicas/licitacoes/screen";
 
 import { contentAdvancesAndAccommodation } from "../pages/gestao-de-pessoas/adiantamento-hospedagem/screen";
@@ -119,7 +119,7 @@ const publicRoutes: IPublicRoute[] = [
       {
         defaultPath: "/ciclo-orcamentario",
         name: "Relatório de Gestão Fiscal",
-        path: "relatorio-de-gestao-fiscal",
+        path: "relatorio-gestao-fiscal",
         icon: AiFillCaretRight,
       },
       {
@@ -131,7 +131,7 @@ const publicRoutes: IPublicRoute[] = [
       {
         defaultPath: "/ciclo-orcamentario",
         name: "Relatório de Gestão Fiscal",
-        path: "relatorio-de-gestao-fiscal",
+        path: "relatorio-gestao-fiscal",
         icon: AiFillCaretRight,
       },
       {
@@ -210,73 +210,57 @@ const publicRoutes: IPublicRoute[] = [
         path: "orcamentarias/despesas/despesas-restos",
         icon: AiFillCaretRight,
       },
-      {
-        defaultPath: "/gestao-orcamentaria",
-        name: "Outros",
-        path: "outros",
-        icon: AiFillCaretRight,
-        subgroup: true,
-      },
-      {
-        defaultPath: "/gestao-orcamentaria",
-        name: "Contratos e Atas",
-        path: "orcamentarias/outros/contratos-atas",
-        icon: AiFillCaretRight,
-      },
-      {
-        defaultPath: "/gestao-orcamentaria",
-        name: "Despesas Orçamentárias",
-        path: "outros",
-        icon: AiFillCaretRight,
-        subgroup: true,
-      },
-      {
-        defaultPath: "/gestao-orcamentaria",
-        name: "Contratos e Atas",
-        path: "orcamentarias/outros/contratos-atas",
-        icon: AiFillCaretRight,
-      },
-      {
-        defaultPath: "/gestao-orcamentaria",
-        name: "Propaganda e Publicidade",
-        path: "orcamentarias/outros/propaganda",
-        icon: AiFillCaretRight,
-      },
-      {
-        defaultPath: "/gestao-orcamentaria",
-        name: "Subvenções",
-        path: "orcamentarias/outros/subvencoes",
-        icon: AiFillCaretRight,
-      },
     ],
   },
   {
-    name: "Orçamento Covid-19",
-    path: "/covid",
+    name: "Gestão Orcamentária - Covid-19",
+    path: "/gestao-orcamentaria-covid",
     element: <div></div>,
     icon: BsFileText,
     group: [
       {
-        defaultPath: "/covid",
-        name: "Covid-19",
-        path: "covid",
-        icon: AiFillCaretRight,
-        subgroup: true,
-      },
-      {
-        defaultPath: "/covid",
+        defaultPath: "/gestao-orcamentaria-covid",
         name: "Receitas",
         path: "covid/receitas",
         icon: AiFillCaretRight,
       },
       {
-        defaultPath: "/covid",
+        defaultPath: "/gestao-orcamentaria-covid",
         name: "Despesas",
         path: "covid/despesas",
         icon: AiFillCaretRight,
       },
-    ], 
+    ],
   },
+
+  {
+    name: "Gestão Orçamentária - Outros",
+    path: "/gestao-orcamentaria-outros",
+    element: <div></div>,
+    icon: BsFileText,
+    group: [
+      {
+        defaultPath: "/gestao-orcamentaria-outros",
+        name: "Contratos e Atas",
+        path: "/outros/contratos-atas",
+        icon: AiFillCaretRight,
+      },
+
+      {
+        defaultPath: "/gestao-orcamentaria-outros",
+        name: "Propaganda e Publicidade",
+        path: "outros/propaganda",
+        icon: AiFillCaretRight,
+      },
+      {
+        defaultPath: "/gestao-orcamentaria-outros",
+        name: "Subvenções",
+        path: "outros/subvencoes",
+        icon: AiFillCaretRight,
+      },
+    ],
+  },
+
   {
     name: "Gestão Extra Orçamentária",
     path: "/gestao-extra-orcamentaria",
@@ -288,26 +272,22 @@ const publicRoutes: IPublicRoute[] = [
         name: "Receitas Extra Orçamentárias",
         path: "receitas",
         icon: AiFillCaretRight,
-        subgroup: true,
+        subgroup: false,
       },
       {
         defaultPath: "/gestao-extra-orcamentaria",
-        name: "Gerais",
-        path: "/receitas",
+        name: " ",
+        path: "receitas",
         icon: AiFillCaretRight,
+        subgroup: true,
       },
+
       {
         defaultPath: "/gestao-extra-orcamentaria",
         name: "Despesas Extra Orçamentárias",
         path: "despesas",
         icon: AiFillCaretRight,
-        subgroup: true,
-      },
-      {
-        defaultPath: "/gestao-extra-orcamentaria",
-        name: "Gerais",
-        path: "/despesas",
-        icon: AiFillCaretRight,
+        subgroup: false,
       },
     ],
   },

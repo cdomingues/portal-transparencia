@@ -699,7 +699,7 @@ function Aside() {
         maxWidth="100%"
               
         borderRadius="18px"
-        marginBottom="15px"
+        // marginBottom="15px"
       >
         <div style={{ padding: "10px" }}>
           <Text fontWeight="500" color={"gray.500"}>
@@ -916,7 +916,7 @@ function HomeScreen({ handler }: PropsInput) {
           overflow="hidden"
           maxWidth="100%"
           borderRadius="18px"
-          marginBottom="15px"
+          // marginBottom="15px"
         >
           <Stack>
             <Heading mt={10} mb={4} fontSize={accessibility?.fonts?.regular}>
@@ -1043,7 +1043,7 @@ function HomeScreen({ handler }: PropsInput) {
             ) : null}
           </Stack> */}
         </Box>
-        <Divider  />
+        {/* <Divider  /> */}
 
         <Box
           m={0}
@@ -1091,7 +1091,7 @@ function HomeScreen({ handler }: PropsInput) {
 
         </Box>
 
-        <Divider  />
+        {/* <Divider  /> */}
 
         <Box
           m={0}

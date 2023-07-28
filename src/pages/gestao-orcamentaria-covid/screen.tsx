@@ -125,7 +125,7 @@ function HomeScreen({ handler }: PropsInput) {
               fontSize={accessibility?.fonts?.regular}
               style={{ marginTop: "0px" }}
             >
-              Políticas Públicas
+              Gestão Orçamentária - Covid 19
             </Heading>
 
             <StatGroup width="100%" mb={20}>
@@ -137,20 +137,20 @@ function HomeScreen({ handler }: PropsInput) {
                 >
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Receitas Extraorçamentárias"
-                      imageURL={relatorio_resumido}
-                      description="Aqui você pode acompanhar as informações sobre as receitas que não figuram no orçamento e, por isso, não são renda do município, apenas transitam pelo poder público."
-                      link="gestao-extra-orcamentaria/receitas"
+                      title="Despesas COVID-19"
+                      imageURL={relatorio_gestao_fiscal}
+                      description="Dispõe das despesas empenhadas, liquidadas e pagas realizadas pelo órgão público para enfrentamento da emergência de saúde pública de importância internacional decorrente do coronavírus (COVID-19)."
+                      link="gestao-orcamentaria/covid/despesas"
                       backgroundColor="transparent"
                     />
                   </Box>
 
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Despesas Extraorçamentárias"
-                      imageURL={relatorio_gestao_fiscal}
-                      description="Aqui você pode acompanhar as informações sobre as despesas que não integram o orçamento da Prefeitura, apenas transitam pelo poder público."
-                      link="gestao-extra-orcamentaria/despesas"
+                      title="Receitas COVID-19"
+                      imageURL={relatorio_resumido}
+                      description="Dispõe das receitas recebidas pelo órgão público para enfrentamento da emergência de saúde pública de importância internacional decorrente do coronavírus (COVID-19)."
+                      link="gestao-orcamentaria/covid/receitas"
                       backgroundColor="transparent"
                     />
                   </Box>

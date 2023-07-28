@@ -7,6 +7,7 @@ import {
   Text,
   Box,
   useColorModeValue,
+
 } from "@chakra-ui/react";
 import React from "react";
 import { isMobile } from "react-device-detect";
@@ -132,6 +133,17 @@ function RevenueScreen({
         </Box>
       </MultipleGraphWrapper>
       <Divider borderWidth="2px" mt="10" mb="10" />
+      <Box
+        m={0}
+        bg={useColorModeValue("white", "gray.800")}
+        boxShadow="2xl"
+        padding={"15px"}
+        rounded="md"
+        overflow="hidden"
+        width="100%"
+        borderRadius="18px"
+        marginBottom="15px"
+      >
       <Stack direction="row">
         <Stack width="25%">
           <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
@@ -168,6 +180,7 @@ function RevenueScreen({
       </Stack>
       <Divider borderWidth="2px" mt="10" mb="10" />
       <TableComponent loading={loading} columns={columns} data={data} />
+      </Box>
     </ContainerBasic>
   );
 }

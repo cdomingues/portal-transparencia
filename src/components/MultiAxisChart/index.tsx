@@ -151,20 +151,10 @@ export function MultiAxisChart({
   const { width } = useWindowDimensions();
 
   return (
-    <Box
-      m={0}
-      bg={useColorModeValue("white", "gray.800")}
     
-      padding={"15px"}
-      rounded="md"
-      overflow="hidden"
-      flex={width > 1024 ? 1 : 2}
-      borderRadius="18px"
-      marginBottom="15px"
-    >
       <div id="chart">
         <ChartBarApex series={series} options={mergedOptions} />
       </div>
-    </Box>
+
   );
 }
