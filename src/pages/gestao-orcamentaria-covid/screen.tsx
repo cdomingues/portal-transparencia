@@ -140,7 +140,7 @@ function HomeScreen({ handler }: PropsInput) {
                       title="Despesas COVID-19"
                       imageURL={relatorio_gestao_fiscal}
                       description="Dispõe das despesas empenhadas, liquidadas e pagas realizadas pelo órgão público para enfrentamento da emergência de saúde pública de importância internacional decorrente do coronavírus (COVID-19)."
-                      link="gestao-orcamentaria/covid/despesas"
+                      link="gestao-orcamentaria-covid/covid/despesas"
                       backgroundColor="transparent"
                     />
                   </Box>
@@ -150,7 +150,7 @@ function HomeScreen({ handler }: PropsInput) {
                       title="Receitas COVID-19"
                       imageURL={relatorio_resumido}
                       description="Dispõe das receitas recebidas pelo órgão público para enfrentamento da emergência de saúde pública de importância internacional decorrente do coronavírus (COVID-19)."
-                      link="gestao-orcamentaria/covid/receitas"
+                      link="gestao-orcamentaria-covid/covid/receitas"
                       backgroundColor="transparent"
                     />
                   </Box>
