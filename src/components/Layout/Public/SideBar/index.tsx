@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { ReactNode, useState } from "react";
 import {
   IconButton,
@@ -30,6 +31,7 @@ import {
   Popover,
   PopoverTrigger,
   PopoverContent,
+
 } from "@chakra-ui/react";
 import {
   BsDashCircle,
@@ -184,6 +186,7 @@ function NavItem({
                     textAlign="left"
                     paddingRight={"10px"}
                     minWidth={"180px"}
+                    bg={'transparent'}
                   >
                     {icon && (
                       <Icon
@@ -203,7 +206,7 @@ function NavItem({
 
                 <AccordionIcon textAlign="right" onClick={handleClick} />
               </AccordionButton>
-              <AccordionPanel pb={4} background="#f2f2f2">
+              <AccordionPanel pb={4} background={useColorModeValue("transparent", "gray.800")}>
                 {expanded &&
                   group.map((item: any) => {
                     const isSubGroup = item.subgroup;
