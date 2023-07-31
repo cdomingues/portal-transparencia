@@ -38,10 +38,22 @@ function Screen({
   const description = contentRevenueFinesTraffic?.description;
   return (
     <ContainerBasic title={title} description={description}>
+       <Box
+          m={0}
+          bg={useColorModeValue("white", "gray.800")}
+          boxShadow="2xl"
+          padding={"15px"}
+          rounded="md"
+          overflow="hidden"
+          maxWidth="100%"
+          borderRadius="18px"
+          marginBottom="15px"
+        >
       
       {chart?.datasets?.length > 0 && (
         <Chart type="bar" data={chart} />
       )}
+      </Box>
       {/* <Divider borderWidth="2px" mt="10" mb="10" /> */}
       <Box
         m={0}

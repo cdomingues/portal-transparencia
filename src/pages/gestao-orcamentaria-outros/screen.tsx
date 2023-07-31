@@ -142,7 +142,7 @@ function HomeScreen({ handler }: PropsInput) {
                       title="Contratos e Atas"
                       imageURL={relatorio_resumido}
                       description="Nesta página, confira as informações sobre contratos e atas celebrados pela Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por número, modalidade, processo, valor, fornecedor, objeto, entre outros itens."
-                      link="gestao-orcamentaria/orcamentarias/outros/contratos-atas"
+                      link="gestao-orcamentaria-outros/outros/contratos-atas"
                       backgroundColor="transparent"
                     />
                   </Box>
@@ -151,7 +151,7 @@ function HomeScreen({ handler }: PropsInput) {
                       title="Gastos com publicidade"
                       imageURL={relatorio_resumido}
                       description="A publicidade legal e institucional realizada pelo Poder Público é um importante serviço cujo objetivo final é favorecer o acesso da população a todos os outros serviços públicos, além de contribuir com a transparência dos atos administrativos. Confira as despesas com publicidade da Prefeitura de Mogi das Cruzes."
-                      link="gestao-orcamentaria/orcamentarias/outros/propaganda"
+                      link="gestao-orcamentaria-outros/outros/propaganda"
                       backgroundColor="transparent"
                     />
                   </Box>
@@ -166,7 +166,7 @@ function HomeScreen({ handler }: PropsInput) {
                       title="Subvenções"
                       imageURL={relatorio_resumido}
                       description="Subvenção é quando a Prefeitura destina recursos financeiros para que entidades cubram seus custos de atividades prestadas à população. Confira aqui as despesas relacionadas a essa natureza."
-                      link="gestao-orcamentaria/orcamentarias/outros/subvencoes"
+                      link="gestao-orcamentaria-outros/outros/subvencoes"
                       backgroundColor="transparent"
                     />
                   </Box>
