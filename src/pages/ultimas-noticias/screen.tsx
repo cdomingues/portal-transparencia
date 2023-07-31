@@ -102,7 +102,7 @@
 
 import React, { useState } from "react";
 import ContainerBasic from "../../components/Container/Basic";
-import { Box, Checkbox, Flex, Heading, Input, Stack, Textarea,InputGroup, InputLeftElement, Center } from "@chakra-ui/react";
+import { Box, Checkbox, Flex, Heading, Input, Stack, Textarea,InputGroup, InputLeftElement, Center, useColorModeValue } from "@chakra-ui/react";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
 import useWindowDimensions from "../../utils/getWindowSize";
 import DisplayNews from "../../components/News";
@@ -202,6 +202,17 @@ function Screen(PropsInput: any) {
 
   return (
     <ContainerBasic title={title} description={description}>
+       <Box
+          m={0}
+          bg={useColorModeValue("white", "gray.800")}
+          boxShadow="2xl"
+          padding={"15px"}
+          rounded="md"
+          overflow="hidden"
+          maxWidth="100%"
+          borderRadius="18px"
+          marginBottom="15px"
+        >
        <Input
      value={search}
      onChange={(ev) => {
@@ -253,6 +264,7 @@ function Screen(PropsInput: any) {
         <PaginationSelector itensPerPage={itensPerPage} setItensPerPage={setItensPerPage}/>
         </Center>
        </Center>
+       </Box>
     </ContainerBasic>
     
   );
