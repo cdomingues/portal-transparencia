@@ -29,7 +29,7 @@ function DisplayNews({titulo,descricao,link, foto,data_noticia,...rest}:PropsInp
        boxShadow="2xl"
        rounded="md"
        overflow="hidden"
-       maxWidth = {isMobile ? '100%' : '80%'}
+       maxWidth = "'100%'"
        borderRadius="18px"
        marginBottom="15px"
        _hover={{ bg: 'gray.100'}}

@@ -102,7 +102,7 @@
 
 import React, { useState } from "react";
 import ContainerBasic from "../../components/Container/Basic";
-import { Box, Checkbox, Flex, Heading, Input, Stack, Textarea,InputGroup, InputLeftElement } from "@chakra-ui/react";
+import { Box, Checkbox, Flex, Heading, Input, Stack, Textarea,InputGroup, InputLeftElement, Center } from "@chakra-ui/react";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
 import useWindowDimensions from "../../utils/getWindowSize";
 import DisplayNews from "../../components/News";
@@ -194,15 +194,26 @@ function Screen(PropsInput: any) {
   const [search, setSearch]= useState('')
   
 
-  const filteredItems = currentItens.filter((info) =>
-    removeDiacritics(info.descricao.toLowerCase()).includes(removeDiacritics(search.toLowerCase()))
+  const filteredItems = currentItens.filter(
+    (info) =>
+    removeDiacritics(info.descricao.toLowerCase()).includes(removeDiacritics(search.toLowerCase()))||
+    removeDiacritics(info.titulo.toLowerCase()).includes(removeDiacritics(search.toLowerCase()))
   );
 
   return (
     <ContainerBasic title={title} description={description}>
        <Input
-      value = {search}
-     onChange={(ev)=>setSearch(ev.target.value)}
+     value={search}
+     onChange={(ev) => {
+       const inputValue = ev.target.value;
+       setSearch(inputValue);
+   
+       if (inputValue.trim() === '') {
+         setItensPerPage(5);
+       } else {
+         setItensPerPage(20);
+       }
+     }}
      maxWidth="50%"
       mt={1}
       color="text.dark"
@@ -233,12 +244,15 @@ function Screen(PropsInput: any) {
              )
             })
           }
-      <PaginationComponent2 pages={pages} setCurrentPage = {setCurrentPage} currentPage = {currentPage} onNextClick={onNextClick} onPrevClick={onPrevClick}/>
-        <PaginationSelector itensPerPage={itensPerPage} setItensPerPage={setItensPerPage}/>
-        </Box>
-     <Box marginTop="50px" width="800px">
       
-       </Box>
+        </Box>
+        
+     <Center mt={5} display="flex" flexWrap="wrap">
+     <Center minW="350px" mb={5} width="200px">
+     <PaginationComponent2 pages={pages} setCurrentPage = {setCurrentPage} currentPage = {currentPage} onNextClick={onNextClick} onPrevClick={onPrevClick} />
+        <PaginationSelector itensPerPage={itensPerPage} setItensPerPage={setItensPerPage}/>
+        </Center>
+       </Center>
     </ContainerBasic>
     
   );
