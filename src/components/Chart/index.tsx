@@ -199,23 +199,11 @@ const Chart: React.FC<IChart> = ({ data, type, style, options = {} }) => {
   const mergedOptions = { ...defaultOptions, ...options };
 
   return (
-    <Box
-      m={0}
-      bg={useColorModeValue("white", "gray.800")}
-      boxShadow="2xl"
-      paddingTop={15}
-      paddingBottom={15}
-      paddingLeft={15}
-      rounded="md"
-      overflow="hidden"
-      maxWidth="100%"
-      borderRadius="18px"
-      marginBottom="15px"
-    >
+
       <div id="chart">
         <ChartBarApex options={mergedOptions} series={series} type={type} />
       </div>
-    </Box>
+ 
   );
 };
 

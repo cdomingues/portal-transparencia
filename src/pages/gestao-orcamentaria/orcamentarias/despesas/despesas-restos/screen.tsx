@@ -1,4 +1,4 @@
-import { Button, Divider, Select, Stack, Text } from "@chakra-ui/react";
+import { Button, Divider, Select, Stack, Text, Box, useColorModeValue } from "@chakra-ui/react";
 import React from "react";
 import Chart from "../../../../../components/Chart";
 import ContainerBasic from "../../../../../components/Container/Basic";
@@ -38,10 +38,33 @@ function Screen({
   const description = contentExpensesRemains?.description;
   return (
     <ContainerBasic title={title} description={description}>
+       <Box
+          m={0}
+          bg={useColorModeValue("white", "gray.800")}
+          boxShadow="2xl"
+          padding={"15px"}
+          rounded="md"
+          overflow="hidden"
+          maxWidth="100%"
+          borderRadius="18px"
+          marginBottom="15px"
+        >
       {chart?.datasets?.length > 0 && (
         <Chart type="bar" data={chart} />
       )}
-      <Divider borderWidth="2px" mt="10" mb="10" />
+      </Box>
+      {/* <Divider borderWidth="2px" mt="10" mb="10" /> */}
+      <Box
+        m={0}
+        bg={useColorModeValue("white", "gray.800")}
+        boxShadow="2xl"
+        padding={"15px"}
+        rounded="md"
+        overflow="hidden"
+        width="100%"
+        borderRadius="18px"
+        marginBottom="15px"
+      >
 
       <Stack direction="row">
         <Stack minW={86} width="25%">
@@ -63,14 +86,17 @@ function Screen({
           </Select>
         </Stack>
         <Stack minW={50} width="10%" justifyContent="flex-end">
-          <Button
-            disabled={loading}
-            onClick={() => handleByYear(year)}
-            _hover={{ bg: "gray.500", color: "white" }}
-            bg="table.primary"
-            color="white"
-            fontSize="small"
-          >
+               <Button
+            w={'100px'}
+            h={'40px'}
+              disabled={loading}
+              onClick={() => handleByYear(year)}
+              _hover={{ bg: "gray.500", color: "white" }}
+              bg="table.primary"
+              color="white"
+              fontSize="small"
+            >
+         
             Buscar
           </Button>
         </Stack>
@@ -79,6 +105,7 @@ function Screen({
       <Divider borderWidth="2px" mt="10" mb="10" />
 
       <TableComponent loading={loading} columns={columns} data={data} />
+      </Box>
     </ContainerBasic>
   );
 }

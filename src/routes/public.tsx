@@ -48,7 +48,7 @@ import { contentPublicWorks } from "../pages/ciclo-orcamentario/obras-publicas/s
 import { contentPublicServants } from "../pages/ciclo-orcamentario/servidores-publicos-estagiarios/screen";
 import { contentPROMAE } from "../pages/ciclo-orcamentario/promae/screen";
 import { contentRevenue } from "../pages/gestao-orcamentaria/orcamentarias/receitas/screen";
-import { contentContractsAndAtas } from "../pages/gestao-orcamentaria/orcamentarias/outros/contratos-atas/screen";
+import { contentContractsAndAtas } from "../pages/gestao-orcamentaria-outros/outros/contratos-atas/screen";
 import { contentBids } from "../pages/compras-publicas/licitacoes/screen";
 
 import { contentAdvancesAndAccommodation } from "../pages/gestao-de-pessoas/adiantamento-hospedagem/screen";
@@ -119,7 +119,7 @@ const publicRoutes: IPublicRoute[] = [
       {
         defaultPath: "/ciclo-orcamentario",
         name: "Relatório de Gestão Fiscal",
-        path: "relatorio-de-gestao-fiscal",
+        path: "relatorio-gestao-fiscal",
         icon: AiFillCaretRight,
       },
       {
@@ -131,7 +131,7 @@ const publicRoutes: IPublicRoute[] = [
       {
         defaultPath: "/ciclo-orcamentario",
         name: "Relatório de Gestão Fiscal",
-        path: "relatorio-de-gestao-fiscal",
+        path: "relatorio-gestao-fiscal",
         icon: AiFillCaretRight,
       },
       {
@@ -210,73 +210,57 @@ const publicRoutes: IPublicRoute[] = [
         path: "orcamentarias/despesas/despesas-restos",
         icon: AiFillCaretRight,
       },
-      {
-        defaultPath: "/gestao-orcamentaria",
-        name: "Outros",
-        path: "outros",
-        icon: AiFillCaretRight,
-        subgroup: true,
-      },
-      {
-        defaultPath: "/gestao-orcamentaria",
-        name: "Contratos e Atas",
-        path: "orcamentarias/outros/contratos-atas",
-        icon: AiFillCaretRight,
-      },
-      {
-        defaultPath: "/gestao-orcamentaria",
-        name: "Despesas Orçamentárias",
-        path: "outros",
-        icon: AiFillCaretRight,
-        subgroup: true,
-      },
-      {
-        defaultPath: "/gestao-orcamentaria",
-        name: "Contratos e Atas",
-        path: "orcamentarias/outros/contratos-atas",
-        icon: AiFillCaretRight,
-      },
-      {
-        defaultPath: "/gestao-orcamentaria",
-        name: "Propaganda e Publicidade",
-        path: "orcamentarias/outros/propaganda",
-        icon: AiFillCaretRight,
-      },
-      {
-        defaultPath: "/gestao-orcamentaria",
-        name: "Subvenções",
-        path: "orcamentarias/outros/subvencoes",
-        icon: AiFillCaretRight,
-      },
     ],
   },
   {
-    name: "Orçamento Covid-19",
-    path: "/covid",
+    name: "Gestão Orcamentária - Covid-19",
+    path: "/gestao-orcamentaria-covid",
     element: <div></div>,
     icon: BsFileText,
     group: [
       {
-        defaultPath: "/covid",
-        name: "Covid-19",
-        path: "covid",
-        icon: AiFillCaretRight,
-        subgroup: true,
-      },
-      {
-        defaultPath: "/covid",
+        defaultPath: "/gestao-orcamentaria-covid",
         name: "Receitas",
         path: "covid/receitas",
         icon: AiFillCaretRight,
       },
       {
-        defaultPath: "/covid",
+        defaultPath: "/gestao-orcamentaria-covid",
         name: "Despesas",
         path: "covid/despesas",
         icon: AiFillCaretRight,
       },
-    ], 
+    ],
   },
+
+  {
+    name: "Gestão Orçamentária - Outros",
+    path: "/gestao-orcamentaria-outros",
+    element: <div></div>,
+    icon: BsFileText,
+    group: [
+      {
+        defaultPath: "/gestao-orcamentaria-outros",
+        name: "Contratos e Atas",
+        path: "/outros/contratos-atas",
+        icon: AiFillCaretRight,
+      },
+
+      {
+        defaultPath: "/gestao-orcamentaria-outros",
+        name: "Propaganda e Publicidade",
+        path: "outros/propaganda",
+        icon: AiFillCaretRight,
+      },
+      {
+        defaultPath: "/gestao-orcamentaria-outros",
+        name: "Subvenções",
+        path: "outros/subvencoes",
+        icon: AiFillCaretRight,
+      },
+    ],
+  },
+
   {
     name: "Gestão Extra Orçamentária",
     path: "/gestao-extra-orcamentaria",
@@ -288,26 +272,22 @@ const publicRoutes: IPublicRoute[] = [
         name: "Receitas Extra Orçamentárias",
         path: "receitas",
         icon: AiFillCaretRight,
-        subgroup: true,
+        subgroup: false,
       },
       {
         defaultPath: "/gestao-extra-orcamentaria",
-        name: "Gerais",
-        path: "/receitas",
+        name: " ",
+        path: "receitas",
         icon: AiFillCaretRight,
+        subgroup: true,
       },
+
       {
         defaultPath: "/gestao-extra-orcamentaria",
         name: "Despesas Extra Orçamentárias",
         path: "despesas",
         icon: AiFillCaretRight,
-        subgroup: true,
-      },
-      {
-        defaultPath: "/gestao-extra-orcamentaria",
-        name: "Gerais",
-        path: "/despesas",
-        icon: AiFillCaretRight,
+        subgroup: false,
       },
     ],
   },
@@ -341,120 +321,7 @@ const publicRoutes: IPublicRoute[] = [
       },
     ],
   },
-  {
-    name: "Prestação de Contas",
-    path: "/nivel1",
-    element: <div></div>,
-    icon: BsFileText,
-    group: [
-      {
-        defaultPath: "/nivel1",
-        name: "Balanço Anual",
-        path: "/nivel2",
-        icon: AiOutlineGlobal,
-        group: [
-          {
-            defaultPath: "/nivel1",
-            name: "Receitas",
-            path: "/nivel2/nivel3",
-            icon: AiOutlineAudit,
-            subgroup: true,
-            group: [
-              {
-                defaultPath: "/nivel1",
-                name: "Nivel4",
-                path: "/nivel2/nivel3/nivel4",
-                icon: AiOutlineTable,
-              },
-            ],
-          },
-          {
-            defaultPath: "/nivel1",
-            name: "Parecer Tribunal",
-            path: "/nivel2/nivel3",
-            icon: AiOutlineAudit,
-            subgroup: true,
-            group: [
-              {
-                defaultPath: "/nivel1",
-                name: "Nivel4",
-                path: "/nivel2/nivel3/nivel4",
-                icon: AiOutlineTable,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        defaultPath: "/nivel1",
-        name: "Demonstrativos",
-        path: "/nivel2",
-        icon: AiOutlineGlobal,
-        group: [
-          {
-            defaultPath: "/nivel1",
-            name: "Contabil",
-            path: "/nivel2/nivel3",
-            icon: AiOutlineAudit,
-            subgroup: true,
-            group: [
-              {
-                defaultPath: "/nivel1",
-                name: "Nivel4",
-                path: "/nivel2/nivel3/nivel4",
-                icon: AiOutlineTable,
-              },
-            ],
-          },
-          {
-            defaultPath: "/nivel1",
-            name: "Despesas",
-            path: "/nivel2/nivel3",
-            icon: AiOutlineAudit,
-            subgroup: true,
-            group: [
-              {
-                defaultPath: "/nivel1",
-                name: "Nivel4",
-                path: "/nivel2/nivel3/nivel4",
-                icon: AiOutlineTable,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        defaultPath: "/nivel1",
-        name: "Incentivos Fiscais",
-        path: "/nivel2",
-        icon: AiOutlineGlobal,
-        group: [
-          {
-            defaultPath: "/transparencia",
-            name: "Promae",
-            path: "/promae",
-            icon: AiOutlineAudit,
-            subgroup: false,
-          },
-          {
-            defaultPath: "/nivel1",
-            name: "Nivel 3",
-            path: "/nivel2/nivel3",
-            icon: AiOutlineAudit,
-            subgroup: true,
-            group: [
-              {
-                defaultPath: "/nivel1",
-                name: "Nivel4",
-                path: "/nivel2/nivel3/nivel4",
-                icon: AiOutlineTable,
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  },
+
   {
     name: "Compras Públicas",
     path: "/compras-publicas",
@@ -501,52 +368,32 @@ const publicRoutes: IPublicRoute[] = [
         name: "Folha de Pagamento",
         path: "/folha-pagamento",
         icon: AiFillCaretRight,
-        subgroup: true,
+        subgroup: false,
       },
-      {
-        defaultPath: "/gestao-de-pessoas",
-        name: "Folha de Pagamento",
-        path: "/folha-pagamento",
-        icon: AiFillCaretRight,
-      },
+
       {
         defaultPath: "/gestao-de-pessoas",
         name: "Passagens e Locomoção",
         path: "/passagem-locomocao",
         icon: AiFillCaretRight,
-        subgroup: true,
+        subgroup: false,
       },
-      {
-        defaultPath: "/gestao-de-pessoas",
-        name: "Passagens e Locomoção",
-        path: "/passagem-locomocao",
-        icon: AiFillCaretRight,
-      },
+
       {
         defaultPath: "/gestao-de-pessoas",
         name: "Adiantamento e Hospedagem",
         path: "/adiantamento-hospedagem",
         icon: AiFillCaretRight,
-        subgroup: true,
+        subgroup: false,
       },
-      {
-        defaultPath: "/gestao-de-pessoas",
-        name: "Adiantamento e Hospedagem",
-        path: "/adiantamento-hospedagem",
-        icon: AiFillCaretRight,
-      },
+
+
       {
         defaultPath: "/gestao-de-pessoas",
         name: "Cargos e Salarios",
         path: "/cargos-e-salarios",
         icon: AiFillCaretRight,
-        subgroup: true,
-      },
-      {
-        defaultPath: "/gestao-de-pessoas",
-        name: "Cargo e Salarios",
-        path: "/cargos-e-salarios",
-        icon: AiFillCaretRight,
+        subgroup: false,
       },
     ],
   },
@@ -607,14 +454,14 @@ const publicRoutes: IPublicRoute[] = [
     group: [
       {
         defaultPath: "/agenda-aberta",
-        name: "Prefeito",
+        name: "Prefeito - Caio Cunha",
         path: "/agenda-prefeito",
         icon: AiOutlineProfile,
         ...contentMayorAgenda,
       },
       {
         defaultPath: "/agenda-aberta",
-        name: "Co Prefeita",
+        name: "Co Prefeita - Priscila Yamagami",
         path: "/agenda-coprefeita",
         icon: AiOutlineProfile,
         ...contentMayorAgenda,
@@ -650,84 +497,7 @@ const publicRoutes: IPublicRoute[] = [
       },
     ],
   },
-  {
-    name: "Transparência Pública",
-    path: "/transparencia",
-    icon: AiOutlineAppstore,
-    group: [
-      {
-        defaultPath: "/transparencia",
-        name: "Plano Plurianual",
-        path: "/plurianual",
-        icon: AiOutlineProfile,
-        ...contentPlanMultiannual,
-      },
-      {
-        defaultPath: "/transparencia",
-        name: "Diretrizes Orçamentárias",
-        path: "/diretrizes-orcamentarias",
-        icon: AiOutlineProfile,
-        ...contentGuidelines,
-      },
-      {
-        defaultPath: "/transparencia",
-        name: "Lei orçamentária Anual",
-        path: "/lei-orcamentaria-anual",
-        icon: AiOutlineProfile,
-        ...contentLawBudget,
-      },
 
-      {
-        defaultPath: "/transparencia",
-        name: "Relatório Resumido",
-        path: "/relatorio-resumido",
-        icon: AiOutlineProfile,
-      },
-
-      {
-        defaultPath: "/transparencia",
-        name: "Relatório de gestão fiscal",
-        path: "/relatorio-gestao-fiscal",
-        icon: AiOutlineProfile,
-      },
-
-      {
-        defaultPath: "/transparencia",
-        name: "Balanços Anuais",
-        path: "/balancos-anuais",
-        icon: AiOutlineProfile,
-      },
-
-      {
-        defaultPath: "/transparencia",
-        name: "Pareceres do Tribunal",
-        path: "/pareceres-do-tribunal",
-        icon: AiOutlineProfile,
-      },
-
-      {
-        defaultPath: "/transparencia",
-        name: "Obras Públicas",
-        path: "/obras-publicas",
-        icon: AiOutlineProfile,
-        ...contentPublicWorks,
-      },
-      {
-        defaultPath: "/transparencia",
-        name: "Servidores Públicos e Estágiarios",
-        path: "/servidores-publicos-estagiarios",
-        icon: AiOutlineProfile,
-        ...contentPublicServants,
-      },
-      {
-        defaultPath: "/transparencia",
-        name: "PROMAE",
-        path: "/promae",
-        icon: AiOutlineProfile,
-        ...contentPROMAE,
-      },
-    ],
-  },
   {
     name: "LAI - Lei de Acesso a Informação",
     path: "/acesso-a-informacao",
@@ -756,7 +526,7 @@ const publicRoutes: IPublicRoute[] = [
 
   {
     name: "Institutos e Autarquias",
-    path: "/institutos-autarquias",
+    path: "/instituto-autarquia",
     icon: AiOutlineSolution,
     group: [
       {

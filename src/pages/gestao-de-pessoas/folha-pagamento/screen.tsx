@@ -112,7 +112,7 @@ function Screen({
                 Folha de pagamento Mensal Acumulado
               </Heading>
               {chart?.datasets?.length > 0 && (
-                <MultiAxisChart moneyFormat data={chart} />
+                <MultiAxisChart chartType="line" moneyFormat data={chart} />
               )}
             </GraphWrapper>
 

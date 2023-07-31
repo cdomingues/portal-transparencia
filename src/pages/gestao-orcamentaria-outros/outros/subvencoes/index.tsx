@@ -5,8 +5,8 @@ import {
   getChart,
   getChartYear,
   getGrants,
-} from "../../../../../calls/expenses/grants";
-import { revalidate } from "../../../../../config";
+} from "../../../../calls/expenses/grants";
+import { revalidate } from "../../../../config";
 import moment from "moment";
 
 function Controller({
