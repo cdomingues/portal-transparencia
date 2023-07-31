@@ -130,12 +130,6 @@ const publicRoutes: IPublicRoute[] = [
       },
       {
         defaultPath: "/ciclo-orcamentario",
-        name: "Relatório de Gestão Fiscal",
-        path: "relatorio-gestao-fiscal",
-        icon: AiFillCaretRight,
-      },
-      {
-        defaultPath: "/ciclo-orcamentario",
         name: "Balanços Anuais",
         path: "balancos-anuais",
         icon: AiFillCaretRight,
@@ -307,7 +301,7 @@ const publicRoutes: IPublicRoute[] = [
       },
       {
         defaultPath: "/acordos-termos",
-        name: "Termo de Colaboração",
+        name: "Termo de Parceria",
         path: "termo-de-colaboracao",
         icon: AiFillCaretRight,
         subgroup: false,
@@ -386,7 +380,6 @@ const publicRoutes: IPublicRoute[] = [
         icon: AiFillCaretRight,
         subgroup: false,
       },
-
 
       {
         defaultPath: "/gestao-de-pessoas",
