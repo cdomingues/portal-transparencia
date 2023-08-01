@@ -207,7 +207,6 @@ type PropsInput = {
 function Aside() {
   return (
     <div style={{ width: "380px", justifyContent: "left" }}>
-      
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
@@ -215,7 +214,7 @@ function Aside() {
         padding={"15px"}
         rounded="md"
         overflow="hidden"
-        maxWidth={isMobile? '95%' : '100%'}
+        maxWidth={isMobile ? "95%" : "100%"}
         borderRadius="18px"
         marginBottom="15px"
       >
@@ -237,6 +236,11 @@ function Aside() {
           );
         })}
         <div style={{ padding: "0px", width: "95%" }}></div>
+        <div style={{ padding: "10px" }}>
+          <Text fontWeight="500" color={"gray.500"} fontStyle={'italic'}>
+           <a href="./ultimas-noticias">Acesse outras notícias</a>
+          </Text> 
+        </div>
       </Box>
     </div>
   );
@@ -253,7 +257,7 @@ function ContainerBasic({
   const [showAside, setShowAside] = useState(!isMobile);
 
   const [isHovered, setIsHovered] = useState(false);
-  
+
   const toggleAside = () => {
     if (!isMobile) {
       setShowAside(!showAside);

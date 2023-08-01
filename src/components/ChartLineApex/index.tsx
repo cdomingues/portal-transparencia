@@ -274,7 +274,7 @@ export function ChartComponentLine({
   
 
   return (
-    <div>
+    <div >
       <ChartLineApex series={series1} options={options1} width={'100%'} height={380} />
 
     </div>
