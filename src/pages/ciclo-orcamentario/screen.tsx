@@ -180,10 +180,10 @@ function HomeScreen({ handler }: PropsInput) {
                 >
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Balanço Anual"
-                      imageURL={balanco_anual}
+                      title="Plano Plurianual"
+                      imageURL={plano_plurianual}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/balancos-anuais"
+                      link="ciclo-orcamentario/plurianual"
                  backgroundColor="transparent"/>
                   </Box>
 
@@ -196,40 +196,18 @@ function HomeScreen({ handler }: PropsInput) {
               backgroundColor="transparent"/>
                   </Box>
                 </Stack>
+
                 <Stack
                   direction={isMobile ? "column" : "row"}
                   align={isMobile ? "center" : "center"}
                   justifyContent={isMobile ? "flex-start" : "center"}
                 >
-                  <Box padding="6" bg="transparent" flexDirection="row">
+                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Lei Orçamentaria Anual"
                       imageURL={lei_orcamentaria}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                       link="ciclo-orcamentario/lei-orcamentaria-anual"
-                 backgroundColor="transparent"/>
-                  </Box>
-
-                  <Box padding="6" bg="transparent" flexDirection="row">
-                    <CardHorizon
-                      title="Parecer do Tribunal de Contas"
-                      imageURL={parecer_tribunal}
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/pareceres-do-tribunal"
-                 backgroundColor="transparent"/>
-                  </Box>
-                </Stack>
-                <Stack
-                  direction={isMobile ? "column" : "row"}
-                  align={isMobile ? "center" : "center"}
-                  justifyContent={isMobile ? "flex-start" : "center"}
-                >
-                  <Box padding="6" bg="transparent" flexDirection="row">
-                    <CardHorizon
-                      title="Plano Plurianual"
-                      imageURL={plano_plurianual}
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/plurianual"
                  backgroundColor="transparent"/>
                   </Box>
 
@@ -241,13 +219,15 @@ function HomeScreen({ handler }: PropsInput) {
                       link="ciclo-orcamentario/relatorio-gestao-fiscal"
                  backgroundColor="transparent"/>
                   </Box>
-                  
                 </Stack>
+
                 <Stack
                   direction={isMobile ? "column" : "row"}
                   align={isMobile ? "center" : "center"}
                   justifyContent={isMobile ? "flex-start" : "center"}
                 >
+                  
+
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Relatório Resumido"
@@ -256,7 +236,34 @@ function HomeScreen({ handler }: PropsInput) {
                       link="ciclo-orcamentario/relatorio-resumido"
                  backgroundColor="transparent"/>
                   </Box>
+
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Balanço Anual"
+                      imageURL={balanco_anual}
+                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
+                      link="ciclo-orcamentario/balancos-anuais"
+                 backgroundColor="transparent"/>
+                  </Box>
                 </Stack>
+
+                <Stack
+                  direction={isMobile ? "column" : "row"}
+                  align={isMobile ? "center" : "center"}
+                  justifyContent={isMobile ? "flex-start" : "center"}
+                >
+                  
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Parecer do Tribunal de Contas"
+                      imageURL={parecer_tribunal}
+                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
+                      link="ciclo-orcamentario/pareceres-do-tribunal"
+                 backgroundColor="transparent"/>
+                  </Box>
+                </Stack>
+                
+                
               </Stat>
             </StatGroup>
           </Stack>

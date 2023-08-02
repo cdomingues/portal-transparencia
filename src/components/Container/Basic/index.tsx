@@ -205,7 +205,9 @@ type PropsInput = {
 };
 
 function Aside() {
+  const accessibility = useFontSizeAccessibilityContext();
   return (
+    
     <div style={{ width: "380px", justifyContent: "left" }}>
       <Box
         m={0}
@@ -219,7 +221,7 @@ function Aside() {
         marginBottom="15px"
       >
         <div style={{ padding: "10px" }}>
-          <Text fontWeight="500" color={"gray.500"}>
+          <Text fontSize={accessibility?.fonts?.regular} fontWeight="500" color={"gray.500"}>
             Últimas Noticias
           </Text>
         </div>
@@ -237,7 +239,7 @@ function Aside() {
         })}
         <div style={{ padding: "0px", width: "95%" }}></div>
         <div style={{ padding: "10px" }}>
-          <Text fontWeight="500" color={"gray.500"} fontStyle={'italic'}>
+          <Text fontWeight="500" fontSize={accessibility?.fonts?.regular} color={"gray.500"} fontStyle={'italic'}>
            <a href="./ultimas-noticias">Acesse outras notícias</a>
           </Text> 
         </div>

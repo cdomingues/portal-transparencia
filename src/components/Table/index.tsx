@@ -311,7 +311,7 @@ function TableComponent({
                           textAlign: "left",
                           color: "white",
                           padding: "8px",
-                          fontSize: 11,
+                          fontSize: accessibility?.fonts?.regular,
                           ...isFirst,
                           ...isLast,
                         }}
@@ -386,7 +386,7 @@ function TableComponent({
               {page.map((row, index) => {
                 prepareRow(row);
                 return (
-                  <Tr fontSize={12} {...row.getRowProps()} key={index}>
+                  <Tr fontSize={accessibility?.fonts?.small} {...row.getRowProps()} key={index}>
                     {row.cells.map((cell, index) => {
                       const isLink = validURL(cell?.value);
 
