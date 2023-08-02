@@ -5,10 +5,11 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { CookiesProvider, useCookies } from "react-cookie";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
-import theme from "../themes";
+import theme from "../themes"; 
 
 import { FontSizeAccessibilityWrapper } from "../context/fontSizeAccessibility";
 import TagManager from "react-gtm-module";
+
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [loaded, setLoaded] = useState(false);
