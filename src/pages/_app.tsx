@@ -6,8 +6,9 @@ import { CookiesProvider, useCookies } from "react-cookie";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import theme from "../themes";
-import TagManager from 'react-gtm-module';
+
 import { FontSizeAccessibilityWrapper } from "../context/fontSizeAccessibility";
+import TagManager from "react-gtm-module";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [loaded, setLoaded] = useState(false);
