@@ -11,6 +11,7 @@ import { FontSizeAccessibilityWrapper } from "../context/fontSizeAccessibility";
 import TagManager from "react-gtm-module";
 
 
+
 function MyApp({ Component, pageProps }: AppProps) {
   const [loaded, setLoaded] = useState(false);
   const [cookies, setCookie] = useCookies(["refreshed"]);
@@ -19,6 +20,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     TagManager.initialize({ gtmId: '<GTM-MKJGG2Q>' });
     setLoaded(true);
+    
   }, []);
 
   return (
