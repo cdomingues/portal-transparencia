@@ -6,6 +6,7 @@ import { CookiesProvider, useCookies } from "react-cookie";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import theme from "../themes";
+import TagManager from 'react-gtm-module';
 import { FontSizeAccessibilityWrapper } from "../context/fontSizeAccessibility";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -14,6 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   useEffect(() => {
+    TagManager.initialize({ gtmId: '<GTM-MKJGG2Q>' });
     setLoaded(true);
   }, []);
 
