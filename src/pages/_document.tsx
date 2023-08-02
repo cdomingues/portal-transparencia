@@ -39,6 +39,12 @@ export default class Document extends NextDocument {
 
             gtag('config', 'G-Q4QD82V5LT');`}
           </Script>
+
+        
+          
+          <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/142146140.js">
+            </script> 
+         
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Main />
           <NextScript />
