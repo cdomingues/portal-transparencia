@@ -1,6 +1,6 @@
 import {Box,Text,useColorModeValue,Image, Button, border } from "@chakra-ui/react";
-import { gray } from "d3";
 import { isMobile } from "react-device-detect";
+import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
 //import JsonData from '../../../data/noticias.json'
 
 
@@ -16,7 +16,7 @@ type PropsInput = {
 }
 
 function DisplayNews({titulo,descricao,link, foto,data_noticia,...rest}:PropsInput){
-   
+  const accessibility = useFontSizeAccessibilityContext();
             return(
 
               <a href={link} target="_blank" rel="noopener noreferrer">
@@ -44,7 +44,7 @@ function DisplayNews({titulo,descricao,link, foto,data_noticia,...rest}:PropsInp
   
        <Text
             color={useColorModeValue("gray.700", "white")}
-            fontSize="medium"
+            fontSize={accessibility?.fonts?.large}
             fontFamily="body"
             padding="10px"
             flex="1"
@@ -54,7 +54,7 @@ function DisplayNews({titulo,descricao,link, foto,data_noticia,...rest}:PropsInp
           </Text>
           <Text
             color={useColorModeValue("gray.700", "white")}
-            fontSize="small"
+            fontSize={accessibility?.fonts?.small}
             fontFamily="body"
             flex="end"
             padding="10px"
@@ -63,7 +63,7 @@ function DisplayNews({titulo,descricao,link, foto,data_noticia,...rest}:PropsInp
           </Text>
           
           <Box display="flex" alignItems="right" flexDirection="column" >
-          <Text color="gray.500" fontSize="smaller" padding="10px">
+          <Text color="gray.500" fontSize={accessibility?.fonts?.regular} padding="10px">
           {data_noticia}
           </Text>
 

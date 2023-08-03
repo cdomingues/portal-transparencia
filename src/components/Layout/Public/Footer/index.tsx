@@ -11,16 +11,20 @@ import {
   Image,
 } from "@chakra-ui/react";
 import logo from "../../../../assets/images/logo.png";
+import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAccessibility";
 
 function ListHeader({ children }: { children: ReactNode }) {
+  const accessibility = useFontSizeAccessibilityContext();
   return (
-    <Text fontWeight="500" fontSize="lg" mb={2}>
+    
+    <Text fontSize={accessibility?.fonts?.large}  fontWeight="500"  mb={2}>
       {children}
     </Text>
   );
 }
 
 export default function LargeWithLogoCentered() {
+  const accessibility = useFontSizeAccessibilityContext();
   return (
     <Box
       bg={useColorModeValue("white", "gray.900")}
@@ -32,6 +36,8 @@ export default function LargeWithLogoCentered() {
         py={10}
         borderTop="1px"
         borderTopColor={useColorModeValue("gray.200", "gray.700")}
+        fontSize={accessibility?.fonts?.regular}
+        
       >
         <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
           <Stack align="flex-start"></Stack>

@@ -218,6 +218,7 @@ function Screen(PropsInput: any) {
      onChange={(ev) => {
        const inputValue = ev.target.value;
        setSearch(inputValue);
+       
    
        if (inputValue.trim() === '') {
          setItensPerPage(5);
@@ -262,8 +263,10 @@ function Screen(PropsInput: any) {
      <Center minW="350px" mb={5} width="200px">
      <PaginationComponent2 pages={pages} setCurrentPage = {setCurrentPage} currentPage = {currentPage} onNextClick={onNextClick} onPrevClick={onPrevClick} />
         <PaginationSelector itensPerPage={itensPerPage} setItensPerPage={setItensPerPage}/>
+        
         </Center>
        </Center>
+       
        </Box>
     </ContainerBasic>
     

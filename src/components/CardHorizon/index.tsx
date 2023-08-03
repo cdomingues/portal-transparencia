@@ -3,6 +3,7 @@ import { IconRight } from "react-day-picker";
 import { isMobile } from "react-device-detect";
 import { BiBell } from "react-icons/bi";
 import Image from 'next/image';
+import {useFontSizeAccessibilityContext} from '../../context/fontSizeAccessibility'
 
 import Diretriz_orcamentaria from "../../assets/images/icones/diretriz_orcamentaria.svg"
 
@@ -21,7 +22,9 @@ const CardHorizon: React.FC<CardHorizonProps> = ({
   link,
   backgroundColor,
 }) => {
+  const accessibility = useFontSizeAccessibilityContext();
   return (
+    
     <a href={link} target="_self" rel="noopener noreferrer">
       <Flex 
       m={0}
@@ -49,7 +52,7 @@ const CardHorizon: React.FC<CardHorizonProps> = ({
          <Image src={imageURL} alt="icone" width={40} height={40}/>
         </Center>
         <Square maxWidth={'70%'}>
-          <Text paddingLeft={5} color={useColorModeValue("black", "white")}>{title}</Text>
+          <Text fontSize={accessibility?.fonts?.regular}  paddingLeft={5} color={useColorModeValue("black", "white")}>{title}</Text>
         </Square>
       </Flex>
     </a>
