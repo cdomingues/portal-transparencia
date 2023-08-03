@@ -8,7 +8,7 @@ export default class Document extends NextDocument {
     return (
       <Html lang="en">
         <Head>
-          <Script
+          {/* <Script
             id="gtm-script"
             strategy="afterInteractive"
             dangerouslySetInnerHTML={{
@@ -18,27 +18,27 @@ export default class Document extends NextDocument {
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-MKJGG2Q');`,
             }}
-          ></Script>
+          ></Script> */}
         </Head>
         <body>
-          <noscript
+          {/* <noscript
             dangerouslySetInnerHTML={{
               __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MKJGG2Q"
             height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
             }}
-          ></noscript>
-          <Script
+          ></noscript> */}
+          {/* <Script
             async
             id="gtag-script"
             src="https://www.googletagmanager.com/gtag/js?id=G-Q4QD82V5LT"
-          ></Script>
-          <Script id="gtag-window-script">
+          ></Script> */}
+          {/* <Script id="gtag-window-script">
             {`window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
             gtag('config', 'G-Q4QD82V5LT');`}
-          </Script>
+          </Script> */}
 
         
           
