@@ -11,6 +11,9 @@ import parecer_tribunal from "../../assets/images/icones/parecer_tribunal.svg";
 import plano_plurianual from "../../assets/images/icones/plano_plurianual.svg";
 import relatorio_gestao_fiscal from "../../assets/images/icones/relatorio_gestao_fiscal.svg";
 import relatorio_resumido from "../../assets/images/icones/relatorio_resumido.svg";
+import acordo_de_colaboração from '../../assets/images/icones/icones_acordos e termos__acordo de colaboração.svg'
+import termo_de_colaboração from '../../assets/images/icones/icones_acordos e termos__termo de colaboraçãp.svg'
+import termo_de_fomento from '../../assets/images/icones/icones_acordos e termos__termo de fomento.svg'
 import {
   Box,
   Divider,
@@ -138,7 +141,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Acordo de Colaboração"
-                      imageURL={relatorio_gestao_fiscal}
+                      imageURL={acordo_de_colaboração}
                       description="..."
                       link="acordos-termos/acordo-de-colaboracao"
                       backgroundColor="transparent"
@@ -148,7 +151,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Termo de Colaboração"
-                      imageURL={relatorio_resumido}
+                      imageURL={termo_de_colaboração}
                       description="..."
                       link="acordos-termos/termo-de-colaboracao"
                       backgroundColor="transparent"
@@ -163,7 +166,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Termo de Fomento"
-                      imageURL={relatorio_gestao_fiscal}
+                      imageURL={termo_de_fomento}
                       description="..."
                       link="acordos-termos/termo-de-fomento"
                       backgroundColor="transparent"
