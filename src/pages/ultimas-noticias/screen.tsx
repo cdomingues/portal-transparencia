@@ -214,6 +214,7 @@ function Screen(PropsInput: any) {
           marginBottom="15px"
         >
        <Input
+       size="md" 
      value={search}
      onChange={(ev) => {
        const inputValue = ev.target.value;
@@ -230,7 +231,7 @@ function Screen(PropsInput: any) {
       mt={1}
       color="text.dark"
       bg="white"
-      size="xs"
+      //size="xs"
       marginBottom="15px"
       borderRadius="7px"
       placeholder="Pesquisar"

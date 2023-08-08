@@ -9,10 +9,9 @@ import balanco_anual from "../../assets/images/icones/balanco_anual.svg";
 import lei_orcamentaria from "../../assets/images/icones/lei_orcamentaria_anual.svg";
 import parecer_tribunal from "../../assets/images/icones/parecer_tribunal.svg";
 import plano_plurianual from "../../assets/images/icones/plano_plurianual.svg";
-import despesas_extraorcamentarias from "../../assets/images/icones/icones_gestão extraorçamentaria__despesas extraorcamentarias.svg";
-import receitas_extraorcamentarias from "../../assets/images/icones/icones_gestão extraorçamentaria__receitas extraorcamentarias.svg";
+import despesas_extraorcamentarias from "../../assets/images/icones/gestão extraorçamentaria__despesas extraorcamentarias.svg";
+import receitas_extraorcamentarias from "../../assets/images/icones/gestão extraorçamentaria__receitas extraorcamentarias.svg";
 
-import relatorio_resumido from "../../assets/images/icones/relatorio_resumido.svg";
 
 import {
   Box,

@@ -11,9 +11,9 @@ import parecer_tribunal from "../../assets/images/icones/parecer_tribunal.svg";
 import plano_plurianual from "../../assets/images/icones/plano_plurianual.svg";
 import relatorio_gestao_fiscal from "../../assets/images/icones/relatorio_gestao_fiscal.svg";
 import relatorio_resumido from "../../assets/images/icones/relatorio_resumido.svg";
-import acordo_de_colaboração from '../../assets/images/icones/icones_acordos e termos__acordo de colaboração.svg'
-import termo_de_colaboração from '../../assets/images/icones/icones_acordos e termos__termo de colaboraçãp.svg'
-import termo_de_fomento from '../../assets/images/icones/icones_acordos e termos__termo de fomento.svg'
+import acordo_de_colaboração from '../../assets/images/icones/acordos e termos__acordo de colaboração.svg'
+import termo_de_colaboração from '../../assets/images/icones/acordos e termos__termo de colaboraçãp.svg'
+import termo_de_fomento from '../../assets/images/icones/acordos e termos__termo de fomento.svg'
 import {
   Box,
   Divider,

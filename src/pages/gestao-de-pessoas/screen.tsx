@@ -9,8 +9,11 @@ import balanco_anual from "../../assets/images/icones/balanco_anual.svg";
 import lei_orcamentaria from "../../assets/images/icones/lei_orcamentaria_anual.svg";
 import parecer_tribunal from "../../assets/images/icones/parecer_tribunal.svg";
 import plano_plurianual from "../../assets/images/icones/plano_plurianual.svg";
-import relatorio_gestao_fiscal from "../../assets/images/icones/relatorio_gestao_fiscal.svg";
-import relatorio_resumido from "../../assets/images/icones/relatorio_resumido.svg";
+import folha_de_pagamento from "../../assets/images/icones/folha de pagamento__cargos e salarios.svg";
+import cargos_e_salarios from "../../assets/images/icones/folha de pagamento__folha de pagamento.svg";
+import adiantamentos_e_hospedagem from "../../assets/images/icones/folha de pagamento__adiantamentos e hospedagem.svg";
+import  passagens_e_locomoção from '../../assets/images/icones/folha de pagamento__passagens e locomoção.svg'
+
 import {
   Box,
   Divider,
@@ -139,7 +142,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Folha de Pagamento"
-                      imageURL={relatorio_gestao_fiscal}
+                      imageURL={folha_de_pagamento}
                       description="É dever do Poder Público dar transparência à Folha de Pagamento dos funcionários. Acompanhe aqui o detalhamento dos cargos e salários dos servidores públicos municipais."
                       link="gestao-de-pessoas/folha-pagamento"
                       backgroundColor="transparent"
@@ -149,7 +152,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Passagens e Locomoção"
-                      imageURL={relatorio_gestao_fiscal}
+                      imageURL={passagens_e_locomoção}
                       description="Os agentes públicos podem realizar também diversas atividades além dos limites do município, no exercício de sua função e em benefício da cidade. Você pode acompanhar os gastos relacionados a passagens e locomoção nesta página."
                       link="gestao-de-pessoas/passagem-locomocao"
                       backgroundColor="transparent"
@@ -164,7 +167,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Adiantamentos e Hospedagens"
-                      imageURL={relatorio_gestao_fiscal}
+                      imageURL={adiantamentos_e_hospedagem}
                       description="Adiantamentos são recursos financeiros conferidos a um servidor público, a fim de que possa realizar despesas que não possam aguardar o ciclo normal de compras."
                       link="gestao-de-pessoas/adiantamento-hospedagem"
                       backgroundColor="transparent"
@@ -173,7 +176,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Cargos e salários"
-                      imageURL={relatorio_resumido}
+                      imageURL={cargos_e_salarios}
                       description="Nesta página, confira as informações sobre cargos e salários na Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por matrícula, nome, cargo entre outros itens."
                       link="gestao-de-pessoas/cargos-e-salarios"
                       backgroundColor="transparent"
