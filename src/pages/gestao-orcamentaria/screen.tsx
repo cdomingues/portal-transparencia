@@ -74,7 +74,7 @@ type PropsInput = {
 export const contentInitial = {
   titlePage: "Finanças Municipal",
   description:
-    "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.",
+    "É o processo de planejamento, execução, controle e acompanhamento dos recursos financeiros da Prefeitura de Mogi das Cruzes. Ela envolve a elaboração de um plano financeiro detalhado, conhecido como orçamento, que descreve as receitas esperadas e as despesas planejadas durante um ano. ",
 };
 
 function Aside() {

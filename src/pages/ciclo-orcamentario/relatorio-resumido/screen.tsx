@@ -67,7 +67,7 @@ type PropsInput = {
 
 export const contentReportExtrabudget = {
   titlePage: "Relatório Resumido De Execução Orçamentária",
-  description: "Sua publicação está prevista na Constituição Federal, devendo ocorrer até 30 dias após o encerramento de cada bimestre. O Relatório Resumido da Execução Orçamentária é formado pelo balanço orçamentário, com o demonstrativo de execução das receitas (por categoria econômica e fonte) e das despesas (por categoria econômica, grupo de natureza, função e subfunção), demonstrativo da receita corrente líquida, demonstrativo das receitas e despesas previdenciárias do regime próprio de previdência dos servidores, demonstrativo do resultado nominal, demonstrativo do resultado primário e demonstrativo dos restos a pagar por poder e órgão.",
+  description: "Sua publicação está prevista na Constituição Federal, devendo ocorrer até 30 dias após o encerramento de cada bimestre. O Relatório Resumido da Execução Orçamentária é formado pelo balanço orçamentário, com o demonstrativo de execução das receitas (por categoria econômica e fonte) e das despesas (por categoria econômica, grupo de natureza, função e subfunção), demonstrativo da receita corrente líquida, demonstrativo das receitas e despesas previdenciárias do regime próprio de previdência dos servidores, demonstrativo do resultado nominal, demonstrativo do resultado primário e demonstrativo dos restos a pagar por poder e órgão. ",
 }
 
 

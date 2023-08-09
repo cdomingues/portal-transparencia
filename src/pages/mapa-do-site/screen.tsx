@@ -14,7 +14,7 @@ type PropsInput = {
 export const contentMapSite = {
   titlePage: "Mapa do site",
   description:
-    "Confira aqui as informações sobre o mapa do site da Prefeitura de Mogi das Cruzes",
+    "Confira aqui as informações sobre o mapa do site da Prefeitura de Mogi das Cruzes ",
 };
 
 function capitalizeFirstLetter(str: string) {

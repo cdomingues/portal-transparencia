@@ -28,7 +28,7 @@ type PropsInput = {
 export const contentContractsAndAtas = {
   titlePage: "Contratos e Atas",
   description:
-    "Nesta página, confira as informações sobre contratos e atas celebrados pela Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por número, modalidade, processo, valor, fornecedor, objeto, entre outros itens.",
+    "Nesta página, confira as informações sobre contratos e atas celebrados pela Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por número, modalidade, processo, valor, fornecedor, objeto, entre outros itens. ",
 };
 function Screen({
   handler: { columns, data, loading, handleByYear, setYear, year, years },

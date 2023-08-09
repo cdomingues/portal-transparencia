@@ -19,7 +19,7 @@ type PropsInput = {
 
 export const contentExpensesRemains = {
   titlePage: "Despesas - Restos a pagar",
-  description: "Os restos a pagar são as despesas que a com compromisso de serem utilizadas dentro do orçamento, mas que não foram pagas até o final do exercício. Confira aqui as informações sobre as despesas empenhadas, liquidadas e pagas relativas a essa natureza.",
+  description: "Os restos a pagar são as despesas com compromisso de serem utilizadas dentro do orçamento, mas que não foram pagas até o final do exercício. Confira aqui as informações sobre as despesas empenhadas, liquidadas e pagas relativas a essa natureza. ",
 }
 
 function Screen({

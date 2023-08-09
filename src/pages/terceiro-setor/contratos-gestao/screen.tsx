@@ -14,7 +14,7 @@ type PropsInput = {
 export const contentContractManagement = {
   titlePage: "Contratos de Gestão",
   description:
-    "Confira aqui os contratos com as organizações do terceiro setor celebrados pela Prefeitura de Mogi das Cruzes.",
+    "Confira aqui os contratos com as organizações do terceiro setor celebrados pela Prefeitura de Mogi das Cruzes. ",
 };
 
 function Screen({ handler: { columns, data, loading } }: PropsInput) {

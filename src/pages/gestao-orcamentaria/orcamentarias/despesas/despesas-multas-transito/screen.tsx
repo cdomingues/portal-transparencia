@@ -19,7 +19,7 @@ type PropsInput = {
 
 export const contentRevenueFinesTraffic = {
   titlePage: "Despesas - Multas de Trânsito",
-  description: "Confira nesta página as despesas empenhadas, liquidadas e pagas a partir da arrecadação com multas de trânsito",
+  description: "Confira nesta página as despesas empenhadas, liquidadas e pagas a partir da arrecadação com multas de trânsito  ",
 }
 
 function Screen({

@@ -35,7 +35,7 @@ type PropsInput = {
 
 export const contentExtrabudgetRevenues = {
   titlePage: "Receitas Extraorçamentárias",
-  description: "Aqui você pode acompanhar as informações sobre as receitas que não figuram no orçamento e, por isso, não são renda do município, apenas transitam pelo poder público.",
+  description: "Aqui você pode acompanhar as informações sobre as receitas que não figuram no orçamento e, por isso, não são renda do município, apenas transitam pelo poder público. ",
 }
 
 

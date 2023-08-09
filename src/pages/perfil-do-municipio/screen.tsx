@@ -28,7 +28,7 @@ type PropsInput = {
 export const contentMunicipalityProfile = {
   titlePage: "Perfil do Munícipio - Mogi das Cruzes",
   description:
-    "Mogi das Cruzes, ou simplesmente Mogi, é um município brasileiro do estado de São Paulo, localizado na Região Metropolitana de São Paulo. É uma das cidades que integram a região geográfica do Alto Tietê.",
+    "Mogi das Cruzes é um município brasileiro do estado de São Paulo, localizado na Região Metropolitana de São Paulo. É uma das cidades que integram a região geográfica do Alto Tietê."
 };
 
 function Screen({ handler }: PropsInput) {

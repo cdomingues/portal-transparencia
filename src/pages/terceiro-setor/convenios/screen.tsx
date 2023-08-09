@@ -13,7 +13,7 @@ type PropsInput = {
 
 export const contentConvenants = {
   titlePage: "Convênios",
-  description: "Confira aqui os contratos com as organizações do terceiro setor celebrados pela Prefeitura de Mogi das Cruzes.",
+  description: "Confira aqui os convênios  celebrados pela Prefeitura de Mogi das Cruzes com as organizações do terceiro setor. ",
 }
 
 function Screen({ handler: { columns, data, loading } }: PropsInput) {

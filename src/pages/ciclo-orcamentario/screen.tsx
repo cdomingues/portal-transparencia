@@ -71,7 +71,7 @@ type PropsInput = {
 export const contentInitial = {
   titlePage: "Ciclo Orçamentário",
   description:
-    "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.",
+    "O ciclo orçamentário é um processo contínuo, dinâmico e flexível, por meio do qual se elabora, aprova, executa, controla e avalia os programas do setor público nos aspectos físico e financeiro. O ciclo corresponde, portanto, ao período de tempo em que se processam as atividades típicas do orçamento público. ",
 };
 
 // function Aside() {

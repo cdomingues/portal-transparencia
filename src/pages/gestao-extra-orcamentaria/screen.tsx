@@ -71,9 +71,9 @@ type PropsInput = {
 };
 
 export const contentInitial = {
-  titlePage: "Finanças Municipal",
+  titlePage: "Gestao Extra Orçamentária",
   description:
-    "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.",
+    "A gestão extraorçamentária aborda as atividades que envolvem recursos além do orçamento formal. Isso inclui recursos que não são alocados diretamente no orçamento, mas que ainda são necessários para que a organização execute suas atividades operacionais.",
 };
 
 function HomeScreen({ handler }: PropsInput) {

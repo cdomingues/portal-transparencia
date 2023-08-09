@@ -74,7 +74,7 @@ type PropsInput = {
 export const contentInitial = {
   titlePage: "Acordos e Termos",
   description:
-    "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.",
+    "Um acordo de colaboração, também conhecido como acordo de cooperação, é um instrumento formal utilizado por entes públicos para estabelecer um vínculo cooperativo ou de parceria entre si, ou ainda com entidades privadas, que tenham interesses e condições recíprocas ou equivalentes, de modo a realizar um propósito comum, voltado ao interesse público. ",
 };
 
 function HomeScreen({ handler }: PropsInput) {
