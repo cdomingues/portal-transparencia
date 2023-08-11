@@ -35,7 +35,7 @@ type PropsInput = {
 
 export const contentCovidRecipes = {
   titlePage: "Receitas COVID-19",
-  description: "Dispõe das receitas recebidas pelo órgão público para enfrentamento da emergência de saúde pública de importância internacional decorrente do coronavírus (COVID-19).",
+  description: "Dispõe das receitas recebidas pelo órgão público para enfrentamento da emergência de saúde pública de importância internacional decorrente do coronavírus (COVID-19). ",
 }
 
 function Screen({

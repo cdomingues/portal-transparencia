@@ -119,7 +119,7 @@ import { isMobile } from "react-device-detect";
 export const contentOtherInformations = {
   titlePage: "ÚLTIMAS NOTICIAS",
   description:
-    "Caso tenha dificuldade em encontrar alguma informação ou dúvida referente ao conteúdo publicado neste portal, você pode entrar em contato conosco preenchendo o formulário abaixo ou dirigir-se pessoalmente à Ouvidoria Geral, localizada no 3º andar do prédio sede da Prefeitura, de segunda a sexta-feira, das 8 às 17 horas.",
+    "Fique por dentro de tudo que acontece na Prefeitura de Mogi das Cruzes sobre Transparência Pública, Governo Aberto, Lei Geral de Proteção de Dados (LGPD), Lei de Acesso à Informação (LAI) e muito mais!",
 };
 
 function removeDiacritics(str: string) {
@@ -214,6 +214,7 @@ function Screen(PropsInput: any) {
           marginBottom="15px"
         >
        <Input
+       size="md" 
      value={search}
      onChange={(ev) => {
        const inputValue = ev.target.value;
@@ -230,7 +231,7 @@ function Screen(PropsInput: any) {
       mt={1}
       color="text.dark"
       bg="white"
-      size="xs"
+      //size="xs"
       marginBottom="15px"
       borderRadius="7px"
       placeholder="Pesquisar"

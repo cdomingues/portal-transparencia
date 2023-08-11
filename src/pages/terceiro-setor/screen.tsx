@@ -8,9 +8,9 @@ import diretriz_orcamentaria from "../../assets/images/icones/diretriz_orcamenta
 import balanco_anual from "../../assets/images/icones/balanco_anual.svg"
 import lei_orcamentaria from "../../assets/images/icones/lei_orcamentaria_anual.svg"
 import parecer_tribunal from "../../assets/images/icones/parecer_tribunal.svg"
-import plano_plurianual from "../../assets/images/icones/plano_plurianual.svg"
-import relatorio_gestao_fiscal from "../../assets/images/icones/relatorio_gestao_fiscal.svg"
-import relatorio_resumido from "../../assets/images/icones/relatorio_resumido.svg"
+import contratos_de_gestao from "../../assets/images/icones/terceiro setor__contratos de gestao.svg"
+import convenios from "../../assets/images/icones/terceiro setor__convenios.svg"
+import repasses from "../../assets/images/icones/terceiro setor__repasses.svg"
 import {
   Box,
   Divider,
@@ -193,7 +193,7 @@ marginBottom="15px"
                   <Box padding="6" bg="transparent" flexDirection="row">
                    <CardHorizon
                       title="Contratos de Gestão"
-                      imageURL={relatorio_gestao_fiscal}
+                      imageURL={contratos_de_gestao}
                       description="Confira aqui os contratos com as organizações do terceiro setor celebrados pela Prefeitura de Mogi das Cruzes."
                       link="terceiro-setor/contratos-gestao"
                  backgroundColor="transparent"/>
@@ -202,7 +202,7 @@ marginBottom="15px"
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Convênios"
-                      imageURL={relatorio_resumido}
+                      imageURL={convenios}
                       description="Confira aqui os contratos com as organizações do terceiro setor celebrados pela Prefeitura de Mogi das Cruzes."
                       link="terceiro-setor/convenios"
                  backgroundColor="transparent"/>
@@ -219,7 +219,7 @@ marginBottom="15px"
                   <Box padding="6" bg="transparent" flexDirection="row">
                   <CardHorizon
                       title="Repasses"
-                      imageURL={relatorio_gestao_fiscal}
+                      imageURL={repasses}
                       description="Acompanhe os repasses feitos pela Prefeitura de Mogi das Cruzes às organizações do Terceiro Setor com as quais firmou contratos ou convênios."
                       link="terceiro-setor/repasses"
                  backgroundColor="transparent"/>

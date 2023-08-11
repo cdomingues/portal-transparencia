@@ -8,9 +8,9 @@ import diretriz_orcamentaria from "../../assets/images/icones/diretriz_orcamenta
 import balanco_anual from "../../assets/images/icones/balanco_anual.svg"
 import lei_orcamentaria from "../../assets/images/icones/lei_orcamentaria_anual.svg"
 import parecer_tribunal from "../../assets/images/icones/parecer_tribunal.svg"
-import plano_plurianual from "../../assets/images/icones/plano_plurianual.svg"
-import relatorio_gestao_fiscal from "../../assets/images/icones/relatorio_gestao_fiscal.svg"
-import relatorio_resumido from "../../assets/images/icones/relatorio_resumido.svg"
+import acesso_a_informacao from "../../assets/images/icones/LAI__acesso a informação.svg"
+import protocolo_geral from "../../assets/images/icones/LAI__protocolo geral.svg"
+import relatorio_de_demandas from "../../assets/images/icones/LAI__relatorio de demandas lai.svg"
 import {
   Box,
   Divider,
@@ -44,6 +44,7 @@ import DisplayNews from "../../components/NewsHome";
 import ContainerBasic from "../../components/Container/Basic";
 
 
+
 type PropsInput = {
   handler: {
     expenseAmount: number;
@@ -67,7 +68,7 @@ type PropsInput = {
 export const contentInitial = {
   titlePage: "LEI DE ACESSO À INFORMAÇÃO",
   description:
-    "A Lei nº 12.527/2011 regulamenta o direito constitucional de acesso às informações públicas. Ela entrou em vigor em 16 de maio de 2012 e criou mecanismos que possibilitam, a qualquer pessoa, física ou jurídica, sem necessidade de apresentar motivo, o recebimento de informações   públicas dos órgãos e entidades. A lei vale para os três Poderes da União, Estados, Distrito Federal e Municípios, inclusive aos Tribunais de Conta e Ministério Público. Entidades privadas sem fins lucrativos também são obrigadas a dar publicidade a informações referentes ao recebimento e à destinação dos recursos públicos por elas recebidos. ",
+    "A Lei nº 12.527/2011 regulamenta o direito constitucional de acesso às informações públicas. Ela entrou em vigor em 16 de maio de 2012 e criou mecanismos que possibilitam, a qualquer pessoa, física ou jurídica, sem necessidade de apresentar motivo, o recebimento de informações públicas dos órgãos e entidades. A lei vale para os três Poderes da União, Estados, Distrito Federal e Municípios, inclusive aos Tribunais de Conta e Ministério Público. Entidades privadas sem fins lucrativos também são obrigadas a dar publicidade a informações referentes ao recebimento e à destinação dos recursos públicos por elas recebidos.",
 };
 
  function Aside() {
@@ -193,7 +194,7 @@ marginBottom="15px"
                   <Box padding="6" bg="transparent" flexDirection="row">
                    <CardHorizon
                       title="Protocolo Geral"
-                      imageURL={relatorio_gestao_fiscal}
+                      imageURL={protocolo_geral}
                       description="Pesquisa de Demanda do Cidadão."
                       link="https://servicossmar.mogidascruzes.sp.gov.br/falacidadao/#!/demanda"
                  backgroundColor="transparent"/>
@@ -202,7 +203,7 @@ marginBottom="15px"
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Acesso a Informação LAI"
-                      imageURL={relatorio_resumido}
+                      imageURL={acesso_a_informacao}
                       description="Abertura e Consulta de Pedidos de e-Sic"
                       link="https://mogidascruzes.1doc.com.br/b.php?pg=wp/detalhes&itd=3"
                  backgroundColor="transparent"/>
@@ -219,7 +220,7 @@ marginBottom="15px"
                   <Box padding="6" bg="transparent" flexDirection="row">
                   <CardHorizon
                       title="Relatório de Demandas LAI"
-                      imageURL={relatorio_gestao_fiscal}
+                      imageURL={relatorio_de_demandas}
                       description="Pedido de e-SIC."
                       link="https://mogidascruzes.1doc.com.br/b.php?pg=o/transparencia"
                  backgroundColor="transparent"/>

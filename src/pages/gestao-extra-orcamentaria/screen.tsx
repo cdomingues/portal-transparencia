@@ -9,8 +9,10 @@ import balanco_anual from "../../assets/images/icones/balanco_anual.svg";
 import lei_orcamentaria from "../../assets/images/icones/lei_orcamentaria_anual.svg";
 import parecer_tribunal from "../../assets/images/icones/parecer_tribunal.svg";
 import plano_plurianual from "../../assets/images/icones/plano_plurianual.svg";
-import relatorio_gestao_fiscal from "../../assets/images/icones/relatorio_gestao_fiscal.svg";
-import relatorio_resumido from "../../assets/images/icones/relatorio_resumido.svg";
+import despesas_extraorcamentarias from "../../assets/images/icones/gestão extraorçamentaria__despesas extraorcamentarias.svg";
+import receitas_extraorcamentarias from "../../assets/images/icones/gestão extraorçamentaria__receitas extraorcamentarias.svg";
+
+
 import {
   Box,
   Divider,
@@ -69,9 +71,9 @@ type PropsInput = {
 };
 
 export const contentInitial = {
-  titlePage: "Finanças Municipal",
+  titlePage: "Gestao Extra Orçamentária",
   description:
-    "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.",
+    "A gestão extraorçamentária aborda as atividades que envolvem recursos além do orçamento formal. Isso inclui recursos que não são alocados diretamente no orçamento, mas que ainda são necessários para que a organização execute suas atividades operacionais.",
 };
 
 function HomeScreen({ handler }: PropsInput) {
@@ -138,7 +140,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Receitas Extraorçamentárias"
-                      imageURL={relatorio_resumido}
+                      imageURL={receitas_extraorcamentarias}
                       description="Aqui você pode acompanhar as informações sobre as receitas que não figuram no orçamento e, por isso, não são renda do município, apenas transitam pelo poder público."
                       link="gestao-extra-orcamentaria/receitas"
                       backgroundColor="transparent"
@@ -148,7 +150,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Despesas Extraorçamentárias"
-                      imageURL={relatorio_gestao_fiscal}
+                      imageURL={despesas_extraorcamentarias}
                       description="Aqui você pode acompanhar as informações sobre as despesas que não integram o orçamento da Prefeitura, apenas transitam pelo poder público."
                       link="gestao-extra-orcamentaria/despesas"
                       backgroundColor="transparent"

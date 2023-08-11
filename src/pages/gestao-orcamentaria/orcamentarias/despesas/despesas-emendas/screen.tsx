@@ -22,7 +22,7 @@ type PropsInput = {
 
 export const contentExpensesParliamentaryAmendments = {
   titlePage: "Despesas - Emendas Parlamentares",
-  description: "Confira nesta página as despesas empenhadas, liquidadas e pagas a partir dos recursos obtidos por meio de emendas parlamentares",
+  description: "Confira nesta página as despesas empenhadas, liquidadas e pagas a partir dos recursos obtidos por meio de emendas parlamentares ",
 }
 
 function Screen({
