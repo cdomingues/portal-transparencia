@@ -32,7 +32,7 @@ export const Left = styled.div`
   border-radius: 20px;
   margin-right: 20px;
   background-color: gray;
-  background-image: url("https://images7.alphacoders.com/372/372247.jpg");
+  background-image: url("https://www.mogidascruzes.sp.gov.br/public/site/imagens/6/2023071817355164b6f7a743553.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center center;

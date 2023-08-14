@@ -7,11 +7,23 @@ export const Banner = styled.div`
   height: 240px;
   display: flex;
   flex-direction: column;
-  background-image: url("https://images7.alphacoders.com/372/372247.jpg");
+  background-image: url("https://www.mogidascruzes.sp.gov.br/public/site/imagens/6/2023071817355164b6f7a743553.jpg");
+  filter: grayscale(10%) opacity(90%);
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+
+  ::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(24, 53, 97, 0.6);  // A máscara cinza com 50% de opacidade
+    z-index: -1;
+  }
 
   .content {
     margin: 0 auto;
@@ -86,7 +98,9 @@ export const Banner = styled.div`
 export const BannerTotals = styled.div`
   width: 100%;
   height: 240px;
-  background-image: url("https://images8.alphacoders.com/368/368165.jpg");
+  // background-image: url("https://images8.alphacoders.com/368/368165.jpg");
+  background-color: ${colors.grayDark70p};
+    opacity: 0.90;
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -99,7 +113,7 @@ export const BannerTotals = styled.div`
     );
     width: 100%;
     height: 100%;
-    opacity: 0.66;
+    opacity: 0.90;
   }
 
   .content {

@@ -34,7 +34,7 @@ export const Card = styled.div`
     height: 220px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
-    background-image: url("https://images7.alphacoders.com/372/372247.jpg");
+    background-image: url("https://www.mogidascruzes.sp.gov.br/public/site/imagens/6/2023071817355164b6f7a743553.jpg");
     background-repeat: no-repeat;
     background-size: cover;
   }
