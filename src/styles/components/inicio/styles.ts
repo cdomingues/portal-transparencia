@@ -7,7 +7,7 @@ export const Banner = styled.div`
   height: 240px;
   display: flex;
   flex-direction: column;
-  background-image: url("https://images7.alphacoders.com/372/372247.jpg");
+  background-image: url("https://www.mogidascruzes.sp.gov.br/public/site/imagens/6/2023071817355164b6f7a743553.jpg");
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;

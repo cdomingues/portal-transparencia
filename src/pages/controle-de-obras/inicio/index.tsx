@@ -12,7 +12,7 @@ import CardTotal from "../../../components/CardTotal";
 import MapOfConstructions from "../../../components/MapOfConstructions";
 import CardBigTransformation from "../../../components/CardBigTransformation";
 import CardTransformation from "../../../components/CardTransformation";
-import { Heading, Input, Text } from "@chakra-ui/react";
+import { Heading, Input, Text, background } from "@chakra-ui/react";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 
 type PropsInput = {
@@ -34,7 +34,7 @@ function Screen({ handler }: PropsInput) {
 
   return (
     <LayoutConstructions breadcrumb={false}>
-      <Style.Banner>
+      <Style.Banner >
         <div className="content">
           <Heading
             color={colors.white}
