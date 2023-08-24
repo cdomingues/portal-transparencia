@@ -492,6 +492,26 @@ const publicRoutes: IPublicRoute[] = [
   },
 
   {
+    name: "Leis, Decretos e Portarias",
+    path: "/acesso-a-informacao",
+    icon: AiOutlineSolution,
+    group: [
+      {
+        name: "Leis Municipais",
+        path: "/protocolo-geral",
+        icon: AiOutlineProfile,
+        link: "https://leismunicipais.com.br/prefeitura/sp/mogi-das-cruzes",
+      },
+      {
+        name: "Decretos e Portarias",
+        path: "/acesso-informacao",
+        icon: AiOutlineProfile,
+        link: "http://ged.pmmc.com.br/weblink7/Browse.aspx",
+      },
+    ],
+  },
+
+  {
     name: "LAI - Lei de Acesso a Informação",
     path: "/acesso-a-informacao",
     icon: AiOutlineSolution,
