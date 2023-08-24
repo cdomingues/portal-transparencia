@@ -506,7 +506,7 @@ const publicRoutes: IPublicRoute[] = [
 
   {
     name: "Leis, Decretos e Portarias",
-    path: "/acesso-a-informacao",
+    path: "/leis-decretos-portarias",
     icon: AiOutlineSolution,
     group: [
       {
