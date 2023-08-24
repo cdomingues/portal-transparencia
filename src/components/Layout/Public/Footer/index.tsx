@@ -93,6 +93,13 @@ export default function LargeWithLogoCentered() {
             <Text>Semae: 115</Text>
             <Text>Saúde: 160</Text>
             <Text>Guarda Municipal: 153</Text>
+            <Link
+              target="_blank"
+              href="https://radar.tce.mt.gov.br/extensions/radar-da-transparencia-publica/radar-da-transparencia-publica.html"
+            >
+              Radar da Transparência Pública
+            </Link>
+            
           </Stack>
         </SimpleGrid>
       </Container>
