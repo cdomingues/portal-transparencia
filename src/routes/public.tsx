@@ -252,6 +252,12 @@ const publicRoutes: IPublicRoute[] = [
         path: "outros/subvencoes",
         icon: AiFillCaretRight,
       },
+      {
+        defaultPath: "/gestao-orcamentaria-outros",
+        name: "Dívida Ativa",
+        path: "outros/divida-ativa",
+        icon: AiFillCaretRight,
+      },
     ],
   },
 
