@@ -4,13 +4,9 @@ import Head from "next/head";
 //import { News } from "../types";
 import { PublicPolicyData } from "../api/totalizador/politicas-publicas";
 import CardHorizon from "../../components/CardHorizon";
-import diretriz_orcamentaria from "../../assets/images/icones/diretriz_orcamentaria.svg";
-import balanco_anual from "../../assets/images/icones/balanco_anual.svg";
-import lei_orcamentaria from "../../assets/images/icones/lei_orcamentaria_anual.svg";
-import parecer_tribunal from "../../assets/images/icones/parecer_tribunal.svg";
-import plano_plurianual from "../../assets/images/icones/plano_plurianual.svg";
-import relatorio_gestao_fiscal from "../../assets/images/icones/relatorio_gestao_fiscal.svg";
-import relatorio_resumido from "../../assets/images/icones/relatorio_resumido.svg";
+
+import institutos_e_autarquias_iprem from "../../assets/images/icones/institutos e autarquias__iprem.svg";
+import institutos_e_autarquias_semae from "../../assets/images/icones/institutos e autarquias__semae.svg";
 import {
   Box,
   Divider,
@@ -140,7 +136,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="IPREM"
-                      imageURL={relatorio_resumido}
+                      imageURL={institutos_e_autarquias_iprem}
                       description="Subvenção é quando a Prefeitura destina recursos financeiros para que entidades cubram seus custos de atividades prestadas à população. Confira aqui as despesas relacionadas a essa natureza."
                       link="https://iprem.mogidascruzes.sp.gov.br/?page_id=1542"
                       backgroundColor="transparent"
@@ -149,7 +145,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="SEMAE"
-                      imageURL={relatorio_resumido}
+                      imageURL={institutos_e_autarquias_semae}
                       description="A arrecadação de receitas para o município pode vir de diferentes fontes. As emendas parlamentares, indicadas por Deputados Federais e Estaduais, são uma forma da cidade ter acesso a recursos. Acompanhe nesta página o descritivo das emendas parlamentares recebidas pela Prefeitura de Mogi das Cruzes."
                       link="http://www.transparenciasemae.pmmc.com.br/"
                       backgroundColor="transparent"

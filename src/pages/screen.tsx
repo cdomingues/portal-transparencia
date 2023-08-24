@@ -758,7 +758,7 @@ const PublicPolicyCard = ({
           }}
         >
           <Icon
-            fontSize="30px"
+            fontSize="100px"
             color="white"
             as={stylesTranslator[funcao].icon}
           />

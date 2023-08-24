@@ -1,4 +1,5 @@
 import { FiHome, FiThermometer } from "react-icons/fi";
+//import { FaSomeIcon } from 'react-icons/fa';
 import {
   AiOutlineTable,
   AiOutlineContainer,
@@ -70,6 +71,7 @@ import { contentSearchConstructions } from "../pages/controle-de-obras/pesquisar
 import { contentAbout } from "../pages/sobre-portal/screen";
 import { pointRadial } from "d3";
 
+
 const publicRoutes: IPublicRoute[] = [
   {
     name: "Início",
@@ -78,16 +80,10 @@ const publicRoutes: IPublicRoute[] = [
     group: undefined,
     ...contentInitial,
   },
-  {
-    name: "Sobre o Portal",
-    icon: AiOutlineProfile,
-    path: "/sobre-portal",
-    group: undefined,
-    ...contentAbout,
-  },
+  
   {
     name: "Perfil do Municipio",
-    icon: AiOutlineProfile,
+    icon:  BsFileText,
     path: "/perfil-do-municipio",
     group: undefined,
     ...contentMunicipalityProfile,
@@ -547,6 +543,12 @@ const publicRoutes: IPublicRoute[] = [
   {
     name: "Últimas Noticias",
     path: "/ultimas-noticias",
+    icon: AiOutlineAudit,
+    ...contentOtherInformations,
+  },
+  {
+    name: "Plano Municipal de Educação",
+    path: "/plano-municipal-educacao",
     icon: AiOutlineAudit,
     ...contentOtherInformations,
   },
