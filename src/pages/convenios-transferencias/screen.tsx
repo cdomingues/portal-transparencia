@@ -201,10 +201,10 @@ marginBottom="15px"
                  
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Convênios"
+                      title="Recebidos"
                       imageURL={convenios}
                       description="Confira aqui os contratos com as organizações do terceiro setor celebrados pela Prefeitura de Mogi das Cruzes."
-                      link="convenios-transferencias/convenios"
+                      link="convenios-transferencias/recebidos"
                  backgroundColor="transparent"/>
 
 
@@ -224,6 +224,7 @@ marginBottom="15px"
                       link="convenios-transferencias/repasses"
                  backgroundColor="transparent"/>
                   </Box>
+           
                   
                 </Stack>
                 
