@@ -388,6 +388,13 @@ const publicRoutes: IPublicRoute[] = [
         icon: AiFillCaretRight,
         subgroup: false,
       },
+      {
+        defaultPath: "/gestao-de-pessoas",
+        name: "Estrutura Organizacional",
+        path: "/estrutura-organizacional",
+        icon: AiFillCaretRight,
+        link: "http://leismunicipa.is/0ji28",
+      },
     ],
   },
   {
