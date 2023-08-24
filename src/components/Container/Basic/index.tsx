@@ -186,6 +186,7 @@
 
 import React, { ReactNode, useState, useEffect } from "react";
 import { Box, Heading, Text, Divider, Stack } from "@chakra-ui/react";
+import Vlibras from 'vlibras-nextjs';
 import Head from "next/head";
 import { Container, Body } from "./styles";
 import Breadcrumb from "../../Breadcrumb";
@@ -315,6 +316,7 @@ function ContainerBasic({
             <Head>
               <title>{title} - PMMC</title>
             </Head>
+            <Vlibras/>
             <Heading
               mb={2}
               fontSize={accessibility?.fonts?.ultraLarge}

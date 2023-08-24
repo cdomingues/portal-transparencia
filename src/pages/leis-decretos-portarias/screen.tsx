@@ -8,9 +8,9 @@ import diretriz_orcamentaria from "../../assets/images/icones/diretriz_orcamenta
 import balanco_anual from "../../assets/images/icones/balanco_anual.svg"
 import lei_orcamentaria from "../../assets/images/icones/lei_orcamentaria_anual.svg"
 import parecer_tribunal from "../../assets/images/icones/parecer_tribunal.svg"
-import contratos_de_gestao from "../../assets/images/icones/terceiro setor__contratos de gestao.svg"
-import convenios from "../../assets/images/icones/terceiro setor__convenios.svg"
-import repasses from "../../assets/images/icones/terceiro setor__repasses.svg"
+import acesso_a_informacao from "../../assets/images/icones/LAI__acesso a informação.svg"
+import protocolo_geral from "../../assets/images/icones/LAI__protocolo geral.svg"
+import relatorio_de_demandas from "../../assets/images/icones/LAI__relatorio de demandas lai.svg"
 import {
   Box,
   Divider,
@@ -44,6 +44,7 @@ import DisplayNews from "../../components/NewsHome";
 import ContainerBasic from "../../components/Container/Basic";
 
 
+
 type PropsInput = {
   handler: {
     expenseAmount: number;
@@ -65,9 +66,9 @@ type PropsInput = {
 };
 
 export const contentInitial = {
-  titlePage: "Terceiro Setor",
+  titlePage: "Leis, Decretos e Portarias",
   description:
-    "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.",
+    "A Lei nº 12.527/2011 regulamenta o direito constitucional de acesso às informações públicas. Ela entrou em vigor em 16 de maio de 2012 e criou mecanismos que possibilitam, a qualquer pessoa, física ou jurídica, sem necessidade de apresentar motivo, o recebimento de informações públicas dos órgãos e entidades. A lei vale para os três Poderes da União, Estados, Distrito Federal e Municípios, inclusive aos Tribunais de Conta e Ministério Público. Entidades privadas sem fins lucrativos também são obrigadas a dar publicidade a informações referentes ao recebimento e à destinação dos recursos públicos por elas recebidos.",
 };
 
  function Aside() {
@@ -192,41 +193,27 @@ marginBottom="15px"
               >
                   <Box padding="6" bg="transparent" flexDirection="row">
                    <CardHorizon
-                      title="Contratos de Gestão"
-                      imageURL={contratos_de_gestao}
-                      description="Confira aqui os contratos com as organizações do terceiro setor celebrados pela Prefeitura de Mogi das Cruzes."
-                      link="terceiro-setor/contratos-gestao"
+                      title="Leis Municipais"
+                      imageURL={protocolo_geral}
+                      description="Pesquisa de Demanda do Cidadão."
+                      link="https://leismunicipais.com.br/prefeitura/sp/mogi-das-cruzes"
                  backgroundColor="transparent"/>
                                     </Box>
                  
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Convênios"
-                      imageURL={convenios}
-                      description="Confira aqui os contratos com as organizações do terceiro setor celebrados pela Prefeitura de Mogi das Cruzes."
-                      link="terceiro-setor/convenios"
+                      title="Decretos e Portarias"
+                      imageURL={protocolo_geral}
+                      description="Abertura e Consulta de Pedidos de e-Sic"
+                      link="http://ged.pmmc.com.br/weblink7/Browse.aspx"
                  backgroundColor="transparent"/>
 
 
                   </Box>
                
               </Stack>
-              <Stack
-                direction={isMobile ? "column" : "row"}
-                align={isMobile ? "center" : "center"}
-                justifyContent={isMobile ? "flex-start" : "center"}
-              >
-                  <Box padding="6" bg="transparent" flexDirection="row">
-                  <CardHorizon
-                      title="Repasses"
-                      imageURL={repasses}
-                      description="Acompanhe os repasses feitos pela Prefeitura de Mogi das Cruzes às organizações do Terceiro Setor com as quais firmou contratos ou convênios."
-                      link="terceiro-setor/repasses"
-                 backgroundColor="transparent"/>
-                  </Box>
-                  
-                </Stack>
-                
+              
+               
             </Stat>
 
           </StatGroup>

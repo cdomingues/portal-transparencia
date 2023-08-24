@@ -6,6 +6,7 @@ import { CookiesProvider, useCookies } from "react-cookie";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import theme from "../themes"; 
+import Vlibras from 'vlibras-nextjs';
 
 import { FontSizeAccessibilityWrapper } from "../context/fontSizeAccessibility";
 import TagManager from "react-gtm-module";
@@ -29,6 +30,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <CookiesProvider>
           {loaded && (
             <PublicLayout>
+              <Vlibras forceOnload={true} />
               <Component {...pageProps} />
             </PublicLayout>
           )}

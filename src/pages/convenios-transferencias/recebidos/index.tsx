@@ -9,18 +9,17 @@ function Controller() {
   const columns = [
     { title: "Tipo", field: "tipo" },
     { title: "Número", field: "numero" },
+    { title: "Objeto", field: "objeto" },
     { title: "Situação", field: "situacao" },
-    { title: "Licitação", field: "licitacao" },
-    { title: "Modalidade", field: "modalidade" },
     { title: "Processo", field: "processo" },
     { title: "Data Início", field: "datainicio" },
     { title: "Data Término", field: "datatermino" },
-    { title: "Valor", field: "valor" },
+    { title: "Valor Previsto", field: "valorPrevisto" },
     { title: "Valor Aditado", field: "valorAditado" },
+    { title: "Valor Recebido", field: "valorRecebido" },
     { title: "Qntd Aditivos", field: "quantidadeAdivitos" },
-    { title: "Fornecedor", field: "fornecedor" },
-    { title: "Grupo", field: "grupo" },
-    { title: "Objeto", field: "objeto" },
+    { title: "Origem Recurso", field: "origemRecurso" },
+
   ];
 
   const getData = async () => {
