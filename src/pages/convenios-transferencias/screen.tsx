@@ -65,7 +65,7 @@ type PropsInput = {
 };
 
 export const contentInitial = {
-  titlePage: "Terceiro Setor",
+  titlePage: "Convênios e Transferências",
   description:
     "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.",
 };
@@ -195,7 +195,7 @@ marginBottom="15px"
                       title="Contratos de Gestão"
                       imageURL={contratos_de_gestao}
                       description="Confira aqui os contratos com as organizações do terceiro setor celebrados pela Prefeitura de Mogi das Cruzes."
-                      link="terceiro-setor/contratos-gestao"
+                      link="convenios-transferencias/contratos-gestao"
                  backgroundColor="transparent"/>
                                     </Box>
                  
@@ -204,7 +204,7 @@ marginBottom="15px"
                       title="Convênios"
                       imageURL={convenios}
                       description="Confira aqui os contratos com as organizações do terceiro setor celebrados pela Prefeitura de Mogi das Cruzes."
-                      link="terceiro-setor/convenios"
+                      link="convenios-transferencias/convenios"
                  backgroundColor="transparent"/>
 
 
@@ -221,7 +221,7 @@ marginBottom="15px"
                       title="Repasses"
                       imageURL={repasses}
                       description="Acompanhe os repasses feitos pela Prefeitura de Mogi das Cruzes às organizações do Terceiro Setor com as quais firmou contratos ou convênios."
-                      link="terceiro-setor/repasses"
+                      link="convenios-transferencias/repasses"
                  backgroundColor="transparent"/>
                   </Box>
                   

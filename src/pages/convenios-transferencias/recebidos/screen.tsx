@@ -11,14 +11,14 @@ type PropsInput = {
   };
 };
 
-export const contentTransfers = {
-  titlePage: "Repasses",
-  description: "Acompanhe os repasses feitos pela Prefeitura de Mogi das Cruzes às organizações do Terceiro Setor com as quais firmou contratos ou convênios.",
+export const contentConvenants = {
+  titlePage: "Convênios e Transferências",
+  description: "Confira aqui os convênios e transferências celebrados pela Prefeitura de Mogi das Cruzes. ",
 }
 
 function Screen({ handler: { columns, data, loading } }: PropsInput) {
-  const title = contentTransfers?.titlePage;
-  const description = contentTransfers?.description;
+  const title = contentConvenants?.titlePage;
+  const description = contentConvenants?.description;
   return (
     <ContainerBasic title={title} description={description}>
             <Box
@@ -33,7 +33,7 @@ function Screen({ handler: { columns, data, loading } }: PropsInput) {
         marginBottom="15px"
       >
       <TableComponent loading={loading} columns={columns} data={data} />
-    </Box>
+      </Box>
     </ContainerBasic>
   );
 }

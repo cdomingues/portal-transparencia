@@ -36,9 +36,9 @@ import { contentConstructionsControl } from "../pages/controle-de-obras/inicio";
 import { contentAboutConstructions } from "../pages/controle-de-obras/sobre-as-obras";
 import { contentRadarsControl } from "../pages/controle-de-radares/screen";
 import { contentMayorAgenda } from "../pages/agenda-aberta/agenda-prefeito/screen";
-import { contentContractManagement } from "../pages/terceiro-setor/contratos-gestao/screen";
-import { contentConvenants } from "../pages/terceiro-setor/convenios/screen";
-import { contentTransfers } from "../pages/terceiro-setor/repasses/screen";
+import { contentContractManagement } from "../pages/convenios-transferencias/contratos-gestao/screen";
+import { contentConvenants } from "../pages/convenios-transferencias/recebidos/screen";
+import { contentTransfers } from "../pages/convenios-transferencias/repasses/screen";
 import { contentAgreementColaborator } from "../pages/acordos-termos/acordo-de-colaboracao/screen";
 import { contentPlanMultiannual } from "../pages/zzOld_ciclo-orcamentario/plurianual/screen";
 import { contentGuidelines } from "../pages/zzOld_ciclo-orcamentario/diretrizes-orcamentarias/screen";
@@ -475,27 +475,27 @@ const publicRoutes: IPublicRoute[] = [
     ],
   },
   {
-    name: "Terceiro Setor",
-    path: "/terceiro-setor",
+    name: "Convênios e Transferências",
+    path: "/convenios-transferencias",
     element: <div></div>,
     icon: BiBriefcaseAlt,
     group: [
       {
-        defaultPath: "/terceiro-setor",
+        defaultPath: "/convenios-transferencias",
         name: "Contratos de Gestão",
         path: "/contratos-gestao",
         icon: AiOutlineTable,
         ...contentContractManagement,
       },
       {
-        defaultPath: "/terceiro-setor",
-        name: "Convênios",
-        path: "/convenios",
+        defaultPath: "/convenios-transferencias",
+        name: "Recebidos",
+        path: "/recebidos",
         icon: AiOutlineTable,
         ...contentConvenants,
       },
       {
-        defaultPath: "/terceiro-setor",
+        defaultPath: "/convenios-transferencias",
         name: "Repasses",
         path: "/repasses",
         icon: AiOutlineTable,

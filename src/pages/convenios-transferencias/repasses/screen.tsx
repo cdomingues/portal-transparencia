@@ -11,14 +11,14 @@ type PropsInput = {
   };
 };
 
-export const contentConvenants = {
-  titlePage: "Convênios",
-  description: "Confira aqui os convênios  celebrados pela Prefeitura de Mogi das Cruzes com as organizações do terceiro setor. ",
+export const contentTransfers = {
+  titlePage: "Repasses",
+  description: "Acompanhe os repasses feitos pela Prefeitura de Mogi das Cruzes.",
 }
 
 function Screen({ handler: { columns, data, loading } }: PropsInput) {
-  const title = contentConvenants?.titlePage;
-  const description = contentConvenants?.description;
+  const title = contentTransfers?.titlePage;
+  const description = contentTransfers?.description;
   return (
     <ContainerBasic title={title} description={description}>
             <Box
@@ -33,7 +33,7 @@ function Screen({ handler: { columns, data, loading } }: PropsInput) {
         marginBottom="15px"
       >
       <TableComponent loading={loading} columns={columns} data={data} />
-      </Box>
+    </Box>
     </ContainerBasic>
   );
 }
