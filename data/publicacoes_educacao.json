@@ -1,0 +1,85 @@
+ [  {
+        "id": 987,
+        "volume": "Plano Municipal de Educação 2023/2024",
+        "publicationDate": null,
+        "description": "<p style=\"font-weight: 400;\">Lei n&ordm; 7.893, de 12 de janeiro de 2023</p>\r\n<p style=\"font-weight: 400;\"><a style=\"text-decoration: none; color: inherit;\" href=\"https://drive.google.com/file/d/1NsCs3kNnZI3X2DHDRKgD5KxeQ7fuDmue/view?usp=share_link\" target=\"_blank\" rel=\"noopener\"><strong>Aprova o Plano Municipal de Educa&ccedil;&atilde;o - PME de Mogi das Cruzes para o bi&ecirc;nio 2023/2024.</strong></a><br /><br /><br /></p>\r\n<ul>\r\n<a style=\"text-decoration: none;\" href=\"/pages/plano-municipal-de-educacao-2023-2024\" target=\"_blank\" rel=\"noopener\">Hist&oacute;rico</a>\r\n</ul>\r\n<p>&nbsp;</p>",
+        "src": "https://drive.google.com/file/d/1NsCs3kNnZI3X2DHDRKgD5KxeQ7fuDmue/view?usp=share_link",
+        "cover": null,
+        "createdAt": "2022-09-23 14:32:00",
+        "updatedAt": "2023-01-23 10:32:05",
+        "magazineId": 18,
+        "order": 8
+      },
+      {
+        "id": 986,
+        "volume": "Plano Municipal de Educação 2021/2022",
+        "publicationDate": null,
+        "description": "<p>Lei n&ordm; 7.831, de 31 de agosto de 2022</p>\r\n<p><strong>Prorroga para o bi&ecirc;nio 2021/2022, a vig&ecirc;ncia do Plano Municipal de Educa&ccedil;&atilde;o, aprovado pela Lei n&ordm; 7480/2019.</strong></p>\r\n<p>&nbsp;</p>",
+        "src": "https://drive.google.com/file/d/19j1IM3dle9mfn9Fni2J_8-jhyhMf4CRN/view?usp=sharing",
+        "cover": null,
+        "createdAt": "2022-09-19 13:34:00",
+        "updatedAt": "2022-09-19 13:38:05",
+        "magazineId": 18,
+        "order": 7
+      },
+      {
+        "id": 154,
+        "volume": "Plano Municipal de Educação 2019/2020",
+        "publicationDate": null,
+        "description": "<p>Lei n&ordm; 7.480, de 10 de Julho de 2019</p>\r\n<p><strong>Aprova o Plano MUnicipal de Educa&ccedil;&atilde;o - PME de Mogi das Cruzes para o bi&ecirc;nio 2019/2020.</strong></p>",
+        "src": "/storage/uploads/politicas/pme_2019-2020.pdf",
+        "cover": null,
+        "createdAt": "2019-12-17 17:00:00",
+        "updatedAt": "2022-09-19 13:33:20",
+        "magazineId": 18,
+        "order": 6
+      },
+      {
+        "id": 153,
+        "volume": "Plano Municipal de Educação 2017/2018",
+        "publicationDate": null,
+        "description": "<p>Lei n&ordm; 7.279, de 5 de Maio de 2017</p>\r\n<p><strong>Aprova o Plano MUnicipal de Educa&ccedil;&atilde;o - PME de Mogi das Cruzes para o bi&ecirc;nio 2017/2018.</strong></p>",
+        "src": "/storage/uploads/politicas/pme_2017-2018.pdf",
+        "cover": null,
+        "createdAt": "2019-12-17 17:00:00",
+        "updatedAt": "2022-09-19 13:35:50",
+        "magazineId": 18,
+        "order": 5
+      },
+      {
+        "id": 152,
+        "volume": "Plano Municipal de Educação 2015/2016",
+        "publicationDate": null,
+        "description": "<p>Lei n&ordm; 7.039, de 27 de Mar&ccedil;o de 2015</p>\r\n<p><strong>Aprova o Plano MUnicipal de Educa&ccedil;&atilde;o - PME de Mogi das Cruzes para o bi&ecirc;nio 2015/2016.</strong></p>",
+        "src": "/storage/uploads/politicas/pme_2015-2016.pdf",
+        "cover": null,
+        "createdAt": "2019-12-17 16:59:00",
+        "updatedAt": "2022-09-19 13:36:25",
+        "magazineId": 18,
+        "order": 4
+      },
+      {
+        "id": 151,
+        "volume": "Plano Municipal de Educação 2013/2014",
+        "publicationDate": null,
+        "description": "<p>Lei n&ordm; 6.758, de 2 de Janeiro de 2013</p>\r\n<p><strong>Aprova o Plano MUnicipal de Educa&ccedil;&atilde;o - PME de Mogi das Cruzes para o bi&ecirc;nio 2013/2014.</strong></p>",
+        "src": "/storage/uploads/politicas/pme_2013-2014.pdf",
+        "cover": null,
+        "createdAt": "2019-12-17 16:59:00",
+        "updatedAt": "2022-09-19 13:36:48",
+        "magazineId": 18,
+        "order": 3
+      },
+      {
+        "id": 150,
+        "volume": "Plano Municipal de Educação 2011/2012",
+        "publicationDate": null,
+        "description": "<p>Lei n&ordm; 6.490, de 22 de Dezembro de 2010</p>\r\n<p><strong>Aprova o Plano MUnicipal de Educa&ccedil;&atilde;o - PME de Mogi das Cruzes para o bi&ecirc;nio 2011/2012.</strong></p>",
+        "src": "/storage/uploads/politicas/pme_2011-2012.pdf",
+        "cover": null,
+        "createdAt": "2019-12-17 16:59:00",
+        "updatedAt": "2022-09-19 13:37:41",
+        "magazineId": 18,
+        "order": 2
+      }
+    ]

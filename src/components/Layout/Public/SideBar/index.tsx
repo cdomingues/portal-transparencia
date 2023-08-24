@@ -66,7 +66,7 @@ interface SidebarProps extends BoxProps {
 }
 
 interface NavItemProps extends FlexProps {
-  icon: IconType;
+  icon: IconType  ;
   children: React.ReactNode;
   path?: string;
   link?: string;

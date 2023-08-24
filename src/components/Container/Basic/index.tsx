@@ -359,7 +359,7 @@ function ContainerBasic({
             outline: "none",
             cursor: "pointer",
             width: "40px",
-            height: "40px",
+            height: "200px",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
