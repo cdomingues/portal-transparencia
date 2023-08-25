@@ -72,6 +72,12 @@ import { contentAbout } from "../pages/sobre-portal/screen";
 import { pointRadial } from "d3";
 import perfil_municipio from '../assets/images/icones/icones_barra lateral__perfil do municipio.svg'
 
+const custom_perfil_municipio = () => (
+  <div>
+  {perfil_municipio}
+    
+  </div>
+);
 
 const publicRoutes: IPublicRoute[] = [
   {
@@ -84,7 +90,7 @@ const publicRoutes: IPublicRoute[] = [
   
   {
     name: "Perfil do Municipio",
-    icon:  perfil_municipio,
+    icon:  BsFileText,
     path: "/perfil-do-municipio",
     group: undefined,
     ...contentMunicipalityProfile,
