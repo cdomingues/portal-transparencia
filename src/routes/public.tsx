@@ -21,6 +21,7 @@ import {
   AiOutlineSwap,
   AiFillTag,
   AiFillCaretRight,
+  
 } from "react-icons/ai";
 import { BiBall, BiBriefcaseAlt, BiMoney } from "react-icons/bi";
 import {
@@ -591,6 +592,32 @@ const publicRoutes: IPublicRoute[] = [
     path: "/plano-municipal-educacao",
     icon: AiOutlineAudit,
     ...contentOtherInformations,
+  },
+  {
+    name: "Saúde",
+    path: "/saude",
+    icon: AiOutlineSolution,
+    group: [
+      {
+        name: "Plano de saúde",
+        path: "saude/plano-saude",
+        icon: AiOutlineProfile,
+        
+      },
+      {
+        name: "Serviços de Saúde",
+        path: "/transparencia-iprem",
+        icon: AiOutlineProfile,
+        
+      },
+      {
+        name: "Medicamentos",
+        path: "saude/medicamentos",
+        icon: AiOutlineProfile,
+        
+      },
+      
+    ],
   },
   {
     name: "Mapa do Site",
