@@ -70,6 +70,7 @@ import { contentOtherInformations } from "../pages/ultimas-noticias/screen";
 import { contentSearchConstructions } from "../pages/controle-de-obras/pesquisar-obras/screen";
 import { contentAbout } from "../pages/sobre-portal/screen";
 import { pointRadial } from "d3";
+import perfil_municipio from '../assets/images/icones/icones_barra lateral__perfil do municipio.svg'
 
 
 const publicRoutes: IPublicRoute[] = [
@@ -83,7 +84,7 @@ const publicRoutes: IPublicRoute[] = [
   
   {
     name: "Perfil do Municipio",
-    icon:  BsFileText,
+    icon:  perfil_municipio,
     path: "/perfil-do-municipio",
     group: undefined,
     ...contentMunicipalityProfile,
