@@ -369,8 +369,8 @@ const publicRoutes: IPublicRoute[] = [
 
       {
         defaultPath: "/gestao-de-pessoas",
-        name: "Passagens e Locomoção",
-        path: "/passagem-locomocao",
+        name: "Despesas de Viagens",
+        path: "/despesas-viagens",
         icon: AiFillCaretRight,
         subgroup: false,
       },

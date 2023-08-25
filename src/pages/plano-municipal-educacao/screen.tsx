@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable react/jsx-key */
 import React, { useEffect, useState } from "react";
 import ContainerBasic from "../../components/Container/Basic";
 import { Box, useColorModeValue } from "@chakra-ui/react";

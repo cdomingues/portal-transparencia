@@ -261,6 +261,14 @@ function HomeScreen({ handler }: PropsInput) {
                       link="ciclo-orcamentario/pareceres-do-tribunal"
                  backgroundColor="transparent"/>
                   </Box>
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Aprovação de Contas pelo Legislativo"
+                      imageURL={parecer_tribunal}
+                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
+                      link="http://www.cmmc.com.br/contasexecutivo/"
+                 backgroundColor="transparent"/>
+                  </Box>
                 </Stack>
                 
                 

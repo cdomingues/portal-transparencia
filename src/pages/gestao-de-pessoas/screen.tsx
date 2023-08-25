@@ -166,10 +166,10 @@ function HomeScreen({ handler }: PropsInput) {
                 >
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Adiantamentos e Hospedagens"
+                      title="Despesas de Viagens"
                       imageURL={adiantamentos_e_hospedagem}
                       description="Adiantamentos são recursos financeiros conferidos a um servidor público, a fim de que possa realizar despesas que não possam aguardar o ciclo normal de compras."
-                      link="gestao-de-pessoas/adiantamento-hospedagem"
+                      link="gestao-de-pessoas/despesas-viagens"
                       backgroundColor="transparent"
                     />
                   </Box>
@@ -178,7 +178,7 @@ function HomeScreen({ handler }: PropsInput) {
                       title="Cargos e salários"
                       imageURL={cargos_e_salarios}
                       description="Nesta página, confira as informações sobre cargos e salários na Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por matrícula, nome, cargo entre outros itens."
-                      link="gestao-de-pessoas/cargos-e-salarios"
+                      link="http://leismunicipa.is/0ji28"
                       backgroundColor="transparent"
                     />
                   </Box>
