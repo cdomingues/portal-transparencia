@@ -1,49 +1,81 @@
-import React, { useEffect, useState } from "react";
-import { getFile } from "../../../services/cloudStorage";
+import { GetStaticProps } from "next";
+import React, { useState } from "react";
 import Screen from "./screen";
+import {
+  getChart,
+  getChartYear,
+  getdvertisings,
+} from "../../../calls/expenses/advertising";
+import { revalidate } from "../../../config";
+import moment from "moment";
 
-function Controller() {
+function Controller({
+  chart = { datasets: [] },
+  chartYear = { datasets: [] },
+  advertisings = [],
+  years,
+}: any) {
+  const [year, setYear] = useState(moment().year());
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(advertisings);
+  const [newChart, setNewChart] = useState(chart);
 
   const columns = [
-    { title: "Tipo", field: "tipo" },
-    { title: "Número", field: "numero" },
-    { title: "Objeto", field: "objeto" },
-    { title: "Situação", field: "situacao" },
-    { title: "Processo", field: "processo" },
-    { title: "Data Início", field: "datainicio" },
-    { title: "Data Término", field: "datatermino" },
-    { title: "Valor Previsto", field: "valorPrevisto" },
-    { title: "Valor Aditado", field: "valorAditado" },
-    { title: "Valor Recebido", field: "valorRecebido" },
-    { title: "Qntd Aditivos", field: "quantidadeAdivitos" },
-    { title: "Origem Recurso", field: "origemRecurso" },
-
+    { title: "Número", field: "A" },
+    { title: "Objeto", field: "B" },
+    { title: "Orgão Repassador / Concedente", field: "C" },
+    { title: "Nome do Inscrito", field: "D" },
+    { title: "Valor Total", field: "E" },
+    { title: "Valor Recebido", field: "F" },
+    { title: "Data do Recebimento", field: "G" },
+    
   ];
 
-  const getData = async () => {
+  const handleByYear = async (year: number) => {
+    setYear(year);
+
     setLoading(true);
-    const { data, error } = await getFile("");
+
+    const { advertisings } = await getdvertisings(year);
+
+    const { chart } = await getChart(year);
+
     setLoading(false);
 
-    if (error) {
-      return;
-    }
-    setData(data);
-  };
+    setNewChart(chart);
 
-  useEffect(() => {
-    getData();
-  }, []);
+    setData(advertisings);
+  };
 
   const handler = {
     data,
     columns,
     loading,
+    chart: newChart,
+    chartYear,
+    years,
+    setYear,
+    year,
+    handleByYear,
   };
 
   return <Screen handler={handler} />;
 }
 
 export default Controller;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const { chart } = await getChart();
+  const { chartYear } = await getChartYear();
+  const { advertisings, years } = await getdvertisings();
+
+  return {
+    props: {
+      chartYear: chartYear || { datasets: [] },
+      chart: chart || { datasets: [] },
+      advertisings: advertisings || [],
+      years: years || [],
+    },
+    revalidate,
+  };
+};
