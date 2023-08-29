@@ -38,8 +38,7 @@ import { contentAboutConstructions } from "../pages/controle-de-obras/sobre-as-o
 import { contentRadarsControl } from "../pages/controle-de-radares/screen";
 import { contentMayorAgenda } from "../pages/agenda-aberta/agenda-prefeito/screen";
 import { contentContractManagement } from "../pages/convenios-transferencias/contratos-gestao/screen";
-import { contentConvenants } from "../pages/convenios-transferencias/recebidos/screen";
-import { contentTransfers } from "../pages/convenios-transferencias/repasses/screen";
+
 import { contentAgreementColaborator } from "../pages/acordos-termos/acordo-de-colaboracao/screen";
 import { contentPlanMultiannual } from "../pages/zzOld_ciclo-orcamentario/plurianual/screen";
 import { contentGuidelines } from "../pages/zzOld_ciclo-orcamentario/diretrizes-orcamentarias/screen";
@@ -488,14 +487,14 @@ const publicRoutes: IPublicRoute[] = [
         name: "Recebidos",
         path: "/recebidos",
         icon: AiOutlineTable,
-        ...contentConvenants,
+
       },
       {
         defaultPath: "/convenios-transferencias",
         name: "Repasses",
         path: "/repasses",
         icon: AiOutlineTable,
-        ...contentTransfers,
+
       },
     ],
   },
