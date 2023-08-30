@@ -21,6 +21,7 @@ import {
   AiOutlineSwap,
   AiFillTag,
   AiFillCaretRight,
+  
 } from "react-icons/ai";
 import { BiBall, BiBriefcaseAlt, BiMoney } from "react-icons/bi";
 import {
@@ -69,7 +70,14 @@ import { contentOtherInformations } from "../pages/ultimas-noticias/screen";
 import { contentSearchConstructions } from "../pages/controle-de-obras/pesquisar-obras/screen";
 import { contentAbout } from "../pages/sobre-portal/screen";
 import { pointRadial } from "d3";
+import perfil_municipio from '../assets/images/icones/icones_barra lateral__perfil do municipio.svg'
 
+const custom_perfil_municipio = () => (
+  <div>
+  {perfil_municipio}
+    
+  </div>
+);
 
 const publicRoutes: IPublicRoute[] = [
   {
@@ -583,6 +591,32 @@ const publicRoutes: IPublicRoute[] = [
     path: "/plano-municipal-educacao",
     icon: AiOutlineAudit,
     ...contentOtherInformations,
+  },
+  {
+    name: "Saúde",
+    path: "/saude",
+    icon: AiOutlineSolution,
+    group: [
+      {
+        name: "Plano de saúde",
+        path: "saude/plano-saude",
+        icon: AiOutlineProfile,
+        
+      },
+      {
+        name: "Serviços de Saúde",
+        path: "/transparencia-iprem",
+        icon: AiOutlineProfile,
+        
+      },
+      {
+        name: "Medicamentos",
+        path: "saude/medicamentos",
+        icon: AiOutlineProfile,
+        
+      },
+      
+    ],
   },
   {
     name: "Mapa do Site",

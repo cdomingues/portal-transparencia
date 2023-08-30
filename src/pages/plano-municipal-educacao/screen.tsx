@@ -50,8 +50,9 @@ function Screen(PropsInput: any) {
        justifyContent="center" 
         m={0}
        bg={useColorModeValue("white", "gray.800")}
-       paddingLeft="15px"
-       paddingBottom="15px"
+       //paddingLeft="15px"
+       //paddingBottom="15px"
+       padding="15px"
        boxShadow="2xl"
        rounded="md"
        maxWidth = "100%"
