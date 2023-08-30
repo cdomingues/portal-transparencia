@@ -110,7 +110,9 @@ function Screen({
             Buscar
           </Button>
         </Stack>
+        
       </Stack>
+      <Text fontSize="sm" fontWeight="550" paddingLeft="5px" paddingTop="10px"> Informações em processo de atualização</Text>
 
       <Divider borderWidth="2px" mt="10" mb="10" />
       <TableComponent loading={loading} columns={columns} data={data} />

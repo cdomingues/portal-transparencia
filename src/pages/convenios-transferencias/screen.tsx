@@ -65,9 +65,9 @@ type PropsInput = {
 };
 
 export const contentInitial = {
-  titlePage: "Convênios e Transferências",
+  titlePage: "Convênios e Transferências Repasses",
   description:
-    "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.",
+    "Divulgação da lista de Convenios e Transferencias Repassados pela Prefeitura de Mogi das Cruzes é uma medida fundamental cujo propósito é reforçar a transparência das finanças municipais e promover a responsabilidade fiscal.",
 };
 
  function Aside() {
