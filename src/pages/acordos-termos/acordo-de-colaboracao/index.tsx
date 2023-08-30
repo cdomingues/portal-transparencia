@@ -23,11 +23,13 @@ function Controller({
   const columns = [
     { title: "Número", field: "A" },
     { title: "Objeto", field: "B" },
-    { title: "Orgão Repassador / Concedente", field: "C" },
-    { title: "Nome do Inscrito", field: "D" },
-    { title: "Valor Total", field: "E" },
-    { title: "Valor Recebido", field: "F" },
-    { title: "Data do Recebimento", field: "G" },
+    { title: "Entidade Envolvida", field: "C" },
+    { title: "CNPJ / CPF da Entidade", field: "D" },
+    { title: "Onjeto do Acordo", field: "E" },
+    { title: "Data Inicio", field: "F" },
+    { title: "Data Prevista Término", field: "G" },
+    { title: "Data Término", field: "H" },
+    { title: "Status", field: "I" },
     
   ];
 
