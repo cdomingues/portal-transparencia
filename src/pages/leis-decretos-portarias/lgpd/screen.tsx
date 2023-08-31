@@ -2,15 +2,15 @@ import React from "react";
 import Head from "next/head";
 //import BlogComponent from "../components/Blog";
 //import { News } from "../types";
-import { PublicPolicyData } from "../api/totalizador/politicas-publicas";
-import CardHorizon from "../../components/CardHorizon";
+import { PublicPolicyData } from "../../api/totalizador/politicas-publicas";
+import CardHorizon from "../../../components/CardHorizon";
 import diretriz_orcamentaria from "../../assets/images/icones/diretriz_orcamentaria.svg"
-import balanco_anual from "../../assets/images/icones/balanco_anual.svg"
-import lei_orcamentaria from "../../assets/images/icones/lei_orcamentaria_anual.svg"
-import parecer_tribunal from "../../assets/images/icones/parecer_tribunal.svg"
-import acesso_a_informacao from "../../assets/images/icones/LAI__acesso a informação.svg"
-import protocolo_geral from "../../assets/images/icones/LAI__protocolo geral.svg"
-import relatorio_de_demandas from "../../assets/images/icones/LAI__relatorio de demandas lai.svg"
+import balanco_anual from "../../../assets/images/icones/balanco_anual.svg"
+import lei_orcamentaria from "../../../assets/images/icones/lei_orcamentaria_anual.svg"
+import parecer_tribunal from "../../../assets/images/icones/parecer_tribunal.svg"
+import acesso_a_informacao from "../../../assets/images/icones/LAI__acesso a informação.svg"
+import protocolo_geral from "../../../assets/images/icones/LAI__protocolo geral.svg"
+import relatorio_de_demandas from "../../../assets/images/icones/LAI__relatorio de demandas lai.svg"
 import {
   Box,
   Divider,
@@ -27,21 +27,21 @@ import {
   Button,
   Text,
   useColorModeValue,
+  UnorderedList,
+
 } from "@chakra-ui/react";
-import moneyFormatter from "../../utils/moneyFormatter";
-import moment from "moment";
+
 import { isMobile } from "react-device-detect";
-import { Chart } from "../../components/HomeChart";
-import { Chart2 } from "../../components/HomeChart2";
-import { ChartContainer } from "../../utils/styles";
+
+import { ChartContainer } from "../../../utils/styles";
 import { BiBell, BiBody, BiCheckShield, BiFlag, BiFoodMenu, BiHeart } from "react-icons/bi";
-import useWindowDimensions from "../../utils/getWindowSize";
-import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
-import noticias from '../../../data/noticias.json'
+import useWindowDimensions from "../../../utils/getWindowSize";
+import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
+import noticias from '../../../../data/noticias.json'
 //import News from "../../components/News";
 //import News from "../components/News";
-import DisplayNews from "../../components/NewsHome";
-import ContainerBasic from "../../components/Container/Basic";
+import DisplayNews from "../../../components/NewsHome";
+import ContainerBasic from "../../../components/Container/Basic";
 import Link from "next/link";
 
 
@@ -67,9 +67,9 @@ type PropsInput = {
 };
 
 export const contentInitial = {
-  titlePage: "LEI DE ACESSO À INFORMAÇÃO",
+  titlePage: "LGPD",
   description:
-    "A Lei nº 12.527, sancionada em 18 de novembro de 2011, regulamenta o direito constitucional de acesso dos cidadãos à informação e sua restrição. A LAI (Lei de Acesso à Informação) é um mecanismo que permite a qualquer cidadão receber informações de seu interesse particular ou de interesse coletivo ou geral, que serão prestadas no prazo da lei, sob pena de responsabilidade, ressalvadas aquelas cujo sigilo seja imprescindível à segurança da sociedade e do Estado.",
+    "A Lei Geral de Proteção de Dados (LGPD), criada pela Lei Federal nº 13.709, de 14 de agosto de 2018, regulamenta a respeito dontratamento de dados pessoais, inclusive nos meios digitais, por pessoa natural ou por pessoa jurídica de direito público ou privado, com o objetivo de proteger os direitos fundamentais de liberdade e de privacidade e o livre desenvolvimento da personalidade da pessoa natural.",
 };
 
  function Aside() {
@@ -164,8 +164,11 @@ marginBottom="15px">
                 align={isMobile ? "justify" : "left"}
                 fontWeight="700"
                 fontSize={accessibility?.fonts?.regular}
+                paddingTop="5px"
+                
               >
-                Prazo:
+                
+                O QUE SÃO DADOS PESSOAIS?:
                 
                 
               </Text>
@@ -173,95 +176,90 @@ marginBottom="15px">
                 align={isMobile ? "justify" : "left"}
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}
-              >20 (vinte) dias corridos, prorrogáveis por mais 10 (dez) dias, totalizando 30 (trinta) dias.</Text>
+              >De acordo com a Lei Geral de Proteção de Dados (art. 5º, I, LGPD), dados pessoais são definidos como informações que estejam relacionadas a uma pessoa física identificada ou que possa ser identificada. </Text>
 
 <Text
                 align={isMobile ? "justify" : "left"}
                 fontWeight="700"
                 fontSize={accessibility?.fonts?.regular}
+                paddingTop="5px"
               >
-                Recursos:
-                
-                
-              </Text>
-        <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              >apresentados em até 10 (dez) dias, por meio da plataforma online ou presencial, contra a decisão proferida. </Text>
-              <Text
-                align={isMobile ? "justify" : "left"}
-                fontWeight="700"
-                fontSize={accessibility?.fonts?.regular}
-              >
-                Meios de solicitação: 
+                QUEM SÃO OS ENVOLVIDOS COM A LGPD?
                 
                 
               </Text>
               <Text
                 align={isMobile ? "justify" : "left"}
-                fontWeight="700"
-                fontSize={accessibility?.fonts?.regular}
-              >
-                Online: 
-                
-                
-              </Text>
-        <Text
-                align={isMobile ? "justify" : "left"}
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}
-              > <Link href='https://lai.mogidascruzes.sp.gov.br'>lai.mogidascruzes.sp.gov.br</Link></Text>
-              <Text
-                align={isMobile ? "justify" : "left"}
-                fontWeight="700"
-                fontSize={accessibility?.fonts?.regular}
               >
-                Telefone:
                 
                 
-              </Text>
-        <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              >(11) 4798 - 5159 </Text>
-              <Text
-                align={isMobile ? "justify" : "left"}
-                fontWeight="700"
-                fontSize={accessibility?.fonts?.regular}
-              >
-                E-mail: 
-                
-                
-              </Text>
-        <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              >lai@mogidascruzes.sp.gov.br </Text>
 
-<Text
-                align={isMobile ? "justify" : "left"}
-                fontWeight="700"
-                fontSize={accessibility?.fonts?.regular}
-              >
-                Presencial: 
-                
-                
-              </Text>
-        <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              >PAC Prédio I </Text>
+                <Text justifyContent="flex-end">Titular: pessoa natural a quem se referem os dados pessoais que são objeto de tratamento </Text>
 
-<Text
+                <Text justifyContent="flex-end">Controlador: no âmbito da administração direta e indireta, a pessoa jurídica de direito público ou privado</Text>
+
+                <Text justifyContent="flex-end"> Operador: pessoa natural ou jurídica, de direito público ou privado, que realiza o tratamento de dados pessoais em nome do controlador </Text>
+
+                <Text justifyContent="flex-end"> Encarregado: pessoa indicada pelo controlador e operador como canal de comunicação entre o controlador, os titulares dos dados e a Autoridade Nacional de Proteção de Dados (ANPD); </Text>
+                <Text justifyContent="flex-end">Agentes de tratamento: o controlador e o operador;  </Text>
+                <Text justifyContent="flex-end">ANPD: Conforme definido pelo art. 5º, XIX, da LGPD, a Autoridade Nacional é o órgão da Administração Pública, responsável por zelar, implementar e fiscalizar o cumprimento da LGPD em todo o território nacional.  </Text>
+                
+                
+                
+              </Text>
+              <Text
                 align={isMobile ? "justify" : "left"}
                 fontWeight="700"
                 fontSize={accessibility?.fonts?.regular}
+                paddingTop="5px"
               >
-                Dia e horário de atendimento:  
+                REGULAMENTAÇÃO DO MUNICÍPIO  
+                
+                
+              </Text>
+                      <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              > Decreto nº 21.295/2022  </Text>
+            
+            <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              > <Link href="http://ged.pmmc.com.br/weblink7/DocView.aspx?id=683751" target="_blank">http://ged.pmmc.com.br/weblink7/DocView.aspx?id=683751 </Link>  </Text>
+
+              <Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+                paddingTop="5px"
+              >
+                COMITÊ GESTOR DE PROTEÇÃO DE DADOS PESSOAIS
+                
+                
+              </Text>
+              <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              >Decreto nº 20775/2022   </Text>
+            
+            <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              > <Link href="http://ged.pmmc.com.br/weblink7/DocView.aspx?id=676914" target="_blank">http://ged.pmmc.com.br/weblink7/DocView.aspx?id=676914  </Link>  </Text>
+        
+              <Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+                paddingTop="5px"
+              >
+                ENCARREGADO DA PROTEÇÃO DE DADOS  
                 
                 
               </Text>
@@ -269,7 +267,20 @@ marginBottom="15px">
                 align={isMobile ? "justify" : "left"}
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}
-              >Segunda a sexta-feira, das 8 às 17 horas, no PAC do prédio sede da Prefeitura (Av. Ver. Narciso Yague Guimarães, 277 - Centro Cívico) </Text>
+              >
+              
+
+              <Text justifyContent="flex-end">Marcos Torres, ocupante do cargo de Secretário-adjunto nomeado pela Portaria nº 3.274, de 26 de janeiro de 2023.  </Text>
+
+              <Text justifyContent="flex-end">Secretaria de Transparência e Dados Abertos designada pelo Decreto nº 21.295/2022. </Text>
+
+              <Text justifyContent="flex-end"> <Link href="http://ged.pmmc.com.br/weblink7/DocView.aspx?id=683751 ">http://ged.pmmc.com.br/weblink7/DocView.aspx?id=683751 </Link> </Text>
+
+              <Text justifyContent="flex-end"> Local de Trabalho: Secretaria de Transparência e Dados Abertos, localizada Av. Vereador Narciso Yague Guimarães, 277 - 3º andar - Centro Cívico </Text>
+              
+                 </Text>
+
+
       </Box>
     <Stack
  style={{

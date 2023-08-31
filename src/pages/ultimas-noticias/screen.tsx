@@ -113,7 +113,7 @@ import TableComponent, { TableColumns } from "../../components/Table";
 import PaginationComponent2 from "../../components/PaginationComponent";
 import { AiOutlineSearch } from "react-icons/ai";
 import { isMobile } from "react-device-detect";
-
+import caraga_horaria from '../../../data/carga_horaria.json'
 
 
 export const contentOtherInformations = {

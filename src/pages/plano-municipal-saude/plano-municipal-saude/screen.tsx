@@ -64,6 +64,7 @@ function Screen({ handler }: PropsInput) {
 
           
 <div>
+<a href={selectedPublication.src} target="_blank">
    <Stack
    marginTop={5}
 direction="row"
@@ -75,10 +76,11 @@ cursor="pointer"
 _hover={{ bg: 'gray.200' }}
 //onClick={() => handleClick(law.link, index)}
 >
-<a href={selectedPublication.src} target="_blank"><Icon as={AiOutlineDownload} /></a>
+<Icon as={AiOutlineDownload} />
 <p>{HTMLReactParser(selectedPublication.description)}</p>
 
 </Stack>
+</a>
 </div>
 )}
       </Box>

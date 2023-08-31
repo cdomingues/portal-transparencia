@@ -178,7 +178,7 @@ function HomeScreen({ handler }: PropsInput) {
                       title="Cargos e salários"
                       imageURL={cargos_e_salarios}
                       description="Nesta página, confira as informações sobre cargos e salários na Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por matrícula, nome, cargo entre outros itens."
-                      link="http://leismunicipa.is/0ji28"
+                      link="gestao-de-pessoas/cargos-e-salarios"
                       backgroundColor="transparent"
                     />
                   </Box>
@@ -194,6 +194,16 @@ function HomeScreen({ handler }: PropsInput) {
                       imageURL={cargos_e_salarios}
                       description="Adiantamentos são recursos financeiros conferidos a um servidor público, a fim de que possa realizar despesas que não possam aguardar o ciclo normal de compras."
                       link="http://leismunicipa.is/0ji28"
+                      backgroundColor="transparent"
+                    />
+                  </Box>
+
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Carga Horária"
+                      imageURL={cargos_e_salarios}
+                      description="Carga horária de todos os cargos."
+                      link="gestao-de-pessoas/carga-horaria"
                       backgroundColor="transparent"
                     />
                   </Box>
