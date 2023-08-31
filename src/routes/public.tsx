@@ -593,25 +593,25 @@ const publicRoutes: IPublicRoute[] = [
     ...contentOtherInformations,
   },
   {
-    name: "Saúde",
-    path: "/saude",
+    name: "Plano Municipal de Saúde",
+    path: "/plano-municipal-saude",
     icon: AiOutlineSolution,
     group: [
       {
         name: "Plano de saúde",
-        path: "saude/plano-saude",
+        path: "/plano-municipal-saude",
         icon: AiOutlineProfile,
         
       },
       {
         name: "Serviços de Saúde",
-        path: "/transparencia-iprem",
+        path: "/servicos-saude",
         icon: AiOutlineProfile,
         
       },
       {
         name: "Medicamentos",
-        path: "saude/medicamentos",
+        path: "/medicamentos",
         icon: AiOutlineProfile,
         
       },

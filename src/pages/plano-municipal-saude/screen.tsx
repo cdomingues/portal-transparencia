@@ -180,10 +180,10 @@ function HomeScreen({ handler }: PropsInput) {
                 >
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Plano de saúde"
+                      title="Plano municipal de saúde"
                       imageURL={despesas_emendas_parlamentares}
                       description="Plano de saúde, programação anual e o relatório de gestão"
-                      link="saude/plano-saude"
+                      link="plano-municipal-saude/plano-municipal-saude"
                       backgroundColor="transparent"
                     />
                   </Box>
@@ -192,7 +192,7 @@ function HomeScreen({ handler }: PropsInput) {
                       title="Serviços de Saúde"
                       imageURL={despesas_multas_de_transito}
                       description="informações relacionadas aos serviços de saúde, indicando os horários, os profissionais prestadores de serviços, as especialidades e local."
-                      link="saude/servicos-saude"
+                      link="plano-municipal-saude/servicos-saude"
                       backgroundColor="transparent"
                     />
                   </Box>
@@ -208,7 +208,7 @@ function HomeScreen({ handler }: PropsInput) {
                       title="Medicamentos"
                       imageURL={restos_a_pagar}
                       description="ista dos medicamentos a serem fornecidos pelo SUS e informações de como obter medicamentos de alto custo"
-                      link="saude/medicamentos"
+                      link="plano-municipal-saude/medicamentos"
                       backgroundColor="transparent"
                     />
                   </Box>
