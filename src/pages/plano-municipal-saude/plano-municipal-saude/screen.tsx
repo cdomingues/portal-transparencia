@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import { useColorModeValue, Box , Text, Select, Icon, Stack} from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Laws } from ".";

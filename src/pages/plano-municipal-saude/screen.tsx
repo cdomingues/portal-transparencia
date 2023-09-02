@@ -18,7 +18,7 @@ type PropsInput = {
 };
 
 export const contentPROMAE = {
-  titlePage: "Plano de Saúde do Municipio",
+  titlePage: "Plano Municipal de Saúde",
   description:
     "Divulga o plano de saúde, a programação anual e o relatório de gestão.",
 };
@@ -56,6 +56,7 @@ function Screen({ handler }: PropsInput) {
       onChange={ev => setPublicacao(ev.target.value  )}     
       >
       {publicacoes_saude.map((info)=>(
+        // eslint-disable-next-line react/jsx-key
         <option value={info.volume}>{info.volume}</option>
       ))}
     </Select>

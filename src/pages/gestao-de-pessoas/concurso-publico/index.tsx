@@ -22,14 +22,13 @@ function Controller({
 
   const columns = [
     { title: "Número", field: "A" },
-    { title: "Local", field: "F" },
-    { title: "Serviços de Saúde", field: "B" },
-    { title: "Horários de Atendimento", field: "C" },
-    { title: "Relação de Profissionais", field: "D" },
-    { title: "Especialidades", field: "E" },
+    { title: "Concurso Público", field: "B" },
+    { title: "Edital", field: "C" },
+    { title: "Data de Publicação", field: "D" },
+    { title: "Vagas Preenchidas", field: "F" },
+    { title: "Lista de Espera", field: "G" },
+    { title: "Validade", field: "E" },
   ];
-
-  
 
   const handleByYear = async (year: number) => {
     setYear(year);

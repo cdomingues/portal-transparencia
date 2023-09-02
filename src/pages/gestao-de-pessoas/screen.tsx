@@ -209,6 +209,32 @@ function HomeScreen({ handler }: PropsInput) {
                   </Box>
 
                 </Stack>
+                <Stack
+                  direction={isMobile ? "column" : "row"}
+                  align={isMobile ? "center" : "center"}
+                  justifyContent={isMobile ? "flex-start" : "center"}
+                >
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Concurso Público"
+                      imageURL={cargos_e_salarios}
+                      description="Adiantamentos são recursos financeiros conferidos a um servidor público, a fim de que possa realizar despesas que não possam aguardar o ciclo normal de compras."
+                      link="gestao-de-pessoas/concurso-publico"
+                      backgroundColor="transparent"
+                    />
+                  </Box>
+
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Diárias e Viagens"
+                      imageURL={cargos_e_salarios}
+                      description="Carga horária de todos os cargos."
+                      link="gestao-de-pessoas/diarias-viagens"
+                      backgroundColor="transparent"
+                    />
+                  </Box>
+
+                </Stack>
               </Stat>
             </StatGroup>
           </Stack>

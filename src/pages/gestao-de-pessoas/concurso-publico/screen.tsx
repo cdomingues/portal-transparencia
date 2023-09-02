@@ -34,15 +34,9 @@ type PropsInput = {
 };
 
 export const contentAdvertisements = {
-  titlePage: "Serviços de Saúde",
-  description: "Informações relacionadas aos serviços de saúde, indicando os horários, os profissionais prestadores de serviços, as especialidades e local",
+  titlePage: "Concurso Público",
+  description: "Informações sobre os atos dos concursos públicos e processos seletivos: vagas efetivamente preenchidas, lista de aprovados com as classificações, fila de espera/cadastro reserva e validade do concurso.",
 }
-
-// export const contentPROMAE = {
-//   titlePage: "Plano Municipal de Saúde",
-//   description:
-//     "Divulga o plano de saúde, a programação anual e o relatório de gestão.",
-// };
 
 function Screen({
   handler: {

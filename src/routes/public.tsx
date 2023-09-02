@@ -403,10 +403,28 @@ const publicRoutes: IPublicRoute[] = [
         path: "/estrutura-organizacional",
         icon: AiFillCaretRight,
         link: "http://leismunicipa.is/0ji28",
-      },{
+      },
+      
+      {
         defaultPath: "/gestao-de-pessoas",
         name: "Carga Horária",
         path: "/carga-horaria",
+        icon: AiFillCaretRight,
+        subgroup: false,
+      },
+
+      {
+        defaultPath: "/gestao-de-pessoas",
+        name: "Concurso Público",
+        path: "/concurso-publico",
+        icon: AiFillCaretRight,
+        subgroup: false,
+      },
+
+      {
+        defaultPath: "/gestao-de-pessoas",
+        name: "Diárias e Viagens",
+        path: "diarias-viagens",
         icon: AiFillCaretRight,
         subgroup: false,
       },
@@ -610,20 +628,23 @@ const publicRoutes: IPublicRoute[] = [
     icon: AiOutlineSolution,
     group: [
       {
-        name: "Plano de saúde",
-        path: "/plano-municipal-saude",
+        defaultPath: "/plano-municipal-saude",
+        name: "Plano Municipal de Saúde",
+        path: "plano-municipal-saude",
         icon: AiOutlineProfile,
         
       },
       {
+        defaultPath: "/plano-municipal-saude",
         name: "Serviços de Saúde",
-        path: "/servicos-saude",
+        path: "servicos-saude",
         icon: AiOutlineProfile,
         
       },
       {
+        defaultPath: "/plano-municipal-saude",
         name: "Medicamentos",
-        path: "/medicamentos",
+        path: "medicamentos",
         icon: AiOutlineProfile,
         
       },

@@ -22,14 +22,12 @@ function Controller({
 
   const columns = [
     { title: "Número", field: "A" },
-    { title: "Local", field: "F" },
-    { title: "Serviços de Saúde", field: "B" },
-    { title: "Horários de Atendimento", field: "C" },
-    { title: "Relação de Profissionais", field: "D" },
-    { title: "Especialidades", field: "E" },
+    { title: "Nome", field: "B" },
+    { title: "Data Inicio", field: "C" },
+    { title: "Data Término", field: "D" },
+    { title: "Motivo da Viagem", field: "F" },
+    { title: "Destino", field: "G" },
   ];
-
-  
 
   const handleByYear = async (year: number) => {
     setYear(year);
