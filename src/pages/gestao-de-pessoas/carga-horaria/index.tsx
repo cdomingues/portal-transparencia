@@ -1,42 +1,37 @@
-import { GetStaticProps } from "next";
 import React, { useState } from "react";
 import Screen from "./screen";
+import { GetStaticProps } from "next";
 import {
   getChart,
   getChartYear,
-  getdvertisings,
-} from "../../../calls/expenses/advertising";
+  getTickets,
+} from "../../../calls/expenses/passage";
 import { revalidate } from "../../../config";
 import moment from "moment";
 
 function Controller({
   chart = { datasets: [] },
   chartYear = { datasets: [] },
-  advertisings = [],
+  tickets = [],
   years,
 }: any) {
   const [year, setYear] = useState(moment().year());
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState(advertisings);
+  const [data, setData] = useState(tickets);
   const [newChart, setNewChart] = useState(chart);
 
   const columns = [
-    { title: "Número", field: "A" },
-    { title: "Local", field: "F" },
-    { title: "Serviços de Saúde", field: "B" },
-    { title: "Horários de Atendimento", field: "C" },
-    { title: "Relação de Profissionais", field: "D" },
-    { title: "Especialidades", field: "E" },
+    { title: "Cargo", field: "descricao" },
+    { title: "Carga horária", field: "horas_semanais" },
+    
   ];
-
-  
 
   const handleByYear = async (year: number) => {
     setYear(year);
 
     setLoading(true);
 
-    const { advertisings } = await getdvertisings(year);
+    const { tickets } = await getTickets(year);
 
     const { chart } = await getChart(year);
 
@@ -44,15 +39,15 @@ function Controller({
 
     setNewChart(chart);
 
-    setData(advertisings);
+    setData(tickets);
   };
 
   const handler = {
     data,
     columns,
     loading,
-    chart: newChart,
     chartYear,
+    chart: newChart,
     years,
     setYear,
     year,
@@ -67,13 +62,13 @@ export default Controller;
 export const getStaticProps: GetStaticProps = async () => {
   const { chart } = await getChart();
   const { chartYear } = await getChartYear();
-  const { advertisings, years } = await getdvertisings();
+  const { tickets, years } = await getTickets();
 
   return {
     props: {
       chartYear: chartYear || { datasets: [] },
       chart: chart || { datasets: [] },
-      advertisings: advertisings || [],
+      tickets: tickets || [],
       years: years || [],
     },
     revalidate,

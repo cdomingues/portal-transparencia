@@ -98,7 +98,6 @@ function Screen(PropsInput: any) {
 
           
           <div>
-            <a href={selectedPublication.src} target="_blank">
              <Stack
              marginTop={5}
           direction="row"
@@ -110,10 +109,10 @@ function Screen(PropsInput: any) {
           _hover={{ bg: 'gray.200' }}
           //onClick={() => handleClick(law.link, index)}
         >
-          <Icon as={AiOutlineDownload} />
+          <a href={selectedPublication.src} target="_blank"><Icon as={AiOutlineDownload} /></a>
           <p>{HTMLReactParser(selectedPublication.description)}</p>
           
-        </Stack></a>
+        </Stack>
           </div>
         )}
        

@@ -404,6 +404,30 @@ const publicRoutes: IPublicRoute[] = [
         icon: AiFillCaretRight,
         link: "http://leismunicipa.is/0ji28",
       },
+      
+      {
+        defaultPath: "/gestao-de-pessoas",
+        name: "Carga Horária",
+        path: "/carga-horaria",
+        icon: AiFillCaretRight,
+        subgroup: false,
+      },
+
+      {
+        defaultPath: "/gestao-de-pessoas",
+        name: "Concurso Público",
+        path: "/concurso-publico",
+        icon: AiFillCaretRight,
+        subgroup: false,
+      },
+
+      {
+        defaultPath: "/gestao-de-pessoas",
+        name: "Diárias e Viagens",
+        path: "diarias-viagens",
+        icon: AiFillCaretRight,
+        subgroup: false,
+      },
     ],
   },
   {
@@ -520,9 +544,16 @@ const publicRoutes: IPublicRoute[] = [
       },
       {
         name: "Decretos e Portarias",
-        path: "/acesso-informacao",
+        path: "/leis-decretos-portarias",
         icon: AiOutlineProfile,
         link: "http://ged.pmmc.com.br/weblink7/Browse.aspx",
+      },
+      {
+        defaultPath: "/leis-decretos-portarias",
+        name: "LGPD",
+        path: "lgpd ",
+        icon: AiOutlineProfile,
+        //link: "lgpd",
       },
     ],
   },
@@ -593,25 +624,32 @@ const publicRoutes: IPublicRoute[] = [
     ...contentOtherInformations,
   },
   {
-    name: "Saúde",
-    path: "/saude",
+    name: "Plano Municipal de Saúde",
+    path: "/plano-municipal-saude",
     icon: AiOutlineSolution,
     group: [
       {
-        name: "Plano de saúde",
-        path: "saude/plano-saude",
+        defaultPath: "/plano-municipal-saude",
+        name: "Plano Municipal de Saúde",
+        path: "plano-municipal-saude",
         icon: AiOutlineProfile,
         
       },
       {
+        defaultPath: "/plano-municipal-saude",
+
         name: "Serviços de Saúde",
-        path: "/transparencia-iprem",
+        path: "servicos-saude",
+
         icon: AiOutlineProfile,
         
       },
       {
+        defaultPath: "/plano-municipal-saude",
+
         name: "Medicamentos",
-        path: "saude/medicamentos",
+        path: "medicamentos",
+ 
         icon: AiOutlineProfile,
         
       },

@@ -34,15 +34,9 @@ type PropsInput = {
 };
 
 export const contentAdvertisements = {
-  titlePage: "Serviços de Saúde",
-  description: "Informações relacionadas aos serviços de saúde, indicando os horários, os profissionais prestadores de serviços, as especialidades e local",
+  titlePage: "Diárias Viagens",
+  description: "Informações sobre o nome e o cargo/função do beneficiário, além do número de diárias usufruídas por afastamento, período de afastamento, motivo do afastamento e local de destino",
 }
-
-// export const contentPROMAE = {
-//   titlePage: "Plano Municipal de Saúde",
-//   description:
-//     "Divulga o plano de saúde, a programação anual e o relatório de gestão.",
-// };
 
 function Screen({
   handler: {

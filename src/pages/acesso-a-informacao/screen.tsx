@@ -42,6 +42,7 @@ import noticias from '../../../data/noticias.json'
 //import News from "../components/News";
 import DisplayNews from "../../components/NewsHome";
 import ContainerBasic from "../../components/Container/Basic";
+import Link from "next/link";
 
 
 
@@ -68,7 +69,7 @@ type PropsInput = {
 export const contentInitial = {
   titlePage: "LEI DE ACESSO À INFORMAÇÃO",
   description:
-    "A Lei nº 12.527/2011 regulamenta o direito constitucional de acesso às informações públicas. Ela entrou em vigor em 16 de maio de 2012 e criou mecanismos que possibilitam, a qualquer pessoa, física ou jurídica, sem necessidade de apresentar motivo, o recebimento de informações públicas dos órgãos e entidades. A lei vale para os três Poderes da União, Estados, Distrito Federal e Municípios, inclusive aos Tribunais de Conta e Ministério Público. Entidades privadas sem fins lucrativos também são obrigadas a dar publicidade a informações referentes ao recebimento e à destinação dos recursos públicos por elas recebidos.",
+    "A Lei nº 12.527, sancionada em 18 de novembro de 2011, regulamenta o direito constitucional de acesso dos cidadãos à informação e sua restrição. A LAI (Lei de Acesso à Informação) é um mecanismo que permite a qualquer cidadão receber informações de seu interesse particular ou de interesse coletivo ou geral, que serão prestadas no prazo da lei, sob pena de responsabilidade, ressalvadas aquelas cujo sigilo seja imprescindível à segurança da sociedade e do Estado.",
 };
 
  function Aside() {
@@ -150,7 +151,126 @@ function HomeScreen({ handler }: PropsInput) {
 
   return (
      <ContainerBasic  title={titlePage} description={description}>
+      <Box m={0}
+bg={useColorModeValue("white", "gray.800")}
+boxShadow="2xl"
+padding={"15px"}
+rounded="md"
+overflow="hidden"
+maxWidth="100%"
+borderRadius="18px"
+marginBottom="15px">
+      <Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+              >
+                Prazo:
+                
+                
+              </Text>
+        <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              >20 (vinte) dias corridos, prorrogáveis por mais 10 (dez) dias, totalizando 30 (trinta) dias.</Text>
 
+<Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+              >
+                Recursos:
+                
+                
+              </Text>
+        <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              >apresentados em até 10 (dez) dias, por meio da plataforma online ou presencial, contra a decisão proferida. </Text>
+              <Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+              >
+                Meios de solicitação: 
+                
+                
+              </Text>
+              <Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+              >
+                Online: 
+                
+                
+              </Text>
+        <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              > <Link href='https://lai.mogidascruzes.sp.gov.br'>lai.mogidascruzes.sp.gov.br</Link></Text>
+              <Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+              >
+                Telefone:
+                
+                
+              </Text>
+        <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              >(11) 4798 - 5159 </Text>
+              <Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+              >
+                E-mail: 
+                
+                
+              </Text>
+        <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              >lai@mogidascruzes.sp.gov.br </Text>
+
+<Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+              >
+                Presencial: 
+                
+                
+              </Text>
+        <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              >PAC Prédio I </Text>
+
+<Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+              >
+                Dia e horário de atendimento:  
+                
+                
+              </Text>
+        <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              >Segunda a sexta-feira, das 8 às 17 horas, no PAC do prédio sede da Prefeitura (Av. Ver. Narciso Yague Guimarães, 277 - Centro Cívico) </Text>
+      </Box>
     <Stack
  style={{
           paddingLeft: isMobile ? 0 : "0%",
@@ -191,14 +311,14 @@ marginBottom="15px"
                 align={isMobile ? "center" : "center"}
                 justifyContent={isMobile ? "flex-start" : "center"}
               >
-                  <Box padding="6" bg="transparent" flexDirection="row">
-                   <CardHorizon
-                      title="Protocolo Geral"
-                      imageURL={protocolo_geral}
-                      description="Pesquisa de Demanda do Cidadão."
-                      link="https://servicossmar.mogidascruzes.sp.gov.br/falacidadao/#!/demanda"
+                 <Box padding="6" bg="transparent" flexDirection="row">
+                  <CardHorizon
+                      title="Relatório de Demandas LAI"
+                      imageURL={relatorio_de_demandas}
+                      description="Pedido de e-SIC."
+                      link="https://mogidascruzes.1doc.com.br/b.php?pg=o/transparencia"
                  backgroundColor="transparent"/>
-                                    </Box>
+                  </Box>
                  
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
@@ -217,14 +337,7 @@ marginBottom="15px"
                 align={isMobile ? "center" : "center"}
                 justifyContent={isMobile ? "flex-start" : "center"}
               >
-                  <Box padding="6" bg="transparent" flexDirection="row">
-                  <CardHorizon
-                      title="Relatório de Demandas LAI"
-                      imageURL={relatorio_de_demandas}
-                      description="Pedido de e-SIC."
-                      link="https://mogidascruzes.1doc.com.br/b.php?pg=o/transparencia"
-                 backgroundColor="transparent"/>
-                  </Box>
+                  
                   
                 </Stack>
                

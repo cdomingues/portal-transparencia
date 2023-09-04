@@ -212,6 +212,24 @@ marginBottom="15px"
                   </Box>
                
               </Stack>
+
+              <Stack
+                direction={isMobile ? "column" : "row"}
+                align={isMobile ? "center" : "center"}
+                justifyContent={isMobile ? "flex-start" : "center"}
+              >
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                   <CardHorizon
+                      title="LGPD"
+                      imageURL={protocolo_geral}
+                      description="Lei Geral de Proteção de Dados."
+                      link="leis-decretos-portarias/lgpd  "
+                 backgroundColor="transparent"/>
+                                    </Box>
+                 
+                  
+               
+              </Stack>
               
                
             </Stat>

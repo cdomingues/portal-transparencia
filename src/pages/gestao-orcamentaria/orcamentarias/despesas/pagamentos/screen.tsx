@@ -10,14 +10,14 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { isMobile } from "react-device-detect";
-import Chart from "../../../components/Chart";
-import ContainerBasic from "../../../components/Container/Basic";
+import Chart from "../../../../../components/Chart";
+import ContainerBasic from "../../../../../components/Container/Basic";
 import {
   GraphWrapper,
   MultipleGraphWrapper,
-} from "../../../components/GraphWrapper";
-import { MultiAxisChart } from "../../../components/MultiAxisChart";
-import TableComponent, { TableColumns } from "../../../components/Table";
+} from "../../../../../components/GraphWrapper";
+import { MultiAxisChart } from "../../../../../components/MultiAxisChart";
+import TableComponent, { TableColumns } from "../../../../../components/Table";
 
 type PropsInput = {
   handler: {
@@ -34,15 +34,9 @@ type PropsInput = {
 };
 
 export const contentAdvertisements = {
-  titlePage: "Serviços de Saúde",
-  description: "Informações relacionadas aos serviços de saúde, indicando os horários, os profissionais prestadores de serviços, as especialidades e local",
+  titlePage: "Pagamentos",
+  description: "Divulgação da ordem cronológica de seus pagamentos, bem como as justificativas que fundamentaram a eventual alteração dessa ordem.",
 }
-
-// export const contentPROMAE = {
-//   titlePage: "Plano Municipal de Saúde",
-//   description:
-//     "Divulga o plano de saúde, a programação anual e o relatório de gestão.",
-// };
 
 function Screen({
   handler: {

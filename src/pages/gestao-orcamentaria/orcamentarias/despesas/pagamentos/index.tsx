@@ -5,8 +5,8 @@ import {
   getChart,
   getChartYear,
   getdvertisings,
-} from "../../../calls/expenses/advertising";
-import { revalidate } from "../../../config";
+} from "../../../../../calls/expenses/advertising";
+import { revalidate } from "../../../../../config";
 import moment from "moment";
 
 function Controller({
@@ -22,14 +22,12 @@ function Controller({
 
   const columns = [
     { title: "Número", field: "A" },
-    { title: "Local", field: "F" },
-    { title: "Serviços de Saúde", field: "B" },
-    { title: "Horários de Atendimento", field: "C" },
-    { title: "Relação de Profissionais", field: "D" },
-    { title: "Especialidades", field: "E" },
+    { title: "Objeto", field: "B" },
+    { title: "Data Inclusão", field: "C" },
+    { title: "Data Pragramada", field: "D" },
+    { title: "Data Pagamento", field: "F" },
+    { title: "Justificativa Alteração", field: "G" },
   ];
-
-  
 
   const handleByYear = async (year: number) => {
     setYear(year);
