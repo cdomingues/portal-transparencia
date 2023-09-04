@@ -1,21 +1,13 @@
 import { useColorModeValue, Box , Text, Select, Icon, Stack} from "@chakra-ui/react";
 import React, { useState } from "react";
-//import { Laws } from "../";
+
 import ContainerBasic from "../../components/Container/Basic";
 import publicacoes_saude from '../../../data/publicacoes_saude.json';
 import { isMobile } from "react-device-detect";
 import { AiOutlineDownload } from "react-icons/ai";
 import HTMLReactParser from "html-react-parser";
-import { Laws } from "./medicamentos";
 
-type PropsInput = {
-  handler: {
-    laws: Laws;
-    handleSelectValue: (value: number) => void;
-    selectOptions: Array<string | number>;
-    selectValue: number;
-  };
-};
+
 
 export const contentPROMAE = {
   titlePage: "Plano Municipal de Saúde",
@@ -23,8 +15,8 @@ export const contentPROMAE = {
     "Divulga o plano de saúde, a programação anual e o relatório de gestão.",
 };
 
-function Screen({ handler }: PropsInput) {
-  const { handleSelectValue, selectOptions, laws, selectValue } = handler;
+function Screen() {
+  
 
   const title = contentPROMAE?.titlePage;
   const description = contentPROMAE?.description;
@@ -57,7 +49,8 @@ function Screen({ handler }: PropsInput) {
       >
       {publicacoes_saude.map((info)=>(
         // eslint-disable-next-line react/jsx-key
-        <option value={info.volume}>{info.volume}</option>
+        // <option value={info.volume}>{info.volume}</option>
+        <option key={info.id} value={info.volume}>{info.volume}</option>
       ))}
     </Select>
       

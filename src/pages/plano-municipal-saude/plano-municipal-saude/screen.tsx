@@ -56,7 +56,7 @@ function Screen({ handler }: PropsInput) {
       onChange={ev => setPublicacao(ev.target.value  )}     
       >
       {publicacoes_saude.map((info)=>(
-        <option value={info.volume}>{info.volume}</option>
+        <option key={info.id}  value={info.volume}>{info.volume}</option>
       ))}
     </Select>
       
