@@ -531,10 +531,11 @@ const publicRoutes: IPublicRoute[] = [
         link: "http://ged.pmmc.com.br/weblink7/Browse.aspx",
       },
       {
+        defaultPath: "/leis-decretos-portarias",
         name: "LGPD",
-        path: "/leis-decretos-portarias ",
+        path: "lgpd ",
         icon: AiOutlineProfile,
-        link: "lgpd",
+        //link: "lgpd",
       },
     ],
   },
@@ -610,20 +611,23 @@ const publicRoutes: IPublicRoute[] = [
     icon: AiOutlineSolution,
     group: [
       {
-        name: "Plano de saúde",
-        path: "/plano-municipal-saude",
+        defaultPath: "/plano-municipal-saude",
+        name: "Plano Municipal de saúde",
+        path: "plano-municipal-saude",
         icon: AiOutlineProfile,
         
       },
       {
+        defaultPath: "/plano-municipal-saude",
         name: "Serviços de Saúde",
-        path: "/servicos-saude",
+        path: "servicos-saude",
         icon: AiOutlineProfile,
         
       },
       {
+        defaultPath: "/plano-municipal-saude",
         name: "Medicamentos",
-        path: "/medicamentos",
+        path: "medicamentos",
         icon: AiOutlineProfile,
         
       },

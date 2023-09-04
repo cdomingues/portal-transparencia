@@ -1,16 +1,7 @@
 import React from "react";
-import Head from "next/head";
-//import BlogComponent from "../components/Blog";
-//import { News } from "../types";
-import { PublicPolicyData } from "../../api/totalizador/politicas-publicas";
-import CardHorizon from "../../../components/CardHorizon";
-import diretriz_orcamentaria from "../../assets/images/icones/diretriz_orcamentaria.svg"
-import balanco_anual from "../../../assets/images/icones/balanco_anual.svg"
-import lei_orcamentaria from "../../../assets/images/icones/lei_orcamentaria_anual.svg"
-import parecer_tribunal from "../../../assets/images/icones/parecer_tribunal.svg"
-import acesso_a_informacao from "../../../assets/images/icones/LAI__acesso a informação.svg"
-import protocolo_geral from "../../../assets/images/icones/LAI__protocolo geral.svg"
-import relatorio_de_demandas from "../../../assets/images/icones/LAI__relatorio de demandas lai.svg"
+
+//import { PublicPolicyData } from "../../api/totalizador/politicas-publicas";
+
 import {
   Box,
   Divider,
@@ -33,38 +24,18 @@ import {
 
 import { isMobile } from "react-device-detect";
 
-import { ChartContainer } from "../../../utils/styles";
-import { BiBell, BiBody, BiCheckShield, BiFlag, BiFoodMenu, BiHeart } from "react-icons/bi";
+
 import useWindowDimensions from "../../../utils/getWindowSize";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import noticias from '../../../../data/noticias.json'
-//import News from "../../components/News";
-//import News from "../components/News";
+
 import DisplayNews from "../../../components/NewsHome";
 import ContainerBasic from "../../../components/Container/Basic";
 import Link from "next/link";
 
 
 
-type PropsInput = {
-  handler: {
-    expenseAmount: number;
-    expensePercentageReached: number;
-    expenseProvided: number;
-    revenueAmount: number;
-    revenuePercentageReached: number;
-    revenueProvided: number;
-    expenseLoanding: boolean;
-    revenueLoading: boolean;
-    publicPolicies: PublicPolicyData[];
-    graphConfig: any;
-    publicPoliciesLoading: boolean;
-    chartLoading: boolean;
-    date: string;
-    
-        
-  };
-};
+
 
 export const contentInitial = {
   titlePage: "LGPD",
@@ -124,23 +95,8 @@ marginBottom="15px"
 } 
 
 
-function HomeScreen({ handler }: PropsInput) {
-  const {
-    //news,
-    expenseAmount,
-    expensePercentageReached,
-    expenseProvided,
-    revenueAmount,
-    revenuePercentageReached,
-    revenueProvided,
-    expenseLoanding,
-    revenueLoading,
-    publicPolicies,
-    graphConfig,
-    publicPoliciesLoading,
-    chartLoading,
-    date,
-  } = handler;
+function HomeScreen() {
+  
   const accessibility = useFontSizeAccessibilityContext();
   const titlePage = contentInitial?.titlePage;
   const description = contentInitial?.description;
