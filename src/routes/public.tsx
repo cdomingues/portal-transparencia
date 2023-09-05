@@ -143,6 +143,24 @@ const publicRoutes: IPublicRoute[] = [
         path: "pareceres-do-tribunal",
         icon: AiFillCaretRight,
       },
+      {
+        //defaultPath: "/ciclo-orcamentario",
+        name: "Aprovação de Contas pelo Legislativo",
+        path: "http://www.cmmc.com.br/contasexecutivo/",
+        icon: AiFillCaretRight,
+      },
+      {
+        defaultPath: "/ciclo-orcamentario",
+        name: "Obras Públicas",
+        path: "obras-publicas",
+        icon: AiFillCaretRight,
+      },
+      {
+        defaultPath: "/ciclo-orcamentario",
+        name: "Servidores Públicos Estagiários",
+        path: "servidores-publicos-estagiarios",
+        icon: AiFillCaretRight,
+      },
     ],
   },
   {
@@ -207,6 +225,12 @@ const publicRoutes: IPublicRoute[] = [
         path: "orcamentarias/despesas/despesas-restos",
         icon: AiFillCaretRight,
       },
+      {
+        defaultPath: "/gestao-orcamentaria",
+        name: "Pagamentos",
+        path: "orcamentarias/despesas/pagamentos",
+        icon: AiFillCaretRight,
+      },
     ],
   },
   {
@@ -261,6 +285,7 @@ const publicRoutes: IPublicRoute[] = [
         path: "outros/divida-ativa",
         icon: AiFillCaretRight,
       },
+      
     ],
   },
 

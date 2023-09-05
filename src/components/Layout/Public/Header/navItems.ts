@@ -37,9 +37,9 @@ export default [
         href: "",
         children: [
           {
-            label: "Agricultura",
+            label: "Agricultura e Abastecimento",
             subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-agricultura/institucional",
+            href:"https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-agricultura-e-abastecimento/institucional",
           },
           {
             label: "Assistência Social",
@@ -47,9 +47,19 @@ export default [
             href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-assistencia-social/institucional",
           },
           {
+            label: "Assuntos Assuntos da Pessoa com Deficiência",
+            subLabel: "",
+            href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-para-assuntos-da-pessoa-com-deficiencia/institucional",
+          },
+          {
             label: "Assuntos Juridicos",
             subLabel: "",
             href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-assuntos-juridicos/institucional",
+          },
+          {
+            label: "Comunicação",
+            subLabel: "",
+            href: "https://www.mogidascruzes.sp.gov.br/pagina/coordenadoria-de-comunicacao/institucional",
           },
           {
             label: "Cultura",
@@ -69,7 +79,7 @@ export default [
           {
             label: "Esporte e Lazer",
             subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-esporte-e-lazer/institucional",
+            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-esportes-e-lazer/institucional",
           },
           {
             label: "Finanças",
@@ -77,9 +87,9 @@ export default [
             href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-financas/institucional",
           },
           {
-            label: "Gestão",
+            label: "Gestão Pública",
             subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-gestao/institucional",
+            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-gestao-publica/institucional",
           },
           {
             label: "Governo",
@@ -87,9 +97,19 @@ export default [
             href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-governo/institucional",
           },
           {
+            label: "Habitação Social e Regularização Fundiária",
+            subLabel: "",
+            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-habitacao-social-e-regularizacao-fundiaria/institucional",
+          },
+          {
             label: "Infraestrutura Urbana",
             subLabel: "",
             href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-infraestrutura-urbana/institucional",
+          },
+          {
+            label: "Meio Ambiente e Proteção Animal",
+            subLabel: "",
+            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-meio-ambiente-e-protecao-animal/institucional",
           },
           {
             label: "Mobilidade Urbana",
@@ -102,9 +122,9 @@ export default [
             href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-planejamento-e-gestao-estrategica/institucional",
           },
           {
-            label: "Planejamento e Urbanismo",
+            label: "Urbanismo",
             subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-planejamento-e-urbanismo/institucional",
+            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-urbanismo/institucional",
           },
           {
             label: "Saúde",
@@ -117,15 +137,11 @@ export default [
             href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-seguranca/institucional",
           },
           {
-            label: "Transparência e Comunicação",
+            label: "Transparência e Dados Abertos",
             subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-transparencia-e-comunicacao/institucional",
+            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-transparencia-e-dados-abertos/institucional",
           },
-          {
-            label: "Verde e Meio Ambiente",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-do-verde-e-meio-ambiente/institucional",
-          },
+          
         ],
       },
       {
