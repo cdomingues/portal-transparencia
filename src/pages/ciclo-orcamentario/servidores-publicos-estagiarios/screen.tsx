@@ -29,59 +29,13 @@ export const contentPublicServants = {
 
 function Screen({ handler }: PropsInput) {
   const { dailies, salaries } = handler;
-  const title = "Cargos e Salários";
+  const title = "Servidores Públicos e Estagiários";
   const description =
-    "Nesta página, confira a tabela-base dos subsídios, salários e vencimentos dos cargos e empregos públicos.";
+    "Nesta página, confira os servidores públicos e estagiários.";
   return (
     <ContainerBasic title={title} description={description}>
       <Stack width="50%">
-        <Tabs size="md" variant="enclosed">
-          <TabList>
-            <Tab>Diárias e Passagens</Tab>
-            <Tab>Cargos e Salários</Tab>
-          </TabList>
-          <TabPanels>
-            <TabPanel>
-              {dailies?.map((daily, index) => (
-                <div style={{ marginBottom: "20px" }} key={index}>
-                  <Link target="_blank" href={daily.link}>
-                    <Stack direction="row">
-                      <Icon
-                        color="table.primary"
-                        fontSize={20}
-                        as={AiOutlineDownload}
-                      />
-                      <Text fontSize="sm">{daily.name}</Text>
-                    </Stack>
-                  </Link>
-                </div>
-              ))}
-            </TabPanel>
-            <TabPanel>
-              <Text fontSize="md" mb={10}>
-                A Secretaria Municipal de Gestão Pública, nos termos do disposto
-                no § 6º do Art. 39 da Constituição Federal, com a redação dada
-                pela Emenda Constitucional nº 19/98, torna pública a Tabela de
-                Salários, Subsídios e Vencimentos dos cargos e empregos
-                públicos.
-              </Text>
-              {salaries?.map((salary, index) => (
-                <div style={{ marginBottom: "20px" }} key={index}>
-                  <Link target="_blank" href={salary.link}>
-                    <Stack direction="row">
-                      <Icon
-                        color="table.primary"
-                        fontSize={20}
-                        as={AiOutlineDownload}
-                      />
-                      <Text fontSize="sm">{salary.name}</Text>
-                    </Stack>
-                  </Link>
-                </div>
-              ))}
-            </TabPanel>
-          </TabPanels>
-        </Tabs>
+        <Text>Em desenvolvimento ... </Text>
       </Stack>
     </ContainerBasic>
   );

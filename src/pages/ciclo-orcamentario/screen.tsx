@@ -271,7 +271,49 @@ function HomeScreen({ handler }: PropsInput) {
                   </Box>
                 </Stack>
                 
+
+                <Stack
+                  direction={isMobile ? "column" : "row"}
+                  align={isMobile ? "center" : "center"}
+                  justifyContent={isMobile ? "flex-start" : "center"}
+                >
+                  
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Obras Públicas"
+                      imageURL={relatorio_gestao_fiscal}
+                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
+                      link="ciclo-orcamentario/obras-publicas"
+                 backgroundColor="transparent"/>
+                  </Box>  
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Promae"
+                      imageURL={relatorio_gestao_fiscal}
+                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
+                      link="ciclo-orcamentario/promae"
+                 backgroundColor="transparent"/>
+                  </Box>
+                </Stack>
                 
+                <Stack
+                  direction={isMobile ? "column" : "row"}
+                  align={isMobile ? "center" : "center"}
+                  justifyContent={isMobile ? "flex-start" : "center"}
+                >
+                  
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Servidores Públicos Estagiários"
+                      imageURL={relatorio_gestao_fiscal}
+                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
+                      link="ciclo-orcamentario/servidores-publicos-estagiarios"
+                 backgroundColor="transparent"/>
+                  </Box>  
+                  
+                </Stack>
+
+
               </Stat>
             </StatGroup>
           </Stack>

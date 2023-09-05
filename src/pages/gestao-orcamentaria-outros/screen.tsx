@@ -166,7 +166,15 @@ function HomeScreen({ handler }: PropsInput) {
                       backgroundColor="transparent"
                     />
                   </Box>
-                  
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Divida Ativa"
+                      imageURL={subvencoes}
+                      description="Subvenção é quando a Prefeitura destina recursos financeiros para que entidades cubram seus custos de atividades prestadas à população. Confira aqui as despesas relacionadas a essa natureza."
+                      link="gestao-orcamentaria-outros/outros/divida-ativa"
+                      backgroundColor="transparent"
+                    />
+                  </Box>
                 </Stack>
               </Stat>
             </StatGroup>

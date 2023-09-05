@@ -235,6 +235,25 @@ function HomeScreen({ handler }: PropsInput) {
                   </Box>
 
                 </Stack>
+
+                <Stack
+                  direction={isMobile ? "column" : "row"}
+                  align={isMobile ? "center" : "center"}
+                  justifyContent={isMobile ? "flex-start" : "center"}
+                >
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Adiantamento e Hospedagem"
+                      imageURL={cargos_e_salarios}
+                      description="Adiantamentos são recursos financeiros conferidos a um servidor público, a fim de que possa realizar despesas que não possam aguardar o ciclo normal de compras."
+                      link="gestao-de-pessoas/adiantamento-hospedagem"
+                      backgroundColor="transparent"
+                    />
+                  </Box>
+
+                  
+
+                </Stack>
               </Stat>
             </StatGroup>
           </Stack>
