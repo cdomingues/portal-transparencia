@@ -118,7 +118,7 @@ function Screen({
         </Stack>
         
       </Stack>
-      <Text fontSize="sm" fontWeight="550" paddingLeft="5px" paddingTop="10px"> Informações em processo de atualização</Text>
+      <Text fontSize="sm" fontWeight="550" paddingLeft="5px" paddingTop="10px"> Desculpe, falha ao carregar os dados, perda de conexão com o servidor de dados</Text>
 
       <Divider borderWidth="2px" mt="10" mb="10" />
       <TableComponent loading={loading} columns={columns} data={data} />
