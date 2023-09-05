@@ -1,7 +1,7 @@
 import React from "react";
 import ContainerBasic from "../../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../../components/Table";
-import { Box, useColorModeValue } from "@chakra-ui/react";
+import { Box, useColorModeValue, Text } from "@chakra-ui/react";
 
 type PropsInput = {
   handler: {
@@ -33,6 +33,7 @@ function Screen({ handler: { columns, data, loading } }: PropsInput) {
         borderRadius="18px"
         marginBottom="15px"
       >
+        <Text fontSize="sm" fontWeight="550" paddingLeft="5px" paddingTop="10px"> Informações em processo de atualização</Text>
         <TableComponent loading={loading} columns={columns} data={data} />
       </Box>
     </ContainerBasic>
