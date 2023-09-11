@@ -79,7 +79,7 @@ marginBottom="15px"
               fontSize={accessibility?.fonts?.regular}
               // color="blue"
                 key={subIndex}
-                onClick={() => router.push(item?.path + subItem?.path)}
+                onClick={() => router.push(item?.path + "/" +subItem?.path)}
                 cursor="pointer"
             
               >
@@ -101,13 +101,12 @@ marginBottom="15px"
         padding={"15px"}
         rounded="md"
         overflow="hidden"
-        maxWidth="100%"
-        
+        maxWidth="100%"        
         borderRadius="18px"
         marginBottom="15px"
       >
         <Stack display="flex" flexDirection="column">
-          {map}
+           {map}
         </Stack>
       </Box>
     </ContainerBasic>

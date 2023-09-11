@@ -682,6 +682,12 @@ const publicRoutes: IPublicRoute[] = [
     ],
   },
   {
+    name: "Ouvidoria",
+    path: "/ouvidoria",
+    icon: AiOutlineAudit,
+    group: undefined,
+  },
+  {
     name: "Mapa do Site",
     path: "/mapa-do-site",
     icon: AiOutlineGlobal,
