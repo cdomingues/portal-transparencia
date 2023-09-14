@@ -142,7 +142,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Folha de Pagamento"
-                      imageURL={folha_de_pagamento}
+                      imageURL={folha_de_pagamento.src}
                       description="É dever do Poder Público dar transparência à Folha de Pagamento dos funcionários. Acompanhe aqui o detalhamento dos cargos e salários dos servidores públicos municipais."
                       link="gestao-de-pessoas/folha-pagamento"
                       backgroundColor="transparent"
@@ -152,7 +152,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Passagens e Locomoção"
-                      imageURL={passagens_e_locomoção}
+                      imageURL={passagens_e_locomoção.src}
                       description="Os agentes públicos podem realizar também diversas atividades além dos limites do município, no exercício de sua função e em benefício da cidade. Você pode acompanhar os gastos relacionados a passagens e locomoção nesta página."
                       link="gestao-de-pessoas/passagem-locomocao"
                       backgroundColor="transparent"
@@ -167,7 +167,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Despesas de Viagens"
-                      imageURL={adiantamentos_e_hospedagem}
+                      imageURL={adiantamentos_e_hospedagem.src}
                       description="Adiantamentos são recursos financeiros conferidos a um servidor público, a fim de que possa realizar despesas que não possam aguardar o ciclo normal de compras."
                       link="gestao-de-pessoas/despesas-viagens"
                       backgroundColor="transparent"
@@ -176,7 +176,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Cargos e salários"
-                      imageURL={cargos_e_salarios}
+                      imageURL={cargos_e_salarios.src}
                       description="Nesta página, confira as informações sobre cargos e salários na Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por matrícula, nome, cargo entre outros itens."
                       link="gestao-de-pessoas/cargos-e-salarios"
                       backgroundColor="transparent"
@@ -191,7 +191,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Estrutura Organizacional"
-                      imageURL={cargos_e_salarios}
+                      imageURL={cargos_e_salarios.src}
                       description="Adiantamentos são recursos financeiros conferidos a um servidor público, a fim de que possa realizar despesas que não possam aguardar o ciclo normal de compras."
                       link="http://leismunicipa.is/0ji28"
                       backgroundColor="transparent"
@@ -201,7 +201,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Carga Horária"
-                      imageURL={cargos_e_salarios}
+                      imageURL={cargos_e_salarios.src}
                       description="Carga horária de todos os cargos."
                       link="gestao-de-pessoas/carga-horaria"
                       backgroundColor="transparent"
@@ -217,7 +217,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Concurso Público"
-                      imageURL={cargos_e_salarios}
+                      imageURL={cargos_e_salarios.src}
                       description="Adiantamentos são recursos financeiros conferidos a um servidor público, a fim de que possa realizar despesas que não possam aguardar o ciclo normal de compras."
                       link="gestao-de-pessoas/concurso-publico"
                       backgroundColor="transparent"
@@ -227,7 +227,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Diárias e Viagens"
-                      imageURL={cargos_e_salarios}
+                      imageURL={cargos_e_salarios.src}
                       description="Carga horária de todos os cargos."
                       link="gestao-de-pessoas/diarias-viagens"
                       backgroundColor="transparent"
@@ -244,7 +244,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Adiantamento e Hospedagem"
-                      imageURL={cargos_e_salarios}
+                      imageURL={cargos_e_salarios.src}
                       description="Adiantamentos são recursos financeiros conferidos a um servidor público, a fim de que possa realizar despesas que não possam aguardar o ciclo normal de compras."
                       link="gestao-de-pessoas/adiantamento-hospedagem"
                       backgroundColor="transparent"

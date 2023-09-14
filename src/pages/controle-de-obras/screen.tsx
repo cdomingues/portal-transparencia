@@ -193,7 +193,7 @@ marginBottom="15px"
                   <Box padding="6" bg="transparent" flexDirection="row">
                    <CardHorizon
                       title="Relatorio de Gestão Fiscal"
-                      imageURL={relatorio_gestao_fiscal}
+                      imageURL={relatorio_gestao_fiscal.src}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                       link="ciclo-orcamentario/relatorio-gestao-fiscal"
                  backgroundColor="transparent"/>
@@ -202,7 +202,7 @@ marginBottom="15px"
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Relatório Resumido"
-                      imageURL={relatorio_resumido}
+                      imageURL={relatorio_resumido.src}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                       link="ciclo-orcamentario/relatorio-resumido"
                  backgroundColor="transparent"/>
@@ -219,7 +219,7 @@ marginBottom="15px"
                   <Box padding="6" bg="transparent" flexDirection="row">
                   <CardHorizon
                       title="Relatorio de Gestão Fiscal"
-                      imageURL={relatorio_gestao_fiscal}
+                      imageURL={relatorio_gestao_fiscal.src}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                       link="ciclo-orcamentario/relatorio-gestao-fiscal"
                  backgroundColor="transparent"/>
@@ -234,7 +234,7 @@ marginBottom="15px"
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Relatório Resumido"
-                      imageURL={relatorio_resumido}
+                      imageURL={relatorio_resumido.src}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                       link="ciclo-orcamentario/relatorio-resumido"
                  backgroundColor="transparent"/>

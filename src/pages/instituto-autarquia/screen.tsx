@@ -136,7 +136,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="IPREM"
-                      imageURL={institutos_e_autarquias_iprem}
+                      imageURL={institutos_e_autarquias_iprem.src}
                       description="Subvenção é quando a Prefeitura destina recursos financeiros para que entidades cubram seus custos de atividades prestadas à população. Confira aqui as despesas relacionadas a essa natureza."
                       link="https://iprem.mogidascruzes.sp.gov.br/?page_id=1542"
                       backgroundColor="transparent"
@@ -145,7 +145,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="SEMAE"
-                      imageURL={institutos_e_autarquias_semae}
+                      imageURL={institutos_e_autarquias_semae.src}
                       description="A arrecadação de receitas para o município pode vir de diferentes fontes. As emendas parlamentares, indicadas por Deputados Federais e Estaduais, são uma forma da cidade ter acesso a recursos. Acompanhe nesta página o descritivo das emendas parlamentares recebidas pela Prefeitura de Mogi das Cruzes."
                       link="http://www.transparenciasemae.pmmc.com.br/"
                       backgroundColor="transparent"
