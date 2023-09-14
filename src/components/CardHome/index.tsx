@@ -30,97 +30,97 @@ function CardHome() {
       title: "Perfil do Municipio",
       imageURL: Diretriz_orcamentaria.src,
       description: "Descrição 1",
-      link: "/link1",
+      link: "/perfil-do-municipio",
       backgroundColor: "transparent"
     },
     {
       title: "Ciclo Orçamentário",
       imageURL: Diretriz_orcamentaria.src,
       description: "Descrição 2",
-      link: "/link2",
+      link: "/ciclo-orcamentario",
       backgroundColor: "transparent"
     },
     {
       title: "Gestão Orçamentária",
       imageURL: Diretriz_orcamentaria.src,
       description: "Descrição 3",
-      link: "/link3",
+      link: "/gestao-orcamentaria",
       backgroundColor: "transparent"
     },
     {
       title: "Gestão Orçamentária - Covid-19",
       imageURL: Diretriz_orcamentaria.src,
       description: "Descrição 1",
-      link: "/link1",
+      link: "/gestao-orcamentaria-covid",
       backgroundColor: "white"
     },
     {
       title: "Gestão Orçamentária - Outros",
       imageURL: Diretriz_orcamentaria.src,
       description: "Descrição 2",
-      link: "/link2",
+      link: "/gestao-orcamentaria-outros",
       backgroundColor: "blue"
     },
     {
       title: "Gestão Extra Orçamentária",
       imageURL: Diretriz_orcamentaria.src,
       description: "Descrição 3",
-      link: "/link3",
+      link: "/gestao-extra-orcamentaria",
       backgroundColor: "green"
     },
     {
       title: "Acordos e Termos",
       imageURL: Diretriz_orcamentaria.src,
       description: "Descrição 1",
-      link: "/link1",
+      link: "/acordos-termos",
       backgroundColor: "white"
     },
     {
       title: "Compras Públicas",
       imageURL: Diretriz_orcamentaria.src,
       description: "Descrição 2",
-      link: "/link2",
+      link: "/compras-publicas",
       backgroundColor: "blue"
     },
     {
       title: "Gestão de Pessoas",
       imageURL: Diretriz_orcamentaria.src,
       description: "Descrição 3",
-      link: "/link3",
+      link: "/gestao-de-pessoas",
       backgroundColor: "green"
     },
     {
       title: "Patrimônio",
       imageURL: Diretriz_orcamentaria.src,
       description: "Descrição 2",
-      link: "/link2",
+      link: "/patrimonio",
       backgroundColor: "blue"
     },
     {
       title: "Portal de Obras",
       imageURL: Diretriz_orcamentaria.src,
       description: "Descrição 3",
-      link: "/link3",
+      link: "/controle-de-obras",
       backgroundColor: "green"
     },
     {
       title: "Controle de Radares",
       imageURL: Diretriz_orcamentaria.src,
       description: "Descrição 2",
-      link: "/link2",
+      link: "/controle-de-radares",
       backgroundColor: "blue"
     },
     {
       title: "Agenda Aberta",
       imageURL: Diretriz_orcamentaria.src,
       description: "Descrição 3",
-      link: "/link3",
+      link: "/agenda-aberta",
       backgroundColor: "green"
     },
     {
       title: "Convênios e Transferências",
       imageURL: Diretriz_orcamentaria.src,
-      description: "Descrição 2",
+      description: "/convenios-transferencias",
       link: "/link2",
       backgroundColor: "blue"
     },
@@ -128,56 +128,63 @@ function CardHome() {
       title: "Leis, Decretos e Portarias",
       imageURL: Diretriz_orcamentaria.src,
       description: "Descrição 3",
-      link: "/link3",
+      link: "/leis-decretos-portarias",
       backgroundColor: "green"
     },
     {
       title: "LAI - Lei de Acesso a Informação",
       imageURL: Diretriz_orcamentaria.src,
       description: "Descrição 2",
-      link: "/link2",
+      link: "/acesso-a-informacao",
       backgroundColor: "blue"
+    },
+    {
+      title: "Ouvidoria",
+      imageURL: Diretriz_orcamentaria.src,
+      description: "Descrição 3",
+      link: "/ouvidoria",
+      backgroundColor: "green"
     },
     {
       title: "Institutos e Autarquias",
       imageURL: Diretriz_orcamentaria.src,
       description: "Descrição 3",
-      link: "/link3",
+      link: "/instituto-autarquia",
       backgroundColor: "green"
     },
     {
       title: "Perguntas Frequentes",
       imageURL: Diretriz_orcamentaria.src,
       description: "Descrição 2",
-      link: "/link2",
+      link: "/perguntas-frequentes",
       backgroundColor: "blue"
     },
     {
       title: "Últimas Noticias",
       imageURL: Diretriz_orcamentaria.src,
       description: "Descrição 3",
-      link: "/link3",
+      link: "/ultimas-noticias",
       backgroundColor: "green"
     },
     {
       title: "Plano Municipal de Educação",
       imageURL: Diretriz_orcamentaria.src,
       description: "Descrição 2",
-      link: "/link2",
+      link: "/plano-municipal-educacao",
       backgroundColor: "blue"
     },
     {
       title: "Plano Municipal de Saúde",
       imageURL: Diretriz_orcamentaria.src,
       description: "Descrição 3",
-      link: "/link3",
+      link: "/plano-municipal-saude",
       backgroundColor: "green"
     },
     {
       title: "Mapa do Site",
       imageURL: Diretriz_orcamentaria.src,
       description: "Descrição 3",
-      link: "/link3",
+      link: "/mapa-do-site",
       backgroundColor: "green"
     }
   ];
