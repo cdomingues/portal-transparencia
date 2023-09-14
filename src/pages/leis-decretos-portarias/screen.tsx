@@ -194,7 +194,7 @@ marginBottom="15px"
                   <Box padding="6" bg="transparent" flexDirection="row">
                    <CardHorizon
                       title="Leis Municipais"
-                      imageURL={protocolo_geral}
+                      imageURL={protocolo_geral.src}
                       description="Pesquisa de Demanda do Cidadão."
                       link="https://leismunicipais.com.br/prefeitura/sp/mogi-das-cruzes"
                  backgroundColor="transparent"/>
@@ -203,7 +203,7 @@ marginBottom="15px"
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Decretos e Portarias"
-                      imageURL={protocolo_geral}
+                      imageURL={protocolo_geral.src}
                       description="Abertura e Consulta de Pedidos de e-Sic"
                       link="http://ged.pmmc.com.br/weblink7/Browse.aspx"
                  backgroundColor="transparent"/>
@@ -221,7 +221,7 @@ marginBottom="15px"
                   <Box padding="6" bg="transparent" flexDirection="row">
                    <CardHorizon
                       title="LGPD"
-                      imageURL={protocolo_geral}
+                      imageURL={protocolo_geral.src}
                       description="Lei Geral de Proteção de Dados."
                       link="leis-decretos-portarias/lgpd  "
                  backgroundColor="transparent"/>

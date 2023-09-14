@@ -194,7 +194,7 @@ marginBottom="15px"
                   <Box padding="6" bg="transparent" flexDirection="row">
                    <CardHorizon
                       title="Licitações"
-                      imageURL={licitacoes}
+                      imageURL={licitacoes.src}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                       link="compras-publicas/licitacoes"
                  backgroundColor="transparent"/>
@@ -203,7 +203,7 @@ marginBottom="15px"
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Pregão Eletrônico"
-                      imageURL={pregao_eletronico}
+                      imageURL={pregao_eletronico.src}
                       description="São disponibilizados no site da Prefeitura os editais de licitação de pregões eletrônicos para aquisição de bens e serviços, para acesso de qualquer interessado."
                       link="https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/pregao-eletronico"
                  backgroundColor="transparent"
@@ -222,7 +222,7 @@ marginBottom="15px"
                   <Box padding="6" bg="transparent" flexDirection="row">
                   <CardHorizon
                       title="Cadastro de Fornecedor"
-                      imageURL={cadastro_de_fornecedores}
+                      imageURL={cadastro_de_fornecedores.src}
                       description="A empresa interessada em participar de licitações na modalidade Tomada de Preços ou que pretenda manifestar interesse em licitações ..."
                       link="https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/cadastro-de-fornecedor"
                  backgroundColor="transparent"/>

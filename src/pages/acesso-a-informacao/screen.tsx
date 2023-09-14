@@ -314,7 +314,7 @@ marginBottom="15px"
                  <Box padding="6" bg="transparent" flexDirection="row">
                   <CardHorizon
                       title="Relatório de Demandas LAI"
-                      imageURL={relatorio_de_demandas}
+                      imageURL={relatorio_de_demandas.src}
                       description="Pedido de e-SIC."
                       link="https://mogidascruzes.1doc.com.br/b.php?pg=o/transparencia"
                  backgroundColor="transparent"/>
@@ -323,7 +323,7 @@ marginBottom="15px"
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Acesso a Informação LAI"
-                      imageURL={acesso_a_informacao}
+                      imageURL={acesso_a_informacao.src}
                       description="Abertura e Consulta de Pedidos de e-Sic"
                       link="https://mogidascruzes.1doc.com.br/b.php?pg=wp/detalhes&itd=3"
                  backgroundColor="transparent"/>

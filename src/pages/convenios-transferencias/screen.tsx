@@ -193,7 +193,7 @@ marginBottom="15px"
                   <Box padding="6" bg="transparent" flexDirection="row">
                    <CardHorizon
                       title="Contratos de Gestão"
-                      imageURL={contratos_de_gestao}
+                      imageURL={contratos_de_gestao.src}
                       description="Confira aqui os contratos com as organizações do terceiro setor celebrados pela Prefeitura de Mogi das Cruzes."
                       link="convenios-transferencias/contratos-gestao"
                  backgroundColor="transparent"/>
@@ -202,7 +202,7 @@ marginBottom="15px"
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Recebidos"
-                      imageURL={convenios}
+                      imageURL={convenios.src}
                       description="Confira aqui os contratos com as organizações do terceiro setor celebrados pela Prefeitura de Mogi das Cruzes."
                       link="convenios-transferencias/recebidos"
                  backgroundColor="transparent"/>
@@ -219,7 +219,7 @@ marginBottom="15px"
                   <Box padding="6" bg="transparent" flexDirection="row">
                   <CardHorizon
                       title="Repasses"
-                      imageURL={repasses}
+                      imageURL={repasses.src}
                       description="Acompanhe os repasses feitos pela Prefeitura de Mogi das Cruzes às organizações do Terceiro Setor com as quais firmou contratos ou convênios."
                       link="convenios-transferencias/repasses"
                  backgroundColor="transparent"/>

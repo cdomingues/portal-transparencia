@@ -1,0 +1,111 @@
+import React from "react";
+import publicRoutes from "../../../routes/public";
+import Footer from "./Footer";
+import SideBar from "./SideBar";
+import Header from "./Header";
+import Lupa from "../../../assets/images/Lupa.png";
+import CardHorizon from "../../CardHorizon";
+import LogoMogi from "../../../assets/images/logoMogi.png";
+import receitas_multas_de_transito from "../../../assets/images/icones/receitas multas de transito.svg";
+import {
+  Box,
+  Spacer,
+  Stack,
+  useColorModeValue,
+  Text,
+  Image,
+} from "@chakra-ui/react";
+import CardHome from "../../CardHome";
+
+type Props = {
+  children?: React.ReactNode;
+};
+
+function PublicHome({ children }: Props) {
+  return (
+    <>
+      <Header />
+
+      
+
+      {/* Menu de abertura */}
+      <Stack
+        backgroundColor={"transparent"}
+        width={"100%"} // Ocupa toda a largura da tela
+        maxWidth={"1280px"} // Largura máxima de 1280 pixels
+        alignItems="center" // Centraliza os filhos verticalmente
+        justifyContent="center" // Centraliza os filhos horizontalmente
+        margin="0 auto" // Centraliza a Stack horizontalmente na tela
+      >
+        <Stack
+          background="transparent"
+          direction="row"
+          spacing={20}
+          align="center" // Centraliza verticalmente
+          justify="center" // Centraliza horizontalmente
+        >
+          {/* Primeira coluna: Imagem */}
+          <Box
+            m={0}
+            bg={useColorModeValue("white", "gray.800")}
+            overflow="hidden"
+            maxWidth="20%"
+            marginBottom="15px"
+            borderRight="3px solid black" // Borda preta na lateral direita
+            paddingRight={15}
+            height={120}
+          >
+            <Image alt="logo" width="200px" src={LogoMogi.src} />
+          </Box>
+
+          {/* Segunda coluna: Textos */}
+          <Box
+            m={0}
+            bg={useColorModeValue("white", "gray.800")}
+            overflow="hidden"
+            maxWidth="30%"
+            marginBottom="15px"
+            display="flex"
+            flexDirection="column"
+            justifyContent="space-between"
+          >
+            <Text>
+              SEJA BEM-VINDO AO PORTAL DE TRANSPARENCIA DE MOGI DAS CRUZES
+            </Text>
+            <Text>
+              O lugar onde o controle social começa! Acompanhe todas as
+              informações de receitas e despesas da Prefeitura, com detalhamento
+              e maior facilidade de entendimento.
+            </Text>
+          </Box>
+
+          {/* Terceira coluna: Imagem */}
+          <Box
+            m={0}
+            bg={useColorModeValue("white", "gray.800")}
+            overflow="hidden"
+            maxWidth="20%"
+            marginBottom="15px"
+          >
+            <Image alt="logo" width="150px" src={Lupa.src} />
+          </Box>
+        </Stack>
+      </Stack>
+
+      <Stack
+      height={20}>
+
+      </Stack>
+
+     
+
+      <Stack>
+        <CardHome/>
+      </Stack>
+
+      <Footer />
+    </>
+  );
+}
+
+export default PublicHome;

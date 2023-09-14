@@ -140,7 +140,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Receitas Extraorçamentárias"
-                      imageURL={receitas_extraorcamentarias}
+                      imageURL={receitas_extraorcamentarias.src}
                       description="Aqui você pode acompanhar as informações sobre as receitas que não figuram no orçamento e, por isso, não são renda do município, apenas transitam pelo poder público."
                       link="gestao-extra-orcamentaria/receitas"
                       backgroundColor="transparent"
@@ -150,7 +150,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Despesas Extraorçamentárias"
-                      imageURL={despesas_extraorcamentarias}
+                      imageURL={despesas_extraorcamentarias.src}
                       description="Aqui você pode acompanhar as informações sobre as despesas que não integram o orçamento da Prefeitura, apenas transitam pelo poder público."
                       link="gestao-extra-orcamentaria/despesas"
                       backgroundColor="transparent"
