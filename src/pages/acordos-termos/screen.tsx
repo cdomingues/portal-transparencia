@@ -141,7 +141,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Acordo de Colaboração"
-                      imageURL={acordo_de_colaboração}
+                      imageURL={acordo_de_colaboração.src}
                       description="..."
                       link="acordos-termos/acordo-de-colaboracao"
                       backgroundColor="transparent"
@@ -151,7 +151,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Termo de Colaboração"
-                      imageURL={termo_de_colaboração}
+                      imageURL={termo_de_colaboração.src}
                       description="..."
                       link="acordos-termos/termo-de-colaboracao"
                       backgroundColor="transparent"
@@ -166,7 +166,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Termo de Fomento"
-                      imageURL={termo_de_fomento}
+                      imageURL={termo_de_fomento.src}
                       description="..."
                       link="acordos-termos/termo-de-fomento"
                       backgroundColor="transparent"

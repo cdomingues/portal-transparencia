@@ -136,7 +136,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Contratos e Atas"
-                      imageURL={contratos_e_atas}
+                      imageURL={contratos_e_atas.src}
                       description="Nesta página, confira as informações sobre contratos e atas celebrados pela Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por número, modalidade, processo, valor, fornecedor, objeto, entre outros itens."
                       link="gestao-orcamentaria-outros/outros/contratos-atas"
                       backgroundColor="transparent"
@@ -145,7 +145,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Gastos com publicidade"
-                      imageURL={gastos_com_publicidade}
+                      imageURL={gastos_com_publicidade.src}
                       description="A publicidade legal e institucional realizada pelo Poder Público é um importante serviço cujo objetivo final é favorecer o acesso da população a todos os outros serviços públicos, além de contribuir com a transparência dos atos administrativos. Confira as despesas com publicidade da Prefeitura de Mogi das Cruzes."
                       link="gestao-orcamentaria-outros/outros/propaganda"
                       backgroundColor="transparent"
@@ -160,7 +160,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Subvenções"
-                      imageURL={subvencoes}
+                      imageURL={subvencoes.src}
                       description="Subvenção é quando a Prefeitura destina recursos financeiros para que entidades cubram seus custos de atividades prestadas à população. Confira aqui as despesas relacionadas a essa natureza."
                       link="gestao-orcamentaria-outros/outros/subvencoes"
                       backgroundColor="transparent"
@@ -169,7 +169,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Divida Ativa"
-                      imageURL={subvencoes}
+                      imageURL={subvencoes.src}
                       description="Subvenção é quando a Prefeitura destina recursos financeiros para que entidades cubram seus custos de atividades prestadas à população. Confira aqui as despesas relacionadas a essa natureza."
                       link="gestao-orcamentaria-outros/outros/divida-ativa"
                       backgroundColor="transparent"

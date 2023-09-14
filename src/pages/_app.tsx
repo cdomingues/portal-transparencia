@@ -1,15 +1,16 @@
 import "../styles/globals.css";
 import React, { useEffect, useState } from "react";
 import PublicLayout from "../components/Layout/Public";
+import PublicHome from "../components/Layout/Home";
 import { ChakraProvider } from "@chakra-ui/react";
 import { CookiesProvider, useCookies } from "react-cookie";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import theme from "../themes"; 
 import Vlibras from 'vlibras-nextjs';
-
 import { FontSizeAccessibilityWrapper } from "../context/fontSizeAccessibility";
 import TagManager from "react-gtm-module";
+import { isMobile } from "react-device-detect";
 
 
 
@@ -21,23 +22,25 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     TagManager.initialize({ gtmId: '<GTM-MKJGG2Q>' });
     setLoaded(true);
-    
   }, []);
+
+  const ComponenteLayout = (router.pathname === "/" && !isMobile) ? PublicHome : PublicLayout;
 
   return (
     <ChakraProvider theme={theme}>
       <FontSizeAccessibilityWrapper>
         <CookiesProvider>
           {loaded && (
-            <PublicLayout>
+            <ComponenteLayout>
               <Vlibras forceOnload={true} />
               <Component {...pageProps} />
-            </PublicLayout>
+            </ComponenteLayout>
           )}
         </CookiesProvider>
       </FontSizeAccessibilityWrapper>
     </ChakraProvider>
   );
 }
+
 
 export default MyApp;

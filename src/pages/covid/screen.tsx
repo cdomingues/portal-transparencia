@@ -195,7 +195,7 @@ marginBottom="15px"
                   <Box padding="6" bg="transparent" flexDirection="row">
                    <CardHorizon
                       title="Despesas COVID-19"
-                      imageURL={despesas_covid}
+                      imageURL={despesas_covid.src}
                       description="Dispõe das despesas empenhadas, liquidadas e pagas realizadas pelo órgão público para enfrentamento da emergência de saúde pública de importância internacional decorrente do coronavírus (COVID-19)."
                       link="covid/despesas"
                  backgroundColor="transparent"/>
@@ -204,7 +204,7 @@ marginBottom="15px"
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Receitas COVID-19"
-                      imageURL={receitas_covid}
+                      imageURL={receitas_covid.src}
                       description="Dispõe das receitas recebidas pelo órgão público para enfrentamento da emergência de saúde pública de importância internacional decorrente do coronavírus (COVID-19)."
                       link="covid/receitas"
                  backgroundColor="transparent"/>
