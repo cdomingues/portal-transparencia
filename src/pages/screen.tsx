@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { ChartComponent } from "../components/ChartBarApex";
+
 import { ApexOptions } from "apexcharts";
 import { PublicPolicyData } from "./api/totalizador/politicas-publicas";
 import {

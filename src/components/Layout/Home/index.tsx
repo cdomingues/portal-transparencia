@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import publicRoutes from "../../../routes/public";
 import Footer from "./Footer";
 import SideBar from "./SideBar";
@@ -6,6 +7,7 @@ import Header from "./Header";
 import Lupa from "../../../assets/images/Lupa.png";
 import CardHorizon from "../../CardHorizon";
 import LogoMogi from "../../../assets/images/logoMogi.png";
+import Vlibras from "vlibras-nextjs";
 import receitas_multas_de_transito from "../../../assets/images/icones/receitas multas de transito.svg";
 import {
   Box,
@@ -17,16 +19,19 @@ import {
 } from "@chakra-ui/react";
 import CardHome from "../../CardHome";
 
-type Props = {
-  children?: React.ReactNode;
-};
+// type Props = {
+//   children?: React.ReactNode;
+// };
 
-function PublicHome({ children }: Props) {
+function PublicHome( ) {
   return (
     <>
+      <Vlibras />
+      <Vlibras forceOnload={true} />
+      <Head>
+        <title>Início</title>
+      </Head>
       <Header />
-
-      
 
       {/* Menu de abertura */}
       <Stack
@@ -92,15 +97,10 @@ function PublicHome({ children }: Props) {
         </Stack>
       </Stack>
 
-      <Stack
-      height={20}>
-
-      </Stack>
-
-     
+      <Stack height={20}></Stack>
 
       <Stack>
-        <CardHome/>
+        <CardHome />
       </Stack>
 
       <Footer />
