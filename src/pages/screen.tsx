@@ -251,6 +251,7 @@ function HomeScreen({ handler }: PropsInput) {
       >
         <Head>
           <title>Início</title>
+          
         </Head>
 
         <Box
