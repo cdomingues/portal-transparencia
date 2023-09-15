@@ -49,7 +49,7 @@ import { contentPublicWorks } from "../pages/ciclo-orcamentario/obras-publicas/s
 import { contentPublicServants } from "../pages/ciclo-orcamentario/servidores-publicos-estagiarios/screen";
 import { contentPROMAE } from "../pages/ciclo-orcamentario/promae/screen";
 import { contentRevenue } from "../pages/gestao-orcamentaria/orcamentarias/receitas/screen";
-import { contentContractsAndAtas } from "../pages/gestao-orcamentaria-outros/outros/contratos-atas/screen";
+import { contentContractsAndAtas } from "../pages/gestao-orcamentaria-outros/contratos-atas/screen";
 import { contentBids } from "../pages/compras-publicas/licitacoes/screen";
 
 import { contentAdvancesAndAccommodation } from "../pages/gestao-de-pessoas/adiantamento-hospedagem/screen";
@@ -144,9 +144,10 @@ const publicRoutes: IPublicRoute[] = [
         icon: AiFillCaretRight,
       },
       {
-        //defaultPath: "/ciclo-orcamentario",
-        name: "Aprovação de Contas pelo Legislativo",
-        path: "http://www.cmmc.com.br/contasexecutivo/",
+          //defaultPath: "/ciclo-orcamentario",
+          name: "Aprovação de Contas pelo Legislativo",
+          path: "contas-executivo",    
+          link: "http://www.cmmc.com.br/contasexecutivo/",
         icon: AiFillCaretRight,
       },
       {
@@ -169,13 +170,7 @@ const publicRoutes: IPublicRoute[] = [
     element: <div></div>,
     icon: BsFileText,
     group: [
-      {
-        defaultPath: "/gestao-orcamentaria",
-        name: "Receitas Orçamentárias",
-        path: "orcamentarias",
-        icon: AiFillCaretRight,
-        subgroup: true,
-      },
+      
       {
         defaultPath: "/gestao-orcamentaria",
         name: "Gerais",
@@ -194,13 +189,7 @@ const publicRoutes: IPublicRoute[] = [
         path: "orcamentarias/receitas/multa-transito",
         icon: AiFillCaretRight,
       },
-      {
-        defaultPath: "/gestao-orcamentaria",
-        name: "Despesas Orçamentárias",
-        path: "orcamentarias",
-        icon: AiFillCaretRight,
-        subgroup: true,
-      },
+      
       {
         defaultPath: "/gestao-orcamentaria",
         name: "Gerais",
@@ -263,26 +252,26 @@ const publicRoutes: IPublicRoute[] = [
       {
         defaultPath: "/gestao-orcamentaria-outros",
         name: "Contratos e Atas",
-        path: "/outros/contratos-atas",
+        path: "contratos-atas",
         icon: AiFillCaretRight,
       },
 
       {
         defaultPath: "/gestao-orcamentaria-outros",
         name: "Propaganda e Publicidade",
-        path: "outros/propaganda",
+        path: "propaganda",
         icon: AiFillCaretRight,
       },
       {
         defaultPath: "/gestao-orcamentaria-outros",
         name: "Subvenções",
-        path: "outros/subvencoes",
+        path: "subvencoes",
         icon: AiFillCaretRight,
       },
       {
         defaultPath: "/gestao-orcamentaria-outros",
         name: "Dívida Ativa",
-        path: "outros/divida-ativa",
+        path: "divida-ativa",
         icon: AiFillCaretRight,
       },
       
@@ -302,13 +291,7 @@ const publicRoutes: IPublicRoute[] = [
         icon: AiFillCaretRight,
         subgroup: false,
       },
-      {
-        defaultPath: "/gestao-extra-orcamentaria",
-        name: " ",
-        path: "receitas",
-        icon: AiFillCaretRight,
-        subgroup: true,
-      },
+
 
       {
         defaultPath: "/gestao-extra-orcamentaria",
@@ -363,22 +346,17 @@ const publicRoutes: IPublicRoute[] = [
         icon: AiFillCaretRight,
         subgroup: true,
       },
-      {
-        defaultPath: "/compras-publicas",
-        name: "Gerais",
-        path: "/licitacoes",
-        icon: AiFillCaretRight,
-      },
+     
 
       {
         name: "Pregão Eletrônico",
-        path: "/pregao-eletronico",
+        path: "pregao-eletronico",
         icon: AiFillCaretRight,
         link: "https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/pregao-eletronico",
       },
       {
         name: "Cadastro de Fornecedor",
-        path: "/cadastro-fornecedor",
+        path: "cadastro-fornecedor",
         icon: AiFillCaretRight,
         link: "https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/cadastro-de-fornecedor",
       },
@@ -394,15 +372,15 @@ const publicRoutes: IPublicRoute[] = [
       {
         defaultPath: "/gestao-de-pessoas",
         name: "Folha de Pagamento",
-        path: "/folha-pagamento",
+        path: "folha-pagamento",
         icon: AiFillCaretRight,
         subgroup: false,
       },
 
       {
         defaultPath: "/gestao-de-pessoas",
-        name: "Despesas de Viagens",
-        path: "/despesas-viagens",
+        name: "Passagens e locomoção",
+        path: "passagens-locomocao",
         icon: AiFillCaretRight,
         subgroup: false,
       },
@@ -410,7 +388,7 @@ const publicRoutes: IPublicRoute[] = [
       {
         defaultPath: "/gestao-de-pessoas",
         name: "Adiantamento e Hospedagem",
-        path: "/adiantamento-hospedagem",
+        path: "adiantamento-hospedagem",
         icon: AiFillCaretRight,
         subgroup: false,
       },
@@ -418,14 +396,14 @@ const publicRoutes: IPublicRoute[] = [
       {
         defaultPath: "/gestao-de-pessoas",
         name: "Cargos e Salarios",
-        path: "/cargos-e-salarios",
+        path: "cargos-e-salarios",
         icon: AiFillCaretRight,
         subgroup: false,
       },
       {
         defaultPath: "/gestao-de-pessoas",
         name: "Estrutura Organizacional",
-        path: "/estrutura-organizacional",
+        path: "estrutura-organizacional",
         icon: AiFillCaretRight,
         link: "http://leismunicipa.is/0ji28",
       },
@@ -433,7 +411,7 @@ const publicRoutes: IPublicRoute[] = [
       {
         defaultPath: "/gestao-de-pessoas",
         name: "Carga Horária",
-        path: "/carga-horaria",
+        path: "carga-horaria",
         icon: AiFillCaretRight,
         subgroup: false,
       },
@@ -441,7 +419,7 @@ const publicRoutes: IPublicRoute[] = [
       {
         defaultPath: "/gestao-de-pessoas",
         name: "Concurso Público",
-        path: "/concurso-publico",
+        path: "concurso-publico",
         icon: AiFillCaretRight,
         subgroup: false,
       },
@@ -460,15 +438,7 @@ const publicRoutes: IPublicRoute[] = [
     path: "/patrimonio",
     element: <div></div>,
     icon: BsFileText,
-    group: [
-      {
-        defaultPath: "/patrimonio",
-        name: "Patrimônio",
-        path: " ",
-        icon: AiFillCaretRight,
-        subgroup: false,
-      },
-    ],
+    group: undefined
   },
   {
     name: "Portal de Obras",
@@ -477,21 +447,21 @@ const publicRoutes: IPublicRoute[] = [
     group: [
       {
         name: "Início",
-        path: "/inicio",
+        path: "inicio",
         defaultPath: "/controle-de-obras",
         icon: AiOutlineHome,
         ...contentConstructionsControl,
       },
       {
         name: "Sobre as Obras",
-        path: "/sobre-as-obras",
+        path: "sobre-as-obras",
         defaultPath: "/controle-de-obras",
         icon: AiOutlineInfoCircle,
         ...contentAboutConstructions,
       },
       {
         name: "Pesquise Obras",
-        path: "/pesquisar-obras",
+        path: "pesquisar-obras",
         defaultPath: "/controle-de-obras",
         icon: AiOutlineSearch,
         ...contentSearchConstructions,
@@ -501,7 +471,7 @@ const publicRoutes: IPublicRoute[] = [
   {
     name: "Controle de Radares",
     icon: BsCameraVideo,
-    path: "/controle-de-radares",
+    path: "controle-de-radares",
     group: undefined,
     ...contentRadarsControl,
   },
@@ -513,14 +483,14 @@ const publicRoutes: IPublicRoute[] = [
       {
         defaultPath: "/agenda-aberta",
         name: "Prefeito - Caio Cunha",
-        path: "/agenda-prefeito",
+        path: "agenda-prefeito",
         icon: AiOutlineProfile,
         ...contentMayorAgenda,
       },
       {
         defaultPath: "/agenda-aberta",
         name: "Co Prefeita - Priscila Yamagami",
-        path: "/agenda-coprefeita",
+        path: "agenda-coprefeita",
         icon: AiOutlineProfile,
         ...contentMayorAgenda,
       },
@@ -535,21 +505,21 @@ const publicRoutes: IPublicRoute[] = [
       {
         defaultPath: "/convenios-transferencias",
         name: "Contratos de Gestão",
-        path: "/contratos-gestao",
+        path: "contratos-gestao",
         icon: AiOutlineTable,
         ...contentContractManagement,
       },
       {
         defaultPath: "/convenios-transferencias",
         name: "Recebidos",
-        path: "/recebidos",
+        path: "recebidos",
         icon: AiOutlineTable,
 
       },
       {
         defaultPath: "/convenios-transferencias",
         name: "Repasses",
-        path: "/repasses",
+        path: "repasses",
         icon: AiOutlineTable,
 
       },
@@ -558,18 +528,18 @@ const publicRoutes: IPublicRoute[] = [
 
   {
     name: "Leis, Decretos e Portarias",
-    path: "/leis-decretos-portarias",
+    path: "leis-decretos-portarias",
     icon: AiOutlineSolution,
     group: [
       {
         name: "Leis Municipais",
-        path: "/protocolo-geral",
+        path: "protocolo-geral",
         icon: AiOutlineProfile,
         link: "https://leismunicipais.com.br/prefeitura/sp/mogi-das-cruzes",
       },
       {
         name: "Decretos e Portarias",
-        path: "/leis-decretos-portarias",
+        path: "leis-decretos-portarias",
         icon: AiOutlineProfile,
         link: "http://ged.pmmc.com.br/weblink7/Browse.aspx",
       },
@@ -585,24 +555,19 @@ const publicRoutes: IPublicRoute[] = [
 
   {
     name: "LAI - Lei de Acesso a Informação",
-    path: "/acesso-a-informacao",
+    path: "acesso-a-informacao",
     icon: AiOutlineSolution,
     group: [
-      {
-        name: "Protocolo Geral",
-        path: "/protocolo-geral",
-        icon: AiOutlineProfile,
-        link: "https://servicossmar.mogidascruzes.sp.gov.br/falacidadao/#!/demanda",
-      },
+      
       {
         name: "Acesso a Informação LAI",
-        path: "/acesso-informacao",
+        path: "acesso-informacao",
         icon: AiOutlineProfile,
         link: "https://mogidascruzes.1doc.com.br/b.php?pg=wp/detalhes&itd=3",
       },
       {
         name: "Relatório de Demandas LAI",
-        path: "/relatori-demanda",
+        path: "relatorio-demanda",
         icon: AiOutlineProfile,
         link: "https://mogidascruzes.1doc.com.br/b.php?pg=o/transparencia",
       },
@@ -616,13 +581,13 @@ const publicRoutes: IPublicRoute[] = [
     group: [
       {
         name: "Transparência SEMAE",
-        path: "/transparencia-semae",
+        path: "transparencia-semae",
         icon: AiOutlineProfile,
         link: "http://www.transparenciasemae.pmmc.com.br/",
       },
       {
         name: "Transparência IPREM",
-        path: "/transparencia-iprem",
+        path: "transparencia-iprem",
         icon: AiOutlineProfile,
         link: "http://www.iprem.pmmc.com.br/?page_id=1542",
       },
@@ -631,7 +596,7 @@ const publicRoutes: IPublicRoute[] = [
 
   {
     name: "Perguntas Frequentes",
-    path: "/perguntas-frequentes",
+    path: "perguntas-frequentes",
     icon: AiOutlineAudit,
     ...contentAbout,
   },

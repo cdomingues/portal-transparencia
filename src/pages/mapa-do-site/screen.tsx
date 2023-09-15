@@ -66,7 +66,7 @@ marginBottom="15px"
 
         <Stack display="flex" flexDirection="column" paddingLeft="10">
           {item?.group?.map((subItem: any, subIndex: number) => {
-            const subItemPath = subItem?.path?.replace(/\//g, ""); // Remove the "/" character
+            const subItemPath = subItem?.path // Remove the "/" character
             return (
               <Text
               bg={"transparent"}
@@ -79,11 +79,11 @@ marginBottom="15px"
               fontSize={accessibility?.fonts?.regular}
               // color="blue"
                 key={subIndex}
-                onClick={() => router.push(item?.path + "/" +subItem?.path)}
+                onClick={() => router.push(item?.path + "/" +subItem?.path )}
                 cursor="pointer"
             
               >
-                | {capitalizeFirstLetter(subItemPath)}
+                | {capitalizeFirstLetter(subItemPath)} 
               </Text>
             );
           })}
