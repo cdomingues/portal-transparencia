@@ -63,9 +63,9 @@ const CardHorizon: React.FC<CardHorizonProps> = ({
           <img
             src={imageURL}
             alt="icone"
-            width={50}
-            height={50}
-            style={{ filter: "invert(0) brightness(4)" }}
+            width={60}
+            height={60}
+            style={{ filter: "grayscale(100%) brightness(3)" }}
           />
         </Stack>
 

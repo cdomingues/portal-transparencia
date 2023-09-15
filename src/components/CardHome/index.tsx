@@ -17,172 +17,197 @@ import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibi
 import seta from "../../assets/images/icones/Icones_Home Portal Transparencia__botao abre.svg";
 import Diretriz_orcamentaria from "../../assets/images/icones/diretriz_orcamentaria.svg";
 import CardHorizon from "../CardHorizon";
-
-
+import Perfil_municipio from "../../assets/images/icones/icones_barra lateral__perfil do municipio.svg";
+import Ciclo_orcamentario from "../../assets/images/icones/icones_barra lateral__ciclo orcamentario.svg";
+import Gestao_orcamentaria from "../../assets/images/icones/icones_barra lateral__gestão orcamentaria.svg";
+import Gestao_orcamentaria_covid from "../../assets/images/icones/icones_barra lateral__gestão orcamentaria covid.svg";
+import Gestao_orcamentaria_outros from "../../assets/images/icones/icones_barra lateral__gestão orcamentaria outros.svg";
+import Gestao_extra_orcamentaria from "../../assets/images/icones/icones_barra lateral__gestão extra orcamentaria.svg";
+import Acordos_termos from "../../assets/images/icones/icones_barra lateral__acordos e termos.svg";
+import Compras_publicas from "../../assets/images/icones/icones_barra lateral__compras publicas.svg";
+import Gestao_de_pessoas from "../../assets/images/icones/icones_barra lateral__gestao de pessoas.svg";
+import Patrimonio from "../../assets/images/icones/icones_barra lateral__patrimonio.svg";
+import Controle_de_obras from "../../assets/images/icones/icones_barra lateral__ultimas noticias.svg";
+import Controle_de_radares from "../../assets/images/icones/receitas multas de transito.svg";
+import Agenda_aberta from "../../assets/images/icones/icones_barra lateral__agenda aberta.svg";
+import Convenios_transferencias from "../../assets/images/icones/receitas emendas parlamentares.svg";
+import Leis_decretos_portarias from "../../assets/images/icones/contratos e atas.svg";
+import Acesso_a_informacao from "../../assets/images/icones/LAI__acesso a informação.svg";
+import Ouvidoria from "../../assets/images/icones/LAI__acesso a informação.svg";
+import Instituto_autarquia from "../../assets/images/icones/icones_barra lateral__institutos e autarquias.svg";
+import Perguntas_frequentes from "../../assets/images/icones/icones_barra lateral__perguntas frequentes.svg";
+import Ultimas_noticias from "../../assets/images/icones/icones_barra lateral__ultimas noticias.svg";
+import Plano_municipal_educacao from "../../assets/images/icones/acordos e termos__acordo de colaboração.svg";
+import Plano_municipal_saude from "../../assets/images/icones/acordos e termos__acordo de colaboração.svg";
+import Mapa_do_site from "../../assets/images/icones/icones_barra lateral__mapa do site.svg";
 
 function CardHome() {
   // Matriz de objetos contendo as informações para cada cartão
   // (Você pode expandir ou reduzir conforme necessário)
 
-
   const cardData = [
     {
       title: "Perfil do Municipio",
-      imageURL: Diretriz_orcamentaria.src,
+      imageURL: Perfil_municipio.src,
       description: "Descrição 1",
-      link: "/link1",
-      backgroundColor: "transparent"
+      link: "/perfil-do-municipio",
+      backgroundColor: "transparent", 
     },
     {
       title: "Ciclo Orçamentário",
-      imageURL: Diretriz_orcamentaria.src,
+      imageURL: Ciclo_orcamentario.src,
       description: "Descrição 2",
-      link: "/link2",
-      backgroundColor: "transparent"
+      link: "/ciclo-orcamentario",
+      backgroundColor: "transparent",
     },
     {
       title: "Gestão Orçamentária",
-      imageURL: Diretriz_orcamentaria.src,
+      imageURL: Gestao_orcamentaria.src,
       description: "Descrição 3",
-      link: "/link3",
-      backgroundColor: "transparent"
+      link: "/gestao-orcamentaria",
+      backgroundColor: "transparent",
     },
     {
       title: "Gestão Orçamentária - Covid-19",
-      imageURL: Diretriz_orcamentaria.src,
+      imageURL: Gestao_orcamentaria_covid.src,
       description: "Descrição 1",
-      link: "/link1",
-      backgroundColor: "white"
+      link: "/gestao-orcamentaria-covid",
+      backgroundColor: "white",
     },
     {
       title: "Gestão Orçamentária - Outros",
-      imageURL: Diretriz_orcamentaria.src,
+      imageURL: Gestao_orcamentaria_outros.src,
       description: "Descrição 2",
-      link: "/link2",
-      backgroundColor: "blue"
+      link: "/gestao-orcamentaria-outros",
+      backgroundColor: "blue",
     },
     {
       title: "Gestão Extra Orçamentária",
-      imageURL: Diretriz_orcamentaria.src,
+      imageURL: Gestao_extra_orcamentaria.src,
       description: "Descrição 3",
-      link: "/link3",
-      backgroundColor: "green"
+      link: "/gestao-extra-orcamentaria",
+      backgroundColor: "green",
     },
     {
       title: "Acordos e Termos",
-      imageURL: Diretriz_orcamentaria.src,
+      imageURL: Acordos_termos.src,
       description: "Descrição 1",
-      link: "/link1",
-      backgroundColor: "white"
+      link: "/acordos-termos",
+      backgroundColor: "white",
     },
     {
       title: "Compras Públicas",
-      imageURL: Diretriz_orcamentaria.src,
+      imageURL: Compras_publicas.src,
       description: "Descrição 2",
-      link: "/link2",
-      backgroundColor: "blue"
+      link: "/compras-publicas",
+      backgroundColor: "blue",
     },
     {
       title: "Gestão de Pessoas",
-      imageURL: Diretriz_orcamentaria.src,
+      imageURL: Gestao_de_pessoas.src,
       description: "Descrição 3",
-      link: "/link3",
-      backgroundColor: "green"
+      link: "/gestao-de-pessoas",
+      backgroundColor: "green",
     },
     {
       title: "Patrimônio",
-      imageURL: Diretriz_orcamentaria.src,
+      imageURL: Patrimonio.src,
       description: "Descrição 2",
-      link: "/link2",
-      backgroundColor: "blue"
+      link: "/patrimonio",
+      backgroundColor: "blue",
     },
     {
       title: "Portal de Obras",
-      imageURL: Diretriz_orcamentaria.src,
+      imageURL: Controle_de_obras.src,
       description: "Descrição 3",
-      link: "/link3",
-      backgroundColor: "green"
+      link: "/controle-de-obras",
+      backgroundColor: "green",
     },
     {
       title: "Controle de Radares",
-      imageURL: Diretriz_orcamentaria.src,
+      imageURL: Controle_de_radares.src,
       description: "Descrição 2",
-      link: "/link2",
-      backgroundColor: "blue"
+      link: "/controle-de-radares",
+      backgroundColor: "blue",
     },
     {
       title: "Agenda Aberta",
-      imageURL: Diretriz_orcamentaria.src,
+      imageURL: Agenda_aberta.src,
       description: "Descrição 3",
-      link: "/link3",
-      backgroundColor: "green"
+      link: "/agenda-aberta",
+      backgroundColor: "green",
     },
     {
       title: "Convênios e Transferências",
-      imageURL: Diretriz_orcamentaria.src,
-      description: "Descrição 2",
+      imageURL: Convenios_transferencias.src,
+      description: "/convenios-transferencias",
       link: "/link2",
-      backgroundColor: "blue"
+      backgroundColor: "blue",
     },
     {
       title: "Leis, Decretos e Portarias",
-      imageURL: Diretriz_orcamentaria.src,
+      imageURL: Leis_decretos_portarias.src,
       description: "Descrição 3",
-      link: "/link3",
-      backgroundColor: "green"
+      link: "/leis-decretos-portarias",
+      backgroundColor: "green",
     },
     {
       title: "LAI - Lei de Acesso a Informação",
-      imageURL: Diretriz_orcamentaria.src,
+      imageURL: Leis_decretos_portarias.src,
       description: "Descrição 2",
-      link: "/link2",
-      backgroundColor: "blue"
+      link: "/acesso-a-informacao",
+      backgroundColor: "blue",
+    },
+    {
+      title: "Ouvidoria",
+      imageURL: Ouvidoria.src,
+      description: "Descrição 3",
+      link: "/ouvidoria",
+      backgroundColor: "green",
     },
     {
       title: "Institutos e Autarquias",
-      imageURL: Diretriz_orcamentaria.src,
+      imageURL: Instituto_autarquia.src,
       description: "Descrição 3",
-      link: "/link3",
-      backgroundColor: "green"
+      link: "/instituto-autarquia",
+      backgroundColor: "green",
     },
     {
       title: "Perguntas Frequentes",
-      imageURL: Diretriz_orcamentaria.src,
+      imageURL: Perguntas_frequentes.src,
       description: "Descrição 2",
-      link: "/link2",
-      backgroundColor: "blue"
+      link: "/perguntas-frequentes",
+      backgroundColor: "blue",
     },
     {
       title: "Últimas Noticias",
-      imageURL: Diretriz_orcamentaria.src,
+      imageURL: Ultimas_noticias.src,
       description: "Descrição 3",
-      link: "/link3",
-      backgroundColor: "green"
+      link: "/ultimas-noticias",
+      backgroundColor: "green",
     },
     {
       title: "Plano Municipal de Educação",
-      imageURL: Diretriz_orcamentaria.src,
+      imageURL: Plano_municipal_educacao.src,
       description: "Descrição 2",
-      link: "/link2",
-      backgroundColor: "blue"
+      link: "/plano-municipal-educacao",
+      backgroundColor: "blue",
     },
     {
       title: "Plano Municipal de Saúde",
-      imageURL: Diretriz_orcamentaria.src,
+      imageURL: Plano_municipal_saude.src,
       description: "Descrição 3",
-      link: "/link3",
-      backgroundColor: "green"
+      link: "/plano-municipal-saude",
+      backgroundColor: "green",
     },
     {
       title: "Mapa do Site",
-      imageURL: Diretriz_orcamentaria.src,
+      imageURL: Mapa_do_site.src,
       description: "Descrição 3",
-      link: "/link3",
-      backgroundColor: "green"
-    }
+      link: "/mapa-do-site",
+      backgroundColor: "green",
+    },
   ];
-
- 
 
   return (
     <Stack
@@ -221,7 +246,5 @@ function CardHome() {
     </Stack>
   );
 }
-
-
 
 export default CardHome;
