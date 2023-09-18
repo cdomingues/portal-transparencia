@@ -23,7 +23,7 @@ import CardHome from "../../CardHome";
 //   children?: React.ReactNode;
 // };
 
-function PublicHome( ) {
+function PublicHome() {
   return (
     <>
       <Vlibras />
@@ -36,11 +36,12 @@ function PublicHome( ) {
       {/* Menu de abertura */}
       <Stack
         backgroundColor={"transparent"}
-        width={"100%"} // Ocupa toda a largura da tela
+        width={"80%"} // Ocupa toda a largura da tela
         maxWidth={"1280px"} // Largura máxima de 1280 pixels
         alignItems="center" // Centraliza os filhos verticalmente
         justifyContent="center" // Centraliza os filhos horizontalmente
         margin="0 auto" // Centraliza a Stack horizontalmente na tela
+        paddingTop={15}
       >
         <Stack
           background="transparent"
@@ -50,50 +51,81 @@ function PublicHome( ) {
           justify="center" // Centraliza horizontalmente
         >
           {/* Primeira coluna: Imagem */}
-          <Box
-            m={0}
-            bg={useColorModeValue("white", "gray.800")}
-            overflow="hidden"
-            maxWidth="20%"
-            marginBottom="15px"
-            borderRight="3px solid black" // Borda preta na lateral direita
-            paddingRight={15}
-            height={120}
+          <Stack
+            background="transparent"
+            w={"30%"}
+            h={"100%"}
+            align="center" // Centraliza verticalmente
+            justify="center" // Centraliza horizontalmente
           >
-            <Image alt="logo" width="200px" src={LogoMogi.src} />
-          </Box>
+            <Box
+              m={0}
+              bg={useColorModeValue("transparent", "gray.800")}
+              overflow="hidden"
+              maxWidth="100%"
+              marginBottom="15px"
+              borderRight="3px solid black" // Borda preta na lateral direita
+              paddingRight={15}
+              height={120}
+            >
+              <Image alt="logo" width="200px" src={LogoMogi.src} />
+            </Box>
+          </Stack>
 
-          {/* Segunda coluna: Textos */}
-          <Box
-            m={0}
-            bg={useColorModeValue("white", "gray.800")}
-            overflow="hidden"
-            maxWidth="30%"
-            marginBottom="15px"
-            display="flex"
-            flexDirection="column"
-            justifyContent="space-between"
+          <Stack
+            background="transparent"
+            w={"80%"}
+            h={"100%"}
+            align="center" // Centraliza verticalmente
+            justify="left" // Centraliza horizontalmente
           >
-            <Text>
-              SEJA BEM-VINDO AO PORTAL DE TRANSPARENCIA DE MOGI DAS CRUZES
-            </Text>
-            <Text>
-              O lugar onde o controle social começa! Acompanhe todas as
-              informações de receitas e despesas da Prefeitura, com detalhamento
-              e maior facilidade de entendimento.
-            </Text>
-          </Box>
+            {/* Segunda coluna: Textos */}
+            <Box
+              m={0}
+              bg={useColorModeValue("white", "gray.800")}
+              overflow="hidden"
+              maxWidth="100%"
+              marginBottom="15px"
+              display="flex"
+              flexDirection="column"
+              justifyContent="left"
+              alignItems={"start"}
+            >
+              <Text
+                textColor={"blue.500"}
+                fontFamily={"sans-serif"}
+                fontWeight={"semibold"}
+                textAlign={"left"}
+                fontSize={"2xl"}
+              >
+                SEJA BEM-VINDO AO PORTAL DE TRANSPARENCIA DE MOGI DAS CRUZES
+              </Text>
+              <Text fontWeight={"light"} fontSize={"sm"} justifyItems={""}>
+                O lugar onde o controle social começa! Acompanhe todas as
+                informações de receitas e despesas da Prefeitura, com
+                detalhamento e maior facilidade de entendimento.
+              </Text>
+            </Box>
+          </Stack>
 
-          {/* Terceira coluna: Imagem */}
-          <Box
-            m={0}
-            bg={useColorModeValue("white", "gray.800")}
-            overflow="hidden"
-            maxWidth="20%"
-            marginBottom="15px"
+          <Stack
+            background="transparent"
+            w={"20%"}
+            h={"100%"}
+            align="center" // Centraliza verticalmente
+            justify="left" // Centraliza horizontalmente
           >
-            <Image alt="logo" width="150px" src={Lupa.src} />
-          </Box>
+            {/* Terceira coluna: Imagem */}
+            <Box
+              m={0}
+              bg={useColorModeValue("white", "gray.800")}
+              overflow="hidden"
+              maxWidth="80%"
+              marginBottom="15px"
+            >
+              <Image alt="logo" width="150px" src={Lupa.src} />
+            </Box>
+          </Stack>
         </Stack>
       </Stack>
 
