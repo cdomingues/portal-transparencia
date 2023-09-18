@@ -19,7 +19,7 @@ type PropsInput = {
 
 export const contentTrafficFines = {
   titlePage: "Receitas - Multas de Trânsito e Concessões",
-  description: "As receitas para o município podem vir de diferentes fontes. Uma delas são as multas de trânsito - que, por lei, essa arrecadação é destinada a fins específicos ligados à Mobilidade. Há também as concessões e outorgas, que também geram receita. Acompanhe nesta página o descritivo dos recursos provenientes de multas de trânsito e outorgas e concessões pela Prefeitura de Mogi das Cruzes.",
+  description: "As receitas para o município podem vir de diferentes fontes. Uma delas são as multas de trânsito - que, por lei, essa arrecadação é destinada a fins específicos ligados à Mobilidade. Há também as concessões e outorgas, que também geram receita. Acompanhe nesta página o descritivo dos recursos provenientes de multas de trânsito, outorgas e concessões pela Prefeitura de Mogi das Cruzes.",
 }
 
 function Screen({

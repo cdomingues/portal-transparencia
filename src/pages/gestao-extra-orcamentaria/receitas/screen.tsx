@@ -78,7 +78,7 @@ function Screen({
       <MultipleGraphWrapper>
         <GraphWrapper>
           <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
-            Receitas Mensal Acumulado
+            Receitas Mensais Acumuladas
           </Heading>
           {chart?.datasets?.length > 0 && (
             <MultiAxisChart  chartType='line' moneyFormat data={chart} />

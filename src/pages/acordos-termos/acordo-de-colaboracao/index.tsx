@@ -25,7 +25,7 @@ function Controller({
     { title: "Objeto", field: "B" },
     { title: "Entidade Envolvida", field: "C" },
     { title: "CNPJ / CPF da Entidade", field: "D" },
-    { title: "Onjeto do Acordo", field: "E" },
+    { title: "Objeto do Acordo", field: "E" },
     { title: "Data Inicio", field: "F" },
     { title: "Data Prevista Término", field: "G" },
     { title: "Data Término", field: "H" },

@@ -65,7 +65,7 @@ type PropsInput = {
 };
 
 export const contentInitial = {
-  titlePage: "Gestão Orçamentaria - Outros ",
+  titlePage: "Gestão Orçamentária - Outros ",
   description:
     "É o processo de planejamento, execução, controle e acompanhamento dos recursos financeiros da Prefeitura de Mogi das Cruzes. Ela envolve a elaboração de um plano financeiro detalhado, conhecido como orçamento, que descreve as receitas esperadas e as despesas planejadas durante um ano.",
 };
@@ -168,7 +168,7 @@ function HomeScreen({ handler }: PropsInput) {
                   </Box>
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Divida Ativa"
+                      title="Dívida Ativa"
                       imageURL={subvencoes.src}
                       description="Subvenção é quando a Prefeitura destina recursos financeiros para que entidades cubram seus custos de atividades prestadas à população. Confira aqui as despesas relacionadas a essa natureza."
                       link="gestao-orcamentaria-outros/divida-ativa"

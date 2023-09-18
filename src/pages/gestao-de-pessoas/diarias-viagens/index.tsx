@@ -23,7 +23,7 @@ function Controller({
   const columns = [
     { title: "Número", field: "A" },
     { title: "Nome", field: "B" },
-    { title: "Data Inicio", field: "C" },
+    { title: "Data Início", field: "C" },
     { title: "Data Término", field: "D" },
     { title: "Motivo da Viagem", field: "F" },
     { title: "Destino", field: "G" },

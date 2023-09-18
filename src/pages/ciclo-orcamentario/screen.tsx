@@ -204,7 +204,7 @@ function HomeScreen({ handler }: PropsInput) {
                 >
                    <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Lei Orçamentaria Anual"
+                      title="Lei Orçamentária Anual"
                       imageURL={lei_orcamentaria.src}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                       link="ciclo-orcamentario/lei-orcamentaria-anual"
@@ -213,7 +213,7 @@ function HomeScreen({ handler }: PropsInput) {
 
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Relatorio de Gestão Fiscal"
+                      title="Relatório de Gestão Fiscal"
                       imageURL={relatorio_gestao_fiscal.src}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                       link="ciclo-orcamentario/relatorio-gestao-fiscal"

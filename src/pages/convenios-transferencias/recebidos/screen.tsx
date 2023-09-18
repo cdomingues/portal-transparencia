@@ -34,8 +34,8 @@ type PropsInput = {
 };
 
 export const contentAdvertisements = {
-  titlePage: "Convenios e Transferências Recebidos",
-  description: "Divulgação da lista de Convenios e Transferencias recebidos pela Prefeitura de Mogi das Cruzes é uma medida fundamental cujo propósito é reforçar a transparência das finanças municipais e promover a responsabilidade fiscal.",
+  titlePage: "Convênios e Transferências Recebidos",
+  description: "Divulgação da lista de Convênios e Transferências recebidos pela Prefeitura de Mogi das Cruzes é uma medida fundamental cujo propósito é reforçar a transparência das finanças municipais e promover a responsabilidade fiscal.",
 }
 
 function Screen({

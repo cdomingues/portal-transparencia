@@ -34,7 +34,7 @@ type PropsInput = {
 };
 
 export const contentAdvertisements = {
-  titlePage: "Divida Ativa",
+  titlePage: "Dívida Ativa",
   description: "A divulgação da lista da dívida ativa realizada pela Prefeitura de Mogi das Cruzes é uma medida fundamental cujo propósito é reforçar a transparência das finanças municipais e promover a responsabilidade fiscal.",
 }
 

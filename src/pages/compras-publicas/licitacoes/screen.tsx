@@ -43,7 +43,7 @@ type PropsInput = {
 export const contentBids = {
   titlePage: "Licitações",
   description:
-    "Assim como o termo de parceria, o termo de fomento também é regido pela Lei nº 13.019/2014. É uma modalidade específica de contrato administrativo, assim como o termo de parceria, mas com algumas características distintas. Enquanto o termo de parceria é utilizado quando há transferência de recursos públicos para a execução de atividades de interesse público, o termo de fomento é empregado especificamente quando esses recursos são oriundos de dotações orçamentárias do próprio governo ou de suas autarquias, fundações e órgãos da administração direta. ",
+    "São disponibilizados no site da Prefeitura os editais de licitação de concorrência, tomada de preço e pregões para aquisição de bens e serviços, para acesso de qualquer interessado. ",
 };
 
 function Screen({
