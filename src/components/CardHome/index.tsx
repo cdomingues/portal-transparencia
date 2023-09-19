@@ -50,7 +50,7 @@ function CardHome() {
       description: "Descrição 1",
       link: "/perfil-do-municipio",
       backgroundColor: "transparent",
-      showExtraLinks: true ,
+      showExtraLinks: false ,
       extraLinks: [
         { label: "Link 1", url: "http://exemplo.com/link1" },
         { label: "Link 2", url: "http://exemplo.com/link2" },
@@ -62,10 +62,16 @@ function CardHome() {
       description: "Descrição 2",
       link: "/ciclo-orcamentario",
       backgroundColor: "blue",
-      showExtraLinks: false ,
+      showExtraLinks: true ,
       extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
+        { label: "Plano Plurianual", url: "/ciclo-orcamentario/plurianual" },
+        { label: "Diretrizes Orçamentárias", url: "/ciclo-orcamentario/diretrizes-orcamentarias" },
+        { label: "Lei Orcamentária Anual", url: "/ciclo-orcamentario/lei-orcamentaria-anual" },
+        { label: "Relatório de Gestão Fiscal", url: "/ciclo-orcamentario/relatorio-gestao-fiscal" },
+        { label: "Relatório Resumido", url: "/ciclo-orcamentario/relatorio-resumido" },
+        { label: "Balanços Anuais", url: "/ciclo-orcamentario/balancos-anuais" },
+        { label: "Pareceres do Tribunal", url: "/ciclo-orcamentario/pareceres-do-tribunal" },
+        { label: "Aprovação de Contas pelo Legislativo", url: "/ciclo-orcamentario/contas-executivo" },
       ],
     },
 
@@ -75,10 +81,18 @@ function CardHome() {
       description: "Descrição 3",
       link: "/gestao-orcamentaria",
       backgroundColor: "transparent",
-      showExtraLinks: false ,
+      showExtraLinks: true ,
       extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
+        { label: "Receitas Gerais", url: "/gestao-orcamentaria/orcamentarias/receitas" },
+        { label: "Emendas Parlamentares", url: "/gestao-orcamentaria/orcamentarias/receitas/receitas-emendas" },
+        { label: "Multas de Trânsito", url: "/gestao-orcamentaria/orcamentarias/receitas/multa-transito" },
+        { label: "Despesas Gerais", url: "/gestao-orcamentaria/orcamentarias/despesas/despesas-gerais" },
+        { label: "Emendas Parlamentares", url: "/gestao-orcamentaria/orcamentarias/despesas/despesas-emendas" },
+        { label: "Multas de Trânsito", url: "/gestao-orcamentaria/orcamentarias/despesas/despesas-multas-transito" },
+        { label: "Restos a Pagar", url: "/gestao-orcamentaria/orcamentarias/despesas/despesas-restos" },
+        { label: "Pagamentos", url: "/gestao-orcamentaria/orcamentarias/despesas/pagamentos" },
+        
+
       ],
     },
     {
@@ -87,10 +101,10 @@ function CardHome() {
       description: "Descrição 1",
       link: "/gestao-orcamentaria-covid",
       backgroundColor: "white",
-      showExtraLinks: false ,
+      showExtraLinks: true ,
       extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
+        { label: "Receitas", url: "covid/receitas" },
+        { label: "Despesas", url: "covid/despesas" },
       ],
     },
     {
@@ -99,10 +113,12 @@ function CardHome() {
       description: "Descrição 2",
       link: "/gestao-orcamentaria-outros",
       backgroundColor: "blue",
-      showExtraLinks: false ,
+      showExtraLinks: true ,
       extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
+        { label: "Propaganda e Publicidade", url: "/gestao-orcamentaria-outros/propaganda" },
+        { label: "Subvenções", url: "/gestao-orcamentaria-outros/subvencoes" },
+        { label: "Dívida Ativa", url: "/gestao-orcamentaria-outros/divida-ativa" },
+        { label: "Contratos e Atas", url: "/gestao-orcamentaria-outros/contratos-atas" },
       ],
     },
     {
@@ -111,10 +127,10 @@ function CardHome() {
       description: "Descrição 3",
       link: "/gestao-extra-orcamentaria",
       backgroundColor: "green",
-      showExtraLinks: false ,
+      showExtraLinks: true ,
       extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
+        { label: "Receitas Extra Orçamentárias", url: "/gestao-extra-orcamentaria/receitas" },
+        { label: "Despesas Extra Orçamentárias", url: "/gestao-extra-orcamentaria/despesas" },
       ],
     },
     {
@@ -123,10 +139,11 @@ function CardHome() {
       description: "Descrição 1",
       link: "/acordos-termos",
       backgroundColor: "white",
-      showExtraLinks: false ,
+      showExtraLinks: true ,
       extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
+        { label: "Acordo de Colaboração", url: "/acordos-termos/acordo-de-colaboracao" },
+        { label: "Termo de Parceria", url: "/acordos-termos/termo-de-colaboracao" },
+        { label: "Termo de Fomento", url: "/acordos-termos/termo-de-fomento" },
       ],
     },
     {
@@ -135,10 +152,11 @@ function CardHome() {
       description: "Descrição 2",
       link: "/compras-publicas",
       backgroundColor: "blue",
-      showExtraLinks: false ,
+      showExtraLinks: true ,
       extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
+        { label: "Licitações", url: "/compras-publicas/licitacoes" },
+        { label: "Pregão Eletrônico", url: "/compras-publicas/pregao-eletronico" },
+        { label: "Cadastro de Fornecedor", url: "/compras-publicas/cadastro-fornecedor" },
       ],
     },
     {
@@ -147,10 +165,16 @@ function CardHome() {
       description: "Descrição 3",
       link: "/gestao-de-pessoas",
       backgroundColor: "green",
-      showExtraLinks: false ,
+      showExtraLinks: true ,
       extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
+        { label: "Folha de Pagamento", url: "/gestao-de-pessoas/folha-pagamento" },
+        { label: "Passagens e locomoção", url: "/gestao-de-pessoas/passagens-locomocao" },
+        { label: "Adiantamento e Hospedagem", url: "/gestao-de-pessoas/adiantamento-hospedagem" },
+        { label: "Cargos e Salarios", url: "/gestao-de-pessoas/cargos-e-salarios" },
+        { label: "Estrutura Organizacional", url: "/gestao-de-pessoas/estrutura-organizacional" },
+        { label: "Carga Horária", url: "/gestao-de-pessoas/carga-horaria" },
+        { label: "Concurso Público", url: "/gestao-de-pessoas/concurso-publico" },
+        { label: "Diárias e Viagens", url: "/gestao-de-pessoas/diarias-viagens" },
       ],
 
     },
@@ -173,11 +197,12 @@ function CardHome() {
       description: "Descrição 3",
       link: "/controle-de-obras",
       backgroundColor: "green",
-      showExtraLinks: false ,
+      showExtraLinks: true ,
       extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
-      ],
+        { label: "Início", url: "/controle-de-obras/inicio" },
+        { label: "Sobre as Obras", url: "/controle-de-obras/sobre-as-obras" },
+
+        { label: "Pesquise Obras", url: "/controle-de-obras/pesquisar-obras" },      ],
     },
     {
       title: "Controle de Radares",
@@ -197,10 +222,10 @@ function CardHome() {
       description: "Descrição 3",
       link: "/agenda-aberta",
       backgroundColor: "green",
-      showExtraLinks: false ,
+      showExtraLinks: true ,
       extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
+        { label: "Prefeito - Caio Cunha", url: "/agenda-aberta/agenda-prefeito" },
+        { label: "Co Prefeita - Priscila Yamagami", url: "/agenda-aberta/agenda-coprefeita" },
       ],
     },
     {
@@ -209,10 +234,11 @@ function CardHome() {
       description: "/convenios-transferencias",
       link: "/link2",
       backgroundColor: "blue",
-      showExtraLinks: false ,
+      showExtraLinks: true ,
       extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
+        { label: "Contratos de Gestão", url: "/convenios-transferencias/contratos-gestao" },
+        { label: "Recebidos", url: "/convenios-transferencias/recebidos" },
+        { label: "Repasses", url: "/convenios-transferencias/repasses" },
       ],
     },
     {
@@ -221,10 +247,11 @@ function CardHome() {
       description: "Descrição 3",
       link: "/leis-decretos-portarias",
       backgroundColor: "green",
-      showExtraLinks: false ,
+      showExtraLinks: true ,
       extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
+        { label: "Leis Municipais", url: "/leis-decretos-portarias/protocolo-geral" },
+        { label: "Decretos e Portarias", url: "/leis-decretos-portarias/leis-decretos-portarias" },
+        { label: "LGPD", url: "/leis-decretos-portarias/lgpd" },
       ],
     },
     {
@@ -233,10 +260,10 @@ function CardHome() {
       description: "Descrição 2",
       link: "/acesso-a-informacao",
       backgroundColor: "blue",
-      showExtraLinks: false ,
+      showExtraLinks: true ,
       extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
+        { label: "Acesso a Informação LAI", url: "/acesso-a-informacao/acesso-informacao" },
+        { label: "Relatório de Demandas LAI", url: "/acesso-a-informacao/relatorio-demanda" },
       ],
     },
     {
@@ -257,10 +284,10 @@ function CardHome() {
       description: "Descrição 3",
       link: "/instituto-autarquia",
       backgroundColor: "green",
-      showExtraLinks: false ,
+      showExtraLinks: true ,
       extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
+        { label: "Transparência SEMAE", url: "/instituto-autarquia/transparencia-semae" },
+        { label: "Transparência IPREM", url: "/instituto-autarquia/transparencia-iprem" },
       ],
     },
     {
@@ -305,10 +332,11 @@ function CardHome() {
       description: "Descrição 3",
       link: "/plano-municipal-saude",
       backgroundColor: "green",
-      showExtraLinks: false ,
+      showExtraLinks: true ,
       extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
+        { label: "Plano Municipal de Saúde", url: "/plano-municipal-saude/plano-municipal-saude" },
+        { label: "Serviços de Saúde", url: "/plano-municipal-saude/servicos-saude" },
+        { label: "Medicamentos", url: "/plano-municipal-saude/medicamentos" },
       ],
     },
     {
