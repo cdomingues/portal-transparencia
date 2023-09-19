@@ -55,11 +55,11 @@ marginBottom="15px"
   <Tabs>
     <TabList>
       <Tab fontSize={accessibility?.fonts?.medium}>DEMOGRÁFICO</Tab>
-      <Tab fontSize={accessibility?.fonts?.medium}>EMPREENDEDORISMO</Tab>
+      {/* <Tab fontSize={accessibility?.fonts?.medium}>EMPREENDEDORISMO</Tab>
       <Tab fontSize={accessibility?.fonts?.medium}>SAÚDE</Tab>
       <Tab fontSize={accessibility?.fonts?.medium}>EDUCAÇÃO</Tab>
       <Tab fontSize={accessibility?.fonts?.medium}>SEGURANÇA</Tab>
-      <Tab fontSize={accessibility?.fonts?.medium}>AMBIENTAL</Tab>
+      <Tab fontSize={accessibility?.fonts?.medium}>AMBIENTAL</Tab> */}
     </TabList>
     <TabPanels>
       <TabPanel>
