@@ -177,13 +177,13 @@ function TableComponent({
             <ModalHeader>Video Explicativo</ModalHeader>
             <ModalCloseButton />
             <ModalBody height={450} width={600} bg="white">
-              {/* <iframe
+              <iframe
                 style={{ paddingLeft: "8%", textAlign: "center" }}
                 width="600"
                 height="450"
-                src="https://www.youtube.com/embed/F4kk9FqoRHw"
-              ></iframe> */}
-              <text>Este serviço será disponibilizado em breve. </text>
+                src="https://www.youtube.com/embed/SfglOWPxyrg?si=bO3zVmTmXMGyZas0"
+              ></iframe>
+              
             </ModalBody>
             <ModalFooter>
               <Button
