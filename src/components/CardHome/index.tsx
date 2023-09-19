@@ -9,6 +9,7 @@ import {
   Square,
   Stack,
 } from "@chakra-ui/react";
+import { Grid } from "@chakra-ui/react";
 import { IconRight } from "react-day-picker";
 import { isMobile } from "react-device-detect";
 import { BiBell } from "react-icons/bi";
@@ -42,30 +43,43 @@ import Plano_municipal_saude from "../../assets/images/icones/acordos e termos__
 import Mapa_do_site from "../../assets/images/icones/icones_barra lateral__mapa do site.svg";
 
 function CardHome() {
-  // Matriz de objetos contendo as informações para cada cartão
-  // (Você pode expandir ou reduzir conforme necessário)
-
   const cardData = [
     {
       title: "Perfil do Municipio",
       imageURL: Perfil_municipio.src,
       description: "Descrição 1",
       link: "/perfil-do-municipio",
-      backgroundColor: "transparent", 
+      backgroundColor: "transparent",
+      showExtraLinks: true ,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
     },
     {
       title: "Ciclo Orçamentário",
       imageURL: Ciclo_orcamentario.src,
       description: "Descrição 2",
       link: "/ciclo-orcamentario",
-      backgroundColor: "transparent",
+      backgroundColor: "blue",
+      showExtraLinks: false ,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
     },
+
     {
       title: "Gestão Orçamentária",
       imageURL: Gestao_orcamentaria.src,
       description: "Descrição 3",
       link: "/gestao-orcamentaria",
       backgroundColor: "transparent",
+      showExtraLinks: false ,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
     },
     {
       title: "Gestão Orçamentária - Covid-19",
@@ -73,6 +87,11 @@ function CardHome() {
       description: "Descrição 1",
       link: "/gestao-orcamentaria-covid",
       backgroundColor: "white",
+      showExtraLinks: false ,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
     },
     {
       title: "Gestão Orçamentária - Outros",
@@ -80,6 +99,11 @@ function CardHome() {
       description: "Descrição 2",
       link: "/gestao-orcamentaria-outros",
       backgroundColor: "blue",
+      showExtraLinks: false ,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
     },
     {
       title: "Gestão Extra Orçamentária",
@@ -87,6 +111,11 @@ function CardHome() {
       description: "Descrição 3",
       link: "/gestao-extra-orcamentaria",
       backgroundColor: "green",
+      showExtraLinks: false ,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
     },
     {
       title: "Acordos e Termos",
@@ -94,6 +123,11 @@ function CardHome() {
       description: "Descrição 1",
       link: "/acordos-termos",
       backgroundColor: "white",
+      showExtraLinks: false ,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
     },
     {
       title: "Compras Públicas",
@@ -101,6 +135,11 @@ function CardHome() {
       description: "Descrição 2",
       link: "/compras-publicas",
       backgroundColor: "blue",
+      showExtraLinks: false ,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
     },
     {
       title: "Gestão de Pessoas",
@@ -108,6 +147,12 @@ function CardHome() {
       description: "Descrição 3",
       link: "/gestao-de-pessoas",
       backgroundColor: "green",
+      showExtraLinks: false ,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
+
     },
     {
       title: "Patrimônio",
@@ -115,6 +160,12 @@ function CardHome() {
       description: "Descrição 2",
       link: "/patrimonio",
       backgroundColor: "blue",
+      showExtraLinks: false ,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
+      
     },
     {
       title: "Portal de Obras",
@@ -122,6 +173,11 @@ function CardHome() {
       description: "Descrição 3",
       link: "/controle-de-obras",
       backgroundColor: "green",
+      showExtraLinks: false ,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
     },
     {
       title: "Controle de Radares",
@@ -129,6 +185,11 @@ function CardHome() {
       description: "Descrição 2",
       link: "/controle-de-radares",
       backgroundColor: "blue",
+      showExtraLinks: false ,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
     },
     {
       title: "Agenda Aberta",
@@ -136,6 +197,11 @@ function CardHome() {
       description: "Descrição 3",
       link: "/agenda-aberta",
       backgroundColor: "green",
+      showExtraLinks: false ,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
     },
     {
       title: "Convênios e Transferências",
@@ -143,6 +209,11 @@ function CardHome() {
       description: "/convenios-transferencias",
       link: "/link2",
       backgroundColor: "blue",
+      showExtraLinks: false ,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
     },
     {
       title: "Leis, Decretos e Portarias",
@@ -150,6 +221,11 @@ function CardHome() {
       description: "Descrição 3",
       link: "/leis-decretos-portarias",
       backgroundColor: "green",
+      showExtraLinks: false ,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
     },
     {
       title: "LAI - Lei de Acesso a Informação",
@@ -157,6 +233,11 @@ function CardHome() {
       description: "Descrição 2",
       link: "/acesso-a-informacao",
       backgroundColor: "blue",
+      showExtraLinks: false ,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
     },
     {
       title: "Ouvidoria",
@@ -164,6 +245,11 @@ function CardHome() {
       description: "Descrição 3",
       link: "/ouvidoria",
       backgroundColor: "green",
+      showExtraLinks: false ,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
     },
     {
       title: "Institutos e Autarquias",
@@ -171,6 +257,11 @@ function CardHome() {
       description: "Descrição 3",
       link: "/instituto-autarquia",
       backgroundColor: "green",
+      showExtraLinks: false ,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
     },
     {
       title: "Perguntas Frequentes",
@@ -178,6 +269,11 @@ function CardHome() {
       description: "Descrição 2",
       link: "/perguntas-frequentes",
       backgroundColor: "blue",
+      showExtraLinks: false ,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
     },
     {
       title: "Últimas Noticias",
@@ -185,6 +281,11 @@ function CardHome() {
       description: "Descrição 3",
       link: "/ultimas-noticias",
       backgroundColor: "green",
+      showExtraLinks: false ,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
     },
     {
       title: "Plano Municipal de Educação",
@@ -192,6 +293,11 @@ function CardHome() {
       description: "Descrição 2",
       link: "/plano-municipal-educacao",
       backgroundColor: "blue",
+      showExtraLinks: false ,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
     },
     {
       title: "Plano Municipal de Saúde",
@@ -199,6 +305,11 @@ function CardHome() {
       description: "Descrição 3",
       link: "/plano-municipal-saude",
       backgroundColor: "green",
+      showExtraLinks: false ,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
     },
     {
       title: "Mapa do Site",
@@ -206,33 +317,30 @@ function CardHome() {
       description: "Descrição 3",
       link: "/mapa-do-site",
       backgroundColor: "green",
+      showExtraLinks: false ,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
     },
+    
   ];
 
   return (
-    <Stack
-      backgroundColor={"transparent"}
-      width={isMobile ? "100%" : "80%"}
+    <Grid
+      templateColumns={isMobile ? "1fr" : "repeat(3, 1fr)"}
+      gap={4}
+      width={isMobile ? "110%" : "80%"}
       maxWidth={"1280px"}
-      alignItems="center"
-      justifyContent="center"
       margin="0 auto"
-      direction={isMobile ? "column" : "row"}
-      wrap="wrap"
-      spacing={4}
+      padding="0 15px"
     >
       {cardData.map((data, index) => (
         <Box
           key={index}
           bg={useColorModeValue("white", "gray.800")}
           overflow="hidden"
-          width={isMobile ? "100%" : "33%"}
           marginBottom="15px"
-          paddingRight={15}
-          height={120}
-          flex="1"
-          minWidth={isMobile ? "auto" : "30%"}
-          margin={isMobile ? "10px 0" : "10px"}
         >
           <CardHorizon
             title={data.title}
@@ -240,10 +348,12 @@ function CardHome() {
             description={data.description}
             link={data.link}
             backgroundColor={data.backgroundColor}
+            showExtraLinks={data.showExtraLinks}
+            extraLinks={data.extraLinks}
           />
         </Box>
       ))}
-    </Stack>
+    </Grid>
   );
 }
 
