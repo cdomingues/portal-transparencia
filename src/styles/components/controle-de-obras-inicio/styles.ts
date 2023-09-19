@@ -99,22 +99,19 @@ export const BannerTotals = styled.div`
   width: 100%;
   height: 240px;
   // background-image: url("https://images8.alphacoders.com/368/368165.jpg");
-  background-color: ${colors.grayDark70p};
-    opacity: 0.90;
-  background-size: cover;
-  background-repeat: no-repeat;
+  
 
-  .gradient-image {
-    background: linear-gradient(
-      180deg,
-      ${colors.primaryDefault} 0%,
-      ${colors.primaryDark} 50%,
-      ${colors.primaryDark} 100%
-    );
-    width: 100%;
-    height: 100%;
-    opacity: 0.90;
-  }
+  // .gradient-image {
+  //   background: linear-gradient(
+  //     180deg,
+  //     ${colors.primaryDefault} 0%,
+  //     ${colors.primaryDark} 50%,
+  //     ${colors.primaryDark} 100%
+  //   );
+  //   width: 100%;
+  //   height: 100%;
+  //   opacity: 0.8;
+  // }
 
   .content {
     margin: -260px auto 0px auto;
@@ -144,6 +141,7 @@ export const BannerTotals = styled.div`
       height: 920px;
       align-items: center;
       gap: 0px;
+      
     }
   }
 `;

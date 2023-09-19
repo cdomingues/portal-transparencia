@@ -6,7 +6,8 @@ import SideBar from "./SideBar";
 import Header from "./Header";
 import Lupa from "../../../assets/images/Lupa.png";
 import CardHorizon from "../../CardHorizon";
-import LogoMogi from "../../../assets/images/logoMogi.png";
+import Brasao_PMMC_Normal from "../../../assets/images/Brasao_PMMC_Normal.png";
+import Brasao_PMMC_white from "../../../assets/images/Brasao_PMMC_white.png";
 import Vlibras from "vlibras-nextjs";
 import receitas_multas_de_transito from "../../../assets/images/icones/receitas multas de transito.svg";
 import {
@@ -24,6 +25,8 @@ import CardHome from "../../CardHome";
 // };
 
 function PublicHome() {
+
+  
   return (
     <>
       <Vlibras />
@@ -68,7 +71,7 @@ function PublicHome() {
               paddingRight={15}
               height={120}
             >
-              <Image alt="logo" width="200px" src={LogoMogi.src} />
+              <Image alt="logo" width="200px" src={Brasao_PMMC_Normal.src} />
             </Box>
           </Stack>
 
