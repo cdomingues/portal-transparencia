@@ -67,7 +67,7 @@ type PropsInput = {
 export const contentInitial = {
   titlePage: "Convênios e Transferências Repasses",
   description:
-    "Divulgação da lista de Convenios e Transferencias Repassados pela Prefeitura de Mogi das Cruzes é uma medida fundamental cujo propósito é reforçar a transparência das finanças municipais e promover a responsabilidade fiscal.",
+    "Divulgação da lista de Convênios e Transferências Repassados pela Prefeitura de Mogi das Cruzes é uma medida fundamental cujo propósito é reforçar a transparência das finanças municipais e promover a responsabilidade fiscal.",
 };
 
  function Aside() {

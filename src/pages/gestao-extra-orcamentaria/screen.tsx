@@ -71,7 +71,7 @@ type PropsInput = {
 };
 
 export const contentInitial = {
-  titlePage: "Gestao Extra Orçamentária",
+  titlePage: "Gestão Extra Orçamentária",
   description:
     "A gestão extraorçamentária aborda as atividades que envolvem recursos além do orçamento formal. Isso inclui recursos que não são alocados diretamente no orçamento, mas que ainda são necessários para que a organização execute suas atividades operacionais.",
 };
@@ -139,7 +139,7 @@ function HomeScreen({ handler }: PropsInput) {
                 >
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Receitas Extraorçamentárias"
+                      title="Receitas Extra Orçamentárias"
                       imageURL={receitas_extraorcamentarias.src}
                       description="Aqui você pode acompanhar as informações sobre as receitas que não figuram no orçamento e, por isso, não são renda do município, apenas transitam pelo poder público."
                       link="gestao-extra-orcamentaria/receitas"
@@ -149,7 +149,7 @@ function HomeScreen({ handler }: PropsInput) {
 
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Despesas Extraorçamentárias"
+                      title="Despesas Extra Orçamentárias"
                       imageURL={despesas_extraorcamentarias.src}
                       description="Aqui você pode acompanhar as informações sobre as despesas que não integram o orçamento da Prefeitura, apenas transitam pelo poder público."
                       link="gestao-extra-orcamentaria/despesas"

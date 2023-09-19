@@ -80,7 +80,7 @@ function RevenueScreen({
         >
           <GraphWrapper>
             <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
-              Receitas Mensal Acumulado
+              Receita Mensal Acumulada
             </Heading>
             {chart?.datasets?.length > 0 && (
               <React.Fragment>

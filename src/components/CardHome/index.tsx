@@ -45,7 +45,7 @@ import Mapa_do_site from "../../assets/images/icones/icones_barra lateral__mapa 
 function CardHome() {
   const cardData = [
     {
-      title: "Perfil do Municipio",
+      title: "Perfil do Município",
       imageURL: Perfil_municipio.src,
       description: "Descrição 1",
       link: "/perfil-do-municipio",

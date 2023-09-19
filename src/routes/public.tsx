@@ -602,7 +602,7 @@ const publicRoutes: IPublicRoute[] = [
   },
 
   {
-    name: "Últimas Noticias",
+    name: "Últimas Notícias",
     path: "/ultimas-noticias",
     icon: AiOutlineAudit,
     ...contentOtherInformations,

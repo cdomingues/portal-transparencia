@@ -213,7 +213,7 @@ function TableComponent({
             disabled={loading}
             style={{ width: 180 }}
           >
-            <Text fontSize={accessibility.fonts.medium} color={colors.white}>Video explicativo</Text>
+            <Text fontSize={accessibility.fonts.medium} color={colors.white}>Vídeo explicativo</Text>
           </Button>
         </Box>
         <Box p="4" pl={0}>

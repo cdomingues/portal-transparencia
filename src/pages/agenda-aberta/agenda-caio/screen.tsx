@@ -46,7 +46,7 @@ function Screen({ handler }: PropsInput) {
   const { } = handler;
   const title = "Agenda Aberta";
   const description =
-    "Conforme previsto na Lei Municipal 7.653/2021 e no Decreto 21.006/22, todo cidadão pode ter acesso à agenda de compromissos oficiais das autoridades do Executivo de Mogi das Cruzes. Esta é mais uma medida de promoção da integridade no setor público.";
+    "Conforme previsto na Lei Municipal nº 7.653/2021 e no Decreto nº  21.006/22, todo cidadão pode ter acesso à agenda de compromissos oficiais das autoridades do Executivo de Mogi das Cruzes. Esta é mais uma medida de promoção da integridade no setor público.";
   
     return (
 

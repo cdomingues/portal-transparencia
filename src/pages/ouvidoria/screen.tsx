@@ -62,7 +62,7 @@ function Screen({ handler }: PropsInput) {
                 fontSize={accessibility?.fonts?.regular}
               >
 
-  <p>Av. Vereador Narciso Yague Guimaães, 277, 3º andar - Centro Cívico</p>
+  <p>Av. Vereador Narciso Yague Guimarães, 277, 3º andar - Centro Cívico</p>
   <p>Segunda a sexta-feira, das 8 às 17 horas</p>
  <p>156 ou pelo Whatsapp 97133-1999</p>
               </Text>

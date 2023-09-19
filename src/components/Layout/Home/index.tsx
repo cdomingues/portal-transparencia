@@ -98,7 +98,7 @@ function PublicHome() {
                 textAlign={"left"}
                 fontSize={"2xl"}
               >
-                SEJA BEM-VINDO AO PORTAL DE TRANSPARENCIA DE MOGI DAS CRUZES
+                SEJA BEM-VINDO AO PORTAL DE TRANSPARÊNCIA DE MOGI DAS CRUZES
               </Text>
               <Text fontWeight={"light"} fontSize={"sm"} justifyItems={""}>
                 O lugar onde o controle social começa! Acompanhe todas as

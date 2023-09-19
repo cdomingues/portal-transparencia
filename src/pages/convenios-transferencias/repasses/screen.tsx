@@ -34,8 +34,8 @@ type PropsInput = {
 };
 
 export const contentAdvertisements = {
-  titlePage: "Convenios e Transferências Repasses",
-  description: "A divulgação da lista de Convenios e Transferencias repasses realizados pela Prefeitura de Mogi das Cruzes é uma medida fundamental cujo propósito é reforçar a transparência das finanças municipais e promover a responsabilidade fiscal.",
+  titlePage: "Convênios e Transferências Repasses",
+  description: "A divulgação da lista de Convênios e Transferências repasses realizados pela Prefeitura de Mogi das Cruzes é uma medida fundamental cujo propósito é reforçar a transparência das finanças municipais e promover a responsabilidade fiscal.",
 }
 
 function Screen({
