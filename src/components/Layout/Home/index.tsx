@@ -25,6 +25,7 @@ import CardHome from "../../CardHome";
 // };
 
 function PublicHome() {
+  const brasaoImageSrc = useColorModeValue(Brasao_PMMC_Normal.src, Brasao_PMMC_white.src);
 
   
   return (
@@ -71,7 +72,7 @@ function PublicHome() {
               paddingRight={15}
               height={120}
             >
-              <Image alt="logo" width="200px" src={Brasao_PMMC_Normal.src} />
+              <Image alt="logo" width="200px" src={brasaoImageSrc} />
             </Box>
           </Stack>
 
