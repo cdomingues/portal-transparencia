@@ -48,16 +48,16 @@ import { contentRepostManagementSupervisor } from "../pages/zzOld_ciclo-orcament
 import { contentPublicWorks } from "../pages/ciclo-orcamentario/obras-publicas/screen";
 import { contentPublicServants } from "../pages/ciclo-orcamentario/servidores-publicos-estagiarios/screen";
 import { contentPROMAE } from "../pages/ciclo-orcamentario/promae/screen";
-import { contentRevenue } from "../pages/gestao-orcamentaria/orcamentarias/receitas/screen";
+import { contentRevenue } from "../pages/gestao-orcamentaria/receitas/screen";
 import { contentContractsAndAtas } from "../pages/gestao-orcamentaria-outros/contratos-atas/screen";
 import { contentBids } from "../pages/compras-publicas/licitacoes/screen";
 
 import { contentAdvancesAndAccommodation } from "../pages/gestao-de-pessoas/adiantamento-hospedagem/screen";
-import { contentRecipesAmendments } from "../pages/gestao-orcamentaria/orcamentarias/receitas/receitas-emendas/screen";
-import { contentGeneralCosts } from "../pages/gestao-orcamentaria/orcamentarias/despesas/despesas-gerais/screen";
-import { contentExpensesRemains } from "../pages/gestao-orcamentaria/orcamentarias/despesas/despesas-restos/screen";
-import { contentTrafficFines } from "../pages/gestao-orcamentaria/orcamentarias/receitas/multa-transito/screen";
-import { contentExpensesParliamentaryAmendments } from "../pages/gestao-orcamentaria/orcamentarias/despesas/despesas-emendas/screen";
+import { contentRecipesAmendments } from "../pages/gestao-orcamentaria/receitas/receitas-emendas/screen";
+import { contentGeneralCosts } from "../pages/gestao-orcamentaria/despesas/despesas-gerais/screen";
+import { contentExpensesRemains } from "../pages/gestao-orcamentaria/despesas/despesas-restos/screen";
+import { contentTrafficFines } from "../pages/gestao-orcamentaria/receitas/multa-transito/screen";
+import { contentExpensesParliamentaryAmendments } from "../pages/gestao-orcamentaria/despesas/despesas-emendas/screen";
 import { contentExtrabudgetExpenses } from "../pages/zzOld_orcamento-municipal/extraorcamentario/despesas/screen";
 import { contentExtrabudgetRevenues } from "../pages/zzOld_orcamento-municipal/extraorcamentario/receitas/screen";
 import { contentCovidRecipes } from "../pages/zzOld_orcamento-municipal/covid/receitas/screen";
