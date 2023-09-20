@@ -1,7 +1,7 @@
 import React from "react";
 import ContainerBasic from "../../components/Container/Basic";
 import publicRoutes from "../../routes/public";
-import { Box, Link, Stack, Text, useColorModeValue } from "@chakra-ui/react";
+import { Box, Button, Link, Stack, Text, useColorModeValue } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { isMobile } from "react-device-detect";
 import { color } from "highcharts";
@@ -45,7 +45,8 @@ function Screen({ handler }: PropsInput) {
         align={isMobile ? "justify" : "left"}
         color="gray.500"
         fontSize={accessibility?.fonts?.regular}
-        >Para enviar uma reclamação ou solicitar um serviço, acesse o aplicativo do <Link color="#db334f" fontWeight="bold"  href="https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab">Colab.</Link></Text>
+        >Para enviar uma reclamação ou solicitar um serviço, acesse o aplicativo oficial do Colab </Text>
+         <Link  href="https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab" target="_blank"><Button  margin="5px">Colab</Button></Link>
 <br></br>
 <Text
                 align={isMobile ? "justify" : "left"}
@@ -73,10 +74,11 @@ function Screen({ handler }: PropsInput) {
                 fontWeight="700"
                 fontSize={accessibility?.fonts?.regular}
               >
-                Para maiores informações sobre a Ouvidoria <Link href="https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/noticias">clique aqui</Link>
+                Para maiores informações sobre a Ouvidoria clique no botão abaixo
                 
                 
               </Text>
+              <Link  href="https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/institucional" target="_blank"><Button  margin="5px">Ouvidoria</Button></Link>
 
 
       </Box>
