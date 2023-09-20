@@ -9,8 +9,11 @@ import {
   Flex,
   useColorModeValue,
   Image,
+  useColorMode,
 } from "@chakra-ui/react";
-import logo from "../../../../assets/images/logo.png";
+import logo from "../../../../assets/images/Brasao_horizontal_normal.png";
+import logoDark from "../../../../assets/images/Brasao_horizontal_branco.png";
+
 import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAccessibility";
 
 function ListHeader({ children }: { children: ReactNode }) {
@@ -25,6 +28,7 @@ function ListHeader({ children }: { children: ReactNode }) {
 
 export default function LargeWithLogoCentered() {
   const accessibility = useFontSizeAccessibilityContext();
+  const { colorMode } = useColorMode();
   return (
     <Box
       bg={useColorModeValue("white", "gray.900")}
@@ -121,7 +125,9 @@ export default function LargeWithLogoCentered() {
             ml: 8,
           }}
         >
-          <Image alt="logo" width="250px" src={logo.src} />
+
+
+          <Image alt="logo" width="250px"  src={colorMode === "dark" ? logoDark.src : logo.src} />
         </Flex>
         <Text pt={6} fontSize="sm" textAlign="center">
           © {new Date().getFullYear()} PMMC. Todos os direitos reservados
