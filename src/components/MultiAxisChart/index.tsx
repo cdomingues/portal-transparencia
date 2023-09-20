@@ -104,7 +104,7 @@ export function MultiAxisChart({
     plotOptions: {
       bar: {
         horizontal: false,
-        color: "black",
+        
       },
     },
     xaxis: {
