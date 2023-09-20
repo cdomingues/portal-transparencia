@@ -196,12 +196,13 @@ function HomeScreen({ handler }: PropsInput) {
               textAlign={"justify"}
               padding={"2%"}
             >
-              O Portal da Transparência do Município de Mogi das Cruzes é
-              administrado pela Secretaria de Transparência e Dados Abertos,
-              sendo um site que disponibiliza informações ao cidadão sobre
-              diversos assuntos relacionados à gestão pública de Mogi das
-              Cruzes, incluindo a arrecadação e a utilização do dinheiro
-              público.
+             O Portal da Transparência do Município de Mogi das Cruzes é administrado pela Secretaria de Transparência e Dados Abertos, sendo um site que disponibiliza informações ao cidadão sobre diversos assuntos relacionados à gestão pública da cidade, incluindo a arrecadação e a utilização do dinheiro público. 
+
+Instituído pela Lei de Acesso à Informação, Lei n° 12.527, de 18 de novembro de 2011, uma lei ordinária federal que regulamenta o acesso a informações, previsto no inciso XXXIII do art. 5º, no inciso II do § 3º do art. 37 e no § 2º do art. 216 da Constituição Federal. 
+
+O Portal tem como objetivo centralizar, divulgar informações e dados de interesse público referentes à transparência na gestão, sendo um importante instrumento de controle social. Por meio do Portal, os cidadãos podem consultar, acompanhar e fiscalizar as ações realizadas pelos órgãos e entidades do Poder Executivo de Mogi das Cruzes. 
+
+Aqui o cidadão encontrará informações sobre orçamento, despesas, licitações, contratos, salários de funcionários e outros dados públicos relevantes. Eles são criados para aumentar a prestação de contas e a transparência na gestão pública, bem como fortalecer a participação cidadã e o controle social. 
             </Text>
             <Text
               color={"gray.500"}

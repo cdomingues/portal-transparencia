@@ -177,13 +177,13 @@ function TableComponent({
             <ModalHeader>Video Explicativo</ModalHeader>
             <ModalCloseButton />
             <ModalBody height={450} width={600} bg="white">
-              {/* <iframe
+              <iframe
                 style={{ paddingLeft: "8%", textAlign: "center" }}
                 width="600"
                 height="450"
-                src="https://www.youtube.com/embed/F4kk9FqoRHw"
-              ></iframe> */}
-              <text>Este serviço será disponibilizado em breve. </text>
+                src="https://www.youtube.com/embed/SfglOWPxyrg?si=bO3zVmTmXMGyZas0"
+              ></iframe>
+              
             </ModalBody>
             <ModalFooter>
               <Button
@@ -213,7 +213,7 @@ function TableComponent({
             disabled={loading}
             style={{ width: 180 }}
           >
-            <Text fontSize={accessibility.fonts.medium} color={colors.white}>Video explicativo</Text>
+            <Text fontSize={accessibility.fonts.medium} color={colors.white}>Vídeo explicativo</Text>
           </Button>
         </Box>
         <Box p="4" pl={0}>
@@ -311,7 +311,7 @@ function TableComponent({
                           textAlign: "left",
                           color: "white",
                           padding: "8px",
-                          fontSize: 11,
+                          fontSize: accessibility?.fonts?.regular,
                           ...isFirst,
                           ...isLast,
                         }}
@@ -386,7 +386,7 @@ function TableComponent({
               {page.map((row, index) => {
                 prepareRow(row);
                 return (
-                  <Tr fontSize={12} {...row.getRowProps()} key={index}>
+                  <Tr fontSize={accessibility?.fonts?.small} {...row.getRowProps()} key={index}>
                     {row.cells.map((cell, index) => {
                       const isLink = validURL(cell?.value);
 

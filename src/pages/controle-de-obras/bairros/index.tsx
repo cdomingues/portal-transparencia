@@ -11,7 +11,7 @@ const NeighborhoodsScreen = () => {
     {
       title: "Retiro",
       description: "Conheça como estamos transformando seu bairro.",
-      image: "https://images7.alphacoders.com/372/372247.jpg",
+      image: "https://www.mogidascruzes.sp.gov.br/public/site/imagens/6/2023071817355164b6f7a743553.jpg",
     },
   ];
 

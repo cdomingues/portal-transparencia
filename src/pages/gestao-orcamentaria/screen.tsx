@@ -74,7 +74,7 @@ type PropsInput = {
 export const contentInitial = {
   titlePage: "Finanças Municipal",
   description:
-    "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.",
+    "É o processo de planejamento, execução, controle e acompanhamento dos recursos financeiros da Prefeitura de Mogi das Cruzes. Ela envolve a elaboração de um plano financeiro detalhado, conhecido como orçamento, que descreve as receitas esperadas e as despesas planejadas durante um ano. ",
 };
 
 function Aside() {
@@ -178,7 +178,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Receitas - Gerais"
-                      imageURL={receitas_multas_de_transito}
+                      imageURL={receitas_multas_de_transito.src}
                       description=""
                       link="gestao-orcamentaria/orcamentarias/receitas"
                       backgroundColor="transparent"
@@ -187,7 +187,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Receitas - Emendas Parlamentares"
-                      imageURL={receitas_emendas_parlamentares}
+                      imageURL={receitas_emendas_parlamentares.src}
                       description="A arrecadação de receitas para o município pode vir de diferentes fontes. As emendas parlamentares, indicadas por Deputados Federais e Estaduais, são uma forma da cidade ter acesso a recursos. Acompanhe nesta página o descritivo das emendas parlamentares recebidas pela Prefeitura de Mogi das Cruzes."
                       link="gestao-orcamentaria/orcamentarias/receitas/receitas-emendas"
                       backgroundColor="transparent"
@@ -202,7 +202,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Receitas - Multas de Trânsito e Concessões"
-                      imageURL={receitas_multas_de_transito}
+                      imageURL={receitas_multas_de_transito.src}
                       description="As receitas para o município podem vir de diferentes fontes. Uma delas são as multas de trânsito - que, por lei, essa arrecadação é destinada a fins específicos ligados à Mobilidade. Há também as concessões e outorgas, que também geram receita. Acompanhe nesta página o descritivo dos recursos provenientes de multas de trânsito e outorgas e concessões pela Prefeitura de Mogi das Cruzes."
                       link="gestao-orcamentaria/orcamentarias/receitas/multa-transito"
                       backgroundColor="transparent"
@@ -211,7 +211,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Despesas - Gerais"
-                      imageURL={despesas_e_investimentos_gerais}
+                      imageURL={despesas_e_investimentos_gerais.src}
                       description="Para que a cidade possa continuar se desenvolvendo e os serviços possam permanecer funcionando e melhorando, a Prefeitura precisa realizar despesas das mais diversas, assim como investimentos. Aqui você pode conferir as informações das despesas públicas gerais empenhadas, liquidadas e pagas, entendendo os valores direcionados para cada programa."
                       link="gestao-orcamentaria/orcamentarias/despesas/despesas-gerais"
                       backgroundColor="transparent"
@@ -227,7 +227,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Despesas - Emendas Parlamentares"
-                      imageURL={despesas_emendas_parlamentares}
+                      imageURL={despesas_emendas_parlamentares.src}
                       description="Confira nesta página as despesas empenhadas, liquidadas e pagas a partir dos recursos obtidos por meio de emendas parlamentares"
                       link="gestao-orcamentaria/orcamentarias/despesas/despesas-emendas"
                       backgroundColor="transparent"
@@ -236,7 +236,7 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Despesas - Multas de Trânsito"
-                      imageURL={despesas_multas_de_transito}
+                      imageURL={despesas_multas_de_transito.src}
                       description="Confira nesta página as despesas empenhadas, liquidadas e pagas a partir da arrecadação com multas de trânsito."
                       link="gestao-orcamentaria/orcamentarias/despesas/despesas-multas-transito"
                       backgroundColor="transparent"
@@ -252,9 +252,19 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Despesas - Restos a pagar"
-                      imageURL={restos_a_pagar}
+                      imageURL={restos_a_pagar.src}
                       description="Os restos a pagar são as despesas que a com compromisso de serem utilizadas dentro do orçamento, mas que não foram pagas até o final do exercício. Confira aqui as informações sobre as despesas empenhadas, liquidadas e pagas relativas a essa natureza."
                       link="gestao-orcamentaria/orcamentarias/despesas/despesas-restos"
+                      backgroundColor="transparent"
+                    />
+                  </Box>
+
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Pagamentos"
+                      imageURL={restos_a_pagar.src}
+                      description="Os restos a pagar são as despesas que a com compromisso de serem utilizadas dentro do orçamento, mas que não foram pagas até o final do exercício. Confira aqui as informações sobre as despesas empenhadas, liquidadas e pagas relativas a essa natureza."
+                      link="gestao-orcamentaria/orcamentarias/despesas/pagamentos"
                       backgroundColor="transparent"
                     />
                   </Box>

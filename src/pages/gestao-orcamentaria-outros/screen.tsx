@@ -65,9 +65,9 @@ type PropsInput = {
 };
 
 export const contentInitial = {
-  titlePage: "Finanças Municipal",
+  titlePage: "Gestão Orçamentária - Outros ",
   description:
-    "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.",
+    "É o processo de planejamento, execução, controle e acompanhamento dos recursos financeiros da Prefeitura de Mogi das Cruzes. Ela envolve a elaboração de um plano financeiro detalhado, conhecido como orçamento, que descreve as receitas esperadas e as despesas planejadas durante um ano.",
 };
 
 
@@ -136,18 +136,18 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Contratos e Atas"
-                      imageURL={contratos_e_atas}
+                      imageURL={contratos_e_atas.src}
                       description="Nesta página, confira as informações sobre contratos e atas celebrados pela Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por número, modalidade, processo, valor, fornecedor, objeto, entre outros itens."
-                      link="gestao-orcamentaria-outros/outros/contratos-atas"
+                      link="gestao-orcamentaria-outros/contratos-atas"
                       backgroundColor="transparent"
                     />
                   </Box>
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Gastos com publicidade"
-                      imageURL={gastos_com_publicidade}
+                      imageURL={gastos_com_publicidade.src}
                       description="A publicidade legal e institucional realizada pelo Poder Público é um importante serviço cujo objetivo final é favorecer o acesso da população a todos os outros serviços públicos, além de contribuir com a transparência dos atos administrativos. Confira as despesas com publicidade da Prefeitura de Mogi das Cruzes."
-                      link="gestao-orcamentaria-outros/outros/propaganda"
+                      link="gestao-orcamentaria-outros/propaganda"
                       backgroundColor="transparent"
                     />
                   </Box>
@@ -160,13 +160,21 @@ function HomeScreen({ handler }: PropsInput) {
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Subvenções"
-                      imageURL={subvencoes}
+                      imageURL={subvencoes.src}
                       description="Subvenção é quando a Prefeitura destina recursos financeiros para que entidades cubram seus custos de atividades prestadas à população. Confira aqui as despesas relacionadas a essa natureza."
-                      link="gestao-orcamentaria-outros/outros/subvencoes"
+                      link="gestao-orcamentaria-outros/subvencoes"
                       backgroundColor="transparent"
                     />
                   </Box>
-                  
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Dívida Ativa"
+                      imageURL={subvencoes.src}
+                      description="Subvenção é quando a Prefeitura destina recursos financeiros para que entidades cubram seus custos de atividades prestadas à população. Confira aqui as despesas relacionadas a essa natureza."
+                      link="gestao-orcamentaria-outros/divida-ativa"
+                      backgroundColor="transparent"
+                    />
+                  </Box>
                 </Stack>
               </Stat>
             </StatGroup>

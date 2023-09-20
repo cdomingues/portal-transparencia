@@ -9,8 +9,9 @@ import balanco_anual from "../../assets/images/icones/balanco_anual.svg"
 import lei_orcamentaria from "../../assets/images/icones/lei_orcamentaria_anual.svg"
 import parecer_tribunal from "../../assets/images/icones/parecer_tribunal.svg"
 import plano_plurianual from "../../assets/images/icones/plano_plurianual.svg"
-import relatorio_gestao_fiscal from "../../assets/images/icones/relatorio_gestao_fiscal.svg"
-import relatorio_resumido from "../../assets/images/icones/relatorio_resumido.svg"
+import cadastro_de_fornecedores from "../../assets/images/icones/compras publicas__cadastro de fornecedor.svg"
+import licitacoes from "../../assets/images/icones/compras publicas__licitacoes.svg"
+import pregao_eletronico from "../../assets/images/icones/compras publicas__pregao eletronico.svg"
 import {
   Box,
   Divider,
@@ -193,7 +194,7 @@ marginBottom="15px"
                   <Box padding="6" bg="transparent" flexDirection="row">
                    <CardHorizon
                       title="Licitações"
-                      imageURL={relatorio_gestao_fiscal}
+                      imageURL={licitacoes.src}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                       link="compras-publicas/licitacoes"
                  backgroundColor="transparent"/>
@@ -202,7 +203,7 @@ marginBottom="15px"
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Pregão Eletrônico"
-                      imageURL={relatorio_resumido}
+                      imageURL={pregao_eletronico.src}
                       description="São disponibilizados no site da Prefeitura os editais de licitação de pregões eletrônicos para aquisição de bens e serviços, para acesso de qualquer interessado."
                       link="https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/pregao-eletronico"
                  backgroundColor="transparent"
@@ -221,7 +222,7 @@ marginBottom="15px"
                   <Box padding="6" bg="transparent" flexDirection="row">
                   <CardHorizon
                       title="Cadastro de Fornecedor"
-                      imageURL={relatorio_gestao_fiscal}
+                      imageURL={cadastro_de_fornecedores.src}
                       description="A empresa interessada em participar de licitações na modalidade Tomada de Preços ou que pretenda manifestar interesse em licitações ..."
                       link="https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/cadastro-de-fornecedor"
                  backgroundColor="transparent"/>

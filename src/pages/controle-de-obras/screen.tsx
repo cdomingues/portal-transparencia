@@ -67,7 +67,7 @@ type PropsInput = {
 export const contentInitial = {
   titlePage: "Portal de Obras",
   description:
-    "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.",
+    "Conheça as obras que estão transformando nossa cidade.",
 };
 
  function Aside() {
@@ -192,19 +192,19 @@ marginBottom="15px"
               >
                   <Box padding="6" bg="transparent" flexDirection="row">
                    <CardHorizon
-                      title="Relatorio de Gestão Fiscal"
-                      imageURL={relatorio_gestao_fiscal}
+                      title="Portal de Obras - Mogi das Cruzes"
+                      imageURL={relatorio_gestao_fiscal.src}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/relatorio-gestao-fiscal"
+                      link="controle-de-obras/inicio"
                  backgroundColor="transparent"/>
                                     </Box>
                  
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Relatório Resumido"
-                      imageURL={relatorio_resumido}
+                      imageURL={relatorio_resumido.src}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/relatorio-resumido"
+                      link="controle-de-obras/sobre-as-obras"
                  backgroundColor="transparent"/>
 
 
@@ -218,10 +218,10 @@ marginBottom="15px"
               >
                   <Box padding="6" bg="transparent" flexDirection="row">
                   <CardHorizon
-                      title="Relatorio de Gestão Fiscal"
-                      imageURL={relatorio_gestao_fiscal}
+                      title="Pesquisar Obras"
+                      imageURL={relatorio_gestao_fiscal.src}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/relatorio-gestao-fiscal"
+                      link="controle-de-obras/pesquisar-obras"
                  backgroundColor="transparent"/>
                   </Box>
                   
@@ -231,16 +231,7 @@ marginBottom="15px"
                   align={isMobile ? "center" : "center"}
                   justifyContent={isMobile ? "flex-start" : "center"}
                 >
-                  <Box padding="6" bg="transparent" flexDirection="row">
-                    <CardHorizon
-                      title="Relatório Resumido"
-                      imageURL={relatorio_resumido}
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/relatorio-resumido"
-                 backgroundColor="transparent"/>
-
-
-                  </Box>
+                 
                
               </Stack>
             </Stat>

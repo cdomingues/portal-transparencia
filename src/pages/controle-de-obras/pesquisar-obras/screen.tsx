@@ -5,6 +5,7 @@ import { parseMoney } from "../../../utils/mask";
 import colors from "../../../styles/colors";
 import Carousel from "../../../components/Swiper";
 import { Input, Select } from "@chakra-ui/react";
+import Vlibras from 'vlibras-nextjs';
 import { useState } from "react";
 interface PropsPagination {
   totalPages: number;
@@ -47,6 +48,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
 
     return (
       <div>
+        <Vlibras />
         <div className="pagination">
           {pageNumbers?.map((number) => (
             <div key={number} className="page-item">

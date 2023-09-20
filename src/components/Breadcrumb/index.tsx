@@ -43,9 +43,14 @@ function Breadcrumb() {
                 {stepName}
               </Link>
             ) : (
-              <Box as="span" textTransform="capitalize" fontSize="14">
+              <Link
+                href={`/${targetUrl}`}
+                target={"_self"}
+                textTransform="capitalize"
+                fontSize="14"
+              >
                 {stepName}
-              </Box>
+              </Link>
             )}
           </>
         );

@@ -7,7 +7,6 @@ import {
   Text,
   Box,
   useColorModeValue,
-
 } from "@chakra-ui/react";
 import React from "react";
 import { isMobile } from "react-device-detect";
@@ -74,13 +73,12 @@ function RevenueScreen({
           rounded="md"
           overflow="hidden"
           maxWidth="100%"
-              
           borderRadius="18px"
           marginBottom="15px"
         >
           <GraphWrapper>
             <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
-              Receitas Mensal Acumulado
+              Receita Mensal Acumulada
             </Heading>
             {chart?.datasets?.length > 0 && (
               <React.Fragment>
@@ -109,7 +107,6 @@ function RevenueScreen({
           rounded="md"
           overflow="hidden"
           maxWidth="100%"
-              
           borderRadius="18px"
           marginBottom="15px"
         >
@@ -120,67 +117,67 @@ function RevenueScreen({
             {chartYear?.datasets?.length > 0 && (
               // <Chart type="bar" data={chartYear} />
               <React.Fragment>
-              <MultiAxisChart
-              data={chartYear}
-              moneyFormat={true}
-             
-              chartType="bar"
-            />
-        
-            </React.Fragment>
-                )}
+                <MultiAxisChart
+                  data={chartYear}
+                  moneyFormat={true}
+                  chartType="bar"
+                />
+              </React.Fragment>
+            )}
           </GraphWrapper>
         </Box>
+
+        <Box
+          m={0}
+          bg={useColorModeValue("white", "gray.800")}
+          boxShadow="2xl"
+          padding={"15px"}
+          rounded="md"
+          overflow="hidden"
+          maxWidth="100%"
+          borderRadius="18px"
+          marginBottom="15px"
+        >
+          <Divider borderWidth="2px" mt="10" mb="10" />
+
+          <Stack direction="row">
+            <Stack width="25%">
+              <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
+                Ano
+              </Text>
+              <Select
+                minW={92}
+                defaultValue={year}
+                onChange={(e) => setYear(e.target.value)}
+                bg="white"
+                variant="outline"
+                placeholder="Selecionar Ano"
+              >
+                {years?.map((year, index) => (
+                  <option key={index} value={String(year)}>
+                    {String(year)}
+                  </option>
+                ))}
+              </Select>
+            </Stack>
+            <Stack width="10%" justifyContent="flex-end">
+              <Button
+                disabled={loading}
+                minW={55}
+                onClick={() => handleByYear(year)}
+                _hover={{ bg: "gray.500", color: "white" }}
+                bg="table.primary"
+                color="white"
+                fontSize="small"
+              >
+                Buscar
+              </Button>
+            </Stack>
+          </Stack>
+          <Divider borderWidth="2px" mt="10" mb="10" />
+          <TableComponent loading={loading} columns={columns} data={data} />
+        </Box>
       </MultipleGraphWrapper>
-      <Divider borderWidth="2px" mt="10" mb="10" />
-      <Box
-        m={0}
-        bg={useColorModeValue("white", "gray.800")}
-        boxShadow="2xl"
-        padding={"15px"}
-        rounded="md"
-        overflow="hidden"
-        width="100%"
-        borderRadius="18px"
-        marginBottom="15px"
-      >
-      <Stack direction="row">
-        <Stack width="25%">
-          <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
-            Ano
-          </Text>
-          <Select
-            minW={92}
-            defaultValue={year}
-            onChange={(e) => setYear(e.target.value)}
-            bg="white"
-            variant="outline"
-            placeholder="Selecionar Ano"
-          >
-            {years?.map((year, index) => (
-              <option key={index} value={String(year)}>
-                {String(year)}
-              </option>
-            ))}
-          </Select>
-        </Stack>
-        <Stack width="10%" justifyContent="flex-end">
-          <Button
-            disabled={loading}
-            minW={55}
-            onClick={() => handleByYear(year)}
-            _hover={{ bg: "gray.500", color: "white" }}
-            bg="table.primary"
-            color="white"
-            fontSize="small"
-          >
-            Buscar
-          </Button>
-        </Stack>
-      </Stack>
-      <Divider borderWidth="2px" mt="10" mb="10" />
-      <TableComponent loading={loading} columns={columns} data={data} />
-      </Box>
     </ContainerBasic>
   );
 }

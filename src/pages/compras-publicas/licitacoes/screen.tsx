@@ -43,7 +43,7 @@ type PropsInput = {
 export const contentBids = {
   titlePage: "Licitações",
   description:
-    "O procedimento administrativo pelo qual a Prefeitura contrata serviços ou adquire produtos é chamado de Licitação. Acompanhe aqui os dados das licitações realizadas pela Prefeitura de Mogi das Cruzes, incluindo informações sobre modalidade, objeto, vencimento, participantes e demais detalhes.",
+    "São disponibilizados no site da Prefeitura os editais de licitação de concorrência, tomada de preço e pregões para aquisição de bens e serviços, para acesso de qualquer interessado. ",
 };
 
 function Screen({

@@ -113,13 +113,13 @@ import TableComponent, { TableColumns } from "../../components/Table";
 import PaginationComponent2 from "../../components/PaginationComponent";
 import { AiOutlineSearch } from "react-icons/ai";
 import { isMobile } from "react-device-detect";
-
+import caraga_horaria from '../../../data/carga_horaria.json'
 
 
 export const contentOtherInformations = {
-  titlePage: "ÚLTIMAS NOTICIAS",
+  titlePage: "ÚLTIMAS NOTÍCIAS",
   description:
-    "Caso tenha dificuldade em encontrar alguma informação ou dúvida referente ao conteúdo publicado neste portal, você pode entrar em contato conosco preenchendo o formulário abaixo ou dirigir-se pessoalmente à Ouvidoria Geral, localizada no 3º andar do prédio sede da Prefeitura, de segunda a sexta-feira, das 8 às 17 horas.",
+    "Fique por dentro de tudo que acontece na Prefeitura de Mogi das Cruzes sobre Transparência Pública, Governo Aberto, Lei Geral de Proteção de Dados (LGPD), Lei de Acesso à Informação (LAI) e muito mais!",
 };
 
 function removeDiacritics(str: string) {
@@ -214,10 +214,12 @@ function Screen(PropsInput: any) {
           marginBottom="15px"
         >
        <Input
+       size="md" 
      value={search}
      onChange={(ev) => {
        const inputValue = ev.target.value;
        setSearch(inputValue);
+       
    
        if (inputValue.trim() === '') {
          setItensPerPage(5);
@@ -229,7 +231,7 @@ function Screen(PropsInput: any) {
       mt={1}
       color="text.dark"
       bg="white"
-      size="xs"
+      //size="xs"
       marginBottom="15px"
       borderRadius="7px"
       placeholder="Pesquisar"
@@ -262,8 +264,10 @@ function Screen(PropsInput: any) {
      <Center minW="350px" mb={5} width="200px">
      <PaginationComponent2 pages={pages} setCurrentPage = {setCurrentPage} currentPage = {currentPage} onNextClick={onNextClick} onPrevClick={onPrevClick} />
         <PaginationSelector itensPerPage={itensPerPage} setItensPerPage={setItensPerPage}/>
+        
         </Center>
        </Center>
+       
        </Box>
     </ContainerBasic>
     

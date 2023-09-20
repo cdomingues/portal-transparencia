@@ -115,8 +115,11 @@ export function MultiAxisChart({
         },
         labels: {
           formatter: function (val: number) {
-            return (val / 1000000).toFixed(0);
-          }},
+              let formattedValue = (val / 1000000).toFixed(0);
+              return 'R$ ' + parseInt(formattedValue).toLocaleString('pt-BR'); // 'pt-BR' garante que o ponto seja usado como delimitador de milhares
+          }
+      },
+      
         floating: false,
         decimalsInFloat: 2,
       },

@@ -111,15 +111,22 @@ export function MultiAxisChart({
     },
     yaxis: [
       {
-        opposite: false,
-        min: 0,
+        min: 0, // Garanta que este valor seja um múltiplo de 10
+        // max: 100, // Opcional: Defina um valor máximo se necessário, e garanta que seja um múltiplo de 10
+        forceNiceScale: true,
+        tickAmount: 10, // Defina o número desejado de ticks/divisões no eixo Y
+     
+      
         title: {
           text: "Valor Acumulado (R$ milhões)",
         },
         labels: {
           formatter: function (val: number) {
-            return (val / 1000000).toFixed(0);
-          }},
+              let formattedValue = (val / 1000000).toFixed(0);
+              return 'R$ ' + parseInt(formattedValue).toLocaleString('pt-BR'); // 'pt-BR' garante que o ponto seja usado como delimitador de milhares
+          }
+      },
+      
         floating: false,
         decimalsInFloat: 2,
       },

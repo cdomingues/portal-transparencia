@@ -1,50 +1,83 @@
-import React, { useEffect, useState } from "react";
-import { getFile } from "../../../services/cloudStorage";
+import { GetStaticProps } from "next";
+import React, { useState } from "react";
 import Screen from "./screen";
+import {
+  getChart,
+  getChartYear,
+  getdvertisings,
+} from "../../../calls/expenses/advertising";
+import { revalidate } from "../../../config";
+import moment from "moment";
 
-function Controller() {
+function Controller({
+  chart = { datasets: [] },
+  chartYear = { datasets: [] },
+  advertisings = [],
+  years,
+}: any) {
+  const [year, setYear] = useState(moment().year());
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(advertisings);
+  const [newChart, setNewChart] = useState(chart);
 
   const columns = [
-    { title: "Tipo", field: "tipo" },
-    { title: "Número", field: "numero" },
-    { title: "Situação", field: "situacao" },
-    { title: "Licitação", field: "licitacao" },
-    { title: "Modalidade", field: "modalidade" },
-    { title: "Processo", field: "processo" },
-    { title: "Data Início", field: "datainicio" },
-    { title: "Data Término", field: "datatermino" },
-    { title: "Valor", field: "valor" },
-    { title: "Valor Aditado", field: "valorAditado" },
-    { title: "Qntd Aditivos", field: "quantidadeAdivitos" },
-    { title: "Fornecedor", field: "fornecedor" },
-    { title: "Grupo", field: "grupo" },
-    { title: "Objeto", field: "objeto" },
+    { title: "Número", field: "A" },
+    { title: "Objeto", field: "B" },
+    { title: "Entidade Envolvida", field: "C" },
+    { title: "CNPJ / CPF da Entidade", field: "D" },
+    { title: "Objeto do Acordo", field: "E" },
+    { title: "Data Inicio", field: "F" },
+    { title: "Data Prevista Término", field: "G" },
+    { title: "Data Término", field: "H" },
+    { title: "Status", field: "I" },
+    
   ];
 
-  const getData = async () => {
+  const handleByYear = async (year: number) => {
+    setYear(year);
+
     setLoading(true);
-    const { data, error } = await getFile("");
+
+    const { advertisings } = await getdvertisings(year);
+
+    const { chart } = await getChart(year);
+
     setLoading(false);
 
-    if (error) {
-      return;
-    }
-    setData(data);
-  };
+    setNewChart(chart);
 
-  useEffect(() => {
-    getData();
-  }, []);
+    setData(advertisings);
+  };
 
   const handler = {
     data,
     columns,
     loading,
+    chart: newChart,
+    chartYear,
+    years,
+    setYear,
+    year,
+    handleByYear,
   };
 
   return <Screen handler={handler} />;
 }
 
 export default Controller;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const { chart } = await getChart();
+  const { chartYear } = await getChartYear();
+  const { advertisings, years } = await getdvertisings();
+
+  return {
+    props: {
+      chartYear: chartYear || { datasets: [] },
+      chart: chart || { datasets: [] },
+      advertisings: advertisings || [],
+      years: years || [],
+    },
+    revalidate,
+  };
+};

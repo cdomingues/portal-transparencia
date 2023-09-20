@@ -137,22 +137,24 @@ function HomeScreen({ handler }: PropsInput) {
                   align={isMobile ? "center" : "center"}
                   justifyContent={isMobile ? "flex-start" : "center"}
                 >
+                  
+
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Despesas COVID-19"
-                      imageURL={despesas_covid}
-                      description="Dispõe das despesas empenhadas, liquidadas e pagas realizadas pelo órgão público para enfrentamento da emergência de saúde pública de importância internacional decorrente do coronavírus (COVID-19)."
-                      link="gestao-orcamentaria-covid/covid/despesas"
+                      title="Receitas COVID-19"
+                      imageURL={receitas_covid.src}
+                      description="Dispõe das receitas recebidas pelo órgão público para enfrentamento da emergência de saúde pública de importância internacional decorrente do coronavírus (COVID-19)."
+                      link="gestao-orcamentaria-covid/covid/receitas"
                       backgroundColor="transparent"
                     />
                   </Box>
 
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Receitas COVID-19"
-                      imageURL={receitas_covid}
-                      description="Dispõe das receitas recebidas pelo órgão público para enfrentamento da emergência de saúde pública de importância internacional decorrente do coronavírus (COVID-19)."
-                      link="gestao-orcamentaria-covid/covid/receitas"
+                      title="Despesas COVID-19"
+                      imageURL={despesas_covid.src}
+                      description="Dispõe das despesas empenhadas, liquidadas e pagas realizadas pelo órgão público para enfrentamento da emergência de saúde pública de importância internacional decorrente do coronavírus (COVID-19)."
+                      link="gestao-orcamentaria-covid/covid/despesas"
                       backgroundColor="transparent"
                     />
                   </Box>

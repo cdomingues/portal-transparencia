@@ -186,6 +186,7 @@
 
 import React, { ReactNode, useState, useEffect } from "react";
 import { Box, Heading, Text, Divider, Stack } from "@chakra-ui/react";
+import Vlibras from 'vlibras-nextjs';
 import Head from "next/head";
 import { Container, Body } from "./styles";
 import Breadcrumb from "../../Breadcrumb";
@@ -205,7 +206,9 @@ type PropsInput = {
 };
 
 function Aside() {
+  const accessibility = useFontSizeAccessibilityContext();
   return (
+    
     <div style={{ width: "380px", justifyContent: "left" }}>
       <Box
         m={0}
@@ -219,7 +222,7 @@ function Aside() {
         marginBottom="15px"
       >
         <div style={{ padding: "10px" }}>
-          <Text fontWeight="500" color={"gray.500"}>
+          <Text fontSize={accessibility?.fonts?.regular} fontWeight="500" color={"gray.500"}>
             Últimas Noticias
           </Text>
         </div>
@@ -237,7 +240,7 @@ function Aside() {
         })}
         <div style={{ padding: "0px", width: "95%" }}></div>
         <div style={{ padding: "10px" }}>
-          <Text fontWeight="500" color={"gray.500"} fontStyle={'italic'}>
+          <Text fontWeight="500" fontSize={accessibility?.fonts?.regular} color={"gray.500"} fontStyle={'italic'}>
            <a href="./ultimas-noticias">Acesse outras notícias</a>
           </Text> 
         </div>
@@ -313,6 +316,7 @@ function ContainerBasic({
             <Head>
               <title>{title} - PMMC</title>
             </Head>
+            <Vlibras/>
             <Heading
               mb={2}
               fontSize={accessibility?.fonts?.ultraLarge}
@@ -355,7 +359,7 @@ function ContainerBasic({
             outline: "none",
             cursor: "pointer",
             width: "40px",
-            height: "40px",
+            height: "200px",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",

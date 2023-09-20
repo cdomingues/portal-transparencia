@@ -69,7 +69,7 @@ const CardBigTransformation = ({
           <div className="bottom">
             <button
               className="buttons"
-              onClick={() => router.push("grandes-transformacoes-da-cidade")}
+              onClick={() => router.push("pesquisar-obras")}
               style={{ width: "100%" }}
             >
               <Text.Heading3Regular

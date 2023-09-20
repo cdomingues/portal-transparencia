@@ -12,7 +12,7 @@ import CardTotal from "../../../components/CardTotal";
 import MapOfConstructions from "../../../components/MapOfConstructions";
 import CardBigTransformation from "../../../components/CardBigTransformation";
 import CardTransformation from "../../../components/CardTransformation";
-import { Heading, Input, Text } from "@chakra-ui/react";
+import { Heading, Input, Text, background } from "@chakra-ui/react";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 
 type PropsInput = {
@@ -34,7 +34,7 @@ function Screen({ handler }: PropsInput) {
 
   return (
     <LayoutConstructions breadcrumb={false}>
-      <Style.Banner>
+      <Style.Banner >
         <div className="content">
           <Heading
             color={colors.white}
@@ -88,7 +88,7 @@ function Screen({ handler }: PropsInput) {
       <Style.BannerTotals>
         <div className="gradient-image"></div>
         <div className="content">
-          <CardTotal
+          {/* <CardTotal
             value="0"
             description={`novas áreas de espaço público e áeras verdes`}
             icon={<BsTree color={colors.white} fontSize={50} />}
@@ -110,16 +110,16 @@ function Screen({ handler }: PropsInput) {
             value={"0"}
             description="atendidas nas novas unidades de saúde"
             icon={<TbRibbonHealth color={colors.white} fontSize={50} />}
-          />
+          /> */}
         </div>
       </Style.BannerTotals>
 
       <MapOfConstructions />
 
-      <Style.ContainerBigTransformations>
+      {/* <Style.ContainerBigTransformations>
         <Style.Heading>Grandes transformações da cidade</Style.Heading>
         <CardBigTransformation></CardBigTransformation>
-      </Style.ContainerBigTransformations>
+      </Style.ContainerBigTransformations> */}
 
       <Style.ContainerCardsTransformations>
         <Style.Heading>Conheça nossas obras em destaque</Style.Heading>

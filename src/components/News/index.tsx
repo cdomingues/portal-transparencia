@@ -1,5 +1,4 @@
 import {Box,Text,useColorModeValue,Image, Button, border } from "@chakra-ui/react";
-import { gray } from "d3";
 import { isMobile } from "react-device-detect";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
 //import JsonData from '../../../data/noticias.json'

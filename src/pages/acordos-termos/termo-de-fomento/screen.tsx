@@ -13,7 +13,7 @@ type PropsInput = {
 
 function Screen({ handler: { columns, data, loading } }: PropsInput) {
   const title = "Termo de Fomento";
-  const description = "Completar o texto sobre o...";
+  const description = "Assim como o termo de parceria, o termo de fomento também é regido pela Lei nº 13.019/2014. É uma modalidade específica de contrato administrativo, assim como o termo de parceria, mas com algumas características distintas. Enquanto o termo de parceria é utilizado quando há transferência de recursos públicos para a execução de atividades de interesse público, o termo de fomento é empregado especificamente quando esses recursos são oriundos de dotações orçamentárias do próprio governo ou de suas autarquias, fundações e órgãos da administração direta.";
   return (
     <ContainerBasic title={title} description={description}>
             <Box

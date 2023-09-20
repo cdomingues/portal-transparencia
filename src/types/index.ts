@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { IconType } from "react-icons";
+import styled from "styled-components"; 
 
 export type Totalizer = {
   title: string;
@@ -20,7 +22,7 @@ export type Routes = Array<{
   name: string;
   path: string;
   element?: JSX.Element;
-  icon: IconType;
+  icon: IconType ;
   link?: string;
   group?: any[];
 }>;
@@ -29,7 +31,7 @@ export type GroupRoutes = Array<{
   name: string;
   path?: string;
   element?: JSX.Element;
-  icon: IconType;
+  icon: IconType  ;
   link?: string;
   group?: Array<{
     name: string;
@@ -43,7 +45,7 @@ export type GroupRoutes = Array<{
 export interface IPublicRoute {
   name: string;
   path: string;
-  icon: IconType;
+  icon: IconType ;
   element?: any;
   defaultPath?: string;
   link?: string;

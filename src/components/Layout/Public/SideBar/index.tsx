@@ -52,8 +52,8 @@ import {
 import { FiMenu, FiBell } from "react-icons/fi";
 import { isMobile } from "react-device-detect";
 import { IconType } from "react-icons";
-import logo from "../../../../assets/images/logo.png";
-import logoDark from "../../../../assets/images/logo_branco.png";
+import logo from "../../../../assets/images/Brasao_horizontal_normal.png";
+import logoDark from "../../../../assets/images/Brasao_horizontal_branco.png";
 import { GroupRoutes, IPublicRoute, Routes } from "../../../../types";
 import Header from "../Header";
 import { useRouter } from "next/router";
@@ -66,7 +66,7 @@ interface SidebarProps extends BoxProps {
 }
 
 interface NavItemProps extends FlexProps {
-  icon: IconType;
+  icon: IconType  ;
   children: React.ReactNode;
   path?: string;
   link?: string;
