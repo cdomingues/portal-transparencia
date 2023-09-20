@@ -49,7 +49,7 @@ function DisplayNews({
           </Text>
           <Text
             color={useColorModeValue("gray.700", "white")}
-            fontSize="small"
+            fontSize={accessibility?.fonts?.small}
             fontFamily="body"
             padding="5%"
             maxWidth={'90%'}
@@ -62,7 +62,7 @@ function DisplayNews({
           <Box display="flex" alignItems="left" flexDirection="column">
             <Text
               color="gray.500"
-              fontSize="smaller"
+              fontSize={accessibility?.fonts.regular}
               width={'90%'}
               maxWidth={'90%'}
               paddingBottom="10px"
