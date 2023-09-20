@@ -1,8 +1,8 @@
 import { Button, Divider, Select, Stack, Text, Box, useColorModeValue } from "@chakra-ui/react";
 import React from "react";
-import Chart from "../../../../../components/Chart";
-import ContainerBasic from "../../../../../components/Container/Basic";
-import TableComponent, { TableColumns } from "../../../../../components/Table";
+import Chart from "../../../../components/Chart";
+import ContainerBasic from "../../../../components/Container/Basic";
+import TableComponent, { TableColumns } from "../../../../components/Table";
 
 type PropsInput = {
   handler: {

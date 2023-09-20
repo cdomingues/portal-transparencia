@@ -1,11 +1,23 @@
-import { Button, Divider, Select, Stack, Text, Box, useColorModeValue  } from "@chakra-ui/react";
+import {
+  Button,
+  Divider,
+  Heading,
+  Select,
+  Stack,
+  Text,
+  Box,
+  useColorModeValue
+} from "@chakra-ui/react";
 import React from "react";
-import ChartColumn from "../../../../../components/Antdesign/ChartPlots/ChartColumn";
-import ChartColumnLineWithPartner from "../../../../../components/Antdesign/ChartPlots/ColumnLineWithPartner";
-import  Chart  from "../../../../../components/Chart";
-import ContainerBasic from "../../../../../components/Container/Basic";
-import TableComponent, { TableColumns } from "../../../../../components/Table";
 import { isMobile } from "react-device-detect";
+import Chart from "../../../../components/Chart";
+import ContainerBasic from "../../../../components/Container/Basic";
+import {
+  GraphWrapper,
+  MultipleGraphWrapper,
+} from "../../../../components/GraphWrapper";
+import { MultiAxisChart } from "../../../../components/MultiAxisChart";
+import TableComponent, { TableColumns } from "../../../../components/Table";
 
 type PropsInput = {
   handler: {
@@ -13,6 +25,7 @@ type PropsInput = {
     data: Array<any>;
     loading: boolean;
     chart: any;
+    chartYear: any;
     years: Number[];
     setYear: any;
     year: number;
@@ -20,9 +33,9 @@ type PropsInput = {
   };
 };
 
-export const contentExpensesParliamentaryAmendments = {
-  titlePage: "Despesas - Emendas Parlamentares",
-  description: "Confira nesta página as despesas empenhadas, liquidadas e pagas a partir dos recursos obtidos por meio de emendas parlamentares ",
+export const contentAdvertisements = {
+  titlePage: "Pagamentos",
+  description: "Divulgação da ordem cronológica de seus pagamentos, bem como as justificativas que fundamentaram a eventual alteração dessa ordem.",
 }
 
 function Screen({
@@ -31,17 +44,28 @@ function Screen({
     data,
     loading,
     chart,
+    chartYear,
     setYear,
     year,
     years,
     handleByYear,
   },
 }: PropsInput) {
-  const title = contentExpensesParliamentaryAmendments?.titlePage;
-  const description = contentExpensesParliamentaryAmendments?.description;
+  const title = contentAdvertisements?.titlePage;
+  const description = contentAdvertisements?.description;
+
+  const chartConfig = {
+    direction: isMobile ? "column" : "row",
+    width: isMobile ? "100%" : "40%",
+    marginRight: isMobile ? "0" : "10%",
+    marginLeft: isMobile ? "0" : "5%",
+    fontSize: isMobile ? "medium" : "larger",
+  };
+
   return (
     <ContainerBasic title={title} description={description}>
-            <Box
+   
+      <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
         boxShadow="2xl"
@@ -52,22 +76,6 @@ function Screen({
         borderRadius="18px"
         marginBottom="15px"
       >
-      {chart?.datasets?.length > 0 && (
-        <Chart type="bar" data={chart} />
-      )}
-      </Box>
-  
-      <Box
-      m={0}
-      bg={useColorModeValue("white", "gray.800")}
-      boxShadow="2xl"
-      padding={"15px"}
-      rounded="md"
-      overflow="hidden"
-      width= '100%'
-      borderRadius="18px"
-      marginBottom="15px"
-    >
       <Stack direction="row">
         <Stack minW={86} width="25%">
           <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
@@ -102,12 +110,15 @@ function Screen({
             Buscar
           </Button>
         </Stack>
+        
       </Stack>
+      <Text fontSize="sm" fontWeight="550" paddingLeft="5px" paddingTop="10px"> Desculpe, falha ao carregar os dados, perda de conexão com o servidor de dados</Text>
 
       <Divider borderWidth="2px" mt="10" mb="10" />
       <TableComponent loading={loading} columns={columns} data={data} />
       </Box>
     </ContainerBasic>
+    
   );
 }
 

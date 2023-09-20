@@ -45,7 +45,7 @@ function Screen({ handler }: PropsInput) {
         align={isMobile ? "justify" : "left"}
         color="gray.500"
         fontSize={accessibility?.fonts?.regular}
-        >A Ouvidoria é um canal direto entre o cidadão e todos os setores da Prefeitura. Com isenção, autonomia e independência, tem como missão receber e solucionar as manifestações recebidas da comunidade (reclamações, denúncias e dúvidas), promovendo o aperfeiçoamento e a melhoria dos serviços prestados à população. Para enviar uma reclamação ou solicitar um serviço, acesse o aplicativo do <Link href="https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab">Colab.</Link></Text>
+        >Para enviar uma reclamação ou solicitar um serviço, acesse o aplicativo do <Link color="#db334f" fontWeight="bold"  href="https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab">Colab.</Link></Text>
 <br></br>
 <Text
                 align={isMobile ? "justify" : "left"}
