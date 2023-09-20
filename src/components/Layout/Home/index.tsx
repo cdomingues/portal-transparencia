@@ -8,6 +8,8 @@ import Lupa from "../../../assets/images/Lupa.png";
 import CardHorizon from "../../CardHorizon";
 import Brasao_PMMC_Normal from "../../../assets/images/Brasao_PMMC_Normal.png";
 import Brasao_PMMC_white from "../../../assets/images/Brasao_PMMC_white.png";
+import lupaNormal from "../../../assets/images/lupa_portal.png";
+import lupaDark from "../../../assets/images/lupa_portal_dark.png";
 import Vlibras from "vlibras-nextjs";
 import receitas_multas_de_transito from "../../../assets/images/icones/receitas multas de transito.svg";
 import {
@@ -26,6 +28,7 @@ import CardHome from "../../CardHome";
 
 function PublicHome() {
   const brasaoImageSrc = useColorModeValue(Brasao_PMMC_Normal.src, Brasao_PMMC_white.src);
+  const lupaSrc = useColorModeValue(lupaNormal.src, lupaDark.src);
 
   
   return (
@@ -127,7 +130,7 @@ function PublicHome() {
               maxWidth="80%"
               marginBottom="15px"
             >
-              <Image alt="logo" width="150px" src={Lupa.src} />
+              <Image alt="logo" width="100px" src={lupaSrc} />
             </Box>
           </Stack>
         </Stack>

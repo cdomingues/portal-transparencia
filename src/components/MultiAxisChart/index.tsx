@@ -30,10 +30,10 @@ interface IMultiAxisChart {
   moneyFormat?: boolean;
   title?: string;
   yaxisLabel?: string;
-  options?: Partial<ApexOptions>; 
-  names?: string[];  
-  seriesName?: string;  // seriesName é agora opcional
-  chartType?: "line" | "bar";  
+  options?: Partial<ApexOptions>;
+  names?: string[];
+  seriesName?: string; // seriesName é agora opcional
+  chartType?: "line" | "bar";
 }
 
 export function MultiAxisChart({
@@ -42,8 +42,8 @@ export function MultiAxisChart({
   title,
   yaxisLabel,
   options = {},
-  names = [], 
-  seriesName,  
+  names = [],
+  seriesName,
   chartType,
 }: IMultiAxisChart) {
   const formatMoney = (value: number) => {
@@ -54,7 +54,8 @@ export function MultiAxisChart({
     return isMobile ? formatNumber(value) : formatMoney(value);
   };
 
-  const targetSeries = seriesName || (data.datasets.length > 0 ? data.datasets[0].label : "");
+  const targetSeries =
+    seriesName || (data.datasets.length > 0 ? data.datasets[0].label : "");
 
   type SeriesType = {
     name: string;
@@ -78,15 +79,12 @@ export function MultiAxisChart({
       return returnValue;
     });
 
-  
-  
-  
-
   const defaultOptions: ApexOptions = {
     chart: {
       width: "100%",
       height: 380,
       background: "transparent",
+
       animations: {
         enabled: true,
         easing: "easeinout",
@@ -101,32 +99,35 @@ export function MultiAxisChart({
         },
       },
     },
+    
+
     plotOptions: {
       bar: {
         horizontal: false,
+        color: "black",
       },
     },
     xaxis: {
       categories: data.labels,
     },
+
     yaxis: [
       {
         min: 0, // Garanta que este valor seja um múltiplo de 10
         // max: 100, // Opcional: Defina um valor máximo se necessário, e garanta que seja um múltiplo de 10
         forceNiceScale: true,
         tickAmount: 10, // Defina o número desejado de ticks/divisões no eixo Y
-     
-      
+
         title: {
           text: "Valor Acumulado (R$ milhões)",
         },
         labels: {
           formatter: function (val: number) {
-              let formattedValue = (val / 1000000).toFixed(0);
-              return 'R$ ' + parseInt(formattedValue).toLocaleString('pt-BR'); // 'pt-BR' garante que o ponto seja usado como delimitador de milhares
-          }
-      },
-      
+            let formattedValue = (val / 1000000).toFixed(0);
+            return parseInt(formattedValue).toLocaleString("pt-BR"); // 'pt-BR' garante que o ponto seja usado como delimitador de milhares
+          },
+        },
+
         floating: false,
         decimalsInFloat: 2,
       },
@@ -158,10 +159,8 @@ export function MultiAxisChart({
   const { width } = useWindowDimensions();
 
   return (
-    
-      <div id="chart">
-        <ChartBarApex series={series} options={mergedOptions} />
-      </div>
-
+    <div id="chart">
+      <ChartBarApex series={series} options={mergedOptions} />
+    </div>
   );
 }

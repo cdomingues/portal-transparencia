@@ -23,6 +23,7 @@ import { BiBell } from "react-icons/bi";
 import Image from "next/image";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
 import seta from "../../assets/images/icones/Icones_Home Portal Transparencia__botao abre.svg";
+import hBottom from "../../assets/images/Icones_Home_Portal_Transparencia__botao_circulo.svg";
 
 import Diretriz_orcamentaria from "../../assets/images/icones/diretriz_orcamentaria.svg";
 
@@ -131,20 +132,22 @@ const CardHorizon: React.FC<CardHorizonProps> = ({
             display="flex"
             flexDirection="column"
             alignItems="flex-end"
+            
           >
             {extraLinks?.map((linkItem, index) => (
-              <a href={linkItem.url}>
+              <a href={linkItem.url} >
                 <div
                   key={index}
                   style={{
                     display: "flex",
                     alignItems: "center",
                     margin: "10px",
+       
                   }}
                 >
                   {linkItem.label}
                   <Image
-                    src={seta}
+                    src={hBottom}
                     alt="icone"
                     width={30}
                     height={30}
@@ -167,7 +170,7 @@ CardHorizon.defaultProps = {
   imageURL: Diretriz_orcamentaria,
   description: "Default Description",
   link: "#",
-  showExtraLinks: false ,
+  showExtraLinks: false,
 };
 
 export default CardHorizon;

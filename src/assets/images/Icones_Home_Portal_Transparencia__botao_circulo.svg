@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="layout" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 57.96 57.96">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#Gradiente_sem_nome_49);
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+    <linearGradient id="Gradiente_sem_nome_49" data-name="Gradiente sem nome 49" x1="0" y1="28.98" x2="57.96" y2="28.98" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6697d1"/>
+      <stop offset="1" stop-color="#4e7cb8"/>
+    </linearGradient>
+  </defs>
+  <circle class="cls-1" cx="28.98" cy="28.98" r="28.98"/>
+  <circle class="cls-2" cx="28.98" cy="28.98" r="10.9"/>
+</svg>
