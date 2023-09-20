@@ -146,7 +146,10 @@ const CardHorizon: React.FC<CardHorizonProps> = ({
                     alignItems: "center",
                     justifyContent: "end",
                     borderRadius: "15px",
-
+                    textAlign: "right",
+                    whiteSpace: "normal",
+                    overflow: "auto",
+                    
                     margin: "5px",
                     border: "1px solid lightgray", // Adiciona a borda inferior
                     padding: "10px", // Espaço entre o texto e a borda
