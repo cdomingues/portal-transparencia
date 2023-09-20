@@ -16,6 +16,7 @@ import {
   PopoverHeader,
   PopoverBody,
   Button,
+  background,
 } from "@chakra-ui/react";
 import { IconRight } from "react-day-picker";
 import { isMobile } from "react-device-detect";
@@ -127,22 +128,28 @@ const CardHorizon: React.FC<CardHorizonProps> = ({
       </PopoverTrigger>
       {showExtraLinks === true && (
         <PopoverContent>
-          <PopoverArrow />
+          {/* <PopoverArrow /> */}
           <PopoverBody
             display="flex"
             flexDirection="column"
-            alignItems="flex-end"
-            
+            alignItems="flex-start"
           >
             {extraLinks?.map((linkItem, index) => (
-              <a href={linkItem.url} >
+              <a
+                href={linkItem.url}
+                style={{ width: "100%", display: "block" }}
+              >
                 <div
                   key={index}
                   style={{
                     display: "flex",
                     alignItems: "center",
-                    margin: "10px",
-       
+                    justifyContent: "end",
+                    borderRadius: "15px",
+
+                    margin: "5px",
+                    border: "1px solid lightgray", // Adiciona a borda inferior
+                    padding: "10px", // Espaço entre o texto e a borda
                   }}
                 >
                   {linkItem.label}
