@@ -1,14 +1,16 @@
 import { GetStaticProps } from "next";
 import React, { useState } from "react";
 import Screen from "./screen";
-import {
-  getAmendmentRevenues,
-  getChart,
-} from "../../../../../calls/budgetExecution/amandmentsRevenues";
-import { revalidate } from "../../../../../config";
+import { getChart, getChartYears, getRevenues } from "../../../calls/revenues";
+import { revalidate } from "../../../config";
 import moment from "moment";
 
-function Controller({ chart = { datasets: [] }, revenues = [], years }: any) {
+function Controller({
+  chartYear = { datasets: [] },
+  chart = { datasets: [] },
+  revenues = [],
+  years,
+}: any) {
   const [year, setYear] = useState(moment().year());
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(revenues);
@@ -36,7 +38,7 @@ function Controller({ chart = { datasets: [] }, revenues = [], years }: any) {
 
     setLoading(true);
 
-    const { revenues } = await getAmendmentRevenues(year);
+    const { revenues } = await getRevenues(year);
 
     setLoading(false);
 
@@ -48,10 +50,11 @@ function Controller({ chart = { datasets: [] }, revenues = [], years }: any) {
     columns,
     loading,
     chart,
-    years,
+    chartYear,
     setYear,
-    year,
+    years,
     handleByYear,
+    year,
   };
 
   return <Screen handler={handler} />;
@@ -60,14 +63,15 @@ function Controller({ chart = { datasets: [] }, revenues = [], years }: any) {
 export default Controller;
 
 export const getStaticProps: GetStaticProps = async () => {
+  const { chartYear } = await getChartYears();
+  const { revenues, years } = await getRevenues();
   const { chart } = await getChart();
-  const { revenues, years } = await getAmendmentRevenues();
-
   return {
     props: {
-      chart: chart || { data: [] },
+      chartYear: chartYear || { datasets: [] },
+      chart: chart || { datasets: [] },
       revenues: revenues || [],
-      years,
+      years: years || [],
     },
     revalidate,
   };

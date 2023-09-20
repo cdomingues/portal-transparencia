@@ -3,9 +3,9 @@ import AmendmentsExpensesScreen from "./screen";
 import {
   getExpenses,
   getChart,
-} from "../../../../../calls/budgetExecution/amendmentsExpenses";
+} from "../../../../calls/budgetExecution/amendmentsExpenses";
 import { GetStaticProps } from "next";
-import { revalidate } from "../../../../../config";
+import { revalidate } from "../../../../config";
 import moment from "moment";
 
 function Controller({ chart = { datasets: [] }, expenses = [], years }: any) {

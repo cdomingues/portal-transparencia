@@ -72,6 +72,10 @@ function CardHome() {
         { label: "Balanços Anuais", url: "/ciclo-orcamentario/balancos-anuais" },
         { label: "Pareceres do Tribunal", url: "/ciclo-orcamentario/pareceres-do-tribunal" },
         { label: "Aprovação de Contas pelo Legislativo", url: "/ciclo-orcamentario/contas-executivo" },
+        { label: "Obras Públicas", url: "/ciclo-orcamentario/obras-publicas" },
+        { label: "Servidores Públicos Estagiários", url: "/ciclo-orcamentario/servidores-publicos-estagiarios" },
+        { label: "Promae", url: "/ciclo-orcamentario/promae" },
+
       ],
     },
 
@@ -83,14 +87,14 @@ function CardHome() {
       backgroundColor: "transparent",
       showExtraLinks: true ,
       extraLinks: [
-        { label: "Receitas Gerais", url: "/gestao-orcamentaria/orcamentarias/receitas" },
-        { label: "Emendas Parlamentares", url: "/gestao-orcamentaria/orcamentarias/receitas/receitas-emendas" },
-        { label: "Multas de Trânsito", url: "/gestao-orcamentaria/orcamentarias/receitas/multa-transito" },
-        { label: "Despesas Gerais", url: "/gestao-orcamentaria/orcamentarias/despesas/despesas-gerais" },
-        { label: "Emendas Parlamentares", url: "/gestao-orcamentaria/orcamentarias/despesas/despesas-emendas" },
-        { label: "Multas de Trânsito", url: "/gestao-orcamentaria/orcamentarias/despesas/despesas-multas-transito" },
-        { label: "Restos a Pagar", url: "/gestao-orcamentaria/orcamentarias/despesas/despesas-restos" },
-        { label: "Pagamentos", url: "/gestao-orcamentaria/orcamentarias/despesas/pagamentos" },
+        { label: "Receitas Gerais", url: "/gestao-orcamentaria/receitas" },
+        { label: "Emendas Parlamentares", url: "/gestao-orcamentaria/receitas/receitas-emendas" },
+        { label: "Multas de Trânsito", url: "/gestao-orcamentaria/receitas/multa-transito" },
+        { label: "Despesas Gerais", url: "/gestao-orcamentaria/despesas/despesas-gerais" },
+        { label: "Emendas Parlamentares", url: "/gestao-orcamentaria/despesas/despesas-emendas" },
+        { label: "Multas de Trânsito", url: "/gestao-orcamentaria/despesas/despesas-multas-transito" },
+        { label: "Restos a Pagar", url: "/gestao-orcamentaria/despesas/despesas-restos" },
+        { label: "Pagamentos", url: "/gestao-orcamentaria/despesas/pagamentos" },
         
 
       ],

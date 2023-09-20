@@ -1,8 +1,11 @@
-import { Button, Divider, Select, Stack, Text, Box, useColorModeValue } from "@chakra-ui/react";
+import { Button, Divider, Select, Stack, Text, Box, useColorModeValue  } from "@chakra-ui/react";
 import React from "react";
-import Chart from "../../../../../components/Chart";
-import ContainerBasic from "../../../../../components/Container/Basic";
-import TableComponent, { TableColumns } from "../../../../../components/Table";
+import ChartColumn from "../../../../components/Antdesign/ChartPlots/ChartColumn";
+import ChartColumnLineWithPartner from "../../../../components/Antdesign/ChartPlots/ColumnLineWithPartner";
+import  Chart  from "../../../../components/Chart";
+import ContainerBasic from "../../../../components/Container/Basic";
+import TableComponent, { TableColumns } from "../../../../components/Table";
+import { isMobile } from "react-device-detect";
 
 type PropsInput = {
   handler: {
@@ -17,9 +20,9 @@ type PropsInput = {
   };
 };
 
-export const contentExpensesRemains = {
-  titlePage: "Despesas - Restos a pagar",
-  description: "Os restos a pagar são as despesas com compromisso de serem utilizadas dentro do orçamento, mas que não foram pagas até o final do exercício. Confira aqui as informações sobre as despesas empenhadas, liquidadas e pagas relativas a essa natureza. ",
+export const contentExpensesParliamentaryAmendments = {
+  titlePage: "Despesas - Emendas Parlamentares",
+  description: "Confira nesta página as despesas empenhadas, liquidadas e pagas a partir dos recursos obtidos por meio de emendas parlamentares ",
 }
 
 function Screen({
@@ -34,27 +37,11 @@ function Screen({
     handleByYear,
   },
 }: PropsInput) {
-  const title = contentExpensesRemains?.titlePage;
-  const description = contentExpensesRemains?.description;
+  const title = contentExpensesParliamentaryAmendments?.titlePage;
+  const description = contentExpensesParliamentaryAmendments?.description;
   return (
     <ContainerBasic title={title} description={description}>
-       <Box
-          m={0}
-          bg={useColorModeValue("white", "gray.800")}
-          boxShadow="2xl"
-          padding={"15px"}
-          rounded="md"
-          overflow="hidden"
-          maxWidth="100%"
-          borderRadius="18px"
-          marginBottom="15px"
-        >
-      {chart?.datasets?.length > 0 && (
-        <Chart type="bar" data={chart} />
-      )}
-      </Box>
-      {/* <Divider borderWidth="2px" mt="10" mb="10" /> */}
-      <Box
+            <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
         boxShadow="2xl"
@@ -65,7 +52,22 @@ function Screen({
         borderRadius="18px"
         marginBottom="15px"
       >
-
+      {chart?.datasets?.length > 0 && (
+        <Chart type="bar" data={chart} />
+      )}
+      </Box>
+  
+      <Box
+      m={0}
+      bg={useColorModeValue("white", "gray.800")}
+      boxShadow="2xl"
+      padding={"15px"}
+      rounded="md"
+      overflow="hidden"
+      width= '100%'
+      borderRadius="18px"
+      marginBottom="15px"
+    >
       <Stack direction="row">
         <Stack minW={86} width="25%">
           <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
@@ -103,7 +105,6 @@ function Screen({
       </Stack>
 
       <Divider borderWidth="2px" mt="10" mb="10" />
-
       <TableComponent loading={loading} columns={columns} data={data} />
       </Box>
     </ContainerBasic>
