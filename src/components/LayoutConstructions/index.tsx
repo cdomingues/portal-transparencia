@@ -57,9 +57,8 @@ const Layout = ({
           <div
             onClick={() => router.push("/controle-de-obras/inicio")}
             style={{ marginRight: 5 }}
-            
           >
-            <Text.Heading5Regular color={colors.white} >
+            <Text.Heading5Regular color={colors.white}>
               Início
             </Text.Heading5Regular>
           </div>
