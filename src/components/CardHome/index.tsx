@@ -71,15 +71,7 @@ function CardHome() {
         { label: "Relatório Resumido", url: "/ciclo-orcamentario/relatorio-resumido" },
         { label: "Balanços Anuais", url: "/ciclo-orcamentario/balancos-anuais" },
         { label: "Pareceres do Tribunal", url: "/ciclo-orcamentario/pareceres-do-tribunal" },
-<<<<<<< HEAD
         { label: "Aprovação de Contas pelo Legislativo", url: "http://www.cmmc.com.br/contasexecutivo/"   },
-=======
-        { label: "Aprovação de Contas pelo Legislativo", url: "/ciclo-orcamentario/contas-executivo" },
-        { label: "Obras Públicas", url: "/ciclo-orcamentario/obras-publicas" },
-        { label: "Servidores Públicos Estagiários", url: "/ciclo-orcamentario/servidores-publicos-estagiarios" },
-        { label: "Promae", url: "/ciclo-orcamentario/promae" },
-
->>>>>>> 20331754f08eb7d3457b65590801f143d341b993
       ],
     },
 
