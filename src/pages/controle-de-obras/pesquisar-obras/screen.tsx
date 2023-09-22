@@ -7,6 +7,7 @@ import Carousel from "../../../components/Swiper";
 import { Input, Select } from "@chakra-ui/react";
 import Vlibras from 'vlibras-nextjs';
 import { useState } from "react";
+import router from "next/router";
 interface PropsPagination {
   totalPages: number;
   onPageChange: (pageNumber: number) => void;
@@ -20,7 +21,7 @@ export const contentSearchConstructions = {
 function capitalizeFirstLetter(text: string) {
   return text.charAt(0).toUpperCase() + text.slice(1);
 }
-
+//const [constructionSelected, setConstructionSelected] = useState<any>(null);
 const SearchBuildingsScreen = ({ handlers }: any) => {
   const {
     arrayBuildings,
@@ -253,17 +254,25 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
 
             return (
 
-              
+              <a href= {`/controle-de-obras/construcao?${item?._id}`}>
               <Style.Card key={index}>
                 <div className="left">
                   <img
                     src={`/icons/${programConfig.imageName}.svg`}
                     width="50%"
                     alt="Meu Ícone"
+                    
                   />
                 </div>
 
-                <div className="right">
+                <div className="right"
+                /* onClick={() =>
+                  router.push(
+                    `/controle-de-obras/construcao?${item?._id}`
+                  )
+                } */
+                
+                >
                   <div className="row">
                     <div className="item">
                       <Text.Heading4Bold color={colors.black}>
@@ -332,6 +341,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                       <Text.Heading5Regular color={colors.black}>
                         {item?.situacao}
                       </Text.Heading5Regular>
+                     
                     </div>
                   </div>
                 </div>
@@ -363,7 +373,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                     )}
                   </div>
                 </div>
-              </Style.Card>
+              </Style.Card></a>
             );
           })}
         <div className="bottom">

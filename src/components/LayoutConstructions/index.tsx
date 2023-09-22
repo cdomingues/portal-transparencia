@@ -59,7 +59,7 @@ const Layout = ({
             style={{ marginRight: 5 }}
             
           >
-            <Text.Heading5Regular color={colors.white}>
+            <Text.Heading5Regular color={colors.white} >
               Início
             </Text.Heading5Regular>
           </div>

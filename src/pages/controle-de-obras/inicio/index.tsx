@@ -40,6 +40,7 @@ function Screen({ handler }: PropsInput) {
             color={colors.white}
             fontSize={accessibility?.fonts?.moreUltraLarge}
             marginTop={50}
+            fontWeight={"extrabold"}
           >
             {contentConstructionsControl?.titlePage}
           </Heading>
@@ -55,6 +56,7 @@ function Screen({ handler }: PropsInput) {
             <div
               className="chip-banner"
               onClick={() => router.push("/controle-de-obras/sobre-as-obras")}
+              
             >
               <AiFillInfoCircle fontSize={18} color={colors.white} />
 
