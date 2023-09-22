@@ -14,6 +14,7 @@ type PropsInput = {
     
     
 }
+//
 
 function DisplayNews({titulo,descricao,link, foto,data_noticia,...rest}:PropsInput){
   const accessibility = useFontSizeAccessibilityContext();
