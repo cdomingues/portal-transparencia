@@ -3,15 +3,15 @@ import React, { useState } from "react";
 import Screen from "./screen";
 import {
   getChart,
-  getFinesExpenses,
-} from "../../../../../calls/budgetExecution/finesExpenses";
-import { revalidate } from "../../../../../config";
+  getRemainders,
+} from "../../../../calls/budgetExecution/remains";
+import { revalidate } from "../../../../config";
 import moment from "moment";
 
-function Controller({ chart = { datasets: [] }, fines = [], years }: any) {
+function Controller({ chart = { datasets: [] }, remainders = [], years }: any) {
   const [year, setYear] = useState(moment().year());
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState(fines);
+  const [data, setData] = useState(remainders);
 
   const columns = [
     { title: "Número", field: "numero" },
@@ -31,11 +31,11 @@ function Controller({ chart = { datasets: [] }, fines = [], years }: any) {
 
     setLoading(true);
 
-    const { fines } = await getFinesExpenses(year);
+    const { remainders } = await getRemainders(year);
 
     setLoading(false);
 
-    setData(fines);
+    setData(remainders);
   };
 
   const handler = {
@@ -56,12 +56,12 @@ export default Controller;
 
 export const getStaticProps: GetStaticProps = async () => {
   const { chart } = await getChart();
-  const { fines, years } = await getFinesExpenses();
+  const { remainders, years } = await getRemainders();
 
   return {
     props: {
-      chart: chart || { datasets: [] },
-      fines: fines || [],
+      chart: chart || { data: [] },
+      remainders: remainders || [],
       years,
     },
     revalidate,

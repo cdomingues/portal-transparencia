@@ -48,16 +48,16 @@ import { contentRepostManagementSupervisor } from "../pages/zzOld_ciclo-orcament
 import { contentPublicWorks } from "../pages/ciclo-orcamentario/obras-publicas/screen";
 import { contentPublicServants } from "../pages/ciclo-orcamentario/servidores-publicos-estagiarios/screen";
 import { contentPROMAE } from "../pages/ciclo-orcamentario/promae/screen";
-import { contentRevenue } from "../pages/gestao-orcamentaria/orcamentarias/receitas/screen";
+import { contentRevenue } from "../pages/gestao-orcamentaria/receitas/screen";
 import { contentContractsAndAtas } from "../pages/gestao-orcamentaria-outros/contratos-atas/screen";
 import { contentBids } from "../pages/compras-publicas/licitacoes/screen";
 
 import { contentAdvancesAndAccommodation } from "../pages/gestao-de-pessoas/adiantamento-hospedagem/screen";
-import { contentRecipesAmendments } from "../pages/gestao-orcamentaria/orcamentarias/receitas/receitas-emendas/screen";
-import { contentGeneralCosts } from "../pages/gestao-orcamentaria/orcamentarias/despesas/despesas-gerais/screen";
-import { contentExpensesRemains } from "../pages/gestao-orcamentaria/orcamentarias/despesas/despesas-restos/screen";
-import { contentTrafficFines } from "../pages/gestao-orcamentaria/orcamentarias/receitas/multa-transito/screen";
-import { contentExpensesParliamentaryAmendments } from "../pages/gestao-orcamentaria/orcamentarias/despesas/despesas-emendas/screen";
+import { contentRecipesAmendments } from "../pages/gestao-orcamentaria/receitas/receitas-emendas/screen";
+import { contentGeneralCosts } from "../pages/gestao-orcamentaria/despesas/despesas-gerais/screen";
+import { contentExpensesRemains } from "../pages/gestao-orcamentaria/despesas/despesas-restos/screen";
+import { contentTrafficFines } from "../pages/gestao-orcamentaria/receitas/multa-transito/screen";
+import { contentExpensesParliamentaryAmendments } from "../pages/gestao-orcamentaria/despesas/despesas-emendas/screen";
 import { contentExtrabudgetExpenses } from "../pages/zzOld_orcamento-municipal/extraorcamentario/despesas/screen";
 import { contentExtrabudgetRevenues } from "../pages/zzOld_orcamento-municipal/extraorcamentario/receitas/screen";
 import { contentCovidRecipes } from "../pages/zzOld_orcamento-municipal/covid/receitas/screen";
@@ -161,6 +161,11 @@ const publicRoutes: IPublicRoute[] = [
         name: "Servidores Públicos Estagiários",
         path: "servidores-publicos-estagiarios",
         icon: AiFillCaretRight,
+      }, {
+        defaultPath: "/ciclo-orcamentario",
+        name: "Promae",
+        path: "promae",
+        icon: AiFillCaretRight,
       },
     ],
   },
@@ -174,50 +179,50 @@ const publicRoutes: IPublicRoute[] = [
       {
         defaultPath: "/gestao-orcamentaria",
         name: "Gerais",
-        path: "orcamentarias/receitas",
+        path: "receitas",
         icon: AiFillCaretRight,
       },
       {
         defaultPath: "/gestao-orcamentaria",
         name: "Emendas Parlamentares",
-        path: "orcamentarias/receitas/receitas-emendas",
+        path: "receitas/receitas-emendas",
         icon: AiFillCaretRight,
       },
       {
         defaultPath: "/gestao-orcamentaria",
         name: "Multas de Trânsito",
-        path: "orcamentarias/receitas/multa-transito",
+        path: "receitas/multa-transito",
         icon: AiFillCaretRight,
       },
       
       {
         defaultPath: "/gestao-orcamentaria",
         name: "Gerais",
-        path: "orcamentarias/despesas/despesas-gerais",
+        path: "despesas/despesas-gerais",
         icon: AiFillCaretRight,
       },
       {
         defaultPath: "/gestao-orcamentaria",
         name: "Emendas Parlamentares",
-        path: "orcamentarias/despesas/despesas-emendas",
+        path: "despesas/despesas-emendas",
         icon: AiFillCaretRight,
       },
       {
         defaultPath: "/gestao-orcamentaria",
         name: "Multas de Trânsito",
-        path: "orcamentarias/despesas/despesas-multas-transito",
+        path: "despesas/despesas-multas-transito",
         icon: AiFillCaretRight,
       },
       {
         defaultPath: "/gestao-orcamentaria",
         name: "Restos a Pagar",
-        path: "orcamentarias/despesas/despesas-restos",
+        path: "despesas/despesas-restos",
         icon: AiFillCaretRight,
       },
       {
         defaultPath: "/gestao-orcamentaria",
         name: "Pagamentos",
-        path: "orcamentarias/despesas/pagamentos",
+        path: "despesas/pagamentos",
         icon: AiFillCaretRight,
       },
     ],

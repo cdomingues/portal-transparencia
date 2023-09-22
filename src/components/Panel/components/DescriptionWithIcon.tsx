@@ -1,115 +1,123 @@
 import {
-  Icon,
-  Stack,
+  Flex,
   Box,
-  Text,
-  VStack,
   useColorModeValue,
+  Text,
+  Stack,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverBody,
 } from "@chakra-ui/react";
 import { isMobile } from "react-device-detect";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
-import useWindowDimensions from "../../../utils/useWindowDimensions";
+import { Left } from "../../CardBigTransformation/styles";
 
-const DescriptionWithIcon = ({
-  label,
-  value,
-  icon,
-  descriptionValue,
-  labelDescription,
-  year,
-}: {
+interface DescriptionWithIconProps {
   label: string;
   value: string;
   icon?: any;
   descriptionValue: string;
   labelDescription: string;
   year: string;
+}
+
+const DescriptionWithIcon: React.FC<DescriptionWithIconProps> = ({
+  label,
+  value,
+  icon,
+  descriptionValue,
+  labelDescription,
+  year,
 }) => {
   const accessibility = useFontSizeAccessibilityContext();
-  const { height, width } = useWindowDimensions();
   return (
+    <Popover placement="bottom">
+      <PopoverTrigger>
+        <Stack
+          as="button"
+          display={"flex"}
+          flexDirection={"row"}
+          m={0}
+          bg={useColorModeValue("white", "gray.800")}
+          border={"1px"}
+          borderColor={useColorModeValue("lightgray", "white")}
+          rounded="md"
+          overflow="hidden"
+          width="320px"
+          height="85px"
+          borderRadius="18px"
+          marginStart={isMobile ? 0 : 10}
+        >
+          <Flex
+            width={"25%"}
+            height="100%"
+            backgroundColor={useColorModeValue("rgb(205, 67, 83)", "gray.800")}
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Box as={icon} fontSize="35px" color="white" />
+          </Flex>
 
-    <Stack 
-    direction={isMobile ? "column" : "row"}
-    style={{ width: "100%", height: "100%"}}
-  >
-    <Stack
-      flex={width > 1024 ? 2 : 2}
-      style={{
-        paddingLeft: isMobile ? 0 : "0%",
-        paddingRight: isMobile ? 0 : "1%"
-      }}
-    >
-    <Stack
-      bgColor={useColorModeValue("white", "gray.700")}
-      shadow={'2xl'}
-      direction="row"
-      style={{
-        height: "65px",
-        width: isMobile ? "330px" : "365px",
-        padding: "2%",
-        borderRadius: "5px",
-        marginBottom: "19px",
-        marginTop: "0px",
-        marginRight: "19px",
-        marginLeft: isMobile ? "0px" : "19px",
-      }}
-    >
-      <Stack direction={["row"]} spacing="5px">
-        <Box w="40px" h="55px" paddingTop="10px">
-          <Icon as={icon} fontSize="35px" color="primary" />
-        </Box>
-
-        <Box w="130px" h="25px">
-          <VStack spacing={0.5} align="stretch">
-            <Box h="10px" w="90px">
-              <Text
-                fontWeight="550"
-                fontSize={accessibility?.fonts?.medium}
-                padding={"0"}
-              >
+          <Flex
+            width={"75%"}
+            height="90%"
+            paddingLeft={1}
+            direction="column"
+            justifyContent="space-between"
+            alignItems="center"
+          >
+            <Flex
+              width={"100%"}
+            
+              paddingLeft={1}
+              direction="column"
+              justifyContent="center"
+            >
+              <Text fontSize={accessibility?.fonts?.regular} textAlign={"left"}>
                 {label}
               </Text>
-            </Box>
-            <Box w="90px">
-              <Text
-                paddingTop="6px"
-                fontSize={accessibility?.fonts?.micro}
-                color="gray.600"
-              >
+            </Flex>
+            <Flex
+              width={"100%"}
+            
+              paddingLeft={1}
+              direction="column"
+              justifyContent="flex-start"
+              alignItems="flex-start"
+            >
+              <Text fontSize={accessibility?.fonts?.micro} color="gray.600">
                 {labelDescription}
               </Text>
-            </Box>
-          </VStack>
-        </Box>
-
-        <Box w="100px" h="25px">
-          <VStack spacing={0.5} align="stretch">
-            <Box h="25px">
-              <Text fontSize={accessibility?.fonts?.small}>{value}</Text>
-            </Box>
-            <Box h="20px">
-              <Text paddingTop="4px" fontSize={accessibility?.fonts?.micro}>
-                {descriptionValue}
+            </Flex>
+            <Flex
+              width={"100%"}
+           
+              paddingLeft={1}
+              direction="column"
+              justifyContent="flex-start"
+              alignItems="flex-start"
+            >
+              <Text fontSize={accessibility?.fonts?.regular}>{value}</Text>
+            </Flex>
+            <Flex
+              width={"100%"}
+            
+              paddingLeft={1}
+              direction="column"
+              justifyContent="flex-start"
+              alignItems="flex-start"
+            >
+              <Text fontSize={accessibility?.fonts?.micro}>
+                {descriptionValue} [ano base {year}]
               </Text>
-            </Box>
-          </VStack>
-        </Box>
-
-        <Box w="40px" h="50px">
-          <Text
-            paddingTop="20px"
-            paddingRight="5px"
-            fontSize={accessibility?.fonts?.tiny}
-            color="gray.600"
-          >
-            [{year}]
-          </Text>
-        </Box>
-      </Stack>
-    </Stack>
-    </Stack>
-    </Stack>
+            </Flex>
+          </Flex>
+        </Stack>
+      </PopoverTrigger>
+      {/* Outras funcionalidades do Popover podem ser adicionadas aqui se necessário */}
+    </Popover>
   );
 };
+
 export default DescriptionWithIcon;

@@ -1,4 +1,4 @@
-import { Image, Stack } from "@chakra-ui/react";
+import { Image, Stack, Grid } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 import { isMobile } from "react-device-detect";
 import descriptionEducacao from "../../data/perfil-educacao";
@@ -8,65 +8,42 @@ import image from "../../assets/images/business.jpg";
 
 const CountyPanel = () => {
   return (
-    <Stack direction={isMobile ? "column" : "row"}>
-      <Stack direction="column" flex={2}>
-        <Image
-          height={isMobile ? "300px" : "100%"}
-          width={isMobile ? "100%" : "100%"}
-          alt="image"
-          objectFit="cover"
-          src={image.src}
-        />
-        {/* <div
-          style={{
-            borderRadius: "5px",
-            marginBottom: "19px",
-            marginTop: "0px",
-            marginRight: "0px",
-            marginLeft: "0px",
-          }}
+    <Stack direction={isMobile ? "column" : "row"} justifyContent="center" alignItems="center">
+
+      <Stack flex={4} width="100%" justifyContent="center" alignItems="center">
+        <Grid
+          templateColumns={isMobile ? "repeat(1, 1fr)" : "repeat(2, 1fr)"}
+          gap={4}
+          alignItems="start"
+          justifyContent="center"
+          width={isMobile ? "100%" : "90%"} // Configura a largura do grid
         >
-          <Description label="Prefeito" value="CAIO CÉSAR MACHADO DA CUNHA" />
-          <Description label="Gentílico" value="MOGIANO" />
-        </div> */}
+          {descriptionEducacao.map(
+            (
+              {
+                label,
+                value,
+                descriptionValue,
+                labelDescription,
+                year,
+                icon,
+              },
+              index
+            ) => (
+              <DescriptionWithIcon
+                descriptionValue={descriptionValue}
+                label={label}
+                value={value}
+                key={index}
+                labelDescription={labelDescription}
+                year={year}
+                icon={icon}
+              />
+            )
+          )}
+        </Grid>
       </Stack>
-      <Stack flex={4} width="100%">
-        <Stack
-          direction={isMobile ? "column" : "row"}
-          flex={1}
-          style={
-            !isMobile
-              ? { paddingLeft: "4%", paddingRight: "4%", width: "90%" }
-              : {}
-          }
-        >
-          <Stack direction="column" flex={3}>
-            {descriptionEducacao.map(
-              (
-                {
-                  label,
-                  value,
-                  descriptionValue,
-                  labelDescription,
-                  year,
-                  icon,
-                },
-                index
-              ) => (
-                <DescriptionWithIcon
-                  descriptionValue={descriptionValue}
-                  label={label}
-                  value={value}
-                  key={index}
-                  labelDescription={labelDescription}
-                  year={year}
-                  icon={icon}
-                />
-              )
-            )}
-          </Stack>
-        </Stack>
-      </Stack>
+
     </Stack>
   );
 };
