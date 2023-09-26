@@ -64,6 +64,7 @@ type PropsInput = {
   };
 };
 
+
 export const contentInitial = {
   titlePage: "Portal de Obras",
   description:

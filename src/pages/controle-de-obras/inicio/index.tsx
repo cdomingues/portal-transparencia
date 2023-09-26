@@ -88,7 +88,7 @@ function Screen({ handler }: PropsInput) {
       <Style.BannerTotals>
         <div className="gradient-image"></div>
         <div className="content">
-          {/* <CardTotal
+          <CardTotal
             value="0"
             description={`novas áreas de espaço público e áeras verdes`}
             icon={<BsTree color={colors.white} fontSize={50} />}
@@ -110,16 +110,16 @@ function Screen({ handler }: PropsInput) {
             value={"0"}
             description="atendidas nas novas unidades de saúde"
             icon={<TbRibbonHealth color={colors.white} fontSize={50} />}
-          /> */}
+          />
         </div>
       </Style.BannerTotals>
 
       <MapOfConstructions />
 
-      {/* <Style.ContainerBigTransformations>
+      <Style.ContainerBigTransformations>
         <Style.Heading>Grandes transformações da cidade</Style.Heading>
         <CardBigTransformation></CardBigTransformation>
-      </Style.ContainerBigTransformations> */}
+      </Style.ContainerBigTransformations>
 
       <Style.ContainerCardsTransformations>
         <Style.Heading>Conheça nossas obras em destaque</Style.Heading>
