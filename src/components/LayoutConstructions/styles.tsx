@@ -40,7 +40,7 @@ export const Content = styled.div`
 export const BannerDefault = styled.div`
   width: 100%;
   height: 350px;
-  background-image: url("https://www.mogidascruzes.sp.gov.br/public/site/imagens/6/2023071817355164b6f7a743553.jpg");
+  background-image: url("https://dados.mogidascruzes.sp.gov.br/dataset/8e668745-1f91-4e64-a541-4f4a81898cac/resource/028e23b1-4f8b-4edc-a40d-6ef8b955b26b/download/home_portal_obras.png");
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;

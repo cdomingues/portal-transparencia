@@ -7,6 +7,7 @@ import Carousel from "../../../components/Swiper";
 import { Input, Select } from "@chakra-ui/react";
 import Vlibras from 'vlibras-nextjs';
 import { useState } from "react";
+import router from "next/router";
 interface PropsPagination {
   totalPages: number;
   onPageChange: (pageNumber: number) => void;
@@ -65,7 +66,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
   return (
     <LayoutConstructions
       title="Sobre"
-      bannerSrc="https://cdn.buenosaires.gob.ar/BAObrasrenovado/NUEVA-POMPEYA-AHORA-VIADUCTO-BELGRANO-SUR-2.jpg"
+      bannerSrc="https://dados.mogidascruzes.sp.gov.br/dataset/8e668745-1f91-4e64-a541-4f4a81898cac/resource/4244bee1-6627-46b8-97cc-0003e6e5fefa/download/imagens-para-site_topo-pesquisar-obras.png"
       bannerTitle={contentSearchConstructions?.titlePage}
       bannerDescription={contentSearchConstructions?.description}
     >
@@ -90,35 +91,36 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
             onChange={handleChangeSelectNeighborhood}
             style={{ backgroundColor: colors.white }}
           >
-            <option value="">Todos</option>
-            <option value="PARQUE MORUMBI">Parque Morumbi</option>
-            <option value="JUNDIAPEBA">Jundiapeba</option>
-            <option value="BOTUJURU">Bojuturu</option>
-            <option value="SANTO ÂNGELO">Santo Ângelo</option>
-            <option value="FAZENDA RODEIO">Fazenda Rodeio</option>
-            <option value="SANTO ÂNGELO">Santo Ângelo</option>
-            <option value="NOVA MOGILAR">Nova Mogilar</option>
-            <option value="BRAZ CUBAS">Braz Cubas</option>
-            <option value="NOVA JUNDIAPEBA">Nova Jundiapeba</option>
-            <option value="SOCORRO">Socorro</option>
-            <option value="CEZAR DE SOUZA">Cezar De Souza</option>
-            <option value="CENTRO">Centro</option>
-            <option value="MOGI MODERNO">Mogi Moderno</option>
-            <option value="TAIAÇUPEBA">Taiaçupeba</option>
-            <option value="VILA NATAL">Vila Natal</option>
-            <option value="CONJUNTO SANTO ÂNGELO">Conjunto Santo Ângelo</option>
-            <option value="PARQUE OLÍMPICO">Parque Olímpico</option>
-            <option value="VILA CINTRA">Vila Cintra</option>
-            <option value="TABOÃO">Taboão</option>
-            <option value="JARDIM ARACY">Jardim Aracy</option>
-            <option value="VILA LAVÍNIA">Vila Lavínia</option>
-            <option value="JARDIM AEROPORTO">Jardim Aeroporto</option>
-            <option value="CHÁCARA GUANABARA">Chácara Guanabara</option>
-            <option value="RESIDENCIAL NOVO HORIZONTE">
-              Residencial Novo Horizonte
-            </option>
-            <option value="JARDIM MARICÁ">Jardim Maricá</option>
-            <option value="JARDIM SANTA TEREZA">Jardim Santa Tereza</option>
+             <option value="">Todos</option>
+           
+           
+           <option value="BOTUJURU">Bojuturu</option>
+           <option value="BRAZ CUBAS">Braz Cubas</option>
+           <option value="CENTRO">Centro</option>
+           <option value="CEZAR DE SOUZA">Cezar De Souza</option>
+           <option value="CHÁCARA GUANABARA">Chácara Guanabara</option>
+           <option value="CONJUNTO SANTO ÂNGELO">Conjunto Santo Ângelo</option>
+           
+           <option value="FAZENDA RODEIO">Fazenda Rodeio</option>
+           <option value="JARDIM AEROPORTO">Jardim Aeroporto</option>
+           <option value="JARDIM ARACY">Jardim Aracy</option>
+           <option value="JARDIM MARICÁ">Jardim Maricá</option>
+           <option value="JARDIM SANTA TEREZA">Jardim Santa Tereza</option>
+           <option value="JUNDIAPEBA">Jundiapeba</option>
+           <option value="MOGI MODERNO">Mogi Moderno</option>
+           <option value="NOVA MOGILAR">Nova Mogilar</option>
+           
+           <option value="NOVA JUNDIAPEBA">Nova Jundiapeba</option>
+           <option value="PARQUE MORUMBI">Parque Morumbi</option>
+           <option value="PARQUE OLÍMPICO">Parque Olímpico</option>
+           <option value="RESIDENCIAL NOVO HORIZONTE">Residencial Novo Horizonte </option>
+           <option value="SOCORRO">Socorro</option>
+           <option value="SANTO ÂNGELO">Santo Ângelo</option>
+           <option value="TABOÃO">Taboão</option>
+           <option value="TAIAÇUPEBA">Taiaçupeba</option>
+           <option value="VILA CINTRA">Vila Cintra</option>
+           <option value="VILA LAVÍNIA">Vila Lavínia</option>
+           <option value="VILA NATAL">Vila Natal</option>
           </Select>
 
           <Select
@@ -138,25 +140,29 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
             style={{ backgroundColor: colors.white }}
           >
             <option value="">Todos</option>
-            <option value="2006 - SANEAMENTO AMBIENTAL">
-              2006 - SANEAMENTO AMBIENTAL
-            </option>
-            <option value="2004 - INFRAESTRUTURA">2004 - INFRAESTRUTURA</option>
-            <option value="2000 - MOGI EFICIENTE">2000 - MOGI EFICIENTE</option>
-            <option value="3100 - SAÚDE">3100 - SAÚDE</option>
-            <option value="3003 - ESPORTE">3003 - ESPORTE</option>
-            <option value="3100 - SAÚDE">3100 - SAÚDE</option>
-            <option value="2007 - MOBILIDADE URBANA">
-              2007 - MOBILIDADE URBANA
-            </option>
-            <option value="3004 - SEGURANÇA">3004 - SEGURANÇA</option>
-            <option value="2001 - CIDADE INTELIGENTE">
-              2001 - CIDADE INTELIGENTE
-            </option>
+           
+            <option value="">Todos</option>
+            <option value="1000 - EDUCA MOGI">1000 - EDUCA MOGI</option>
             <option value="1001 - PRIMEIROS PASSOS">
               1001 - PRIMEIROS PASSOS
             </option>
-            <option value="1000 - EDUCA MOGI">1000 - EDUCA MOGI</option>
+            <option value="2000 - MOGI EFICIENTE">2000 - MOGI EFICIENTE</option>
+            <option value="2001 - CIDADE INTELIGENTE">
+              2001 - CIDADE INTELIGENTE
+            </option>
+            <option value="2004 - INFRAESTRUTURA">2004 - INFRAESTRUTURA</option>
+            <option value="2006 - SANEAMENTO AMBIENTAL">
+              2006 - SANEAMENTO AMBIENTAL
+            </option>
+                        
+            <option value="2007 - MOBILIDADE URBANA">
+              2007 - MOBILIDADE URBANA
+            </option>
+            
+            <option value="3003 - ESPORTE">3003 - ESPORTE</option>
+                       
+            <option value="3004 - SEGURANÇA">3004 - SEGURANÇA</option>
+            <option value="3100 - SAÚDE">3100 - SAÚDE</option>
           </Select>
 
           <button className="buttons" onClick={() => handleFilterBuildings()}>
@@ -242,8 +248,21 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
             };
 
             return (
-              <Style.Card key={index}>
+
+                    
+              //<a href= {`/controle-de-obras/construcao?${item?._id}`}>
+              <Style.Card  key= {index} 
+              onClick={() =>
+                router.push(
+                  `/controle-de-obras/construcao?${item?._id}`
+                )
+              }
+              style={{ cursor: 'pointer' }}
+              
+              >
+                
                 <div className="left">
+                
                   <img
                     src={`/icons/${programConfig.imageName}.svg`}
                     width="50%"
