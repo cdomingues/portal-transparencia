@@ -58,12 +58,12 @@ const Layout = ({
             onClick={() => router.push("/controle-de-obras/inicio")}
             style={{ marginRight: 5 }}
           >
-            <Text.Heading5Regular color={colors.white}>
+            <Text.Heading5Regular color={colors.black}>
               Início
             </Text.Heading5Regular>
           </div>
 
-          <MdArrowRight style={{ marginRight: 5 }} color={colors.white} />
+          <MdArrowRight style={{ marginRight: 5 }} color={colors.black} />
 
           {pathnames?.map((item: string, index: number) => {
             if (index === 0) {
@@ -80,11 +80,8 @@ const Layout = ({
                 style={{ marginRight: 10 }}
               >
                 <Text.Heading5Regular
-                  color={colors.white}
-                  style={{
-                    opacity:
-                      pathnames[pathnames?.length - 1] === item ? 0.7 : 1,
-                  }}
+                  color={colors.black}
+                  
                 >
                   {item}
                 </Text.Heading5Regular>

@@ -8,7 +8,7 @@ import { AiFillInfoCircle, AiOutlineSearch } from "react-icons/ai";
 import { IoIosConstruct } from "react-icons/io";
 import { TbUsers, TbBus, TbRibbonHealth } from "react-icons/tb";
 import { BsTree } from "react-icons/bs";
-import CardTotal from "../../../components/CardTotal";
+//import CardTotal from "../../../components/CardTotal";
 import MapOfConstructions from "../../../components/MapOfConstructions";
 import CardBigTransformation from "../../../components/CardBigTransformation";
 import CardTransformation from "../../../components/CardTransformation";
@@ -18,7 +18,8 @@ import obras_espaco_publico from '../../../assets/images/icones/Portal de Obras_
 import obras_saneamento from '../../../assets/images/icones/Portal de Obras_TOPO_saneamento.svg'
 import obras_mobilidade from '../../../assets/images/icones/Portal de Obras_TOPO_mobilidade.svg'
 import obras_saude from '../../../assets/images/icones/Portal de Obras_TOPO_saude.svg'
-
+import CardObras from "../../../components/CardObras";
+import imgBigTransformations from '../../../assets/images/big_transformations.png'
 
 type PropsInput = {
   handler?: {
@@ -57,7 +58,22 @@ function Screen({ handler }: PropsInput) {
             {contentConstructionsControl?.description}
           </Text>
           <div className="banner-bottom">
-            
+
+          <div
+              className="chip-banner"
+              onClick={() => router.push("/controle-de-obras/sobre-as-obras")}
+            >
+              <AiFillInfoCircle fontSize={18} color={colors.white} />
+
+              <Text
+                color={colors.white}
+                fontSize={accessibility?.fonts?.medium}
+                fontWeight={700}
+              >
+                Sobre as obras
+              </Text>
+            </div>
+
           <div
               className="chip-banner"
               onClick={() => router.push("/controle-de-obras/pesquisar-obras")}
@@ -74,52 +90,39 @@ function Screen({ handler }: PropsInput) {
               </Heading>
             </div>
 
-            <div
-              className="chip-banner"
-              onClick={() => router.push("/controle-de-obras/sobre-as-obras")}
-            >
-              <AiFillInfoCircle fontSize={18} color={colors.white} />
-
-              <Text
-                color={colors.white}
-                fontSize={accessibility?.fonts?.medium}
-                fontWeight={700}
-              >
-                Sobre as obras
-              </Text>
-            </div>
+           
 
             
           </div>
         </div>
         <Style.BannerTotals>
         <div className="gradient-image"></div>
-        <div className="content">
+        <div className="content" >
           {/* <CardTotal
            // value="0"
             description={`Novas áreas de espaço público e áeras verdes`}
             icon={<TbUsers color={colors.white} fontSize={50} />}
           /> */}
 
-            <CardTotal
+            <CardObras
               //value="0"
               description="Novas áreas de espaço público e áreas verdes"
               // icon={obras_espaco_publico}
               imageURL={obras_espaco_publico.src}  />
 
-<CardTotal
+<CardObras
               //value="0"
               description="Pessoas atendidas pelas obras de saneamento"
               // icon={obras_espaco_publico}
               imageURL={obras_saneamento.src}  />
 
-              <CardTotal
+              <CardObras
               //value="0"
               description="Pessoas atendidas pelas obras de mobilidade"
               // icon={obras_espaco_publico}
               imageURL={obras_mobilidade.src}  />
 
-              <CardTotal
+              <CardObras
               //value="0"
               description="Pessoas atendidas pelas obras de saúde"
               // icon={obras_espaco_publico}
@@ -135,10 +138,11 @@ function Screen({ handler }: PropsInput) {
 
       <MapOfConstructions />
 
-      <Style.ContainerBigTransformations>
+     {/*  <Style.ContainerBigTransformations>
         <Style.Heading>Grandes transformações da cidade</Style.Heading>
-        <CardBigTransformation></CardBigTransformation>
-      </Style.ContainerBigTransformations>
+        
+      
+      </Style.ContainerBigTransformations> */}
 
       <Style.ContainerCardsTransformations>
         <Style.Heading>Conheça nossas obras em destaque</Style.Heading>

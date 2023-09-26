@@ -47,7 +47,7 @@ export const Banner = styled.div`
     .chip-banner {
       display: flex;
       flex-direction: row;
-      background-color: ${colors.grayDark70p};
+      background-color: '${colors.red}';
       width: 150px;
       height: 30px;
       border-radius: 30px;
@@ -99,7 +99,7 @@ export const BannerTotals = styled.div`
   width: 100%;
   height: 240px;
   margin-top: 250px;
-  //filter: grayscale(30%) opacity(70%);
+  filter: grayscale(30%) opacity(90%);
   //background-color: grey;
   // background-image: url("https://images8.alphacoders.com/368/368165.jpg");
   
