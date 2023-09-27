@@ -14,12 +14,12 @@ import CardBigTransformation from "../../../components/CardBigTransformation";
 import CardTransformation from "../../../components/CardTransformation";
 import { Heading, Input, Text, background } from "@chakra-ui/react";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
-import obras_espaco_publico from '../../../assets/images/icones/Portal de Obras_TOPO_espaco publico.svg'
-import obras_saneamento from '../../../assets/images/icones/Portal de Obras_TOPO_saneamento.svg'
-import obras_mobilidade from '../../../assets/images/icones/Portal de Obras_TOPO_mobilidade.svg'
-import obras_saude from '../../../assets/images/icones/Portal de Obras_TOPO_saude.svg'
+import obras_espaco_publico from "../../../assets/images/icones/Portal de Obras_TOPO_espaco publico.svg";
+import obras_saneamento from "../../../assets/images/icones/Portal de Obras_TOPO_saneamento.svg";
+import obras_mobilidade from "../../../assets/images/icones/Portal de Obras_TOPO_mobilidade.svg";
+import obras_saude from "../../../assets/images/icones/Portal de Obras_TOPO_saude.svg";
 import CardObras from "../../../components/CardObras";
-import imgBigTransformations from '../../../assets/images/big_transformations.png'
+import imgBigTransformations from "../../../assets/images/big_transformations.png";
 
 type PropsInput = {
   handler?: {
@@ -41,7 +41,7 @@ function Screen({ handler }: PropsInput) {
   return (
     <LayoutConstructions breadcrumb={false}>
       <Style.Banner>
-        <div className="content" >
+        <div className="content">
           <Heading
             color={colors.white}
             fontSize={accessibility?.fonts?.moreUltraLarge}
@@ -58,8 +58,7 @@ function Screen({ handler }: PropsInput) {
             {contentConstructionsControl?.description}
           </Text>
           <div className="banner-bottom">
-
-          <div
+            <div
               className="chip-banner"
               onClick={() => router.push("/controle-de-obras/sobre-as-obras")}
             >
@@ -74,31 +73,26 @@ function Screen({ handler }: PropsInput) {
               </Text>
             </div>
 
-          <div
+            <div
               className="chip-banner"
               onClick={() => router.push("/controle-de-obras/pesquisar-obras")}
-           >
+            >
               <AiOutlineSearch fontSize={18} color={colors.white} />
 
               <Heading
                 color={colors.white}
                 fontSize={accessibility?.fonts?.medium}
                 fontWeight={700}
-                
               >
                 Pesquise obras
               </Heading>
             </div>
-
-           
-
-            
           </div>
         </div>
         <Style.BannerTotals>
-        <div className="gradient-image"></div>
-        <div className="content" >
-          {/* <CardTotal
+          <div className="gradient-image">
+          <div className="content">
+            {/* <CardTotal
            // value="0"
             description={`Novas áreas de espaço público e áeras verdes`}
             icon={<TbUsers color={colors.white} fontSize={50} />}
@@ -108,41 +102,41 @@ function Screen({ handler }: PropsInput) {
               //value="0"
               description="Novas áreas de espaço público e áreas verdes"
               // icon={obras_espaco_publico}
-              imageURL={obras_espaco_publico.src}  />
+              imageURL={obras_espaco_publico.src}
+            />
 
-<CardObras
+            <CardObras
               //value="0"
               description="Pessoas atendidas pelas obras de saneamento"
               // icon={obras_espaco_publico}
-              imageURL={obras_saneamento.src}  />
+              imageURL={obras_saneamento.src}
+            />
 
-              <CardObras
+            <CardObras
               //value="0"
               description="Pessoas atendidas pelas obras de mobilidade"
               // icon={obras_espaco_publico}
-              imageURL={obras_mobilidade.src}  />
+              imageURL={obras_mobilidade.src}
+            />
 
-              <CardObras
+            <CardObras
               //value="0"
               description="Pessoas atendidas pelas obras de saúde"
               // icon={obras_espaco_publico}
-              imageURL={obras_saude.src}  />  
-
-          
-          
-        </div>
-      </Style.BannerTotals>
+              imageURL={obras_saude.src}
+            />
+          </div>
+          </div>
+        </Style.BannerTotals>
       </Style.Banner>
-
-      
 
       <MapOfConstructions />
 
-     {/*  <Style.ContainerBigTransformations>
+       <Style.ContainerBigTransformations>
         <Style.Heading>Grandes transformações da cidade</Style.Heading>
         
       
-      </Style.ContainerBigTransformations> */}
+      </Style.ContainerBigTransformations>
 
       <Style.ContainerCardsTransformations>
         <Style.Heading>Conheça nossas obras em destaque</Style.Heading>
