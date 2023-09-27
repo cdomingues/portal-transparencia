@@ -4,10 +4,10 @@ import colors from "../../../styles/colors";
 
 export const Banner = styled.div`
   width: 100%;
-  height: 240px;
+  height: 500px;
   display: flex;
   flex-direction: column;
-  background-image: url("https://www.mogidascruzes.sp.gov.br/public/site/imagens/6/2023071817355164b6f7a743553.jpg");
+  background-image: url("https://dados.mogidascruzes.sp.gov.br/dataset/8e668745-1f91-4e64-a541-4f4a81898cac/resource/028e23b1-4f8b-4edc-a40d-6ef8b955b26b/download/home_portal_obras.png");
   filter: grayscale(10%) opacity(90%);
   background-position: top;
   background-repeat: no-repeat;
@@ -47,7 +47,7 @@ export const Banner = styled.div`
     .chip-banner {
       display: flex;
       flex-direction: row;
-      background-color: ${colors.grayDark70p};
+      background-color: '${colors.red}';
       width: 150px;
       height: 30px;
       border-radius: 30px;
@@ -98,6 +98,9 @@ export const Banner = styled.div`
 export const BannerTotals = styled.div`
   width: 100%;
   height: 240px;
+  margin-top: 250px;
+  filter: grayscale(30%) opacity(90%);
+  //background-color: grey;
   // background-image: url("https://images8.alphacoders.com/368/368165.jpg");
   
 
@@ -125,7 +128,7 @@ export const BannerTotals = styled.div`
     z-index: 1000;
     position: relative;
   }
-
+ 
   @media (max-width: 1650px) {
     .content {
       max-width: 900px;

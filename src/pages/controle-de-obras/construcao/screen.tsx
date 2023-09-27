@@ -88,7 +88,7 @@ var days = run(startTime, endTime) / (1000 * 60 * 60 * 24)
         {/* <Text.Heading5Regular color={colors.grayDark} marginTop={15}>
           {item?.descricao_da_obra}
         </Text.Heading5Regular> */}
-
+        <div style={{ backgroundColor: colors.white, borderRadius: '10px', padding: '10px', marginTop: '25px', marginRight: '15px' }}>
         <Style.Row>
           <Style.Datasheet>
             <div className="box-top">
@@ -144,14 +144,14 @@ var days = run(startTime, endTime) / (1000 * 60 * 60 * 24)
                 Tipo de obra:
               </Text.Heading4Bold>
               <Text.Heading5Regular color={colors.black}>
-                {item?.categoria && item?.categoria.toUpperCase()}
+                {item?.categoria && item?.categoria.slice(10).toUpperCase()}
               </Text.Heading5Regular>
 
               <Text.Heading4Bold color={colors.black} marginTop={20}>
                 Área responsável:
               </Text.Heading4Bold>
               <Text.Heading5Regular color={colors.black}>
-                {item?.secretaria_responsavel}
+                {item?.secretaria_responsavel.slice(22)}
               </Text.Heading5Regular>
 
               <Text.Heading4Bold color={colors.black} marginTop={20}>
@@ -204,7 +204,7 @@ var days = run(startTime, endTime) / (1000 * 60 * 60 * 24)
           <Style.DivImage>
             <Carousel listImages={arrayImages} className="image" />
           </Style.DivImage>
-        </Style.Row>
+        </Style.Row></div>
       </div>
     );
   };

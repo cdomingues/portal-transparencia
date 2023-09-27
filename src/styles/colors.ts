@@ -31,6 +31,7 @@ const colors = {
 
     green:'#99c25f',
     red:'rgb(255, 112, 111)',
+    red2: '#db334f',
 
     randomColors:{
       red:'#FF0215',
