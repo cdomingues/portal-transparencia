@@ -209,7 +209,7 @@ function Aside() {
   const accessibility = useFontSizeAccessibilityContext();
   return (
     
-    <div style={{ width: "380px", justifyContent: "left", backgroundColor: "blue" }}>
+    <div style={{ width: "380px", justifyContent: "left", backgroundColor: "transparent" }}>
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
