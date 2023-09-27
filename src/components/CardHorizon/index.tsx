@@ -73,7 +73,7 @@ const CardHorizon: React.FC<CardHorizonProps> = ({
           borderColor={useColorModeValue("lightgray", "white")}
           rounded="md"
           overflow="hidden"
-          width={isMobile ? "320px" : "320px"} // Ajuste para dispositivos móveis
+          width={isMobile ? "300px" : "320px"} // Ajuste para dispositivos móveis
           height="85px"
           borderRadius="18px"
           
