@@ -73,11 +73,13 @@ const CardHorizon: React.FC<CardHorizonProps> = ({
           borderColor={useColorModeValue("lightgray", "white")}
           rounded="md"
           overflow="hidden"
-          width="320px"
+          width={isMobile ? "100%" : "320px"} // Ajuste para dispositivos móveis
           height="85px"
           borderRadius="18px"
-          marginBottom={isMobile ? "0px" : "0px"}
-          marginStart={isMobile ? 0 : 10}
+          
+        
+          justifyContent={isMobile ? "center" : "flex-start"} // Alinhamento centralizado para mobile
+          alignItems={isMobile ? "center" : "flex-start"} // Alinhamento vertical centralizado para mobile
         >
           <Stack
             width={"25%"}
@@ -149,7 +151,7 @@ const CardHorizon: React.FC<CardHorizonProps> = ({
                     textAlign: "right",
                     whiteSpace: "normal",
                     overflow: "auto",
-                    
+
                     margin: "5px",
                     border: "1px solid lightgray", // Adiciona a borda inferior
                     padding: "10px", // Espaço entre o texto e a borda

@@ -251,17 +251,17 @@ function HomeScreen({ handler }: PropsInput) {
       >
         <Head>
           <title>Início</title>
-          
         </Head>
 
         <Box
           m={0}
           bg={useColorModeValue("white", "gray.800")}
           boxShadow="2xl"
-          padding={"15px"}
+          padding={"2%"}
           rounded="md"
-          overflow="hidden"
-          maxWidth="100%"
+          display="flex"
+          overflow="-moz-initial"
+          width="100%"
         >
           <CardHome />
         </Box>
