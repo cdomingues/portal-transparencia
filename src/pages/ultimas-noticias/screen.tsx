@@ -117,7 +117,7 @@ import caraga_horaria from '../../../data/carga_horaria.json'
 
 
 export const contentOtherInformations = {
-  titlePage: "ÚLTIMAS NOTÍCIAS",
+  titlePage: "Últimas Notícias",
   description:
     "Fique por dentro de tudo que acontece na Prefeitura de Mogi das Cruzes sobre Transparência Pública, Governo Aberto, Lei Geral de Proteção de Dados (LGPD), Lei de Acesso à Informação (LAI) e muito mais!",
 };
