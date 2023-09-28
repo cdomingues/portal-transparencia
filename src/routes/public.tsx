@@ -488,7 +488,7 @@ const publicRoutes: IPublicRoute[] = [
       },
       {
         defaultPath: "/agenda-aberta",
-        name: "Co Prefeita - Priscila Yamagami",
+        name: "Co-Prefeita - Priscila Yamagami",
         path: "agenda-coprefeita",
         icon: AiOutlineProfile,
         ...contentMayorAgenda,
