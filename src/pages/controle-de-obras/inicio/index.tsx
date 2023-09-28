@@ -40,7 +40,7 @@ function Screen({ handler }: PropsInput) {
 
   return (
     <LayoutConstructions breadcrumb={false}>
-      <Style.Banner>
+      <Style.Banner >
         <div className="content">
           <Heading
             color={colors.white}
@@ -57,10 +57,12 @@ function Screen({ handler }: PropsInput) {
           >
             {contentConstructionsControl?.description}
           </Text>
-          <div className="banner-bottom">
+          
+          <div className="banner-bottom" >
             <div
               className="chip-banner"
               onClick={() => router.push("/controle-de-obras/sobre-as-obras")}
+              
             >
               <AiFillInfoCircle fontSize={18} color={colors.white} />
 
@@ -68,6 +70,7 @@ function Screen({ handler }: PropsInput) {
                 color={colors.white}
                 fontSize={accessibility?.fonts?.medium}
                 fontWeight={700}
+                
               >
                 Sobre as obras
               </Text>
@@ -76,16 +79,17 @@ function Screen({ handler }: PropsInput) {
             <div
               className="chip-banner"
               onClick={() => router.push("/controle-de-obras/pesquisar-obras")}
+            
             >
               <AiOutlineSearch fontSize={18} color={colors.white} />
 
-              <Heading
+              <Text
                 color={colors.white}
                 fontSize={accessibility?.fonts?.medium}
                 fontWeight={700}
               >
                 Pesquise obras
-              </Heading>
+              </Text>
             </div>
           </div>
         </div>

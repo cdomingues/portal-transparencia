@@ -28,18 +28,18 @@ import Acordos_termos from "../../assets/images/icones/icones_barra lateral__aco
 import Compras_publicas from "../../assets/images/icones/icones_barra lateral__compras publicas.svg";
 import Gestao_de_pessoas from "../../assets/images/icones/icones_barra lateral__gestao de pessoas.svg";
 import Patrimonio from "../../assets/images/icones/icones_barra lateral__patrimonio.svg";
-import Controle_de_obras from "../../assets/images/icones/icones_barra lateral__ultimas noticias.svg";
-import Controle_de_radares from "../../assets/images/icones/receitas multas de transito.svg";
+import Controle_de_obras from "../../assets/images/icones/Home_botoes_obras.svg";
+import Controle_de_radares from "../../assets/images/icones/Home_botoes_radares.svg";
 import Agenda_aberta from "../../assets/images/icones/icones_barra lateral__agenda aberta.svg";
-import Convenios_transferencias from "../../assets/images/icones/receitas emendas parlamentares.svg";
-import Leis_decretos_portarias from "../../assets/images/icones/contratos e atas.svg";
+import Convenios_transferencias from "../../assets/images/icones/Home_botoes_conveniosetransferencias.svg";
+import Leis_decretos_portarias from "../../assets/images/icones/Home_botoes_leisedecretos.svg";
 import Acesso_a_informacao from "../../assets/images/icones/LAI__acesso a informação.svg";
-import Ouvidoria from "../../assets/images/icones/LAI__acesso a informação.svg";
+import Ouvidoria from "../../assets/images/icones/Home_botoes_ouvidoria.svg";
 import Instituto_autarquia from "../../assets/images/icones/icones_barra lateral__institutos e autarquias.svg";
 import Perguntas_frequentes from "../../assets/images/icones/icones_barra lateral__perguntas frequentes.svg";
 import Ultimas_noticias from "../../assets/images/icones/icones_barra lateral__ultimas noticias.svg";
-import Plano_municipal_educacao from "../../assets/images/icones/acordos e termos__acordo de colaboração.svg";
-import Plano_municipal_saude from "../../assets/images/icones/acordos e termos__acordo de colaboração.svg";
+import Plano_municipal_educacao from "../../assets/images/icones/Home_botoes_planoeducacao.svg";
+import Plano_municipal_saude from "../../assets/images/icones/Home_botoes_planosaude.svg";
 import Mapa_do_site from "../../assets/images/icones/icones_barra lateral__mapa do site.svg";
 
 function CardHome() {

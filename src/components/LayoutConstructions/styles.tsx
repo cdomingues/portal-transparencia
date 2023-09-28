@@ -54,11 +54,13 @@ export const BannerDefault = styled.div`
     display: flex;
     flex-direction: column;
     padding: 0px 10px;
+    
   }
 
-  @media (max-width: 1060px) {
+  @media (max-width: 900px) {
     .content {
       max-width: 900px;
+      flex-direction: row;
     }
   }
 `;
