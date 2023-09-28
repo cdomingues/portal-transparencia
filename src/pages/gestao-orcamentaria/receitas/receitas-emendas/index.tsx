@@ -14,21 +14,19 @@ function Controller({ chart = { datasets: [] }, revenues = [], years }: any) {
   const [data, setData] = useState(revenues);
 
   const columns = [
+    { title: "Id Emenda", field: "id_emenda" },
+    { title: "Número Emenda", field: "n_emenda" },
     { title: "Ano", field: "ano" },
-    { title: "Receita", field: "receita" },
-    { title: "Jan", field: "janeiro" },
-    { title: "Fev", field: "fevereiro" },
-    { title: "Mar", field: "marco" },
-    { title: "Abr", field: "abril" },
-    { title: "Mai", field: "maio" },
-    { title: "Jun", field: "junho" },
-    { title: "Jul", field: "julho" },
-    { title: "Ago", field: "agosto" },
-    { title: "Set", field: "setembro" },
-    { title: "Out", field: "outubro" },
-    { title: "Nov", field: "novembro" },
-    { title: "Dez", field: "dezembro" },
-    { title: "Total Arrecadado", field: "totalArrecadado" },
+    { title: "Trimestre", field: "trimestre" },
+    { title: "Autor", field: "autor" },
+    { title: "Partido", field: "partido" },
+    { title: "Orgão Concedente", field: "orgao_concedente" },
+    { title: "Esfera", field: "esfera" },
+    { title: "Modalidade", field: "modalidade" },
+    { title: "Categoria", field: "categoria" },
+    { title: "Valor Previsto", field: "valor_previsto_emenda" },
+    { title: "Valor Realizado", field: "valor_realizado" },
+    { title: "Objeto", field: "objeto" },
   ];
 
   const handleByYear = async (year: number) => {
@@ -61,13 +59,12 @@ export default Controller;
 
 export const getStaticProps: GetStaticProps = async () => {
   const { chart } = await getChart();
-  const { revenues, years } = await getAmendmentRevenues();
+  const { revenues } = await getAmendmentRevenues();
 
   return {
     props: {
       chart: chart || { data: [] },
       revenues: revenues || [],
-      years,
     },
     revalidate,
   };

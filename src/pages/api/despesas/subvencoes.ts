@@ -34,11 +34,13 @@ export default async function handler(
 
   const unityOrc = [
     "02.07.01 - SME",
+    "02.06.01 - SMDEI",
     "02.08.01 - SMEL",
     "02.11.01 - FMS",
     "02.12.02 - FMAS",
     "02.12.03 - FMDCA",
-    "02.16.01 - SMCT",
+    "02.16.01 - SMC",
+    "02.24.01 - SMAA",
   ];
 
   const program = [

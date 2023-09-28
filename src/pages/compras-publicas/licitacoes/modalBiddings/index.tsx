@@ -9,7 +9,13 @@ import {
   TabPanels,
   Tabs,
 } from "@chakra-ui/react";
-import { ListTabs, ModalContainer, Panel, RowDetails, TabItem } from "../../../../styles/components/licitacoes/modal/styles";
+import {
+  ListTabs,
+  ModalContainer,
+  Panel,
+  RowDetails,
+  TabItem,
+} from "../../../../styles/components/licitacoes/modal/styles";
 import Details from "./components/details";
 import ItemsBidding from "./components/itemsBidding";
 import Participants from "./components/participants";
@@ -38,7 +44,7 @@ const ModalBiddings = ({ isOpen, onClose, bidding, details }: any) => {
 
             <TabPanels>
               <Panel>
-                <Details bidding={bidding} />
+                <Details bidding={details} />
               </Panel>
 
               {/* <Panel>
@@ -54,7 +60,7 @@ const ModalBiddings = ({ isOpen, onClose, bidding, details }: any) => {
               </Panel> */}
 
               <Panel>
-                <Files  details={details} />
+                <Files details={details?.anexos} />
               </Panel>
             </TabPanels>
           </Tabs>

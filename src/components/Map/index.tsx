@@ -2,13 +2,12 @@ import React, { ReactNode } from "react";
 import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import mapMarker from "../../assets/images/map_marker.png";
+import { renderToString } from "react-dom/server";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
-var markerIcon = L.icon({
-  iconUrl: mapMarker.src,
-  iconSize: [38, 38], // size of the icon
-  iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
-  popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
+const customIcon = L.divIcon({
+  className: "leaflet-custom-icon",
+  html: renderToString(<FaMapMarkerAlt fontSize={30} color="#B21511" />),
 });
 
 export function ChangeView({ coords }: { coords: Array<number> }) {
@@ -26,10 +25,13 @@ export default function Map({
 }) {
   return (
     <MapContainer style={{ height: "100%", width: "100%" }}>
-      <TileLayer url="https://api.mapbox.com/styles/v1/vinicius-branco/cl9qfukhg001g15nyia8uwz7c/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoidmluaWNpdXMtYnJhbmNvIiwiYSI6ImNsMXZrZnYzNDA3YmMzanBmbXc2ZHBucGEifQ.XPwHy2qNrLE4bpGajye3qg" />
+      <TileLayer
+        url="http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}"
+        subdomains={["mt0", "mt1", "mt2", "mt3"]}
+      />
       {markers.map(({ lat, lng, children }, index) => {
         return (
-          <Marker icon={markerIcon} key={index} position={{ lat, lng }}>
+          <Marker icon={customIcon} key={index} position={{ lat, lng }}>
             <Popup>{children}</Popup>
           </Marker>
         );

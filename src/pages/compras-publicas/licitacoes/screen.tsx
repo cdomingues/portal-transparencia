@@ -89,51 +89,22 @@ function Screen({
 
   const getDetails = async (id: number) => {
     const { data } = await axios.request({
-      url: `${baseUrl}/api/track`,
+      url: `${baseUrl}/api/scrape/scrape`,
       method: "get",
-      params: { id, type: "licitacoes" },
+      params: { id },
     });
 
-    if (!data) {
-      return null;
-    }
-
-    const $ = cheerio.load(data);
-    const links = $("a");
-    const hrefs = links
-      .map((index, element) => {
-        const td = $(element).parent().prev("td");
-        return {
-          content: td.text().trim(),
-          href: $(element).attr("href"),
-          text: $(element).text(),
-        };
-      })
-      .filter((index, link) => !link?.href?.endsWith("#tab"))
-      .get();
-
-    const filteredValues = hrefs.filter(
-      (item) => !item?.href?.includes("#tab")
-    );
-
-    const updatedLinks = filteredValues.map((link) => {
-      const contentParts: any = link?.href?.split("/");
-      const newHref = contentParts[contentParts?.length - 1];
-
-      return {
-        ...link,
-        href: newHref,
-      };
-    });
-
-    return updatedLinks;
+    return data;
   };
 
   const handleOpenModal = async (biddinSelected: any) => {
     onOpen();
     setBidding(biddinSelected?.row?.values);
 
-    const details = await getDetails(Number(biddinSelected?.row?.original?.id));
+    const details = await getDetails(Number(biddinSelected?.row?.values?.id));
+
+    console.log(details);
+
     setDetails(details);
   };
 
