@@ -6,10 +6,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   @media (max-width: 1230px) {
-    width: 300px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+    display: none;
     
   }
 `;

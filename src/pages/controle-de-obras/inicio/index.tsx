@@ -134,6 +134,12 @@ function Screen({ handler }: PropsInput) {
 
        <Style.ContainerBigTransformations>
         <Style.Heading>Grandes transformações da cidade</Style.Heading>
+        <div >
+        <a href="https://www.mogidascruzes.sp.gov.br/noticia/prefeitura-inaugura-o-vagalume-saude-infantil-neste-sabado-as-10-horas" target="_blank">
+          <img  src={imgBigTransformations.src} 
+          alt="" /> <label>Inauguraçao Hospital Vagalume</label></a>
+
+        </div>
         
       
       </Style.ContainerBigTransformations>
