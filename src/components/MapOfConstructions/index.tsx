@@ -10,6 +10,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import colors from "../../styles/colors";
 import { Input, Select } from "@chakra-ui/react";
+import { formatString } from "../../utils/stringUtils";
 
 const MapWithNoSSR = dynamic(() => import("../../components/Map"), {
   ssr: false,
@@ -40,6 +41,9 @@ const MapOfConstructions = () => {
   const [step, setStep] = useState("");
   // const [viewOption, setViewOption] = useState("map");
   const router = useRouter();
+  
+    
+  
 
   const geoSplited = constructionSelected?.latitude_longitude?.split(",");
 
@@ -277,10 +281,10 @@ const MapOfConstructions = () => {
               </div>
               <div>
                 <Text.Heading4Bold lineHeight={100}>
-                  {constructionSelected?.nome_da_obra}
+                {formatString(constructionSelected?.nome_da_obra)}
                 </Text.Heading4Bold>
                 <Text.Heading5Regular marginTop={5}>
-                  {constructionSelected?.bairro_desc}
+                  Bairro: {formatString(constructionSelected?.bairro_desc)}
                 </Text.Heading5Regular>
               </div>
             </div>
@@ -294,7 +298,7 @@ const MapOfConstructions = () => {
               }}
             >
               <Text.Heading5Bold color={colors.white}>
-                {constructionSelected?.situacao}{" "}
+                {formatString(constructionSelected?.situacao)}{" "}
                 {/* {Number(constructionSelected?.situacao)}% */}
               </Text.Heading5Bold>
             </div>
@@ -314,9 +318,9 @@ const MapOfConstructions = () => {
               </Text.Heading5Bold>
             </div>
 
-            <Text.Heading5Regular marginTop={20} marginBottom={20}>
+            <Text.Heading5Regular marginTop={5} marginBottom={5}>
               Secretaria Responsável:{" "}
-              {constructionSelected?.secretaria_responsavel}
+              {constructionSelected?.secretaria_responsavel.replace("SecretariaResponsavel: ", "")}
             </Text.Heading5Regular>
 
             <MapOneMarkerComponent
@@ -324,12 +328,13 @@ const MapOfConstructions = () => {
               long={geoSplited?.[1]}
             />
 
-            <Text.Heading5Bold lineHeight={100} marginTop={20}>
-              Contratada: {constructionSelected?.razao_social_contratada}
+            <Text.Heading5Bold lineHeight={100} marginTop={2}>
+              Contratada: {formatString(constructionSelected?.razao_social_contratada)}
             </Text.Heading5Bold>
 
-            <Text.Heading5Regular marginTop={5} marginBottom={20}>
-              Categoria: {constructionSelected?.categoria}
+            <Text.Heading5Regular marginTop={5} marginBottom={10}>
+              Categoria: {formatString(constructionSelected?.categoria?.replace("Categoria: ", ""))}
+
             </Text.Heading5Regular>
 
             <button
@@ -349,10 +354,10 @@ const MapOfConstructions = () => {
               </Text.Heading5Medium>
             </button>
 
-            <button
+            {/* <button
               className="buttons"
               style={{
-                marginTop: 10,
+                marginTop: 5,
                 backgroundColor: colors.randomColors.red,
                 borderRadius: 10,
               }}
@@ -363,7 +368,7 @@ const MapOfConstructions = () => {
               >
                 Ver mais do bairro
               </Text.Heading5Medium>
-            </button>
+            </button> */}
           </div>
         </Style.ConstructionSelected>
       )}

@@ -5,9 +5,10 @@ import { parseMoney } from "../../../utils/mask";
 import colors from "../../../styles/colors";
 import Carousel from "../../../components/Swiper";
 import { Input, Select } from "@chakra-ui/react";
-import Vlibras from 'vlibras-nextjs';
+import Vlibras from "vlibras-nextjs";
 import { useState } from "react";
 import router from "next/router";
+import { formatString } from "../../../utils/stringUtils";
 interface PropsPagination {
   totalPages: number;
   onPageChange: (pageNumber: number) => void;
@@ -91,36 +92,37 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
             onChange={handleChangeSelectNeighborhood}
             style={{ backgroundColor: colors.white }}
           >
-             <option value="">Todos</option>
-           
-           
-           <option value="BOTUJURU">Bojuturu</option>
-           <option value="BRAZ CUBAS">Braz Cubas</option>
-           <option value="CENTRO">Centro</option>
-           <option value="CEZAR DE SOUZA">Cezar De Souza</option>
-           <option value="CHÁCARA GUANABARA">Chácara Guanabara</option>
-           <option value="CONJUNTO SANTO ÂNGELO">Conjunto Santo Ângelo</option>
-           
-           <option value="FAZENDA RODEIO">Fazenda Rodeio</option>
-           <option value="JARDIM AEROPORTO">Jardim Aeroporto</option>
-           <option value="JARDIM ARACY">Jardim Aracy</option>
-           <option value="JARDIM MARICÁ">Jardim Maricá</option>
-           <option value="JARDIM SANTA TEREZA">Jardim Santa Tereza</option>
-           <option value="JUNDIAPEBA">Jundiapeba</option>
-           <option value="MOGI MODERNO">Mogi Moderno</option>
-           <option value="NOVA MOGILAR">Nova Mogilar</option>
-           
-           <option value="NOVA JUNDIAPEBA">Nova Jundiapeba</option>
-           <option value="PARQUE MORUMBI">Parque Morumbi</option>
-           <option value="PARQUE OLÍMPICO">Parque Olímpico</option>
-           <option value="RESIDENCIAL NOVO HORIZONTE">Residencial Novo Horizonte </option>
-           <option value="SOCORRO">Socorro</option>
-           <option value="SANTO ÂNGELO">Santo Ângelo</option>
-           <option value="TABOÃO">Taboão</option>
-           <option value="TAIAÇUPEBA">Taiaçupeba</option>
-           <option value="VILA CINTRA">Vila Cintra</option>
-           <option value="VILA LAVÍNIA">Vila Lavínia</option>
-           <option value="VILA NATAL">Vila Natal</option>
+            <option value="">Todos</option>
+
+            <option value="BOTUJURU">Bojuturu</option>
+            <option value="BRAZ CUBAS">Braz Cubas</option>
+            <option value="CENTRO">Centro</option>
+            <option value="CEZAR DE SOUZA">Cezar De Souza</option>
+            <option value="CHÁCARA GUANABARA">Chácara Guanabara</option>
+            <option value="CONJUNTO SANTO ÂNGELO">Conjunto Santo Ângelo</option>
+
+            <option value="FAZENDA RODEIO">Fazenda Rodeio</option>
+            <option value="JARDIM AEROPORTO">Jardim Aeroporto</option>
+            <option value="JARDIM ARACY">Jardim Aracy</option>
+            <option value="JARDIM MARICÁ">Jardim Maricá</option>
+            <option value="JARDIM SANTA TEREZA">Jardim Santa Tereza</option>
+            <option value="JUNDIAPEBA">Jundiapeba</option>
+            <option value="MOGI MODERNO">Mogi Moderno</option>
+            <option value="NOVA MOGILAR">Nova Mogilar</option>
+
+            <option value="NOVA JUNDIAPEBA">Nova Jundiapeba</option>
+            <option value="PARQUE MORUMBI">Parque Morumbi</option>
+            <option value="PARQUE OLÍMPICO">Parque Olímpico</option>
+            <option value="RESIDENCIAL NOVO HORIZONTE">
+              Residencial Novo Horizonte{" "}
+            </option>
+            <option value="SOCORRO">Socorro</option>
+            <option value="SANTO ÂNGELO">Santo Ângelo</option>
+            <option value="TABOÃO">Taboão</option>
+            <option value="TAIAÇUPEBA">Taiaçupeba</option>
+            <option value="VILA CINTRA">Vila Cintra</option>
+            <option value="VILA LAVÍNIA">Vila Lavínia</option>
+            <option value="VILA NATAL">Vila Natal</option>
           </Select>
 
           <Select
@@ -140,8 +142,6 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
             style={{ backgroundColor: colors.white }}
           >
             <option value="">Todos</option>
-           
-            <option value="">Todos</option>
             <option value="1000 - EDUCA MOGI">1000 - EDUCA MOGI</option>
             <option value="1001 - PRIMEIROS PASSOS">
               1001 - PRIMEIROS PASSOS
@@ -154,13 +154,13 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
             <option value="2006 - SANEAMENTO AMBIENTAL">
               2006 - SANEAMENTO AMBIENTAL
             </option>
-                        
+
             <option value="2007 - MOBILIDADE URBANA">
               2007 - MOBILIDADE URBANA
             </option>
-            
+
             <option value="3003 - ESPORTE">3003 - ESPORTE</option>
-                       
+
             <option value="3004 - SEGURANÇA">3004 - SEGURANÇA</option>
             <option value="3100 - SAÚDE">3100 - SAÚDE</option>
           </Select>
@@ -248,21 +248,15 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
             };
 
             return (
-
-                    
               //<a href= {`/controle-de-obras/construcao?${item?._id}`}>
-              <Style.Card  key= {index} 
-              onClick={() =>
-                router.push(
-                  `/controle-de-obras/construcao?${item?._id}`
-                )
-              }
-              style={{ cursor: 'pointer' }}
-              
+              <Style.Card
+                key={index}
+                onClick={() =>
+                  router.push(`/controle-de-obras/construcao?${item?._id}`)
+                }
+                style={{ cursor: "pointer" }}
               >
-                
                 <div className="left">
-                
                   <img
                     src={`/icons/${programConfig.imageName}.svg`}
                     width="50%"
@@ -277,7 +271,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                         Obra:
                       </Text.Heading4Bold>
                       <Text.Heading5Regular color={colors.black}>
-                        {item?.nome_da_obra}
+                        {formatString(item?.nome_da_obra)}
                       </Text.Heading5Regular>
                     </div>
                     <div className="item">
@@ -285,7 +279,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                         Empresa:
                       </Text.Heading4Bold>
                       <Text.Heading5Regular color={colors.black}>
-                        {item?.razao_social_contratada}
+                        {formatString(item?.razao_social_contratada)}
                       </Text.Heading5Regular>
                     </div>
                     <div className="item">
@@ -303,7 +297,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                       Descrição:
                     </Text.Heading4Bold>
                     <Text.Heading5Regular color={colors.black}>
-                      {item?.descricao_da_obra}
+                      {formatString(item?.descricao_da_obra)}
                     </Text.Heading5Regular>
                   </div>
 
@@ -321,7 +315,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                         Programa:
                       </Text.Heading4Bold>
                       <Text.Heading5Regular color={colors.black}>
-                        {item?.programa_ppa}
+                        {formatString(item?.programa_ppa)}
                       </Text.Heading5Regular>
                     </div>
                     <div className="item">
@@ -329,7 +323,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                         Bairro:
                       </Text.Heading4Bold>
                       <Text.Heading5Regular color={colors.black}>
-                        {item?.bairro_desc}
+                        {formatString(item?.bairro_desc)}
                       </Text.Heading5Regular>
                     </div>
                     <div className="item">
@@ -337,7 +331,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                         Etapa:
                       </Text.Heading4Bold>
                       <Text.Heading5Regular color={colors.black}>
-                        {item?.situacao}
+                        {formatString(item?.situacao)}
                       </Text.Heading5Regular>
                     </div>
                   </div>
