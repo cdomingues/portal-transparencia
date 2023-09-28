@@ -3,7 +3,7 @@ import colors from "../../../styles/colors";
 
 export const Container = styled.div`
   margin: 0 auto;
-  max-width: 1340px;
+  max-width: 100%;
   width: 100%;
   height: 100%;
   display: flex;
@@ -48,8 +48,8 @@ export const Row = styled.div`
 `;
 
 export const Datasheet = styled.div`
-  width: 400px;
-  min-height: 714px;
+  width: 100%;
+ height: 700px;
   background-color: ${colors.white};
   border-radius: 20px;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3),
@@ -58,7 +58,7 @@ export const Datasheet = styled.div`
   .box-top {
     width: 100%;
     height: 76px;
-    border-radius: 20px;
+    border-radius: 20px 20px 0px 0px;
     background-color: ${colors.red};
     display: flex;
     align-items: center;
@@ -78,6 +78,7 @@ export const Datasheet = styled.div`
       align-items: center;
       padding: 0px 10px;
     }
+    
 
     .row {
       display: flex;
@@ -99,9 +100,65 @@ export const Datasheet = styled.div`
   }
 `;
 
+export const Bottom = styled.div`
+  width: 100%;
+  margin-top: 40px;
+  height: 150px;
+ 
+  background-color: ${colors.white};
+  border-radius: 20px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3),
+    0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+
+  .box-top {
+    width: 100%;
+    height: 76px;
+    border-radius: 20px 20px 0px 0px;
+    background-color: ${colors.red};
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+  }
+
+  .box-main {
+    padding-left: 20px;
+    padding-top: 5px;
+
+    .status {
+      width: 100%;
+      height: 40px;
+      background-color: ${colors.green};
+      margin-top: 10px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0px 10px;
+    }
+    
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-top: 10px;
+      gap: 80px;
+    }
+  }
+
+  .button {
+    margin-top: 10px;
+    width: 100%;
+    background-color: ${colors.red};
+  }
+
+  @media (max-width: 1060px) {
+    width: 100%;
+  }
+`;
+
 export const DivImage = styled.div`
   flex: 1 1 500px;
-  min-height: 600px;
+  max-height: 100%;
   .image {
     width: 100%;
     height: 80%;

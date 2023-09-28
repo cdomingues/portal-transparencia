@@ -34,7 +34,7 @@
 //       >
 //         <div style={{ padding: "10px" }}>
 //           <Text fontWeight="500" color={"gray.500"}>
-//             Últimas Noticias
+//             Últimas Notícias
 //           </Text>
 //         </div>
 //         {noticias.slice(0, 2).map((info) => {
@@ -209,7 +209,7 @@ function Aside() {
   const accessibility = useFontSizeAccessibilityContext();
   return (
     
-    <div style={{ width: "380px", justifyContent: "left" }}>
+    <div style={{ width: "380px", justifyContent: "left", backgroundColor: "transparent" }}>
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
@@ -223,7 +223,7 @@ function Aside() {
       >
         <div style={{ padding: "10px" }}>
           <Text fontSize={accessibility?.fonts?.regular} fontWeight="500" color={"gray.500"}>
-            Últimas Noticias
+            Últimas Notícias
           </Text>
         </div>
         {noticias.slice(0, 2).map((info) => {

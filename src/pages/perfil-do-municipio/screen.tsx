@@ -28,7 +28,7 @@ type PropsInput = {
 export const contentMunicipalityProfile = {
   titlePage: "Perfil do Munícipio - Mogi das Cruzes",
   description:
-    "Mogi das Cruzes é um município brasileiro do estado de São Paulo, localizado na Região Metropolitana de São Paulo. É uma das cidades que integram a região geográfica do Alto Tietê."
+    "Mogi das Cruzes é um município brasileiro do estado de São Paulo, localizado na Região Metropolitana de São Paulo, e integrante da região geográfica do Alto Tietê. Estrategicamente localizada próxima a São Paulo, Mogi das Cruzes é um centro logístico e econômico importante na região, comprometido com a inovação e o governo aberto para melhorar a vida de seus cidadãos e estimular o desenvolvimento sócio-econômico.",
 };
 
 function Screen({ handler }: PropsInput) {
@@ -39,53 +39,50 @@ function Screen({ handler }: PropsInput) {
 
   return (
     <ContainerBasic title={title} description={description}>
-       <Box
-m={0}
-bg={useColorModeValue("white", "gray.800")}
-boxShadow="2xl"
-padding={"15px"}
-rounded="md"
-overflow="hidden"
-
-borderRadius="18px"
-marginBottom="15px"
->
-<Stack direction={isMobile ? "column" : "row"} flex={1}>
-      <Stack direction="column" flex={3}>
-  <Tabs>
-    <TabList>
-      <Tab fontSize={accessibility?.fonts?.medium}>DEMOGRÁFICO</Tab>
-      {/* <Tab fontSize={accessibility?.fonts?.medium}>EMPREENDEDORISMO</Tab>
+      <Box
+        m={0}
+        bg={useColorModeValue("white", "gray.800")}
+        boxShadow="2xl"
+        padding={"15px"}
+        rounded="md"
+        overflow="hidden"
+        borderRadius="18px"
+        marginBottom="15px"
+      >
+        <Stack direction={isMobile ? "column" : "row"} flex={1}>
+          <Stack direction="column" flex={3}>
+            <Tabs>
+              <TabList>
+                <Tab fontSize={accessibility?.fonts?.medium}>DEMOGRÁFICO</Tab>
+                {/* <Tab fontSize={accessibility?.fonts?.medium}>EMPREENDEDORISMO</Tab>
       <Tab fontSize={accessibility?.fonts?.medium}>SAÚDE</Tab>
       <Tab fontSize={accessibility?.fonts?.medium}>EDUCAÇÃO</Tab>
       <Tab fontSize={accessibility?.fonts?.medium}>SEGURANÇA</Tab>
       <Tab fontSize={accessibility?.fonts?.medium}>AMBIENTAL</Tab> */}
-    </TabList>
-    <TabPanels>
-      <TabPanel>
-        <CountyPanel />
-      </TabPanel>
-      <TabPanel>
-        <TourismPanel />
-      </TabPanel>
-      <TabPanel>
-        <HealthPanel />
-      </TabPanel>
-      <TabPanel>
-        <EducationPanel />
-      </TabPanel>
-      <TabPanel>
-        <SecurityPanel />
-      </TabPanel>
-      <TabPanel>
-        <EnvironmentalPanel />
-      </TabPanel>
-    </TabPanels>
-  </Tabs>
-
-  </Stack>
-  </Stack>
-
+              </TabList>
+              <TabPanels>
+                <TabPanel>
+                  <CountyPanel />
+                </TabPanel>
+                <TabPanel>
+                  <TourismPanel />
+                </TabPanel>
+                <TabPanel>
+                  <HealthPanel />
+                </TabPanel>
+                <TabPanel>
+                  <EducationPanel />
+                </TabPanel>
+                <TabPanel>
+                  <SecurityPanel />
+                </TabPanel>
+                <TabPanel>
+                  <EnvironmentalPanel />
+                </TabPanel>
+              </TabPanels>
+            </Tabs>
+          </Stack>
+        </Stack>
       </Box>
     </ContainerBasic>
   );
