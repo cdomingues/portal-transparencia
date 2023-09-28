@@ -303,7 +303,7 @@ function CardHome() {
       ],
     },
     {
-      title: "Últimas Noticias",
+      title: "Últimas Notícias",
       imageURL: Ultimas_noticias.src,
       description: "Descrição 3",
       link: "/ultimas-noticias",

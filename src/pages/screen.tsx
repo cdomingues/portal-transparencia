@@ -80,7 +80,7 @@ function Aside() {
       >
         <div style={{ padding: "10px" }}>
           <Text fontWeight="500" color={"gray.500"}>
-            Últimas Noticias
+            Últimas Notícias
           </Text>
         </div>
         {noticias.slice(0, 2).map((info) => {

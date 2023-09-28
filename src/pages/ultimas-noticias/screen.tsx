@@ -11,7 +11,7 @@
 
 
 // export const contentOtherInformations = {
-//   titlePage: "ÚLTIMAS NOTICIAS",
+//   titlePage: "Últimas Notícias",
 //   description:
 //     "Caso tenha dificuldade em encontrar alguma informação ou dúvida referente ao conteúdo publicado neste portal, você pode entrar em contato conosco preenchendo o formulário abaixo ou dirigir-se pessoalmente à Ouvidoria Geral, localizada no 3º andar do prédio sede da Prefeitura, de segunda a sexta-feira, das 8 às 17 horas.",
 // };
