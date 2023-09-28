@@ -12,7 +12,7 @@ import {
 
 export const descriptionEducacao = [
   {
-    label: "Quantidade de alunos",
+    label: "Área do município",
     value: "712,541",
     icon: BiMapPin,
     year: "2021",
