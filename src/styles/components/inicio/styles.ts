@@ -19,7 +19,7 @@ export const Banner = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     padding: 0px 10px;
   }
 
@@ -31,6 +31,8 @@ export const Banner = styled.div`
     align-items: flex-end;
     justify-content: flex-start;
     padding: 35px 0px;
+    align-self: auto;
+    
    
     .chip-banner {
       display: flex;
@@ -42,7 +44,9 @@ export const Banner = styled.div`
       padding-left: 5px;
       padding-right: 5px;
       gap: 8px;
-      align-items: center;
+      //align-items: center;
+    
+      
 
       &:hover {
         cursor: pointer;
@@ -51,6 +55,14 @@ export const Banner = styled.div`
     }
   }
 
+  @media screen and (max-width: 768px) {
+    .banner-bottom {
+        flex-direction: column;
+        align-items: flex-start; /* Ajuste conforme necessário */
+        justify-content: flex-start; /* Ajuste conforme necessário */
+    }
+}
+
   @media (max-width: 1650px) {
     height: 240px;
     .content {
@@ -58,12 +70,9 @@ export const Banner = styled.div`
     }
   }
 
-  @media (max-width: 760px) {
+  @media (max-width: 400px) {
     .banner-bottom {
-      gap: 10px;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
+     display: flex;
     }
   }
 
@@ -71,13 +80,14 @@ export const Banner = styled.div`
     height: 280px;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 1000px) {
     height: 420px;
-    .banner-bottom {
+    .chip-banner {
       gap: 40px;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
       justify-content: center;
+      position: fixed;
     }
   }
 
@@ -118,6 +128,13 @@ export const BannerTotals = styled.div`
   @media (max-width: 1650px) {
     .content {
       max-width: 900px;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .content {
+      max-height: 50px;
+      align-items: center;
     }
   }
 
