@@ -485,11 +485,7 @@ const ConstructionScreen = ({ id }: any) => {
                         {item?.numero_contrato}
                       </Text.Heading5Regular>
                     </div>
-                    <div>
-                      <Text.Heading4Bold color={colors.black}>
-                        Detalhes da Contratação:
-                      </Text.Heading4Bold>
-                    </div>
+                  
                   </div>
                 </div>
               </Style.Bottom>

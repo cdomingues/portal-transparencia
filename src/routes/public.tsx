@@ -42,7 +42,7 @@ import { contentContractManagement } from "../pages/convenios-transferencias/con
 
 // import { contentAgreementColaborator } from "../pages/acordos-termos/acordo-de-colaboracao/screen";
 
-import { contentPublicWorks } from "../pages/ciclo-orcamentario/obras-publicas/screen";
+import { contentPublicWorks } from "../pages/controle-de-obras/obras-publicas/screen";
 import { contentPublicServants } from "../pages/ciclo-orcamentario/servidores-publicos-estagiarios/screen";
 import { contentPROMAE } from "../pages/ciclo-orcamentario/promae/screen";
 import { contentRevenue } from "../pages/gestao-orcamentaria/receitas/screen";
