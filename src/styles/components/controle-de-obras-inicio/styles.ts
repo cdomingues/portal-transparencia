@@ -32,6 +32,7 @@ export const Banner = styled.div`
     flex-direction: column;
     padding: 0px 10px;
   }
+  
   .banner-bottom {
     flex: 1;
     display: flex;
