@@ -11,17 +11,14 @@ function Controller({ biddings = [], years }: any) {
   const [data, setData] = useState(biddings);
 
   const columns = [
+    { title: "Id", field: "id" },
+    { title: "Orgão", field: "orgao" },
     { title: "Número", field: "numero" },
+    { title: "Situação", field: "situacao" },
+    { title: "Data de Abertura", field: "data_abertura" },
+    { title: "Descrição", field: "descricao" },
+    { title: "Download", field: "linkdownload" },
     { title: "Ano", field: "ano" },
-    { title: "Modalidade", field: "modalidade" },
-    { title: "Integração", field: "integracao" },
-    { title: "Objeto", field: "objeto" },
-    { title: "Publicação", field: "datapublicacao" },
-    { title: "Abertura", field: "dataabertura" },
-    { title: "Vencimento", field: "datavencimento" },
-    { title: "Veiculo Publicação", field: "veiculopublicacao" },
-    { title: "Nro", field: "nro" },
-    { title: "Link de detalhamento", field: "linkdownload" },
   ];
 
   const handleByYear = async (year: number) => {
@@ -54,16 +51,9 @@ export default Controller;
 export const getStaticProps: GetStaticProps = async () => {
   const { biddings, years } = await getBiddings();
 
-  const mapBiddings = biddings.map((bidding) => {
-    return {
-      ...bidding,
-      linkdownload: `https://licitacao-mgcon.mogidascruzes.sp.gov.br/?orgao=&id_tipolicitacao=&numero=${bidding.nro}&ano=${bidding.ano}&periodopublicacao=2&situacao=&descricao`,
-    };
-  });
-
   return {
     props: {
-      biddings: mapBiddings || [],
+      biddings: biddings || [],
       years: years || [],
     },
     revalidate,

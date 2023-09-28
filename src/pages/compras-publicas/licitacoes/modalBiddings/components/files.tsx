@@ -7,10 +7,10 @@
 //   const handleDownload = async (value: string) => {
 //     const splited = value?.split('/');
 //     console.log('splited:', splited);
-    
+
 //     const fileName = splited[splited?.length - 1];
 //     console.log('fileName:', fileName);
-  
+
 //     const { data } = await axios.get(`${baseUrl}/api/download/${fileName}`, {
 //       responseType: 'arraybuffer',
 //     });
@@ -18,12 +18,12 @@
 
 //     const blob = new Blob([data], { type: 'application/pdf' });
 //     const url = window.URL.createObjectURL(blob);
-  
+
 //     const a = document.createElement('a');
 //     a.href = url;
 //     a.download = fileName;
 //     a.click();
-  
+
 //     window.URL.revokeObjectURL(url);
 //   };
 
@@ -67,13 +67,7 @@ import { baseUrl } from "../../../../../config";
 
 const Files = ({ details }: any) => {
   const handleDownload = async (value: string) => {
-    const splited = value?.split('/');
-    console.log('splited:', splited);
-
-    const url = `https://licitacao-mgcon.mogidascruzes.sp.gov.br/arquivo/download/${splited}`;
-    console.log('url:', url);
-
-    window.open(url, "_blank");
+    window.open(value, "_blank");
   };
 
   return (
@@ -96,9 +90,9 @@ const Files = ({ details }: any) => {
                     (index + 1) % 2 === 0 ? "#f7f7f7" : "transparent",
                   cursor: "pointer",
                 }}
-                onClick={() => handleDownload(item?.href)}
+                onClick={() => handleDownload(item?.link)}
               >
-                <Td>{item?.content}</Td>
+                <Td>{item?.descricao}</Td>
               </Tr>
             );
           })}

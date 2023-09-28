@@ -1,6 +1,6 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import axios from 'axios';
-import cheerio from 'cheerio';
+import { NextApiRequest, NextApiResponse } from "next";
+import axios from "axios";
+import cheerio from "cheerio";
 
 interface Licitacao {
   modalidade: string;
@@ -35,78 +35,77 @@ interface Licitacao {
   }[];
 }
 
-
 // Resto do código para extração das informações do HTML
 
 // export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 //   const { url } = req.query;
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const url = 'https://portaldatransparencia.mogidascruzes.sp.gov.br/index.php/licitacao/details/7010';
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  const url = `https://licitacao-mgcon.mogidascruzes.sp.gov.br/licitacao/visualizar/${req.query.id}`;
 
-
-  if (typeof url !== 'string') {
-    return res.status(400).json({ error: 'A URL é inválida.' });
+  if (typeof url !== "string") {
+    return res.status(400).json({ error: "A URL é inválida." });
   }
 
   try {
     const response = await axios.get(url);
-    console.log(response.data);
+
     const html = response.data;
     const $ = cheerio.load(html);
+    const dadosTab = $("#tabDados");
 
-    const licitacao: Licitacao = {
-      modalidade: $('.datatable tr:nth-child(1) td:nth-child(2)').text().trim(),
-      processo: $('.datatable tr:nth-child(2) td:nth-child(2)').text().trim(),
-      objeto: $('.datatable tr:nth-child(3) td:nth-child(2)').text().trim(),
-      dataPublicacao: $('.datatable tr:nth-child(4) td:nth-child(2)').text().trim(),
-      dataAbertura: $('.datatable tr:nth-child(5) td:nth-child(2)').text().trim(),
-      vencimento: $('.datatable tr:nth-child(6) td:nth-child(2)').text().trim(),
-      meioPublicacao: $('.datatable tr:nth-child(7) td:nth-child(2)').text().trim(),
-      situacao: $('.datatable tr:nth-child(8) td:nth-child(2)').text().trim(),
-      edital: $('.datatable tr:nth-child(9) td:nth-child(2)').text().trim(),
-      ata: $('.datatable tr:nth-child(10) td:nth-child(2)').text().trim(),
-      dataResultado: $('.datatable tr:nth-child(11) td:nth-child(2)').text().trim(),
-      itens: [],
-      participantes: [],
-      arquivos: []
+    const orgao = String(dadosTab.find("#orgao").val()).trim();
+    const situacao = String(dadosTab.find("#situacaos").val()).trim();
+    const tipo = String(dadosTab.find("#tipo").val()).trim();
+    const numero = String(dadosTab.find("#licitacao").val()).trim();
+    const dataAbertura = String(dadosTab.find("#dataabertura").val()).trim();
+    const publicacaoInicio = String(
+      dadosTab.find("#publicacaoinicio").val()
+    ).trim();
+    const publicacaoFim = String(dadosTab.find("#publicacaofim").val()).trim();
+    const descricao = String(
+      dadosTab.find("textarea[readonly]").eq(0).val()
+    ).trim();
+    const objeto = String(
+      dadosTab.find("textarea[readonly]").eq(1).val()
+    ).trim();
+    const complemento = String(
+      dadosTab.find("textarea[readonly]").eq(2).val()
+    ).trim();
+
+    const tabAnexo = $("#tabAnexo");
+
+    const anexos: any = [];
+    tabAnexo.find("tbody tr").each((_, element) => {
+      const descricao = $(element).find("td.text-left").text().trim();
+      const link =
+        "https://licitacao-mgcon.mogidascruzes.sp.gov.br" +
+          $(element).find("td.text-center a").attr("href") || "";
+      anexos.push({ descricao, link });
+    });
+
+    let licitacao = {
+      orgao,
+      situacao,
+      tipo,
+      numero,
+      dataAbertura,
+      publicacaoInicio,
+      publicacaoFim,
+      descricao,
+      objeto,
+      complemento,
+      anexos,
     };
-
-    // Extrair itens da licitação
-    $('.tab-content[data-tab-content="tab2"] .datatable tr:not(:first-child)').each((_, element) => {
-      const grupo = $(element).find('td:nth-child(1)').text().trim();
-      const item = $(element).find('td:nth-child(2)').text().trim();
-      const qtd = $(element).find('td:nth-child(3)').text().trim();
-      const valor = $(element).find('td:nth-child(4)').text().trim();
-      const vencedor = $(element).find('td:nth-child(5)').text().trim();
-
-      licitacao.itens.push({ grupo, item, qtd, valor, vencedor });
-    });
-
-    // Extrair participantes
-    $('.tab-content[data-tab-content="tab3"] .datatable tr:not(:first-child)').each((_, element) => {
-      const fornecedor = $(element).find('td:nth-child(1)').text().trim();
-      const cpfcnpj = $(element).find('td:nth-child(2)').text().trim();
-      const valor = $(element).find('td:nth-child(3)').text().trim();
-      const vencedor = $(element).find('td:nth-child(4)').text().trim();
-      const contrato = $(element).find('td:nth-child(5)').text().trim();
-
-      licitacao.participantes.push({ fornecedor, cpfcnpj, valor, vencedor, contrato });
-    });
-
-    // Extrair arquivos
-    $('.tab-content[data-tab-content="tab5"] .datatable tr:not(:first-child)').each((_, element) => {
-      const data = $(element).find('td:nth-child(1)').text().trim();
-      const descricao = $(element).find('td:nth-child(2)').text().trim();
-      const link = $(element).find('td:nth-child(3) a').attr('href') ?? '';
-
-      licitacao.arquivos.push({ data, descricao, link });
-    });
-
 
     res.status(200).json(licitacao);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Ocorreu um erro ao processar a requisição.' });
+    res
+      .status(500)
+      .json({ error: "Ocorreu um erro ao processar a requisição." });
   }
 }

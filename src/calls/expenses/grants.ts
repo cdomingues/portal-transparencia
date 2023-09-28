@@ -34,9 +34,7 @@ export const getGrants = async (year?: number) => {
   } catch (error) {
     if (axios.isAxiosError(error)) {
       const url = error.config?.url ?? "Unknown URL";
-      console.log(
-        `Error on get ${url}, data: ${error.response?.data}`
-      );
+      console.log(`Error on get ${url}, data: ${error.response?.data}`);
     }
 
     return { grants: [], years: [] };
@@ -64,9 +62,7 @@ export const getChartYear = async () => {
   } catch (error) {
     if (axios.isAxiosError(error)) {
       const url = error.config?.url ?? "Unknown URL";
-      console.log(
-        `Error on get ${url}, data: ${error.response?.data}`
-      );
+      console.log(`Error on get ${url}, data: ${error.response?.data}`);
     }
     return { chartYear: { datasets: [] } };
   }
@@ -107,9 +103,7 @@ export const getChart = async (year?: number) => {
   } catch (error) {
     if (axios.isAxiosError(error)) {
       const url = error.config?.url ?? "Unknown URL";
-      console.log(
-        `Error on get ${url}, data: ${error.response?.data}`
-      );
+      console.log(`Error on get ${url}, data: ${error.response?.data}`);
     }
     return { chart: { datasets: [] } };
   }

@@ -4,58 +4,48 @@ const Details = ({ bidding }: any) => {
   return (
     <>
       <RowDetails>
-        <div className="left">Modalidade:</div>
-        <div className="right">{bidding?.modalidade}</div>
-      </RowDetails>
-
-      <RowDetails style={{ backgroundColor: "transparent" }}>
-        <div className="left">Processo:</div>
-        <div className="right">{bidding?.integracao}</div>
+        <div className="left">Orgão:</div>
+        <div className="right">{bidding?.orgao}</div>
       </RowDetails>
 
       <RowDetails>
+        <div className="left">Situação:</div>
+        <div className="right">{bidding?.situacao}</div>
+      </RowDetails>
+
+      <RowDetails>
+        <div className="left">Tipo:</div>
+        <div className="right">{bidding?.tipo}</div>
+      </RowDetails>
+
+      <RowDetails style={{ backgroundColor: "transparent" }}>
+        <div className="left">Data de abertura:</div>
+        <div className="right">{bidding?.dataAbertura}</div>
+      </RowDetails>
+
+      <RowDetails>
+        <div className="left">Publicação Início:</div>
+        <div className="right">{bidding?.publicacaoInicio}</div>
+      </RowDetails>
+
+      <RowDetails style={{ backgroundColor: "transparent" }}>
+        <div className="left">Publicação Fim:</div>
+        <div className="right">{bidding?.publicacaoFim}</div>
+      </RowDetails>
+
+      <RowDetails>
+        <div className="left">Descrição:</div>
+        <div className="right">{bidding?.descricao}</div>
+      </RowDetails>
+
+      <RowDetails style={{ backgroundColor: "transparent" }}>
         <div className="left">Objeto:</div>
         <div className="right">{bidding?.objeto}</div>
       </RowDetails>
 
-      <RowDetails style={{ backgroundColor: "transparent" }}>
-        <div className="left">Data de publicação:</div>
-        <div className="right">{bidding?.datapublicacao}</div>
-      </RowDetails>
-
       <RowDetails>
-        <div className="left">Data de abertura:</div>
-        <div className="right">{bidding?.dataabertura}</div>
-      </RowDetails>
-
-      <RowDetails style={{ backgroundColor: "transparent" }}>
-        <div className="left">Vencimento:</div>
-        <div className="right">{bidding?.datavencimento}</div>
-      </RowDetails>
-
-      <RowDetails>
-        <div className="left">Meio de publicação:</div>
-        <div className="right">{bidding?.veiculopublicacao}</div>
-      </RowDetails>
-
-      <RowDetails style={{ backgroundColor: "transparent" }}>
-        <div className="left">Situação:</div>
-        <div className="right"></div>
-      </RowDetails>
-
-      <RowDetails>
-        <div className="left">Edital:</div>
-        <div className="right"></div>
-      </RowDetails>
-
-      <RowDetails style={{ backgroundColor: "transparent" }}>
-        <div className="left">Ata:</div>
-        <div className="right"></div>
-      </RowDetails>
-
-      <RowDetails>
-        <div className="left">Data do resultado:</div>
-        <div className="right"></div>
+        <div className="left">Complemento:</div>
+        <div className="right">{bidding?.complemento}</div>
       </RowDetails>
     </>
   );
