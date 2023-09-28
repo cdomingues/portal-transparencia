@@ -40,7 +40,7 @@ import Link from "next/link";
 export const contentInitial = {
   titlePage: "LGPD",
   description:
-    "A Lei Geral de Proteção de Dados (LGPD), criada pela Lei Federal nº 13.709, de 14 de agosto de 2018, regulamenta a respeito dontratamento de dados pessoais, inclusive nos meios digitais, por pessoa natural ou por pessoa jurídica de direito público ou privado, com o objetivo de proteger os direitos fundamentais de liberdade e de privacidade e o livre desenvolvimento da personalidade da pessoa natural.",
+    "A Lei Geral de Proteção de Dados (LGPD), criada pela Lei Federal nº 13.709, de 14 de agosto de 2018, regulamenta a respeito do tratamento de dados pessoais, inclusive nos meios digitais, por pessoa natural ou por pessoa jurídica de direito público ou privado, com o objetivo de proteger os direitos fundamentais de liberdade e de privacidade e o livre desenvolvimento da personalidade da pessoa natural.",
 };
 
  function Aside() {
@@ -64,7 +64,7 @@ marginBottom="15px"
         <Text
         fontWeight="500"
         color={"gray.500"}
-        >Últimas Noticias</Text>
+        >Últimas Notícias</Text>
       </div>
       {
             noticias.slice(0,2).map((info)=>{

@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
 import axios from "axios";
@@ -38,12 +39,15 @@ type Meeting = {
 
 export const contentMayorAgenda = {
   titlePage: "Agenda Aberta",
-  description:"Conforme previsto na Lei Municipal n° 7.653/2021 e no Decreto n° 21.006/22, todo cidadão pode ter acesso à agenda de compromissos oficiais das autoridades do Executivo de Mogi das Cruzes. Esta é mais uma medida de promoção da integridade no setor público"
+  description:
+    "Conforme previsto na Lei Municipal n° 7.653/2021 e no Decreto n° 21.006/22, todo cidadão pode ter acesso à agenda de compromissos oficiais das autoridades do Executivo de Mogi das Cruzes. Esta é mais uma medida de promoção da integridade no setor público.",
 };
 
 function Screen({ handler }: PropsInput) {
   const [selected, setSelected] = useState<Date>();
   const [schedule, setSchedule] = useState<Array<Meeting>>([]);
+
+  
 
   const handleGetOpenSchedule = async () => {
     const response = await fetch(
@@ -70,20 +74,24 @@ function Screen({ handler }: PropsInput) {
   }, []);
 
   const filteredValues = schedule
-    ?.filter(
-      (item: Meeting) =>
-        item?.data_compromisso?.split("T")[0] ===
-        String(moment(selected).format("YYYY-MM-DD"))
-    )
-    .sort((a: Meeting, b: Meeting) => {
-      const aHours = a?.data_compromisso?.split("T")[1];
-      const bHours = b?.data_compromisso?.split("T")[1];
-
-      return aHours > bHours ? 1 : -1;
-    });
+  ?.filter((item: Meeting) => {
+    // Linha modificada abaixo
+    const timeWithSubtraction = moment(item?.data_compromisso).subtract(3, 'hours');
+    return timeWithSubtraction.format("YYYY-MM-DD") === String(moment(selected).format("YYYY-MM-DD"));
+  })
+  // Uma linha depois para contexto
+  .sort((a: Meeting, b: Meeting) => {
+    // Linha modificada abaixo
+    const aHours = moment(a?.data_compromisso).subtract(3, 'hours').format("HH:mm");
+    // Linha modificada abaixo
+    const bHours = moment(b?.data_compromisso).subtract(3, 'hours').format("HH:mm");
+    return aHours > bHours ? 1 : -1;
+  });
 
   const title = contentMayorAgenda?.titlePage;
   const description = contentMayorAgenda?.description;
+
+  
 
   const dateSelected = moment(selected).format("LL");
   const translatorMonth: any = {
@@ -126,7 +134,7 @@ function Screen({ handler }: PropsInput) {
             fontSize={accessibility?.fonts?.ultraLarge}
             color="text.dark"
           >
-            AGENDA DA CO - PREFEITA
+            AGENDA DA CO-PREFEITA
           </Heading>
 
           <Stack direction="row" flexWrap="wrap-reverse">
@@ -156,9 +164,9 @@ function Screen({ handler }: PropsInput) {
                 </Heading>
               ) : (
                 filteredValues?.map((item: Meeting, index: any) => {
-                  let getHours = item?.data_compromisso
-                    ?.split("T")[1]
-                    ?.split(":");
+                  const timeWithSubtraction = moment(item?.data_compromisso).subtract(3, 'hours');
+                  const getHours = timeWithSubtraction.format("HH:mm").split(":");
+                  
 
                   return (
                     <>

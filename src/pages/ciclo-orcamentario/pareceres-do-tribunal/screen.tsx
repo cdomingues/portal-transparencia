@@ -68,7 +68,7 @@ type PropsInput = {
 export const contentReportExtrabudget = {
   titlePage: "PARECERES DO TRIBUNAL",
   description:
-    "São os pareceres emitidos pelo Tribunal de Contas do Estado de São Paulo às contas do Poder Executivo, que darão suporte para o Poder Legislativo (Câmara Municipal) efetuar o devido julgamento, na forma do disposto no Inciso VIII, do Artigo 52 da Lei Orgânica do Município. ",
+    "São os pareceres emitidos pelo Tribunal de Contas do Estado de São Paulo às contas do Poder Executivo, que darão suporte para o Poder Legislativo (Câmara Municipal) efetuar o devido julgamento, na forma do disposto no Inciso VIII, do Artigo 52 da Lei Orgânica do Município.",
 };
 
 function Screen({ handler }: PropsInput) {

@@ -46,6 +46,8 @@ function Screen({ handler }: PropsInput) {
   const [selected, setSelected] = useState<Date>();
   const [schedule, setSchedule] = useState<Array<Meeting>>([]);
 
+  
+
   const handleGetOpenSchedule = async () => {
     const response = await fetch(
       "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=e6ee12e9-2fec-4d91-acac-36b36bd179c2&q=Caio%20Cunha",
@@ -71,20 +73,24 @@ function Screen({ handler }: PropsInput) {
   }, []);
 
   const filteredValues = schedule
-  ?.filter(
-    (item: Meeting) =>
-      item?.data_compromisso?.split("T")[0] ===
-      String(moment(selected).format("YYYY-MM-DD"))
-  )
+  ?.filter((item: Meeting) => {
+    // Linha modificada abaixo
+    const timeWithSubtraction = moment(item?.data_compromisso).subtract(3, 'hours');
+    return timeWithSubtraction.format("YYYY-MM-DD") === String(moment(selected).format("YYYY-MM-DD"));
+  })
+  // Uma linha depois para contexto
   .sort((a: Meeting, b: Meeting) => {
-    const aHours = a?.data_compromisso?.split("T")[1];
-    const bHours = b?.data_compromisso?.split("T")[1];
-
+    // Linha modificada abaixo
+    const aHours = moment(a?.data_compromisso).subtract(3, 'hours').format("HH:mm");
+    // Linha modificada abaixo
+    const bHours = moment(b?.data_compromisso).subtract(3, 'hours').format("HH:mm");
     return aHours > bHours ? 1 : -1;
   });
 
   const title = contentMayorAgenda?.titlePage;
   const description = contentMayorAgenda?.description;
+
+  
 
   const dateSelected = moment(selected).format("LL");
   const translatorMonth: any = {
@@ -157,9 +163,9 @@ function Screen({ handler }: PropsInput) {
                 </Heading>
               ) : (
                 filteredValues?.map((item: Meeting, index: any) => {
-                  let getHours = item?.data_compromisso
-                    ?.split("T")[1]
-                    ?.split(":");
+                  const timeWithSubtraction = moment(item?.data_compromisso).subtract(3, 'hours');
+                  const getHours = timeWithSubtraction.format("HH:mm").split(":");
+                  
 
                   return (
                     <>

@@ -34,7 +34,7 @@ type PropsInput = {
 };
 
 export const contentExtrabudgetExpenses = {
-  titlePage: "Despesas Extra Orçamentárias",
+  titlePage: "Despesas Extraorçamentárias",
   description: "Aqui você pode acompanhar as informações sobre as despesas que não integram o orçamento da Prefeitura, apenas transitam pelo poder público.",
 }
 

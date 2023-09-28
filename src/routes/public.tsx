@@ -41,10 +41,7 @@ import { contentMayorAgenda } from "../pages/agenda-aberta/agenda-prefeito/scree
 import { contentContractManagement } from "../pages/convenios-transferencias/contratos-gestao/screen";
 
 // import { contentAgreementColaborator } from "../pages/acordos-termos/acordo-de-colaboracao/screen";
-import { contentPlanMultiannual } from "../pages/zzOld_ciclo-orcamentario/plurianual/screen";
-import { contentGuidelines } from "../pages/zzOld_ciclo-orcamentario/diretrizes-orcamentarias/screen";
-import { contentLawBudget } from "../pages/zzOld_ciclo-orcamentario/lei-orcamentaria-anual/screen";
-import { contentRepostManagementSupervisor } from "../pages/zzOld_ciclo-orcamentario/relatorio-de-gestao-fiscal/screen";
+
 import { contentPublicWorks } from "../pages/ciclo-orcamentario/obras-publicas/screen";
 import { contentPublicServants } from "../pages/ciclo-orcamentario/servidores-publicos-estagiarios/screen";
 import { contentPROMAE } from "../pages/ciclo-orcamentario/promae/screen";
@@ -58,10 +55,7 @@ import { contentGeneralCosts } from "../pages/gestao-orcamentaria/despesas/despe
 import { contentExpensesRemains } from "../pages/gestao-orcamentaria/despesas/despesas-restos/screen";
 import { contentTrafficFines } from "../pages/gestao-orcamentaria/receitas/multa-transito/screen";
 import { contentExpensesParliamentaryAmendments } from "../pages/gestao-orcamentaria/despesas/despesas-emendas/screen";
-import { contentExtrabudgetExpenses } from "../pages/zzOld_orcamento-municipal/extraorcamentario/despesas/screen";
-import { contentExtrabudgetRevenues } from "../pages/zzOld_orcamento-municipal/extraorcamentario/receitas/screen";
-import { contentCovidRecipes } from "../pages/zzOld_orcamento-municipal/covid/receitas/screen";
-import { contentCovidExpenses } from "../pages/zzOld_orcamento-municipal/covid/despesas/screen";
+
 import { contentReportExtrabudget } from "../pages/ciclo-orcamentario/relatorio-resumido/screen";
 import { contentAnnualBalance } from "../pages/contas/balancos-anuais/screen";
 import { contentCourtOpinions } from "../pages/contas/pareceres-tribunal/screen";
@@ -494,7 +488,7 @@ const publicRoutes: IPublicRoute[] = [
       },
       {
         defaultPath: "/agenda-aberta",
-        name: "Co Prefeita - Priscila Yamagami",
+        name: "Co-Prefeita - Priscila Yamagami",
         path: "agenda-coprefeita",
         icon: AiOutlineProfile,
         ...contentMayorAgenda,

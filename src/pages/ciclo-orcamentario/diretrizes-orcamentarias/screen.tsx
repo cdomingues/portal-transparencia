@@ -893,7 +893,7 @@ type PropsInput = {
 
 export const contentGuidelines = {
   titlePage: "Lei de Diretrizes Orçamentárias",
-  description: "A Lei de Diretrizes Orçamentárias (LDO) permite a ligação entre o planejamento de curto prazo, no caso o Orçamento Anual, e o planejamento de longo prazo, que é o Plano Plurianual (PPA). A LDO define metas e prioridades da Administração Pública, além de estabelecer metas fiscais e apontar os riscos que poderão afetar as contas públicas. O projeto deve ser enviado até dia 15 de abril de cada ano à Câmara Municipal, que deve concluir sua votação até 30 de junho. São realizadas duas audiências públicas até a votação. Os trabalhos legislativos do primeiro semestre não podem terminar sem a aprovação da LDO. ",
+  description: "A Lei de Diretrizes Orçamentárias (LDO) é elaborada anualmente e tem como objetivo apontar as prioridades do governo para o próximo ano. Ela orienta a elaboração da Lei Orçamentária Anual, baseando-se no que foi estabelecido pelo Plano Plurianual. Em sua construção deve conter a previsão de despesas referentes ao plano de carreiras, cargos e salários dos servidores, o controle de custos e avaliação dos resultados dos programas desenvolvidos e as condições e exigências para transferências de recursos a entidades públicas e privadas, funcionando como um ajuste anual que delimita o que é e o que não é possível realizar no ano seguinte.",
 };
 
 function Screen({ handler }: PropsInput) {

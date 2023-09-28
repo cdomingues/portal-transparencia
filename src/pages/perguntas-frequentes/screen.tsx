@@ -6,7 +6,7 @@ import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibi
 import { isMobile } from "react-device-detect";
 
 export const contentFaq = {
-  titlePage: "PERGUNTAS FREQUENTES",
+  titlePage: "Perguntas Frequentes",
   description:
     "Caso tenha dificuldade em encontrar alguma informação ou dúvida referente ao conteúdo publicado neste portal, você pode entrar em contato conosco pelo email: smtda@mogidascruzes.sp.gov.br, pelo telefone: (11) 4798-5265 ou dirigir-se pessoalmente ao Pronto Atendimento ao Cidadão (PAC), localizado no térreo do prédio sede da Prefeitura, de segunda a sexta-feira, das 8 às 17 horas.",
 };

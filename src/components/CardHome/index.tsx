@@ -225,7 +225,7 @@ function CardHome() {
       showExtraLinks: true ,
       extraLinks: [
         { label: "Prefeito - Caio Cunha", url: "/agenda-aberta/agenda-prefeito" },
-        { label: "Co Prefeita - Priscila Yamagami", url: "/agenda-aberta/agenda-coprefeita" },
+        { label: "Co-Prefeita - Priscila Yamagami", url: "/agenda-aberta/agenda-coprefeita" },
       ],
     },
     {
@@ -303,7 +303,7 @@ function CardHome() {
       ],
     },
     {
-      title: "Últimas Noticias",
+      title: "Últimas Notícias",
       imageURL: Ultimas_noticias.src,
       description: "Descrição 3",
       link: "/ultimas-noticias",
