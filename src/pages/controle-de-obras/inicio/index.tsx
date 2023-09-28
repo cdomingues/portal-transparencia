@@ -58,7 +58,7 @@ function Screen({ handler }: PropsInput) {
             {contentConstructionsControl?.description}
           </Text>
           
-          <div className="banner-bottom">
+          <div className="banner-bottom" >
             <div
               className="chip-banner"
               onClick={() => router.push("/controle-de-obras/sobre-as-obras")}

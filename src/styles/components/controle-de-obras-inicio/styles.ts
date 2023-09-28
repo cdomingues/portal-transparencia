@@ -36,12 +36,13 @@ export const Banner = styled.div`
   .banner-bottom {
     flex: 1;
     display: flex;
-    
     flex-direction: row;
     gap: 20px;
     align-items: flex-end;
     justify-content: flex-start;
     padding: 35px 0px;
+    
+    
    
     .chip-banner {
       display: flex;
@@ -68,26 +69,21 @@ export const Banner = styled.div`
       max-width: 900px;
     }
   }
-  @media (max-width: 760px) {
-    .banner-bottom {
-      gap: 10px;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
+  @media (max-width: 800px) {
+    .chip-banner {
+      margin-top: 10px;;
     }
   }
   @media (max-width: 530px) {
     height: 280px;
   }
   @media (max-width: 500px) {
-    height: 420px;
-    .banner-bottom {
-      gap: 40px;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+    height: 500px;
+    .chip-banner {
+      margin-top: 100px;
     }
-  }
+    }
+  
 `;
 
 
