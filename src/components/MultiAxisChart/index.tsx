@@ -45,7 +45,8 @@ export function MultiAxisChart({
   names = [],
   seriesName,
   chartType,
-}: IMultiAxisChart) {
+  valueFormat = 1000000,
+}: any) {
   const formatMoney = (value: number) => {
     return moneyFormat ? moneyFormatter(value) : value.toString();
   };
@@ -63,8 +64,8 @@ export function MultiAxisChart({
   }[];
 
   const series: SeriesType = data.datasets
-    .filter((dataset) => dataset.label === targetSeries)
-    .map((dataset) => {
+    .filter((dataset: any) => dataset.label === targetSeries)
+    .map((dataset: any) => {
       const config = chartType === "line" ? lineChartConfig : barChartConfig;
 
       const returnValue = {
@@ -73,8 +74,6 @@ export function MultiAxisChart({
         borderWidth: dataset.borderWidth,
         ...config,
       };
-
-      console.log(returnValue);
 
       return returnValue;
     });
@@ -99,12 +98,10 @@ export function MultiAxisChart({
         },
       },
     },
-    
 
     plotOptions: {
       bar: {
         horizontal: false,
-        
       },
     },
     xaxis: {
@@ -123,7 +120,7 @@ export function MultiAxisChart({
         },
         labels: {
           formatter: function (val: number) {
-            let formattedValue = (val / 1000000).toFixed(0);
+            let formattedValue = (val / valueFormat).toFixed(0);
             return parseInt(formattedValue).toLocaleString("pt-BR"); // 'pt-BR' garante que o ponto seja usado como delimitador de milhares
           },
         },

@@ -21,16 +21,27 @@ function Controller({
   const [newChart, setNewChart] = useState(chart);
 
   const columns = [
-    { title: "Número", field: "numero" },
-    { title: "Modalidade", field: "modalidade" },
-    { title: "CPF/CNPJ", field: "cpfcnpj" },
-    { title: "Fornecedor", field: "fornecedor" },
-    { title: "Data", field: "data" },
-    { title: "Empenhado", field: "empenhado" },
+    { title: "Id", field: "id" },
+    { title: "Ano", field: "ano" },
+    { title: "Competência", field: "competencia" },
+    { title: "Campanha", field: "campanha" },
+    { title: "Veículo de divulgação", field: "veiculo_divulgacao" },
+    { title: "Tipo de Serviço", field: "tipo_servico" },
     { title: "Liquidado", field: "liquidado" },
-    { title: "Pago", field: "pago" },
-    { title: "Programa", field: "programa" },
-    { title: "Unidade", field: "unidade" },
+    { title: "Fornecedor", field: "fornecedor" },
+    { title: "Agência Contratada", field: "agencia_contratada" },
+    { title: "Data Início", field: "data_inicio" },
+    { title: "Data Término", field: "data_termino" },
+    { title: "Valor Veiculação", field: "valor_total_veiculacao" },
+    {
+      title: "Honorário Veiculação",
+      field: "honorario_agencia_veiculacao",
+    },
+    {
+      title: "Honorário Produção",
+      field: "honorario_agencia_producao",
+    },
+    { title: "Rank", field: "rank" },
   ];
 
   const handleByYear = async (year: number) => {

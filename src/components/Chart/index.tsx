@@ -72,7 +72,7 @@
 // rounded="md"
 // overflow="hidden"
 // maxWidth="100%"
-              
+
 // borderRadius="18px"
 // marginBottom="15px"
 // >
@@ -107,9 +107,16 @@ interface IChart {
   type: "line" | "bar";
   style?: CSSProperties;
   options?: Partial<ApexOptions>; // add this line
+  valueFormat?: number;
 }
 
-const Chart: React.FC<IChart> = ({ data, type, style, options = {} }) => {
+const Chart: React.FC<IChart> = ({
+  data,
+  type,
+  style,
+  options = {},
+  valueFormat = 1000000,
+}) => {
   // include the options prop in your function component
   const series = data.datasets.map((dataset) => ({
     name: dataset.label,
@@ -121,13 +128,13 @@ const Chart: React.FC<IChart> = ({ data, type, style, options = {} }) => {
       toolbar: {
         show: true,
         tools: {
-        download: true,  
-        selection: true,
-        zoom: true,
-        zoomin: true,
-        zoomout: true,
-        pan: true,
-        }
+          download: true,
+          selection: true,
+          zoom: true,
+          zoomin: true,
+          zoomout: true,
+          pan: true,
+        },
       },
 
       width: "100%",
@@ -170,11 +177,11 @@ const Chart: React.FC<IChart> = ({ data, type, style, options = {} }) => {
         },
         labels: {
           formatter: function (val: number) {
-              let formattedValue = (val / 1000000).toFixed(0);
-              return 'R$ ' + parseInt(formattedValue).toLocaleString('pt-BR'); // 'pt-BR' garante que o ponto seja usado como delimitador de milhares
-          }
-      },
-      
+            let formattedValue = (val / valueFormat).toFixed(0);
+            return "R$ " + parseInt(formattedValue).toLocaleString("pt-BR"); // 'pt-BR' garante que o ponto seja usado como delimitador de milhares
+          },
+        },
+
         floating: false,
         decimalsInFloat: 2,
       },
@@ -201,11 +208,9 @@ const Chart: React.FC<IChart> = ({ data, type, style, options = {} }) => {
   const mergedOptions = { ...defaultOptions, ...options };
 
   return (
-
-      <div id="chart">
-        <ChartBarApex options={mergedOptions} series={series} type={type} />
-      </div>
- 
+    <div id="chart">
+      <ChartBarApex options={mergedOptions} series={series} type={type} />
+    </div>
   );
 };
 
