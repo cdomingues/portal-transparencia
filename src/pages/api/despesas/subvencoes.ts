@@ -32,16 +32,16 @@ export default async function handler(
 
   const year = req.query.ano;
 
-  // const unityOrc = [
-  //   "02.07.01 - SME",
-  //   "02.06.01 - SMDEI",
-  //   "02.08.01 - SMEL",
-  //   "02.11.01 - FMS",
-  //   "02.12.02 - FMAS",
-  //   "02.12.03 - FMDCA",
-  //   "02.16.01 - SMC",
-  //   "02.24.01 - SMAA",
-  // ];
+  const unityOrc = [
+    "02.07.01 - SME",
+    "02.06.01 - SMDEI",
+    "02.08.01 - SMEL",
+    "02.11.01 - FMS",
+    "02.12.02 - FMAS",
+    "02.12.03 - FMDCA",
+    "02.16.01 - SMC",
+    "02.24.01 - SMAA",
+  ];
 
   const program = [
     "1000 - EDUCA MOGI",
@@ -57,7 +57,7 @@ export default async function handler(
     .from("DESP_EMPENHO")
     .where("naturezadespesa", "3.3.50.43.00 - SUBVENÇÕES SOCIAIS/GERAL")
     .whereIn("programa", program)
-    // .whereIn("unidadeorc", unityOrc);
+    .whereIn("unidadeorc", unityOrc);
 
   const hosting = await database
     .select(
@@ -74,7 +74,7 @@ export default async function handler(
     .from("DESP_EMPENHO")
     .where("tipolicitacao", "DISPENSA")
     .whereIn("programa", program)
-    // .whereIn("unidadeorc", unityOrc)
+    .whereIn("unidadeorc", unityOrc)
     .where("ano", "=", year || moment().year())
     .orderBy("data", "desc");
 
