@@ -72,7 +72,7 @@ export default async function handler(
       "unidadeorc as unidade"
     )
     .from("DESP_EMPENHO")
-    .where("tipolicitacao", "DISPENSA")
+    .where("naturezadespesa", "3.3.50.43.00 - SUBVENÇÕES SOCIAIS/GERAL")
     .whereIn("programa", program)
     .whereIn("unidadeorc", unityOrc)
     .where("ano", "=", year || moment().year())
