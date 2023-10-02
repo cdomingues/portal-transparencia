@@ -23,6 +23,28 @@ export const Banner = styled.div`
     background: rgba(24, 53, 97, 0.6);  // A máscara cinza com 50% de opacidade
     z-index: -1;
   }
+  .divPrincipal {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.divSuperior, .divInferior {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.divSuperior {
+  background-color: #f2f2f2;
+}
+
+.divInferior {
+  background-color: #cccccc;
+}
+  
   .content {
     margin: 0 auto;
     max-width: 1340px;

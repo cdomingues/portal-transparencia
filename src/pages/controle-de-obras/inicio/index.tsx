@@ -12,7 +12,14 @@ import { BsTree } from "react-icons/bs";
 import MapOfConstructions from "../../../components/MapOfConstructions";
 import CardBigTransformation from "../../../components/CardBigTransformation";
 import CardTransformation from "../../../components/CardTransformation";
-import { Heading, Input, Text, background } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  Input,
+  Text,
+  background,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import obras_espaco_publico from "../../../assets/images/icones/Portal de Obras_TOPO_espaco publico.svg";
 import obras_saneamento from "../../../assets/images/icones/Portal de Obras_TOPO_saneamento.svg";
@@ -20,6 +27,10 @@ import obras_mobilidade from "../../../assets/images/icones/Portal de Obras_TOPO
 import obras_saude from "../../../assets/images/icones/Portal de Obras_TOPO_saude.svg";
 import CardObras from "../../../components/CardObras";
 import imgBigTransformations from "../../../assets/images/big_transformations.png";
+import wall from "../../../assets/images/logoportal_simbolo_portalobras.png";
+import wallNegative from "../../../assets/images/logoportal_simbolo_portalobras_negativo.png";
+import vagalumeMobi from "../../../assets/images/Portal-de-Obras_fototopo_homemobi.png";
+import vagalumeDesk from "../../../assets/images/Portal-de-Obras_fototopo_homedesk.png";
 import ContainerBasic from "../../../components/Container/Basic";
 
 type PropsInput = {
@@ -35,8 +46,7 @@ type PropsInput = {
 
 export const contentConstructionsControl = {
   titlePage: "Balanços Anuais",
-  description:
-    "O Balanço Anual mostra as principais ..",
+  description: "O Balanço Anual mostra as principais ..",
 };
 
 function Screen({ handler }: PropsInput) {
@@ -47,9 +57,166 @@ function Screen({ handler }: PropsInput) {
   const description = contentConstructionsControl?.description;
 
   return (
-    <ContainerBasic title={title} description={description} showAsideByDefault={false} showToggleButton={false} showFirstBox={false}>
-     
-        {/* <div className="content">
+    <ContainerBasic
+      title={title}
+      description={description}
+      showAsideByDefault={false}
+      showToggleButton={false}
+      showFirstBox={false}
+    >
+      <Box
+        m={0}
+        bg={useColorModeValue("white", "gray.800")}
+        boxShadow="2xl"
+        rounded="md"
+        overflow="hidden"
+        maxWidth="100%"
+        marginBottom="15px"
+      >
+        <div
+          style={{
+            width: "100%",
+
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <div
+            style={{
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <div
+              style={{
+                flex: 1,
+                display: "flex",
+                justifyContent: "flex-start", // Alinha o conteúdo à esquerda
+                alignItems: "center", // Mantém o alinhamento vertical centralizado
+                paddingLeft: "15px",
+                minWidth: "100%",
+                paddingTop: "20px",
+              }}
+            >
+              <img
+                src={wall.src}
+                alt=""
+                style={{
+                  maxHeight: "50px",
+                }}
+              />
+            </div>
+            <div
+              style={{
+                flex: 1,
+                display: "flex",
+                justifyContent: "flex-start", // Alinha o conteúdo à esquerda
+                alignItems: "center", // Mantém o alinhamento vertical centralizado
+                minWidth: "100%",
+                fontSize: "2rem",
+                fontFamily: "Roboto",
+                color: "blue",
+                paddingTop: "10px",
+                paddingLeft: "15px",
+              }}
+            >
+              Portal de Obras
+            </div>
+            <div
+              style={{
+                flex: 1,
+                display: "flex",
+                justifyContent: "flex-start", // Alinha o conteúdo à esquerda
+                alignItems: "center", // Mantém o alinhamento vertical centralizado
+                minWidth: "100%",
+                fontSize: "2rem",
+                fontFamily: "Roboto",
+                paddingLeft: "15px",
+                color: "blue",
+              }}
+            >
+              Mogi das Cruzes
+            </div>
+            <div
+              style={{
+                flex: 1,
+                display: "flex",
+                justifyContent: "flex-start", // Alinha o conteúdo à esquerda
+                alignItems: "center", // Mantém o alinhamento vertical centralizado
+                minWidth: "100%",
+                fontSize: "1.2rem",
+                paddingLeft: "15px",
+
+                paddingBottom: "20px",
+              }}
+            >
+              Conheça as obras que estão transformando a nossa cidade.
+            </div>
+          </div>
+          {/* <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end", // Alinha o conteúdo à esquerda
+              alignItems: "center", // Mantém o alinhamento vertical centralizado
+              minWidth: "400px",
+              backgroundImage: `url(${vagalumeMobi.src})`,
+              position: "static",
+              height: "100%",
+              left: "-20px",
+            }}
+          >
+            <img
+              src={vagalumeMobi.src}
+              alt=""
+             
+            />
+          </div> */}
+
+          <div
+            style={{
+              position: "relative", // Posição relativa para a div pai
+              height: "400px",
+              backgroundImage: `url(${vagalumeMobi.src})`,
+              backgroundSize: "cover", // Garante que a imagem de fundo cubra toda a div
+              backgroundPosition: "center", // Centraliza a imagem de fundo
+            }}
+          >
+            {/* Primeira div sobreposta */}
+            <div
+              style={{
+                position: "absolute",
+                top: "10%", // Posicionamento vertical
+                left: "10px", // Alinhamento à esquerda
+                width: "33.33%", // Ocupa 1/3 da largura
+                height: "20%", // Altura arbitrária, pode ser ajustada
+                backgroundColor: "rgba(255, 255, 255, 0.8)", // Cor de fundo semi-transparente
+                borderRadius: "15px",
+              }}
+            >
+              {/* Conteúdo da primeira div */}
+            </div>
+
+            {/* Segunda div sobreposta */}
+            <div
+              style={{
+                position: "absolute",
+                top: "50%", // Posicionamento vertical
+                left: "10px", // Alinhamento à esquerda
+                width: "33.33%", // Ocupa 1/3 da largura
+                height: "20%", // Altura arbitrária, pode ser ajustada
+                backgroundColor: "rgba(255, 255, 255, 0.8)", // Cor de fundo semi-transparente
+                borderRadius: "15px",
+              }}
+            >
+              {/* Conteúdo da segunda div */}
+            </div>
+          </div>
+        </div>
+      </Box>
+      {/* <div className="content">
           <Heading
             color={colors.white}
             fontSize={accessibility?.fonts?.moreUltraLarge}
@@ -134,48 +301,81 @@ function Screen({ handler }: PropsInput) {
           </div>
         </Style.BannerTotals>
      */}
+      <Box
+        m={0}
+        bg={useColorModeValue("white", "gray.800")}
+        boxShadow="2xl"
+        padding={"15px"}
+        rounded="md"
+        overflow="hidden"
+        maxWidth="100%"
+        marginBottom="15px"
+      >
+        <MapOfConstructions />
+      </Box>
+      <Box
+        m={0}
+        bg={useColorModeValue("white", "gray.800")}
+        boxShadow="2xl"
+        padding={"15px"}
+        rounded="md"
+        overflow="hidden"
+        maxWidth="100%"
+        marginBottom="15px"
+      >
+        <Style.ContainerBigTransformations>
+          <Style.Heading>Grandes transformações da cidade</Style.Heading>
+          <div>
+            <a
+              href="https://www.mogidascruzes.sp.gov.br/noticia/prefeitura-inaugura-o-vagalume-saude-infantil-neste-sabado-as-10-horas"
+              target="_blank"
+            >
+              <img src={imgBigTransformations.src} alt="" />{" "}
+              <label>Inauguraçao Hospital Vagalume</label>
+            </a>
+          </div>
+        </Style.ContainerBigTransformations>
+      </Box>
 
-      <MapOfConstructions />
+      <Box
+        m={0}
+        bg={useColorModeValue("white", "gray.800")}
+        boxShadow="2xl"
+        padding={"15px"}
+        rounded="md"
+        overflow="hidden"
+        maxWidth="100%"
+        marginBottom="15px"
+      >
+        <Style.ContainerCardsTransformations>
+          <Style.Heading>Conheça nossas obras em destaque</Style.Heading>
 
-      <Style.ContainerBigTransformations>
-        <Style.Heading>Grandes transformações da cidade</Style.Heading>
-        <div>
-          <a
-            href="https://www.mogidascruzes.sp.gov.br/noticia/prefeitura-inaugura-o-vagalume-saude-infantil-neste-sabado-as-10-horas"
-            target="_blank"
-          >
-            <img src={imgBigTransformations.src} alt="" />{" "}
-            <label>Inauguraçao Hospital Vagalume</label>
-          </a>
-        </div>
-      </Style.ContainerBigTransformations>
-
-      <Style.ContainerCardsTransformations>
-        <Style.Heading>Conheça nossas obras em destaque</Style.Heading>
-
-        <div className="align-cards">
-          <CardTransformation
-            title="Grandes transformações da cidade"
-            description="Temos um plano para continuar melhorando a qualidade de vida dos moradores da cidade."
-            backgroundImageSrc="https://dados.mogidascruzes.sp.gov.br/dataset/8e668745-1f91-4e64-a541-4f4a81898cac/resource/5c7bcad9-6a64-4fcf-8a83-89a617371b49/download/obras-01.png"
-            onClick={() =>
-              router.push("/controle-de-obras/grandes-transformacoes-da-cidade")
-            }
-          />
-          <CardTransformation
-            title="Transformações em Mogi das Cruzes"
-            description="Explore os bairros da cidade para descobrir o que estamos fazendo em cada um."
-            backgroundImageSrc="https://dados.mogidascruzes.sp.gov.br/dataset/8e668745-1f91-4e64-a541-4f4a81898cac/resource/23585d54-3214-4c8b-8474-97dc80ada803/download/obras-02.png"
-            onClick={() => router.push("/controle-de-obras/bairros")}
-          />
-          <CardTransformation
-            title="Espaço público de qualidade"
-            description="Trabalhamos por uma cidade com mais e melhor espaço público e áreas verdes, agradáveis, seguras e próximas aos moradores."
-            backgroundImageSrc="https://dados.mogidascruzes.sp.gov.br/dataset/8e668745-1f91-4e64-a541-4f4a81898cac/resource/4be78cfe-7506-4aeb-afb2-5be46d0d86fd/download/obras-03.png"
-            onClick={() => router.push("/controle-de-obras/espaco-publico")}
-          />
-        </div>
-      </Style.ContainerCardsTransformations>
+          <div className="align-cards">
+            <CardTransformation
+              title="Grandes transformações da cidade"
+              description="Temos um plano para continuar melhorando a qualidade de vida dos moradores da cidade."
+              backgroundImageSrc="https://dados.mogidascruzes.sp.gov.br/dataset/8e668745-1f91-4e64-a541-4f4a81898cac/resource/5c7bcad9-6a64-4fcf-8a83-89a617371b49/download/obras-01.png"
+              onClick={() =>
+                router.push(
+                  "/controle-de-obras/grandes-transformacoes-da-cidade"
+                )
+              }
+            />
+            <CardTransformation
+              title="Transformações em Mogi das Cruzes"
+              description="Explore os bairros da cidade para descobrir o que estamos fazendo em cada um."
+              backgroundImageSrc="https://dados.mogidascruzes.sp.gov.br/dataset/8e668745-1f91-4e64-a541-4f4a81898cac/resource/23585d54-3214-4c8b-8474-97dc80ada803/download/obras-02.png"
+              onClick={() => router.push("/controle-de-obras/bairros")}
+            />
+            <CardTransformation
+              title="Espaço público de qualidade"
+              description="Trabalhamos por uma cidade com mais e melhor espaço público e áreas verdes, agradáveis, seguras e próximas aos moradores."
+              backgroundImageSrc="https://dados.mogidascruzes.sp.gov.br/dataset/8e668745-1f91-4e64-a541-4f4a81898cac/resource/4be78cfe-7506-4aeb-afb2-5be46d0d86fd/download/obras-03.png"
+              onClick={() => router.push("/controle-de-obras/espaco-publico")}
+            />
+          </div>
+        </Style.ContainerCardsTransformations>
+      </Box>
     </ContainerBasic>
 
     // <LayoutConstructions breadcrumb={false}>
