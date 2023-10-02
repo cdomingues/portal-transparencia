@@ -257,7 +257,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                 style={{ cursor: "pointer" }}
               >
                 <div className="left">
-                  <img
+                  <Img
                     src={`/icons/${programConfig.imageName}.svg`}
                     width="50%"
                     alt="Meu Ícone"
@@ -356,7 +356,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                     }}
                   >
                     {programConfig.imageName && (
-                      <img
+                      <Img
                         src={`/icons/${programConfig.imageName}.svg`}
                         width={25}
                         alt="Meu Ícone"

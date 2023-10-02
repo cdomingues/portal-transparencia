@@ -24,7 +24,7 @@ const CardTotal = ({
     <Style.Container>
 
       
-      <img
+      <Img
               src={imageURL}
               alt="icone"
               width={60}

@@ -89,7 +89,7 @@ const CardHorizon: React.FC<CardHorizonProps> = ({
             justifyContent="center"
             alignItems="center"
           >
-            <img
+            <Img
               src={imageURL}
               alt="icone"
               width={60}

@@ -23,7 +23,7 @@ export default function Carousel({ listImages, className }: any) {
         {(listImages || []).map((item: any, index: any) => {
           return (
             <SwiperSlide key={index}>
-              <img
+              <Img
                 alt={`img-${index}`}
                 src={item}
                 key={`sliderContent-${index}`}
