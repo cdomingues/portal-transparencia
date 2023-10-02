@@ -46,7 +46,7 @@ function Screen({ handler }: PropsInput) {
         color="gray.500"
         fontSize={accessibility?.fonts?.regular}
         >Para enviar uma reclamação ou solicitar um serviço, acesse o aplicativo oficial do Colab </Text>
-         <Link  href="https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab" target="_blank"><Button  margin="5px">Colab</Button></Link>
+         <Link  href="https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab" target="_blank"><Button fontSize={accessibility?.fonts?.regular}  margin="5px">Colab</Button></Link>
 <br></br>
 <Text
                 align={isMobile ? "justify" : "left"}
@@ -78,7 +78,7 @@ function Screen({ handler }: PropsInput) {
                 
                 
               </Text>
-              <Link  href="https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/institucional" target="_blank"><Button  margin="5px">Ouvidoria</Button></Link>
+              <Link  href="https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/institucional" target="_blank"><Button fontSize={accessibility?.fonts?.regular} margin="5px">Ouvidoria</Button></Link>
 
 
       </Box>

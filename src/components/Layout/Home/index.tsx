@@ -11,6 +11,7 @@ import Brasao_PMMC_white from "../../../assets/images/Brasao_PMMC_white.png";
 import lupaNormal from "../../../assets/images/lupa_portal.png";
 import lupaDark from "../../../assets/images/lupa_portal_dark.png";
 import Vlibras from "vlibras-nextjs";
+import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import receitas_multas_de_transito from "../../../assets/images/icones/receitas multas de transito.svg";
 import {
   Box,
@@ -26,7 +27,9 @@ import CardHome from "../../CardHome";
 //   children?: React.ReactNode;
 // };
 
+
 function PublicHome() {
+  const accessibility = useFontSizeAccessibilityContext();
   const brasaoImageSrc = useColorModeValue(Brasao_PMMC_Normal.src, Brasao_PMMC_white.src);
   const lupaSrc = useColorModeValue(lupaNormal.src, lupaDark.src);
 
@@ -103,11 +106,12 @@ function PublicHome() {
                 fontFamily={"sans-serif"}
                 fontWeight={"semibold"}
                 textAlign={"left"}
-                fontSize={"2xl"}
+                fontSize={accessibility?.fonts?.large}
+               // fontSize={"2xl"}
               >
                 SEJA BEM-VINDO AO PORTAL DE TRANSPARÊNCIA DE MOGI DAS CRUZES
               </Text>
-              <Text fontWeight={"light"} fontSize={"sm"} justifyItems={""}>
+              <Text fontWeight={"light"} fontSize={accessibility?.fonts?.medium} justifyItems={""}>
                 O lugar onde o controle social começa! Acompanhe todas as
                 informações de receitas e despesas da Prefeitura, com
                 detalhamento e maior facilidade de entendimento.

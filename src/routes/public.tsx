@@ -21,6 +21,7 @@ import {
   AiOutlineSwap,
   AiFillTag,
   AiFillCaretRight,
+  AiFillCaretDown,
   
 } from "react-icons/ai";
 import { BiBall, BiBriefcaseAlt, BiMoney } from "react-icons/bi";
@@ -171,6 +172,12 @@ const publicRoutes: IPublicRoute[] = [
     group: [
       
       {
+       // defaultPath: "/gestao-orcamentaria",
+        name: "Receitas",
+        path: "/gestao-orcamentaria/receitas",
+        icon: AiFillCaretDown,
+      },
+      {
         defaultPath: "/gestao-orcamentaria",
         name: "Gerais",
         path: "receitas",
@@ -189,6 +196,12 @@ const publicRoutes: IPublicRoute[] = [
         icon: AiFillCaretRight,
       },
       
+       {
+        // defaultPath: "/gestao-orcamentaria",
+         name: "Despesas",
+         path: "/gestao-orcamentaria/despesas",
+         icon: AiFillCaretDown,
+       },
       {
         defaultPath: "/gestao-orcamentaria",
         name: "Gerais",

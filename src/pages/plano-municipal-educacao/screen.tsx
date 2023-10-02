@@ -11,6 +11,7 @@ import HTMLReactParser from 'html-react-parser'
 import { select } from "d3";
 import { AiOutlineDownload } from "react-icons/ai";
 
+
  /* type  Publicacao = {
   id: number;
   volume: string;
@@ -111,7 +112,8 @@ function Screen(PropsInput: any) {
           //onClick={() => handleClick(law.link, index)}
         >
           <Icon as={AiOutlineDownload} />
-          <p>{HTMLReactParser(selectedPublication.description)}</p>
+          
+          <Text fontSize={accessibility?.fonts?.medium}>{HTMLReactParser(selectedPublication.description)}</Text>
           
         </Stack></a>
           </div>
