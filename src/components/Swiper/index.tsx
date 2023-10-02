@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper';
 import { SliderContainer } from './styles';
 import 'swiper/css';
+import { Img } from '@chakra-ui/react';
 
 export default function Carousel({ listImages, className }: any) {
   return (

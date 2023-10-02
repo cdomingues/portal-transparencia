@@ -16,6 +16,7 @@ import {
   PopoverHeader,
   PopoverBody,
   Button,
+  Img,
   background,
 } from "@chakra-ui/react";
 import { IconRight } from "react-day-picker";
