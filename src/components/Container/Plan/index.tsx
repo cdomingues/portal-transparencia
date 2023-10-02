@@ -9,8 +9,9 @@ type PropsInput = {
   laws: Array<{ name: string; link: string }>;
   children?: ReactNode;
 };
-const accessibility = useFontSizeAccessibilityContext();
+
 const PlanContainer = ({ laws, children }: PropsInput) => {
+  const accessibility = useFontSizeAccessibilityContext();
   return (
     <Stack direction={isMobile ? "column" : "row"} flex={1}>
       <Stack direction="column" flex={3}>
