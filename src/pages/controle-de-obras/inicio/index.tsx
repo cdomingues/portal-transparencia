@@ -48,8 +48,8 @@ function Screen({ handler }: PropsInput) {
 
   return (
     <ContainerBasic title={title} description={description} showAsideByDefault={false} showToggleButton={false} showFirstBox={false}>
-      <Style.Banner>
-        <div className="content">
+     
+        {/* <div className="content">
           <Heading
             color={colors.white}
             fontSize={accessibility?.fonts?.moreUltraLarge}
@@ -101,11 +101,7 @@ function Screen({ handler }: PropsInput) {
         <Style.BannerTotals>
           <div className="gradient-image">
             <div className="content">
-              {/* <CardTotal
-           // value="0"
-            description={`Novas áreas de espaço público e áeras verdes`}
-            icon={<TbUsers color={colors.white} fontSize={50} />}
-          /> */}
+     
 
               <CardObras
                 //value="0"
@@ -137,7 +133,7 @@ function Screen({ handler }: PropsInput) {
             </div>
           </div>
         </Style.BannerTotals>
-      </Style.Banner>
+     */}
 
       <MapOfConstructions />
 
