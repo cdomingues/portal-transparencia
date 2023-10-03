@@ -50,7 +50,7 @@ function Controller() {
 
   const getData = async () => {
     const response = await axios.get(
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=4722d644-7c8e-415f-87fe-8cfcc8013af8",
+      "http://192.168.1.118/api/3/action/datastore_search?resource_id=4722d644-7c8e-415f-87fe-8cfcc8013af8",
       {
         headers: {
           Authorization:
@@ -73,7 +73,7 @@ function Controller() {
 
   const radarCollectionData = async () => {
     const response = await axios.get(
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=382c733a-95a0-49ad-ad20-4b6d41361b1d",
+      "http://192.168.1.118/api/3/action/datastore_search?resource_id=382c733a-95a0-49ad-ad20-4b6d41361b1d",
       {
         headers: {
           Authorization:
@@ -96,7 +96,7 @@ function Controller() {
 
   const radarInfractionsData = async () => {
     const response = await axios.get(
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=720f32e2-c0c9-475a-bf5f-027adfd417e7",
+      "http://192.168.1.118/api/3/action/datastore_search?resource_id=720f32e2-c0c9-475a-bf5f-027adfd417e7",
       {
         headers: {
           Authorization:

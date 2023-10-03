@@ -95,7 +95,7 @@ function CardHome() {
       description: "Descrição 3",
       link: "http://consultacompras.pmmc.com.br/pagamento-fornecedor",
       backgroundColor: "green",
-      showExtraLinks: true,
+      showExtraLinks: false,
       extraLinks: [
         {
           label: "Receitas Extra Orçamentárias",
