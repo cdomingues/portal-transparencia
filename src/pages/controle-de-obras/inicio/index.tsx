@@ -271,7 +271,7 @@ function Screen({ handler }: PropsInput) {
                     alignItems: "center", // Mantém o alinhamento vertical centralizado
                     paddingLeft: "15px",
                     minWidth: "100%",
-                    paddingTop: "20px",
+                    paddingTop: "30px",
                   }}
                 >
                   <Img
@@ -337,7 +337,7 @@ function Screen({ handler }: PropsInput) {
                 <div
                   style={{
                     height: "30%",
-                    backgroundColor: "red",
+                    
                   }}
                 ></div>
               </div>
@@ -367,8 +367,8 @@ function Screen({ handler }: PropsInput) {
                   <div
                     style={{
                       border: "1px solid red",
-                      width: "150px",
-                      height: "150px",
+                      width: "140px",
+                      height: "140px",
                       // position: "absolute",
                       // top: "20%", // Posicionamento vertical
                       // left: "10px", // Alinhamento à esquerda
@@ -379,7 +379,7 @@ function Screen({ handler }: PropsInput) {
                         "gray"
                       ), // Cor de fundo semi-transparente
                       borderRadius: "15px",
-                      margin: "20px",
+                      margin: "15px",
                     }}
                   >
                     <div style={{ padding: "10px" }}>
@@ -403,8 +403,8 @@ function Screen({ handler }: PropsInput) {
                   <div
                     style={{
                       border: "1px solid red",
-                      width: "150px",
-                      height: "150px",
+                      width: "140px",
+                      height: "140px",
                       // position: "absolute",
                       // top: "20%", // Posicionamento vertical
                       // left: "10px", // Alinhamento à esquerda
@@ -415,7 +415,7 @@ function Screen({ handler }: PropsInput) {
                         "gray"
                       ), // Cor de fundo semi-transparente
                       borderRadius: "15px",
-                      margin: "20px",
+                      margin: "15px",
                     }}
                   >
                     <div style={{ padding: "10px" }}>
