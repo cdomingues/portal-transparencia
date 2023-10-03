@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { use, useState } from "react";
 import * as Style from "../../../styles/components/controle-de-obras-inicio/styles";
 import { TableColumns } from "../../../components/Table";
@@ -43,6 +44,8 @@ import ContainerBasic from "../../../components/Container/Basic";
 import Icon from "react-icons-kit";
 import { find } from "lodash";
 import { IoAddCircleOutline, IoChevronBack } from "react-icons/io5";
+import { is } from "cheerio/lib/api/traversing";
+import { isMobile } from "react-device-detect";
 
 type PropsInput = {
   handler?: {
@@ -84,157 +87,374 @@ function Screen({ handler }: PropsInput) {
         maxWidth="100%"
         marginBottom="15px"
       >
-        <div
-          style={{
-            width: "100%",
-
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
+        {isMobile ? (
           <div
             style={{
-              flex: 1,
+              width: "100%",
+
               display: "flex",
               flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
+              backgroundColor: "red",
             }}
           >
             <div
               style={{
                 flex: 1,
                 display: "flex",
-                justifyContent: "flex-start", // Alinha o conteúdo à esquerda
-                alignItems: "center", // Mantém o alinhamento vertical centralizado
-                paddingLeft: "15px",
-                minWidth: "100%",
-                paddingTop: "20px",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
               }}
             >
-              <Img
-                src={useColorModeValue(wall.src, wallNegative.src)}
-                alt=""
+              <div
                 style={{
-                  maxHeight: "50px",
+                  flex: 1,
+                  display: "flex",
+                  justifyContent: "flex-start", // Alinha o conteúdo à esquerda
+                  alignItems: "center", // Mantém o alinhamento vertical centralizado
+                  paddingLeft: "15px",
+                  minWidth: "100%",
+                  paddingTop: "20px",
                 }}
-              />
+              >
+                <Img
+                  src={useColorModeValue(wall.src, wallNegative.src)}
+                  alt=""
+                  style={{
+                    maxHeight: "50px",
+                  }}
+                />
+              </div>
+              <div
+                style={{
+                  flex: 1,
+                  display: "flex",
+                  justifyContent: "flex-start", // Alinha o conteúdo à esquerda
+                  alignItems: "center", // Mantém o alinhamento vertical centralizado
+                  minWidth: "100%",
+                  fontSize: "2rem",
+                  fontFamily: "Roboto",
+                  color: useColorModeValue("blue", "white"),
+                  paddingTop: "10px",
+                  paddingLeft: "15px",
+                }}
+              >
+                Portal de Obras
+              </div>
+              <div
+                style={{
+                  flex: 1,
+                  display: "flex",
+                  justifyContent: "flex-start", // Alinha o conteúdo à esquerda
+                  alignItems: "center", // Mantém o alinhamento vertical centralizado
+                  minWidth: "100%",
+                  fontSize: "2rem",
+                  fontFamily: "Roboto",
+                  paddingLeft: "15px",
+                  color: useColorModeValue("blue", "white"),
+                }}
+              >
+                Mogi das Cruzes
+              </div>
+              <div
+                style={{
+                  flex: 1,
+                  display: "flex",
+                  justifyContent: "flex-start", // Alinha o conteúdo à esquerda
+                  alignItems: "center", // Mantém o alinhamento vertical centralizado
+                  minWidth: "100%",
+                  fontSize: "1.2rem",
+                  paddingLeft: "15px",
+                  color: useColorModeValue("black", "white"),
+                  paddingBottom: "20px",
+                }}
+              >
+                Conheça as obras que estão transformando a nossa cidade.
+              </div>
             </div>
+
             <div
               style={{
-                flex: 1,
-                display: "flex",
-                justifyContent: "flex-start", // Alinha o conteúdo à esquerda
-                alignItems: "center", // Mantém o alinhamento vertical centralizado
-                minWidth: "100%",
-                fontSize: "2rem",
-                fontFamily: "Roboto",
-                color: useColorModeValue("blue", "white"),
-                paddingTop: "10px",
-                paddingLeft: "15px",
+                position: "relative", // Posição relativa para a div pai
+                height: "400px",
+                backgroundImage: `url(${vagalumeDesk.src})`,
+                backgroundSize: "cover", // Garante que a imagem de fundo cubra toda a div
+                backgroundPosition: "center", // Centraliza a imagem de fundo
               }}
             >
-              Portal de Obras
-            </div>
-            <div
-              style={{
-                flex: 1,
-                display: "flex",
-                justifyContent: "flex-start", // Alinha o conteúdo à esquerda
-                alignItems: "center", // Mantém o alinhamento vertical centralizado
-                minWidth: "100%",
-                fontSize: "2rem",
-                fontFamily: "Roboto",
-                paddingLeft: "15px",
-                color: useColorModeValue("blue", "white"),
-              }}
-            >
-              Mogi das Cruzes
-            </div>
-            <div
-              style={{
-                flex: 1,
-                display: "flex",
-                justifyContent: "flex-start", // Alinha o conteúdo à esquerda
-                alignItems: "center", // Mantém o alinhamento vertical centralizado
-                minWidth: "100%",
-                fontSize: "1.2rem",
-                paddingLeft: "15px",
-                color: useColorModeValue("black", "white"),
-                paddingBottom: "20px",
-              }}
-            >
-              Conheça as obras que estão transformando a nossa cidade.
+              {/* Primeira div sobreposta */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: "20%", // Posicionamento vertical
+                  left: "10px", // Alinhamento à esquerda
+                  width: "40%", // Ocupa 1/3 da largura
+                  height: "20%", // Altura arbitrária, pode ser ajustada
+                  backgroundColor: useColorModeValue(
+                    "rgba(255, 255, 255, 0.8)",
+                    "gray"
+                  ), // Cor de fundo semi-transparente
+                  borderRadius: "15px",
+                }}
+              >
+                <div style={{ padding: "10px" }}>
+                  <IoAddCircleOutline />
+                </div>
+                <div>
+                  <text
+                    style={{
+                      fontSize: "1rem",
+                      padding: "10px",
+                      color: useColorModeValue("black", "white"),
+                    }}
+                  >
+                    Sobre Obras
+                  </text>
+                </div>
+                {/* Conteúdo da primeira div */}
+              </div>
+
+              {/* Segunda div sobreposta */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: "50%", // Posicionamento vertical
+                  left: "10px", // Alinhamento à esquerda
+                  width: "40%", // Ocupa 1/3 da largura
+                  height: "20%", // Altura arbitrária, pode ser ajustada
+                  backgroundColor: useColorModeValue(
+                    "rgba(255, 255, 255, 0.8)",
+                    "gray"
+                  ),
+                  borderRadius: "15px",
+                }}
+              >
+                <div style={{ padding: "10px" }}>
+                  <IoAddCircleOutline />
+                </div>
+                <div>
+                  <text
+                    style={{
+                      fontSize: "1rem",
+                      padding: "10px",
+                      color: useColorModeValue("black", "white"),
+                    }}
+                  >
+                    Pesquisa Obras
+                  </text>
+                </div>
+              </div>
             </div>
           </div>
-
+        ) : (
           <div
             style={{
-              position: "relative", // Posição relativa para a div pai
-              height: "400px",
-              backgroundImage: `url(${vagalumeMobi.src})`,
-              backgroundSize: "cover", // Garante que a imagem de fundo cubra toda a div
-              backgroundPosition: "center", // Centraliza a imagem de fundo
+              width: "100%",
+              display: "flex",
+              flexDirection: "row",
             }}
           >
-            {/* Primeira div sobreposta */}
             <div
               style={{
-                position: "absolute",
-                top: "20%", // Posicionamento vertical
-                left: "10px", // Alinhamento à esquerda
-                width: "40%", // Ocupa 1/3 da largura
-                height: "20%", // Altura arbitrária, pode ser ajustada
-                backgroundColor: useColorModeValue("rgba(255, 255, 255, 0.8)", "gray"), // Cor de fundo semi-transparente
-                borderRadius: "15px",
+                width: "40%",
+                display: "flex",
+                flexDirection: "column",
               }}
             >
-              <div style={{ padding: "10px" }}>
-                <IoAddCircleOutline />
-              </div>
-              <div>
-                <text
+              {" "}
+              {/* green 1 */}
+              <div
+                style={{
+                  flex: 1,
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width: "100%",
+                  height: "50%",
+                }}
+              >
+                <div
                   style={{
-                    fontSize: "1rem",
-                    padding: "10px",
-                    color: useColorModeValue("black", "white"),
+                    flex: 1,
+                    display: "flex",
+                    justifyContent: "flex-start", // Alinha o conteúdo à esquerda
+                    alignItems: "center", // Mantém o alinhamento vertical centralizado
+                    paddingLeft: "15px",
+                    minWidth: "100%",
+                    paddingTop: "20px",
                   }}
                 >
-                  Sobre Obras
-                </text>
+                  <Img
+                    src={useColorModeValue(wall.src, wallNegative.src)}
+                    alt=""
+                    style={{
+                      maxHeight: "50px",
+                    }}
+                  />
+                </div>
+                <div
+                  style={{
+                    flex: 1,
+                    display: "flex",
+                    justifyContent: "flex-start", // Alinha o conteúdo à esquerda
+                    alignItems: "center", // Mantém o alinhamento vertical centralizado
+                    minWidth: "100%",
+                    fontSize: "2rem",
+                    fontFamily: "Roboto",
+                    color: useColorModeValue("blue", "white"),
+                    paddingTop: "10px",
+                    paddingLeft: "15px",
+                  }}
+                >
+                  Portal de Obras
+                </div>
+                <div
+                  style={{
+                    flex: 1,
+                    display: "flex",
+                    justifyContent: "flex-start", // Alinha o conteúdo à esquerda
+                    alignItems: "center", // Mantém o alinhamento vertical centralizado
+                    minWidth: "100%",
+                    fontSize: "2rem",
+                    fontFamily: "Roboto",
+                    paddingLeft: "15px",
+                    color: useColorModeValue("blue", "white"),
+                  }}
+                >
+                  Mogi das Cruzes
+                </div>
+                <div
+                  style={{
+                    flex: 1,
+                    display: "flex",
+                    justifyContent: "flex-start", // Alinha o conteúdo à esquerda
+                    alignItems: "center", // Mantém o alinhamento vertical centralizado
+                    minWidth: "100%",
+                    fontSize: "1.2rem",
+                    paddingLeft: "15px",
+                    color: useColorModeValue("black", "white"),
+                    paddingBottom: "20px",
+                  }}
+                >
+                  Conheça as obras que estão transformando a nossa cidade.
+                </div>
+                <div
+                  style={{
+                    height: "30%",
+                    backgroundColor: "red",
+                  }}
+                ></div>
               </div>
-              {/* Conteúdo da primeira div */}
+              {/* blue 2 */}
+              <div
+                style={{
+                  flex: 1,
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width: "100%",
+                  height: "50%",
+                }}
+              >
+                <div
+                  style={{
+                    height: "30%",
+                    flex: 1,
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  {/* Primeira div sobreposta */}
+                  <div
+                    style={{
+                      border: "1px solid red",
+                      width: "150px",
+                      height: "150px",
+                      // position: "absolute",
+                      // top: "20%", // Posicionamento vertical
+                      // left: "10px", // Alinhamento à esquerda
+                      // width: "40%", // Ocupa 1/3 da largura
+                      // height: "10%", // Altura arbitrária, pode ser ajustada
+                      backgroundColor: useColorModeValue(
+                        "rgba(255, 255, 255, 0.8)",
+                        "gray"
+                      ), // Cor de fundo semi-transparente
+                      borderRadius: "15px",
+                      margin: "20px",
+                    }}
+                  >
+                    <div style={{ padding: "10px" }}>
+                      <IoAddCircleOutline />
+                    </div>
+                    <div>
+                      <text
+                        style={{
+                          fontSize: "1rem",
+                          padding: "10px",
+                          color: useColorModeValue("black", "white"),
+                        }}
+                      >
+                        Sobre Obras
+                      </text>
+                    </div>
+                    {/* Conteúdo da primeira div */}
+                  </div>
+
+                  {/* Segunda div sobreposta */}
+                  <div
+                    style={{
+                      border: "1px solid red",
+                      width: "150px",
+                      height: "150px",
+                      // position: "absolute",
+                      // top: "20%", // Posicionamento vertical
+                      // left: "10px", // Alinhamento à esquerda
+                      // width: "40%", // Ocupa 1/3 da largura
+                      // height: "10%", // Altura arbitrária, pode ser ajustada
+                      backgroundColor: useColorModeValue(
+                        "rgba(255, 255, 255, 0.8)",
+                        "gray"
+                      ), // Cor de fundo semi-transparente
+                      borderRadius: "15px",
+                      margin: "20px",
+                    }}
+                  >
+                    <div style={{ padding: "10px" }}>
+                      <IoAddCircleOutline />
+                    </div>
+                    <div>
+                      <text
+                        style={{
+                          fontSize: "1rem",
+                          padding: "10px",
+                          color: useColorModeValue("black", "white"),
+                        }}
+                      >
+                        Pesquisa Obras
+                      </text>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Segunda div sobreposta */}
+            {/* imagem vagalum */}
             <div
               style={{
-                position: "absolute",
-                top: "50%", // Posicionamento vertical
-                left: "10px", // Alinhamento à esquerda
-                width: "40%", // Ocupa 1/3 da largura
-                height: "20%", // Altura arbitrária, pode ser ajustada
-                backgroundColor: useColorModeValue("rgba(255, 255, 255, 0.8)", "gray"), 
-                borderRadius: "15px",
+                position: "relative", // Posição relativa para a div pai
+                height: "500px",
+                backgroundImage: `url(${vagalumeMobi.src})`,
+                backgroundSize: "cover", // Garante que a imagem de fundo cubra toda a div
+                backgroundPosition: "center", // Centraliza a imagem de fundo
+                width: "60%",
               }}
-            >
-              <div style={{ padding: "10px" }}>
-                <IoAddCircleOutline />
-              </div>
-              <div>
-                <text
-                  style={{
-                    fontSize: "1rem",
-                    padding: "10px",
-                    color: useColorModeValue("black", "white"),
-                  }}
-                >
-                  Pesquisa Obras
-                </text>
-              </div>
-            </div>
+            ></div>
           </div>
-        </div>
+        )}
       </Box>
 
       <Box
