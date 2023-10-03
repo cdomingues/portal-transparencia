@@ -1,8 +1,5 @@
-
-
 import React, { ReactNode, useState, useEffect } from "react";
 import { Box, Heading, Text, Divider, Stack } from "@chakra-ui/react";
-import Vlibras from 'vlibras-nextjs';
 import Head from "next/head";
 import { Container, Body } from "./styles";
 import Breadcrumb from "../../Breadcrumb";
@@ -21,8 +18,6 @@ type PropsInput = {
   containerStyles?: React.CSSProperties;
 };
 
-
-
 function ContainerHome({
   title,
   description,
@@ -34,10 +29,6 @@ function ContainerHome({
   const [showAside, setShowAside] = useState(!isMobile);
 
   const [isHovered, setIsHovered] = useState(false);
-
-  
-
-  
 
   return (
     <Stack
@@ -58,7 +49,6 @@ function ContainerHome({
       >
         <Container
           style={{
-            
             alignContent: "flex-start",
             margin: "0 auto",
             ...containerStyles,
@@ -69,18 +59,14 @@ function ContainerHome({
           <Box
             m={0}
             bg={useColorModeValue("white", "gray.800")}
-            
             padding={"15px"}
             rounded="md"
             overflow="hidden"
-
-       
             marginBottom="15px"
           >
             <Head>
               <title>{title} - PMMC</title>
             </Head>
-            <Vlibras/>
             <Heading
               mb={2}
               fontSize={accessibility?.fonts?.ultraLarge}
@@ -102,7 +88,6 @@ function ContainerHome({
           {children}
         </Container>
       </Stack>
-    
     </Stack>
   );
 }
