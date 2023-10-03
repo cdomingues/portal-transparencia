@@ -462,6 +462,7 @@ function Screen({ handler }: PropsInput) {
         minWidth="100%"
         height="120px"
         marginBottom={"20px"}
+        marginTop={"20px"}
       ></Box>
 
       

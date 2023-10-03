@@ -7,7 +7,7 @@ export const Container = styled.div`
   background-color: ${colors.transparent};
   /* max-width: 1340px; */
   margin: 0 auto;
-  padding: 50px 0px 20px 0px;
+  padding: 10px 0px 10px 0px;
 
   .icon-marker {
     width: 10px;
@@ -77,7 +77,13 @@ export const Container = styled.div`
   @media (max-width: 1060px) {
     .map-style {
       height: 600px;
+      
     }
+  }
+
+  @media (max-width: 768px) {
+    min-height: 600px;  // Altura mínima para mobile
+    margin-top: 0px;
   }
 `;
 
@@ -86,7 +92,7 @@ export const Search = styled.div`
   height: auto;
   position: relative;
   z-index: 1000;
-  background-color: ${colors.white};
+  background-color:  ${colors.white};
   margin-top: 0px;
   margin-bottom: -448px;
   border-radius: 20px;

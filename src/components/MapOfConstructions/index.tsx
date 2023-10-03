@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import * as Style from "./styles";
 import * as Text from "../../styles/text";
 import { RiMapPin2Fill } from "react-icons/ri";
@@ -9,7 +10,7 @@ import { MdPark } from "react-icons/md";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import colors from "../../styles/colors";
-import { Input, Select } from "@chakra-ui/react";
+import { Input, Select, useColorModeValue } from "@chakra-ui/react";
 import { formatString } from "../../utils/stringUtils";
 import { isMobile } from "react-device-detect";
 
@@ -103,6 +104,7 @@ const MapOfConstructions = () => {
         <Input
           placeholder="Endereço"
           onChange={(event) => setDirectionConstruction(event.target.value)}
+          color={useColorModeValue("black", "white")}
         />
 
         <Text.Heading4Medium
@@ -284,25 +286,40 @@ const MapOfConstructions = () => {
   <Style.Container>
       
 
-  <Style.Search>
-    <Text.Heading4Bold color={colors.black}>
+  <div style={{
+    width: "270px",
+    height: "auto",
+    position: "relative",
+    zIndex: 1000,
+    marginBottom: "-448px",
+    marginLeft: "55px",
+    borderRadius: "20px",
+    padding: "20px",
+    backgroundColor: useColorModeValue(colors.white, "#1a202c"),
+
+
+  
+
+  }}>
+    <Text.Heading4Bold color={useColorModeValue("black", "white")}>
       Buscar de obras por bairro
     </Text.Heading4Bold>
     <Text.Heading4Medium
-      color={colors.black}
+     color={useColorModeValue("black", "white")}
       marginTop={5}
       marginBottom={7}
     >
       Filtrar por
     </Text.Heading4Medium>
     <Input
+      color={useColorModeValue("black", "white")}
       placeholder="Nome ou descrição da obra"
       onChange={(event) =>
         setNameOrDescriptionConstruction(event.target.value)
       }
     />
     <Text.Heading4Medium
-      color={colors.black}
+       color={useColorModeValue("black", "white")}
       marginTop={5}
       marginBottom={7}
     >
@@ -314,7 +331,7 @@ const MapOfConstructions = () => {
     />
 
     <Text.Heading4Medium
-      color={colors.black}
+        color={useColorModeValue("black", "white")}
       marginTop={5}
       marginBottom={7}
     >
@@ -339,7 +356,7 @@ const MapOfConstructions = () => {
       <option value="">Todos</option>
     </Select>
     <Text.Heading4Medium
-      color={colors.black}
+        color={useColorModeValue("black", "white")}
       marginTop={5}
       marginBottom={7}
     >
@@ -356,7 +373,7 @@ const MapOfConstructions = () => {
       <option value="">Todos</option>
     </Select>
     <Text.Heading4Medium
-      color={colors.black}
+        color={useColorModeValue("black", "white")}
       marginTop={5}
       marginBottom={7}
     >
@@ -371,7 +388,7 @@ const MapOfConstructions = () => {
       <option value="RESCINDIDO">Rescindido</option>
       <option value="">Todos</option>
     </Select>
-  </Style.Search>
+  </div>
 
   <MapAllMarkersComponent
     nameOrDescriptionConstruction={nameOrDescriptionConstruction}
