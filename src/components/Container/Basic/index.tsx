@@ -24,7 +24,7 @@
 //       <Box
 //         m={0}
 //         bg={useColorModeValue("white", "gray.800")}
-//         boxShadow="2xl"
+//         
 //         padding={"15px"}
 //         rounded="md"
 //         overflow="hidden"
@@ -91,7 +91,7 @@
 //           <Box
 //             m={0}
 //             bg={useColorModeValue("white", "gray.800")}
-//             boxShadow="2xl"
+//             
 //             padding={"15px"}
 //             rounded="md"
 //             overflow="hidden"
@@ -220,7 +220,7 @@ function Aside() {
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
-        boxShadow="2xl"
+        
         padding={"15px"}
         rounded="md"
         overflow="hidden"
@@ -326,7 +326,7 @@ function ContainerBasic({
             m={0}
             // eslint-disable-next-line react-hooks/rules-of-hooks
             bg={useColorModeValue("white", "gray.800")}
-            boxShadow="2xl"
+            
             padding={"15px"}
             rounded="md"
             overflow="hidden"

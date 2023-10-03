@@ -95,7 +95,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
-        boxShadow="2xl"
+        
         roundedTop={"md"}
         overflow="hidden"
         maxWidth="100%"
@@ -467,7 +467,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
-        boxShadow="2xl"
+        
         roundedTop={"md"}
         overflow="hidden"
         maxWidth="100%"
