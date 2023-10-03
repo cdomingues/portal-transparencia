@@ -131,28 +131,15 @@ function Screen({ handler }: PropsInput) {
                   justifyContent: "flex-start", // Alinha o conteúdo à esquerda
                   alignItems: "center", // Mantém o alinhamento vertical centralizado
                   minWidth: "100%",
-                  fontSize: "2rem",
-                  fontFamily: "Roboto",
-                  color: useColorModeValue("blue", "white"),
+                  fontSize: "45px",
+                  fontFamily: "raleway extra bold",
+                  color: useColorModeValue("#6697D1", "white"),
                   paddingTop: "10px",
                   paddingLeft: "15px",
+                  lineHeight: "1",
                 }}
               >
-                Portal de Obras
-              </div>
-              <div
-                style={{
-                  flex: 1,
-                  display: "flex",
-                  justifyContent: "flex-start", // Alinha o conteúdo à esquerda
-                  alignItems: "center", // Mantém o alinhamento vertical centralizado
-                  minWidth: "100%",
-                  fontSize: "2rem",
-                  fontFamily: "Roboto",
-                  paddingLeft: "15px",
-                  color: useColorModeValue("blue", "white"),
-                }}
-              >
+                Portal de Obras <br />
                 Mogi das Cruzes
               </div>
               <div
@@ -162,10 +149,13 @@ function Screen({ handler }: PropsInput) {
                   justifyContent: "flex-start", // Alinha o conteúdo à esquerda
                   alignItems: "center", // Mantém o alinhamento vertical centralizado
                   minWidth: "100%",
-                  fontSize: "1.2rem",
+                  fontFamily: "Open Sans Medium",
+                  fontSize: "25px",
                   paddingLeft: "15px",
-                  color: useColorModeValue("black", "white"),
-                  paddingBottom: "20px",
+                  color: useColorModeValue("#14204E", "white"),
+                  paddingBottom: "10px",
+                  paddingTop: "20px",
+                  lineHeight: "1",
                 }}
               >
                 Conheça as obras que estão transformando a nossa cidade.
@@ -292,7 +282,7 @@ function Screen({ handler }: PropsInput) {
                     }}
                   />
                 </div>
-                <div
+                {/* <div
                   style={{
                     flex: 1,
                     display: "flex",
@@ -307,7 +297,7 @@ function Screen({ handler }: PropsInput) {
                   }}
                 >
                   Portal de Obras
-                </div>
+                </div> */}
                 <div
                   style={{
                     flex: 1,
@@ -315,12 +305,15 @@ function Screen({ handler }: PropsInput) {
                     justifyContent: "flex-start", // Alinha o conteúdo à esquerda
                     alignItems: "center", // Mantém o alinhamento vertical centralizado
                     minWidth: "100%",
-                    fontSize: "2rem",
-                    fontFamily: "Roboto",
+                    fontSize: "45px",
+                    fontFamily: "raleway extra bold",
+                    color: useColorModeValue("#6697D1", "white"),
                     paddingLeft: "15px",
-                    color: useColorModeValue("blue", "white"),
+                    lineHeight: "1",
+                    paddingTop: "10px",
                   }}
                 >
+                  Portal de Obras <br />
                   Mogi das Cruzes
                 </div>
                 <div
@@ -330,10 +323,13 @@ function Screen({ handler }: PropsInput) {
                     justifyContent: "flex-start", // Alinha o conteúdo à esquerda
                     alignItems: "center", // Mantém o alinhamento vertical centralizado
                     minWidth: "100%",
-                    fontSize: "1.2rem",
+                    fontFamily: "Open Sans Medium",
+                    fontSize: "25px",
                     paddingLeft: "15px",
-                    color: useColorModeValue("black", "white"),
-                    paddingBottom: "20px",
+                    color: useColorModeValue("#14204E", "white"),
+                    paddingBottom: "10px",
+                    paddingTop: "20px",
+                    lineHeight: "1",
                   }}
                 >
                   Conheça as obras que estão transformando a nossa cidade.
