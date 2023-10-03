@@ -90,10 +90,10 @@ function CardHome() {
     },
 
     {
-      title: "Gestão Extra Orçamentária",
+      title: "Pagamentos a Fornecedores",
       imageURL: Gestao_extra_orcamentaria.src,
       description: "Descrição 3",
-      link: "/gestao-extra-orcamentaria",
+      link: "http://consultacompras.pmmc.com.br/pagamento-fornecedor",
       backgroundColor: "green",
       showExtraLinks: true,
       extraLinks: [
@@ -224,6 +224,26 @@ function CardHome() {
         { label: "Despesas", url: "covid/despesas" },
       ],
     },
+
+    {
+      title: "Gestão Extra Orçamentária",
+      imageURL: Gestao_extra_orcamentaria.src,
+      description: "Descrição 3",
+      link: "/gestao-extra-orcamentaria",
+      backgroundColor: "green",
+      showExtraLinks: true,
+      extraLinks: [
+        {
+          label: "Receitas Extra Orçamentárias",
+          url: "/gestao-extra-orcamentaria/receitas",
+        },
+        {
+          label: "Despesas Extra Orçamentárias",
+          url: "/gestao-extra-orcamentaria/despesas",
+        },
+      ],
+    },
+
 
     {
       title: "Controle de Radares",
