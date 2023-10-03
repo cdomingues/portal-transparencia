@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { Box, Flex, Link } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-
+ import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
 function Breadcrumb() {
   const router = useRouter();
 
   const [isClientSide, setIsClientSide] = useState(false);
   const steps = router.pathname.split("/").filter((step) => step !== "");
-
+  const accessibility = useFontSizeAccessibilityContext()
   useEffect(() => {
     setIsClientSide(true);
   }, []);
@@ -17,7 +17,7 @@ function Breadcrumb() {
 
   return (
     <Flex alignItems="center" gap="0.2rem" flexWrap="wrap" width="100%" mb={3}>
-      <Link href={"/"} target={"_self"} fontSize="14">
+      <Link href={"/"} target={"_self"} fontSize={accessibility?.fonts?.medium}>
         Início
       </Link>
 
@@ -38,7 +38,7 @@ function Breadcrumb() {
                 href={`/${targetUrl}`}
                 target={"_self"}
                 textTransform="capitalize"
-                fontSize="14"
+                fontSize={accessibility?.fonts?.medium}
               >
                 {stepName}
               </Link>
@@ -47,7 +47,7 @@ function Breadcrumb() {
                 href={`/${targetUrl}`}
                 target={"_self"}
                 textTransform="capitalize"
-                fontSize="14"
+                fontSize={accessibility?.fonts?.medium}
               >
                 {stepName}
               </Link>

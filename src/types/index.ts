@@ -20,7 +20,7 @@ export type News = {
 
 export type Routes = Array<{
   name: string;
-  path: string;
+  path?: string;
   element?: JSX.Element;
   icon: IconType ;
   link?: string;
@@ -35,7 +35,7 @@ export type GroupRoutes = Array<{
   link?: string;
   group?: Array<{
     name: string;
-    path: string;
+    path?: string;
     element?: JSX.Element;
     icon: IconType;
     link?: string;

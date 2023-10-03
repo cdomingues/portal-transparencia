@@ -354,7 +354,8 @@ const findPages = (searchString: string): IPublicRoute[] => {
           ?.toLowerCase()
           .includes(searchString.toLowerCase()) ||
         route.name.toLowerCase().includes(searchString.toLowerCase()) ||
-        route.path.toLowerCase().includes(searchString.toLowerCase())) &&
+        route.path.toLowerCase().includes(searchString.toLowerCase())) 
+        &&
       !routeHasGroup
     ) {
       filteredRoutes.push(route);

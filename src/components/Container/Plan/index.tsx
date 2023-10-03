@@ -3,6 +3,7 @@ import React, { ReactNode } from "react";
 import { isMobile } from "react-device-detect";
 import { AiOutlineDownload, AiOutlineInfoCircle } from "react-icons/ai";
 import Testimonial, { TestimonialContent } from "../../Testimonial";
+import { useFontSizeAccessibilityContext } from '../../../context/fontSizeAccessibility';
 
 type PropsInput = {
   laws: Array<{ name: string; link: string }>;
@@ -10,6 +11,7 @@ type PropsInput = {
 };
 
 const PlanContainer = ({ laws, children }: PropsInput) => {
+  const accessibility = useFontSizeAccessibilityContext();
   return (
     <Stack direction={isMobile ? "column" : "row"} flex={1}>
       <Stack direction="column" flex={3}>
@@ -20,10 +22,10 @@ const PlanContainer = ({ laws, children }: PropsInput) => {
               <Stack direction="row">
                 <Icon
                   color="table.primary"
-                  fontSize={20}
+                  fontSize={accessibility?.fonts?.medium}
                   as={AiOutlineDownload}
                 />
-                <Text fontSize="sm">{law.name}</Text>
+                <Text fontSize={accessibility?.fonts?.medium}>{law.name}</Text>
               </Stack>
             </Link>
           </div>
@@ -39,13 +41,13 @@ const PlanContainer = ({ laws, children }: PropsInput) => {
                 h={"15%"}
                 as={AiOutlineInfoCircle}
               />
-              <Text mb={2} fontWeight="550" fontSize="md">
+              <Text mb={2} fontWeight="550" fontSize={accessibility?.fonts?.medium}>
                 ACESSO A INFORMAÇÃO
               </Text>
               <Link
                 textAlign="center"
                 color={useColorModeValue("gray.600", "gray.400")}
-                fontSize="sm"
+                fontSize={accessibility?.fonts?.small}
                 href="/acesso-a-informacao"
                 target="_blank"
               >

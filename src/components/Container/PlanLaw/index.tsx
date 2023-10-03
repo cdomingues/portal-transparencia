@@ -42,7 +42,7 @@
 
 // export default PlanContainerLaw;
 
-
+import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import { Stack, Link, Text, useColorModeValue, Icon, Select, Popover, PopoverTrigger, PopoverContent, PopoverBody, Button, Alert, AlertIcon } from "@chakra-ui/react";
 import React, { ReactNode, useState } from "react";
 import { isMobile } from "react-device-detect";
@@ -71,7 +71,7 @@ const PlanContainerLaw = ({ laws, children, selectOptions, selectValue, handleSe
   const handleDownload = (url: string) => {
     window.open(url, '_blank');
   };
-
+  const accessibility = useFontSizeAccessibilityContext();
   const handleClick = async (link: string, index: number) => {
     setSelectedItemIndex(index);
     setIsLoading((prevIsLoading) => ({
@@ -141,7 +141,8 @@ const PlanContainerLaw = ({ laws, children, selectOptions, selectValue, handleSe
         >
           {selectOptions.map((value: string | number, index: number) => (
             <option key={index} value={value}>
-              {value}
+               <Text mb={2} fontWeight="550" fontSize={accessibility?.fonts?.medium}>
+              {value}</Text>
             </option>
           ))}
         </Select>
@@ -164,7 +165,7 @@ const PlanContainerLaw = ({ laws, children, selectOptions, selectValue, handleSe
           onClick={() => handleClick(law.link, index)}
         >
           <Icon as={AiOutlineDownload} />
-          <Text>
+          <Text fontSize={accessibility?.fonts?.medium}>
             {isLoading[index] ? 'Aguarde! Preparando o arquivo...' : law.name}
           </Text>
         </Stack>
