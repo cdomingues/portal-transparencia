@@ -158,23 +158,23 @@ function TableComponent({
         <ModalOverlay />
         {modelType !== "movie" ? (
           <ModalContent alignSelf="center">
-            <ModalHeader>Dicionário de dados</ModalHeader>
+            <ModalHeader><Text fontSize={accessibility.fonts.large}>Dicionário de dados</Text></ModalHeader>
             <ModalCloseButton />
-            <ModalBody>Este serviço será disponibilizado em breve.</ModalBody>
+            <ModalBody><Text fontSize={accessibility.fonts.large}>Este serviço será disponibilizado em breve.</Text></ModalBody>
             <ModalFooter>
               <Button
-                _hover={{ bg: "gray.200", color: "white" }}
+                _hover={{ bg: "gray.600", color: "white" }}
                 onClick={onClose}
                 bg="primary"
                 color="white"
               >
-                Fechar
+                <Text fontSize={accessibility.fonts.large}>Fechar</Text>
               </Button>
             </ModalFooter>
           </ModalContent>
         ) : (
           <ModalContent maxH="750" maxW="100%" alignSelf="center">
-            <ModalHeader>Video Explicativo</ModalHeader>
+            <ModalHeader><Text fontSize={accessibility.fonts.large}>Video Explicativo</Text></ModalHeader>
             <ModalCloseButton />
             <ModalBody height={450} width={600} bg="white">
               <iframe
@@ -256,11 +256,11 @@ function TableComponent({
                     filename={`${new Date().getTime()}.csv`}
                     data={data}
                   >
-                    .CSV
+                    <Text fontSize={accessibility.fonts.large}>.CSV</Text>
                   </CsvDownload>
                 )}
               </CsvItem>
-              <MenuItem onClick={() => exportJson()}>.JSON</MenuItem>
+              <MenuItem onClick={() => exportJson()}><Text fontSize={accessibility.fonts.large}>.JSON</Text></MenuItem>
             </MenuList>
           </Menu>
         </Box>
@@ -288,10 +288,11 @@ function TableComponent({
             variant="striped"
             style={{
               borderCollapse: "collapse",
+               
             }}
             {...getTableProps()}
           >
-           <Thead backgroundColor={useColorModeValue('table.primary', "gray.800")}>
+           <Thead backgroundColor={useColorModeValue('table.primary', "gray.800")}  >
               {headerGroups.map((group, index) => (
                 <Tr {...group.getHeaderGroupProps()} key={index}>
                   {group.headers.map((column, index) => {
@@ -332,7 +333,11 @@ function TableComponent({
                               display: "flex",
                               flexDirection: "row",
                               textAlign: "left",
+                              fontSize: accessibility?.fonts?.small,
+                              
+                              
                             }}
+                            
                           >
                             {column.render("Header")}
                             <div>
@@ -341,7 +346,7 @@ function TableComponent({
                                   <Icon
                                     color="white"
                                     marginLeft={2}
-                                    fontSize="14"
+                                    fontSize={accessibility?.fonts?.small}
                                     _groupHover={{
                                       color: "gray.400",
                                     }}
@@ -350,7 +355,7 @@ function TableComponent({
                                 ) : (
                                   <Icon
                                     color="white"
-                                    fontSize="14"
+                                    fontSize={accessibility?.fonts?.small}
                                     marginLeft={2}
                                     _groupHover={{
                                       color: "gray.400",
@@ -361,7 +366,7 @@ function TableComponent({
                               ) : (
                                 <Icon
                                   color="white"
-                                  fontSize="14"
+                                  fontSize={accessibility?.fonts?.small}
                                   marginLeft={2}
                                   _groupHover={{
                                     color: "gray.400",
@@ -393,7 +398,7 @@ function TableComponent({
                       return (
                         <Td
                           bgColor={tdBgColor}
-                          p="8px"
+                          p="15px"
                           {...cell?.getCellProps()}
                           key={index}
                           onClick={() => (openModal ? openModal(cell) : {})}
@@ -446,7 +451,7 @@ function TableComponent({
           >
             <Icon
               color="table.primary"
-              fontSize="18"
+              fontSize={accessibility?.fonts?.small}
               _groupHover={{
                 color: "primary",
               }}
@@ -504,7 +509,7 @@ function TableComponent({
         >
           {[10, 25, 50].map((size) => (
             <option key={size} value={size}>
-              Mostrar {size}
+             <Text fontSize={accessibility?.fonts?.small}> Mostrar {size} </Text>
             </option>
           ))}
         </Select>

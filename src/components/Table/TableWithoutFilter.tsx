@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useMemo, useState } from "react";
 import { useTable, usePagination, useFilters, useSortBy } from "react-table";
+import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
 import {
   useColorModeValue,
   Table,
@@ -84,6 +85,7 @@ function TableWithOutFilterComponent({
   const [modelType, setModelType] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = React.useRef();
+  const accessibility = useFontSizeAccessibilityContext();
 
   const newColumns = useMemo(
     () =>
@@ -291,7 +293,7 @@ function TableWithOutFilterComponent({
                             textAlign: "left",
                             color: "white",
                             padding: "8px",
-                            fontSize: 11,
+                            fontSize:accessibility?.fonts?.small,
                             ...isFirst,
                             ...isLast,
                           }}

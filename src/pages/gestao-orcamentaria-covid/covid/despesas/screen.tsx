@@ -18,6 +18,7 @@ import {
 } from "../../../../components/GraphWrapper";
 import { MultiAxisChart } from "../../../../components/MultiAxisChart";
 import TableComponent, { TableColumns } from "../../../../components/Table";
+import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAccessibility";
 
 type PropsInput = {
   handler: {
@@ -54,6 +55,7 @@ function Screen({
 }: PropsInput) {
   const title = contentCovidExpenses?.titlePage;
   const description = contentCovidExpenses?.description;
+  const accessibility = useFontSizeAccessibilityContext()
   const chartConfig = {
     direction: isMobile ? "column" : "row",
     width: isMobile ? "100%" : "40%",
@@ -77,7 +79,7 @@ function Screen({
       >
         <GraphWrapper>
           <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
-            Despesas últimos 5 anos
+          <Text fontSize={accessibility.fonts.large} > Despesas últimos 5 anos</Text>
           </Heading>
           {chartYear?.datasets?.length > 0 && (
             <Chart type="bar" data={chartYear} />
@@ -99,7 +101,7 @@ function Screen({
         <Stack direction="row">
           <Stack minW={86} width="25%">
             <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
-              Ano
+            <Text fontSize={accessibility.fonts.large} >Ano</Text>
             </Text>
             <Select
               defaultValue={year}
@@ -126,7 +128,7 @@ function Screen({
               color="white"
               fontSize="small"
             >
-              Buscar
+              <Text fontSize={accessibility.fonts.large} > Buscar</Text>
             </Button>
           </Stack>
         </Stack>

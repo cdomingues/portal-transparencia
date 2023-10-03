@@ -16,7 +16,7 @@ import {
 } from "../../../components/GraphWrapper";
 import { MultiAxisChart } from "../../../components/MultiAxisChart";
 import TableComponent, { TableColumns } from "../../../components/Table";
-
+import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 type PropsInput = {
   handler: {
     columns: TableColumns;
@@ -51,7 +51,7 @@ function Screen({
 }: PropsInput) {
   const title = contentCovidRecipes?.titlePage;
   const description = contentCovidRecipes?.description;
-
+  const accessibility = useFontSizeAccessibilityContext()
   const chartConfig = {
     direction: isMobile ? "column" : "row",
     width: isMobile ? "100%" : "40%",
@@ -63,8 +63,8 @@ function Screen({
   return (
     <ContainerBasic title={title} description={description}>
       <GraphWrapper>
-        <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
-          Receitas últimos 5 anos
+        <Heading mb={5}  color="red">
+          <Text fontSize={accessibility.fonts.large} >Receitas últimos 5 anos</Text>
         </Heading>
         {chartYear?.datasets?.length > 0 && (
           <Chart type="bar"  data={chartYear} />
@@ -74,7 +74,7 @@ function Screen({
 
       <Stack direction="row">
         <Stack minW={86} width="25%">
-          <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
+          <Text fontSize={accessibility.fonts.large}   paddingLeft="5px">
             Ano
           </Text>
           <Select
