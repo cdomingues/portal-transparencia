@@ -50,11 +50,17 @@ export default async function handler(
       "*",
       "valortotal as valor",
       "valoraditado as valorAditado",
-      "qtdeaditivos as quantidadeAdivitos"
+      "qtdeaditivos as quantidadeAdivitos",
+      "arquivos.*"
     )
     .from("CONTRATOS")
-    .whereBetween("datainicio", [from, to])
-    .orderBy("datainicio", "desc");
+    .leftJoin(
+      "BASE_CONTRATOS_ARQUIVOS as arquivos",
+      "arquivos.integracao",
+      "contratos.integracao"
+    )
+    .whereBetween("contratos.datainicio", [from, to])
+    .orderBy("contratos.datainicio", "desc");
 
   const years = await database.raw(
     "SELECT DISTINCT YEAR(datainicio) as ano FROM CONTRATOS order by ano desc"
