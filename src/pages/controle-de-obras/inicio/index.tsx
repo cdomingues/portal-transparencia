@@ -46,6 +46,8 @@ import { find } from "lodash";
 import { IoAddCircleOutline, IoChevronBack } from "react-icons/io5";
 import { is } from "cheerio/lib/api/traversing";
 import { isMobile } from "react-device-detect";
+import seta from "../../../assets/images/icones/Icones_Home Portal Transparencia__botao abre.svg";
+import hBottom from "../../../assets/images/Icones_Home_Portal_Transparencia__botao_circulo.svg";
 
 type PropsInput = {
   handler?: {
@@ -81,11 +83,9 @@ function Screen({ handler }: PropsInput) {
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
-        
         roundedTop={"md"}
         overflow="hidden"
         maxWidth="100%"
-       
       >
         {isMobile ? (
           <div
@@ -172,6 +172,7 @@ function Screen({ handler }: PropsInput) {
               }}
             >
               {/* Primeira div sobreposta */}
+              <a href="../../controle-de-obras/sobre-as-obras">
               <div
                 style={{
                   position: "absolute",
@@ -186,9 +187,17 @@ function Screen({ handler }: PropsInput) {
                   borderRadius: "15px",
                 }}
               >
-                <div style={{ padding: "10px" }}>
-                  <IoAddCircleOutline />
+                
+                <div style={{ paddingTop: "15px", paddingLeft: "15px", paddingBottom:"10px"}}>
+                  <Img
+                    src={hBottom.src}
+                    alt=""
+                    style={{
+                      maxHeight: "15px",
+                    }}
+                  />
                 </div>
+              
                 <div>
                   <text
                     style={{
@@ -202,8 +211,10 @@ function Screen({ handler }: PropsInput) {
                 </div>
                 {/* Conteúdo da primeira div */}
               </div>
+              </a>
 
               {/* Segunda div sobreposta */}
+              <a href="../../controle-de-obras/pesquisar-obras">
               <div
                 style={{
                   position: "absolute",
@@ -218,8 +229,14 @@ function Screen({ handler }: PropsInput) {
                   borderRadius: "15px",
                 }}
               >
-                <div style={{ padding: "10px" }}>
-                  <IoAddCircleOutline />
+                <div style={{ paddingTop: "15px", paddingLeft: "15px", paddingBottom:"10px"}}>
+                  <Img
+                    src={hBottom.src}
+                    alt=""
+                    style={{
+                      maxHeight: "15px",
+                    }}
+                  />
                 </div>
                 <div>
                   <text
@@ -233,6 +250,7 @@ function Screen({ handler }: PropsInput) {
                   </text>
                 </div>
               </div>
+              </a>
             </div>
           </div>
         ) : (
@@ -363,6 +381,7 @@ function Screen({ handler }: PropsInput) {
                   }}
                 >
                   {/* Primeira div sobreposta */}
+                  <a href="../../controle-de-obras/sobre-as-obras">
                   <div
                     style={{
                       border: "1px solid red",
@@ -381,8 +400,14 @@ function Screen({ handler }: PropsInput) {
                       margin: "15px",
                     }}
                   >
-                    <div style={{ padding: "10px" }}>
-                      <IoAddCircleOutline />
+                    <div style={{ padding: "20px" }}>
+                    <Img
+                    src={hBottom.src}
+                    alt=""
+                    style={{
+                      maxHeight: "15px",
+                    }}
+                  />
                     </div>
                     <div>
                       <text
@@ -397,8 +422,9 @@ function Screen({ handler }: PropsInput) {
                     </div>
                     {/* Conteúdo da primeira div */}
                   </div>
-
+                  </a>
                   {/* Segunda div sobreposta */}
+                  <a href="../../controle-de-obras/pesquisar-obras">
                   <div
                     style={{
                       border: "1px solid red",
@@ -417,8 +443,15 @@ function Screen({ handler }: PropsInput) {
                       margin: "15px",
                     }}
                   >
-                    <div style={{ padding: "10px" }}>
-                      <IoAddCircleOutline />
+                    
+                    <div style={{ padding: "20px" }}>
+                    <Img
+                    src={hBottom.src}
+                    alt=""
+                    style={{
+                      maxHeight: "15px",
+                    }}
+                  />
                     </div>
                     <div>
                       <text
@@ -432,6 +465,7 @@ function Screen({ handler }: PropsInput) {
                       </text>
                     </div>
                   </div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -447,17 +481,14 @@ function Screen({ handler }: PropsInput) {
                 width: "60%",
               }}
             ></div>
-          
           </div>
-          
         )}
       </Box>
 
       <Box
-       display={isMobile ? "none" : "block"}
+        display={isMobile ? "none" : "block"}
         bg={useColorModeValue("#6697D1", "gray.800")}
-        
-       roundedBottom={"md"}
+        roundedBottom={"md"}
         overflow="hidden"
         minWidth="100%"
         height="120px"
@@ -465,12 +496,9 @@ function Screen({ handler }: PropsInput) {
         marginTop={"20px"}
       ></Box>
 
-      
-
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
-        
         padding={"15px"}
         rounded="md"
         overflow="hidden"
@@ -482,7 +510,6 @@ function Screen({ handler }: PropsInput) {
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
-        
         padding={"15px"}
         rounded="md"
         overflow="hidden"
@@ -506,7 +533,6 @@ function Screen({ handler }: PropsInput) {
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
-        
         padding={"15px"}
         rounded="md"
         overflow="hidden"

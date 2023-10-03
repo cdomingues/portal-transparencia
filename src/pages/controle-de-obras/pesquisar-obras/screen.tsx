@@ -19,6 +19,8 @@ import vagalumeDesk from "../../../assets/images/Portal-de-Obras_fototopo_homede
 import pesquisaDesk from "../../../assets/images/Portal-de-Obras_fototopo_pesquisedesk.png";
 import pesquisaMobi from "../../../assets/images/Portal-de-Obras_fototopo_pesquisemobi.png";
 import { IoAddCircleOutline } from "react-icons/io5";
+import seta from "../../../assets/images/icones/Icones_Home Portal Transparencia__botao abre.svg";
+import hBottom from "../../../assets/images/Icones_Home_Portal_Transparencia__botao_circulo.svg";
 
 interface PropsPagination {
   totalPages: number;
@@ -95,7 +97,6 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
-        
         roundedTop={"md"}
         overflow="hidden"
         maxWidth="100%"
@@ -186,67 +187,96 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
               }}
             >
               {/* Primeira div sobreposta */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: "20%", // Posicionamento vertical
-                  left: "10px", // Alinhamento à esquerda
-                  width: "40%", // Ocupa 1/3 da largura
-                  height: "20%", // Altura arbitrária, pode ser ajustada
-                  backgroundColor: useColorModeValue(
-                    "rgba(255, 255, 255, 0.8)",
-                    "gray"
-                  ), // Cor de fundo semi-transparente
-                  borderRadius: "15px",
-                }}
-              >
-                <div style={{ padding: "10px" }}>
-                  <IoAddCircleOutline />
-                </div>
-                <div>
-                  <text
+              <a href="../../controle-de-obras/sobre-as-obras">
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "20%", // Posicionamento vertical
+                    left: "10px", // Alinhamento à esquerda
+                    width: "40%", // Ocupa 1/3 da largura
+                    height: "20%", // Altura arbitrária, pode ser ajustada
+                    backgroundColor: useColorModeValue(
+                      "rgba(255, 255, 255, 0.8)",
+                      "gray"
+                    ), // Cor de fundo semi-transparente
+                    borderRadius: "15px",
+                  }}
+                >
+                  <div
                     style={{
-                      fontSize: "1rem",
-                      padding: "10px",
-                      color: useColorModeValue("black", "white"),
+                      paddingTop: "15px",
+                      paddingLeft: "15px",
+                      paddingBottom: "10px",
                     }}
                   >
-                    Sobre Obras
-                  </text>
+                    <Img
+                      src={hBottom.src}
+                      alt=""
+                      style={{
+                        maxHeight: "15px",
+                      }}
+                    />
+                  </div>
+
+                  <div>
+                    <text
+                      style={{
+                        fontSize: "1rem",
+                        padding: "10px",
+                        color: useColorModeValue("black", "white"),
+                      }}
+                    >
+                      Sobre Obras
+                    </text>
+                  </div>
+                  {/* Conteúdo da primeira div */}
                 </div>
-                {/* Conteúdo da primeira div */}
-              </div>
+              </a>
 
               {/* Segunda div sobreposta */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: "50%", // Posicionamento vertical
-                  left: "10px", // Alinhamento à esquerda
-                  width: "40%", // Ocupa 1/3 da largura
-                  height: "20%", // Altura arbitrária, pode ser ajustada
-                  backgroundColor: useColorModeValue(
-                    "rgba(255, 255, 255, 0.8)",
-                    "gray"
-                  ),
-                  borderRadius: "15px",
-                }}
-              >
-                <div style={{ padding: "10px" }}>
-                  <IoAddCircleOutline />
-                </div>
-                <div>
-                  <text
+              <a href="../../controle-de-obras/pesquisar-obras">
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "50%", // Posicionamento vertical
+                    left: "10px", // Alinhamento à esquerda
+                    width: "40%", // Ocupa 1/3 da largura
+                    height: "20%", // Altura arbitrária, pode ser ajustada
+                    backgroundColor: useColorModeValue(
+                      "rgba(255, 255, 255, 0.8)",
+                      "gray"
+                    ),
+                    borderRadius: "15px",
+                  }}
+                >
+                  <div
                     style={{
-                      fontSize: "1rem",
-                      padding: "10px",
-                      color: useColorModeValue("black", "white"),
+                      paddingTop: "15px",
+                      paddingLeft: "15px",
+                      paddingBottom: "10px",
                     }}
                   >
-                    Pesquisa Obras
-                  </text>
+                    <Img
+                      src={hBottom.src}
+                      alt=""
+                      style={{
+                        maxHeight: "15px",
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <text
+                      style={{
+                        fontSize: "1rem",
+                        padding: "10px",
+                        color: useColorModeValue("black", "white"),
+                      }}
+                    >
+                      Pesquisa Obras
+                    </text>
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         ) : (
@@ -377,75 +407,90 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                   }}
                 >
                   {/* Primeira div sobreposta */}
-                  <div
-                    style={{
-                      border: "1px solid red",
-                      width: "140px",
-                      height: "140px",
-                      // position: "absolute",
-                      // top: "20%", // Posicionamento vertical
-                      // left: "10px", // Alinhamento à esquerda
-                      // width: "40%", // Ocupa 1/3 da largura
-                      // height: "10%", // Altura arbitrária, pode ser ajustada
-                      backgroundColor: useColorModeValue(
-                        "rgba(255, 255, 255, 0.8)",
-                        "gray"
-                      ), // Cor de fundo semi-transparente
-                      borderRadius: "15px",
-                      margin: "15px",
-                    }}
-                  >
-                    <div style={{ padding: "10px" }}>
-                      <IoAddCircleOutline />
+                  <a href="../../controle-de-obras/sobre-as-obras">
+                    <div
+                      style={{
+                        border: "1px solid red",
+                        width: "140px",
+                        height: "140px",
+                        // position: "absolute",
+                        // top: "20%", // Posicionamento vertical
+                        // left: "10px", // Alinhamento à esquerda
+                        // width: "40%", // Ocupa 1/3 da largura
+                        // height: "10%", // Altura arbitrária, pode ser ajustada
+                        backgroundColor: useColorModeValue(
+                          "rgba(255, 255, 255, 0.8)",
+                          "gray"
+                        ), // Cor de fundo semi-transparente
+                        borderRadius: "15px",
+                        margin: "15px",
+                      }}
+                    >
+                      <div style={{ padding: "20px" }}>
+                        <Img
+                          src={hBottom.src}
+                          alt=""
+                          style={{
+                            maxHeight: "15px",
+                          }}
+                        />
+                      </div>
+                      <div>
+                        <text
+                          style={{
+                            fontSize: "1rem",
+                            padding: "10px",
+                            color: useColorModeValue("black", "white"),
+                          }}
+                        >
+                          Sobre Obras
+                        </text>
+                      </div>
+                      {/* Conteúdo da primeira div */}
                     </div>
-                    <div>
-                      <text
-                        style={{
-                          fontSize: "1rem",
-                          padding: "10px",
-                          color: useColorModeValue("black", "white"),
-                        }}
-                      >
-                        Sobre Obras
-                      </text>
-                    </div>
-                    {/* Conteúdo da primeira div */}
-                  </div>
-
+                  </a>
                   {/* Segunda div sobreposta */}
-                  <div
-                    style={{
-                      border: "1px solid red",
-                      width: "140px",
-                      height: "140px",
-                      // position: "absolute",
-                      // top: "20%", // Posicionamento vertical
-                      // left: "10px", // Alinhamento à esquerda
-                      // width: "40%", // Ocupa 1/3 da largura
-                      // height: "10%", // Altura arbitrária, pode ser ajustada
-                      backgroundColor: useColorModeValue(
-                        "rgba(255, 255, 255, 0.8)",
-                        "gray"
-                      ), // Cor de fundo semi-transparente
-                      borderRadius: "15px",
-                      margin: "15px",
-                    }}
-                  >
-                    <div style={{ padding: "10px" }}>
-                      <IoAddCircleOutline />
+                  <a href="../../controle-de-obras/pesquisar-obras">
+                    <div
+                      style={{
+                        border: "1px solid red",
+                        width: "140px",
+                        height: "140px",
+                        // position: "absolute",
+                        // top: "20%", // Posicionamento vertical
+                        // left: "10px", // Alinhamento à esquerda
+                        // width: "40%", // Ocupa 1/3 da largura
+                        // height: "10%", // Altura arbitrária, pode ser ajustada
+                        backgroundColor: useColorModeValue(
+                          "rgba(255, 255, 255, 0.8)",
+                          "gray"
+                        ), // Cor de fundo semi-transparente
+                        borderRadius: "15px",
+                        margin: "15px",
+                      }}
+                    >
+                      <div style={{ padding: "20px" }}>
+                        <Img
+                          src={hBottom.src}
+                          alt=""
+                          style={{
+                            maxHeight: "15px",
+                          }}
+                        />
+                      </div>
+                      <div>
+                        <text
+                          style={{
+                            fontSize: "1rem",
+                            padding: "10px",
+                            color: useColorModeValue("black", "white"),
+                          }}
+                        >
+                          Pesquisa Obras
+                        </text>
+                      </div>
                     </div>
-                    <div>
-                      <text
-                        style={{
-                          fontSize: "1rem",
-                          padding: "10px",
-                          color: useColorModeValue("black", "white"),
-                        }}
-                      >
-                        Pesquisa Obras
-                      </text>
-                    </div>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -467,244 +512,249 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
-        
         roundedTop={"md"}
         overflow="hidden"
         maxWidth="100%"
         marginTop={"20px"}
       >
-      <Style.Description>
-        <Style.SearchBar>
-          <Input
-            variant="outline"
-            placeholder="Nome ou descrição da obra"
-            onChange={(event) => setNameBuilding(event.target.value)}
-            style={{ backgroundColor: colors.white }}
-          />
+        <Style.Description>
+          <Style.SearchBar>
+            <Input
+              variant="outline"
+              placeholder="Nome ou descrição da obra"
+              onChange={(event) => setNameBuilding(event.target.value)}
+              style={{ backgroundColor: colors.white }}
+            />
 
-          <Input
-            variant="outline"
-            placeholder="Empresa"
-            onChange={(event) => setCompanyName(event.target.value)}
-            style={{ backgroundColor: colors.white }}
-          />
+            <Input
+              variant="outline"
+              placeholder="Empresa"
+              onChange={(event) => setCompanyName(event.target.value)}
+              style={{ backgroundColor: colors.white }}
+            />
 
-          <Select
-            placeholder="Bairro"
-            onChange={handleChangeSelectNeighborhood}
-            style={{ backgroundColor: colors.white }}
-          >
-            <option value="">Todos</option>
-
-            <option value="BOTUJURU">Bojuturu</option>
-            <option value="BRAZ CUBAS">Braz Cubas</option>
-            <option value="CENTRO">Centro</option>
-            <option value="CEZAR DE SOUZA">Cezar De Souza</option>
-            <option value="CHÁCARA GUANABARA">Chácara Guanabara</option>
-            <option value="CONJUNTO SANTO ÂNGELO">Conjunto Santo Ângelo</option>
-
-            <option value="FAZENDA RODEIO">Fazenda Rodeio</option>
-            <option value="JARDIM AEROPORTO">Jardim Aeroporto</option>
-            <option value="JARDIM ARACY">Jardim Aracy</option>
-            <option value="JARDIM MARICÁ">Jardim Maricá</option>
-            <option value="JARDIM SANTA TEREZA">Jardim Santa Tereza</option>
-            <option value="JUNDIAPEBA">Jundiapeba</option>
-            <option value="MOGI MODERNO">Mogi Moderno</option>
-            <option value="NOVA MOGILAR">Nova Mogilar</option>
-
-            <option value="NOVA JUNDIAPEBA">Nova Jundiapeba</option>
-            <option value="PARQUE MORUMBI">Parque Morumbi</option>
-            <option value="PARQUE OLÍMPICO">Parque Olímpico</option>
-            <option value="RESIDENCIAL NOVO HORIZONTE">
-              Residencial Novo Horizonte{" "}
-            </option>
-            <option value="SOCORRO">Socorro</option>
-            <option value="SANTO ÂNGELO">Santo Ângelo</option>
-            <option value="TABOÃO">Taboão</option>
-            <option value="TAIAÇUPEBA">Taiaçupeba</option>
-            <option value="VILA CINTRA">Vila Cintra</option>
-            <option value="VILA LAVÍNIA">Vila Lavínia</option>
-            <option value="VILA NATAL">Vila Natal</option>
-          </Select>
-
-          <Select
-            placeholder="Etapa"
-            onChange={handleChangeSelectBuildingStep}
-            style={{ backgroundColor: colors.white }}
-          >
-            <option value="">Todos</option>
-            <option value="INICIADO">Iniciado</option>
-            <option value="CONCLUÍDO">Concluído</option>
-            <option value="RESCINDIDO">Rescindido</option>
-          </Select>
-
-          <Select
-            placeholder="Tipo"
-            onChange={handleChangeSelectBuildingType}
-            style={{ backgroundColor: colors.white }}
-          >
-            <option value="">Todos</option>
-            <option value="1000 - EDUCA MOGI">1000 - EDUCA MOGI</option>
-            <option value="1001 - PRIMEIROS PASSOS">
-              1001 - PRIMEIROS PASSOS
-            </option>
-            <option value="2000 - MOGI EFICIENTE">2000 - MOGI EFICIENTE</option>
-            <option value="2001 - CIDADE INTELIGENTE">
-              2001 - CIDADE INTELIGENTE
-            </option>
-            <option value="2004 - INFRAESTRUTURA">2004 - INFRAESTRUTURA</option>
-            <option value="2006 - SANEAMENTO AMBIENTAL">
-              2006 - SANEAMENTO AMBIENTAL
-            </option>
-
-            <option value="2007 - MOBILIDADE URBANA">
-              2007 - MOBILIDADE URBANA
-            </option>
-
-            <option value="3003 - ESPORTE">3003 - ESPORTE</option>
-
-            <option value="3004 - SEGURANÇA">3004 - SEGURANÇA</option>
-            <option value="3100 - SAÚDE">3100 - SAÚDE</option>
-          </Select>
-
-          <button className="buttons" onClick={() => handleFilterBuildings()}>
-            <Text.Heading5Medium
-              color={colors.white}
-              style={{ textTransform: "none" }}
+            <Select
+              placeholder="Bairro"
+              onChange={handleChangeSelectNeighborhood}
+              style={{ backgroundColor: colors.white }}
             >
-              Pesquisar
-            </Text.Heading5Medium>
-          </button>
-        </Style.SearchBar>
+              <option value="">Todos</option>
 
-        {arrayBuildings
-          ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-          .map((item: any, index: number) => {
-            let arrayImages = [];
-            arrayImages.push(
-              item?.imagen_1 ||
-                "https://www.stant.com.br/wp-content/uploads/2020/09/pexels-pixabay-159306_Easy-Resize.com_-1024x682.jpg"
-            );
-            item?.imagen_2 && arrayImages.push(item?.imagen_2);
-            item?.imagen_3 && arrayImages.push(item?.imagen_3);
-            item?.imagen_4 && arrayImages.push(item?.imagen_4);
+              <option value="BOTUJURU">Bojuturu</option>
+              <option value="BRAZ CUBAS">Braz Cubas</option>
+              <option value="CENTRO">Centro</option>
+              <option value="CEZAR DE SOUZA">Cezar De Souza</option>
+              <option value="CHÁCARA GUANABARA">Chácara Guanabara</option>
+              <option value="CONJUNTO SANTO ÂNGELO">
+                Conjunto Santo Ângelo
+              </option>
 
-            const program = item?.programa_ppa;
+              <option value="FAZENDA RODEIO">Fazenda Rodeio</option>
+              <option value="JARDIM AEROPORTO">Jardim Aeroporto</option>
+              <option value="JARDIM ARACY">Jardim Aracy</option>
+              <option value="JARDIM MARICÁ">Jardim Maricá</option>
+              <option value="JARDIM SANTA TEREZA">Jardim Santa Tereza</option>
+              <option value="JUNDIAPEBA">Jundiapeba</option>
+              <option value="MOGI MODERNO">Mogi Moderno</option>
+              <option value="NOVA MOGILAR">Nova Mogilar</option>
 
-            const programConfigTranslator: any = {
-              "2006 - SANEAMENTO AMBIENTAL": {
-                backgroundColor: "#87C13F",
-                imageBackgroundColor: "#7DA83C",
-                imageName: "saneamento",
-              },
-              "2004 - INFRAESTRUTURA": {
+              <option value="NOVA JUNDIAPEBA">Nova Jundiapeba</option>
+              <option value="PARQUE MORUMBI">Parque Morumbi</option>
+              <option value="PARQUE OLÍMPICO">Parque Olímpico</option>
+              <option value="RESIDENCIAL NOVO HORIZONTE">
+                Residencial Novo Horizonte{" "}
+              </option>
+              <option value="SOCORRO">Socorro</option>
+              <option value="SANTO ÂNGELO">Santo Ângelo</option>
+              <option value="TABOÃO">Taboão</option>
+              <option value="TAIAÇUPEBA">Taiaçupeba</option>
+              <option value="VILA CINTRA">Vila Cintra</option>
+              <option value="VILA LAVÍNIA">Vila Lavínia</option>
+              <option value="VILA NATAL">Vila Natal</option>
+            </Select>
+
+            <Select
+              placeholder="Etapa"
+              onChange={handleChangeSelectBuildingStep}
+              style={{ backgroundColor: colors.white }}
+            >
+              <option value="">Todos</option>
+              <option value="INICIADO">Iniciado</option>
+              <option value="CONCLUÍDO">Concluído</option>
+              <option value="RESCINDIDO">Rescindido</option>
+            </Select>
+
+            <Select
+              placeholder="Tipo"
+              onChange={handleChangeSelectBuildingType}
+              style={{ backgroundColor: colors.white }}
+            >
+              <option value="">Todos</option>
+              <option value="1000 - EDUCA MOGI">1000 - EDUCA MOGI</option>
+              <option value="1001 - PRIMEIROS PASSOS">
+                1001 - PRIMEIROS PASSOS
+              </option>
+              <option value="2000 - MOGI EFICIENTE">
+                2000 - MOGI EFICIENTE
+              </option>
+              <option value="2001 - CIDADE INTELIGENTE">
+                2001 - CIDADE INTELIGENTE
+              </option>
+              <option value="2004 - INFRAESTRUTURA">
+                2004 - INFRAESTRUTURA
+              </option>
+              <option value="2006 - SANEAMENTO AMBIENTAL">
+                2006 - SANEAMENTO AMBIENTAL
+              </option>
+
+              <option value="2007 - MOBILIDADE URBANA">
+                2007 - MOBILIDADE URBANA
+              </option>
+
+              <option value="3003 - ESPORTE">3003 - ESPORTE</option>
+
+              <option value="3004 - SEGURANÇA">3004 - SEGURANÇA</option>
+              <option value="3100 - SAÚDE">3100 - SAÚDE</option>
+            </Select>
+
+            <button className="buttons" onClick={() => handleFilterBuildings()}>
+              <Text.Heading5Medium
+                color={colors.white}
+                style={{ textTransform: "none" }}
+              >
+                Pesquisar
+              </Text.Heading5Medium>
+            </button>
+          </Style.SearchBar>
+
+          {arrayBuildings
+            ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            .map((item: any, index: number) => {
+              let arrayImages = [];
+              arrayImages.push(
+                item?.imagen_1 ||
+                  "https://www.stant.com.br/wp-content/uploads/2020/09/pexels-pixabay-159306_Easy-Resize.com_-1024x682.jpg"
+              );
+              item?.imagen_2 && arrayImages.push(item?.imagen_2);
+              item?.imagen_3 && arrayImages.push(item?.imagen_3);
+              item?.imagen_4 && arrayImages.push(item?.imagen_4);
+
+              const program = item?.programa_ppa;
+
+              const programConfigTranslator: any = {
+                "2006 - SANEAMENTO AMBIENTAL": {
+                  backgroundColor: "#87C13F",
+                  imageBackgroundColor: "#7DA83C",
+                  imageName: "saneamento",
+                },
+                "2004 - INFRAESTRUTURA": {
+                  backgroundColor: "#7F3F93",
+                  imageBackgroundColor: "#713A80",
+                  imageName: "infraestrutura",
+                },
+                "2000 - MOGI EFICIENTE": {
+                  backgroundColor: "#FF588A",
+                  imageBackgroundColor: "#CD507D",
+                  imageName: "mogi-eficiente",
+                },
+                "1000 - EDUCA MOGI": {
+                  backgroundColor: "#008C57",
+                  imageBackgroundColor: "#087D4D",
+                  imageName: "educa-mogi",
+                },
+                "1001 - PRIMEIROS PASSOS": {
+                  backgroundColor: "#F8C336",
+                  imageBackgroundColor: "#DBAE2F",
+                  imageName: "primeiros-passos",
+                },
+                "2001 - CIDADE INTELIGENTE": {
+                  backgroundColor: "#22BFBD",
+                  imageBackgroundColor: "#31A4A4",
+                  imageName: "cidade-inteligente",
+                },
+                "3004 - SEGURANÇA": {
+                  backgroundColor: "#1C3C6E",
+                  imageBackgroundColor: "#183560",
+                  imageName: "seguranca",
+                },
+                "2007 - MOBILIDADE URBANA": {
+                  backgroundColor: "#F88B2A",
+                  imageBackgroundColor: "#D67B28",
+                  imageName: "mobilidade-urbana",
+                },
+                "3003 - ESPORTE": {
+                  backgroundColor: "#DD4134",
+                  imageBackgroundColor: "#DD4134",
+                  imageName: "esporte",
+                },
+                "3100 - SAÚDE": {
+                  backgroundColor: "#0093D3",
+                  imageBackgroundColor: "#0E83BB",
+                  imageName: "saude",
+                },
+              };
+
+              const programConfig = programConfigTranslator[program] || {
                 backgroundColor: "#7F3F93",
                 imageBackgroundColor: "#713A80",
-                imageName: "infraestrutura",
-              },
-              "2000 - MOGI EFICIENTE": {
-                backgroundColor: "#FF588A",
-                imageBackgroundColor: "#CD507D",
-                imageName: "mogi-eficiente",
-              },
-              "1000 - EDUCA MOGI": {
-                backgroundColor: "#008C57",
-                imageBackgroundColor: "#087D4D",
-                imageName: "educa-mogi",
-              },
-              "1001 - PRIMEIROS PASSOS": {
-                backgroundColor: "#F8C336",
-                imageBackgroundColor: "#DBAE2F",
-                imageName: "primeiros-passos",
-              },
-              "2001 - CIDADE INTELIGENTE": {
-                backgroundColor: "#22BFBD",
-                imageBackgroundColor: "#31A4A4",
-                imageName: "cidade-inteligente",
-              },
-              "3004 - SEGURANÇA": {
-                backgroundColor: "#1C3C6E",
-                imageBackgroundColor: "#183560",
-                imageName: "seguranca",
-              },
-              "2007 - MOBILIDADE URBANA": {
-                backgroundColor: "#F88B2A",
-                imageBackgroundColor: "#D67B28",
-                imageName: "mobilidade-urbana",
-              },
-              "3003 - ESPORTE": {
-                backgroundColor: "#DD4134",
-                imageBackgroundColor: "#DD4134",
-                imageName: "esporte",
-              },
-              "3100 - SAÚDE": {
-                backgroundColor: "#0093D3",
-                imageBackgroundColor: "#0E83BB",
-                imageName: "saude",
-              },
-            };
+              };
 
-            const programConfig = programConfigTranslator[program] || {
-              backgroundColor: "#7F3F93",
-              imageBackgroundColor: "#713A80",
-            };
-
-            return (
-              //<a href= {`/controle-de-obras/construcao?${item?._id}`}>
-              <Style.Card
-                key={index}
-                onClick={() =>
-                  router.push(`/controle-de-obras/construcao?${item?._id}`)
-                }
-                style={{ cursor: "pointer" }}
-              >
-                <div className="left">
-                  <Img
-                    src={`/icons/${programConfig.imageName}.svg`}
-                    width="50%"
-                    alt="Meu Ícone"
-                  />
-                </div>
-
-                <div className="right">
-                  <div className="row">
-                    <div className="item">
-                      <Text.Heading4Bold color={colors.black}>
-                        Obra:
-                      </Text.Heading4Bold>
-                      <Text.Heading5Regular color={colors.black}>
-                        {formatString(item?.nome_da_obra)}
-                      </Text.Heading5Regular>
-                    </div>
-                    <div className="item">
-                      <Text.Heading4Bold color={colors.black}>
-                        Empresa:
-                      </Text.Heading4Bold>
-                      <Text.Heading5Regular color={colors.black}>
-                        {formatString(item?.razao_social_contratada)}
-                      </Text.Heading5Regular>
-                    </div>
-                    <div className="item">
-                      <Text.Heading4Bold color={colors.black}>
-                        Montante:
-                      </Text.Heading4Bold>
-                      <Text.Heading5Regular color={colors.black}>
-                        {parseMoney(item?.valor_contrato)}
-                      </Text.Heading5Regular>
-                    </div>
+              return (
+                //<a href= {`/controle-de-obras/construcao?${item?._id}`}>
+                <Style.Card
+                  key={index}
+                  onClick={() =>
+                    router.push(`/controle-de-obras/construcao?${item?._id}`)
+                  }
+                  style={{ cursor: "pointer" }}
+                >
+                  <div className="left">
+                    <Img
+                      src={`/icons/${programConfig.imageName}.svg`}
+                      width="50%"
+                      alt="Meu Ícone"
+                    />
                   </div>
 
-                  <div style={{ marginTop: 20 }}>
-                    <Text.Heading4Bold color={colors.black}>
-                      Descrição:
-                    </Text.Heading4Bold>
-                    <Text.Heading5Regular color={colors.black}>
-                      {formatString(item?.descricao_da_obra)}
-                    </Text.Heading5Regular>
-                  </div>
+                  <div className="right">
+                    <div className="row">
+                      <div className="item">
+                        <Text.Heading4Bold color={colors.black}>
+                          Obra:
+                        </Text.Heading4Bold>
+                        <Text.Heading5Regular color={colors.black}>
+                          {formatString(item?.nome_da_obra)}
+                        </Text.Heading5Regular>
+                      </div>
+                      <div className="item">
+                        <Text.Heading4Bold color={colors.black}>
+                          Empresa:
+                        </Text.Heading4Bold>
+                        <Text.Heading5Regular color={colors.black}>
+                          {formatString(item?.razao_social_contratada)}
+                        </Text.Heading5Regular>
+                      </div>
+                      <div className="item">
+                        <Text.Heading4Bold color={colors.black}>
+                          Montante:
+                        </Text.Heading4Bold>
+                        <Text.Heading5Regular color={colors.black}>
+                          {parseMoney(item?.valor_contrato)}
+                        </Text.Heading5Regular>
+                      </div>
+                    </div>
 
-                  <div className="row" style={{ marginTop: 20 }}>
-                    {/* <div className="item">
+                    <div style={{ marginTop: 20 }}>
+                      <Text.Heading4Bold color={colors.black}>
+                        Descrição:
+                      </Text.Heading4Bold>
+                      <Text.Heading5Regular color={colors.black}>
+                        {formatString(item?.descricao_da_obra)}
+                      </Text.Heading5Regular>
+                    </div>
+
+                    <div className="row" style={{ marginTop: 20 }}>
+                      {/* <div className="item">
                       <Text.Heading4Bold color={colors.black}>
                         Programa:
                       </Text.Heading4Bold>
@@ -712,71 +762,73 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                         {item?.programa_ppa}
                       </Text.Heading5Regular>
                     </div> */}
-                    <div className="item">
-                      <Text.Heading4Bold color={colors.black}>
-                        Programa:
-                      </Text.Heading4Bold>
-                      <Text.Heading5Regular color={colors.black}>
-                        {formatString(item?.programa_ppa)}
-                      </Text.Heading5Regular>
+                      <div className="item">
+                        <Text.Heading4Bold color={colors.black}>
+                          Programa:
+                        </Text.Heading4Bold>
+                        <Text.Heading5Regular color={colors.black}>
+                          {formatString(item?.programa_ppa)}
+                        </Text.Heading5Regular>
+                      </div>
+                      <div className="item">
+                        <Text.Heading4Bold color={colors.black}>
+                          Bairro:
+                        </Text.Heading4Bold>
+                        <Text.Heading5Regular color={colors.black}>
+                          {formatString(item?.bairro_desc)}
+                        </Text.Heading5Regular>
+                      </div>
+                      <div className="item">
+                        <Text.Heading4Bold color={colors.black}>
+                          Etapa:
+                        </Text.Heading4Bold>
+                        <Text.Heading5Regular color={colors.black}>
+                          {formatString(item?.situacao)}
+                        </Text.Heading5Regular>
+                      </div>
                     </div>
-                    <div className="item">
-                      <Text.Heading4Bold color={colors.black}>
-                        Bairro:
-                      </Text.Heading4Bold>
-                      <Text.Heading5Regular color={colors.black}>
-                        {formatString(item?.bairro_desc)}
-                      </Text.Heading5Regular>
-                    </div>
-                    <div className="item">
-                      <Text.Heading4Bold color={colors.black}>
-                        Etapa:
-                      </Text.Heading4Bold>
-                      <Text.Heading5Regular color={colors.black}>
-                        {formatString(item?.situacao)}
-                      </Text.Heading5Regular>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="program"
-                  style={{ backgroundColor: programConfig.backgroundColor }}
-                >
-                  <div className="program-top">
-                    <p className="vertical-text">
-                      {capitalizeFirstLetter(
-                        String(
-                          item?.programa_ppa?.split("-")?.[1]?.replace(" ", "")
-                        ).toLowerCase()
-                      ) || ""}
-                    </p>
                   </div>
                   <div
-                    className="program-bottom"
-                    style={{
-                      backgroundColor: programConfig.imageBackgroundColor,
-                    }}
+                    className="program"
+                    style={{ backgroundColor: programConfig.backgroundColor }}
                   >
-                    {programConfig.imageName && (
-                      <Img
-                        src={`/icons/${programConfig.imageName}.svg`}
-                        width={25}
-                        alt="Meu Ícone"
-                      />
-                    )}
+                    <div className="program-top">
+                      <p className="vertical-text">
+                        {capitalizeFirstLetter(
+                          String(
+                            item?.programa_ppa
+                              ?.split("-")?.[1]
+                              ?.replace(" ", "")
+                          ).toLowerCase()
+                        ) || ""}
+                      </p>
+                    </div>
+                    <div
+                      className="program-bottom"
+                      style={{
+                        backgroundColor: programConfig.imageBackgroundColor,
+                      }}
+                    >
+                      {programConfig.imageName && (
+                        <Img
+                          src={`/icons/${programConfig.imageName}.svg`}
+                          width={25}
+                          alt="Meu Ícone"
+                        />
+                      )}
+                    </div>
                   </div>
-                </div>
-              </Style.Card>
-            );
-          })}
-        <div className="bottom">
-          <Pagination
-            totalPages={numberOfPages}
-            onPageChange={handleChangePage}
-          />
-        </div>
-      </Style.Description>
-</Box>
+                </Style.Card>
+              );
+            })}
+          <div className="bottom">
+            <Pagination
+              totalPages={numberOfPages}
+              onPageChange={handleChangePage}
+            />
+          </div>
+        </Style.Description>
+      </Box>
     </ContainerBasic>
   );
 };
