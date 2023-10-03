@@ -46,6 +46,12 @@ import { find } from "lodash";
 import { IoAddCircleOutline, IoChevronBack } from "react-icons/io5";
 import { is } from "cheerio/lib/api/traversing";
 import { isMobile } from "react-device-detect";
+import seta from "../../../assets/images/icones/Icones_Home Portal Transparencia__botao abre.svg";
+import hBottom from "../../../assets/images/Icones_Home_Portal_Transparencia__botao_circulo.svg";
+import saude from "../../../assets/images/icones/icones portalobras/branco/Icones_Portal_de_Obras_TOPO_saude.svg";
+import saneamento from "../../../assets/images/icones/icones portalobras/branco/Icones_Portal_de_Obras_TOPO_saneamento.svg";
+import mobilidade from "../../../assets/images/icones/icones portalobras/branco/Icones_Portal_de_Obras_TOPO_mobilidade.svg";
+import natureza from "../../../assets/images/icones/icones portalobras/branco/Icones_Portal_de_Obras_TOPO_espaco_publico.svg";
 
 type PropsInput = {
   handler?: {
@@ -81,13 +87,12 @@ function Screen({ handler }: PropsInput) {
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
-        
         roundedTop={"md"}
         overflow="hidden"
         maxWidth="100%"
-       
       >
         {isMobile ? (
+          // versao mobile
           <div
             style={{
               width: "100%",
@@ -172,70 +177,100 @@ function Screen({ handler }: PropsInput) {
               }}
             >
               {/* Primeira div sobreposta */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: "20%", // Posicionamento vertical
-                  left: "10px", // Alinhamento à esquerda
-                  width: "40%", // Ocupa 1/3 da largura
-                  height: "20%", // Altura arbitrária, pode ser ajustada
-                  backgroundColor: useColorModeValue(
-                    "rgba(255, 255, 255, 0.8)",
-                    "gray"
-                  ), // Cor de fundo semi-transparente
-                  borderRadius: "15px",
-                }}
-              >
-                <div style={{ padding: "10px" }}>
-                  <IoAddCircleOutline />
-                </div>
-                <div>
-                  <text
+              <a href="../../controle-de-obras/inicio">
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "20%", // Posicionamento vertical
+                    left: "10px", // Alinhamento à esquerda
+                    width: "40%", // Ocupa 1/3 da largura
+                    height: "20%", // Altura arbitrária, pode ser ajustada
+                    backgroundColor: useColorModeValue(
+                      "rgba(255, 255, 255, 0.8)",
+                      "gray"
+                    ), // Cor de fundo semi-transparente
+                    borderRadius: "15px",
+                  }}
+                >
+                  <div
                     style={{
-                      fontSize: "1rem",
-                      padding: "10px",
-                      color: useColorModeValue("black", "white"),
+                      paddingTop: "15px",
+                      paddingLeft: "15px",
+                      paddingBottom: "10px",
                     }}
                   >
-                    Sobre Obras
-                  </text>
+                    <Img
+                      src={hBottom.src}
+                      alt=""
+                      style={{
+                        maxHeight: "15px",
+                      }}
+                    />
+                  </div>
+
+                  <div>
+                    <text
+                      style={{
+                        fontSize: "1rem",
+                        padding: "10px",
+                        color: useColorModeValue("black", "white"),
+                      }}
+                    >
+                      Portal de Obras
+                    </text>
+                  </div>
+                  {/* Conteúdo da primeira div */}
                 </div>
-                {/* Conteúdo da primeira div */}
-              </div>
+              </a>
 
               {/* Segunda div sobreposta */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: "50%", // Posicionamento vertical
-                  left: "10px", // Alinhamento à esquerda
-                  width: "40%", // Ocupa 1/3 da largura
-                  height: "20%", // Altura arbitrária, pode ser ajustada
-                  backgroundColor: useColorModeValue(
-                    "rgba(255, 255, 255, 0.8)",
-                    "gray"
-                  ),
-                  borderRadius: "15px",
-                }}
-              >
-                <div style={{ padding: "10px" }}>
-                  <IoAddCircleOutline />
-                </div>
-                <div>
-                  <text
+              <a href="../../controle-de-obras/pesquisar-obras">
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "50%", // Posicionamento vertical
+                    left: "10px", // Alinhamento à esquerda
+                    width: "40%", // Ocupa 1/3 da largura
+                    height: "20%", // Altura arbitrária, pode ser ajustada
+                    backgroundColor: useColorModeValue(
+                      "rgba(255, 255, 255, 0.8)",
+                      "gray"
+                    ),
+                    borderRadius: "15px",
+                  }}
+                >
+                  <div
                     style={{
-                      fontSize: "1rem",
-                      padding: "10px",
-                      color: useColorModeValue("black", "white"),
+                      paddingTop: "15px",
+                      paddingLeft: "15px",
+                      paddingBottom: "10px",
                     }}
                   >
-                    Pesquisa Obras
-                  </text>
+                    <Img
+                      src={hBottom.src}
+                      alt=""
+                      style={{
+                        maxHeight: "15px",
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <text
+                      style={{
+                        fontSize: "1rem",
+                        padding: "10px",
+                        color: useColorModeValue("black", "white"),
+                      }}
+                    >
+                      Pesquisa Obras
+                    </text>
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         ) : (
+          // versao web
           <div
             style={{
               width: "100%",
@@ -363,75 +398,90 @@ function Screen({ handler }: PropsInput) {
                   }}
                 >
                   {/* Primeira div sobreposta */}
-                  <div
-                    style={{
-                      border: "1px solid red",
-                      width: "140px",
-                      height: "140px",
-                      // position: "absolute",
-                      // top: "20%", // Posicionamento vertical
-                      // left: "10px", // Alinhamento à esquerda
-                      // width: "40%", // Ocupa 1/3 da largura
-                      // height: "10%", // Altura arbitrária, pode ser ajustada
-                      backgroundColor: useColorModeValue(
-                        "rgba(255, 255, 255, 0.8)",
-                        "gray"
-                      ), // Cor de fundo semi-transparente
-                      borderRadius: "15px",
-                      margin: "15px",
-                    }}
-                  >
-                    <div style={{ padding: "10px" }}>
-                      <IoAddCircleOutline />
+                  <a href="../../controle-de-obras/inicio">
+                    <div
+                      style={{
+                        border: "1px solid red",
+                        width: "140px",
+                        height: "140px",
+                        // position: "absolute",
+                        // top: "20%", // Posicionamento vertical
+                        // left: "10px", // Alinhamento à esquerda
+                        // width: "40%", // Ocupa 1/3 da largura
+                        // height: "10%", // Altura arbitrária, pode ser ajustada
+                        backgroundColor: useColorModeValue(
+                          "rgba(255, 255, 255, 0.8)",
+                          "gray"
+                        ), // Cor de fundo semi-transparente
+                        borderRadius: "15px",
+                        margin: "15px",
+                      }}
+                    >
+                      <div style={{ padding: "20px" }}>
+                        <Img
+                          src={hBottom.src}
+                          alt=""
+                          style={{
+                            maxHeight: "15px",
+                          }}
+                        />
+                      </div>
+                      <div>
+                        <text
+                          style={{
+                            fontSize: "1rem",
+                            padding: "10px",
+                            color: useColorModeValue("black", "white"),
+                          }}
+                        >
+                          Portal de Obras
+                        </text>
+                      </div>
+                      {/* Conteúdo da primeira div */}
                     </div>
-                    <div>
-                      <text
-                        style={{
-                          fontSize: "1rem",
-                          padding: "10px",
-                          color: useColorModeValue("black", "white"),
-                        }}
-                      >
-                        Sobre Obras
-                      </text>
-                    </div>
-                    {/* Conteúdo da primeira div */}
-                  </div>
-
+                  </a>
                   {/* Segunda div sobreposta */}
-                  <div
-                    style={{
-                      border: "1px solid red",
-                      width: "140px",
-                      height: "140px",
-                      // position: "absolute",
-                      // top: "20%", // Posicionamento vertical
-                      // left: "10px", // Alinhamento à esquerda
-                      // width: "40%", // Ocupa 1/3 da largura
-                      // height: "10%", // Altura arbitrária, pode ser ajustada
-                      backgroundColor: useColorModeValue(
-                        "rgba(255, 255, 255, 0.8)",
-                        "gray"
-                      ), // Cor de fundo semi-transparente
-                      borderRadius: "15px",
-                      margin: "15px",
-                    }}
-                  >
-                    <div style={{ padding: "10px" }}>
-                      <IoAddCircleOutline />
+                  <a href="../../controle-de-obras/pesquisar-obras">
+                    <div
+                      style={{
+                        border: "1px solid red",
+                        width: "140px",
+                        height: "140px",
+                        // position: "absolute",
+                        // top: "20%", // Posicionamento vertical
+                        // left: "10px", // Alinhamento à esquerda
+                        // width: "40%", // Ocupa 1/3 da largura
+                        // height: "10%", // Altura arbitrária, pode ser ajustada
+                        backgroundColor: useColorModeValue(
+                          "rgba(255, 255, 255, 0.8)",
+                          "gray"
+                        ), // Cor de fundo semi-transparente
+                        borderRadius: "15px",
+                        margin: "15px",
+                      }}
+                    >
+                      <div style={{ padding: "20px" }}>
+                        <Img
+                          src={hBottom.src}
+                          alt=""
+                          style={{
+                            maxHeight: "15px",
+                          }}
+                        />
+                      </div>
+                      <div>
+                        <text
+                          style={{
+                            fontSize: "1rem",
+                            padding: "10px",
+                            color: useColorModeValue("black", "white"),
+                          }}
+                        >
+                          Pesquisa Obras
+                        </text>
+                      </div>
                     </div>
-                    <div>
-                      <text
-                        style={{
-                          fontSize: "1rem",
-                          padding: "10px",
-                          color: useColorModeValue("black", "white"),
-                        }}
-                      >
-                        Pesquisa Obras
-                      </text>
-                    </div>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -447,30 +497,244 @@ function Screen({ handler }: PropsInput) {
                 width: "60%",
               }}
             ></div>
-          
           </div>
-          
         )}
       </Box>
 
       <Box
-       display={isMobile ? "none" : "block"}
+        display={isMobile ? "none" : "block"}
         bg={useColorModeValue("#6697D1", "gray.800")}
-        
-       roundedBottom={"md"}
-        overflow="hidden"
+        roundedBottom={"md"}
         minWidth="100%"
-        height="120px"
+        height="180px"
         marginBottom={"20px"}
         marginTop={"20px"}
-      ></Box>
-
-      
+      >
+        <div
+          style={{
+            minWidth: "100%",
+            minHeight: "100%",
+            flex: 1,
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div
+            style={{
+              maxWidth: "25%",
+              height: "120px",
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "transparent",
+            }}
+          >
+            <div
+              style={{
+                minWidth: "100%",
+                minHeight: "50%",
+                flex: 1,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                backgroundColor: "transparent",
+              }}
+            >
+              <Img
+                src={obras_espaco_publico.src}
+                alt=""
+                style={{
+                  maxHeight: "70px",
+                  paddingTop: "20px",
+                }}
+              />
+            </div>
+            <div
+              style={{
+                maxWidth: "100%",
+                minHeight: "50%",
+                flex: 1,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                margin: "20px",
+              }}
+            >
+              {" "}
+              <Text style={{ color: "white", textAlign: "left" }}>
+                {" "}
+                Novas áreas de espaço público e áreas verdes{" "}
+              </Text>
+            </div>
+          </div>
+          <div
+            style={{
+              maxWidth: "25%",
+              height: "120px",
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "transparent",
+            }}
+          >
+            <div
+              style={{
+                minWidth: "100%",
+                minHeight: "50%",
+                flex: 1,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                backgroundColor: "transparent",
+              }}
+            >
+              <Img
+                src={obras_saneamento.src}
+                alt=""
+                style={{
+                  maxHeight: "70px",
+                  paddingTop: "20px",
+                }}
+              />
+            </div>
+            <div
+              style={{
+                maxWidth: "100%",
+                minHeight: "50%",
+                flex: 1,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                margin: "20px",
+              }}
+            >
+              {" "}
+              <Text style={{ color: "white" }}>
+                {" "}
+                Pessoas atendidas pelas obras de saneamento{" "}
+              </Text>
+            </div>
+          </div>
+          <div
+            style={{
+              maxWidth: "25%",
+              height: "120px",
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "transparent",
+            }}
+          >
+            <div
+              style={{
+                minWidth: "100%",
+                minHeight: "50%",
+                flex: 1,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                backgroundColor: "transparent",
+              }}
+            >
+              <Img
+                src={obras_mobilidade.src}
+                alt=""
+                style={{
+                  maxHeight: "70px",
+                  paddingTop: "20px",
+                }}
+              />
+            </div>
+            <div
+              style={{
+                maxWidth: "100%",
+                minHeight: "50%",
+                flex: 1,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                margin: "20px",
+              }}
+            >
+              {" "}
+              <Text style={{ color: "white" }}>
+                {" "}
+                Pessoas atendidas pelas obras de mobilidade{" "}
+              </Text>
+            </div>
+          </div>
+          <div
+            style={{
+              maxWidth: "25%",
+              height: "120px",
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "transparent",
+            }}
+          >
+            <div
+              style={{
+                minWidth: "100%",
+                minHeight: "50%",
+                flex: 1,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                backgroundColor: "transparent",
+              }}
+            >
+              <Img
+                src={obras_saude.src}
+                alt=""
+                style={{
+                  maxHeight: "70px",
+                  paddingTop: "20px",
+                }}
+              />
+            </div>
+            <div
+              style={{
+                maxWidth: "100%",
+                minHeight: "50%",
+                flex: 1,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                margin: "20px",
+              }}
+            >
+              {" "}
+              <Text style={{ color: "white" }}>
+                {" "}
+                Pessoas atendidas nas unidades de saúde{" "}
+              </Text>
+            </div>
+          </div>
+        </div>
+      </Box>
 
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
-        
         padding={"15px"}
         rounded="md"
         overflow="hidden"
@@ -479,10 +743,9 @@ function Screen({ handler }: PropsInput) {
       >
         <MapOfConstructions />
       </Box>
-      <Box
+      {/* <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
-        
         padding={"15px"}
         rounded="md"
         overflow="hidden"
@@ -501,12 +764,11 @@ function Screen({ handler }: PropsInput) {
             </a>
           </div>
         </Style.ContainerBigTransformations>
-      </Box>
-
+      </Box> */}
+{/* 
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
-        
         padding={"15px"}
         rounded="md"
         overflow="hidden"
@@ -541,7 +803,7 @@ function Screen({ handler }: PropsInput) {
             />
           </div>
         </Style.ContainerCardsTransformations>
-      </Box>
+      </Box> */}
     </ContainerBasic>
   );
 }
