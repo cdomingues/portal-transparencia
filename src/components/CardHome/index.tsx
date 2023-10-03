@@ -57,6 +57,58 @@ function CardHome() {
       ],
     },
     {
+      title: "Portal de Obras",
+      imageURL: Controle_de_obras.src,
+      description: "Descrição 3",
+      link: "/controle-de-obras",
+      backgroundColor: "green",
+      showExtraLinks: true,
+      extraLinks: [
+        { label: "Portal de Obras", url: "/controle-de-obras/inicio" },
+        { label: "Pesquise Obras", url: "/controle-de-obras/pesquisar-obras" },
+        { label: "Versão Antiga", url: "/controle-de-obras/obras-publicas" },
+      ],
+    },
+
+    {
+      title: "Agenda Aberta",
+      imageURL: Agenda_aberta.src,
+      description: "Descrição 3",
+      link: "/agenda-aberta",
+      backgroundColor: "green",
+      showExtraLinks: true,
+      extraLinks: [
+        {
+          label: "Prefeito - Caio Cunha",
+          url: "/agenda-aberta/agenda-prefeito",
+        },
+        {
+          label: "Co-Prefeita - Priscila Yamagami",
+          url: "/agenda-aberta/agenda-coprefeita",
+        },
+      ],
+    },
+
+    {
+      title: "Gestão Extra Orçamentária",
+      imageURL: Gestao_extra_orcamentaria.src,
+      description: "Descrição 3",
+      link: "/gestao-extra-orcamentaria",
+      backgroundColor: "green",
+      showExtraLinks: true,
+      extraLinks: [
+        {
+          label: "Receitas Extra Orçamentárias",
+          url: "/gestao-extra-orcamentaria/receitas",
+        },
+        {
+          label: "Despesas Extra Orçamentárias",
+          url: "/gestao-extra-orcamentaria/despesas",
+        },
+      ],
+    },
+
+    {
       title: "Ciclo Orçamentário",
       imageURL: Ciclo_orcamentario.src,
       description: "Descrição 2",
@@ -135,18 +187,7 @@ function CardHome() {
         },
       ],
     },
-    {
-      title: "Gestão Orçamentária - Covid-19",
-      imageURL: Gestao_orcamentaria_covid.src,
-      description: "Descrição 1",
-      link: "/gestao-orcamentaria-covid",
-      backgroundColor: "white",
-      showExtraLinks: true,
-      extraLinks: [
-        { label: "Receitas", url: "covid/receitas" },
-        { label: "Despesas", url: "covid/despesas" },
-      ],
-    },
+
     {
       title: "Gestão Orçamentária - Outros",
       imageURL: Gestao_orcamentaria_outros.src,
@@ -170,43 +211,33 @@ function CardHome() {
         },
       ],
     },
+
     {
-      title: "Gestão Extra Orçamentária",
-      imageURL: Gestao_extra_orcamentaria.src,
-      description: "Descrição 3",
-      link: "/gestao-extra-orcamentaria",
-      backgroundColor: "green",
-      showExtraLinks: true,
-      extraLinks: [
-        {
-          label: "Receitas Extra Orçamentárias",
-          url: "/gestao-extra-orcamentaria/receitas",
-        },
-        {
-          label: "Despesas Extra Orçamentárias",
-          url: "/gestao-extra-orcamentaria/despesas",
-        },
-      ],
-    },
-    {
-      title: "Acordos e Termos",
-      imageURL: Acordos_termos.src,
+      title: "Gestão Orçamentária - Covid-19",
+      imageURL: Gestao_orcamentaria_covid.src,
       description: "Descrição 1",
-      link: "/acordos-termos",
+      link: "/gestao-orcamentaria-covid",
       backgroundColor: "white",
       showExtraLinks: true,
       extraLinks: [
-        {
-          label: "Acordo de Colaboração",
-          url: "/acordos-termos/acordo-de-colaboracao",
-        },
-        {
-          label: "Termo de Parceria",
-          url: "/acordos-termos/termo-de-colaboracao",
-        },
-        { label: "Termo de Fomento", url: "/acordos-termos/termo-de-fomento" },
+        { label: "Receitas", url: "covid/receitas" },
+        { label: "Despesas", url: "covid/despesas" },
       ],
     },
+
+    {
+      title: "Controle de Radares",
+      imageURL: Controle_de_radares.src,
+      description: "Descrição 2",
+      link: "/controle-de-radares",
+      backgroundColor: "blue",
+      showExtraLinks: false,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
+    },
+
     {
       title: "Compras Públicas",
       imageURL: Compras_publicas.src,
@@ -226,6 +257,7 @@ function CardHome() {
         },
       ],
     },
+
     {
       title: "Gestão de Pessoas",
       imageURL: Gestao_de_pessoas.src,
@@ -265,6 +297,7 @@ function CardHome() {
         },
       ],
     },
+
     {
       title: "Patrimônio",
       imageURL: Patrimonio.src,
@@ -277,49 +310,27 @@ function CardHome() {
         { label: "Link 2", url: "http://exemplo.com/link2" },
       ],
     },
+
     {
-      title: "Portal de Obras",
-      imageURL: Controle_de_obras.src,
-      description: "Descrição 3",
-      link: "/controle-de-obras",
-      backgroundColor: "green",
-      showExtraLinks: true,
-      extraLinks: [
-        { label: "Portal de Obras", url: "/controle-de-obras/inicio" },
-        { label: "Pesquise Obras", url: "/controle-de-obras/pesquisar-obras" },
-        { label: "Versão Antiga", url: "/controle-de-obras/obras-publicas" },
-      ],
-    },
-    {
-      title: "Controle de Radares",
-      imageURL: Controle_de_radares.src,
-      description: "Descrição 2",
-      link: "/controle-de-radares",
-      backgroundColor: "blue",
-      showExtraLinks: false,
-      extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
-      ],
-    },
-    {
-      title: "Agenda Aberta",
-      imageURL: Agenda_aberta.src,
-      description: "Descrição 3",
-      link: "/agenda-aberta",
-      backgroundColor: "green",
+      title: "Acordos e Termos",
+      imageURL: Acordos_termos.src,
+      description: "Descrição 1",
+      link: "/acordos-termos",
+      backgroundColor: "white",
       showExtraLinks: true,
       extraLinks: [
         {
-          label: "Prefeito - Caio Cunha",
-          url: "/agenda-aberta/agenda-prefeito",
+          label: "Acordo de Colaboração",
+          url: "/acordos-termos/acordo-de-colaboracao",
         },
         {
-          label: "Co-Prefeita - Priscila Yamagami",
-          url: "/agenda-aberta/agenda-coprefeita",
+          label: "Termo de Parceria",
+          url: "/acordos-termos/termo-de-colaboracao",
         },
+        { label: "Termo de Fomento", url: "/acordos-termos/termo-de-fomento" },
       ],
     },
+
     {
       title: "Convênios e Transferências",
       imageURL: Convenios_transferencias.src,
@@ -336,6 +347,7 @@ function CardHome() {
         { label: "Repasses", url: "/convenios-transferencias/repasses" },
       ],
     },
+
     {
       title: "Leis, Decretos e Portarias",
       imageURL: Leis_decretos_portarias.src,
@@ -355,36 +367,7 @@ function CardHome() {
         { label: "LGPD", url: "/leis-decretos-portarias/lgpd" },
       ],
     },
-    {
-      title: "LAI - Lei de Acesso a Informação",
-      imageURL: Leis_decretos_portarias.src,
-      description: "Descrição 2",
-      link: "/acesso-a-informacao",
-      backgroundColor: "blue",
-      showExtraLinks: true,
-      extraLinks: [
-        {
-          label: "Acesso a Informação LAI",
-          url: "/acesso-a-informacao/acesso-informacao",
-        },
-        {
-          label: "Relatório de Demandas LAI",
-          url: "/acesso-a-informacao/relatorio-demanda",
-        },
-      ],
-    },
-    {
-      title: "Ouvidoria",
-      imageURL: Ouvidoria.src,
-      description: "Descrição 3",
-      link: "/ouvidoria",
-      backgroundColor: "green",
-      showExtraLinks: false,
-      extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
-      ],
-    },
+
     {
       title: "Institutos e Autarquias",
       imageURL: Instituto_autarquia.src,
@@ -403,6 +386,20 @@ function CardHome() {
         },
       ],
     },
+
+    {
+      title: "Ouvidoria",
+      imageURL: Ouvidoria.src,
+      description: "Descrição 3",
+      link: "/ouvidoria",
+      backgroundColor: "green",
+      showExtraLinks: false,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
+    },
+
     {
       title: "Perguntas Frequentes",
       imageURL: Perguntas_frequentes.src,
@@ -415,18 +412,26 @@ function CardHome() {
         { label: "Link 2", url: "http://exemplo.com/link2" },
       ],
     },
+
     {
-      title: "Últimas Notícias",
-      imageURL: Ultimas_noticias.src,
-      description: "Descrição 3",
-      link: "/ultimas-noticias",
-      backgroundColor: "green",
-      showExtraLinks: false,
+      title: "LAI - Lei de Acesso a Informação",
+      imageURL: Leis_decretos_portarias.src,
+      description: "Descrição 2",
+      link: "/acesso-a-informacao",
+      backgroundColor: "blue",
+      showExtraLinks: true,
       extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
+        {
+          label: "Acesso a Informação LAI",
+          url: "/acesso-a-informacao/acesso-informacao",
+        },
+        {
+          label: "Relatório de Demandas LAI",
+          url: "/acesso-a-informacao/relatorio-demanda",
+        },
       ],
     },
+
     {
       title: "Plano Municipal de Educação",
       imageURL: Plano_municipal_educacao.src,
@@ -439,6 +444,7 @@ function CardHome() {
         { label: "Link 2", url: "http://exemplo.com/link2" },
       ],
     },
+
     {
       title: "Plano Municipal de Saúde",
       imageURL: Plano_municipal_saude.src,
@@ -458,11 +464,38 @@ function CardHome() {
         { label: "Medicamentos", url: "/plano-municipal-saude/medicamentos" },
       ],
     },
+
+    {
+      title: "Últimas Notícias",
+      imageURL: Ultimas_noticias.src,
+      description: "Descrição 3",
+      link: "/ultimas-noticias",
+      backgroundColor: "green",
+      showExtraLinks: false,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
+    },
+
     {
       title: "Mapa do Site",
       imageURL: Mapa_do_site.src,
       description: "Descrição 3",
       link: "/mapa-do-site",
+      backgroundColor: "green",
+      showExtraLinks: false,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
+    },
+
+    {
+      title: "Portal Antigo",
+      imageURL: Mapa_do_site.src,
+      description: "Descrição 3",
+      link: "https://portaldatransparencia.mogidascruzes.sp.gov.br/",
       backgroundColor: "green",
       showExtraLinks: false,
       extraLinks: [
