@@ -43,6 +43,19 @@ import Plano_municipal_saude from "../../assets/images/icones/Home_botoes_planos
 import Mapa_do_site from "../../assets/images/icones/icones_barra lateral__mapa do site.svg";
 
 function CardHome() {
+  const columnLayout = () => {
+    if (window.innerWidth <= 480) {
+      return "1fr";
+    } else if (window.innerWidth <= 768) {
+      return "1fr 1fr";
+    } else {
+      return "repeat(3, 1fr)";
+    }
+  };
+
+  const templateColumns = columnLayout();
+
+
   const cardData = [
     {
       title: "Perfil do Município",
@@ -527,7 +540,7 @@ function CardHome() {
 
   return (
     <Grid
-      templateColumns={isMobile ? "1fr" : "repeat(3, 1fr)"}
+      templateColumns={templateColumns}
       gap={4}
       width={isMobile ? "100%" : "80%"}
       maxWidth={"1280px"}
@@ -538,7 +551,7 @@ function CardHome() {
         <Box
           key={index}
           bg={useColorModeValue("white", "gray.800")}
-          overflow="hidden"
+          overflow="visible"
           marginBottom="15px"
         >
           <CardHorizon
