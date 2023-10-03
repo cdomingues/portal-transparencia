@@ -221,7 +221,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                   <div>
                     <text
                       style={{
-                        fontSize: "1rem",
+                        fontSize: "0.8rem",
                         padding: "10px",
                         color: useColorModeValue("black", "white"),
                       }}
@@ -267,7 +267,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                   <div>
                     <text
                       style={{
-                        fontSize: "1rem",
+                        fontSize: "0.8rem",
                         padding: "10px",
                         color: useColorModeValue("black", "white"),
                       }}

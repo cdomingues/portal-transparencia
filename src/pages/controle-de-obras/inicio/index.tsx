@@ -211,7 +211,7 @@ function Screen({ handler }: PropsInput) {
                   <div>
                     <text
                       style={{
-                        fontSize: "1rem",
+                        fontSize: "0.8rem",
                         padding: "10px",
                         color: useColorModeValue("black", "white"),
                       }}
@@ -257,7 +257,7 @@ function Screen({ handler }: PropsInput) {
                   <div>
                     <text
                       style={{
-                        fontSize: "1rem",
+                        fontSize: "0.8rem",
                         padding: "10px",
                         color: useColorModeValue("black", "white"),
                       }}
