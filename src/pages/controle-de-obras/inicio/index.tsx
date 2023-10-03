@@ -94,7 +94,6 @@ function Screen({ handler }: PropsInput) {
 
               display: "flex",
               flexDirection: "column",
-              backgroundColor: "red",
             }}
           >
             <div
@@ -177,7 +176,7 @@ function Screen({ handler }: PropsInput) {
               style={{
                 position: "relative", // Posição relativa para a div pai
                 height: "400px",
-                backgroundImage: `url(${vagalumeDesk.src})`,
+                backgroundImage: `url(${vagalumeMobi.src})`,
                 backgroundSize: "cover", // Garante que a imagem de fundo cubra toda a div
                 backgroundPosition: "center", // Centraliza a imagem de fundo
               }}
@@ -446,8 +445,8 @@ function Screen({ handler }: PropsInput) {
             <div
               style={{
                 position: "relative", // Posição relativa para a div pai
-                height: "500px",
-                backgroundImage: `url(${vagalumeMobi.src})`,
+                height: "450px",
+                backgroundImage: `url(${vagalumeDesk.src})`,
                 backgroundSize: "cover", // Garante que a imagem de fundo cubra toda a div
                 backgroundPosition: "center", // Centraliza a imagem de fundo
                 width: "60%",
