@@ -214,6 +214,7 @@ function Aside() {
         width: "380px",
         justifyContent: "left",
         backgroundColor: "transparent",
+        display: isMobile ? 'none' : 'block' // Esconde o componente em dispositivos móveis
       }}
     >
       <Box
