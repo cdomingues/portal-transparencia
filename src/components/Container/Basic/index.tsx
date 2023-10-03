@@ -24,7 +24,7 @@
 //       <Box
 //         m={0}
 //         bg={useColorModeValue("white", "gray.800")}
-//         
+//
 //         padding={"15px"}
 //         rounded="md"
 //         overflow="hidden"
@@ -91,7 +91,7 @@
 //           <Box
 //             m={0}
 //             bg={useColorModeValue("white", "gray.800")}
-//             
+//
 //             padding={"15px"}
 //             rounded="md"
 //             overflow="hidden"
@@ -186,7 +186,6 @@
 
 import React, { ReactNode, useState, useEffect } from "react";
 import { Box, Heading, Text, Divider, Stack } from "@chakra-ui/react";
-import Vlibras from "vlibras-nextjs";
 import Head from "next/head";
 import { Container, Body } from "./styles";
 import Breadcrumb from "../../Breadcrumb";
@@ -204,7 +203,7 @@ type PropsInput = {
   containerStyles?: React.CSSProperties;
   showAsideByDefault?: boolean; // New Prop
   showToggleButton?: boolean;
-  showFirstBox?: boolean;  // Nova propriedade
+  showFirstBox?: boolean; // Nova propriedade
 };
 
 function Aside() {
@@ -220,7 +219,6 @@ function Aside() {
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
-        
         padding={"15px"}
         rounded="md"
         overflow="hidden"
@@ -270,8 +268,8 @@ function ContainerBasic({
   description,
   children,
   containerStyles = { paddingLeft: "0%" },
-  showAsideByDefault = true, 
-  showToggleButton = true, 
+  showAsideByDefault = true,
+  showToggleButton = true,
   showFirstBox = true,
 }: PropsInput) {
   const { height, width } = useWindowDimensions();
@@ -321,41 +319,39 @@ function ContainerBasic({
           }}
         >
           <Breadcrumb />
-{showFirstBox && (
-          <Box
-            m={0}
-            // eslint-disable-next-line react-hooks/rules-of-hooks
-            bg={useColorModeValue("white", "gray.800")}
-            
-            padding={"15px"}
-            rounded="md"
-            overflow="hidden"
-            maxWidth="100%"
-            borderRadius="18px"
-            marginBottom="15px"
-          >
-            <Head>
-              <title>{title} - PMMC</title>
-            </Head>
-            <Vlibras />
-            <Heading
-              mb={2}
-              fontSize={accessibility?.fonts?.ultraLarge}
-              color="text.dark"
+          {showFirstBox && (
+            <Box
+              m={0}
+              // eslint-disable-next-line react-hooks/rules-of-hooks
+              bg={useColorModeValue("white", "gray.800")}
+              padding={"15px"}
+              rounded="md"
+              overflow="hidden"
+              maxWidth="100%"
+              borderRadius="18px"
+              marginBottom="15px"
             >
-              {title}
-            </Heading>
-            <div style={{ paddingRight: isMobile ? "0%" : "0%" }}>
-              <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
+              <Head>
+                <title>{title} - PMMC</title>
+              </Head>
+              <Heading
+                mb={2}
+                fontSize={accessibility?.fonts?.ultraLarge}
+                color="text.dark"
               >
-                {description}
-              </Text>
-            </div>
-          </Box>
-)}
+                {title}
+              </Heading>
+              <div style={{ paddingRight: isMobile ? "0%" : "0%" }}>
+                <Text
+                  align={isMobile ? "justify" : "left"}
+                  color="gray.500"
+                  fontSize={accessibility?.fonts?.regular}
+                >
+                  {description}
+                </Text>
+              </div>
+            </Box>
+          )}
           {/* <Divider borderWidth="2px" mt="10" mb="10" /> */}
           {children}
         </Container>

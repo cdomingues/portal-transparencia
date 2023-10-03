@@ -50,7 +50,8 @@ export default async function handler(
       "*",
       "valortotal as valor",
       "valoraditado as valorAditado",
-      "qtdeaditivos as quantidadeAdivitos"
+      "qtdeaditivos as quantidadeAdivitos",
+      
     )
     .from("CONTRATOS")
     .whereBetween("datainicio", [from, to])

@@ -32,8 +32,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         <CookiesProvider>
           {loaded && (
             <ComponenteLayout>
-              <Vlibras forceOnload={true} />
-              <Vlibras />
               <Component {...pageProps} />
             </ComponenteLayout>
           )}

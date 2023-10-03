@@ -6,7 +6,6 @@ import { parseMoney } from "../../../utils/mask";
 import colors from "../../../styles/colors";
 import Carousel from "../../../components/Swiper";
 import { Box, Img, Input, Select, useColorModeValue } from "@chakra-ui/react";
-import Vlibras from "vlibras-nextjs";
 import { useState } from "react";
 import router from "next/router";
 import { formatString } from "../../../utils/stringUtils";
@@ -72,7 +71,6 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
 
     return (
       <div>
-        <Vlibras />
         <div className="pagination">
           {pageNumbers?.map((number) => (
             <div key={number} className="page-item">
