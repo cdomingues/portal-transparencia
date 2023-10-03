@@ -39,6 +39,7 @@ export const getdvertisings = async (year?: number) => {
         },
         params: {
           q: year,
+          limit: 1000,
         },
       }
     );
