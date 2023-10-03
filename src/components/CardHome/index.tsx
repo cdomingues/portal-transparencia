@@ -509,7 +509,7 @@ function CardHome() {
     <Grid
       templateColumns={isMobile ? "1fr" : "repeat(3, 1fr)"}
       gap={4}
-      width={isMobile ? "110%" : "80%"}
+      width={isMobile ? "100%" : "80%"}
       maxWidth={"1280px"}
       margin="0 auto"
       padding="0 15px"
