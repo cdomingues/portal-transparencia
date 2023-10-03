@@ -82,10 +82,10 @@ function Screen({ handler }: PropsInput) {
         m={0}
         bg={useColorModeValue("white", "gray.800")}
         boxShadow="2xl"
-        rounded="md"
+        roundedTop={"md"}
         overflow="hidden"
         maxWidth="100%"
-        marginBottom="15px"
+       
       >
         {isMobile ? (
           <div
@@ -337,7 +337,6 @@ function Screen({ handler }: PropsInput) {
                 <div
                   style={{
                     height: "30%",
-                    
                   }}
                 ></div>
               </div>
@@ -448,9 +447,24 @@ function Screen({ handler }: PropsInput) {
                 width: "60%",
               }}
             ></div>
+          
           </div>
+          
         )}
       </Box>
+
+      <Box
+       display={isMobile ? "none" : "block"}
+        bg={useColorModeValue("#6697D1", "gray.800")}
+        boxShadow="2xl"
+       roundedBottom={"md"}
+        overflow="hidden"
+        minWidth="100%"
+        height="120px"
+        marginBottom={"20px"}
+      ></Box>
+
+      
 
       <Box
         m={0}
