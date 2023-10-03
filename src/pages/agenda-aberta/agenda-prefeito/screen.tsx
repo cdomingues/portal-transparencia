@@ -50,7 +50,7 @@ function Screen({ handler }: PropsInput) {
 
   const handleGetOpenSchedule = async () => {
     const response = await fetch(
-      "http://192.168.1.118/api/3/action/datastore_search?resource_id=e6ee12e9-2fec-4d91-acac-36b36bd179c2&q=Caio%20Cunha",
+      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=e6ee12e9-2fec-4d91-acac-36b36bd179c2&q=Caio%20Cunha",
       {
         headers: {
           Authorization:
