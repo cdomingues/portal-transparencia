@@ -301,6 +301,7 @@ function ContainerBasic({
         height: "100%",
         alignContent: "flex-start",
         justifyContent: "flex-start",
+        backgroundColor: "transparent",
       }}
     >
       <Stack

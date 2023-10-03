@@ -562,7 +562,7 @@ export default function SidebarWithHeader({
   const { width } = useWindowDimensions();
 
   return (
-    <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
+    <Box minH="100vh" bg={useColorModeValue("white", "gray.900")}>
       {width > 664 && (
         <SidebarContent
           routes={routes}
