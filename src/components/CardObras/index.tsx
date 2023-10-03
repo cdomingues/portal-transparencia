@@ -4,7 +4,7 @@ import { BsTree } from "react-icons/bs";
 import { ReactNode, useEffect, useState } from "react";
 import colors from "../../styles/colors";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
-import { Text } from "@chakra-ui/react";
+import { Img, Text } from "@chakra-ui/react";
 
 type CardTotalProps = {
   imageURL?: string;
@@ -24,7 +24,7 @@ const CardTotal = ({
     <Style.Container>
 
       
-      <img
+      <Img
               src={imageURL}
               alt="icone"
               width={60}

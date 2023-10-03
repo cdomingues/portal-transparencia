@@ -32,7 +32,7 @@ export default function BlogComponent({
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
-        boxShadow="2xl"
+        
         rounded="md"
         p={6}
         overflow="hidden"

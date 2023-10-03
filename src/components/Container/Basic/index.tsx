@@ -24,7 +24,7 @@
 //       <Box
 //         m={0}
 //         bg={useColorModeValue("white", "gray.800")}
-//         boxShadow="2xl"
+//         
 //         padding={"15px"}
 //         rounded="md"
 //         overflow="hidden"
@@ -91,7 +91,7 @@
 //           <Box
 //             m={0}
 //             bg={useColorModeValue("white", "gray.800")}
-//             boxShadow="2xl"
+//             
 //             padding={"15px"}
 //             rounded="md"
 //             overflow="hidden"
@@ -186,7 +186,7 @@
 
 import React, { ReactNode, useState, useEffect } from "react";
 import { Box, Heading, Text, Divider, Stack } from "@chakra-ui/react";
-import Vlibras from 'vlibras-nextjs';
+import Vlibras from "vlibras-nextjs";
 import Head from "next/head";
 import { Container, Body } from "./styles";
 import Breadcrumb from "../../Breadcrumb";
@@ -195,7 +195,6 @@ import { isMobile } from "react-device-detect";
 import { useColorModeValue } from "@chakra-ui/react";
 import useWindowDimensions from "../../../../src/utils/getWindowSize";
 import noticias from "../../../../data/noticias.json";
-
 import DisplayNews from "../../../components/NewsHome";
 
 type PropsInput = {
@@ -203,17 +202,25 @@ type PropsInput = {
   description: string;
   children: ReactNode;
   containerStyles?: React.CSSProperties;
+  showAsideByDefault?: boolean; // New Prop
+  showToggleButton?: boolean;
+  showFirstBox?: boolean;  // Nova propriedade
 };
 
 function Aside() {
   const accessibility = useFontSizeAccessibilityContext();
   return (
-    
-    <div style={{ width: "380px", justifyContent: "left", backgroundColor: "transparent" }}>
+    <div
+      style={{
+        width: "380px",
+        justifyContent: "left",
+        backgroundColor: "transparent",
+      }}
+    >
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
-        boxShadow="2xl"
+        
         padding={"15px"}
         rounded="md"
         overflow="hidden"
@@ -222,7 +229,11 @@ function Aside() {
         marginBottom="15px"
       >
         <div style={{ padding: "10px" }}>
-          <Text fontSize={accessibility?.fonts?.regular} fontWeight="500" color={"gray.500"}>
+          <Text
+            fontSize={accessibility?.fonts?.regular}
+            fontWeight="500"
+            color={"gray.500"}
+          >
             Últimas Notícias
           </Text>
         </div>
@@ -240,9 +251,14 @@ function Aside() {
         })}
         <div style={{ padding: "0px", width: "95%" }}></div>
         <div style={{ padding: "10px" }}>
-          <Text fontWeight="500" fontSize={accessibility?.fonts?.regular} color={"gray.500"} fontStyle={'italic'}>
-           <a href="./ultimas-noticias">Acesse outras notícias</a>
-          </Text> 
+          <Text
+            fontWeight="500"
+            fontSize={accessibility?.fonts?.regular}
+            color={"gray.500"}
+            fontStyle={"italic"}
+          >
+            <a href="./ultimas-noticias">Acesse outras notícias</a>
+          </Text>
         </div>
       </Box>
     </div>
@@ -254,10 +270,13 @@ function ContainerBasic({
   description,
   children,
   containerStyles = { paddingLeft: "0%" },
+  showAsideByDefault = true, 
+  showToggleButton = true, 
+  showFirstBox = true,
 }: PropsInput) {
   const { height, width } = useWindowDimensions();
   const accessibility = useFontSizeAccessibilityContext();
-  const [showAside, setShowAside] = useState(!isMobile);
+  const [showAside, setShowAside] = useState(showAsideByDefault);
 
   const [isHovered, setIsHovered] = useState(false);
 
@@ -282,6 +301,7 @@ function ContainerBasic({
         height: "100%",
         alignContent: "flex-start",
         justifyContent: "flex-start",
+        backgroundColor: "transparent",
       }}
     >
       <Stack
@@ -301,11 +321,12 @@ function ContainerBasic({
           }}
         >
           <Breadcrumb />
-
+{showFirstBox && (
           <Box
             m={0}
+            // eslint-disable-next-line react-hooks/rules-of-hooks
             bg={useColorModeValue("white", "gray.800")}
-            boxShadow="2xl"
+            
             padding={"15px"}
             rounded="md"
             overflow="hidden"
@@ -316,7 +337,7 @@ function ContainerBasic({
             <Head>
               <title>{title} - PMMC</title>
             </Head>
-            <Vlibras/>
+            <Vlibras />
             <Heading
               mb={2}
               fontSize={accessibility?.fonts?.ultraLarge}
@@ -334,6 +355,7 @@ function ContainerBasic({
               </Text>
             </div>
           </Box>
+)}
           {/* <Divider borderWidth="2px" mt="10" mb="10" /> */}
           {children}
         </Container>
@@ -343,7 +365,7 @@ function ContainerBasic({
           <Aside />
         </Stack>
       )}
-      {!isMobile && (
+      {!isMobile && showToggleButton && (
         <button
           onClick={toggleAside}
           onMouseOver={() => setIsHovered(true)}
@@ -353,7 +375,7 @@ function ContainerBasic({
             right: "10px",
             top: "120px",
             transform: "translateY(-50%)",
-            backgroundColor: "transparent",
+            backgroundColor: "",
             border: "1px solid transparent",
             borderRadius: "50%",
             outline: "none",

@@ -75,7 +75,7 @@ function Screen({
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
-        boxShadow="2xl"
+        
         padding={"15px"}
         rounded="md"
         overflow="hidden"
@@ -107,7 +107,7 @@ function Screen({
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
-        boxShadow="2xl"
+        
         padding={"15px"}
         rounded="md"
         overflow="hidden"
@@ -128,7 +128,7 @@ function Screen({
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
-        boxShadow="2xl"
+        
         padding={"15px"}
         rounded="md"
         overflow="hidden"
@@ -153,7 +153,7 @@ function Screen({
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
-        boxShadow="2xl"
+        
         padding={"15px"}
         rounded="md"
         overflow="hidden"
@@ -660,7 +660,7 @@ export default Screen;
 
 //   return (
 //     <ContainerBasic title={title} description={description}>
-//       <Box m={0} bg={useColorModeValue("white", "gray.800")} boxShadow="2xl" padding={"15px"} rounded="md" overflow="hidden" width="100%" borderRadius="18px" marginBottom="15px">
+//       <Box m={0} bg={useColorModeValue("white", "gray.800")}  padding={"15px"} rounded="md" overflow="hidden" width="100%" borderRadius="18px" marginBottom="15px">
 //         <div style={{ height: "500px", width: "100%" }}>
 //           <MapWithNoSSR
 //             coords={[-23.528986, -46.192973]}
@@ -675,7 +675,7 @@ export default Screen;
 //         </div>
 //       </Box>
 
-//       <Box m={0} bg={useColorModeValue("white", "gray.800")} boxShadow="2xl" padding={"15px"} rounded="md" overflow="hidden" width="100%" borderRadius="18px" marginBottom="15px">
+//       <Box m={0} bg={useColorModeValue("white", "gray.800")}  padding={"15px"} rounded="md" overflow="hidden" width="100%" borderRadius="18px" marginBottom="15px">
 //         <TableComponent columns={columns} loading={loading} data={dataRadarJson} />
 //       </Box>
 //     </ContainerBasic>

@@ -67,7 +67,7 @@ function Screen({
             <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
-        boxShadow="2xl"
+        
         padding={"15px"}
         rounded="md"
         overflow="hidden"
@@ -98,7 +98,7 @@ function Screen({
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
-        boxShadow="2xl"
+        
         padding={"15px"}
         rounded="md"
         overflow="hidden"

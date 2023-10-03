@@ -16,6 +16,7 @@ import {
   PopoverHeader,
   PopoverBody,
   Button,
+  Img,
   background,
 } from "@chakra-ui/react";
 import { IconRight } from "react-day-picker";
@@ -89,7 +90,7 @@ const CardHorizon: React.FC<CardHorizonProps> = ({
             justifyContent="center"
             alignItems="center"
           >
-            <img
+            <Img
               src={imageURL}
               alt="icone"
               width={60}

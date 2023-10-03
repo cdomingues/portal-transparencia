@@ -1,18 +1,38 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import LayoutConstructions from "../../../components/LayoutConstructions";
 import * as Text from "../../../styles/text";
 import * as Style from "../../../styles/components/pesquisar-obras/styles";
 import { parseMoney } from "../../../utils/mask";
 import colors from "../../../styles/colors";
 import Carousel from "../../../components/Swiper";
-import { Input, Select } from "@chakra-ui/react";
+import { Box, Img, Input, Select, useColorModeValue } from "@chakra-ui/react";
 import Vlibras from "vlibras-nextjs";
 import { useState } from "react";
 import router from "next/router";
 import { formatString } from "../../../utils/stringUtils";
+import ContainerBasic from "../../../components/Container/Basic";
+import { isMobile } from "react-device-detect";
+import wall from "../../../assets/images/logoportal_simbolo_portalobras.png";
+import wallNegative from "../../../assets/images/logoportal_simbolo_portalobras_negativo.png";
+import vagalumeMobi from "../../../assets/images/Portal-de-Obras_fototopo_homemobi.png";
+import vagalumeDesk from "../../../assets/images/Portal-de-Obras_fototopo_homedesk.png";
+import pesquisaDesk from "../../../assets/images/Portal-de-Obras_fototopo_pesquisedesk.png";
+import pesquisaMobi from "../../../assets/images/Portal-de-Obras_fototopo_pesquisemobi.png";
+import { IoAddCircleOutline } from "react-icons/io5";
+
 interface PropsPagination {
   totalPages: number;
   onPageChange: (pageNumber: number) => void;
 }
+type PropsInput = {
+  handler?: {
+    data?: Array<any>;
+    loading?: boolean;
+    showAsideByDefault?: boolean; // Nova propriedade
+    showToggleButton?: boolean; // Isso irá omitir o botão
+    showFirstBox?: boolean; // Isso irá omitir o botão
+  };
+};
 
 export const contentSearchConstructions = {
   titlePage: "Pesquise sobre as Obras",
@@ -65,12 +85,394 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
   }
 
   return (
-    <LayoutConstructions
-      title="Sobre"
-      bannerSrc="https://dados.mogidascruzes.sp.gov.br/dataset/8e668745-1f91-4e64-a541-4f4a81898cac/resource/4244bee1-6627-46b8-97cc-0003e6e5fefa/download/imagens-para-site_topo-pesquisar-obras.png"
-      bannerTitle={contentSearchConstructions?.titlePage}
-      bannerDescription={contentSearchConstructions?.description}
+    <ContainerBasic
+      title={contentSearchConstructions.titlePage}
+      description={contentSearchConstructions.description}
+      showAsideByDefault={false}
+      showToggleButton={false}
+      showFirstBox={false}
     >
+      <Box
+        m={0}
+        bg={useColorModeValue("white", "gray.800")}
+        
+        roundedTop={"md"}
+        overflow="hidden"
+        maxWidth="100%"
+        marginBottom={"20px"}
+      >
+        {isMobile ? (
+          <div
+            style={{
+              width: "100%",
+
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <div
+              style={{
+                flex: 1,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <div
+                style={{
+                  flex: 1,
+                  display: "flex",
+                  justifyContent: "flex-start", // Alinha o conteúdo à esquerda
+                  alignItems: "center", // Mantém o alinhamento vertical centralizado
+                  paddingLeft: "15px",
+                  minWidth: "100%",
+                  paddingTop: "20px",
+                }}
+              >
+                <Img
+                  src={useColorModeValue(wall.src, wallNegative.src)}
+                  alt=""
+                  style={{
+                    maxHeight: "50px",
+                  }}
+                />
+              </div>
+              <div
+                style={{
+                  flex: 1,
+                  display: "flex",
+                  justifyContent: "flex-start", // Alinha o conteúdo à esquerda
+                  alignItems: "center", // Mantém o alinhamento vertical centralizado
+                  minWidth: "100%",
+                  fontSize: "45px",
+                  fontFamily: "raleway extra bold",
+                  color: useColorModeValue("#6697D1", "white"),
+                  paddingTop: "10px",
+                  paddingLeft: "15px",
+                  lineHeight: "1",
+                }}
+              >
+                Portal de Obras <br />
+                Mogi das Cruzes
+              </div>
+              <div
+                style={{
+                  flex: 1,
+                  display: "flex",
+                  justifyContent: "flex-start", // Alinha o conteúdo à esquerda
+                  alignItems: "center", // Mantém o alinhamento vertical centralizado
+                  minWidth: "100%",
+                  fontFamily: "Open Sans Medium",
+                  fontSize: "25px",
+                  paddingLeft: "15px",
+                  color: useColorModeValue("#14204E", "white"),
+                  paddingBottom: "10px",
+                  paddingTop: "20px",
+                  lineHeight: "1",
+                }}
+              >
+                Conheça as obras que estão transformando a nossa cidade.
+              </div>
+            </div>
+
+            <div
+              style={{
+                position: "relative", // Posição relativa para a div pai
+                height: "400px",
+                backgroundImage: `url(${pesquisaMobi.src})`,
+                backgroundSize: "cover", // Garante que a imagem de fundo cubra toda a div
+                backgroundPosition: "center", // Centraliza a imagem de fundo
+              }}
+            >
+              {/* Primeira div sobreposta */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: "20%", // Posicionamento vertical
+                  left: "10px", // Alinhamento à esquerda
+                  width: "40%", // Ocupa 1/3 da largura
+                  height: "20%", // Altura arbitrária, pode ser ajustada
+                  backgroundColor: useColorModeValue(
+                    "rgba(255, 255, 255, 0.8)",
+                    "gray"
+                  ), // Cor de fundo semi-transparente
+                  borderRadius: "15px",
+                }}
+              >
+                <div style={{ padding: "10px" }}>
+                  <IoAddCircleOutline />
+                </div>
+                <div>
+                  <text
+                    style={{
+                      fontSize: "1rem",
+                      padding: "10px",
+                      color: useColorModeValue("black", "white"),
+                    }}
+                  >
+                    Sobre Obras
+                  </text>
+                </div>
+                {/* Conteúdo da primeira div */}
+              </div>
+
+              {/* Segunda div sobreposta */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: "50%", // Posicionamento vertical
+                  left: "10px", // Alinhamento à esquerda
+                  width: "40%", // Ocupa 1/3 da largura
+                  height: "20%", // Altura arbitrária, pode ser ajustada
+                  backgroundColor: useColorModeValue(
+                    "rgba(255, 255, 255, 0.8)",
+                    "gray"
+                  ),
+                  borderRadius: "15px",
+                }}
+              >
+                <div style={{ padding: "10px" }}>
+                  <IoAddCircleOutline />
+                </div>
+                <div>
+                  <text
+                    style={{
+                      fontSize: "1rem",
+                      padding: "10px",
+                      color: useColorModeValue("black", "white"),
+                    }}
+                  >
+                    Pesquisa Obras
+                  </text>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+              flexDirection: "row",
+            }}
+          >
+            <div
+              style={{
+                width: "40%",
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              {" "}
+              {/* green 1 */}
+              <div
+                style={{
+                  flex: 1,
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width: "100%",
+                  height: "50%",
+                }}
+              >
+                <div
+                  style={{
+                    flex: 1,
+                    display: "flex",
+                    justifyContent: "flex-start", // Alinha o conteúdo à esquerda
+                    alignItems: "center", // Mantém o alinhamento vertical centralizado
+                    paddingLeft: "15px",
+                    minWidth: "100%",
+                    paddingTop: "30px",
+                  }}
+                >
+                  <Img
+                    src={useColorModeValue(wall.src, wallNegative.src)}
+                    alt=""
+                    style={{
+                      maxHeight: "50px",
+                    }}
+                  />
+                </div>
+                {/* <div
+                  style={{
+                    flex: 1,
+                    display: "flex",
+                    justifyContent: "flex-start", // Alinha o conteúdo à esquerda
+                    alignItems: "center", // Mantém o alinhamento vertical centralizado
+                    minWidth: "100%",
+                    fontSize: "2rem",
+                    fontFamily: "Roboto",
+                    color: useColorModeValue("blue", "white"),
+                    paddingTop: "10px",
+                    paddingLeft: "15px",
+                  }}
+                >
+                  Portal de Obras
+                </div> */}
+                <div
+                  style={{
+                    flex: 1,
+                    display: "flex",
+                    justifyContent: "flex-start", // Alinha o conteúdo à esquerda
+                    alignItems: "center", // Mantém o alinhamento vertical centralizado
+                    minWidth: "100%",
+                    fontSize: "45px",
+                    fontFamily: "raleway extra bold",
+                    color: useColorModeValue("#6697D1", "white"),
+                    paddingLeft: "15px",
+                    lineHeight: "1",
+                    paddingTop: "10px",
+                  }}
+                >
+                  Portal de Obras <br />
+                  Mogi das Cruzes
+                </div>
+                <div
+                  style={{
+                    flex: 1,
+                    display: "flex",
+                    justifyContent: "flex-start", // Alinha o conteúdo à esquerda
+                    alignItems: "center", // Mantém o alinhamento vertical centralizado
+                    minWidth: "100%",
+                    fontFamily: "Open Sans Medium",
+                    fontSize: "25px",
+                    paddingLeft: "15px",
+                    color: useColorModeValue("#14204E", "white"),
+                    paddingBottom: "10px",
+                    paddingTop: "20px",
+                    lineHeight: "1",
+                  }}
+                >
+                  Conheça as obras que estão transformando a nossa cidade.
+                </div>
+                <div
+                  style={{
+                    height: "30%",
+                  }}
+                ></div>
+              </div>
+              {/* blue 2 */}
+              <div
+                style={{
+                  flex: 1,
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width: "100%",
+                  height: "50%",
+                }}
+              >
+                <div
+                  style={{
+                    height: "30%",
+                    flex: 1,
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  {/* Primeira div sobreposta */}
+                  <div
+                    style={{
+                      border: "1px solid red",
+                      width: "140px",
+                      height: "140px",
+                      // position: "absolute",
+                      // top: "20%", // Posicionamento vertical
+                      // left: "10px", // Alinhamento à esquerda
+                      // width: "40%", // Ocupa 1/3 da largura
+                      // height: "10%", // Altura arbitrária, pode ser ajustada
+                      backgroundColor: useColorModeValue(
+                        "rgba(255, 255, 255, 0.8)",
+                        "gray"
+                      ), // Cor de fundo semi-transparente
+                      borderRadius: "15px",
+                      margin: "15px",
+                    }}
+                  >
+                    <div style={{ padding: "10px" }}>
+                      <IoAddCircleOutline />
+                    </div>
+                    <div>
+                      <text
+                        style={{
+                          fontSize: "1rem",
+                          padding: "10px",
+                          color: useColorModeValue("black", "white"),
+                        }}
+                      >
+                        Sobre Obras
+                      </text>
+                    </div>
+                    {/* Conteúdo da primeira div */}
+                  </div>
+
+                  {/* Segunda div sobreposta */}
+                  <div
+                    style={{
+                      border: "1px solid red",
+                      width: "140px",
+                      height: "140px",
+                      // position: "absolute",
+                      // top: "20%", // Posicionamento vertical
+                      // left: "10px", // Alinhamento à esquerda
+                      // width: "40%", // Ocupa 1/3 da largura
+                      // height: "10%", // Altura arbitrária, pode ser ajustada
+                      backgroundColor: useColorModeValue(
+                        "rgba(255, 255, 255, 0.8)",
+                        "gray"
+                      ), // Cor de fundo semi-transparente
+                      borderRadius: "15px",
+                      margin: "15px",
+                    }}
+                  >
+                    <div style={{ padding: "10px" }}>
+                      <IoAddCircleOutline />
+                    </div>
+                    <div>
+                      <text
+                        style={{
+                          fontSize: "1rem",
+                          padding: "10px",
+                          color: useColorModeValue("black", "white"),
+                        }}
+                      >
+                        Pesquisa Obras
+                      </text>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* imagem vagalum */}
+            <div
+              style={{
+                position: "relative", // Posição relativa para a div pai
+                height: "450px",
+                backgroundImage: `url(${pesquisaDesk.src})`,
+                backgroundSize: "cover", // Garante que a imagem de fundo cubra toda a div
+                backgroundPosition: "center", // Centraliza a imagem de fundo
+                width: "60%",
+              }}
+            ></div>
+          </div>
+        )}
+      </Box>
+      <Box
+        m={0}
+        bg={useColorModeValue("white", "gray.800")}
+        
+        roundedTop={"md"}
+        overflow="hidden"
+        maxWidth="100%"
+        marginTop={"20px"}
+      >
       <Style.Description>
         <Style.SearchBar>
           <Input
@@ -257,7 +659,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                 style={{ cursor: "pointer" }}
               >
                 <div className="left">
-                  <img
+                  <Img
                     src={`/icons/${programConfig.imageName}.svg`}
                     width="50%"
                     alt="Meu Ícone"
@@ -356,7 +758,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                     }}
                   >
                     {programConfig.imageName && (
-                      <img
+                      <Img
                         src={`/icons/${programConfig.imageName}.svg`}
                         width={25}
                         alt="Meu Ícone"
@@ -374,7 +776,8 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
           />
         </div>
       </Style.Description>
-    </LayoutConstructions>
+</Box>
+    </ContainerBasic>
   );
 };
 

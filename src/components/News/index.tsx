@@ -27,7 +27,7 @@ function DisplayNews({titulo,descricao,link, foto,data_noticia,...rest}:PropsInp
       display="flex" justifyContent="flex-start" 
         m={0}
        bg={useColorModeValue("white", "gray.800")}
-       boxShadow="2xl"
+       
        rounded="md"
        overflow="hidden"
        maxWidth = "'100%'"

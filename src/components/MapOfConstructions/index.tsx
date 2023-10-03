@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import * as Style from "./styles";
 import * as Text from "../../styles/text";
 import { RiMapPin2Fill } from "react-icons/ri";
@@ -9,8 +10,9 @@ import { MdPark } from "react-icons/md";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import colors from "../../styles/colors";
-import { Input, Select } from "@chakra-ui/react";
+import { Input, Select, useColorModeValue } from "@chakra-ui/react";
 import { formatString } from "../../utils/stringUtils";
+import { isMobile } from "react-device-detect";
 
 const MapWithNoSSR = dynamic(() => import("../../components/Map"), {
   ssr: false,
@@ -41,9 +43,6 @@ const MapOfConstructions = () => {
   const [step, setStep] = useState("");
   // const [viewOption, setViewOption] = useState("map");
   const router = useRouter();
-  
-    
-  
 
   const geoSplited = constructionSelected?.latitude_longitude?.split(",");
 
@@ -63,9 +62,22 @@ const MapOfConstructions = () => {
     "1000 - EDUCA MOGI": colors.randomColors.blue,
   };
 
-  return (
+  return ( isMobile ? (
     <Style.Container>
-      <Style.Search>
+      
+
+    
+
+      <MapAllMarkersComponent
+        nameOrDescriptionConstruction={nameOrDescriptionConstruction}
+        directionConstruction={directionConstruction}
+        setConstructionSelected={setConstructionSelected}
+        value={value}
+        step={step}
+        program={program}
+      />
+
+<Style.Search>
         <Text.Heading4Bold color={colors.black}>
           Buscar de obras por bairro
         </Text.Heading4Bold>
@@ -92,6 +104,7 @@ const MapOfConstructions = () => {
         <Input
           placeholder="Endereço"
           onChange={(event) => setDirectionConstruction(event.target.value)}
+          color={useColorModeValue("black", "white")}
         />
 
         <Text.Heading4Medium
@@ -154,100 +167,6 @@ const MapOfConstructions = () => {
         </Select>
       </Style.Search>
 
-      {/* <Style.Options>
-      <Text.Heading3Bold marginBottom={7} color={colors.black}>
-          Opções de visualização
-        </Text.Heading3Bold>
-
-        <div className="buttons">
-          <Style.RoundedButton
-            onClick={() => setViewOption("map")}
-            color={colors.randomColors.red}
-          >
-            <RiMapPin2Fill fontSize={20} color={colors.white} />
-
-            <Text.SmallerBold
-              className="button-text"
-              style={{ color: colors.white }}
-            >
-              Mapa
-            </Text.SmallerBold>
-          </Style.RoundedButton>
-
-          <Style.RoundedButton
-            onClick={() => setViewOption("neighborhood")}
-            color={colors.randomColors.orange}
-          >
-            <BsGrid1X2Fill fontSize={20} color={colors.white} />
-
-            <Text.SmallerBold
-              className="button-text"
-              style={{ color: colors.white }}
-            >
-              Bairros
-            </Text.SmallerBold>
-          </Style.RoundedButton>
-
-          <Style.RoundedButton
-            onClick={() => setViewOption("values")}
-            color={colors.black}
-          >
-            <BsPieChartFill fontSize={20} color={colors.white} />
-
-            <Text.SmallerBold
-              className="button-text"
-              style={{ color: colors.white }}
-            >
-              Valores
-            </Text.SmallerBold>
-          </Style.RoundedButton>
-
-          <Style.RoundedButton
-            onClick={() => setViewOption("steps")}
-            color={colors.primaryDark}
-          >
-            <IoStatsChartSharp fontSize={20} color={colors.white} />
-
-            <Text.SmallerBold
-              className="button-text"
-              style={{ color: colors.white }}
-            >
-              Etapas
-            </Text.SmallerBold>
-          </Style.RoundedButton>
-
-          <Style.RoundedButton
-            onClick={() => setViewOption("highlights")}
-            color={colors.primaryDefault}
-          >
-            <IoStar fontSize={20} color={colors.white} />
-
-            <Text.SmallerBold
-              className="button-text"
-              style={{ color: colors.white }}
-            >
-              Destaques
-            </Text.SmallerBold>
-          </Style.RoundedButton>
-        </div>
-      </Style.Options> */}
-
-      <MapAllMarkersComponent
-        nameOrDescriptionConstruction={nameOrDescriptionConstruction}
-        directionConstruction={directionConstruction}
-        setConstructionSelected={setConstructionSelected}
-        value={value}
-        step={step}
-        program={program}
-      />
-
-      {/* <BubbleGroupComponent
-          viewOption={viewOption}
-          nameOrDescriptionConstruction={nameOrDescriptionConstruction}
-          directionConstruction={directionConstruction}
-          setConstructionSelected={setConstructionSelected}
-        /> */}
-
       {constructionSelected && (
         <Style.ConstructionSelected
           style={{
@@ -281,7 +200,7 @@ const MapOfConstructions = () => {
               </div>
               <div>
                 <Text.Heading4Bold lineHeight={100}>
-                {formatString(constructionSelected?.nome_da_obra)}
+                  {formatString(constructionSelected?.nome_da_obra)}
                 </Text.Heading4Bold>
                 <Text.Heading5Regular marginTop={5}>
                   Bairro: {formatString(constructionSelected?.bairro_desc)}
@@ -320,7 +239,10 @@ const MapOfConstructions = () => {
 
             <Text.Heading5Regular marginTop={5} marginBottom={5}>
               Secretaria Responsável:{" "}
-              {constructionSelected?.secretaria_responsavel.replace("SecretariaResponsavel: ", "")}
+              {constructionSelected?.secretaria_responsavel.replace(
+                "SecretariaResponsavel: ",
+                ""
+              )}
             </Text.Heading5Regular>
 
             <MapOneMarkerComponent
@@ -329,12 +251,15 @@ const MapOfConstructions = () => {
             />
 
             <Text.Heading5Bold lineHeight={100} marginTop={2}>
-              Contratada: {formatString(constructionSelected?.razao_social_contratada)}
+              Contratada:{" "}
+              {formatString(constructionSelected?.razao_social_contratada)}
             </Text.Heading5Bold>
 
             <Text.Heading5Regular marginTop={5} marginBottom={10}>
-              Categoria: {formatString(constructionSelected?.categoria?.replace("Categoria: ", ""))}
-
+              Categoria:{" "}
+              {formatString(
+                constructionSelected?.categoria?.replace("Categoria: ", "")
+              )}
             </Text.Heading5Regular>
 
             <button
@@ -353,27 +278,243 @@ const MapOfConstructions = () => {
                 Conhecer mais
               </Text.Heading5Medium>
             </button>
-
-            {/* <button
-              className="buttons"
-              style={{
-                marginTop: 5,
-                backgroundColor: colors.randomColors.red,
-                borderRadius: 10,
-              }}
-            >
-              <Text.Heading5Medium
-                color={colors.white}
-                style={{ textTransform: "none" }}
-              >
-                Ver mais do bairro
-              </Text.Heading5Medium>
-            </button> */}
           </div>
         </Style.ConstructionSelected>
       )}
     </Style.Container>
-  );
+  ) : (
+  <Style.Container>
+      
+
+  <div style={{
+    width: "270px",
+    height: "auto",
+    position: "relative",
+    zIndex: 1000,
+    marginBottom: "-448px",
+    marginLeft: "55px",
+    borderRadius: "20px",
+    padding: "20px",
+    backgroundColor: useColorModeValue(colors.white, "#1a202c"),
+
+
+  
+
+  }}>
+    <Text.Heading4Bold color={useColorModeValue("black", "white")}>
+      Buscar de obras por bairro
+    </Text.Heading4Bold>
+    <Text.Heading4Medium
+     color={useColorModeValue("black", "white")}
+      marginTop={5}
+      marginBottom={7}
+    >
+      Filtrar por
+    </Text.Heading4Medium>
+    <Input
+      color={useColorModeValue("black", "white")}
+      placeholder="Nome ou descrição da obra"
+      onChange={(event) =>
+        setNameOrDescriptionConstruction(event.target.value)
+      }
+    />
+    <Text.Heading4Medium
+       color={useColorModeValue("black", "white")}
+      marginTop={5}
+      marginBottom={7}
+    >
+      Buscar por
+    </Text.Heading4Medium>
+    <Input
+      placeholder="Endereço"
+      onChange={(event) => setDirectionConstruction(event.target.value)}
+    />
+
+    <Text.Heading4Medium
+        color={useColorModeValue("black", "white")}
+      marginTop={5}
+      marginBottom={7}
+    >
+      Programa
+    </Text.Heading4Medium>
+    <Select
+      placeholder="Selecionar programa"
+      onChange={(event) => setProgram(event.target.value)}
+    >
+      <option value="2006 - SANEAMENTO AMBIENTAL">
+        Saneamento Ambiental
+      </option>
+      <option value="2004 - INFRAESTRUTURA">Infraestrutura</option>
+      <option value="2000 - MOGI EFICIENTE">Mogi Eficiente</option>
+      <option value="3100 - SAÚDE">Saúde</option>
+      <option value="3003 - ESPORTE">Esporte</option>
+      <option value="2007 - MOBILIDADE URBANA">Mobilidade Urbana</option>
+      <option value="3004 - SEGURANÇA">Segurança</option>
+      <option value="2001 - CIDADE INTELIGENTE">Cidade Inteligente</option>
+      <option value="1001 - PRIMEIROS PASSOS">Primeiros Passos</option>
+      <option value="1000 - EDUCA MOGI">Educa Mogi</option>
+      <option value="">Todos</option>
+    </Select>
+    <Text.Heading4Medium
+        color={useColorModeValue("black", "white")}
+      marginTop={5}
+      marginBottom={7}
+    >
+      Valor
+    </Text.Heading4Medium>
+    <Select
+      placeholder="Selecionar valor"
+      onChange={(event) => setValue(event.target.value)}
+    >
+      <option value={"up_500000"}>Até R$ 500.000,00</option>
+      <option value={"up_1000000"}>Até R$ 1.000.000,00</option>
+      <option value={"up_10000000"}>Até R$ 10.000.000,00</option>
+      <option value={"above_10000000"}>Acima de R$ 10.000.000,00</option>
+      <option value="">Todos</option>
+    </Select>
+    <Text.Heading4Medium
+        color={useColorModeValue("black", "white")}
+      marginTop={5}
+      marginBottom={7}
+    >
+      Etapa
+    </Text.Heading4Medium>
+    <Select
+      placeholder="Selecionar etapa"
+      onChange={(event) => setStep(event.target.value)}
+    >
+      <option value="INICIADO">Iniciado</option>
+      <option value="CONCLUÍDO">Concluído</option>
+      <option value="RESCINDIDO">Rescindido</option>
+      <option value="">Todos</option>
+    </Select>
+  </div>
+
+  <MapAllMarkersComponent
+    nameOrDescriptionConstruction={nameOrDescriptionConstruction}
+    directionConstruction={directionConstruction}
+    setConstructionSelected={setConstructionSelected}
+    value={value}
+    step={step}
+    program={program}
+  />
+
+  {constructionSelected && (
+    <Style.ConstructionSelected
+      style={{
+        position: "fixed",
+        top: "50%",
+
+        transform: "translate(-5%, -50%)",
+      }}
+    >
+      <div
+        className="top"
+        style={{
+          backgroundImage: `url(${
+            constructionSelected?.imagen_1 ||
+            "https://www.stant.com.br/wp-content/uploads/2020/09/pexels-pixabay-159306_Easy-Resize.com_-1024x682.jpg"
+          })`,
+        }}
+      >
+        <a
+          onClick={() => setConstructionSelected(null)}
+          style={{ cursor: "pointer" }}
+        >
+          <AiOutlineCloseCircle fontSize={35} color={colors.white} />
+        </a>
+      </div>
+
+      <div className="content">
+        <div className="title-and-icon">
+          <div style={{ width: 30 }}>
+            <MdPark fontSize={25} color={colors.black} />
+          </div>
+          <div>
+            <Text.Heading4Bold lineHeight={100}>
+              {formatString(constructionSelected?.nome_da_obra)}
+            </Text.Heading4Bold>
+            <Text.Heading5Regular marginTop={5}>
+              Bairro: {formatString(constructionSelected?.bairro_desc)}
+            </Text.Heading5Regular>
+          </div>
+        </div>
+
+        <div
+          className="status"
+          style={{
+            backgroundColor:
+              translatorSituationColor[constructionSelected?.situacao] ||
+              colors.grayDark,
+          }}
+        >
+          <Text.Heading5Bold color={colors.white}>
+            {formatString(constructionSelected?.situacao)}{" "}
+            {/* {Number(constructionSelected?.situacao)}% */}
+          </Text.Heading5Bold>
+        </div>
+
+        <div
+          className="status"
+          style={{
+            backgroundColor:
+              translatorSituationColor[
+                constructionSelected?.programa_ppa
+              ] || colors.grayDark,
+          }}
+        >
+          <Text.Heading5Bold color={colors.white}>
+            {constructionSelected?.programa_ppa}{" "}
+            {/* {Number(constructionSelected?.situacao)}% */}
+          </Text.Heading5Bold>
+        </div>
+
+        <Text.Heading5Regular marginTop={5} marginBottom={5}>
+          Secretaria Responsável:{" "}
+          {constructionSelected?.secretaria_responsavel.replace(
+            "SecretariaResponsavel: ",
+            ""
+          )}
+        </Text.Heading5Regular>
+
+        <MapOneMarkerComponent
+          lat={geoSplited?.[0]}
+          long={geoSplited?.[1]}
+        />
+
+        <Text.Heading5Bold lineHeight={100} marginTop={2}>
+          Contratada:{" "}
+          {formatString(constructionSelected?.razao_social_contratada)}
+        </Text.Heading5Bold>
+
+        <Text.Heading5Regular marginTop={5} marginBottom={10}>
+          Categoria:{" "}
+          {formatString(
+            constructionSelected?.categoria?.replace("Categoria: ", "")
+          )}
+        </Text.Heading5Regular>
+
+        <button
+          className="buttons"
+          style={{ borderRadius: 10 }}
+          onClick={() =>
+            router.push(
+              `/controle-de-obras/construcao?${constructionSelected?._id}`
+            )
+          }
+        >
+          <Text.Heading5Medium
+            color={colors.white}
+            style={{ textTransform: "none" }}
+          >
+            Conhecer mais
+          </Text.Heading5Medium>
+        </button>
+      </div>
+    </Style.ConstructionSelected>
+  )}
+</Style.Container>
+  ));
 };
 
 export default MapOfConstructions;
