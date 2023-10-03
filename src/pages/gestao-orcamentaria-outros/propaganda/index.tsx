@@ -41,7 +41,6 @@ function Controller({
       title: "Honorário Produção",
       field: "honorario_agencia_producao",
     },
-    { title: "Rank", field: "rank" },
   ];
 
   const handleByYear = async (year: number) => {
