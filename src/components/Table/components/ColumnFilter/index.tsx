@@ -1,7 +1,9 @@
 import React from "react";
 import { Box, Input } from "@chakra-ui/react";
+import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAccessibility";
 
 function ColumnFilter({ column }: any) {
+  const accessibility = useFontSizeAccessibilityContext()
   const { filterValue, setFilter } = column;
   return (
     <Input
@@ -11,6 +13,7 @@ function ColumnFilter({ column }: any) {
       color="text.dark"
       bg="white"
       size="xs"
+      fontSize={accessibility?.fonts?.small}
     />
   );
 }

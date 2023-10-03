@@ -18,6 +18,7 @@ import {
 } from "../../../../components/GraphWrapper";
 import { MultiAxisChart } from "../../../../components/MultiAxisChart";
 import TableComponent, { TableColumns } from "../../../../components/Table";
+import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAccessibility";
 
 type PropsInput = {
   handler: {
@@ -53,7 +54,7 @@ function Screen({
 }: PropsInput) {
   const title = contentCovidRecipes?.titlePage;
   const description = contentCovidRecipes?.description;
-
+  const accessibility = useFontSizeAccessibilityContext()
   const chartConfig = {
     direction: isMobile ? "column" : "row",
     width: isMobile ? "100%" : "40%",
@@ -77,7 +78,7 @@ function Screen({
       >
       <GraphWrapper>
         <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
-          Receitas últimos 5 anos
+        <Text fontSize={accessibility.fonts.large} >Receitas últimos 5 anos</Text>
         </Heading>
         {chartYear?.datasets?.length > 0 && (
           <Chart type="bar" data={chartYear} />
@@ -98,7 +99,7 @@ function Screen({
       >
       <Stack direction="row">
         <Stack minW={86} width="25%">
-          <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
+          <Text fontSize={accessibility.fonts.large} fontWeight="550" paddingLeft="5px">
             Ano
           </Text>
           <Select
@@ -110,7 +111,7 @@ function Screen({
           >
             {years?.map((year, index) => (
               <option key={index} value={String(year)}>
-                {String(year)}
+                <Text fontSize={accessibility.fonts.large}>{String(year)}</Text>
               </option>
             ))}
           </Select>
@@ -127,7 +128,7 @@ function Screen({
               fontSize="small"
             >
          
-            Buscar
+         <Text fontSize={accessibility.fonts.large}>Buscar</Text>
           </Button>
         </Stack>
       </Stack>
