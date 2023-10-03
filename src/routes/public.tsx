@@ -91,6 +91,59 @@ const publicRoutes: IPublicRoute[] = [
     ...contentMunicipalityProfile,
   },
   {
+    name: "Portal de Obras",
+    icon: BsBricks,
+    path: "/controle-de-obras",
+    group: [
+      {
+        name: "Início",
+        path: "inicio",
+        defaultPath: "/controle-de-obras",
+        icon: AiOutlineHome,
+        ...contentConstructionsControl,
+      },
+      {
+        name: "Sobre as Obras",
+        path: "sobre-as-obras",
+        defaultPath: "/controle-de-obras",
+        icon: AiOutlineInfoCircle,
+        ...contentAboutConstructions,
+      },
+      {
+        name: "Pesquise Obras",
+        path: "pesquisar-obras",
+        defaultPath: "/controle-de-obras",
+        icon: AiOutlineSearch,
+        ...contentSearchConstructions,
+      },
+    ],
+  },
+  {
+    name: "Agenda Aberta",
+    path: "/agenda-aberta",
+    icon: AiOutlineAppstore,
+    group: [
+      {
+        defaultPath: "/agenda-aberta",
+        name: "Prefeito - Caio Cunha",
+        path: "agenda-prefeito",
+        icon: AiOutlineProfile,
+        ...contentMayorAgenda,
+      },
+      {
+        defaultPath: "/agenda-aberta",
+        name: "Co-Prefeita - Priscila Yamagami",
+        path: "agenda-coprefeita",
+        icon: AiOutlineProfile,
+        ...contentMayorAgenda,
+      },
+    ],
+  },
+
+  
+
+
+  {
     name: "Ciclo Orcamentário",
     path: "/ciclo-orcamentario",
     element: <div></div>,
@@ -164,6 +217,8 @@ const publicRoutes: IPublicRoute[] = [
       },
     ],
   },
+
+
   {
     name: "Gestão Orçamentária",
     path: "/gestao-orcamentaria",
@@ -234,26 +289,9 @@ const publicRoutes: IPublicRoute[] = [
       },
     ],
   },
-  {
-    name: "Gestão Orcamentária - Covid-19",
-    path: "/gestao-orcamentaria-covid",
-    element: <div></div>,
-    icon: BsFileText,
-    group: [
-      {
-        defaultPath: "/gestao-orcamentaria-covid",
-        name: "Receitas",
-        path: "covid/receitas",
-        icon: AiFillCaretRight,
-      },
-      {
-        defaultPath: "/gestao-orcamentaria-covid",
-        name: "Despesas",
-        path: "covid/despesas",
-        icon: AiFillCaretRight,
-      },
-    ],
-  },
+
+  
+  
 
   {
     name: "Gestão Orçamentária - Outros",
@@ -291,6 +329,27 @@ const publicRoutes: IPublicRoute[] = [
   },
 
   {
+    name: "Gestão Orcamentária - Covid-19",
+    path: "/gestao-orcamentaria-covid",
+    element: <div></div>,
+    icon: BsFileText,
+    group: [
+      {
+        defaultPath: "/gestao-orcamentaria-covid",
+        name: "Receitas",
+        path: "covid/receitas",
+        icon: AiFillCaretRight,
+      },
+      {
+        defaultPath: "/gestao-orcamentaria-covid",
+        name: "Despesas",
+        path: "covid/despesas",
+        icon: AiFillCaretRight,
+      },
+    ],
+  },
+
+  {
     name: "Gestão Extra Orçamentária",
     path: "/gestao-extra-orcamentaria",
     element: <div></div>,
@@ -314,36 +373,16 @@ const publicRoutes: IPublicRoute[] = [
       },
     ],
   },
+  
 
   {
-    name: "Acordos e Termos",
-    path: "/acordos-termos",
-    element: <div></div>,
-    icon: BsFileText,
-    group: [
-      {
-        defaultPath: "/acordos-termos",
-        name: "Acordo de Colaboração",
-        path: "acordo-de-colaboracao",
-        icon: AiFillCaretRight,
-        subgroup: false,
-      },
-      {
-        defaultPath: "/acordos-termos",
-        name: "Termo de Parceria",
-        path: "termo-de-colaboracao",
-        icon: AiFillCaretRight,
-        subgroup: false,
-      },
-      {
-        defaultPath: "/acordos-termos",
-        name: "Termo de Fomento",
-        path: "termo-de-fomento",
-        icon: AiFillCaretRight,
-        subgroup: false,
-      },
-    ],
+    name: "Controle de Radares",
+    icon: BsCameraVideo,
+    path: "controle-de-radares",
+    group: undefined,
+    ...contentRadarsControl,
   },
+
 
   {
     name: "Compras Públicas",
@@ -453,61 +492,35 @@ const publicRoutes: IPublicRoute[] = [
     group: undefined
   },
   {
-    name: "Portal de Obras",
-    icon: BsBricks,
-    path: "/controle-de-obras",
+    name: "Acordos e Termos",
+    path: "/acordos-termos",
+    element: <div></div>,
+    icon: BsFileText,
     group: [
       {
-        name: "Início",
-        path: "inicio",
-        defaultPath: "/controle-de-obras",
-        icon: AiOutlineHome,
-        ...contentConstructionsControl,
+        defaultPath: "/acordos-termos",
+        name: "Acordo de Colaboração",
+        path: "acordo-de-colaboracao",
+        icon: AiFillCaretRight,
+        subgroup: false,
       },
       {
-        name: "Sobre as Obras",
-        path: "sobre-as-obras",
-        defaultPath: "/controle-de-obras",
-        icon: AiOutlineInfoCircle,
-        ...contentAboutConstructions,
+        defaultPath: "/acordos-termos",
+        name: "Termo de Parceria",
+        path: "termo-de-colaboracao",
+        icon: AiFillCaretRight,
+        subgroup: false,
       },
       {
-        name: "Pesquise Obras",
-        path: "pesquisar-obras",
-        defaultPath: "/controle-de-obras",
-        icon: AiOutlineSearch,
-        ...contentSearchConstructions,
+        defaultPath: "/acordos-termos",
+        name: "Termo de Fomento",
+        path: "termo-de-fomento",
+        icon: AiFillCaretRight,
+        subgroup: false,
       },
     ],
   },
-  {
-    name: "Controle de Radares",
-    icon: BsCameraVideo,
-    path: "controle-de-radares",
-    group: undefined,
-    ...contentRadarsControl,
-  },
-  {
-    name: "Agenda Aberta",
-    path: "/agenda-aberta",
-    icon: AiOutlineAppstore,
-    group: [
-      {
-        defaultPath: "/agenda-aberta",
-        name: "Prefeito - Caio Cunha",
-        path: "agenda-prefeito",
-        icon: AiOutlineProfile,
-        ...contentMayorAgenda,
-      },
-      {
-        defaultPath: "/agenda-aberta",
-        name: "Co-Prefeita - Priscila Yamagami",
-        path: "agenda-coprefeita",
-        icon: AiOutlineProfile,
-        ...contentMayorAgenda,
-      },
-    ],
-  },
+
   {
     name: "Convênios e Transferências",
     path: "/convenios-transferencias",
@@ -566,27 +579,6 @@ const publicRoutes: IPublicRoute[] = [
   },
 
   {
-    name: "LAI - Lei de Acesso a Informação",
-    path: "acesso-a-informacao",
-    icon: AiOutlineSolution,
-    group: [
-      
-      {
-        name: "Acesso a Informação LAI",
-        path: "acesso-informacao",
-        icon: AiOutlineProfile,
-        link: "https://mogidascruzes.1doc.com.br/b.php?pg=wp/detalhes&itd=3",
-      },
-      {
-        name: "Relatório de Demandas LAI",
-        path: "relatorio-demanda",
-        icon: AiOutlineProfile,
-        link: "https://mogidascruzes.1doc.com.br/b.php?pg=o/transparencia",
-      },
-    ],
-  },
-
-  {
     name: "Institutos e Autarquias",
     path: "/instituto-autarquia",
     icon: AiOutlineSolution,
@@ -607,18 +599,42 @@ const publicRoutes: IPublicRoute[] = [
   },
 
   {
+    name: "Ouvidoria",
+    path: "/ouvidoria",
+    icon: AiOutlineAudit,
+    group: undefined,
+  },
+
+  {
     name: "Perguntas Frequentes",
     path: "perguntas-frequentes",
     icon: AiOutlineAudit,
     ...contentAbout,
   },
-
   {
-    name: "Últimas Notícias",
-    path: "/ultimas-noticias",
-    icon: AiOutlineAudit,
-    ...contentOtherInformations,
+    name: "LAI - Lei de Acesso a Informação",
+    path: "acesso-a-informacao",
+    icon: AiOutlineSolution,
+    group: [
+      
+      {
+        name: "Acesso a Informação LAI",
+        path: "acesso-informacao",
+        icon: AiOutlineProfile,
+        link: "https://mogidascruzes.1doc.com.br/b.php?pg=wp/detalhes&itd=3",
+      },
+      {
+        name: "Relatório de Demandas LAI",
+        path: "relatorio-demanda",
+        icon: AiOutlineProfile,
+        link: "https://mogidascruzes.1doc.com.br/b.php?pg=o/transparencia",
+      },
+    ],
   },
+
+
+
+  
   {
     name: "Plano Municipal de Educação",
     path: "/plano-municipal-educacao",
@@ -658,12 +674,14 @@ const publicRoutes: IPublicRoute[] = [
       
     ],
   },
+
   {
-    name: "Ouvidoria",
-    path: "/ouvidoria",
+    name: "Últimas Notícias",
+    path: "/ultimas-noticias",
     icon: AiOutlineAudit,
-    group: undefined,
+    ...contentOtherInformations,
   },
+  
   {
     name: "Mapa do Site",
     path: "/mapa-do-site",
