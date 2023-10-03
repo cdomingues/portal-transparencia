@@ -16,6 +16,7 @@ import moment from "moment";
 import { baseUrl } from "../../../config";
 import { getScheduleMayor } from "../../../calls/agenda/agenda";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
+import { isMobile } from "react-device-detect";
 
 type PropsInput = {
   handler: any;
@@ -119,10 +120,9 @@ function Screen({ handler }: PropsInput) {
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
-        
-        padding={"15px"}
+        padding={"10px"}
         rounded="md"
-        overflow="hidden"
+        overflow="visible"
         width="100%"
         borderRadius="18px"
         marginBottom="15px"
@@ -205,16 +205,20 @@ function Screen({ handler }: PropsInput) {
               )}
             </Stack>
             <Stack
-              minW={350}
+              minW={300}
+              maxW={isMobile ? "90%" : "100%"}
+              
+              
               direction="column"
               backgroundColor={useColorModeValue("white", "gray.800")}
               borderRadius={10}
               boxShadow="0px 1px 2px rgba(0, 0, 0, 0.3),
             0px 1px 3px 1px rgba(0, 0, 0, 0.15)"
               maxH={350}
-              style={{ marginBottom: 30 }}
+              style={{ marginBottom: 30}}
             >
               <DayPicker
+              
                 mode="single"
                 selected={selected}
                 onSelect={setSelected}
