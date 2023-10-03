@@ -30,8 +30,8 @@ type AdvertisingResponse = {
 export const getdvertisings = async (year?: number) => {
   try {
     const response = await axios.get(
-      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=03146785-57db-4207-8924-85c492e8b9a8",
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=a8fdc20d-7236-4302-8630-738ccf60ba4b",
+      //"http://192.168.1.118/api/3/action/datastore_search?resource_id=03146785-57db-4207-8924-85c492e8b9a8",
+      "http://192.168.1.118/api/3/action/datastore_search?resource_id=a8fdc20d-7236-4302-8630-738ccf60ba4b",
       {
         headers: {
           Authorization:
@@ -90,8 +90,8 @@ export const getdvertisings = async (year?: number) => {
 export const getChartYear = async () => {
   try {
     const response = await axios.get(
-      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=03146785-57db-4207-8924-85c492e8b9a8",
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=a8fdc20d-7236-4302-8630-738ccf60ba4b",
+      //"http://192.168.1.118/api/3/action/datastore_search?resource_id=03146785-57db-4207-8924-85c492e8b9a8",
+      "http://192.168.1.118/api/3/action/datastore_search?resource_id=a8fdc20d-7236-4302-8630-738ccf60ba4b",
       {
         headers: {
           Authorization:
@@ -151,8 +151,8 @@ export const getChartYear = async () => {
 export const getChart = async (year?: number) => {
   try {
     const response = await axios.get(
-      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=03146785-57db-4207-8924-85c492e8b9a8",
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=a8fdc20d-7236-4302-8630-738ccf60ba4b",
+      //"http://192.168.1.118/api/3/action/datastore_search?resource_id=03146785-57db-4207-8924-85c492e8b9a8",
+      "http://192.168.1.118/api/3/action/datastore_search?resource_id=a8fdc20d-7236-4302-8630-738ccf60ba4b",
       {
         headers: {
           Authorization:

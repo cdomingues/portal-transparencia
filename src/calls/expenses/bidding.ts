@@ -15,7 +15,7 @@ export const getBiddings = async (year?: number) => {
 
   try {
     const response = await axios.get(
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=720083c4-16fe-488e-ad8a-326e9e679d91",
+      "http://192.168.1.118/api/3/action/datastore_search?resource_id=720083c4-16fe-488e-ad8a-326e9e679d91",
       {
         headers: {
           Authorization:

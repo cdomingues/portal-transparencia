@@ -13,7 +13,7 @@ const BubbleGroups = ({
 }: any) => {
   const [file, setFile] = useState<any>();
   const getFileOfConstructions = async () => {
-    const response = await fetch("https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=03146785-57db-4207-8924-85c492e8b9a8", {
+    const response = await fetch("http://192.168.1.118/api/3/action/datastore_search?resource_id=03146785-57db-4207-8924-85c492e8b9a8", {
       headers: {
         Authorization: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJ4T2VWV29pdlZVTG9WTjJzZk1UQ0JrQmtmMjJGRVp5QWJ0bHdyajU0ZFJNIiwiaWF0IjoxNjc5Njg4ODYyfQ.N7uwCTBg9g21vHc3brf7ayK4rKK2zuUJnglptS6k__g"
       }

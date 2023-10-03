@@ -20,7 +20,7 @@ export const getAmendmentRevenues = async (year?: number) => {
 
   try {
     const response = await axios.get(
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=b9f57b82-5671-4b52-9585-08470e2ed9d9",
+      "http://192.168.1.118/api/3/action/datastore_search?resource_id=b9f57b82-5671-4b52-9585-08470e2ed9d9",
       {
         headers: {
           Authorization:
@@ -55,7 +55,7 @@ export const getAmendmentRevenues = async (year?: number) => {
 export const getChart = async () => {
   try {
     const response = await axios.get(
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=b9f57b82-5671-4b52-9585-08470e2ed9d9",
+      "http://192.168.1.118/api/3/action/datastore_search?resource_id=b9f57b82-5671-4b52-9585-08470e2ed9d9",
       {
         headers: {
           Authorization:

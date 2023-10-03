@@ -11,8 +11,8 @@ const SearchBuildingsController = () => {
 
   const getFileOfConstructions = async () => {
     const response = await fetch(
-      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=03146785-57db-4207-8924-85c492e8b9a8",
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=40d91f19-c371-4aaa-b6ba-7fd2427df05c",
+      //"http://192.168.1.118/api/3/action/datastore_search?resource_id=03146785-57db-4207-8924-85c492e8b9a8",
+      "http://192.168.1.118/api/3/action/datastore_search?resource_id=40d91f19-c371-4aaa-b6ba-7fd2427df05c",
       {
         headers: {
           Authorization:

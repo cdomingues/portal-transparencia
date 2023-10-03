@@ -12,7 +12,7 @@ export default async function handler(
   }
   
   const { data } = await axios.get(
-    "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=abf2e6db-bd7d-49de-a504-483eb95cb744"
+    "http://192.168.1.118/api/3/action/datastore_search?resource_id=abf2e6db-bd7d-49de-a504-483eb95cb744"
   );
 
   if (!data) {

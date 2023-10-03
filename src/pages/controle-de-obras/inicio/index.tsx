@@ -782,7 +782,7 @@ function Screen({ handler }: PropsInput) {
             <CardTransformation
               title="Grandes transformações da cidade"
               description="Temos um plano para continuar melhorando a qualidade de vida dos moradores da cidade."
-              backgroundImageSrc="https://dados.mogidascruzes.sp.gov.br/dataset/8e668745-1f91-4e64-a541-4f4a81898cac/resource/5c7bcad9-6a64-4fcf-8a83-89a617371b49/download/obras-01.png"
+              backgroundImageSrc="http://192.168.1.118/dataset/8e668745-1f91-4e64-a541-4f4a81898cac/resource/5c7bcad9-6a64-4fcf-8a83-89a617371b49/download/obras-01.png"
               onClick={() =>
                 router.push(
                   "/controle-de-obras/grandes-transformacoes-da-cidade"
@@ -792,13 +792,13 @@ function Screen({ handler }: PropsInput) {
             <CardTransformation
               title="Transformações em Mogi das Cruzes"
               description="Explore os bairros da cidade para descobrir o que estamos fazendo em cada um."
-              backgroundImageSrc="https://dados.mogidascruzes.sp.gov.br/dataset/8e668745-1f91-4e64-a541-4f4a81898cac/resource/23585d54-3214-4c8b-8474-97dc80ada803/download/obras-02.png"
+              backgroundImageSrc="http://192.168.1.118/dataset/8e668745-1f91-4e64-a541-4f4a81898cac/resource/23585d54-3214-4c8b-8474-97dc80ada803/download/obras-02.png"
               onClick={() => router.push("/controle-de-obras/bairros")}
             />
             <CardTransformation
               title="Espaço público de qualidade"
               description="Trabalhamos por uma cidade com mais e melhor espaço público e áreas verdes, agradáveis, seguras e próximas aos moradores."
-              backgroundImageSrc="https://dados.mogidascruzes.sp.gov.br/dataset/8e668745-1f91-4e64-a541-4f4a81898cac/resource/4be78cfe-7506-4aeb-afb2-5be46d0d86fd/download/obras-03.png"
+              backgroundImageSrc="http://192.168.1.118/dataset/8e668745-1f91-4e64-a541-4f4a81898cac/resource/4be78cfe-7506-4aeb-afb2-5be46d0d86fd/download/obras-03.png"
               onClick={() => router.push("/controle-de-obras/espaco-publico")}
             />
           </div>
