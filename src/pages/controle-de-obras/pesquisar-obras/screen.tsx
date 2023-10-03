@@ -187,7 +187,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
               }}
             >
               {/* Primeira div sobreposta */}
-              <a href="../../controle-de-obras/sobre-as-obras">
+              <a href="../../controle-de-obras/inicio">
                 <div
                   style={{
                     position: "absolute",
@@ -226,7 +226,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                         color: useColorModeValue("black", "white"),
                       }}
                     >
-                      Sobre Obras
+                      Portal de Obras
                     </text>
                   </div>
                   {/* Conteúdo da primeira div */}
@@ -407,7 +407,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                   }}
                 >
                   {/* Primeira div sobreposta */}
-                  <a href="../../controle-de-obras/sobre-as-obras">
+                  <a href="../../controle-de-obras/inicio">
                     <div
                       style={{
                         border: "1px solid red",
@@ -443,7 +443,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                             color: useColorModeValue("black", "white"),
                           }}
                         >
-                          Sobre Obras
+                          Portal de Obras
                         </text>
                       </div>
                       {/* Conteúdo da primeira div */}
