@@ -40,5 +40,5 @@ yarn-error.log*
 next-env.d.ts
 
 #Arquivo json
-./data/pageViews.json
+/data/pageViews.json
 
