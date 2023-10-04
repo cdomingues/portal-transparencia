@@ -22,6 +22,7 @@ import {
 } from "@chakra-ui/react";
 import CardHome from "../../CardHome";
 import VLibras from "vlibras-nextjs";
+import ModalPopup from "../../Modal";
 
 // type Props = {
 //   children?: React.ReactNode;
@@ -79,6 +80,7 @@ function PublicHome() {
               height={120}
             >
               <Image alt="logo" width="200px" src={brasaoImageSrc} />
+              <ModalPopup />
             </Box>
           </Stack>
 

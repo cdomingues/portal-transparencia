@@ -35,6 +35,7 @@ import DisplayNews from "../components/NewsHome";
 import ContainerHome from "../components/Container/newHome";
 import { ChartComponentLine } from "../components/ChartLineApex";
 import CardHome from "../components/CardHome";
+import ModalPopup from "../components/Modal";
 
 type PropsInput = {
   handler: {
@@ -263,6 +264,7 @@ function HomeScreen({ handler }: PropsInput) {
           overflow="-moz-initial"
           width="100%"
         >
+          <ModalPopup />
           <CardHome />
         </Box>
       </Stack>
