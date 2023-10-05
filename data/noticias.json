@@ -1,20 +1,76 @@
 [
   {
-    "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/5/20230425161515644826c3dff97.jpg",
+    "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/5/20231003170609651c74315d753.jpg",
+    "titulo": "Prefeitura de Mogi das Cruzes regulamenta Lei de Acesso à Informação e lança novo Portal da Transparência",
+    "descricao": "A Prefeitura de Mogi das Cruzes, por meio da Secretaria de Transparência e Dados Abertos, lançou nesta terça-feira (3) duas importantes ferramentas de acompanhamento de ações...",
+    "link": "https://www.mogidascruzes.sp.gov.br/noticia/prefeitura-de-mogi-das-cruzes-regulamenta-lei-de-acesso-a-informacao-e-lanca-novo-portal-da-transparencia",
+    "data_noticia": "03 de Outubro de 2023"
+  },
+  {
+    "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/5/20230920161852650b459c64acb.jpg",
+    "titulo": "Prefeitura de Mogi das Cruzes abre revisão colaborativa do 1º Plano de Ação em Governo Aberto da cidade",
+    "descricao": "A Prefeitura de Mogi das Cruzes, por meio da Secretaria Municipal de Transparência e Dados Abertos, abriu nesta semana a revisão colaborativa do 1º Plano de Ação em...",
+    "link": "https://www.mogidascruzes.sp.gov.br/noticia/prefeitura-de-mogi-das-cruzes-abre-revisao-colaborativa-do-1-plano-de-acao-em-governo-aberto-da-cidade",
+    "data_noticia": "22 de Setembro de 2023"
+  },
+  {
+    "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/5/2023082113503364e395d918526.jpg",
+    "titulo": "População pode testar novo Portal da Transparência da Prefeitura de Mogi das Cruzes",
+    "descricao": "A Prefeitura de Mogi das Cruzes, por meio da Secretaria Municipal de Transparência e Dados Abertos, abre inscrições para que a população possa conhecer e testar o novo...",
+    "link": "https://www.mogidascruzes.sp.gov.br/noticia/populacao-pode-testar-novo-portal-da-transparencia-da-prefeitura-de-mogi-das-cruzes",
+    "data_noticia": "21 de Agosto de 2023"
+  },
+  {
+    "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/5/2023080417160364cd5c838b4eb.jpg",
+    "titulo": "Prefeitura de Mogi das Cruzes terá oficinas de Governo Aberto a partir da próxima semana",
+    "descricao": "A Prefeitura de Mogi das Cruzes, por meio da Secretaria de Transparência e Dados Abertos, promove a partir da próxima semana, quatro oficinas para a elaboração de compromissos...",
+    "link": "https://www.mogidascruzes.sp.gov.br/noticia/prefeitura-de-mogi-das-cruzes-tera-oficinas-de-governo-aberto-a-partir-da-proxima-semana",
+    "data_noticia": "04 de Agosto de 2023"
+  },
+  {
+    "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/5/2023080316383164cc023743ace.jpg",
+    "titulo": "Unificação de dados da Prefeitura de Mogi das Cruzes traz mais rapidez para o planejamento de políticas públicas ",
+    "descricao": "A Coordenadoria de Análises e Gestão de Dados (Codata) da Prefeitura de Mogi das Cruzes segue no trabalho de mapeamento e levantamento de dados junto ao Departamento de Tecnologia Educacional...",
+    "link": "https://www.mogidascruzes.sp.gov.br/noticia/unificacao-de-dados-da-prefeitura-de-mogi-das-cruzes-traz-mais-rapidez-para-o-planejamento-de-politicas-publicas",
+    "data_noticia": "03 de Agosto de 2023"
+  },
+  {
+    "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/5/2023080212043864ca7086a04cf.jpg",
+    "titulo": "A segunda consulta pública sobre o Governo Aberto recebe contribuições até quarta-feira (02)",
+    "descricao": "A Secretaria Municipal de Transparência e Dados Abertos da Prefeitura de Mogi das Cruzes, em parceria com o programa Participa Mogi, lançou a segunda etapa da consulta pública para...",
+    "link": "https://www.mogidascruzes.sp.gov.br/noticia/a-segunda-consulta-publica-sobre-o-governo-aberto-recebe-contribuicoes-ate-quarta-feira-02",
+    "data_noticia": "31 de Julho de 2023"
+  },
+  {
+    "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/5/2023072112461164baa8438dd62.jpeg",
+    "titulo": "Oficina de Soluções traça caminhos para criação do primeiro Plano de Ação em Governo Aberto da cidade",
+    "descricao": "A Prefeitura de Mogi das Cruzes, por meio da Secretaria de Transparência e Dados Abertos, em uma parceria com o Participa Mogi, realizou a primeira edição da Oficina de Soluções...",
+    "link": "https://www.mogidascruzes.sp.gov.br/noticia/oficina-de-solucoes-traca-caminhos-para-criacao-do-primeiro-plano-de-acao-em-governo-aberto-da-cidade",
+    "data_noticia": "21 de Julho de 2023"
+  },
+  {
+    "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/5/2023071711032864b54a30630ef.jpeg",
+    "titulo": "Prefeitura de Mogi das Cruzes lança primeiro relatório de Transparência Passiva da história do Município",
+    "descricao": "A Prefeitura de Mogi das Cruzes, por meio da Secretaria de Transparência e Dados Abertos, lançou o primeiro relatório de Transparência Passiva da história do município....",
+    "link": "https://www.mogidascruzes.sp.gov.br/noticia/prefeitura-de-mogi-das-cruzes-lanca-primeiro-relatorio-de-transparencia-passiva-da-historia-do-municipio",
+    "data_noticia": "20 de Julho de 2023"
+  },
+  {
+    "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/5/20230425161515644826c31d50b.jpg",
     "titulo": "Oficina de Soluções em Governo Aberto acontecerá na próxima quinta-feira (20) ",
     "descricao": "A Prefeitura de Mogi das Cruzes, por meio da Secretaria de Transparência e Dados Abertos, em uma parceria com o Participa Mogi, fará a primeira edição da Oficina de Soluções...",
     "link": "https://www.mogidascruzes.sp.gov.br/noticia/oficina-de-solucoes-em-governo-aberto-acontecera-na-proxima-quinta-feira-20",
     "data_noticia": "17 de Julho de 2023"
   },
   {
-    "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/5/20230425161515644826c3dff97.jpg",
+    "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/5/2023073113135164c7ddbf1cd53.jpg",
     "titulo": "Prefeitura lança segunda etapa da consulta pública sobre Governo Aberto",
     "descricao": "Nesta semana, a Secretaria Municipal de Transparência e Dados Abertos da Prefeitura de Mogi das Cruzes, em parceria com o programa Participa Mogi, está lançando a segunda etapa da consulta...",
     "link": "https://www.mogidascruzes.sp.gov.br/noticia/prefeitura-lanca-segunda-etapa-da-consulta-publica-sobre-governo-aberto",
     "data_noticia": "14 de Julho de 2023"
   },
   {
-    "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/5/20230425161515644826c3dff97.jpg",
+    "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/5/2023073113135164c7ddbf1bcad.jpg",
     "titulo": "Consulta pública sobre o Governo Aberto é finalizada com participação de vários bairros ",
     "descricao": "\nA Secretaria Municipal de Transparência e Dados Abertos da Prefeitura de Mogi das Cruzes, em parceria com o programa Participa Mogi lançou uma consulta pública a fim de...",
     "link": "https://www.mogidascruzes.sp.gov.br/noticia/consulta-publica-sobre-o-governo-aberto-e-finalizada-com-participacao-de-varios-bairros",
@@ -40,6 +96,13 @@
     "descricao": "Na última quarta-feira (28), no auditório da Prefeitura de Mogi das Cruzes, a Secretaria de Transparência e Dados Abertos promoveu o Conversa com Dados, um evento que contou com a presença...",
     "link": "https://www.mogidascruzes.sp.gov.br/noticia/conversa-com-dados-ocorreu-nesta-quarta-feira-28-e-teve-a-presenca-dos-servidores-da-prefeitura-de-mogi",
     "data_noticia": "29 de Junho de 2023"
+  },
+  {
+    "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/5/2023072714303864c2a9bed9ad4.jpeg",
+    "titulo": "Prefeitura de Mogi das Cruzes realiza treinamento sobre a Lei de Acesso à Informação ",
+    "descricao": "Na última quarta-feira (21), a Prefeitura de Mogi das Cruzes, por meio da secretaria de Transparência e Dados Abertos, promoveu um treinamento sobre a Lei de Acesso à Informação...",
+    "link": "https://www.mogidascruzes.sp.gov.br/noticia/prefeitura-de-mogi-das-cruzes-realiza-treinamento-sobre-a-lei-de-acesso-a-informacao",
+    "data_noticia": "21 de Junho de 2023"
   },
   {
     "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/5/2023062115240364934043b4a0b.jpeg",
@@ -75,68 +138,5 @@
     "descricao": "O Programa Mogi Cidade da Criança - Primeira Infância conquistou o Prêmio InovaCidade 2023, do Instituto Smart City Business America (SCBA), na noite desta última terça-feira...",
     "link": "https://www.mogidascruzes.sp.gov.br/noticia/mogi-cidade-da-crianca-recebe-premio-inovacidade-do-smart-city-business-america-2023",
     "data_noticia": "24 de Maio de 2023"
-  },
-  {
-    "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/5/20230523142020646cf5d4b63dd.jpg",
-    "titulo": "Transparência capacita mais servidores em Roda de Conversa sobre Governo Aberto",
-    "descricao": "A Prefeitura de Mogi das Cruzes, por meio da Secretaria Municipal de Transparência e Dados Abertos, realizou na tarde desta última segunda-feira (22), um segundo encontro da Roda de Conversa...",
-    "link": "https://www.mogidascruzes.sp.gov.br/noticia/transparencia-capacita-mais-servidores-em-roda-de-conversa-sobre-governo-aberto",
-    "data_noticia": "23 de Maio de 2023"
-  },
-  {
-    "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/5/202305191436496467b3b111b2d.jpg",
-    "titulo": "Mogi das Cruzes compõe delegação latino-americana em centros de Inovação Pública e Excelência em Governo",
-    "descricao": "A Prefeitura de Mogi das Cruzes, por meio da Secretaria Municipal de Transparência e Dados Abertos, compôs nesta semana a delegação latino-americana em visita de dois dias aos...",
-    "link": "https://www.mogidascruzes.sp.gov.br/noticia/mogi-das-cruzes-compoe-delegacao-latino-americana-em-centros-de-inovacao-publica-e-excelencia-em-governo",
-    "data_noticia": "19 de Maio de 2023"
-  },
-  {
-    "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/5/2023051715392964651f6161115.jpg",
-    "titulo": "Mogi das Cruzes agora é uma das 100 cidades do Bloomberg Philanthropies City Data Alliance",
-    "descricao": "Mogi das Cruzes foi indicada, nesta terça-feira (16), para integrar um seleto grupo - composto por lideranças de 20 cidades das Américas do Norte e do Sul - que se juntará à...",
-    "link": "https://www.mogidascruzes.sp.gov.br/noticia/mogi-das-cruzes-agora-e-uma-das-100-cidades-do-bloomberg-philanthropies-city-data-alliance",
-    "data_noticia": "17 de Maio de 2023"
-  },
-  {
-    "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/5/2023050515503964554fff66efe.jpg",
-    "titulo": "Servidores recebem formação em Roda de Conversa Sobre Governo Aberto ",
-    "descricao": "A Prefeitura de Mogi das Cruzes, por meio da Secretaria Municipal de Transparência e Dados Abertos, realizou na tarde desta última quinta-feira (4), uma Roda de Conversa sobre Governo Aberto...",
-    "link": "https://www.mogidascruzes.sp.gov.br/noticia/servidores-recebem-formacao-em-roda-de-conversa-sobre-governo-aberto",
-    "data_noticia": "05 de Maio de 2023"
-  },
-  {
-    "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/5/20230428164609644c22813a5c4.jpg",
-    "titulo": "Programa Mogi Cidade da Criança - Primeira Infância vence Prêmio InovaCidade 2023",
-    "descricao": "O Programa Mogi Cidade da Criança - Primeira Infância foi contemplado com o Prêmio InovaCidade 2023, do Instituto Smart City Business America (SCBA). A entrega oficial da premiação...",
-    "link": "https://www.mogidascruzes.sp.gov.br/noticia/programa-mogi-cidade-da-crianca-primeira-infancia-vence-premio-inovacidade-2023",
-    "data_noticia": "28 de Abril de 2023"
-  },
-  {
-    "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/5/20230427170501644ad56d9814e.jpg",
-    "titulo": "CODATA realiza primeiro encontro de integração de dados entre secretarias municipais",
-    "descricao": "Na manhã desta quinta-feira (27), a Prefeitura de Mogi das Cruzes, por meio da Secretaria Municipal de Transparência e Dados Abertos, realizou o primeiro encontro do programa PMMC Tech Talks....",
-    "link": "https://www.mogidascruzes.sp.gov.br/noticia/codata-realiza-primeiro-encontro-de-integracao-de-dados-entre-secretarias-municipais",
-    "data_noticia": "27 de Abril de 2023"
-  },
-  {
-    "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/5/20230425161515644826c3dff97.jpg",
-    "titulo": "Mogi das Cruzes avança com mais uma oficina de Governo Aberto para servidores municipais",
-    "descricao": "A Prefeitura de Mogi das Cruzes, por meio da Secretaria Municipal de Transparência e Dados Abertos, realizou na última semana, mais uma oficina de Governo Aberto. A ação foi...",
-    "link": "https://www.mogidascruzes.sp.gov.br/noticia/mogi-das-cruzes-avanca-com-mais-uma-oficina-de-governo-aberto-para-servidores-municipais",
-    "data_noticia": "25 de Abril de 2023"
-  },
-  {
-    "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/5/2023041415282964399b4dcaddd.jpg",
-    "titulo": "Mogi das Cruzes e Jundiaí trocam experiências sobre gestão de dados da primeira infância",
-    "descricao": "Na manhã desta última quinta-feira (13) a Prefeitura de Mogi das Cruzes, por meio das secretarias municipais de Transparência e Dados Abertos, Saúde, Educação...",
-    "link": "https://www.mogidascruzes.sp.gov.br/noticia/mogi-das-cruzes-e-jundiai-trocam-experiencias-sobre-gestao-de-dados-da-primeira-infancia",
-    "data_noticia": "14 de Abril de 2023"
-  },
-  {
-    "foto": "https://www.mogidascruzes.sp.gov.br/public/site/imagens/5/2023041316203564385603bf264.jpg",
-    "titulo": "Mogi das Cruzes participa de encontro sobre Governo Aberto com a Prefeitura de São Paulo",
-    "descricao": "A Prefeitura de Mogi das Cruzes, por meio da secretaria municipal de Transparência e Dados Aberto, participou nesta última quarta-feira (12) de um encontro para troca de experiências...",
-    "link": "https://www.mogidascruzes.sp.gov.br/noticia/mogi-das-cruzes-participa-de-encontro-sobre-governo-aberto-com-a-prefeitura-de-sao-paulo",
-    "data_noticia": "13 de Abril de 2023"
   }
 ]
