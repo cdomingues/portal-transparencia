@@ -42,5 +42,7 @@ next-env.d.ts
 #Arquivo json
 /data/pageViews.json
 
+
+
 #Pasta Arquivos Lei
 /data/filesLaw/
