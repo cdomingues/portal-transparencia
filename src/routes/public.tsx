@@ -140,7 +140,12 @@ const publicRoutes: IPublicRoute[] = [
     ],
   },
 
-  
+  {
+    name: "Pagamentos a fornecedores",
+    path: "http://consultacompras.pmmc.com.br/pagamento-fornecedor " ,
+    icon: AiOutlineProfile,
+    group: undefined,
+  },
 
 
   {
@@ -229,7 +234,7 @@ const publicRoutes: IPublicRoute[] = [
       {
        // defaultPath: "/gestao-orcamentaria",
         name: "Receitas",
-        path: "/gestao-orcamentaria/receitas",
+        //path: "/gestao-orcamentaria/receitas",
         icon: AiFillCaretDown,
       },
       {
@@ -254,7 +259,7 @@ const publicRoutes: IPublicRoute[] = [
        {
         // defaultPath: "/gestao-orcamentaria",
          name: "Despesas",
-         path: "/gestao-orcamentaria/despesas",
+        // path: "/gestao-orcamentaria/despesas",
          icon: AiFillCaretDown,
        },
       {
@@ -685,6 +690,12 @@ const publicRoutes: IPublicRoute[] = [
   {
     name: "Mapa do Site",
     path: "/mapa-do-site",
+    icon: AiOutlineGlobal,
+    group: undefined,
+  },
+  {
+    name: "Portal Antigo",
+    path: "https://portaldatransparencia.mogidascruzes.sp.gov.br/",
     icon: AiOutlineGlobal,
     group: undefined,
   },
