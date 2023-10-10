@@ -12,7 +12,7 @@ import {
 
 export const descriptionEducacao = [
   {
-    label: "Área do município",
+    label: "Área Territorial",
     value: "712,541",
     icon: BiMapPin,
     year: "2021",
@@ -20,18 +20,18 @@ export const descriptionEducacao = [
     descriptionValue: "km²",
   },
   {
-    label: "População estimada",
-    value: "455.587",
+    label: "População residente",
+    value: "449.955",
     icon: BiMale,
-    year: "2021",
+    year: "2022",
     labelDescription: "",
     descriptionValue: "pessoas",
   },
   {
     label: "Densidade demográfica",
-    value: "544,12",
+    value: "631.48",
     icon: BiStreetView,
-    year: "2010",
+    year: "2022",
     labelDescription: "",
     descriptionValue: "hab/km²",
   },
@@ -77,9 +77,9 @@ export const descriptionEducacao = [
   },
   {
     label: "PIB per capita",
-    value: "36.381,52",
+    value: "37.632",
     icon: BiMoney,
-    year: "2019",
+    year: "2020",
     labelDescription: "",
     descriptionValue: "R$",
   },

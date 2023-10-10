@@ -12,6 +12,7 @@ import { FontSizeAccessibilityWrapper } from "../context/fontSizeAccessibility";
 import TagManager from "react-gtm-module";
 import { isMobile } from "react-device-detect";
 import Head from "next/head";
+import PageViewCounter from "../components/PageView";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [loaded, setLoaded] = useState(false);
@@ -33,6 +34,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           {loaded && (
             <ComponenteLayout>
               <Component {...pageProps} />
+              <PageViewCounter path={router.pathname} />
             </ComponenteLayout>
           )}
         </CookiesProvider>

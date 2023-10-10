@@ -14,6 +14,7 @@ import {
 import logo from "../../../../assets/images/Brasao_horizontal_normal.png";
 import logoDark from "../../../../assets/images/Brasao_horizontal_branco.png";
 import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAccessibility";
+import PageViewCounter from "../../../PageView";
 
 function ListHeader({ children }: { children: ReactNode }) {
   const accessibility = useFontSizeAccessibilityContext();
@@ -126,9 +127,11 @@ export default function LargeWithLogoCentered() {
         >
           <Image alt="logo" width="250px"  src={colorMode === "dark" ? logoDark.src : logo.src} />
         </Flex>
+
         <Text pt={6} fontSize="sm" textAlign="center">
           © {new Date().getFullYear()} PMMC. Todos os direitos reservados
         </Text>
+        
       </Box>
     </Box>
   );
