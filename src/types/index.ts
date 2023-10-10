@@ -44,7 +44,7 @@ export type GroupRoutes = Array<{
 
 export interface IPublicRoute {
   name: string;
-  path: string;
+  path?:  any;
   icon: IconType ;
   element?: any;
   defaultPath?: string;
