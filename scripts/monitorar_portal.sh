@@ -4,7 +4,7 @@
 URL="https://dadosabertos.mogidascruzes.sp.gov.br/"
 
 # Caminho para o script de reinicialização
-SCRIPT_REINICIO="startServer.sh"
+SCRIPT_REINICIO="/var/www/dadosabertos/dadosabertos/scripts/startServer.sh"
 
 # Fazer uma requisição HTTP e capturar o código de status
 STATUS=$(curl -o /dev/null -s -w "%{http_code}\n" -k $URL)
