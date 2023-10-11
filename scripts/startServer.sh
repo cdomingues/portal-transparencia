@@ -6,20 +6,21 @@ if [ "$(whoami)" != "dadosabertos" ]; then
   exit 1
 fi
 
-# Salvar a configuração atual do PM2 antes de qualquer ação
-/usr/local/bin/pm2 save --force
+/usr/local/bin/pm2 delete dadosabertos && echo "PM2 dadosabertos deletado com sucesso"
 
-# Iniciar o portal
-/usr/local/bin/pm2 start /usr/local/bin/yarn --name "dadosabertos" -- start
+/usr/local/bin/pm2 save --force && echo "Salvando os ajustes do PM2"
 
 # Construir o projeto
-/usr/local/bin/yarn build && echo "Construção bem-sucedida" || { echo "Falha na construção"; exit 1; }
+/usr/local/bin/yarn build --cwd /var/www/dadosabertos/dadosabertos && echo "Construção bem-sucedida" || { echo "Falha na construção"; exit 1; }
+
+# Iniciar o portal
+/usr/local/bin/pm2 start /usr/local/bin/yarn --name "dadosabertos" -- start --cwd /var/www/dadosabertos/dadosabertos
 
 # Reiniciar todos os processos
 /usr/local/bin/pm2 restart all && echo "Todos os processos reiniciados com sucesso" || { echo "Falha ao reiniciar processos"; exit 1; }
 
 # Reconstruir o projeto
-/usr/local/bin/yarn build && echo "Reconstrução bem-sucedida" || { echo "Falha na reconstrução"; exit 1; }
+/usr/local/bin/yarn build --cwd /var/www/dadosabertos/dadosabertos && echo "Reconstrução bem-sucedida" || { echo "Falha na reconstrução"; exit 1; }
 
 # Reiniciar todos os processos novamente
 /usr/local/bin/pm2 restart all && echo "Todos os processos reiniciados com sucesso" || { echo "Falha ao reiniciar processos"; exit 1; }
