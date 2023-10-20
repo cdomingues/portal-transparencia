@@ -221,7 +221,7 @@
                         title="Concurso Público"
                         imageURL={cargos_e_salarios.src}
                         description="Adiantamentos são recursos financeiros conferidos a um servidor público, a fim de que possa realizar despesas que não possam aguardar o ciclo normal de compras."
-                        link="gestao-de-pessoas/concurso-publico"
+                        link="https://wwwtrans.mogidascruzes.sp.gov.br/concursos-publicos"
                         backgroundColor="transparent"
                       />
                     </Box>

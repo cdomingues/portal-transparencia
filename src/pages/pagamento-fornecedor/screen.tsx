@@ -1,25 +1,25 @@
 import React from "react";
-import ContainerBasic from "../../../components/Container/Basic";
-import publicRoutes from "../../../routes/public";
+import ContainerBasic from "../../components/Container/Basic";
+import publicRoutes from "../../routes/public";
 import { Box, Link, Stack, Text, useColorModeValue } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { isMobile } from "react-device-detect";
 import { color } from "highcharts";
-import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
+import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
 
 type PropsInput = {
   handler: {};
 };
 
 export const contentMapSite = {
-  titlePage: "Concurso Público",
+  titlePage: "Pagamentos a fornecedores",
   description:
-    "Redirecionando para o site https://wwwtrans.mogidascruzes.sp.gov.br/concursos-publicos ",
+    "Redirecionando para o site http://consultacompras.pmmc.com.br/pagamento-fornecedor ",
 };
 
 function redirecionarParaLinkExterno() {
   setTimeout(function () {
-    window.location.href = 'https://wwwtrans.mogidascruzes.sp.gov.br/concursos-publicos'; // Substitua pelo seu link externo
+    window.location.href = 'http://consultacompras.pmmc.com.br/pagamento-fornecedor'; // Substitua pelo seu link externo
   }, 100); // 1000 milissegundos = 1 segundo
 }
 
