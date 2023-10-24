@@ -462,6 +462,10 @@ function CardHome() {
           label: "Relatório de Demandas LAI",
           url: "/acesso-a-informacao/relatorio-demanda",
         },
+        {
+          label: "Acompanhe os dados genéricos dos pedidos",
+          url: "https://mogidascruzes.1doc.com.br/b.php?pg=wp/wp&itd=3&ss=5",
+        },
       ],
     },
 
