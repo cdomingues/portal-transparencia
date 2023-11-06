@@ -140,7 +140,7 @@ const CardHorizon: React.FC<CardHorizonProps> = ({
             {extraLinks?.map((linkItem, index) => (
               <a
                 href={linkItem.url}
-                target="blank"
+                
                 style={{ width: "100%", display: "block" }}
               >
                 <div

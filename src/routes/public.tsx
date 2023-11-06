@@ -74,7 +74,7 @@ const custom_perfil_municipio = () => (
   </div>
 );
 
-const publicRoutes: IPublicRoute[] = [
+let publicRoutes: IPublicRoute[] = [
   {
     name: "Início",
     path: "/",
@@ -97,22 +97,22 @@ const publicRoutes: IPublicRoute[] = [
     group: [
       {
         name: "Início",
-        path: "inicio",
-        defaultPath: "/controle-de-obras",
+        path: "controle-de-obras/inicio",
+        //defaultPath: "/controle-de-obras",
         icon: AiOutlineHome,
         ...contentConstructionsControl,
       },
       {
         name: "Sobre as Obras",
-        path: "sobre-as-obras",
-        defaultPath: "/controle-de-obras",
+        path: "controle-de-obras/sobre-as-obras",
+        //defaultPath: "/controle-de-obras",
         icon: AiOutlineInfoCircle,
         ...contentAboutConstructions,
       },
       {
         name: "Pesquise Obras",
-        path: "pesquisar-obras",
-        defaultPath: "/controle-de-obras",
+        path: "controle-de-obras/pesquisar-obras",
+        //defaultPath: "/controle-de-obras",
         icon: AiOutlineSearch,
         ...contentSearchConstructions,
       },
@@ -123,7 +123,7 @@ const publicRoutes: IPublicRoute[] = [
     path: "/agenda-aberta",
     icon: AiOutlineAppstore,
     group: [
-      {
+      {    
         defaultPath: "/agenda-aberta",
         name: "Prefeito - Caio Cunha",
         path: "agenda-prefeito",
@@ -142,11 +142,10 @@ const publicRoutes: IPublicRoute[] = [
 
   {
     name: "Pagamentos a fornecedores",
-    path: "pagamento-fornecedor " ,
+    path: "pagamento-fornecedor" ,
     icon: AiOutlineProfile,
     group: undefined,
   },
-
 
   {
     name: "Ciclo Orcamentário",
@@ -379,7 +378,6 @@ const publicRoutes: IPublicRoute[] = [
     ],
   },
   
-
   {
     name: "Controle de Radares",
     icon: BsCameraVideo,
@@ -738,5 +736,8 @@ const publicRoutes: IPublicRoute[] = [
   //   ],
   // },
 ];
+
+
+
 
 export default publicRoutes;

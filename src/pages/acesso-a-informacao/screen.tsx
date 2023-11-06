@@ -432,7 +432,7 @@ marginBottom="15px"
                       title="Relatório em tempo real de pedidos online"
                       imageURL={relatorio_de_demandas.src}
                       description="Pedido de e-SIC."
-                      link="https://mogidascruzes.1doc.com.br/b.php?pg=o/transparencia"
+                      link="https://mogidascruzes.1doc.com.br/b.php?pg=o/transparencia" 
                  backgroundColor="transparent"/>
                   </Box>
                  
