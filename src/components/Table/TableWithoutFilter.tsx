@@ -275,7 +275,7 @@ function TableWithOutFilterComponent({
               }}
               {...getTableProps()}
             >
-              <Thead backgroundColor={useColorModeValue('primary', "gray.800")}>
+              <Thead backgroundColor={useColorModeValue('table.primary', "gray.800")}>
                 {headerGroups.map((group, index) => (
                   <Tr {...group.getHeaderGroupProps()} key={index}>
                     {group.headers.map((column, index) => {

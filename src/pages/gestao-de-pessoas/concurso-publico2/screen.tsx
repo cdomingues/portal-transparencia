@@ -18,8 +18,7 @@ import {
 } from "../../../components/GraphWrapper";
 import { MultiAxisChart } from "../../../components/MultiAxisChart";
 import TableComponent, { TableColumns } from "../../../components/Table";
-import ListDatasets from "../../../components/ListDatasets";
-import DatasetList from "../../../components/ListDatasets";
+
 
 type PropsInput = {
   handler: {
@@ -86,7 +85,7 @@ function Screen({
       
 
       <Divider borderWidth="2px" mt="10" mb="10" />
-      <DatasetList />
+      
       </Box>
     </ContainerBasic>
     
