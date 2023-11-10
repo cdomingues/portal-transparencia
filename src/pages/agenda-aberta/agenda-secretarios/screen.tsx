@@ -8,6 +8,7 @@ import {
   Text,
   Box,
   useColorModeValue,
+  Select,
 } from "@chakra-ui/react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
@@ -46,12 +47,19 @@ export const contentMayorAgenda = {
 function Screen({ handler }: PropsInput) {
   const [selected, setSelected] = useState<Date>();
   const [schedule, setSchedule] = useState<Array<Meeting>>([]);
-
+  const uniqueCargos = [...new Set(schedule.map((item) => item.cargo))];
+  const filteredUniqueCargos = uniqueCargos.filter(
+    (cargo) => cargo !== "Prefeito" && cargo !== "Co-Prefeita"
+  );
+  
   
 
+  const [selectedCargo, setSelectedCargo] = useState("");
   const handleGetOpenSchedule = async () => {
     const response = await fetch(
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=e6ee12e9-2fec-4d91-acac-36b36bd179c2&q=Caio%20Cunha",
+    
+       "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=e6ee12e9-2fec-4d91-acac-36b36bd179c2&limit=1000",
+       
       {
         
       }
@@ -70,17 +78,19 @@ function Screen({ handler }: PropsInput) {
     handleGetOpenSchedule();
   }, []);
 
+
+  
+
   const filteredValues = schedule
   ?.filter((item: Meeting) => {
-    // Linha modificada abaixo
     const timeWithSubtraction = moment(item?.data_compromisso).subtract(3, 'hours');
-    return timeWithSubtraction.format("YYYY-MM-DD") === String(moment(selected).format("YYYY-MM-DD"));
+    const isSameDate = timeWithSubtraction.format("YYYY-MM-DD") === String(moment(selected).format("YYYY-MM-DD"));
+    const isNotPrefeitoOrCoPrefeita = item.cargo !== "Prefeito" && item.cargo !== "Co-Prefeita";
+    const isSameCargo = selectedCargo === "" || selectedCargo === item.cargo;
+    return isSameDate && isNotPrefeitoOrCoPrefeita && isSameCargo;
   })
-  // Uma linha depois para contexto
   .sort((a: Meeting, b: Meeting) => {
-    // Linha modificada abaixo
     const aHours = moment(a?.data_compromisso).subtract(3, 'hours').format("HH:mm");
-    // Linha modificada abaixo
     const bHours = moment(b?.data_compromisso).subtract(3, 'hours').format("HH:mm");
     return aHours > bHours ? 1 : -1;
   });
@@ -88,6 +98,7 @@ function Screen({ handler }: PropsInput) {
   const title = contentMayorAgenda?.titlePage;
   const description = contentMayorAgenda?.description;
 
+  
   
 
   const dateSelected = moment(selected).format("LL");
@@ -130,8 +141,23 @@ function Screen({ handler }: PropsInput) {
             fontSize={accessibility?.fonts?.ultraLarge}
             color="text.dark"
           >
-            AGENDA DOS PREFEITO
+            AGENDA DOS SECRETARIOS
           </Heading>
+<Text>Selecione o Secretário</Text>
+<Select
+  minW={90}
+  width="45%"
+  bg={useColorModeValue("white", "gray.800")}
+  value={selectedCargo}
+  onChange={(event) => setSelectedCargo(event.target.value)}
+>
+  <option value="">Todos os Cargos</option>
+  {filteredUniqueCargos.map((cargo) => (
+    <option key={cargo} value={cargo}>
+      {cargo}
+    </option>
+  ))}
+</Select>
 
           <Stack direction="row" flexWrap="wrap-reverse">
             <Stack
@@ -188,6 +214,20 @@ function Screen({ handler }: PropsInput) {
                           style={{ margin: 0 }}
                         >
                           {item?.local}
+                        </Text>
+                        <Text
+                          fontSize={accessibility?.fonts?.medium}
+                          color="text.dark"
+                          style={{ margin: 0 }}
+                        >
+                          {item?.cargo}
+                        </Text>
+                        <Text
+                          fontSize={accessibility?.fonts?.medium}
+                          color="text.dark"
+                          style={{ margin: 0 }}
+                        >
+                          {item?.pessoa}
                         </Text>
                         <div style={{ marginTop: 8 }}></div>
                         <Divider
