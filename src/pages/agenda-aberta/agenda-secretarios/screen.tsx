@@ -49,7 +49,7 @@ function Screen({ handler }: PropsInput) {
   const [schedule, setSchedule] = useState<Array<Meeting>>([]);
   const uniqueCargos = [...new Set(schedule.map((item) => item.cargo))];
   const filteredUniqueCargos = uniqueCargos.filter(
-    (cargo) => cargo !== "Prefeito" && cargo !== "Co-Prefeita"
+    (cargo) => cargo !== "Prefeito" && cargo !== "Co-Prefeita" && cargo !=="MOGI DAS CRUZES" && cargo !=="COODENADOR DE ANÁLISES E GESTÃO DE DADOS"
   );
   
   

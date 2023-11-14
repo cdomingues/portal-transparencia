@@ -98,6 +98,9 @@ function CardHome() {
         {
           label: "Co-Prefeita - Priscila Yamagami",
           url: "/agenda-aberta/agenda-coprefeita",
+        }, {
+          label: "Secretários",
+          url: "/agenda-aberta/agenda-secretarios",
         },
       ],
     },

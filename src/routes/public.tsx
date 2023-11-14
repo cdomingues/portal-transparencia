@@ -137,6 +137,13 @@ let publicRoutes: IPublicRoute[] = [
         icon: AiOutlineProfile,
         ...contentMayorAgenda,
       },
+      {    
+        defaultPath: "/agenda-aberta",
+        name: "Secretários",
+        path: "agenda-secretarios",
+        icon: AiOutlineProfile,
+        ...contentMayorAgenda,
+      },
     ],
   },
 
