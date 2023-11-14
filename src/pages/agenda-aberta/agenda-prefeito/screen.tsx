@@ -53,10 +53,7 @@ function Screen({ handler }: PropsInput) {
     const response = await fetch(
       "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=e6ee12e9-2fec-4d91-acac-36b36bd179c2&q=Caio%20Cunha",
       {
-        headers: {
-          Authorization:
-            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJ4T2VWV29pdlZVTG9WTjJzZk1UQ0JrQmtmMjJGRVp5QWJ0bHdyajU0ZFJNIiwiaWF0IjoxNjc5Njg4ODYyfQ.N7uwCTBg9g21vHc3brf7ayK4rKK2zuUJnglptS6k__g",
-        },
+        
       }
     );
 
@@ -133,7 +130,7 @@ function Screen({ handler }: PropsInput) {
             fontSize={accessibility?.fonts?.ultraLarge}
             color="text.dark"
           >
-            AGENDA DO PREFEITO
+            AGENDA DOS PREFEITO
           </Heading>
 
           <Stack direction="row" flexWrap="wrap-reverse">

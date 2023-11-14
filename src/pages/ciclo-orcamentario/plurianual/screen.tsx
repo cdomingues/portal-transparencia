@@ -59,7 +59,7 @@ import ContainerBasic from "../../../components/Container/Basic";
 import PlanContainerLaw from "../../../components/Container/PlanLaw";
 
 type PropsInput = {
-  handler: {
+  handler: { 
     laws: Laws;
     handleSelectValue: (value: number) => void;
     selectOptions: Array<string | number>;

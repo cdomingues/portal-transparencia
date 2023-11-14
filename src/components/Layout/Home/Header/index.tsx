@@ -65,7 +65,7 @@ export default function Header() {
                       href={
                         result?.link
                           ? result?.link
-                          : `${result?.defaultPath || ""}${result?.path}`
+                          : `${result?.defaultPath || ""}${"/"}${result?.path}${"/"}`
                       }
                     >
                       {result?.name}

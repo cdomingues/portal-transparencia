@@ -1,4 +1,4 @@
-import { Divider, Box, useColorModeValue, Heading } from "@chakra-ui/react";
+import {  Box, useColorModeValue, Heading } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 import React from "react";
 import ContainerBasic from "../../components/Container/Basic";

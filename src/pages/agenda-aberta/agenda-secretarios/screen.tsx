@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
 import axios from "axios";
@@ -9,6 +8,7 @@ import {
   Text,
   Box,
   useColorModeValue,
+  Select,
 } from "@chakra-ui/react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
@@ -17,6 +17,7 @@ import moment from "moment";
 import { baseUrl } from "../../../config";
 import { getScheduleMayor } from "../../../calls/agenda/agenda";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
+import { isMobile } from "react-device-detect";
 
 type PropsInput = {
   handler: any;
@@ -46,14 +47,21 @@ export const contentMayorAgenda = {
 function Screen({ handler }: PropsInput) {
   const [selected, setSelected] = useState<Date>();
   const [schedule, setSchedule] = useState<Array<Meeting>>([]);
-
+  const uniqueCargos = [...new Set(schedule.map((item) => item.cargo))];
+  const filteredUniqueCargos = uniqueCargos.filter(
+    (cargo) => cargo !== "Prefeito" && cargo !== "Co-Prefeita" && cargo !=="MOGI DAS CRUZES" && cargo !=="COODENADOR DE ANÁLISES E GESTÃO DE DADOS"
+  );
+  
   
 
+  const [selectedCargo, setSelectedCargo] = useState("");
   const handleGetOpenSchedule = async () => {
     const response = await fetch(
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=e6ee12e9-2fec-4d91-acac-36b36bd179c2&q==Priscila%20Yamagami",
-      {
+    
+       "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=e6ee12e9-2fec-4d91-acac-36b36bd179c2&limit=1000",
        
+      {
+        
       }
     );
 
@@ -70,17 +78,19 @@ function Screen({ handler }: PropsInput) {
     handleGetOpenSchedule();
   }, []);
 
+
+  
+
   const filteredValues = schedule
   ?.filter((item: Meeting) => {
-    // Linha modificada abaixo
     const timeWithSubtraction = moment(item?.data_compromisso).subtract(3, 'hours');
-    return timeWithSubtraction.format("YYYY-MM-DD") === String(moment(selected).format("YYYY-MM-DD"));
+    const isSameDate = timeWithSubtraction.format("YYYY-MM-DD") === String(moment(selected).format("YYYY-MM-DD"));
+    const isNotPrefeitoOrCoPrefeita = item.cargo !== "Prefeito" && item.cargo !== "Co-Prefeita";
+    const isSameCargo = selectedCargo === "" || selectedCargo === item.cargo;
+    return isSameDate && isNotPrefeitoOrCoPrefeita && isSameCargo;
   })
-  // Uma linha depois para contexto
   .sort((a: Meeting, b: Meeting) => {
-    // Linha modificada abaixo
     const aHours = moment(a?.data_compromisso).subtract(3, 'hours').format("HH:mm");
-    // Linha modificada abaixo
     const bHours = moment(b?.data_compromisso).subtract(3, 'hours').format("HH:mm");
     return aHours > bHours ? 1 : -1;
   });
@@ -88,6 +98,7 @@ function Screen({ handler }: PropsInput) {
   const title = contentMayorAgenda?.titlePage;
   const description = contentMayorAgenda?.description;
 
+  
   
 
   const dateSelected = moment(selected).format("LL");
@@ -117,10 +128,9 @@ function Screen({ handler }: PropsInput) {
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
-        
-        padding={"15px"}
+        padding={"10px"}
         rounded="md"
-        overflow="hidden"
+        overflow="visible"
         width="100%"
         borderRadius="18px"
         marginBottom="15px"
@@ -131,8 +141,23 @@ function Screen({ handler }: PropsInput) {
             fontSize={accessibility?.fonts?.ultraLarge}
             color="text.dark"
           >
-            AGENDA DA CO-PREFEITA
+            AGENDA DOS SECRETARIOS
           </Heading>
+<Text>Selecione o Secretário</Text>
+<Select
+  minW={90}
+  width="45%"
+  bg={useColorModeValue("white", "gray.800")}
+  value={selectedCargo}
+  onChange={(event) => setSelectedCargo(event.target.value)}
+>
+  <option value="">Todos os Cargos</option>
+  {filteredUniqueCargos.map((cargo) => (
+    <option key={cargo} value={cargo}>
+      {cargo}
+    </option>
+  ))}
+</Select>
 
           <Stack direction="row" flexWrap="wrap-reverse">
             <Stack
@@ -190,6 +215,20 @@ function Screen({ handler }: PropsInput) {
                         >
                           {item?.local}
                         </Text>
+                        <Text
+                          fontSize={accessibility?.fonts?.medium}
+                          color="text.dark"
+                          style={{ margin: 0 }}
+                        >
+                          {item?.cargo}
+                        </Text>
+                        <Text
+                          fontSize={accessibility?.fonts?.medium}
+                          color="text.dark"
+                          style={{ margin: 0 }}
+                        >
+                          {item?.pessoa}
+                        </Text>
                         <div style={{ marginTop: 8 }}></div>
                         <Divider
                           width="100%"
@@ -203,16 +242,20 @@ function Screen({ handler }: PropsInput) {
               )}
             </Stack>
             <Stack
-              minW={350}
+              minW={300}
+              maxW={isMobile ? "90%" : "100%"}
+              
+              
               direction="column"
               backgroundColor={useColorModeValue("white", "gray.800")}
               borderRadius={10}
               boxShadow="0px 1px 2px rgba(0, 0, 0, 0.3),
             0px 1px 3px 1px rgba(0, 0, 0, 0.15)"
               maxH={350}
-              style={{ marginBottom: 30 }}
+              style={{ marginBottom: 30}}
             >
               <DayPicker
+              
                 mode="single"
                 selected={selected}
                 onSelect={setSelected}

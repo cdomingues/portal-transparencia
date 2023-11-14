@@ -1,48 +1,3 @@
-// import { Stack, Link, Text, useColorModeValue, Icon } from "@chakra-ui/react";
-// import React, { ReactNode } from "react";
-// import { isMobile } from "react-device-detect";
-// import { AiOutlineDownload, AiOutlineInfoCircle } from "react-icons/ai";
-// import Testimonial, { TestimonialContent } from "../../Testimonial";
-
-// type PropsInput = {
-//   laws: Array<{ name: string; link: string }>;
-//   children?: ReactNode;
-// };
-
-// const PlanContainerLaw = ({ laws, children }: PropsInput) => {
-//   return (
-//     <Stack direction={isMobile ? "column" : "row"} flex={1}>
-//       <Stack direction="column" flex={3}>
-//         {children}
-//         {laws?.map((law, index) => (
-//           <div style={{ marginBottom: "20px" }} key={index}>
-//             <Link key={index} target="_blank" href={law.link}>
-//               <Stack direction="row">
-//                 <Icon
-//                   color="table.primary"
-//                   fontSize={20}
-//                   as={AiOutlineDownload}
-//                 />
-//                 <Text fontSize="sm">{law.name}</Text>
-//               </Stack>
-//             </Link>
-//           </div>
-//         ))}
-//       </Stack>
-//       <Stack direction="column" flex={1}>
-//         <div style={{ height: "30%", width: "100%" }}>
-          
-            
-          
-//         </div>
-//       </Stack>
-//     </Stack>
-//   );
-// };
-
-// export default PlanContainerLaw;
-
-import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import { Stack, Link, Text, useColorModeValue, Icon, Select, Popover, PopoverTrigger, PopoverContent, PopoverBody, Button, Alert, AlertIcon } from "@chakra-ui/react";
 import React, { ReactNode, useState } from "react";
 import { isMobile } from "react-device-detect";
@@ -71,7 +26,7 @@ const PlanContainerLaw = ({ laws, children, selectOptions, selectValue, handleSe
   const handleDownload = (url: string) => {
     window.open(url, '_blank');
   };
-  const accessibility = useFontSizeAccessibilityContext();
+
   const handleClick = async (link: string, index: number) => {
     setSelectedItemIndex(index);
     setIsLoading((prevIsLoading) => ({
@@ -141,8 +96,7 @@ const PlanContainerLaw = ({ laws, children, selectOptions, selectValue, handleSe
         >
           {selectOptions.map((value: string | number, index: number) => (
             <option key={index} value={value}>
-               <Text mb={2} fontWeight="550" fontSize={accessibility?.fonts?.medium}>
-              {value}</Text>
+              {value}
             </option>
           ))}
         </Select>
@@ -165,7 +119,7 @@ const PlanContainerLaw = ({ laws, children, selectOptions, selectValue, handleSe
           onClick={() => handleClick(law.link, index)}
         >
           <Icon as={AiOutlineDownload} />
-          <Text fontSize={accessibility?.fonts?.medium}>
+          <Text>
             {isLoading[index] ? 'Aguarde! Preparando o arquivo...' : law.name}
           </Text>
         </Stack>
