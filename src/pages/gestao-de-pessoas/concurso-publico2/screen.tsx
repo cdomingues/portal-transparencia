@@ -18,7 +18,6 @@ import {
 } from "../../../components/GraphWrapper";
 import { MultiAxisChart } from "../../../components/MultiAxisChart";
 import TableComponent, { TableColumns } from "../../../components/Table";
-import concursos_dataset from '../../../../data/concursos.json';
 import {Concurso} from '../../../types'; 
 import ConcursoCard from '../../../components/CardConcursos'; 
 
