@@ -51,7 +51,7 @@ function Screen({ handler }: PropsInput) {
 
   const handleGetOpenSchedule = async () => {
     const response = await fetch(
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=e6ee12e9-2fec-4d91-acac-36b36bd179c2&q==Priscila%20Yamagami",
+      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=e6ee12e9-2fec-4d91-acac-36b36bd179c2&q==Priscila%20Yamagami&limit=2000",
       {
        
       }
