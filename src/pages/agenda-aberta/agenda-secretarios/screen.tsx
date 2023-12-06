@@ -62,7 +62,7 @@ function Screen({ handler }: PropsInput) {
        
       {
         
-      }
+      } 
     );
 
     const data = await response.json();
