@@ -322,7 +322,7 @@ function CardHome() {
         { label: "Carga Horária", url: "/gestao-de-pessoas/carga-horaria" },
         {
           label: "Concurso Público",
-          url: "https://wwwtrans.mogidascruzes.sp.gov.br/concursos-publicos",
+          url: "/gestao-de-pessoas/concurso-publico",
         },
         {
           label: "Diárias e Viagens",

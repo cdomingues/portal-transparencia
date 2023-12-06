@@ -1,56 +1,37 @@
 import React from "react";
 import ContainerBasic from "../../../components/Container/Basic";
-import publicRoutes from "../../../routes/public";
-import { Box, Link, Stack, Text, useColorModeValue } from "@chakra-ui/react";
-import { useRouter } from "next/router";
-import { isMobile } from "react-device-detect";
-import { color } from "highcharts";
-import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
+import TableComponent, { TableColumns } from "../../../components/Table";
+import { Box, useColorModeValue } from "@chakra-ui/react";
+import CardConcurso from "../../../components/CardConcursos";
 
 type PropsInput = {
-  handler: {};
+  handler: {
+    columns: TableColumns;
+    data: Array<any>;
+    loading: boolean;
+  };
 };
-
-export const contentMapSite = {
-  titlePage: "Concurso Público",
-  description:
-    "Redirecionando para o site https://wwwtrans.mogidascruzes.sp.gov.br/concursos-publicos ",
-};
-
-function redirecionarParaLinkExterno() {
-  setTimeout(function () {
-    window.location.href = 'https://wwwtrans.mogidascruzes.sp.gov.br/concursos-publicos'; // Substitua pelo seu link externo
-  }, 100); // 1000 milissegundos = 1 segundo
+export const contentPatrimony = {
+  titlePage:  "Patrimônio",
+  description: "Confira aqui as informações sobre o Patrimônio Mobiliário da Prefeitura de Mogi das Cruzes",
 }
-
-// Chame a função para iniciar o redirecionamento
-redirecionarParaLinkExterno();
-
-
-
-function Screen({ handler }: PropsInput) {
-  const accessibility = useFontSizeAccessibilityContext();
-  const title = contentMapSite?.titlePage;
-  const description = contentMapSite?.description;
-  const router = useRouter();
-  
+function Screen({ handler: { columns, data, loading } }: PropsInput) {
+  const title = contentPatrimony?.titlePage;
+  const description = contentPatrimony?.description;
   return (
     <ContainerBasic title={title} description={description}>
-      <Box
+            <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
         
         padding={"15px"}
         rounded="md"
         overflow="hidden"
-        maxWidth="100%"
-        
+        width="100%"
         borderRadius="18px"
         marginBottom="15px"
       >
-        
-
-
+      <CardConcurso />
       </Box>
     </ContainerBasic>
   );

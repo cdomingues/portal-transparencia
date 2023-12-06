@@ -5,6 +5,7 @@ import { PatrimonyData } from "../../pages/api/patrimonio";
 import moneyFormatter from "../../utils/moneyFormatter";
 
 export const getPatrimonies = async () => {
+  
   try {
     const response = await axios.get(`${baseUrl}/api/patrimonio`);
     const { rows }: PatrimonyData = response.data;

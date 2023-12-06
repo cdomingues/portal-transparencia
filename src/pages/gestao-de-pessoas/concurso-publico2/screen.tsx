@@ -1,79 +1,35 @@
-import {
-  Button,
-  Divider,
-  Heading,
-  Select,
-  Stack,
-  Text,
-  Box,
-  useColorModeValue
-} from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
-import { isMobile } from "react-device-detect";
-import Chart from "../../../components/Chart";
+import React from "react";
 import ContainerBasic from "../../../components/Container/Basic";
-import {
-  GraphWrapper,
-  MultipleGraphWrapper,
-} from "../../../components/GraphWrapper";
-import { MultiAxisChart } from "../../../components/MultiAxisChart";
-import TableComponent, { TableColumns } from "../../../components/Table";
-import {Concurso} from '../../../types'; 
-import ConcursoCard from '../../../components/CardConcursos'; 
-
+import publicRoutes from "../../../routes/public";
+import { Box, Link, Stack, Text, useColorModeValue } from "@chakra-ui/react";
+import { useRouter } from "next/router";
+import { isMobile } from "react-device-detect";
+import { color } from "highcharts";
+import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
+import CardConcurso from "../../../components/CardConcursos";
 
 type PropsInput = {
-  handler: {
-    columns: TableColumns;
-    data: Array<any>;
-    loading: boolean;
-    chart: any;
-    chartYear: any;
-    years: Number[];
-    setYear: any;
-    year: number;
-    handleByYear: any;
-  };
+  handler: {};
 };
 
-export const contentAdvertisements = {
+export const contentMapSite = {
   titlePage: "Concurso Público",
-  description: "Informações sobre os atos dos concursos públicos e processos seletivos: vagas efetivamente preenchidas, lista de aprovados com as classificações, fila de espera/cadastro reserva e validade do concurso.",
-}
+  description:
+    "O Concurso Público é um processo seletivo que permite o acesso a emprego ou cargo público de modo amplo e democrático. É um procedimento impessoal onde é assegurada igualdade de oportunidades a todos interessados em concorrer para exercer as atribuições oferecidas pelo Estado, a quem incumbirá identificar e selecionar os mais adequados mediante critérios objetivos.",
+};
 
-function Screen({
+
+
+
+
+function Screen({ handler }: PropsInput) {
+  const accessibility = useFontSizeAccessibilityContext();
+  const title = contentMapSite?.titlePage;
+  const description = contentMapSite?.description;
+  const router = useRouter();
   
-  handler: {
-    columns,
-    
-    loading,
-    chart,
-    chartYear,
-    setYear,
-    year,
-    years,
-    handleByYear,
-  },
-}: PropsInput) {
-  const title = contentAdvertisements?.titlePage;
-  const description = contentAdvertisements?.description;
-  const [data, setData] = useState<Concurso[]>([]);
-
-  useEffect(() => {
-    // Caminho para o seu arquivo JSON local
-    const jsonFilePath = '../../../../data/concursos.json';
-
-    // Fetch dos dados do arquivo JSON
-    fetch(jsonFilePath)
-      .then((response) => response.json())
-      .then((jsonData) => setData(jsonData))
-      .catch((error) => console.error('Erro ao carregar dados:', error));
-  }, []);
-
-
   return (
     <ContainerBasic title={title} description={description}>
-   
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
@@ -81,27 +37,17 @@ function Screen({
         padding={"15px"}
         rounded="md"
         overflow="hidden"
-        width="100%"
+        maxWidth="100%"
+        
         borderRadius="18px"
         marginBottom="15px"
       >
-      
-     
+        <CardConcurso />
 
-      <Divider borderWidth="2px" mt="10" mb="10" />
 
-      <div>
-      <h1>Concursos</h1>
-      
-      {data.map((concurso, index) => (  
-        <ConcursoCard key={index} {...concurso} />
-      ))}
-    </div>
-      
-      
       </Box>
+
     </ContainerBasic>
-    
   );
 }
 

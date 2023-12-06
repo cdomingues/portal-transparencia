@@ -42,6 +42,8 @@
     "next": "13.2",
     "next-iron-session": "^4.2.0",
     "node-cron": "^3.0.2",
+    "pg": "^8.11.3",
+    "pg-large-object": "^2.0.0",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.1",
     "react-chartjs-2": "^5.2.0",
@@ -69,6 +71,8 @@
     "@types/leaflet": "^1.9.0",
     "@types/mime-types": "^2.1.1",
     "@types/node": "18.7.14",
+    "@types/pg": "^8.10.9",
+    "@types/pg-large-object": "^2.0.7",
     "@types/react": "18.0.18",
     "@types/react-dom": "18.0.6",
     "@types/react-gtm-module": "^2.0.1",
@@ -79,5 +83,10 @@
     "eslint-config-next": "^13.4.4",
     "ftp-deploy": "^2.4.3",
     "typescript": "4.8.2"
+  },
+  "browser": {
+    "fs": false,
+    "os": false,
+    "path": false
   }
 }

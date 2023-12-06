@@ -3,6 +3,7 @@ import React, { ReactNode, useState } from "react";
 import { isMobile } from "react-device-detect";
 import { AiOutlineDownload, AiOutlineInfoCircle } from "react-icons/ai";
 import Testimonial, { TestimonialContent } from "../../Testimonial";
+import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 
 type Law = {
   name: string;
@@ -27,6 +28,7 @@ const PlanContainerLaw = ({ laws, children, selectOptions, selectValue, handleSe
     window.open(url, '_blank');
   };
 
+  const accessibility = useFontSizeAccessibilityContext();
   const handleClick = async (link: string, index: number) => {
     setSelectedItemIndex(index);
     setIsLoading((prevIsLoading) => ({
@@ -96,7 +98,8 @@ const PlanContainerLaw = ({ laws, children, selectOptions, selectValue, handleSe
         >
           {selectOptions.map((value: string | number, index: number) => (
             <option key={index} value={value}>
-              {value}
+               <Text mb={2} fontWeight="550" fontSize={accessibility?.fonts?.medium}>
+              {value}</Text>
             </option>
           ))}
         </Select>
@@ -120,7 +123,9 @@ const PlanContainerLaw = ({ laws, children, selectOptions, selectValue, handleSe
         >
           <Icon as={AiOutlineDownload} />
           <Text>
+          <Text fontSize={accessibility?.fonts?.medium}>
             {isLoading[index] ? 'Aguarde! Preparando o arquivo...' : law.name}
+          </Text>
           </Text>
         </Stack>
       </PopoverTrigger>
@@ -141,7 +146,7 @@ const PlanContainerLaw = ({ laws, children, selectOptions, selectValue, handleSe
               <Button
                 colorScheme="teal"
                 variant="outline"
-                
+                padding="10px"
                 marginTop={"20px"}
                 onClick={() => {
                   const downloadUrl = `https://dadosabertos.mogidascruzes.sp.gov.br/api/download/downloadProxy2?filename=${downloadLinks[index]}`;
