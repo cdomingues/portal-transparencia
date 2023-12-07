@@ -130,7 +130,7 @@ function Screen({ handler }: PropsInput) {
             fontSize={accessibility?.fonts?.ultraLarge}
             color="text.dark"
           >
-            AGENDA DOS PREFEITO
+            AGENDA DO PREFEITO
           </Heading>
 
           <Stack direction="row" flexWrap="wrap-reverse">
