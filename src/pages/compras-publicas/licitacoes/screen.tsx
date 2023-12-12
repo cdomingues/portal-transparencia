@@ -110,6 +110,9 @@ function Screen({
 
   return (
     <ContainerBasic title={title} description={description}>
+      <Text paddingLeft={3} fontWeight="400"
+            color={"gray.500"}>Caso queira acessar as licitações que não foram localizadas, acesse o link <a  href="https://licitacao-mgcon.mogidascruzes.sp.gov.br/" target="_blank" color="blue"  >Consulta Licitações</a></Text>
+      
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
