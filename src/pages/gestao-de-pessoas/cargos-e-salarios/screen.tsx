@@ -6,11 +6,17 @@ import {
   Button,
   Stack,
   Text,
-  Select
+  Select,
+  UnorderedList,
+  ListItem,
+  Link
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../../components/Table";
+import  {useFontSizeAccessibilityContext} from '../../../context/fontSizeAccessibility'
+import { isMobile } from "react-device-detect";
+import { FaDownload } from "react-icons/fa";
 
 type PropsInput = {
   handler: {
@@ -25,7 +31,7 @@ type PropsInput = {
 };
 export const contentContractsAndAtas = {
   titlePage: "Cargos e salários",
-  description:"Nesta página, confira as informações sobre cargos e salários na Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por matrícula, nome, cargo entre outros itens.",
+  description:"Conforme previsto no § 6º do Art. 39 da Constituição Federal, com a redação dada pela Emenda Constitucional nº 19/98, torna-se público a tabela de subsídios, salários e vencimentos dos cargos e empregos públicos, válida a partir de 1ª de março de 2023, em conformidade com o disposto na Lei nº 7.917, de 20 de abril de 2023.",
 }
 function Screen({
   handler: { columns, data, loading },
@@ -35,6 +41,8 @@ function Screen({
   const description = contentContractsAndAtas?.description;
 
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const accessibility = useFontSizeAccessibilityContext()
 
   const handleOpenModal = (item: any) => {
     onOpen();
@@ -55,42 +63,33 @@ function Screen({
       borderRadius="18px"
       marginBottom="15px"
     >
-    <Stack direction="row">
-      <Stack minW={86} width="25%">
-        <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
-          Ano
-        </Text>
-        <Select
-          //defaultValue={year}
-         // onChange={(e) => setYear(e.target.value)}
-          bg="white"
-          variant="outline"
-          placeholder="Selecionar Ano"
-        >
-          
-        </Select>
-      </Stack>
-      <Stack minW={50} width="10%" justifyContent="flex-end">
-             <Button
-          w={'100px'}
-          h={'40px'}
-            //disabled={loading}
-            //onClick={() => handleByYear(year)}
-            _hover={{ bg: "gray.500", color: "white" }}
-            bg="table.primary"
-            color="white"
-            fontSize="small"
-          >
-       
-          Buscar
-        </Button>
-      </Stack>
+    
       
-    </Stack>
-    <Text fontSize="sm" fontWeight="550" paddingLeft="5px" paddingTop="10px"> Informações em processo de atualização</Text>
+        <Text maxW="45%" align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}>
+        <UnorderedList listStyleType="none" 
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}>
+                          <Link href="https://wwwtrans.mogidascruzes.sp.gov.br//docs/tabela_salarios_2023.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Tabela de vencimentos, salários e subsídios 2023</ListItem ></div></Link>
+                          <Link href="https://wwwtrans.mogidascruzes.sp.gov.br//docs/tabela_salarios_03-2022.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Tabela de vencimentos, salários e subsídios 2022</ListItem ></div></Link>
+                          <Link href="https://wwwtrans.mogidascruzes.sp.gov.br//docs/tabela-2020.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Tabela de vencimentos, salários e subsídios 2020</ListItem ></div></Link>
+                          <Link href="https://wwwtrans.mogidascruzes.sp.gov.br//docs/tabela-2019-v2.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Tabela de vencimentos, salários e subsídios 2019</ListItem ></div></Link>
+                          <Link href="https://wwwtrans.mogidascruzes.sp.gov.br//docs/tabela-2018-v2.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Tabela de vencimentos, salários e subsídios 2018</ListItem ></div></Link>
+                          <Link href="https://wwwtrans.mogidascruzes.sp.gov.br//docs/tabela_salarios_2017.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Tabela de vencimentos, salários e subsídios 2017</ListItem ></div></Link>
+                          <Link href="https://wwwtrans.mogidascruzes.sp.gov.br//docs/tabela_salarios_2016.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Tabela de vencimentos, salários e subsídios 2016</ListItem ></div></Link>   
+                          
+                        </UnorderedList>
+        </Text>
+      
+
+      
+      
+    
+    
 
     <Divider borderWidth="2px" mt="10" mb="10" />
-    <TableComponent columns={[]} data={[]}  />
+    
     </Box>
   </ContainerBasic>
   );

@@ -45,13 +45,35 @@ export const contentMayorAgenda = {
 };
 
 function Screen({ handler }: PropsInput) {
+
+  const newCargoList = [
+    "Secretário de Segurança Adjunto",
+    "Secretária Municipal de Cultura",
+    "Secretário Municipal de Urbanismo",
+    "Secretária Adjunta de Cultura",
+    "Secretário Adjunto de Gestão Pública",
+    "Secretário Municipal de Agricultura e Abastecimento",
+    "Chefe de Gabinete do Prefeito",
+    "Secretário Municipal de Esportes e Lazer",
+    "Secretário Adjunto de Transparência e Dados Abertos",
+    "Secretária Adjunta de Educação",
+    "Secretária Adjunta da Secretaria de Urbanismo",
+    "Secretário Adjunto de Esportes e Lazer",
+    "Diretor do Departamento de Defesa Civil",
+    "Secretário de Finanças",
+    "Secretário Adjunto de Agricultura e Abastecimento",
+    "Secretário Municipal de Transparência e Dados Abertos",
+    "Secretário de Segurança",
+    "Secretário Municipal de Saúde"
+  ];
   const [selected, setSelected] = useState<Date>();
   const [schedule, setSchedule] = useState<Array<Meeting>>([]);
   const uniqueCargos = [...new Set(schedule.map((item) => item.cargo))];
-  const filteredUniqueCargos = uniqueCargos.filter(
+  /* const filteredUniqueCargos = uniqueCargos.filter(
     (cargo) => cargo !== "Prefeito" && cargo !== "Co-Prefeita" && cargo !=="MOGI DAS CRUZES" && cargo !=="COODENADOR DE ANÁLISES E GESTÃO DE DADOS"
   );
-  
+   */
+  const filteredUniqueCargos = newCargoList
   
 
   const [selectedCargo, setSelectedCargo] = useState("");
@@ -143,13 +165,14 @@ function Screen({ handler }: PropsInput) {
           >
             AGENDA DOS SECRETARIOS
           </Heading>
-<Text>Selecione o Secretário</Text>
+<Text>Selecione o Cargo</Text>
 <Select
   minW={90}
   width="45%"
   bg={useColorModeValue("white", "gray.800")}
   value={selectedCargo}
   onChange={(event) => setSelectedCargo(event.target.value)}
+  
 >
   <option value="">Todos os Cargos</option>
   {filteredUniqueCargos.map((cargo) => (
