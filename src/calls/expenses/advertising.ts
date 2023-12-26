@@ -24,13 +24,13 @@ type AdvertisingResponse = {
   "Valor total da Veiculação": number;
   "Honorário Agência Veiculação": number;
   "Honorário Agência Produção": number;
-  rank: number;
+  rank: number; 
 };
 
 export const getdvertisings = async (year?: number) => {
   try {
     const response = await axios.get(
-      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=03146785-57db-4207-8924-85c492e8b9a8",
+      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=765f5550-8ce7-4091-b780-aec971613328&limit=3000",
       "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=a8fdc20d-7236-4302-8630-738ccf60ba4b",
       {
         headers: {
@@ -85,13 +85,13 @@ export const getdvertisings = async (year?: number) => {
     }
     return { advertisings: [], years: [] };
   }
-};
+};  
 
 export const getChartYear = async () => {
   try {
     const response = await axios.get(
-      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=03146785-57db-4207-8924-85c492e8b9a8",
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=a8fdc20d-7236-4302-8630-738ccf60ba4b",
+      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=a8fdc20d-7236-4302-8630-738ccf60ba4b&limit=4000",
+        //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=a8fdc20d-7236-4302-8630-738ccf60ba4b",
       {
         headers: {
           Authorization:
