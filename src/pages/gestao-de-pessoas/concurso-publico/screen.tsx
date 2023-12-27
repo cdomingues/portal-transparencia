@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { isMobile } from "react-device-detect";
 import { color } from "highcharts";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
+import CardConcurso from "../../../components/CardConcursos";
 
 type PropsInput = {
   handler: {};
@@ -14,17 +15,10 @@ type PropsInput = {
 export const contentMapSite = {
   titlePage: "Concurso Público",
   description:
-    "Redirecionando para o site https://wwwtrans.mogidascruzes.sp.gov.br/concursos-publicos ",
+    "Informações sobre os atos dos concursos públicos e processos seletivos: vagas efetivamente preenchidas, lista de aprovados com as classificações, fila de espera/cadastro reserva e validade do concurso. ",
 };
 
-function redirecionarParaLinkExterno() {
-  setTimeout(function () {
-    window.location.href = 'https://wwwtrans.mogidascruzes.sp.gov.br/concursos-publicos'; // Substitua pelo seu link externo
-  }, 100); // 1000 milissegundos = 1 segundo
-}
 
-// Chame a função para iniciar o redirecionamento
-redirecionarParaLinkExterno();
 
 
 
@@ -52,6 +46,7 @@ function Screen({ handler }: PropsInput) {
 
 
       </Box>
+      <CardConcurso />
     </ContainerBasic>
   );
 }
