@@ -65,7 +65,7 @@ function Screen({
     >
     
       
-        <Text maxW="45%" align={isMobile ? "justify" : "left"}
+        <Text align= {"justify" }
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}>
         <UnorderedList listStyleType="none" 

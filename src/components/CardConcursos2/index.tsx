@@ -3,8 +3,8 @@ import moment from "moment";
 
 import { useEffect, useState } from "react";
 //import knex from "knex";
-//import concursos from '../../../data/con_concurso.json';
-//import arquivos_concursos from '../../../data/con_arquivos.json';
+import concursos from '../../../data/con_concurso.json';
+import arquivos_concursos from '../../../data/con_arquivos.json';
 import { useColorModeValue,Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Button, Collapse, Divider, Link, Popover, PopoverTrigger, Stack, Flex, Spacer,Text, Select, Center } from "@chakra-ui/react";
 import React from "react";
 import { useFontSizeAccessibilityContext } from  '../../context/fontSizeAccessibility'
@@ -24,50 +24,15 @@ const statusTextMapping = new Map([
 const CardConcurso = ()=>{
   
   const accessibility = useFontSizeAccessibilityContext();
- 
+  const anosDisponiveis = Array.from(new Set(concursos.dados.map((info) => new Date(info.data).getFullYear())));
   const statusDisponiveis = Array.from(statusTextMapping.values());
 
 
 const [filtroAno, setFiltroAno] = useState('');
 const [filtroStatus, setFiltroStatus] = useState('');
-const [concursos, setConcursos] = useState<Concurso[]>([]); // Specify the type for concursos data
-const [arquivosConcursos, setArquivosConcursos] = useState<ArquivoConcurso[]>([]);
-
-
-interface Concurso {
-  id: number;
-  titulo: string;
-  data: string; // Adjust the type as per your API response
-  status: number;
-  link_inscricao: string;
-}
-
-interface ArquivoConcurso {
-  id_concurso: number;
-  id: number;
-  data: string; // Adjust the type as per your API response
-  nome_arquivo: string;
-  titulo: string;
-}
-
-useEffect(() => {
-  fetch("http://192.168.1.118:8000/api/concursos/")
-    .then((response) => response.json())
-    .then((data) => setConcursos(data))
-    .catch((error) => console.error("Error fetching concursos:", error));
-}, []);
-
-useEffect(() => {
-  fetch("http://192.168.1.118:8000/api/consurso-arquivos/")
-    .then((response) => response.json())
-    .then((data) => setArquivosConcursos(data))
-    .catch((error) => console.error("Error fetching arquivos_concursos:", error));
-}, []);
-const anosDisponiveis=  Array.from(new Set(concursos.map((info) => new Date(info.data).getFullYear())));
 
 
   return (
-    
 <>
   <Text
     align={isMobile ? "justify" : "left"}
@@ -85,7 +50,7 @@ const anosDisponiveis=  Array.from(new Set(concursos.map((info) => new Date(info
       
     >
       <option value="">Todos</option>
-      {anosDisponiveis.sort((a, b) => b -a ) .map((ano) => (
+      {anosDisponiveis.map((ano) => (
         <option key={ano} value={ano}>
           {ano}
         </option>
@@ -113,7 +78,7 @@ const anosDisponiveis=  Array.from(new Set(concursos.map((info) => new Date(info
 
     <Accordion allowToggle borderRadius={4}>
       
-    {concursos
+    {concursos.dados
       .filter(
         (info) =>
           (!filtroAno || new Date(info.data).getFullYear() === parseInt(filtroAno, 10)) &&
@@ -141,33 +106,27 @@ const anosDisponiveis=  Array.from(new Set(concursos.map((info) => new Date(info
     
     
     {info.status === 1 && (
-     
-     <>
+      <>
+      
         <Button fontSize={accessibility?.fonts?.regular} 
         onClick={() =>
           window.open(info.link_inscricao, '_blank')
         }
         mb={4}
-        >Link para Inscrição</Button>
+        >Link de Inscrição</Button>
       
       </>
     )}
      
-     {arquivosConcursos
+    {arquivos_concursos.dados
       .filter((arquivo) => arquivo.id_concurso === info.id)
       .sort((a, b) =>   b.id - a.id)
       .map((item) => (
         
        <Flex key={item.id_concurso}   >
-          <Box flex="end" p={2} marginRight={5}>
-          {new Date(item.data).toLocaleDateString('pt-BR', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit'
-    })}
-            <br/></Box>
-         
-         <Box  maxWidth="100%"  p={2}>
+          <Box flex="end" p={2}>{item.data}<br/></Box>
+          <Spacer />
+         <Box  maxWidth="600px" flex="end" p={2}>
          <Link href={`https://wwwtrans.mogidascruzes.sp.gov.br/docs/${item.nome_arquivo}`} target="_blank"  >
           {item.titulo}
           </Link><p/>

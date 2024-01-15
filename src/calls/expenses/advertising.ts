@@ -30,8 +30,8 @@ type AdvertisingResponse = {
 export const getdvertisings = async (year?: number) => {
   try {
     const response = await axios.get(
-      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=765f5550-8ce7-4091-b780-aec971613328&limit=3000",
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=a8fdc20d-7236-4302-8630-738ccf60ba4b",
+      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=765f5550-8ce7-4091-b780-aec971613328",
+      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=a8fdc20d-7236-4302-8630-738ccf60ba4b",
       {
         headers: {
           Authorization:
@@ -39,7 +39,7 @@ export const getdvertisings = async (year?: number) => {
         },
         params: {
           q: year,
-          limit: 1000,
+          limit: 3000,
         },
       }
     );
@@ -77,7 +77,7 @@ export const getdvertisings = async (year?: number) => {
       };
     });
 
-    return { advertisings: mappingRows, years: ["2021", "2022", "2023"] };
+    return { advertisings: mappingRows, years: ["2020","2021", "2022", "2023"] };
   } catch (error) {
     if (axios.isAxiosError(error)) {
       const url = error.config?.url ?? "Unknown URL";
