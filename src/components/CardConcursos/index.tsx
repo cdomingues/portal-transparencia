@@ -2,13 +2,10 @@ import moment from "moment";
 //import type { NextApiRequest, NextApiResponse } from "next";
 
 import { useEffect, useState } from "react";
-//import knex from "knex";
-//import concursos from '../../../data/con_concurso.json';
-//import arquivos_concursos from '../../../data/con_arquivos.json';
 import { useColorModeValue,Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Button, Collapse, Divider, Link, Popover, PopoverTrigger, Stack, Flex, Spacer,Text, Select, Center } from "@chakra-ui/react";
 import React from "react";
 import { useFontSizeAccessibilityContext } from  '../../context/fontSizeAccessibility'
-//import router from "next/router";
+
 import { isMobile } from "react-device-detect";
 
 
@@ -30,14 +27,14 @@ const CardConcurso = ()=>{
 
 const [filtroAno, setFiltroAno] = useState('');
 const [filtroStatus, setFiltroStatus] = useState('');
-const [concursos, setConcursos] = useState<Concurso[]>([]); // Specify the type for concursos data
+const [concursos, setConcursos] = useState<Concurso[]>([]); 
 const [arquivosConcursos, setArquivosConcursos] = useState<ArquivoConcurso[]>([]);
 
 
 interface Concurso {
   id: number;
   titulo: string;
-  data: string; // Adjust the type as per your API response
+  data: string; 
   status: number;
   link_inscricao: string;
 }
@@ -45,20 +42,20 @@ interface Concurso {
 interface ArquivoConcurso {
   id_concurso: number;
   id: number;
-  data: string; // Adjust the type as per your API response
+  data: string; 
   nome_arquivo: string;
   titulo: string;
 }
 
 useEffect(() => {
-  fetch("http://192.168.1.118:8000/api/concursos/")
+  fetch("https://dadosadm.mogidascruzes.sp.gov.br/api/concursos/")
     .then((response) => response.json())
     .then((data) => setConcursos(data))
     .catch((error) => console.error("Error fetching concursos:", error));
 }, []);
 
 useEffect(() => {
-  fetch("http://192.168.1.118:8000/api/consurso-arquivos/")
+  fetch("https://dadosadm.mogidascruzes.sp.gov.br/api/consurso-arquivos/")
     .then((response) => response.json())
     .then((data) => setArquivosConcursos(data))
     .catch((error) => console.error("Error fetching arquivos_concursos:", error));

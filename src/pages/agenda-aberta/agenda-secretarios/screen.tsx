@@ -59,7 +59,6 @@ function Screen({ handler }: PropsInput) {
     "Secretária Adjunta de Educação",
     "Secretária Adjunta da Secretaria de Urbanismo",
     "Secretário Adjunto de Esportes e Lazer",
-    "Diretor do Departamento de Defesa Civil",
     "Secretário de Finanças",
     "Secretário Adjunto de Agricultura e Abastecimento",
     "Secretário Municipal de Transparência e Dados Abertos",

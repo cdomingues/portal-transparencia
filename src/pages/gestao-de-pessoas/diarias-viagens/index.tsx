@@ -5,7 +5,7 @@ import {
   getChart,
   getChartYear,
   getdvertisings,
-} from "../../../calls/expenses/advertising";
+} from "../../../calls/expenses/diarias";
 import { revalidate } from "../../../config";
 import moment from "moment";
 
@@ -21,13 +21,20 @@ function Controller({
   const [newChart, setNewChart] = useState(chart);
 
   const columns = [
-    { title: "Número", field: "A" },
-    { title: "Nome", field: "B" },
-    { title: "Data Início", field: "C" },
-    { title: "Data Término", field: "D" },
-    { title: "Motivo da Viagem", field: "F" },
-    { title: "Destino", field: "G" },
+   // { title: "_id", field: "_id" },
+    { title: "Ano", field: "ano" },
+    { title: "Mês", field: "mes" },
+    { title: "RGF", field: "rgf" },
+    { title: "Nome", field: "nome" },
+    { title: "Total (R$)", field: "total" },
+    { title: "Destino", field: "destino" },
+    { title: "Motivo legítimo do deslocamento", field: "motivo" },
+    { title: "Período de permanência", field: "periodo_permanencia" },
+    {title: "inteira", field: "inteira"},
+    {title: "Meia", field:"meia"}
   ];
+
+  
 
   const handleByYear = async (year: number) => {
     setYear(year);
