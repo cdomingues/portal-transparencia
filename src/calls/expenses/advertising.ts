@@ -10,14 +10,14 @@ import {
 import moneyFormatter from "../../utils/moneyFormatter";
 
 type AdvertisingResponse = {
-  _id: number;
-  id: number;
-  ano: number;
-  Competência: string;
-  Campanha: string;
+  "_id": number;
+  "id": number;
+  "ano": number;
+  "Competência": string;
+  "Campanha": string;
   "Veículo de divulgação": string;
   "Tipo de Serviço": string;
-  Fornecedor: string;
+  "Fornecedor": string;
   "Agência Contratada": string;
   "Data de Início": Date;
   "Data de Término": Date;
@@ -30,8 +30,9 @@ type AdvertisingResponse = {
 export const getdvertisings = async (year?: number) => {
   try {
     const response = await axios.get(
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=765f5550-8ce7-4091-b780-aec971613328",
-      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=a8fdc20d-7236-4302-8630-738ccf60ba4b",
+      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=fde32aaa-b073-4311-8d21-b86af17a973f",
+      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=765f5550-8ce7-4091-b780-aec971613328",
+      
       {
         headers: {
           Authorization:
@@ -51,8 +52,7 @@ export const getdvertisings = async (year?: number) => {
         id: row?.["id"],
         ano: row?.["ano"],
         competencia:
-          row["Competência"] &&
-          moment(row?.["Competência"]).format("DD/MM/YYYY hh:mm"),
+          row["Competência"],
         campanha: row?.["Campanha"],
         veiculo_divulgacao: row?.["Veículo de divulgação"],
         tipo_servico: row?.["Tipo de Serviço"],
