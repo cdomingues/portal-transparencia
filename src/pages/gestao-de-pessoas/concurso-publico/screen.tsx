@@ -7,7 +7,7 @@ import { isMobile } from "react-device-detect";
 import { color } from "highcharts";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import CardConcurso from "../../../components/CardConcursos";
-import TesteArquivos from "../../../components/TesteArquivos";
+import TesteArquivos from "../../../components/ListarArquivos";
 
 type PropsInput = {
   handler: {};
