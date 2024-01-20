@@ -1,147 +1,60 @@
-// import moment from "moment";
-// import React, { useEffect, useState } from "react";
-// import Screen from "./screen";
-// import axios from "axios";
-
-// export type Laws = Array<{ name: string; link: string; year: number }>;
-// function Controller() {
-//   const [selectValue, setSelectValue] = useState(moment().year());
-//   const [selectOptions, setSelectOptions] = useState<Array<string | number>>(
-//     []
-//   );
-//   const [data, setData] = useState<Laws | []>([]);
-
-//   useEffect(() => {
-//     makeRequestFile();
-//   }, []);
-
-//   const makeRequestFile = async () => {
-//     const response = await axios.get(
-//       "https://dadosabertos.mogidascruzes.sp.gov.br/api/download/proxy",
-//       {
-//         params: {
-//           url: `http://www.licitacao.pmmc.com.br/Transparencia/arquivos?ano=&tipo=6&pagina=1&tamanho=100000`,
-//         },
-//       }
-//     );
-
-//     if (!response.data) {
-//       return;
-//     }
-
-//     setData(
-//       response.data.arquivos.map((item: any) => {
-//         return {
-//           name: item.titulo,
-//           link: item.url,
-//         };
-//       })
-//     );
-
-//     const years = response.data.anos.sort(function (a: number, b: number) {
-//       return Number(b) - Number(a);
-//     });
-//     setSelectOptions(years);
-//   };
-
-//   const handleSelectValue = async (value: number) => {
-//     setSelectValue(value);
-//     const response = await axios.get(
-//       "https://dadosabertos.mogidascruzes.sp.gov.br/api/download/proxy",
-//       {
-//         params: {
-//           url: `http://www.licitacao.pmmc.com.br/Transparencia/arquivos?ano=${value}&tipo=6&pagina=1&tamanho=100000`,
-//         },
-//       }
-//     );
-
-//     setData(
-//       response.data.arquivos.map((item: any) => {
-//         return {
-//           name: item.titulo,
-//           link: item.url,
-//         };
-//       })
-//     );
-//   };
-
-//   const handler = {
-//     laws: data,
-//     handleSelectValue,
-//     selectOptions,
-//     selectValue,
-//   };
-//   return <Screen handler={handler} />;
-// }
-
-// export default Controller;
-
-
-
-import moment from "moment";
-import React, { useEffect, useState } from "react";
-import Screen from "./screen";
+import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
+import Screen from "./screen";
+import { baseUrl } from "../../../config";
 
-export type Laws = Array<{ name: string; link: string; year: number }>;
+interface DataItem {
+  pk: string;
+  nome: string;
+  area: string | null;
+  descricao: string | null;
+  file: string;
+  cadastro: string;
+  ativo: boolean;
+  ano: number;
+  tipo: number;
+}
+
+interface GroupedData {
+  [tipo: string]: {
+    [ano: string]: DataItem[];
+  };
+}
+
+export type Laws = Array<{ name: string; file: string; year: number }>;
 
 function Controller() {
-  const [selectValue, setSelectValue] = useState(moment().year());
-  const [selectOptions, setSelectOptions] = useState<Array<string | number>>([]);
+  const [selectValue, setSelectValue] = useState(new Date().getFullYear());
+  const [selectOptions, setSelectOptions] = useState<Array<number>>([]);
   const [data, setData] = useState<Laws | []>([]);
+
+  const formatData = useCallback((groupedData: GroupedData, year: number): Laws => {
+    return groupedData["6"][year]?.map((file: DataItem) => ({
+      name: file.nome,
+      file: file.file,
+      year: file.ano
+    })) || [];
+  }, []);
+
+  const makeRequestFile = useCallback(async () => {
+    try {
+      const response = await axios.get('${baseUrl}/api/arquivos/arquivos');
+      const { groupedAndSortedData, years } = response.data;
+
+      setSelectOptions(years);
+      setData(formatData(groupedAndSortedData, selectValue));
+    } catch (error) {
+      console.error("Erro ao fazer a requisição:", error);
+    }
+  }, [selectValue, formatData]);
 
   useEffect(() => {
     makeRequestFile();
-  }, []);
+  }, [makeRequestFile]);
 
-  const makeRequestFile = async () => {
-    const response = await axios.get(
-      "https://dadosabertos.mogidascruzes.sp.gov.br/api/download/proxy",
-      {
-        params: {
-          url: `http://www.licitacao.pmmc.com.br/Transparencia/arquivos?ano=&tipo=6&pagina=1&tamanho=100000`,
-        },
-      }
-    );
-
-    if (!response.data) {
-      return;
-    }
-
-    setData(
-      response.data.arquivos.map((item: any) => {
-        return {
-          name: item.titulo,
-          link: item.url,
-        };
-      })
-    );
-
-    const years = response.data.anos.sort(function (a: number, b: number) {
-      return Number(b) - Number(a);
-    });
-    setSelectOptions(years);
-  };
-
-  const handleSelectValue = async (value: number) => {
+  const handleSelectValue = (value: number) => {
     setSelectValue(value);
-    const response = await axios.get(
-      "https://dadosabertos.mogidascruzes.sp.gov.br/api/download/proxy",
-      {
-        params: {
-          url: `http://www.licitacao.pmmc.com.br/Transparencia/arquivos?ano=${value}&tipo=6&pagina=1&tamanho=100000`,
-        },
-      }
-    );
-
-    const lawsData = response.data.arquivos.map((item: any) => {
-      return {
-        name: item.titulo,
-        link: item.url,
-      };
-    });
-
-    setData(lawsData);
+    makeRequestFile();
   };
 
   const handler = {
@@ -150,6 +63,7 @@ function Controller() {
     selectOptions,
     selectValue,
   };
+
   return <Screen handler={handler} />;
 }
 
