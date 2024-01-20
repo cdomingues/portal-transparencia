@@ -38,7 +38,7 @@ function Controller() {
 
   const makeRequestFile = useCallback(async () => {
     try {
-      const response = await axios.get('${baseUrl}/api/arquivos/arquivos');
+      const response = await axios.get(`${baseUrl}/api/arquivos/arquivos`);
       const { groupedAndSortedData, years } = response.data;
 
       setSelectOptions(years);
