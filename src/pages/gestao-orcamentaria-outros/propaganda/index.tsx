@@ -33,14 +33,8 @@ function Controller({
     { title: "Data Início", field: "data_inicio" },
     { title: "Data Término", field: "data_termino" },
     { title: "Valor Veiculação", field: "valor_total_veiculacao" },
-    {
-      title: "Honorário Veiculação",
-      field: "honorario_agencia_veiculacao",
-    },
-    {
-      title: "Honorário Produção",
-      field: "honorario_agencia_producao",
-    },
+    { title: "Honorário Veiculação", field: "honorario_agencia_veiculacao"},
+    { title: "Honorário Produção", field: "honorario_agencia_producao",  },
   ];
 
   const handleByYear = async (year: number) => {

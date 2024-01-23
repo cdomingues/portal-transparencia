@@ -55,6 +55,7 @@ import React from "react";
 import { Laws } from ".";
 import ContainerBasic from "../../../components/Container/Basic";
 import PlanContainerLaw from "../../../components/Container/PlanLaw";
+import ListarArquivos from "../../../components/ListarArquivos";
 
 type PropsInput = {
   handler: {
@@ -90,12 +91,7 @@ function Screen({ handler }: PropsInput) {
         borderRadius="18px"
         marginBottom="15px"
       >
-        <PlanContainerLaw
-          laws={laws}
-          selectOptions={selectOptions}
-          selectValue={selectValue}
-          handleSelectValue={handleSelectValue}
-        />
+        <ListarArquivos tipoFiltro={11}/>
       </Box>
     </ContainerBasic>
   );

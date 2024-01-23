@@ -13,23 +13,20 @@
 //   };
 // };
 
-// export const contentPlanMultiannual = {
-//   titlePage: "Plano Plurianual",
-//   description:
-//     "O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos. Sua construção deve contar com a maior participação possível da sociedade, afinal são os cidadãos que pagam os impostos e que ajudarão a definir o destino dos recursos.",
-// };
+// export const contentPublicWorks = {
+//   titlePage: "Obras Públicas",
+//   description: "Traz as informações sobre as obras públicas em andamento no município, bem como seu custo e origem dos recursos (municipais, estaduais e federais).",
+// }
 
 // function Screen({ handler }: PropsInput) {
 //   const { handleSelectValue, selectOptions, laws, selectValue } = handler;
-//   const title = contentPlanMultiannual?.titlePage;
-//   const description = contentPlanMultiannual?.description;
-
+//   const title = contentPublicWorks?.titlePage;
+//   const description = contentPublicWorks?.description;
 //   return (
 //     <ContainerBasic title={title} description={description}>
 //       <PlanContainer laws={laws}>
 //         <Select
 //           minW={90}
-//           defaultValue={selectOptions[0]}
 //           width="20%"
 //           bg={useColorModeValue("white", "gray.800")}
 //           value={selectValue}
@@ -37,7 +34,7 @@
 //           mb={5}
 //           onChange={(event) => {
 //             handleSelectValue(Number(event.target.value));
-//           }} 
+//           }}
 //         >
 //           {selectOptions.map((value, index) => (
 //             <option key={index} value={value}>
@@ -56,11 +53,11 @@ import { useColorModeValue, Box } from "@chakra-ui/react";
 import React from "react";
 import { Laws } from ".";
 import ContainerBasic from "../../../components/Container/Basic";
-import PlanContainerLaw from "../../../components/Container/PlanLaw";
 import ListarArquivos from "../../../components/ListarArquivos";
 
+
 type PropsInput = {
-  handler: { 
+  handler: {
     laws: Laws;
     handleSelectValue: (value: number) => void;
     selectOptions: Array<string | number>;
@@ -68,40 +65,35 @@ type PropsInput = {
   };
 };
 
-export const contentPlanMultiannual = {
-  titlePage: "Plano Plurianual",
+export const contentPublicWorks = {
+  titlePage: "Obras Públicas",
   description:
-    "O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como investirá os recursos públicos nos próximos anos. Sua construção deve contar com a maior participação possível da sociedade, para que os cidadãos sejam estimulados a ajudar na definição do destino dos recursos.",
+    "Traz as informações sobre as obras públicas em andamento no município, bem como seu custo e origem dos recursos (municipais, estaduais e federais).",
 };
 
 function Screen({ handler }: PropsInput) {
   const { handleSelectValue, selectOptions, laws, selectValue } = handler;
 
-  const title = contentPlanMultiannual?.titlePage;
-  const description = contentPlanMultiannual?.description;
+  const title = contentPublicWorks?.titlePage;
+  const description = contentPublicWorks?.description;
 
   return (
-    
-
-    
     <ContainerBasic title={title} description={description}>
       <Box
-
-m={0}
-bg={useColorModeValue("white", "gray.800")}
-
-padding={"15px"}
-rounded="md"
-overflow="hidden"
-maxWidth="100%"
-borderRadius="18px"
-marginBottom="15px"
->
-     <ListarArquivos tipoFiltro={1}/>
+        m={0}
+        bg={useColorModeValue("white", "gray.800")}
+        
+        padding={"15px"}
+        rounded="md"
+        overflow="hidden"
+        maxWidth="100%"
+        borderRadius="18px"
+        marginBottom="15px"
+      >
+        <ListarArquivos tipoFiltro={8}/>
       </Box>
     </ContainerBasic>
   );
 }
 
 export default Screen;
-

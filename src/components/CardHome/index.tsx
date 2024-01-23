@@ -99,6 +99,10 @@ function CardHome() {
           label: "Co-Prefeita - Priscila Yamagami",
           url: "/agenda-aberta/agenda-coprefeita",
         }, 
+        {
+          label: "Demais Autoridades",
+          url: "/agenda-aberta/agenda-secretarios",
+        }, 
       ],
     },
 
@@ -319,10 +323,12 @@ function CardHome() {
           label: "Estrutura Organizacional",
           url: "/gestao-de-pessoas/estrutura-organizacional",
         },
-        { label: "Carga Horária", url: "/gestao-de-pessoas/carga-horaria" },
+        { 
+          label: "Carga Horária", 
+          url: "/gestao-de-pessoas/carga-horaria" },
         {
           label: "Concurso Público",
-          url: "https://wwwtrans.mogidascruzes.sp.gov.br/concursos-publicos",
+          url: "/gestao-de-pessoas/concurso-publico",
         },
         {
           label: "Diárias e Viagens",

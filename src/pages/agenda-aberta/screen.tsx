@@ -199,13 +199,14 @@ function HomeScreen({ handler }: PropsInput) {
                   align={isMobile ? "center" : "center"}
                   justifyContent={isMobile ? "flex-start" : "center"}
                 >
-                  <Box padding="6" bg="transparent" flexDirection="row">
+                  <Box padding="2 " bg="transparent" flexDirection="row" >
                     <CardHorizon
-                      title="Agenda Secretários"
+                      title="Agenda Demais Autoridades "
                       imageURL={agenda_caio.src}
                       description="Conforme previsto na Lei Municipal 7.653/2021 e no Decreto 21.006/22, todo cidadão pode ter acesso à agenda de compromissos oficiais das autoridades do Executivo de Mogi das Cruzes. Esta é mais uma medida de promoção da integridade no setor público."
                       link="agenda-aberta/agenda-secretarios"
                       backgroundColor="transparent"
+                      
                     />
                   </Box>
 

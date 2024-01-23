@@ -228,7 +228,7 @@ marginBottom="15px">
                 align={isMobile ? "justify" : "left"}
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}
-              >Segunda a sexta-feira, das 8 às 17 horas, no PAC do prédio sede da Prefeitura (Av. Ver. Narciso Yague Guimarães, 277 - Centro Cívico) </Text>
+              >Segunda a sexta-feira, das 8h às 13h30 e das 14h30 às 17h, no PAC do prédio sede da Prefeitura (Av. Ver. Narciso Yague Guimarães, 277 - Centro Cívico) </Text>
 
 <Text
                 align={isMobile ? "justify" : "left"}

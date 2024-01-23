@@ -11,28 +11,26 @@ import moneyFormatter from "../../utils/moneyFormatter";
 
 type AdvertisingResponse = {
   "_id": number;
-  "id": number;
-  "ano": number;
-  "Competência": string;
-  "Campanha": string;
-  "Veículo de divulgação": string;
-  "Tipo de Serviço": string;
-  "Fornecedor": string;
-  "Agência Contratada": string;
-  "Data de Início": Date;
-  "Data de Término": Date;
-  "Valor total da Veiculação": number;
-  "Honorário Agência Veiculação": number;
-  "Honorário Agência Produção": number;
-  rank: number; 
+ // id: number;
+  "Ano": number;
+  "Mês": number;
+  "RGF": string;
+  "Nome": string;
+  //"Tipo de Serviço": string;
+  "Total (R$)": number;
+  "Destino": string;
+  "Motivo legítimo do deslocamento": string;
+  "Período de permanência": number;
+  "inteira": number;
+  "Meia": number;
+  
 };
 
 export const getdvertisings = async (year?: number) => {
   try {
     const response = await axios.get(
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=fde32aaa-b073-4311-8d21-b86af17a973f",
-      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=765f5550-8ce7-4091-b780-aec971613328",
-      
+      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=3dc92e00-1fce-4115-93a5-005b46b68276",
+      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=a8fdc20d-7236-4302-8630-738ccf60ba4b",
       {
         headers: {
           Authorization:
@@ -49,31 +47,18 @@ export const getdvertisings = async (year?: number) => {
 
     const mappingRows = rows?.map((row: AdvertisingResponse) => {
       return {
-        id: row?.["id"],
-        ano: row?.["ano"],
-        competencia:
-          row["Competência"],
-        campanha: row?.["Campanha"],
-        veiculo_divulgacao: row?.["Veículo de divulgação"],
-        tipo_servico: row?.["Tipo de Serviço"],
-        fornecedor: row?.["Fornecedor"],
-        agencia_contratada: row?.["Agência Contratada"],
-        data_inicio:
-          row["Data de Início"] &&
-          moment(row?.["Data de Início"]).format("DD/MM/YYYY hh:mm"),
-        data_termino:
-          row["Data de Término"] &&
-          moment(row?.["Data de Término"]).format("DD/MM/YYYY hh:mm"),
-        valor_total_veiculacao: moneyFormatter(
-          Number(row?.["Valor total da Veiculação"])
-        ),
-        honorario_agencia_veiculacao: moneyFormatter(
-          Number(row?.["Honorário Agência Veiculação"])
-        ),
-        honorario_agencia_producao: moneyFormatter(
-          Number(row?.["Honorário Agência Produção"])
-        ),
-        rank: row?.["rank"] || "",
+        id: row?.["_id"],
+        ano: row?.["Ano"],
+        mes:row["Mês"],
+        rgf: row?.["RGF"],
+        nome: row?.["Nome"],
+        total: row?.["Total (R$)"],
+        destino: row?.["Destino"],
+        motivo: row?.["Motivo legítimo do deslocamento"],
+        periodo_permanencia: row["Período de permanência"] ,
+        inteira: row?.["inteira"],
+        meia: row?.["Meia"],
+       
       };
     });
 
@@ -114,10 +99,10 @@ export const getChartYear = async () => {
     const graphs = [];
 
     for (const year of years) {
-      const filteredRows = rows.filter((row) => row["ano"] == year);
+      const filteredRows = rows.filter((row) => row["Ano"] == year);
 
       const sum = filteredRows.reduce((acumulador, item) => {
-        return acumulador + item["Valor total da Veiculação"];
+        return acumulador + item["Total (R$)"];
       }, 0);
 
       graphs.push({
@@ -152,7 +137,7 @@ export const getChart = async (year?: number) => {
   try {
     const response = await axios.get(
       //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=03146785-57db-4207-8924-85c492e8b9a8",
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=a8fdc20d-7236-4302-8630-738ccf60ba4b",
+      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=a8fdc20d-7236-4302-8630-738ccf60ba4b&limit=4000",
       {
         headers: {
           Authorization:
@@ -174,12 +159,12 @@ export const getChart = async (year?: number) => {
     for (let index = 1; index <= months; index++) {
       const filteredRows = rows.filter(
         (row) =>
-          moment(row?.["Data de Início"]).month() + 1 === index &&
-          row?.["ano"] === year
+          moment(row?.["Mês"]).month() + 1 === index &&
+          row?.["Ano"] === year
       );
 
       const sum = filteredRows.reduce((acumulador, item) => {
-        return acumulador + item["Valor total da Veiculação"];
+        return acumulador + item["Total (R$)"];
       }, 0);
 
       acamulatedAmount += Number(sum) || 0;
