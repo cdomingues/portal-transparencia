@@ -1,4 +1,4 @@
-import { Box, Icon, Stack } from '@chakra-ui/react';
+import { Box, Icon, Select, Stack } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import { isMobile } from 'react-device-detect';
 import { AiOutlineDownload } from 'react-icons/ai';
@@ -26,6 +26,7 @@ interface FilesListProps {
 const FilesList: React.FC<FilesListProps> = ({ tipoFiltro }) => {
   const [arquivos, setArquivos] = useState<Arquivo[]>([]);
   const [nextPage, setNextPage] = useState<number | null>(1); // Inicializado em 1
+  const [selectedYear, setSelectedYear] = useState<number | null>(null);
   
   const apiUrl = "https://dadosadm.mogidascruzes.sp.gov.br";
 
@@ -59,9 +60,27 @@ const FilesList: React.FC<FilesListProps> = ({ tipoFiltro }) => {
 
   return (
     <Box display="flex" alignContent="center" flexDirection={isMobile ?  "column" : "column"}>
+       <Select
+       maxW="200px"
+    id="yearSelect"
+    onChange={(e) => setSelectedYear(Number(e.target.value))}
+    value={selectedYear || ""}
+  >
+    <option value="">Todos os Anos</option>
+    {Array.from(
+      new Set(arquivos.map((arquivo) => arquivo.ano))
+    ).sort((b, a) => b.ano - a.ano).map((year) => (
+      <option key={year} value={year}>
+        {year}
+      </option>
+    ))}
+  </Select>
       
-      
-        {arquivos.sort((a, b) => a.ano - b.ano).map((arquivo, index) => (
+        {arquivos
+        .filter((arquivo) =>
+        selectedYear ? arquivo.ano === selectedYear : true
+      )
+        .sort((a, b) => a.ano - b.ano).map((arquivo, index) => (
           <a href={`${apiUrl}${arquivo.file}`} download target="_blank" >
           <Stack 
           key={arquivo.pk}
@@ -76,7 +95,7 @@ const FilesList: React.FC<FilesListProps> = ({ tipoFiltro }) => {
           _hover={{ bg: 'gray.200' }}
          
           >
-            <p>{index+1} - {arquivo.nome} - {arquivo.ano}</p>
+            <p> {arquivo.nome} - {arquivo.ano}</p>
             
             <Icon as={AiOutlineDownload} />
             
