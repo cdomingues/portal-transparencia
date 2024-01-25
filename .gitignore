@@ -47,3 +47,6 @@ next-env.d.ts
 
 #Pasta Arquivos Lei
 /data/filesLaw/
+
+#arquivo package-lock
+packge-lock.json
