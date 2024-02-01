@@ -10,14 +10,14 @@ function Controller() {
   const [radarInfractions, setRadarInfractions] = useState([]);
 
   const columns = [
-    { title: "Id", field: "id_radar" },
+    { title: "Id", field: "id" },
     //{ title: "Bairro", field: "Bairro" },
-    { title: "Logradouro", field: "Logradouro" },
-    { title: "Sentido", field: "Sentido" },
-    { title: "Tipo", field: "Tipo" },
-    { title: "Faixas", field: "Faixas" },
-    { title: "Velocidade", field: "Velocidade" },
-    { title: "Status", field: "Status" },
+    { title: "Logradouro", field: "logradouro" },
+    { title: "Sentido", field: "sentido" },
+    { title: "Tipo", field: "tipo" },
+    { title: "Faixas", field: "faixas" },
+    { title: "Velocidade", field: "kmh" },
+    { title: "Status", field: "status" },
     
   ];
 
@@ -53,18 +53,19 @@ function Controller() {
   const getData = async () => {
     const response = await axios.get(
       //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=4722d644-7c8e-415f-87fe-8cfcc8013af8",
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=822a6c76-4c9b-413b-8299-abd40f903bf4",
+      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=822a6c76-4c9b-413b-8299-abd40f903bf4",
+      "https://mobilidadeservicos.mogidascruzes.sp.gov.br/api/radar_info",
       {
         
       }
     );
-
-    const rows = response.data?.result?.records;
+    const rows = response.data;
+    
 
     const mappedRows = rows.map((item: any) => {
       return {
         ...item,
-        Velocidade: item?.Velocidade || "-",
+        kmh: item?.kmh || "-",
       };
     });
 

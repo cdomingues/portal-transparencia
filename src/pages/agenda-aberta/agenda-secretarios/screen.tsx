@@ -24,18 +24,16 @@ type PropsInput = {
 };
 
 type Meeting = {
-  _id: number;
   id: string;
+  pessoa: string;
   created_at: string;
   updated_at: string;
-  tipo_compromisso: null | string;
   data_compromisso: string;
   descricao_breve: string;
   local: string;
   detalhe: string;
-  pessoa: string;
+  tipo_compromisso: string;
   cargo: string;
-  rank: number;
 };
 
 export const contentMayorAgenda = {
@@ -46,37 +44,22 @@ export const contentMayorAgenda = {
 
 function Screen({ handler }: PropsInput) {
 
-  const newCargoList = [
-    "Secretário de Segurança Adjunto",
-    "Secretária Municipal de Cultura",
-    "Secretário Municipal de Urbanismo",
-    "Secretária Adjunta de Cultura",
-    "Secretário Adjunto de Gestão Pública",
-    "Secretário Municipal de Agricultura e Abastecimento",
-    "Chefe de Gabinete do Prefeito",
-    "Secretário Municipal de Esportes e Lazer",
-    "Secretário Adjunto de Transparência e Dados Abertos",
-    "Secretária Adjunta de Educação",
-    "Secretária Adjunta da Secretaria de Urbanismo",
-    "Secretário Adjunto de Esportes e Lazer",
-    "Secretário de Finanças",
-    "Secretário Adjunto de Agricultura e Abastecimento",
-    "Secretário Municipal de Transparência e Dados Abertos",
-    "Secretário de Segurança",
-    "Secretário Municipal de Saúde"
+  const excludedList = [
+    "MOGI DAS CRUZES",
+    "MOGI DAS CRUZES | SEPLAG",
+    "Prefeito",
+    "Prefeito",
+    "Diretor do Departamento de Defesa Civil",
+    "Co-Prefeita",
+    
   ];
   const [selected, setSelected] = useState<Date>();
   const [schedule, setSchedule] = useState<Array<Meeting>>([]);
-  const uniqueCargos = [...new Set(schedule.map((item) => item.cargo))];
-  /* const filteredUniqueCargos = uniqueCargos.filter(
-    (cargo) => cargo !== "Prefeito" && cargo !== "Co-Prefeita" && cargo !=="MOGI DAS CRUZES" && cargo !=="COODENADOR DE ANÁLISES E GESTÃO DE DADOS"
-  );
-   */
-  const filteredUniqueCargos = newCargoList
-  
-
   const [selectedCargo, setSelectedCargo] = useState("");
-  const handleGetOpenSchedule = async () => {
+  const [apiCargos, setApiCargos] = useState<string[]>([]);
+  const [nextPage, setNextPage] = useState<number | null>(1);
+  
+   /* const handleGetOpenSchedule = async () => {
     const response = await fetch(
     
        "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=e6ee12e9-2fec-4d91-acac-36b36bd179c2&limit=2000",
@@ -97,18 +80,89 @@ function Screen({ handler }: PropsInput) {
 
   useEffect(() => {
     handleGetOpenSchedule();
-  }, []);
+  }, []);  */
 
+   /* useEffect(() => {
+    fetch('https://dadosadm.mogidascruzes.sp.gov.br/api/agendas/')
+    .then(response =>response.json())
+    .then(data =>{
+      setSchedule(data.results)
+    })
+  }, []);   */
+
+   const fetchData = async (url: string) => {
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+
+      if (!data) {
+        return;
+      }
+
+      // Your logic to handle the fetched data
+      const fetchedSchedule = data.results || [];
+      setSchedule((prevSchedule) => [...prevSchedule, ...fetchedSchedule]);
+
+      if (data.next !== null) {
+        setNextPage((prevPage) => (prevPage !== null ? prevPage + 1 : null));
+      } else {
+        setNextPage(null);
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (nextPage !== null) {
+      const apiUrl = `https://dadosadm.mogidascruzes.sp.gov.br/api/agendas/?page=${nextPage}`;
+      fetchData(apiUrl);
+    }
+  }, [nextPage]);
+ 
+  
+  useEffect(() => {
+    const fetchCargosFromApi = async () => {
+      try {
+        const response = await axios.get("https://dadosadm.mogidascruzes.sp.gov.br/api/pessoas/");
+        const data = response.data;
+
+        
+        const fetchedCargos = data.results?.map((item: any) => item.cargo) || [];
+        
+
+        setApiCargos(fetchedCargos);
+      } catch (error) {
+        console.error("Error fetching cargos from API:", error);
+      }
+    };
+
+    fetchCargosFromApi();
+  }, []);
 
   
 
+   
   const filteredValues = schedule
   ?.filter((item: Meeting) => {
     const timeWithSubtraction = moment(item?.data_compromisso).subtract(3, 'hours');
     const isSameDate = timeWithSubtraction.format("YYYY-MM-DD") === String(moment(selected).format("YYYY-MM-DD"));
-    const isNotPrefeitoOrCoPrefeita = item.cargo !== "Prefeito" && item.cargo !== "Co-Prefeita";
-    const isSameCargo = selectedCargo === "" || selectedCargo === item.cargo;
-    return isSameDate && isNotPrefeitoOrCoPrefeita && isSameCargo;
+    const pessoaParts = item.pessoa.split('-');
+    let name = "";
+    let cargo = "";
+
+    for (const part of pessoaParts) {
+      if (part.includes('Nome:')) {
+        name = part.split('Nome:')[1].trim();
+      }
+
+      if (part.includes('Cargo:')) {
+        cargo = part.split('Cargo:')[1].trim();
+      }
+    }
+    const isNotPrefeitoOrCoPrefeita = cargo !== "Prefeito" && cargo !== "Co-Prefeita";
+    const isSameCargo = selectedCargo === "" || selectedCargo === cargo; 
+    return isSameDate && isNotPrefeitoOrCoPrefeita && isSameCargo ;
   })
   .sort((a: Meeting, b: Meeting) => {
     const aHours = moment(a?.data_compromisso).subtract(3, 'hours').format("HH:mm");
@@ -174,9 +228,12 @@ function Screen({ handler }: PropsInput) {
   
 >
   <option value="">Todos os Cargos</option>
-  {filteredUniqueCargos.map((cargo) => (
+  {apiCargos
+   .filter((cargo) => !excludedList.includes(cargo))
+   .sort()
+   .map((cargo) => (  
     <option key={cargo} value={cargo}>
-      {cargo}
+        {cargo}
     </option>
   ))}
 </Select>
@@ -210,6 +267,26 @@ function Screen({ handler }: PropsInput) {
                 filteredValues?.map((item: Meeting, index: any) => {
                   const timeWithSubtraction = moment(item?.data_compromisso).subtract(3, 'hours');
                   const getHours = timeWithSubtraction.format("HH:mm").split(":");
+
+                  let name = "";
+                  let cargo = "";
+
+                  if (item?.pessoa) {
+                    const pessoaParts = item.pessoa.split('-');
+
+                    for (const part of pessoaParts) {
+                      if (part.includes('Nome:')) {
+                        name = part.split('Nome:')[1].trim();
+                      }
+
+                      if (part.includes('Cargo:')) {
+                        cargo = part.split('Cargo:')[1].trim();
+                      }
+                    }
+                  }
+                  
+
+                  
                   
 
                   return (
@@ -242,14 +319,14 @@ function Screen({ handler }: PropsInput) {
                           color="text.dark"
                           style={{ margin: 0 }}
                         >
-                          {item?.cargo}
+                          {cargo}
                         </Text>
                         <Text
                           fontSize={accessibility?.fonts?.medium}
                           color="text.dark"
                           style={{ margin: 0 }}
                         >
-                          {item?.pessoa}
+                          {name}
                         </Text>
                         <div style={{ marginTop: 8 }}></div>
                         <Divider

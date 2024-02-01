@@ -92,6 +92,10 @@ function CardHome() {
       showExtraLinks: true,
       extraLinks: [
         {
+          label: "Agenda Aberta - Início",
+          url: "/agenda-aberta/",
+        },
+        {
           label: "Prefeito - Caio Cunha",
           url: "/agenda-aberta/agenda-prefeito",
         },
@@ -133,6 +137,7 @@ function CardHome() {
       backgroundColor: "blue",
       showExtraLinks: true,
       extraLinks: [
+        { label: "Ciclo Orçamentário - Início", url: "/ciclo-orcamentario/" },  
         { label: "Plano Plurianual", url: "/ciclo-orcamentario/plurianual" },
         {
           label: "Diretrizes Orçamentárias",
@@ -173,6 +178,7 @@ function CardHome() {
       backgroundColor: "transparent",
       showExtraLinks: true,
       extraLinks: [
+        { label: "Gestão  Orçamentária- Início", url: "/gestao-orcamentaria/" },
         { label: "Receitas Gerais", url: "/gestao-orcamentaria/receitas" },
         {
           label: "Emendas Parlamentares",
@@ -214,6 +220,10 @@ function CardHome() {
       showExtraLinks: true,
       extraLinks: [
         {
+          label: "Gestão Orçamentária - Outros - Início ",
+          url: "/gestao-orcamentaria-outros/",
+        },
+        {
           label: "Propaganda e Publicidade",
           url: "/gestao-orcamentaria-outros/propaganda",
         },
@@ -237,6 +247,7 @@ function CardHome() {
       backgroundColor: "white",
       showExtraLinks: true,
       extraLinks: [
+        { label: "Gestão Orçamentária - Covid-19 - Início", url: "covid/" },
         { label: "Receitas", url: "covid/receitas" },
         { label: "Despesas", url: "covid/despesas" },
       ],
@@ -250,6 +261,10 @@ function CardHome() {
       backgroundColor: "green",
       showExtraLinks: true,
       extraLinks: [
+        {
+          label: "Gestão Extra Orçamentária - Início",
+          url: "/gestao-extra-orcamentaria/",
+        },
         {
           label: "Receitas Extra Orçamentárias",
           url: "/gestao-extra-orcamentaria/receitas",
@@ -283,6 +298,7 @@ function CardHome() {
       backgroundColor: "blue",
       showExtraLinks: true,
       extraLinks: [
+        { label: "Compras Públicas - Início", url: "/compras-publicas/" },
         { label: "Licitações", url: "/compras-publicas/licitacoes" },
         {
           label: "Pregão Eletrônico",
@@ -303,6 +319,10 @@ function CardHome() {
       backgroundColor: "green",
       showExtraLinks: true,
       extraLinks: [
+        {
+          label: "Gestão de Pessoas - Início",
+          url: "/gestao-de-pessoas/",
+        },
         {
           label: "Folha de Pagamento",
           url: "/gestao-de-pessoas/folha-pagamento",
@@ -359,6 +379,10 @@ function CardHome() {
       showExtraLinks: true,
       extraLinks: [
         {
+          label: "Acordos e Termos - Início",
+          url: "/acordos-termos/",
+        },
+        {
           label: "Acordo de Colaboração",
           url: "/acordos-termos/acordo-de-colaboracao",
         },
@@ -378,6 +402,7 @@ function CardHome() {
       backgroundColor: "blue",
       showExtraLinks: true,
       extraLinks: [
+        { label: "Convênios e Transferências - Início", url: "/convenios-transferencias/" },
         {
           label: "Contratos de Gestão",
           url: "/convenios-transferencias/contratos-gestao",
@@ -395,6 +420,10 @@ function CardHome() {
       backgroundColor: "green",
       showExtraLinks: true,
       extraLinks: [
+        {
+          label: "Leis, Decretos e Portarias - Início",
+          url: "/leis-decretos-portarias/",
+        },
         {
           label: "Leis Municipais",
           url: "/leis-decretos-portarias/protocolo-geral",
@@ -415,6 +444,10 @@ function CardHome() {
       backgroundColor: "green",
       showExtraLinks: true,
       extraLinks: [
+        {
+          label: "Institutos e Autarquias - Início",
+          url: "/instituto-autarquia/",
+        },
         {
           label: "Transparência SEMAE",
           url: "/instituto-autarquia/transparencia-semae",
@@ -461,6 +494,10 @@ function CardHome() {
       showExtraLinks: true,
       extraLinks: [
         {
+          label: "LAI - Lei de Acesso a Informação - Início",
+          url: "/acesso-a-informacao/",
+        },
+        {
           label: "Acesso a Informação LAI",
           url: "/acesso-a-informacao/acesso-informacao",
         },
@@ -476,10 +513,24 @@ function CardHome() {
     },
 
     {
+      title: "Governo Aberto",
+      imageURL: Leis_decretos_portarias.src,
+      description: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-transparencia-e-dados-abertos/governo-aberto",
+      link: "/plano-municipal-educacao",
+      backgroundColor: "blue",
+      showExtraLinks: false,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
+    },
+
+
+    {
       title: "Plano Municipal de Educação",
       imageURL: Plano_municipal_educacao.src,
       description: "Descrição 2",
-      link: "/plano-municipal-educacao",
+      link: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-transparencia-e-dados-abertos/governo-aberto",
       backgroundColor: "blue",
       showExtraLinks: false,
       extraLinks: [
@@ -497,6 +548,10 @@ function CardHome() {
       showExtraLinks: true,
       extraLinks: [
         {
+          label: "Plano Municipal de Saúde - Início",
+          url: "/plano-municipal-saude/",
+        },
+        {
           label: "Plano Municipal de Saúde",
           url: "/plano-municipal-saude/plano-municipal-saude",
         },
@@ -507,6 +562,21 @@ function CardHome() {
         { label: "Medicamentos", url: "/plano-municipal-saude/medicamentos" },
       ],
     },
+
+
+    {
+      title: "Visuas - Visor do Sistema Único de Assistência Social",
+      imageURL: Plano_municipal_educacao.src,
+      description: "Descrição 2",
+      link: "https://visuas.mogidascruzes.sp.gov.br/",
+      backgroundColor: "blue",
+      showExtraLinks: false,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
+    },
+
 
     {
       title: "Últimas Notícias",
