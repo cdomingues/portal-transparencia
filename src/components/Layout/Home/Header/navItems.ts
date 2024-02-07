@@ -150,6 +150,11 @@ export default [
         href: "",
         children: [
           {
+            label:"Análises e Gestão de Dados",
+            subLabel:"",
+            href: "https://www.mogidascruzes.sp.gov.br/pagina/coordenadoria-de-analises-e-gestao-de-dados/institucional",
+          },
+          {
             label: "Habitação",
             subLabel: "",
             href: "https://www.mogidascruzes.sp.gov.br/pagina/coordenadoria-de-habitacao/institucional",

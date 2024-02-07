@@ -27,24 +27,34 @@ const FilesList: React.FC<FilesListProps> = ({ tipoFiltro }) => {
   const [arquivos, setArquivos] = useState<Arquivo[]>([]);
   const [nextPage, setNextPage] = useState<number | null>(1); // Inicializado em 1
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
+  const filtro = tipoFiltro
+  const apiUrl = "https://dadosadm.mogidascruzes.sp.gov.br"
+  const url = `https://dadosadm.mogidascruzes.sp.gov.br/api/arquivos/?page_size=100&file_type=${filtro}`
+               
   
-  const apiUrl = "https://dadosadm.mogidascruzes.sp.gov.br";
+  //const count = "page_size=100" 
 
-  const fetchData = async (url: string) => {
+  const fetchData = async (url: RequestInfo | URL) => {
     try {
       const response = await fetch(url);
-      const data: ApiResponse = await response.json();
-
-      
-      const filteredResults = data.results.filter(arquivo => arquivo.tipo === tipoFiltro);
-
-      setArquivos((prevArquivos) => [...prevArquivos, ...filteredResults]);
+      const data = await response.json();
 
       if (data.next !== null) {
         setNextPage((prevPage) => (prevPage !== null ? prevPage + 1 : null));
-        fetchData(data.next);
       } else {
         setNextPage(null);
+      }
+
+      // Filtre os resultados se necessário
+      const filteredResults = data.results.filter((arquivo: { ano: number; }) =>
+        selectedYear ? arquivo.ano === selectedYear : true
+      );
+
+      // Atualize o estado arquivos usando a função de espalhamento para preservar os dados anteriores
+      setArquivos((prevArquivos) => [...prevArquivos, ...filteredResults]);
+
+      if (data.next !== null) {
+        await fetchData(data.next);
       }
     } catch (error) {
       console.error('Erro ao obter os arquivos:', error);
@@ -53,13 +63,14 @@ const FilesList: React.FC<FilesListProps> = ({ tipoFiltro }) => {
 
   useEffect(() => {
     if (nextPage !== null) {
-      const initialUrl = `${apiUrl}/api/arquivos/?page=${nextPage}`;
+      const initialUrl = `${apiUrl}/api/arquivos/?page=${nextPage}&file_type=${tipoFiltro}`;
       fetchData(initialUrl);
     }
-  }, [nextPage, tipoFiltro]); 
+  }, [nextPage, tipoFiltro]);
 
   return (
     <Box display="flex" alignContent="center" flexDirection={isMobile ?  "column" : "column"}>
+      
        <Select
        maxW="200px"
     id="yearSelect"
@@ -69,18 +80,20 @@ const FilesList: React.FC<FilesListProps> = ({ tipoFiltro }) => {
     <option value="">Todos os Anos</option>
     {Array.from(
       new Set(arquivos.map((arquivo) => arquivo.ano))
-    ).sort((b, a) => b.ano - a.ano).map((year) => (
+    )
+    .sort((a, b) => b - a)
+    .map((year) => (
       <option key={year} value={year}>
         {year}
       </option>
     ))}
   </Select>
-      
-        {arquivos
+  
+  {arquivos
         .filter((arquivo) =>
         selectedYear ? arquivo.ano === selectedYear : true
       )
-        .sort((a, b) => a.ano - b.ano).map((arquivo, index) => (
+        .sort().map((arquivo, index) => (
           <a href={`${apiUrl}${arquivo.file}`} download target="_blank" >
           <Stack 
           key={arquivo.pk}

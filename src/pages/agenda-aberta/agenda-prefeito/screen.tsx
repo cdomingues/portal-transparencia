@@ -49,9 +49,10 @@ function Screen({ handler }: PropsInput) {
 
   
 
-  const handleGetOpenSchedule = async () => {
+  /* const handleGetOpenSchedule = async () => {
     const response = await fetch(
       "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=e6ee12e9-2fec-4d91-acac-36b36bd179c2&q=Caio%20Cunha&limit=3000",
+      //"https://dadosadm.mogidascruzes.sp.gov.br/api/pessoas/d684362d-1a38-4b00-a4ab-11d3c7583af0/",
       {
         
       }
@@ -63,12 +64,22 @@ function Screen({ handler }: PropsInput) {
       return;
     }
 
-    return setSchedule(data?.result?.records);
-  };
+    return setSchedule(data?.result?.records  );
+  }; 
 
   useEffect(() => {
-    handleGetOpenSchedule();
-  }, []);
+    handleGetOpenSchedule(); 
+  }, []);*/
+
+
+  useEffect(() => {
+    fetch('https://dadosadm.mogidascruzes.sp.gov.br/api/pessoas/d684362d-1a38-4b00-a4ab-11d3c7583af0/') 
+       
+    .then(response =>response.json())
+    .then(data =>{
+      setSchedule(data.agenda_set)
+    })
+  }, []); 
 
   const filteredValues = schedule
   ?.filter((item: Meeting) => {

@@ -590,6 +590,14 @@ let publicRoutes: IPublicRoute[] = [
   },
 
   {
+    name: "Governo Aberto",
+    path: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-transparencia-e-dados-abertos/governo-aberto",
+    link:"https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-transparencia-e-dados-abertos/governo-aberto",
+    icon: AiOutlineAudit,
+    ...contentOtherInformations,
+  },
+
+  {
     name: "Institutos e Autarquias",
     path: "/instituto-autarquia",
     icon: AiOutlineSolution,
@@ -685,7 +693,13 @@ let publicRoutes: IPublicRoute[] = [
       
     ],
   },
-
+  {
+    name: "VISUAS – Visor do Sistema Único de Assistência Social",
+    path: "https://visuas.mogidascruzes.sp.gov.br/",
+    link:"https://visuas.mogidascruzes.sp.gov.br/",
+    icon: AiOutlineAudit,
+    ...contentOtherInformations,
+  },
   {
     name: "Últimas Notícias",
     path: "/ultimas-noticias",

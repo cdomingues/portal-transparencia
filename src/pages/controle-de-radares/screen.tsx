@@ -27,25 +27,25 @@ const markerChildren = (data: any) => {
   return (
     <>
       <p>
-        <b>Tipo:</b> {data?.Tipo}
+        <b>Tipo:</b> {data?.subtipo}
       </p>
       <p>
-        <b>Velocidade (km/h):</b> {data?.Velocidade}
+        <b>Velocidade (km/h):</b> {data?.kmh}
       </p>
       <p>
         <b>Bairro:</b> {data?.Bairro}
       </p>
       <p>
-        <b>Logradouro:</b> {data?.Logradouro}
+        <b>Logradouro:</b> {data?.logradouro}
       </p>
       <p>
-        <b>Sentido:</b> {data?.Sentido}
+        <b>Sentido:</b> {data?.sentido}
       </p>
       <p>
-        <b>Faixas:</b> {data?.Faixas}
+        <b>Faixas:</b> {data?.faixas}
       </p>
       <p>
-        <b>Status:</b> {data?.Status}
+        <b>Status:</b> {data?.status}
       </p>
     </>
   );
@@ -88,10 +88,10 @@ function Screen({
             coords={[-23.528986, -46.192973]}
             markers={data.map((item) => {
               const latitude = Number(
-                item?.Localizacao?.split(",")?.[0]?.replace(" ", "") || 0
+                item?.latitude
               );
               const longitude = Number(
-                item?.Localizacao?.split(",")?.[1]?.replace(" ", "") || 0
+                item?.longitude
               );
 
               return {
