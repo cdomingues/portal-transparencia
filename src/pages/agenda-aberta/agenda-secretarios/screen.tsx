@@ -145,7 +145,7 @@ function Screen({ handler }: PropsInput) {
    
   const filteredValues = schedule
   ?.filter((item: Meeting) => {
-    const timeWithSubtraction = moment(item?.data_compromisso).subtract(3, 'hours');
+    const timeWithSubtraction = moment(item?.data_compromisso).subtract( 'hours');
     const isSameDate = timeWithSubtraction.format("YYYY-MM-DD") === String(moment(selected).format("YYYY-MM-DD"));
     const pessoaParts = item.pessoa.split('-');
     let name = "";
@@ -165,8 +165,8 @@ function Screen({ handler }: PropsInput) {
     return isSameDate && isNotPrefeitoOrCoPrefeita && isSameCargo ;
   })
   .sort((a: Meeting, b: Meeting) => {
-    const aHours = moment(a?.data_compromisso).subtract(3, 'hours').format("HH:mm");
-    const bHours = moment(b?.data_compromisso).subtract(3, 'hours').format("HH:mm");
+    const aHours = moment(a?.data_compromisso).format("HH:mm");
+    const bHours = moment(b?.data_compromisso).format("HH:mm");
     return aHours > bHours ? 1 : -1;
   });
 
@@ -265,7 +265,7 @@ function Screen({ handler }: PropsInput) {
                 </Heading>
               ) : (
                 filteredValues?.map((item: Meeting, index: any) => {
-                  const timeWithSubtraction = moment(item?.data_compromisso).subtract(3, 'hours');
+                  const timeWithSubtraction = moment(item?.data_compromisso);
                   const getHours = timeWithSubtraction.format("HH:mm").split(":");
 
                   let name = "";
