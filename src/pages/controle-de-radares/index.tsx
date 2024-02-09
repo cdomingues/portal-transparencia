@@ -75,8 +75,9 @@ function Controller() {
   const radarCollectionData = async () => {
     const response = await axios.get(
       //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=382c733a-95a0-49ad-ad20-4b6d41361b1d",
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=9b226d60-1c85-42ed-8d6f-c69017dc3add&limit=2000",
-      {
+      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=9b226d60-1c85-42ed-8d6f-c69017dc3add&limit=2000",
+  "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=9bf12003-3b41-4f2d-8c4c-e416edf9d3dc&limit=2000  ",
+     {
         
       }
     );
@@ -96,7 +97,8 @@ function Controller() {
   const radarInfractionsData = async () => {
     const response = await axios.get(
       //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=720f32e2-c0c9-475a-bf5f-027adfd417e7",
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=c232a503-9642-470d-9c71-184afffe6b16&limit=1000",
+      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=c232a503-9642-470d-9c71-184afffe6b16&limit=1000",
+     "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=735f92c2-d5d0-44d0-9b30-66d8c52ac549&limit=2000", 
       {
         
       }

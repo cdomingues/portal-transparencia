@@ -83,15 +83,15 @@ function Screen({ handler }: PropsInput) {
   const filteredValues = schedule
   ?.filter((item: Meeting) => {
     // Linha modificada abaixo
-    const timeWithSubtraction = moment(item?.data_compromisso).subtract(3, 'hours');
+    const timeWithSubtraction = moment(item?.data_compromisso);
     return timeWithSubtraction.format("YYYY-MM-DD") === String(moment(selected).format("YYYY-MM-DD"));
   })
   // Uma linha depois para contexto
   .sort((a: Meeting, b: Meeting) => {
     // Linha modificada abaixo
-    const aHours = moment(a?.data_compromisso).subtract(3, 'hours').format("HH:mm");
+    const aHours = moment(a?.data_compromisso).format("HH:mm");
     // Linha modificada abaixo
-    const bHours = moment(b?.data_compromisso).subtract(3, 'hours').format("HH:mm");
+    const bHours = moment(b?.data_compromisso).format("HH:mm");
     return aHours > bHours ? 1 : -1;
   });
 
@@ -170,7 +170,7 @@ function Screen({ handler }: PropsInput) {
                 </Heading>
               ) : (
                 filteredValues?.map((item: Meeting, index: any) => {
-                  const timeWithSubtraction = moment(item?.data_compromisso).subtract(3, 'hours');
+                  const timeWithSubtraction = moment(item?.data_compromisso);
                   const getHours = timeWithSubtraction.format("HH:mm").split(":");
                   
 
