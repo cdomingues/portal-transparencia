@@ -24,6 +24,7 @@ type PropsInput = {
 };
 
 type Meeting = {
+  nome: string;
   id: string;
   pessoa: string;
   created_at: string;
@@ -142,33 +143,23 @@ function Screen({ handler }: PropsInput) {
 
   
 
-   
+ 
+
+
   const filteredValues = schedule
-  ?.filter((item: Meeting) => {
-    const timeWithSubtraction = moment(item?.data_compromisso).subtract( 'hours');
-    const isSameDate = timeWithSubtraction.format("YYYY-MM-DD") === String(moment(selected).format("YYYY-MM-DD"));
-    const pessoaParts = item.pessoa.split('-');
-    let name = "";
-    let cargo = "";
+    ?.filter((item: Meeting) => {
+      const timeWithSubtraction = moment(item?.data_compromisso).subtract('hours');
+      const isSameDate = timeWithSubtraction.format("YYYY-MM-DD") === String(moment(selected).format("YYYY-MM-DD"));
+      const isNotPrefeitoOrCoPrefeita = item?.cargo !== "Prefeito" && item?.cargo !== "Co-Prefeita";
+      const isSameCargo = selectedCargo === "" || selectedCargo === item?.cargo;
 
-    for (const part of pessoaParts) {
-      if (part.includes('Nome:')) {
-        name = part.split('Nome:')[1].trim();
-      }
-
-      if (part.includes('Cargo:')) {
-        cargo = part.split('Cargo:')[1].trim();
-      }
-    }
-    const isNotPrefeitoOrCoPrefeita = cargo !== "Prefeito" && cargo !== "Co-Prefeita";
-    const isSameCargo = selectedCargo === "" || selectedCargo === cargo; 
-    return isSameDate && isNotPrefeitoOrCoPrefeita && isSameCargo ;
-  })
-  .sort((a: Meeting, b: Meeting) => {
-    const aHours = moment(a?.data_compromisso).format("HH:mm");
-    const bHours = moment(b?.data_compromisso).format("HH:mm");
-    return aHours > bHours ? 1 : -1;
-  });
+      return isSameDate && isNotPrefeitoOrCoPrefeita && isSameCargo;
+    })
+    .sort((a: Meeting, b: Meeting) => {
+      const aHours = moment(a?.data_compromisso).format("HH:mm");
+      const bHours = moment(b?.data_compromisso).format("HH:mm");
+      return aHours > bHours ? 1 : -1;
+    });
 
   const title = contentMayorAgenda?.titlePage;
   const description = contentMayorAgenda?.description;
@@ -264,29 +255,11 @@ function Screen({ handler }: PropsInput) {
                   Nessa data não possui nada agendado!
                 </Heading>
               ) : (
-                filteredValues?.map((item: Meeting, index: any) => {
+                filteredValues?.map((item: Meeting) => {
                   const timeWithSubtraction = moment(item?.data_compromisso);
                   const getHours = timeWithSubtraction.format("HH:mm").split(":");
 
-                  let name = "";
-                  let cargo = "";
-
-                  if (item?.pessoa) {
-                    const pessoaParts = item.pessoa.split('-');
-
-                    for (const part of pessoaParts) {
-                      if (part.includes('Nome:')) {
-                        name = part.split('Nome:')[1].trim();
-                      }
-
-                      if (part.includes('Cargo:')) {
-                        cargo = part.split('Cargo:')[1].trim();
-                      }
-                    }
-                  }
-                  
-
-                  
+                
                   
 
                   return (
@@ -319,14 +292,14 @@ function Screen({ handler }: PropsInput) {
                           color="text.dark"
                           style={{ margin: 0 }}
                         >
-                          {cargo}
+                          {item?.cargo}
                         </Text>
                         <Text
                           fontSize={accessibility?.fonts?.medium}
                           color="text.dark"
                           style={{ margin: 0 }}
                         >
-                          {name}
+                          {item?.nome}
                         </Text>
                         <div style={{ marginTop: 8 }}></div>
                         <Divider
