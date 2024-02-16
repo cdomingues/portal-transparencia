@@ -14,12 +14,12 @@ type PropsInput = {
 export const contentMapSite = {
   titlePage: "Pregão Eletrônico",
   description:
-    "Redirecionando para o site http://www.cmmc.com.br/contasexecutivo/ ",
+    "Redirecionando para o site http://www.cmmc.com.br/paginas/contas_do_executivo_municipal/  ",
 };
 
 function redirecionarParaLinkExterno() {
   setTimeout(function () {
-    window.location.href = 'http://www.cmmc.com.br/contasexecutivo/'; // Substitua pelo seu link externo
+    window.location.href = 'http://www.cmmc.com.br/paginas/contas_do_executivo_municipal/ '; // Substitua pelo seu link externo
   }, 100); // 1000 milissegundos = 1 segundo
 }
 

@@ -165,7 +165,7 @@ function CardHome() {
         },
         {
           label: "Aprovação de Contas pelo Legislativo",
-          url: "http://www.cmmc.com.br/contasexecutivo/",
+          url: "http://www.cmmc.com.br/paginas/contas_do_executivo_municipal/ ",
         },
       ],
     },
@@ -509,6 +509,10 @@ function CardHome() {
           label: "Acompanhe os dados genéricos dos pedidos",
           url: "https://mogidascruzes.1doc.com.br/b.php?pg=wp/wp&itd=3&ss=5",
         },
+        {
+          label: "Dashboard da LAI",
+          url: "https://app.powerbi.com/view?r=eyJrIjoiZDcxMGQ1ZWQtY2U5Yi00YTgzLThlODgtZjk2MDkwZTRjNTAwIiwidCI6IjdkZTNiN2RlLWIzOGYtNDFhNi05ZDQ1LWIxZDlkMTg0OGM3OSJ9",
+        },
       ],
     },
 
@@ -516,7 +520,7 @@ function CardHome() {
       title: "Governo Aberto",
       imageURL: Leis_decretos_portarias.src,
       description: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-transparencia-e-dados-abertos/governo-aberto",
-      link: "/plano-municipal-educacao",
+      link: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-transparencia-e-dados-abertos/governo-aberto",
       backgroundColor: "blue",
       showExtraLinks: false,
       extraLinks: [
