@@ -385,6 +385,21 @@ marginBottom="15px">
               
               </Text>    
 
+              <Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+              >
+                Informações Classificadas ou desclassificadas como sigilosas:
+                
+                
+              </Text>
+        <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              >Ainda não dispomos de lista de informações classificadas como sigilosas, haja vista estarmos no prazo de adequação previsto na Lei Municipal nº 7.986/2023. </Text>      
+
 
       </Box>
     <Stack
@@ -462,6 +477,14 @@ marginBottom="15px"
                       imageURL={relatorio_de_demandas.src}
                       description="Pedido de e-SIC."
                       link="https://mogidascruzes.1doc.com.br/b.php?pg=wp/wp&itd=3&ss=5 "
+                      backgroundColor="transparent"/>
+                  </Box>
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                  <CardHorizon
+                      title="Dashboard - LAI "
+                      imageURL={relatorio_de_demandas.src}
+                      description="Pedido de e-SIC."
+                      link="https://app.powerbi.com/view?r=eyJrIjoiZDcxMGQ1ZWQtY2U5Yi00YTgzLThlODgtZjk2MDkwZTRjNTAwIiwidCI6IjdkZTNiN2RlLWIzOGYtNDFhNi05ZDQ1LWIxZDlkMTg0OGM3OSJ9"
                       backgroundColor="transparent"/>
                   </Box>
                  

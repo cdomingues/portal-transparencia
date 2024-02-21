@@ -207,7 +207,7 @@ let publicRoutes: IPublicRoute[] = [
           //defaultPath: "/ciclo-orcamentario",
           name: "Aprovação de Contas pelo Legislativo",
           path: "contas-executivo",    
-          link: "http://www.cmmc.com.br/contasexecutivo/",
+          link: "http://www.cmmc.com.br/paginas/contas_do_executivo_municipal/ ",
         icon: AiFillCaretRight,
       },
       {
