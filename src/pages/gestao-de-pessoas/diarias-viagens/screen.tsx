@@ -78,10 +78,11 @@ function Screen({
       >
       <Stack direction="row">
         <Stack minW={86} width="25%">
+          
           <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
             Ano
           </Text>
-          <Select
+           <Select
             defaultValue={year}
             onChange={(e) => setYear(e.target.value)}
             bg="white"
@@ -93,7 +94,7 @@ function Screen({
                 {String(year)}
               </option>
             ))}
-          </Select>
+          </Select> 
         </Stack>
         <Stack minW={50} width="10%" justifyContent="flex-end">
                <Button
@@ -108,11 +109,11 @@ function Screen({
             >
          
             Buscar
-          </Button>
+          </Button>*
         </Stack>
         
       </Stack>
-      <Text fontSize="sm" fontWeight="550" paddingLeft="5px" paddingTop="10px"> Desculpe, falha ao carregar os dados, perda de conexão com o servidor de dados</Text>
+      
 
       <Divider borderWidth="2px" mt="10" mb="10" />
       <TableComponent loading={loading} columns={columns} data={data} />
