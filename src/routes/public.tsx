@@ -150,7 +150,7 @@ let publicRoutes: IPublicRoute[] = [
 
   {
     name: "Pagamentos a fornecedores",
-    path: "pagamento-fornecedor" ,
+    path: "/pagamento-fornecedor" ,
     icon: AiOutlineProfile,
     group: undefined,
   },
@@ -389,7 +389,7 @@ let publicRoutes: IPublicRoute[] = [
   {
     name: "Controle de Radares",
     icon: BsCameraVideo,
-    path: "controle-de-radares",
+    path: "/controle-de-radares",
     group: undefined,
     ...contentRadarsControl,
   },
@@ -428,7 +428,7 @@ let publicRoutes: IPublicRoute[] = [
   {
     name: "Gestão de Pessoas",
     path: "/gestao-de-pessoas",
-    element: <div></div>,
+    //element: <div></div>,
     icon: BsFileText,
     group: [
       {
@@ -591,8 +591,8 @@ let publicRoutes: IPublicRoute[] = [
 
   {
     name: "Governo Aberto",
-    path: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-transparencia-e-dados-abertos/governo-aberto",
-    link:"https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-transparencia-e-dados-abertos/governo-aberto",
+    path: "/governo-aberto",
+    link:"/governo-aberto",
     icon: AiOutlineAudit,
     ...contentOtherInformations,
   },
@@ -626,7 +626,7 @@ let publicRoutes: IPublicRoute[] = [
 
   {
     name: "Perguntas Frequentes",
-    path: "perguntas-frequentes",
+    path: "/perguntas-frequentes",
     icon: AiOutlineAudit,
     ...contentAbout,
   },
@@ -695,8 +695,15 @@ let publicRoutes: IPublicRoute[] = [
   },
   {
     name: "VISUAS – Visor do Sistema Único de Assistência Social",
-    path: "https://visuas.mogidascruzes.sp.gov.br/",
-    link:"https://visuas.mogidascruzes.sp.gov.br/",
+    path: "/visuas",
+    link:"/visuas",
+    icon: AiOutlineAudit,
+    ...contentOtherInformations,
+  },
+  {
+    name: "Dados Abertos",
+    path: "/dados-abertos",
+    link:"https://dados.mogidascruzes.sp.gov.br/ ",
     icon: AiOutlineAudit,
     ...contentOtherInformations,
   },
@@ -715,7 +722,7 @@ let publicRoutes: IPublicRoute[] = [
   },
   {
     name: "Portal Antigo",
-    path: "portal-antigo",
+    path: "/portal-antigo",
     icon: AiOutlineGlobal,
     group: undefined,
   },
