@@ -189,7 +189,7 @@ function HomeScreen({ handler }: PropsInput) {
 
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Diretriz Orçamentária"
+                      title="Diretrizes Orçamentárias"
                       imageURL={diretriz_orcamentaria.src}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                       link="ciclo-orcamentario/diretrizes-orcamentarias"
@@ -213,7 +213,7 @@ function HomeScreen({ handler }: PropsInput) {
 
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Relatório de Gestão Fiscal"
+                      title="Relatório de Gestão Fiscal (RGF) "
                       imageURL={relatorio_gestao_fiscal.src}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                       link="ciclo-orcamentario/relatorio-gestao-fiscal"
@@ -230,7 +230,7 @@ function HomeScreen({ handler }: PropsInput) {
 
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Relatório Resumido"
+                      title="Relatório Resumido da Execução Orçamentária (RREO)"
                       imageURL={relatorio_resumido.src}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                       link="ciclo-orcamentario/relatorio-resumido"
@@ -255,7 +255,7 @@ function HomeScreen({ handler }: PropsInput) {
                   
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Parecer do Tribunal de Contas"
+                      title="Pareceres do Tribunal de Contas do Estado"
                       imageURL={parecer_tribunal.src}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
                       link="ciclo-orcamentario/pareceres-do-tribunal"
@@ -266,7 +266,7 @@ function HomeScreen({ handler }: PropsInput) {
                       title="Aprovação de Contas pelo Legislativo"
                       imageURL={parecer_tribunal.src}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="http://www.cmmc.com.br/contasexecutivo/"
+                      link="http://www.cmmc.com.br/paginas/contas_do_executivo_municipal/"
                  backgroundColor="transparent"/>
                   </Box>
                 </Stack>
@@ -278,22 +278,8 @@ function HomeScreen({ handler }: PropsInput) {
                   justifyContent={isMobile ? "flex-start" : "center"}
                 >
                   
-                  <Box padding="6" bg="transparent" flexDirection="row">
-                    <CardHorizon
-                      title="Obras Públicas"
-                      imageURL={relatorio_gestao_fiscal.src}
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/obras-publicas"
-                 backgroundColor="transparent"/>
-                  </Box>  
-                  <Box padding="6" bg="transparent" flexDirection="row">
-                    <CardHorizon
-                      title="Promae"
-                      imageURL={relatorio_gestao_fiscal.src}
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/promae"
-                 backgroundColor="transparent"/>
-                  </Box>
+                 
+                 
                 </Stack>
                 
                 <Stack
@@ -301,15 +287,15 @@ function HomeScreen({ handler }: PropsInput) {
                   align={isMobile ? "center" : "center"}
                   justifyContent={isMobile ? "flex-start" : "center"}
                 >
-                  
-                  <Box padding="6" bg="transparent" flexDirection="row">
+                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Servidores Públicos Estagiários"
-                      imageURL={relatorio_gestao_fiscal.src}
+                      title="Prestação de Contas à CMMC"
+                      imageURL={parecer_tribunal.src}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="ciclo-orcamentario/servidores-publicos-estagiarios"
+                      link="http://www.cmmc.com.br/paginas/contas_do_executivo_municipal/"
                  backgroundColor="transparent"/>
-                  </Box>  
+                  </Box>
+                  
                   
                 </Stack>
 

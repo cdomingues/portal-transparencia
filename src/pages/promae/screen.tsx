@@ -53,9 +53,9 @@
 import { useColorModeValue, Box } from "@chakra-ui/react";
 import React from "react";
 import { Laws } from ".";
-import ContainerBasic from "../../../components/Container/Basic";
-import PlanContainerLaw from "../../../components/Container/PlanLaw";
-import ListarArquivos from "../../../components/ListarArquivos";
+import ContainerBasic from "../../components/Container/Basic";
+import PlanContainerLaw from "../../components/Container/PlanLaw";
+import ListarArquivos from "../../components/ListarArquivos";
 
 type PropsInput = {
   handler: {

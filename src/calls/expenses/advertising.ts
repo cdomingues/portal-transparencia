@@ -10,28 +10,29 @@ import {
 import moneyFormatter from "../../utils/moneyFormatter";
 
 type AdvertisingResponse = {
-  "_id": number;
-  "id": number;
-  "ano": number;
-  "Competência": string;
-  "Campanha": string;
-  "Veículo de divulgação": string;
-  "Tipo de Serviço": string;
-  "Fornecedor": string;
-  "Agência Contratada": string;
-  "Data de Início": Date;
-  "Data de Término": Date;
-  "Valor total da Veiculação": number;
-  "Honorário Agência Veiculação": number;
-  "Honorário Agência Produção": number;
+  ano: number;
+  _id: number;
+  index: number;
+  competencia: string;
+  campanha: string;
+  veiculo_divulgacao: string;
+  tipo_servico: string;
+  fornecedor: string | null;
+  agencia_contratada: string;
+  data_inicio: string;
+  data_termino: string;
+  valor_total_veiculacao: number;
+  honorario_agencia_veiculacao: number;
+  honorario_agencia_producao: number | null | string;
+  data_pagamento: string;
   rank: number; 
 };
 
 export const getdvertisings = async (year?: number) => {
   try {
     const response = await axios.get(
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=fde32aaa-b073-4311-8d21-b86af17a973f",
-      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=765f5550-8ce7-4091-b780-aec971613328",
+      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=fde32aaa-b073-4311-8d21-b86af17a973f",
+      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=42791083-d0db-4481-b8be-cfdf85e15c0a",
       
       {
         headers: {
@@ -40,7 +41,7 @@ export const getdvertisings = async (year?: number) => {
         },
         params: {
           q: year,
-          limit: 3000,
+          limit: 4000,
         },
       }
     );
@@ -49,35 +50,35 @@ export const getdvertisings = async (year?: number) => {
 
     const mappingRows = rows?.map((row: AdvertisingResponse) => {
       return {
-        id: row?.["id"],
+        _id: row?.["_id"],
         ano: row?.["ano"],
-        competencia:
-          row["Competência"],
-        campanha: row?.["Campanha"],
-        veiculo_divulgacao: row?.["Veículo de divulgação"],
-        tipo_servico: row?.["Tipo de Serviço"],
-        fornecedor: row?.["Fornecedor"],
-        agencia_contratada: row?.["Agência Contratada"],
+        competencia: row?.["competencia"].split("-")[1],
+        campanha: row?.["campanha"],
+        veiculo_divulgacao: row?.["veiculo_divulgacao"],
+        tipo_servico: row?.["tipo_servico"],
+        fornecedor: row?.["fornecedor"],
+        agencia_contratada: row?.["agencia_contratada"],
         data_inicio:
-          row["Data de Início"] &&
-          moment(row?.["Data de Início"]).format("DD/MM/YYYY hh:mm"),
+          row.data_inicio &&
+          moment(row?.["data_inicio"]).format("DD/MM/YYYY "),
         data_termino:
-          row["Data de Término"] &&
-          moment(row?.["Data de Término"]).format("DD/MM/YYYY hh:mm"),
+          row.data_termino &&
+          moment(row?.data_termino).format("DD/MM/YYYY"),
         valor_total_veiculacao: moneyFormatter(
-          Number(row?.["Valor total da Veiculação"])
+          Number(row?.["valor_total_veiculacao"])
         ),
         honorario_agencia_veiculacao: moneyFormatter(
-          Number(row?.["Honorário Agência Veiculação"])
+          Number(row?.["honorario_agencia_veiculacao"])
         ),
         honorario_agencia_producao: moneyFormatter(
-          Number(row?.["Honorário Agência Produção"])
+          Number(row?.["honorario_agencia_producao"])
         ),
-        rank: row?.["rank"] || "",
+        rank: row?.rank || "",
+        data_pagamento: row?.data_pagamento.split(" ")[0]
       };
     });
 
-    return { advertisings: mappingRows, years: ["2020","2021", "2022", "2023"] };
+    return { advertisings: mappingRows, years: ["2021", "2022", "2023"] };
   } catch (error) {
     if (axios.isAxiosError(error)) {
       const url = error.config?.url ?? "Unknown URL";
@@ -90,8 +91,8 @@ export const getdvertisings = async (year?: number) => {
 export const getChartYear = async () => {
   try {
     const response = await axios.get(
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=a8fdc20d-7236-4302-8630-738ccf60ba4b&limit=4000",
-        //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=a8fdc20d-7236-4302-8630-738ccf60ba4b",
+      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=a8fdc20d-7236-4302-8630-738ccf60ba4b&limit=4000",
+        "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=42791083-d0db-4481-b8be-cfdf85e15c0a&limit=4000",
       {
         headers: {
           Authorization:
@@ -103,12 +104,12 @@ export const getChartYear = async () => {
     const rows: AdvertisingResponse[] = response.data?.result?.records || [];
 
     const years = [
-      moment().subtract(5, "years").year(),
-      moment().subtract(4, "years").year(),
+   //   moment().subtract(5, "years").year(),
+     // moment().subtract(4, "years").year(),
       moment().subtract(3, "years").year(),
       moment().subtract(2, "years").year(),
       moment().subtract(1, "years").year(),
-      moment().year(),
+      //moment().year(),
     ];
 
     const graphs = [];
@@ -116,8 +117,9 @@ export const getChartYear = async () => {
     for (const year of years) {
       const filteredRows = rows.filter((row) => row["ano"] == year);
 
+
       const sum = filteredRows.reduce((acumulador, item) => {
-        return acumulador + item["Valor total da Veiculação"];
+        return acumulador + item.valor_total_veiculacao;
       }, 0);
 
       graphs.push({
@@ -152,7 +154,7 @@ export const getChart = async (year?: number) => {
   try {
     const response = await axios.get(
       //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=03146785-57db-4207-8924-85c492e8b9a8",
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=a8fdc20d-7236-4302-8630-738ccf60ba4b",
+      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=42791083-d0db-4481-b8be-cfdf85e15c0a&limit=4000",
       {
         headers: {
           Authorization:
@@ -163,7 +165,7 @@ export const getChart = async (year?: number) => {
 
     const rows: AdvertisingResponse[] = response.data?.result?.records || [];
 
-    const year = 2022;
+    const year = 2023;
 
     let months = moment().year(year).endOf("year").month() + 1;
 
@@ -174,12 +176,12 @@ export const getChart = async (year?: number) => {
     for (let index = 1; index <= months; index++) {
       const filteredRows = rows.filter(
         (row) =>
-          moment(row?.["Data de Início"]).month() + 1 === index &&
-          row?.["ano"] === year
+          moment(row?.data_inicio).month() + 1 === index &&
+          row?.ano === year
       );
 
       const sum = filteredRows.reduce((acumulador, item) => {
-        return acumulador + item["Valor total da Veiculação"];
+        return acumulador + item.valor_total_veiculacao;
       }, 0);
 
       acamulatedAmount += Number(sum) || 0;

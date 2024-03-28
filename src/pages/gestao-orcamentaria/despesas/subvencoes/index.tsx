@@ -4,29 +4,33 @@ import Screen from "./screen";
 import {
   getChart,
   getChartYear,
-  getdvertisings,
-} from "../../../../calls/expenses/advertising";
+  getGrants,
+} from "../../../../calls/expenses/grants";
 import { revalidate } from "../../../../config";
 import moment from "moment";
 
 function Controller({
   chart = { datasets: [] },
   chartYear = { datasets: [] },
-  advertisings = [],
+  grants = [],
   years,
 }: any) {
   const [year, setYear] = useState(moment().year());
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState(advertisings);
+  const [data, setData] = useState(grants);
   const [newChart, setNewChart] = useState(chart);
 
   const columns = [
-    { title: "Número", field: "A" },
-    { title: "Objeto", field: "B" },
-    { title: "Data Inclusão", field: "C" },
-    { title: "Data Programada", field: "D" },
-    { title: "Data Pagamento", field: "F" },
-    { title: "Justificativa Alteração", field: "G" },
+    { title: "Número", field: "numero" },
+    { title: "Modalidade", field: "modalidade" },
+    { title: "CPF/CNPJ", field: "cpfcnpj" },
+    { title: "Fornecedor", field: "fornecedor" },
+    { title: "Data", field: "data" },
+    { title: "Empenhado", field: "empenhado" },
+    { title: "Liquidado", field: "liquidado" },
+    { title: "Pago", field: "pago" },
+    { title: "Programa", field: "programa" },
+    { title: "Unidade", field: "unidade" },
   ];
 
   const handleByYear = async (year: number) => {
@@ -34,7 +38,7 @@ function Controller({
 
     setLoading(true);
 
-    const { advertisings } = await getdvertisings(year);
+    const { grants } = await getGrants(year);
 
     const { chart } = await getChart(year);
 
@@ -42,7 +46,7 @@ function Controller({
 
     setNewChart(chart);
 
-    setData(advertisings);
+    setData(grants);
   };
 
   const handler = {
@@ -65,13 +69,13 @@ export default Controller;
 export const getStaticProps: GetStaticProps = async () => {
   const { chart } = await getChart();
   const { chartYear } = await getChartYear();
-  const { advertisings, years } = await getdvertisings();
+  const { grants, years } = await getGrants();
 
   return {
     props: {
       chartYear: chartYear || { datasets: [] },
       chart: chart || { datasets: [] },
-      advertisings: advertisings || [],
+      grants: grants || [],
       years: years || [],
     },
     revalidate,

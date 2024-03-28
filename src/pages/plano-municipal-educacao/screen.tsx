@@ -88,6 +88,7 @@ function Screen(PropsInput: any) {
       bg={useColorModeValue("white", "gray.800")  }     
       onChange={ev => setPublicacao(ev.target.value  )}     
       >
+        <option value="">Selecione</option>
       {publicacoes_educacao.map((info)=>(
         <option value={info.volume}>{info.volume}</option>
       ))}

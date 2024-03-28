@@ -41,6 +41,7 @@ import Ultimas_noticias from "../../assets/images/icones/icones_barra lateral__u
 import Plano_municipal_educacao from "../../assets/images/icones/Home_botoes_planoeducacao.svg";
 import Plano_municipal_saude from "../../assets/images/icones/Home_botoes_planosaude.svg";
 import Mapa_do_site from "../../assets/images/icones/icones_barra lateral__mapa do site.svg";
+import promae from "../../assets/images/icones/relatorio_resumido.svg"
 
 function CardHome() {
   const columnLayout = () => {
@@ -167,6 +168,10 @@ function CardHome() {
           label: "Aprovação de Contas pelo Legislativo",
           url: "http://www.cmmc.com.br/paginas/contas_do_executivo_municipal/ ",
         },
+        {
+          label: "Prestação de Contas à CMMC",
+          url: "/ciclo-orcamentario/prestacao-de-contas ",
+        },
       ],
     },
 
@@ -201,6 +206,14 @@ function CardHome() {
           url: "/gestao-orcamentaria/despesas/despesas-multas-transito",
         },
         {
+          label: "Propaganda e Publicidade",
+          url: "/gestao-orcamentaria/despesas/propaganda",
+        },
+        {
+          label: "Subvenções e Terceiro Setor",
+          url: "/gestao-orcamentaria/despesas/subvencoes",
+        },
+        {
           label: "Restos a Pagar",
           url: "/gestao-orcamentaria/despesas/despesas-restos",
         },
@@ -211,33 +224,6 @@ function CardHome() {
       ],
     },
 
-    {
-      title: "Gestão Orçamentária - Outros",
-      imageURL: Gestao_orcamentaria_outros.src,
-      description: "Descrição 2",
-      link: "/gestao-orcamentaria-outros",
-      backgroundColor: "blue",
-      showExtraLinks: true,
-      extraLinks: [
-        {
-          label: "Gestão Orçamentária - Outros - Início ",
-          url: "/gestao-orcamentaria-outros/",
-        },
-        {
-          label: "Propaganda e Publicidade",
-          url: "/gestao-orcamentaria-outros/propaganda",
-        },
-        { label: "Subvenções", url: "/gestao-orcamentaria-outros/subvencoes" },
-        {
-          label: "Dívida Ativa",
-          url: "/gestao-orcamentaria-outros/divida-ativa",
-        },
-        {
-          label: "Contratos e Atas",
-          url: "/gestao-orcamentaria-outros/contratos-atas",
-        },
-      ],
-    },
 
     {
       title: "Gestão Orçamentária - Covid-19",
@@ -275,6 +261,19 @@ function CardHome() {
         },
       ],
     },
+    
+    {
+      title: "Promae",
+      imageURL: promae.src,
+      description: "Descrição 3",
+      link: "/promae",
+      backgroundColor: "green",
+      showExtraLinks: false,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
+    },
 
 
     {
@@ -300,6 +299,7 @@ function CardHome() {
       extraLinks: [
         { label: "Compras Públicas - Início", url: "/compras-publicas/" },
         { label: "Licitações", url: "/compras-publicas/licitacoes" },
+        { label: "Licitações Portal Antigo", url: "https://licitacao-mgcon.mogidascruzes.sp.gov.br/" },
         {
           label: "Pregão Eletrônico",
           url: "/compras-publicas/pregao-eletronico",
@@ -371,7 +371,7 @@ function CardHome() {
     },
 
     {
-      title: "Acordos e Termos",
+      title: "Contratos, Termos e Atas de registro de preços",
       imageURL: Acordos_termos.src,
       description: "Descrição 1",
       link: "/acordos-termos",
@@ -383,14 +383,19 @@ function CardHome() {
           url: "/acordos-termos/",
         },
         {
-          label: "Acordo de Colaboração",
-          url: "/acordos-termos/acordo-de-colaboracao",
+          label: "Acordo de Cooperação",
+          url: "/acordos-termos/acordo-de-cooperacao",
         },
         {
           label: "Termo de Parceria",
           url: "/acordos-termos/termo-de-colaboracao",
         },
-        { label: "Termo de Fomento", url: "/acordos-termos/termo-de-fomento" },
+        { label: "Termo de Fomento", 
+        url: "/acordos-termos/termo-de-fomento" 
+      },
+      { label: "Contratos Gestão", 
+        url: "/acordos-termos/contratos-gestao" 
+      },
       ],
     },
 
@@ -437,7 +442,7 @@ function CardHome() {
     },
 
     {
-      title: "Institutos e Autarquias",
+      title: "Instituto e Autarquias",
       imageURL: Instituto_autarquia.src,
       description: "Descrição 3",
       link: "/instituto-autarquia",
@@ -445,7 +450,7 @@ function CardHome() {
       showExtraLinks: true,
       extraLinks: [
         {
-          label: "Institutos e Autarquias - Início",
+          label: "Instituto e Autarquias - Início",
           url: "/instituto-autarquia/",
         },
         {
@@ -486,7 +491,7 @@ function CardHome() {
     },
 
     {
-      title: "LAI - Lei de Acesso a Informação",
+      title: "LAI - Lei de Acesso à Informação",
       imageURL: Leis_decretos_portarias.src,
       description: "Descrição 2",
       link: "/acesso-a-informacao",
@@ -494,7 +499,7 @@ function CardHome() {
       showExtraLinks: true,
       extraLinks: [
         {
-          label: "LAI - Lei de Acesso a Informação - Início",
+          label: "LAI - Lei de Acesso à Informação - Início",
           url: "/acesso-a-informacao/",
         },
         {
@@ -534,7 +539,7 @@ function CardHome() {
       title: "Plano Municipal de Educação",
       imageURL: Plano_municipal_educacao.src,
       description: "Descrição 2",
-      link: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-transparencia-e-dados-abertos/governo-aberto",
+      link: "/plano-municipal-educacao",
       backgroundColor: "blue",
       showExtraLinks: false,
       extraLinks: [
