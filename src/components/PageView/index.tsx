@@ -19,7 +19,7 @@ const PageViewCounter: React.FC<PageViewCounterProps> = ({ path }) => {
 
   return (
     <div>
-      {count !== null ? `Esta página foi acessada ${count} vezes.` : 'Carregando contagem de acessos...'}
+      
     </div>
   );
 };

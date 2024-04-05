@@ -99,7 +99,7 @@ const CardHorizon: React.FC<CardHorizonProps> = ({
             />
           </Stack>
           <Stack
-            width={"50%"}
+            width={"70%"}
             height="80%"
             paddingLeft={4}
             display="flex"

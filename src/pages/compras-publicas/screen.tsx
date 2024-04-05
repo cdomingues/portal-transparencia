@@ -202,10 +202,10 @@ marginBottom="15px"
                  
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Pregão Eletrônico"
-                      imageURL={pregao_eletronico.src}
-                      description="São disponibilizados no site da Prefeitura os editais de licitação de pregões eletrônicos para aquisição de bens e serviços, para acesso de qualquer interessado."
-                      link="https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/pregao-eletronico"
+                      title="Licitações - Portal Antigo"
+                      imageURL={licitacoes.src}
+                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
+                      link="https://licitacao-mgcon.mogidascruzes.sp.gov.br/"
                  backgroundColor="transparent"
                 
                  />
@@ -226,6 +226,19 @@ marginBottom="15px"
                       description="A empresa interessada em participar de licitações na modalidade Tomada de Preços ou que pretenda manifestar interesse em licitações ..."
                       link="https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/cadastro-de-fornecedor"
                  backgroundColor="transparent"/>
+                  </Box>
+
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Pregão Eletrônico"
+                      imageURL={pregao_eletronico.src}
+                      description="São disponibilizados no site da Prefeitura os editais de licitação de pregões eletrônicos para aquisição de bens e serviços, para acesso de qualquer interessado."
+                      link="https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/pregao-eletronico"
+                 backgroundColor="transparent"
+                
+                 />
+
+
                   </Box>
                   
                 </Stack>

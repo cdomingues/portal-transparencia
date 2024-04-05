@@ -72,7 +72,7 @@ type PropsInput = {
 };
 
 export const contentInitial = {
-  titlePage: "Finanças Municipal",
+  titlePage: "Gestão Orçamentária ",
   description:
     "É o processo de planejamento, execução, controle e acompanhamento dos recursos financeiros da Prefeitura de Mogi das Cruzes. Ela envolve a elaboração de um plano financeiro detalhado, conhecido como orçamento, que descreve as receitas esperadas e as despesas planejadas durante um ano. ",
 };

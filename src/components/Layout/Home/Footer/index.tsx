@@ -14,7 +14,7 @@ import {
 import logo from "../../../../assets/images/Brasao_horizontal_normal.png";
 import logoDark from "../../../../assets/images/Brasao_horizontal_branco.png";
 import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAccessibility";
-import PageViewCounter from "../../../PageView";
+//import PageViewCounter from "../../../PageView";
 
 function ListHeader({ children }: { children: ReactNode }) {
   const accessibility = useFontSizeAccessibilityContext();

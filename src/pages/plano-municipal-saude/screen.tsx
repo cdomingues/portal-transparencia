@@ -41,18 +41,18 @@ function Screen() {
       >
         <Box display="flex" alignContent="center" flexDirection={isMobile ?  "column" : "column"}>
       
-      <Select 
-      minW={90}
-      width="45%"
-      bg={useColorModeValue("white", "gray.800")  }     
-      onChange={ev => setPublicacao(ev.target.value  )}     
-      >
-      {publicacoes_saude.map((info)=>(
-        // eslint-disable-next-line react/jsx-key
-        // <option value={info.volume}>{info.volume}</option>
-        <option key={info.id} value={info.volume}>{info.volume}</option>
-      ))}
-    </Select>
+        <Select
+          minW={90}
+          width="45%"
+          bg={useColorModeValue("white", "gray.800")}
+          onChange={ev => setPublicacao(ev.target.value)}
+        >
+          <option value="">Selecione</option>
+          {publicacoes_saude.map((info) => (
+            // eslint-disable-next-line react/jsx-key
+            <option key={info.id} value={info.volume}>{info.volume}</option>
+          ))}
+        </Select>
       
         </Box>
         {selectedPublication && (

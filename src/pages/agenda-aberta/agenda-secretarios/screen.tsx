@@ -23,8 +23,13 @@ type PropsInput = {
   handler: any;
 };
 
-type Meeting = {
+interface Cargo {
+  cargo: string;
   nome: string;
+}
+
+type Meeting = {
+  nome: any;
   id: string;
   pessoa: string;
   created_at: string;
@@ -34,8 +39,9 @@ type Meeting = {
   local: string;
   detalhe: string;
   tipo_compromisso: string;
-  cargo: string;
+  cargo: any;
 };
+
 
 export const contentMayorAgenda = {
   titlePage: "Agenda Aberta",
@@ -52,12 +58,17 @@ function Screen({ handler }: PropsInput) {
     "Prefeito",
     "Diretor do Departamento de Defesa Civil",
     "Co-Prefeita",
+    "AGENDA CULTURAL",
+    "AGENDA PARTICIPAÇÃO SOCIAL",
+    "Caio Cunha",
+    "Priscila Yamagami",
+    "Pedro Rodrigues Miranda Neto",
     
   ];
   const [selected, setSelected] = useState<Date>();
   const [schedule, setSchedule] = useState<Array<Meeting>>([]);
-  const [selectedCargo, setSelectedCargo] = useState("");
-  const [apiCargos, setApiCargos] = useState<string[]>([]);
+  const [selectedCargo, setSelectedCargo] = useState<string>("");
+  const [apiCargos, setApiCargos] = useState<Cargo[]>([]);
   const [nextPage, setNextPage] = useState<number | null>(1);
   
    /* const handleGetOpenSchedule = async () => {
@@ -129,8 +140,11 @@ function Screen({ handler }: PropsInput) {
         const data = response.data;
 
         
-        const fetchedCargos = data.results?.map((item: any) => item.cargo) || [];
-        
+       // const fetchedCargos = data.results?.map((item: any) => item.cargo) || [];
+       const fetchedCargos = data.results?.map((item: any) => ({
+        cargo: item.cargo,
+        nome: item.nome,
+      })) || [];
 
         setApiCargos(fetchedCargos);
       } catch (error) {
@@ -151,7 +165,7 @@ function Screen({ handler }: PropsInput) {
       const timeWithSubtraction = moment(item?.data_compromisso).subtract('hours');
       const isSameDate = timeWithSubtraction.format("YYYY-MM-DD") === String(moment(selected).format("YYYY-MM-DD"));
       const isNotPrefeitoOrCoPrefeita = item?.cargo !== "Prefeito" && item?.cargo !== "Co-Prefeita";
-      const isSameCargo = selectedCargo === "" || selectedCargo === item?.cargo;
+      const isSameCargo = selectedCargo === "" || selectedCargo === item?.nome;
 
       return isSameDate && isNotPrefeitoOrCoPrefeita && isSameCargo;
     })
@@ -220,11 +234,11 @@ function Screen({ handler }: PropsInput) {
 >
   <option value="">Todos os Cargos</option>
   {apiCargos
-   .filter((cargo) => !excludedList.includes(cargo))
-   .sort()
+   .filter((cargo) => !excludedList.includes(cargo.nome))
+   .sort((a, b) => a.cargo.localeCompare(b.cargo))
    .map((cargo) => (  
-    <option key={cargo} value={cargo}>
-        {cargo}
+    <option key={cargo.nome} value={cargo.nome}>
+        {cargo.cargo}
     </option>
   ))}
 </Select>

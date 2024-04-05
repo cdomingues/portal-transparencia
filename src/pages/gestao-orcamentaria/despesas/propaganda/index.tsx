@@ -5,8 +5,8 @@ import {
   getChart,
   getChartYear,
   getdvertisings,
-} from "../../../calls/expenses/advertising";
-import { revalidate } from "../../../config";
+} from "../../../../calls/expenses/advertising";
+import { revalidate } from "../../../../config";
 import moment from "moment";
 
 function Controller({
@@ -21,13 +21,13 @@ function Controller({
   const [newChart, setNewChart] = useState(chart);
 
   const columns = [
-    { title: "Id", field: "id" },
+    //{ title: "Id", field: "id" },
     { title: "Ano", field: "ano" },
     { title: "Competência", field: "competencia" },
     { title: "Campanha", field: "campanha" },
     { title: "Veículo de divulgação", field: "veiculo_divulgacao" },
     { title: "Tipo de Serviço", field: "tipo_servico" },
-    { title: "Liquidado", field: "liquidado" },
+    //{ title: "Liquidado", field: "liquidado" },
     { title: "Fornecedor", field: "fornecedor" },
     { title: "Agência Contratada", field: "agencia_contratada" },
     { title: "Data Início", field: "data_inicio" },
@@ -35,6 +35,7 @@ function Controller({
     { title: "Valor Veiculação", field: "valor_total_veiculacao" },
     { title: "Honorário Veiculação", field: "honorario_agencia_veiculacao"},
     { title: "Honorário Produção", field: "honorario_agencia_producao",  },
+    { title: "Data Pagamento", field: "data_pagamento",  },
   ];
 
   const handleByYear = async (year: number) => {

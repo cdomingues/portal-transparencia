@@ -35,8 +35,8 @@ type PropsInput = {
 
 
 export const contentAdvertisements = {
-  titlePage: "Acordos de Colaboração",
-  description: "Divulgação da lista de Acordos de Colaboração, que não envolvam recursos financeiros, realizados pela Prefeitura de Mogi das Cruzes é uma medida fundamental cujo propósito é reforçar a transparência das finanças municipais e promover a responsabilidade fiscal.",
+  titlePage: "Acordos de Cooperação",
+  description: "Divulgação da lista de Acordos de Cooperação, que não envolvam recursos financeiros, realizados pela Prefeitura de Mogi das Cruzes é uma medida fundamental cujo propósito é reforçar a transparência das finanças municipais e promover a responsabilidade fiscal.",
 }
 
 function Screen({

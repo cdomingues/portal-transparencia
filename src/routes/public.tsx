@@ -45,7 +45,7 @@ import { contentContractManagement } from "../pages/convenios-transferencias/con
 
 import { contentPublicWorks } from "../pages/controle-de-obras/obras-publicas/screen";
 import { contentPublicServants } from "../pages/ciclo-orcamentario/servidores-publicos-estagiarios/screen";
-import { contentPROMAE } from "../pages/ciclo-orcamentario/promae/screen";
+//import { contentPROMAE } from "../pages/ciclo-orcamentario/promae/screen";
 import { contentRevenue } from "../pages/gestao-orcamentaria/receitas/screen";
 import { contentContractsAndAtas } from "../pages/gestao-orcamentaria-outros/contratos-atas/screen";
 import { contentBids } from "../pages/compras-publicas/licitacoes/screen";
@@ -212,21 +212,12 @@ let publicRoutes: IPublicRoute[] = [
       },
       {
         defaultPath: "/ciclo-orcamentario",
-        name: "Obras Públicas",
-        path: "obras-publicas",
+        name: "Prestação de Contas à CMMC",
+        path: "/prestacao-de-contas",
         icon: AiFillCaretRight,
       },
-      {
-        defaultPath: "/ciclo-orcamentario",
-        name: "Servidores Públicos Estagiários",
-        path: "servidores-publicos-estagiarios",
-        icon: AiFillCaretRight,
-      }, {
-        defaultPath: "/ciclo-orcamentario",
-        name: "Promae",
-        path: "promae",
-        icon: AiFillCaretRight,
-      },
+      
+      
     ],
   },
 
@@ -299,46 +290,23 @@ let publicRoutes: IPublicRoute[] = [
         path: "despesas/pagamentos",
         icon: AiFillCaretRight,
       },
+      {
+        defaultPath: "/gestao-orcamentaria",
+        name: "Subvenções e Terceiro Setor",
+        path: "despesas/subvencoes",
+        icon: AiFillCaretRight,
+      },
+      {
+        defaultPath: "/gestao-orcamentaria",
+        name: "Gastos com publicidade",
+        path: "despesas/propaganda",
+        icon: AiFillCaretRight,
+      },
     ],
   },
 
   
-  
 
-  {
-    name: "Gestão Orçamentária - Outros",
-    path: "/gestao-orcamentaria-outros",
-    element: <div></div>,
-    icon: BsFileText,
-    group: [
-      {
-        defaultPath: "/gestao-orcamentaria-outros",
-        name: "Contratos e Atas",
-        path: "contratos-atas",
-        icon: AiFillCaretRight,
-      },
-
-      {
-        defaultPath: "/gestao-orcamentaria-outros",
-        name: "Propaganda e Publicidade",
-        path: "propaganda",
-        icon: AiFillCaretRight,
-      },
-      {
-        defaultPath: "/gestao-orcamentaria-outros",
-        name: "Subvenções",
-        path: "subvencoes",
-        icon: AiFillCaretRight,
-      },
-      {
-        defaultPath: "/gestao-orcamentaria-outros",
-        name: "Dívida Ativa",
-        path: "divida-ativa",
-        icon: AiFillCaretRight,
-      },
-      
-    ],
-  },
 
   {
     name: "Gestão Orcamentária - Covid-19",
@@ -385,6 +353,12 @@ let publicRoutes: IPublicRoute[] = [
       },
     ],
   },
+  {
+    name: "Promae",
+    path: "/promae",
+    icon: BsFileText,
+    group: undefined,
+  },
   
   {
     name: "Controle de Radares",
@@ -405,6 +379,14 @@ let publicRoutes: IPublicRoute[] = [
         defaultPath: "/compras-publicas",
         name: "Licitações",
         path: "licitacoes",
+        icon: AiFillCaretRight,
+        subgroup: true,
+      },
+
+      {
+        defaultPath: "https://licitacao-mgcon.mogidascruzes.sp.gov.br/",
+        name: "Licitações Portal Antigo",
+        path: "https://licitacao-mgcon.mogidascruzes.sp.gov.br/",
         icon: AiFillCaretRight,
         subgroup: true,
       },
@@ -503,15 +485,15 @@ let publicRoutes: IPublicRoute[] = [
     group: undefined
   },
   {
-    name: "Acordos e Termos",
+    name: "Contratos, Termos e Atas de registro de preços",
     path: "/acordos-termos",
     element: <div></div>,
     icon: BsFileText,
     group: [
       {
         defaultPath: "/acordos-termos",
-        name: "Acordo de Colaboração",
-        path: "acordo-de-colaboracao",
+        name: "Acordo de Cooperação",
+        path: "acordo-de-cooperacao",
         icon: AiFillCaretRight,
         subgroup: false,
       },
@@ -526,6 +508,12 @@ let publicRoutes: IPublicRoute[] = [
         defaultPath: "/acordos-termos",
         name: "Termo de Fomento",
         path: "termo-de-fomento",
+        icon: AiFillCaretRight,
+        subgroup: false,
+      },{
+        defaultPath: "/acordos-termos",
+        name: "Contratos gestão",
+        path: "contratos-gestao",
         icon: AiFillCaretRight,
         subgroup: false,
       },
@@ -631,7 +619,7 @@ let publicRoutes: IPublicRoute[] = [
     ...contentAbout,
   },
   {
-    name: "LAI - Lei de Acesso a Informação",
+    name: "LAI - Lei de Acesso à Informação",
     path: "acesso-a-informacao",
     icon: AiOutlineSolution,
     group: [

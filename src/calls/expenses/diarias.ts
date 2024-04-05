@@ -12,24 +12,24 @@ import moneyFormatter from "../../utils/moneyFormatter";
 type AdvertisingResponse = {
   "_id": number;
  // id: number;
-  "Ano": number;
-  "Mês": number;
-  "RGF": string;
-  "Nome": string;
+  "ano": number;
+  "mês": number;
+  "rgf": string;
+  "nome": string;
   //"Tipo de Serviço": string;
-  "Total (R$)": number;
-  "Destino": string;
-  "Motivo legítimo do deslocamento": string;
-  "Período de permanência": number;
+  "total_r": number;
+  "destino": string;
+  "motivo_deslocamento": string;
+  "periodo_permanencia": string;
   "inteira": number;
-  "Meia": number;
+  "meia": number;
   
 };
 
 export const getdvertisings = async (year?: number) => {
   try {
     const response = await axios.get(
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=3dc92e00-1fce-4115-93a5-005b46b68276",
+      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=d936c56b-e152-4a98-80db-59ee0803f576",
       //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=a8fdc20d-7236-4302-8630-738ccf60ba4b",
       {
         headers: {
@@ -44,20 +44,35 @@ export const getdvertisings = async (year?: number) => {
     );
 
     const rows: AdvertisingResponse[] = response.data?.result?.records || [];
+    
+    
+
 
     const mappingRows = rows?.map((row: AdvertisingResponse) => {
+
+      const periodo_permanenciaArray = row["periodo_permanencia"].split(':');
+    let horas = parseInt(periodo_permanenciaArray[0], 10);
+    let minutos = parseInt(periodo_permanenciaArray[1], 10);
+    let periodo_permanenciaString = `${horas} horas`;
+  if (minutos > 0) {
+    periodo_permanenciaString += ` e ${minutos} minutos`;
+  }
+
       return {
         id: row?.["_id"],
-        ano: row?.["Ano"],
-        mes:row["Mês"],
-        rgf: row?.["RGF"],
-        nome: row?.["Nome"],
-        total: row?.["Total (R$)"],
-        destino: row?.["Destino"],
-        motivo: row?.["Motivo legítimo do deslocamento"],
-        periodo_permanencia: row["Período de permanência"] ,
+        ano: row?.["ano"],
+        mes:row["mês"],
+        rgf: row?.["rgf"],
+        nome: row?.["nome"],
+        //total: row?.["total_r"],
+        total: moneyFormatter(
+          Number(row?.["total_r"])
+        ),
+        destino: row?.["destino"],
+        motivo: row?.["motivo_deslocamento"],
+        periodo_permanencia: periodo_permanenciaString,
         inteira: row?.["inteira"],
-        meia: row?.["Meia"],
+        meia: row?.["meia"],
        
       };
     });
@@ -99,10 +114,10 @@ export const getChartYear = async () => {
     const graphs = [];
 
     for (const year of years) {
-      const filteredRows = rows.filter((row) => row["Ano"] == year);
+      const filteredRows = rows.filter((row) => row["ano"] == year);
 
       const sum = filteredRows.reduce((acumulador, item) => {
-        return acumulador + item["Total (R$)"];
+        return acumulador + item["total_r"];
       }, 0);
 
       graphs.push({
@@ -159,12 +174,12 @@ export const getChart = async (year?: number) => {
     for (let index = 1; index <= months; index++) {
       const filteredRows = rows.filter(
         (row) =>
-          moment(row?.["Mês"]).month() + 1 === index &&
-          row?.["Ano"] === year
+          moment(row?.["mês"]).month() + 1 === index &&
+          row?.["ano"] === year
       );
 
       const sum = filteredRows.reduce((acumulador, item) => {
-        return acumulador + item["Total (R$)"];
+        return acumulador + item["total_r"];
       }, 0);
 
       acamulatedAmount += Number(sum) || 0;
