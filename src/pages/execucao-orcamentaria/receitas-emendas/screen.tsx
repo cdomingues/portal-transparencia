@@ -3,6 +3,7 @@ import React from "react";
 import Chart from "../../../components/Chart";
 import ContainerBasic from "../../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../../components/Table";
+import Video from "../../../components/Videos";
 
 type PropsInput = {
   handler: {
@@ -36,8 +37,14 @@ function Screen({
 }: PropsInput) {
   const title = contentRecipesAmendments?.titlePage;
   const description = contentRecipesAmendments?.description;
+  const url_video = "https://www.youtube.com/embed/K7_TUkedcGA?si=iPxaKODtZnboQT-_";
+  const titulo = "O QUE SÃO AS SEIS MEDIDAS?"; 
+
   return (
     <ContainerBasic title={title} description={description}>
+     
+
+
       {chart?.datasets?.length > 0 && (
         <Chart type="bar" data={chart} />
       )}

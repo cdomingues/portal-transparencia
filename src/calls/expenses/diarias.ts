@@ -10,10 +10,10 @@ import {
 import moneyFormatter from "../../utils/moneyFormatter";
 
 type AdvertisingResponse = {
-  "_id": number;
- // id: number;
+ 
+  "index": number;
   "ano": number;
-  "mês": number;
+  "mes": number;
   "rgf": string;
   "nome": string;
   //"Tipo de Serviço": string;
@@ -29,21 +29,12 @@ type AdvertisingResponse = {
 export const getdvertisings = async (year?: number) => {
   try {
     const response = await axios.get(
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=d936c56b-e152-4a98-80db-59ee0803f576",
+      "https://dadosadm.mogidascruzes.sp.gov.br/api/diarias"
       //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=a8fdc20d-7236-4302-8630-738ccf60ba4b",
-      {
-        headers: {
-          Authorization:
-            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJ4T2VWV29pdlZVTG9WTjJzZk1UQ0JrQmtmMjJGRVp5QWJ0bHdyajU0ZFJNIiwiaWF0IjoxNjc5Njg4ODYyfQ.N7uwCTBg9g21vHc3brf7ayK4rKK2zuUJnglptS6k__g",
-        },
-        params: {
-          q: year,
-          limit: 3000,
-        },
-      }
+    
     );
 
-    const rows: AdvertisingResponse[] = response.data?.result?.records || [];
+    const rows: AdvertisingResponse[] = response.data || [];
     
     
 
@@ -59,9 +50,9 @@ export const getdvertisings = async (year?: number) => {
   }
 
       return {
-        id: row?.["_id"],
+        index: row?.["index"],
         ano: row?.["ano"],
-        mes:row["mês"],
+        mes:row["mes"],
         rgf: row?.["rgf"],
         nome: row?.["nome"],
         //total: row?.["total_r"],
@@ -90,17 +81,11 @@ export const getdvertisings = async (year?: number) => {
 export const getChartYear = async () => {
   try {
     const response = await axios.get(
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=a8fdc20d-7236-4302-8630-738ccf60ba4b&limit=4000",
-        //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=a8fdc20d-7236-4302-8630-738ccf60ba4b",
-      {
-        headers: {
-          Authorization:
-            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJ4T2VWV29pdlZVTG9WTjJzZk1UQ0JrQmtmMjJGRVp5QWJ0bHdyajU0ZFJNIiwiaWF0IjoxNjc5Njg4ODYyfQ.N7uwCTBg9g21vHc3brf7ayK4rKK2zuUJnglptS6k__g",
-        },
-      }
+       "https://dadosadm.mogidascruzes.sp.gov.br/api/diarias"
+       
     );
 
-    const rows: AdvertisingResponse[] = response.data?.result?.records || [];
+    const rows: AdvertisingResponse[] = response.data || [];
 
     const years = [
       moment().subtract(5, "years").year(),
@@ -161,7 +146,7 @@ export const getChart = async (year?: number) => {
       }
     );
 
-    const rows: AdvertisingResponse[] = response.data?.result?.records || [];
+    const rows: AdvertisingResponse[] = response.data || [];
 
     const year = 2022;
 
@@ -174,7 +159,7 @@ export const getChart = async (year?: number) => {
     for (let index = 1; index <= months; index++) {
       const filteredRows = rows.filter(
         (row) =>
-          moment(row?.["mês"]).month() + 1 === index &&
+          moment(row?.["mes"]).month() + 1 === index &&
           row?.["ano"] === year
       );
 

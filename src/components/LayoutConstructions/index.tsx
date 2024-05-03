@@ -59,13 +59,13 @@ const Layout = ({
             style={{ marginRight: 5 }}
           >
             <Text.Heading5Regular color={colors.black}>
-              Início
+              Inícios
             </Text.Heading5Regular>
           </div>
 
           <MdArrowRight style={{ marginRight: 5 }} color={colors.black} />
 
-          {pathnames?.map((item: string, index: number) => {
+        {/*   {pathnames?.map((item: string, index: number) => {
             if (index === 0) {
               return;
             }
@@ -87,7 +87,7 @@ const Layout = ({
                 </Text.Heading5Regular>
               </div>
             );
-          })}
+          })} */}
         </div>
       )}
 
@@ -99,7 +99,7 @@ const Layout = ({
         >
           <div className="content">
             <Text.Heading1Bold
-              color={colors.white}
+              color={colors.footer}
               fontSize={3}
               marginTop={100}
             >

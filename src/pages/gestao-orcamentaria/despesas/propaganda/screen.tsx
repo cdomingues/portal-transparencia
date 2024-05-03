@@ -18,6 +18,7 @@ import {
 } from "../../../../components/GraphWrapper";
 import { MultiAxisChart } from "../../../../components/MultiAxisChart";
 import TableComponent, { TableColumns } from "../../../../components/Table";
+import Video from "../../../../components/Videos";
 
 type PropsInput = {
   handler: {
@@ -63,8 +64,13 @@ function Screen({
     fontSize: isMobile ? "medium" : "larger",
   };
 
+  const url_video = "https://www.youtube.com/embed/K7_TUkedcGA?si=iPxaKODtZnboQT-_";
+  const titulo = "O QUE SÃO AS SEIS MEDIDAS?"; 
+
   return (
     <ContainerBasic title={title} description={description}>
+      <Video url_video={url_video} titulo={titulo} />
+  
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}

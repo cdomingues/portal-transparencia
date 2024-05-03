@@ -1,37 +1,41 @@
 import React, { useEffect, useState } from "react";
 import { getFile } from "../../../services/cloudStorage";
 import Screen from "./screen";
+import axios from "axios";
+import moneyFormatter from "../../../utils/moneyFormatter";
 
 function Controller() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
+  
 
   const columns = [
-    { title: "Tipo", field: "tipo" },
-    { title: "Número", field: "numero" },
-    { title: "Situação", field: "situacao" },
-    { title: "Licitação", field: "licitacao" },
-    { title: "Modalidade", field: "modalidade" },
+    
+    { title: "TC", field: "tc" },
     { title: "Processo", field: "processo" },
-    { title: "Data Início", field: "datainicio" },
-    { title: "Data Término", field: "datatermino" },
-    { title: "Valor", field: "valor" },
-    { title: "Valor Aditado", field: "valorAditado" },
-    { title: "Qntd Aditivos", field: "quantidadeAdivitos" },
-    { title: "Fornecedor", field: "fornecedor" },
-    { title: "Grupo", field: "grupo" },
-    { title: "Objeto", field: "objeto" },
+    {title:"Assunto",field: "assunto"},
+    { title: "Data Início", field: "data_inicio" },
+    { title: "Data Término", field: "data_fim" },
+    { title: "Valor", field: "valor_inicial" },
+    { title: "Secretaria Responsável", field: "secretaria_responsavel" },
+    { title: "Interessado", field: "interessado" },
+    { title: "tipo", field: "tipo" },
+    { title: "ID", field: "id" },
+    
   ];
 
   const getData = async () => {
-    setLoading(true);
-    const { data, error } = await getFile("");
-    setLoading(false);
-
-    if (error) {
-      return;
-    }
-    setData(data);
+    const response = await axios.get("https://dadosadm.mogidascruzes.sp.gov.br/api/acordos")
+    const rows = response.data;
+        const filteredRows = rows.filter((item: { tipo: number; }) => item.tipo === 3);
+    const mappedRows = filteredRows.map((item: any) => ({
+      
+      ...item,
+      valor_inicial: moneyFormatter(parseFloat(item?.valor_inicial)),
+    }));
+    setData(mappedRows);
+   
+    
   };
 
   useEffect(() => {

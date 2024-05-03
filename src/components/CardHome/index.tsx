@@ -42,8 +42,11 @@ import Plano_municipal_educacao from "../../assets/images/icones/Home_botoes_pla
 import Plano_municipal_saude from "../../assets/images/icones/Home_botoes_planosaude.svg";
 import Mapa_do_site from "../../assets/images/icones/icones_barra lateral__mapa do site.svg";
 import promae from "../../assets/images/icones/relatorio_resumido.svg"
+import Video from "../Videos";
 
 function CardHome() {
+  const url_video = "https://www.youtube.com/embed/F4kk9FqoRHw?list=PLr6uMRVxi5CZDYEttIUVaIzsm07L7qI6a";
+  const titulo = "O que é a Lei de Acesso à Informação (LAI)?"; 
   const columnLayout = () => {
     if (window.innerWidth <= 480) {
       return "1fr";
@@ -387,11 +390,14 @@ function CardHome() {
           url: "/acordos-termos/acordo-de-cooperacao",
         },
         {
-          label: "Termo de Parceria",
+          label: "Termo de Colaboração",
           url: "/acordos-termos/termo-de-colaboracao",
         },
         { label: "Termo de Fomento", 
         url: "/acordos-termos/termo-de-fomento" 
+      },
+      { label: "Contratos e Atas", 
+        url: "/acordos-termos/contratos-atas" 
       },
       { label: "Contratos Gestão", 
         url: "/acordos-termos/contratos-gestao" 
@@ -516,7 +522,7 @@ function CardHome() {
         },
         {
           label: "Dashboard da LAI",
-          url: "https://app.powerbi.com/view?r=eyJrIjoiZDcxMGQ1ZWQtY2U5Yi00YTgzLThlODgtZjk2MDkwZTRjNTAwIiwidCI6IjdkZTNiN2RlLWIzOGYtNDFhNi05ZDQ1LWIxZDlkMTg0OGM3OSJ9",
+          url: "https://app.powerbi.com/view?r=eyJrIjoiY2ZmODAzZDUtMDE2YS00ZWYzLWJhZGQtMWE4Nzc3OWQyMDgxIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
         },
       ],
     },
@@ -642,6 +648,7 @@ function CardHome() {
   ];
 
   return (
+   <> 
     <Grid
       templateColumns={templateColumns}
       gap={4}
@@ -650,6 +657,7 @@ function CardHome() {
       margin="0 auto"
       padding="0 15px"
     >
+      
       {cardData.map((data, index) => (
         <Box
           key={index}
@@ -668,7 +676,7 @@ function CardHome() {
           />
         </Box>
       ))}
-    </Grid>
+    </Grid></>
   );
 }
 

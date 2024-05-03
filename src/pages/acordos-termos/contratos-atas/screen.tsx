@@ -1,77 +1,52 @@
 import {
   Button,
   Divider,
-  Heading,
   Select,
   Stack,
   Text,
+  useDisclosure,
   Box,
   useColorModeValue
 } from "@chakra-ui/react";
-import React from "react";
-import { isMobile } from "react-device-detect";
-import Chart from "../../../components/Chart";
+import React, { useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
-import {
-  GraphWrapper,
-  MultipleGraphWrapper,
-} from "../../../components/GraphWrapper";
-import { MultiAxisChart } from "../../../components/MultiAxisChart";
 import TableComponent, { TableColumns } from "../../../components/Table";
-import Video from "../../../components/Videos";
+import ModalContracts from "./modalContracts";
+import { ContainerSearch } from "../../../styles/components/contratos-atas/styles";
 
 type PropsInput = {
   handler: {
     columns: TableColumns;
     data: Array<any>;
     loading: boolean;
-    chart: any;
-    chartYear: any;
+    year: number;
     years: Number[];
     setYear: any;
-    year: number;
     handleByYear: any;
   };
 };
-
-export const contentAdvertisements = {
-  titlePage: "Diárias Viagens",
-  description: "Informações sobre o nome e o cargo/função do beneficiário, além do número de diárias usufruídas por afastamento, período de afastamento, motivo do afastamento e local de destino",
-}
-
+export const contentContractsAndAtas = {
+  titlePage: "Contratos e Atas",
+  description:
+    "Nesta página, confira as informações sobre contratos e atas celebrados pela Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por número, modalidade, processo, valor, fornecedor, objeto, entre outros itens. ",
+};
 function Screen({
-  handler: {
-    columns,
-    data,
-    loading,
-    chart,
-    chartYear,
-    setYear,
-    year,
-    years,
-    handleByYear,
-  },
+  handler: { columns, data, loading, handleByYear, setYear, year, years },
 }: PropsInput) {
-  const title = contentAdvertisements?.titlePage;
-  const description = contentAdvertisements?.description;
+  const [contract, setContract] = useState<any>(null);
+  const title = contentContractsAndAtas?.titlePage;
+  const description = contentContractsAndAtas?.description;
 
-  const chartConfig = {
-    direction: isMobile ? "column" : "row",
-    width: isMobile ? "100%" : "40%",
-    marginRight: isMobile ? "0" : "10%",
-    marginLeft: isMobile ? "0" : "5%",
-    fontSize: isMobile ? "medium" : "larger",
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const handleOpenModal = (item: any) => {
+    onOpen();
+    setContract(item?.row?.values);
   };
-
-  const url_video = "https://www.youtube.com/embed/SLpPmKpU74U?list=PLr6uMRVxi5CZDYEttIUVaIzsm07L7qI6a";
-  const titulo = "O QUE SÃO AS SEIS MEDIDAS?"; 
 
   return (
     <ContainerBasic title={title} description={description}>
-      <Video url_video={url_video} titulo={titulo} />
-
-  
-      <Box
+            <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
         
@@ -82,13 +57,12 @@ function Screen({
         borderRadius="18px"
         marginBottom="15px"
       >
-      <Stack direction="row">
+      <ContainerSearch direction="row">
         <Stack minW={86} width="25%">
-          
           <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
             Ano
           </Text>
-           <Select
+          <Select
             defaultValue={year}
             onChange={(e) => setYear(e.target.value)}
             bg="white"
@@ -100,9 +74,9 @@ function Screen({
                 {String(year)}
               </option>
             ))}
-          </Select> 
+          </Select>
         </Stack>
-        <Stack minW={50} width="10%" justifyContent="flex-end">
+        <Stack minW={50} justifyContent="flex-end" className="button-search">
                <Button
             w={'100px'}
             h={'40px'}
@@ -115,17 +89,21 @@ function Screen({
             >
          
             Buscar
-          </Button>*
+          </Button>
         </Stack>
-        
-      </Stack>
-      
+      </ContainerSearch>
 
       <Divider borderWidth="2px" mt="10" mb="10" />
-      <TableComponent loading={loading} columns={columns} data={data} />
+      <TableComponent
+        loading={loading}
+        columns={columns}
+        data={data}
+        openModal={handleOpenModal}
+      />
+
+      <ModalContracts isOpen={isOpen} onClose={onClose} contract={contract} />
       </Box>
     </ContainerBasic>
-    
   );
 }
 

@@ -14,29 +14,33 @@ function Controller() {
     //{ title: "Bairro", field: "Bairro" },
     { title: "Logradouro", field: "logradouro" },
     { title: "Sentido", field: "sentido" },
-    { title: "Tipo", field: "tipo" },
+    { title: "Tipo", field: "subtipo" },
     { title: "Faixas", field: "faixas" },
     { title: "Velocidade", field: "kmh" },
     { title: "Status", field: "status" },
     
+    
   ];
 
   const radarCollectionColumns = [
-    { title: "Id", field: "Código" },
-    { title: "Localização", field: "Ponto Radar" },
-    { title: "Quantidade", field: "Quantidade" },
-    { title: "Valor", field: "Valor" },
-    { title: "Percentual", field: "%" },
+    { title: "Id", field: "codigo" },
+    { title: "Status", field: 'status'},
+    { title: "Localização", field: "ponto_radar" },
+    { title: "Quantidade", field: "quantidade" },
+    { title: "Valor", field: "valor" },
+    { title: "Percentual", field: "porcentagem" },
     { title: "Ano", field: "ano" },
     { title: "Mês", field: "mes" },
+    
     
   ];
 
   const radarInfractionColumns = [
     { title: "Id", field: "codigo" },
+    { title: "Status", field: 'status'},
     { title: "Ano", field: "ano" },
     { title: "Mês", field: "mes" },
-    { title: "Localização", field: "Ponto de Radar" },
+    { title: "Localização", field: "ponto_radar" },
     { title: "Quantidade", field: "quantidade" },
   ];
 
@@ -63,48 +67,72 @@ function Controller() {
     
 
     const mappedRows = rows.map((item: any) => {
+      
       return {
         ...item,
         kmh: item?.kmh || "-",
+        
+
+       
+
       };
     });
+    
 
     setData(mappedRows);
+    
   };
+
+
+  //---------------------------------------------------
 
   const radarCollectionData = async () => {
     const response = await axios.get(
       //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=382c733a-95a0-49ad-ad20-4b6d41361b1d",
-      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=9b226d60-1c85-42ed-8d6f-c69017dc3add&limit=2000",
-  "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=9bf12003-3b41-4f2d-8c4c-e416edf9d3dc&limit=2000  ",
-     {
+      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=5b6fcdf7-e6f5-41f6-899b-ede6927daffb",
+  
+"https://dadosadm.mogidascruzes.sp.gov.br/api/arrecadacoes_por_ponto",    
+ {
         
       }
     );
 
-    const rows = response.data?.result?.records;
+    const rows = response.data;
 
     const mappedRows = rows?.map((item: any) => {
       return {
         ...item,
-        //Valor: moneyFormatter(item?.Valor),
+        porcentagem: item?.porcentagem + " %",
+        valor: moneyFormatter(parseFloat(item?.valor)),
       };
     });
 
     setRadarCollection(mappedRows);
   };
 
+
+  //---------------------------------------------------
   const radarInfractionsData = async () => {
     const response = await axios.get(
       //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=720f32e2-c0c9-475a-bf5f-027adfd417e7",
-      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=c232a503-9642-470d-9c71-184afffe6b16&limit=1000",
-     "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=735f92c2-d5d0-44d0-9b30-66d8c52ac549&limit=2000", 
+     // "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=d9ec0eb6-cce1-4e4e-8c71-61654e9815fe",
+     "https://dadosadm.mogidascruzes.sp.gov.br/api/autuacoes_por_ponto", 
       {
         
       }
     );
 
-    const rows = response.data?.result?.records;
+    const rows = response.data;
+
+    const mappedRows = rows?.map((item: any) => {
+      return {
+        ...item,
+        ponto_radar: item?.ponto_radar.substring(7)
+        
+      };
+    });
+
+    
 
     setRadarInfractions(rows);
   };

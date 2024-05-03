@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../../components/Table";
-import { Box, useColorModeValue } from "@chakra-ui/react";
+import ModalContracts from "../modalContracts"
+import { Box, useColorModeValue, useDisclosure } from "@chakra-ui/react";
 
 type PropsInput = {
   handler: {
@@ -14,6 +15,15 @@ type PropsInput = {
 function Screen({ handler: { columns, data, loading } }: PropsInput) {
   const title = "Termo de Fomento";
   const description = "Assim como o termo de parceria, o termo de fomento também é regido pela Lei nº 13.019/2014. É uma modalidade específica de contrato administrativo, assim como o termo de parceria, mas com algumas características distintas. Enquanto o termo de parceria é utilizado quando há transferência de recursos públicos para a execução de atividades de interesse público, o termo de fomento é empregado especificamente quando esses recursos são oriundos de dotações orçamentárias do próprio governo ou de suas autarquias, fundações e órgãos da administração direta.";
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [termo,setTermo] = useState<any>(null);
+
+  const handleOpenModal = (item: any) => {
+    onOpen();
+    setTermo(item?.row?.values);
+  };
+  
+  
   return (
     <ContainerBasic title={title} description={description}>
             <Box
@@ -27,7 +37,9 @@ function Screen({ handler: { columns, data, loading } }: PropsInput) {
         borderRadius="18px"
         marginBottom="15px"
       >
-      <TableComponent loading={loading} columns={columns} data={data} />
+      <TableComponent loading={loading} columns={columns} data={data} openModal={handleOpenModal}/>
+      <ModalContracts isOpen={isOpen} onClose={onClose} termo={termo}/>
+
       </Box>
     </ContainerBasic>
   );

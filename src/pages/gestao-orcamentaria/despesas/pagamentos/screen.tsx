@@ -6,18 +6,23 @@ import {
   Stack,
   Text,
   Box,
-  useColorModeValue
+  useColorModeValue,
+  UnorderedList,
+  Link,
+  ListItem
 } from "@chakra-ui/react";
 import React from "react";
 import { isMobile } from "react-device-detect";
 import Chart from "../../../../components/Chart";
 import ContainerBasic from "../../../../components/Container/Basic";
+import  {useFontSizeAccessibilityContext} from '../../../../context/fontSizeAccessibility'
 import {
   GraphWrapper,
   MultipleGraphWrapper,
 } from "../../../../components/GraphWrapper";
 import { MultiAxisChart } from "../../../../components/MultiAxisChart";
 import TableComponent, { TableColumns } from "../../../../components/Table";
+import { FaDownload } from "react-icons/fa";
 
 type PropsInput = {
   handler: {
@@ -53,6 +58,7 @@ function Screen({
 }: PropsInput) {
   const title = contentAdvertisements?.titlePage;
   const description = contentAdvertisements?.description;
+  const accessibility = useFontSizeAccessibilityContext();
 
   const chartConfig = {
     direction: isMobile ? "column" : "row",
@@ -76,46 +82,26 @@ function Screen({
         borderRadius="18px"
         marginBottom="15px"
       >
-      <Stack direction="row">
-        <Stack minW={86} width="25%">
-          <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
-            Ano
-          </Text>
-          <Select
-            defaultValue={year}
-            onChange={(e) => setYear(e.target.value)}
-            bg="white"
-            variant="outline"
-            placeholder="Selecionar Ano"
-          >
-            {years?.map((year, index) => (
-              <option key={index} value={String(year)}>
-                {String(year)}
-              </option>
-            ))}
-          </Select>
-        </Stack>
-        <Stack minW={50} width="10%" justifyContent="flex-end">
-               <Button
-            w={'100px'}
-            h={'40px'}
-              disabled={loading}
-              onClick={() => handleByYear(year)}
-              _hover={{ bg: "gray.500", color: "white" }}
-              bg="table.primary"
-              color="white"
-              fontSize="small"
-            >
-         
-            Buscar
-          </Button>
-        </Stack>
-        
-      </Stack>
-      <Text fontSize="sm" fontWeight="550" paddingLeft="5px" paddingTop="10px"> Desculpe, falha ao carregar os dados, perda de conexão com o servidor de dados</Text>
-
+     
+      
       <Divider borderWidth="2px" mt="10" mb="10" />
-      <TableComponent loading={loading} columns={columns} data={data} />
+      {/* <TableComponent loading={loading} columns={columns} data={data} /> */}
+     
+      <UnorderedList listStyleType="none" 
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}>
+
+                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/85f445d0-4a89-48b4-89a4-1acaabb536d6/Cronologica_jan_23.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}> Cronológica Janeiro de 2023</ListItem ></div></Link>
+                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/0c9e235a-0a42-447b-b15a-e866566627d3/Cronologica_Fev_2023.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Cronológica Fevereiro de 2023</ListItem ></div></Link>
+                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/ebc802ae-cad3-4eae-a86a-be925af16846/cronologica_marco_2023.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Cronológica Março de 2023</ListItem ></div></Link>
+                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/c256018c-b2ed-4349-a49a-e0e468eaae56/Cronologica_Abril_2023.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Cronológica Abril de 2023</ListItem ></div></Link>
+                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/f1d85288-1607-459b-8f1c-74c5ec2c5707/Cronologica_maio_23.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Cronológica Maio de 2023</ListItem ></div></Link>
+                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/157dabe2-5b9d-4905-b22d-1ce77d7b09df/Cronologica_Junho_2023.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Cronológica Junho de 2023</ListItem ></div></Link>
+                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/cf9db2be-8e8a-4f8c-8727-38f68fce00e3/Cronologica_Julho_2023.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Cronológica Julho de 2023</ListItem ></div></Link>
+                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/47c686ab-20e7-4ec3-8e25-c6d60a9bf1a3/Cronologica_Agosto_2023.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Cronológica Agosto de 2023</ListItem ></div></Link>
+                          
+                          
+                        </UnorderedList>
       </Box>
     </ContainerBasic>
     

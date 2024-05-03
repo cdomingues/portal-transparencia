@@ -23,12 +23,15 @@ import {
 import CardHome from "../../CardHome";
 import VLibras from "vlibras-nextjs";
 import ModalPopup from "../../Modal";
+import Video from "../../Videos";
 
 // type Props = {
 //   children?: React.ReactNode;
 // };
 
 function PublicHome() {
+  const url_video = "https://www.youtube.com/embed/GmqSBItXyN4?list=PLr6uMRVxi5CZDYEttIUVaIzsm07L7qI6a";
+  const titulo = "O que é o portal da transparência?"; 
   const accessibility = useFontSizeAccessibilityContext();
   const brasaoImageSrc = useColorModeValue(
     Brasao_PMMC_Normal.src,
@@ -122,6 +125,7 @@ function PublicHome() {
                 informações de receitas e despesas da Prefeitura, com
                 detalhamento e maior facilidade de entendimento.
               </Text>
+              <Video url_video={url_video} titulo={titulo} />
             </Box>
           </Stack>
 

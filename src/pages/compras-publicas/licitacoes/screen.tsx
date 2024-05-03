@@ -27,6 +27,7 @@ import { ContainerSearch } from "../../../styles/components/licitacoes/styles";
 import axios from "axios";
 import cheerio from "cheerio";
 import { baseUrl } from "../../../config";
+import Video from "../../../components/Videos";
 
 type PropsInput = {
   handler: {
@@ -108,8 +109,14 @@ function Screen({
     setDetails(details);
   };
 
+  const url_video = "https://www.youtube.com/embed/SfglOWPxyrg?list=PLr6uMRVxi5CZDYEttIUVaIzsm07L7qI6a";
+  const titulo = "O que é Licitação?"; 
+
   return (
     <ContainerBasic title={title} description={description}>
+      <Video url_video={url_video} titulo={titulo} />
+
+  
       <Text paddingLeft={3} fontWeight="400"
             color={"gray.500"}>Caso queira acessar as licitações que não foram localizadas, acesse o link <a  href="https://licitacao-mgcon.mogidascruzes.sp.gov.br/" target="_blank" color="blue"  >Consulta Licitações</a></Text>
       
