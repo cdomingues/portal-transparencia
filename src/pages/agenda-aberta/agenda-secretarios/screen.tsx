@@ -71,6 +71,8 @@ function Screen({ handler }: PropsInput) {
     "Caio Cunha",
     "Priscila Yamagami",
     "Pedro Rodrigues Miranda Neto",
+    "Secretário Municipal de Transparência e Dados Abertos - inativo",
+    "Severino Netto",
     
   ];
   const [selected, setSelected] = useState<Date>();
@@ -172,7 +174,7 @@ function Screen({ handler }: PropsInput) {
     ?.filter((item: Meeting) => {
       const timeWithSubtraction = moment(item?.data_compromisso).subtract('hours');
       const isSameDate = timeWithSubtraction.format("YYYY-MM-DD") === String(moment(selected).format("YYYY-MM-DD"));
-      const isNotPrefeitoOrCoPrefeita = item?.cargo !== "Prefeito" && item?.cargo !== "Co-Prefeita";
+      const isNotPrefeitoOrCoPrefeita = item?.cargo !== "Prefeito" && item?.cargo !== "Co-Prefeita" ;
       const isSameCargo = selectedCargo === "" || selectedCargo === item?.nome;
 
       return isSameDate && isNotPrefeitoOrCoPrefeita && isSameCargo;
