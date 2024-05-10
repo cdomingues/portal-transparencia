@@ -90,7 +90,11 @@ const MapAllMarkersComponent = ({
   >([]);
   const center = [-23.5248, -46.1871];
 
+  
+
   const icon = L.divIcon({ className: "icon-marker" });
+
+  
 
   /* const getFileOfConstructions = async () => {
     const response = await fetch(
@@ -185,7 +189,11 @@ const MapAllMarkersComponent = ({
     const filtered = constructions.filter((item) => {
       const stepMatch = step
         ? step?.toLowerCase() === item.situacao?.toLowerCase()
-        : true;
+        : true && item.tipo === "Tipo:OBRA" &&
+        item.status !== "07 - OBRA RESCINDIDA"
+
+        
+
 
       const programMatch = program ? program === item?.programa_ppa : true;
 

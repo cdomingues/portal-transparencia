@@ -21,6 +21,7 @@ import { IoAddCircleOutline } from "react-icons/io5";
 import seta from "../../../assets/images/icones/Icones_Home Portal Transparencia__botao abre.svg";
 import hBottom from "../../../assets/images/Icones_Home_Portal_Transparencia__botao_circulo.svg";
 import build from "next/dist/build";
+import DadosAbertos from "../../../components/DadosAbertos";
 
 interface PropsPagination {
   totalPages: number;
@@ -236,6 +237,7 @@ function capitalizeFirstLetter(text: string) {
 }
 
 const SearchBuildingsScreen = ({ handlers }: any) => {
+  
   const {
     arrayBuildings,
     setNameBuilding,
@@ -251,7 +253,15 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
     rowsPerPage,
     numberOfPages,
     handleChangePage,
+    handleClearFilters
   } = handlers;
+
+  const tiposUnicos = new Set(
+    arrayBuildings
+        ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+        .filter((item: any) => item.tipo === "Tipo:OBRA" && item.status !== "07 - OBRA RESCINDIDA")
+        .map((item: any) => item.id)
+);
 
   function Pagination({ totalPages, onPageChange }: PropsPagination) {
     const pageNumbers = [];
@@ -728,7 +738,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
               onChange={handleChangeSelectNeighborhood}
               style={{ backgroundColor: colors.white }}
             >
-              <option value="">Todos</option>
+             
               {
     arrayBuildings && Array.isArray(arrayBuildings) && arrayBuildings.length > 0 && 
     Array.from(new Set(arrayBuildings.map(building => building.bairro)))
@@ -749,17 +759,11 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
               onChange={handleChangeSelectBuildingType}
               style={{ backgroundColor: colors.white }}
             >
-              <option value="">Todos</option>
-              
+                            
               {
     arrayBuildings && Array.isArray(arrayBuildings) && arrayBuildings.length > 0 && 
     Array.from(new Set(arrayBuildings.map(building => building.programa_ppa)))
-    .sort((a, b) => {
-        const nomeA = ppas.find(row => row.id === a)?.programa || a;
-        const nomeB = ppas.find(row => row.id === b)?.programa || b;
-        return nomeA.localeCompare(nomeB);
-    })
-    .map((program: string, index: number) => {
+            .map((program: string, index: number) => {
         const programaNome = ppas.find(row => row.id === program)?.programa || program;
         return (
             <option key={index} value={program}>
@@ -779,11 +783,67 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                 Pesquisar
               </Text.Heading5Medium>
             </button>
+
+            <button className="buttons" onClick={handleClearFilters}>
+        <Text.Heading5Medium color={colors.white} style={{ textTransform: "none" }}>
+          Limpar 
+        </Text.Heading5Medium>
+      </button>
           </Style.SearchBar>
+          <Box>
+          <Box
+        m={0}
+        bg={useColorModeValue("white", "gray.800")}
+        roundedTop={"md"}
+        overflow="hidden"
+        maxWidth="100%"
+        marginTop={"20px"}
+      >
+        <DadosAbertos 
+    data={
+        arrayBuildings?.filter((item: { tipo: string; status: string; nome_da_obra: string }) => 
+            item.tipo === "Tipo:OBRA" && item.status !== "07 - OBRA RESCINDIDA"
+        )
+        .map(({  id, situacao, status, tipo, categoria, nome_da_obra, secretaria_responsavel, orgao_responsavel, responsavel_fiscalizacao, valoraditamento_set, valor_total_medicao, valor_total_aditamento, valor_total_aditamento_reajuste_contrato, numero_contrato, titulo, descricao_da_obra, localizacao, data_etapa, percentual_etapa, etapas, cnpj, razao_social_contratada, numero_processo, conclusao_ate, aditivo_prazo, justificativa_aditivo, valor_contrato, ano_licitacao  }: 
+          {  id: string; 
+            situacao: string; 
+            status: string; 
+            tipo: string; 
+            categoria: string; 
+            nome_da_obra: string; 
+            secretaria_responsavel: string; 
+            orgao_responsavel: string; 
+            responsavel_fiscalizacao: string; 
+            valoraditamento_set: any[]; 
+            valor_total_medicao: number; 
+            valor_total_aditamento: number; 
+            valor_total_aditamento_reajuste_contrato: number; 
+            numero_contrato: string; 
+            titulo: string; 
+            descricao_da_obra: string; 
+            localizacao: string; 
+            data_etapa: string; 
+            percentual_etapa: string; 
+            etapas: string; 
+            cnpj: string; 
+            razao_social_contratada: string; 
+            numero_processo: string; 
+            conclusao_ate: string; 
+            aditivo_prazo: string; 
+            justificativa_aditivo: string; 
+            valor_contrato: string; 
+            ano_licitacao: number;  }) => 
+            ({ id, situacao, status, tipo, categoria, nome_da_obra, secretaria_responsavel, orgao_responsavel, responsavel_fiscalizacao, valoraditamento_set, valor_total_medicao, valor_total_aditamento, valor_total_aditamento_reajuste_contrato, numero_contrato, titulo, descricao_da_obra, localizacao, data_etapa, percentual_etapa, etapas, cnpj, razao_social_contratada, numero_processo, conclusao_ate, aditivo_prazo, justificativa_aditivo, valor_contrato, ano_licitacao })
+        )
+    } 
+/>
+
+   </Box></Box>
 
           {arrayBuildings
-            ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            .map((item: any, index: number) => {
+              ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .filter((item: any) => tiposUnicos.has(item.id))
+              .map((item: any, index: number) => {
               let arrayImages = [];
               arrayImages.push(
                 item?.imagen_1 ||
@@ -886,7 +946,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                           Empresa:
                         </Text.Heading4Bold>
                         <Text.Heading5Regular color={colors.black}>
-                          {formatString(item?.razao_social_contratada)}
+                          {formatString(item?.razao_social_contratada)} {item?.tipo}
                         </Text.Heading5Regular>
                       </div>
                       <div className="item">

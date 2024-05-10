@@ -224,6 +224,11 @@ function CardHome() {
           label: "Pagamentos",
           url: "/gestao-orcamentaria/despesas/pagamentos",
         },
+        
+        {
+          label: "Divida ativa",
+          url: "/gestao-orcamentaria/divida-ativa",
+        },
       ],
     },
 

@@ -76,7 +76,7 @@ const getFileOfConstructions = async () => {
   const [buildingStep, setBuildingStep] = useState("");
   const [buildingType, setBuildingType] = useState("");
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
 
   const [arrayBuildings, setArrayBuildings] = useState<Array<any>>([]);
 
@@ -93,21 +93,50 @@ const getFileOfConstructions = async () => {
   };
 
   const handleFilterBuildings = () => {
-    let filteredValues = file?.results.filter(
-      (item: any) =>
-        item?.nome_da_obra
-          ?.toLowerCase()
-          ?.includes(nameBuilding?.toLowerCase()) &&
-        item?.razao_social_contratada
-          ?.toLowerCase()
-          ?.includes(companyName?.toLowerCase()) &&
-        item?.bairro_desc?.toLowerCase()?.includes(neighborhood?.toLowerCase()) &&
-        item?.situacao?.toLowerCase()?.includes(buildingStep?.toLowerCase()) &&
-        item?.programa_ppa?.toLowerCase()?.includes(buildingType?.toLowerCase())
-    );
-
+    let filteredValues = file?.results;
+  
+    // Verificar se algum filtro está definido
+    if (
+      nameBuilding ||
+      companyName ||
+      neighborhood ||
+      buildingStep ||
+      buildingType
+    ) {
+      // Aplicar os filtros apenas se algum deles estiver definido
+      filteredValues = filteredValues.filter(
+        (item: any) =>
+          (!nameBuilding ||
+            item?.nome_da_obra
+              ?.toLowerCase()
+              ?.includes(nameBuilding?.toLowerCase())) &&
+          (!companyName ||
+            item?.razao_social_contratada
+              ?.toLowerCase()
+              ?.includes(companyName?.toLowerCase())) &&
+          (!neighborhood ||
+            item?.bairro?.toLowerCase()?.includes(neighborhood?.toLowerCase())) &&
+          (!buildingStep ||
+            item?.situacao?.toLowerCase()?.includes(buildingStep?.toLowerCase())) &&
+          (!buildingType ||
+            item?.programa_ppa
+              ?.toLowerCase()
+              ?.includes(buildingType?.toLowerCase()))
+      );
+    }
+  
     setPage(0);
     setArrayBuildings(filteredValues);
+  };
+
+  const handleClearFilters = () => {
+    setNameBuilding("");
+    setCompanyName("");
+    setNeighborhood("");
+    setBuildingStep("");
+    setBuildingType("");
+    // Chame a função de filtro para redefinir os valores filtrados
+    handleFilterBuildings();
   };
 
   const handleChangePage = (newPage: number) => {
@@ -141,6 +170,7 @@ const getFileOfConstructions = async () => {
     rowsPerPage,
     numberOfPages,
     handleChangePage,
+    handleClearFilters
   };
 
   return <SearchBuildingsScreen handlers={handlers} />;
