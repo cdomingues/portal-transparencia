@@ -14,7 +14,7 @@ function Controller({ chart = { datasets: [] }, revenues = [], years }: any) {
   const [data, setData] = useState(revenues);
 
   const columns = [
-    { title: "Id Emenda", field: "id_emenda" },
+    //{ title: "Id Emenda", field: "id_emenda" },
     { title: "Número Emenda", field: "n_emenda" },
     { title: "Ano", field: "ano" },
     { title: "Trimestre", field: "trimestre" },

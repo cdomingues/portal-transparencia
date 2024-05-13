@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import SearchBuildingsScreen from "./screen";
 
 
+
+
 const SearchBuildingsController = () => {
   const [file, setFile] = useState<any>();
 
@@ -9,10 +11,16 @@ const SearchBuildingsController = () => {
 
  
 
-  const getFileOfConstructions = async () => {
+ /*  const getFileOfConstructions = async () => {
     const response = await fetch(
       //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=03146785-57db-4207-8924-85c492e8b9a8",
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=40d91f19-c371-4aaa-b6ba-7fd2427df05c"
+      "https://dadosadm.mogidascruzes.sp.gov.br/api/obras/?page=1"
+      ,
+      {
+        headers: {
+          "Authorization": "Token 691239ed466fd053651a57ac9c075f0d80c25cdd"
+        }
+      }
       
     );
 
@@ -22,7 +30,45 @@ const SearchBuildingsController = () => {
       return;
     }
     return setFile(data);
+  }; */
+  const [currentPage, setCurrentPage] = useState(1);
+const [hasNextPage, setHasNextPage] = useState(true);
+  
+const getFileOfConstructions = async () => {
+  for (let i = currentPage; i <= currentPage + 2; i++) {
+    const response = await fetch(
+      `https://dadosadm.mogidascruzes.sp.gov.br/api/obras/?page=${i}`,
+      {
+        headers: {
+          "Authorization": "Token 691239ed466fd053651a57ac9c075f0d80c25cdd"
+        }
+      }
+    );
+
+    const data = await response.json();
+
+    if (!data) {
+      return;
+    }
+
+    
+  
+    // Update hasNextPage based on whether 'next' field is null in API response
+    setHasNextPage(data.next !== null);
+  
+    // Update current page
+    setCurrentPage(i);
+  
+    // Append new results to existing file or initialize if it's null
+    setFile((prevFile: { results: any; }) => ({
+      ...data,
+      results: prevFile ? [...prevFile.results, ...data.results] : data.results,
+    }));
+
+    if (!hasNextPage) break;
   };
+  
+}
 
   const [nameBuilding, setNameBuilding] = useState("");
   const [companyName, setCompanyName] = useState("");
@@ -47,7 +93,7 @@ const SearchBuildingsController = () => {
   };
 
   const handleFilterBuildings = () => {
-    let filteredValues = file?.result?.records?.filter(
+    let filteredValues = file?.results.filter(
       (item: any) =>
         item?.nome_da_obra
           ?.toLowerCase()
@@ -75,7 +121,7 @@ const SearchBuildingsController = () => {
   }, []);
 
   useEffect(() => {
-    setArrayBuildings(file?.result?.records);
+    setArrayBuildings(file?.results);
   }, [file]);
 
   const handlers: any = {

@@ -4,6 +4,7 @@ import React from "react";
 import ContainerBasic from "../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../components/Table";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
+import Video from "../../components/Videos";
 
 type PropsInput = {
   handler: {
@@ -47,6 +48,7 @@ const markerChildren = (data: any) => {
       <p>
         <b>Status:</b> {data?.status}
       </p>
+      
     </>
   );
 };
@@ -69,9 +71,16 @@ function Screen({
   const title = contentRadarsControl?.titlePage;
   const description = contentRadarsControl?.description;
   const accessibility = useFontSizeAccessibilityContext();
+  const url_video = "https://www.youtube.com/embed/K7_TUkedcGA?si=iPxaKODtZnboQT-_";
+  const titulo = "O QUE SÃO AS SEIS MEDIDAS?";
+
 
   return (
     <ContainerBasic title={title} description={description}>
+       <Video 
+       url_video={url_video}
+        titulo = {titulo}
+       />
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
@@ -83,6 +92,7 @@ function Screen({
         borderRadius="18px"
         marginBottom="15px"
       >
+       
         <div style={{ height: "500px", width: "100%" }}>
           <MapWithNoSSR
             coords={[-23.528986, -46.192973]}
@@ -97,6 +107,7 @@ function Screen({
               return {
                 lat: latitude,
                 lng: longitude,
+                status: item?.status,
                 children: markerChildren(item),
               };
             })}

@@ -8,7 +8,7 @@ import {
   Box,
   useColorModeValue
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import { isMobile } from "react-device-detect";
 import Chart from "../../../components/Chart";
 import ContainerBasic from "../../../components/Container/Basic";
@@ -33,6 +33,8 @@ type PropsInput = {
   };
 };
 
+
+
 export const contentExtrabudgetExpenses = {
   titlePage: "Despesas Extraorçamentárias",
   description: "Aqui você pode acompanhar as informações sobre as despesas que não integram o orçamento da Prefeitura, apenas transitam pelo poder público.",
@@ -51,6 +53,7 @@ function Screen({
     handleByYear,
   },
 }: PropsInput) {
+ 
   const title = contentExtrabudgetExpenses?.titlePage;
   const description = contentExtrabudgetExpenses?.description;
 
@@ -122,7 +125,9 @@ function Screen({
           </Text>
           <Select
             defaultValue={year}
-            onChange={(e) => setYear(e.target.value)}
+            onChange={(e) => {
+              setYear(e.target.value);
+              }}
             bg="white"
             variant="outline"
             placeholder="Selecionar Ano"
@@ -133,6 +138,8 @@ function Screen({
               </option>
             ))}
           </Select>
+            
+          
         </Stack>
         <Stack minW={50} width="10%" justifyContent="flex-end">
                <Button

@@ -39,6 +39,8 @@ function Controller({
 
     const { expenses } = await getExpenses(year);
 
+    
+
     const { chart } = await getChart(year);
 
     setLoading(false);

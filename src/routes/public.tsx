@@ -66,6 +66,7 @@ import { contentSearchConstructions } from "../pages/controle-de-obras/pesquisar
 import { contentAbout } from "../pages/sobre-portal/screen";
 import { pointRadial } from "d3";
 import perfil_municipio from '../assets/images/icones/icones_barra lateral__perfil do municipio.svg'
+import React from "react";
 
 const custom_perfil_municipio = () => (
   <div>
@@ -104,14 +105,14 @@ let publicRoutes: IPublicRoute[] = [
       },
       {
         name: "Sobre as Obras",
-        path: "controle-de-obras/sobre-as-obras",
+        path: "/controle-de-obras/sobre-as-obras",
         //defaultPath: "/controle-de-obras",
         icon: AiOutlineInfoCircle,
         ...contentAboutConstructions,
       },
       {
         name: "Pesquise Obras",
-        path: "controle-de-obras/pesquisar-obras",
+        path: "/controle-de-obras/pesquisar-obras",
         //defaultPath: "/controle-de-obras",
         icon: AiOutlineSearch,
         ...contentSearchConstructions,
@@ -510,10 +511,18 @@ let publicRoutes: IPublicRoute[] = [
         path: "termo-de-fomento",
         icon: AiFillCaretRight,
         subgroup: false,
-      },{
+      },
+      {
         defaultPath: "/acordos-termos",
         name: "Contratos gestão",
         path: "contratos-gestao",
+        icon: AiFillCaretRight,
+        subgroup: false,
+      },
+      {
+        defaultPath: "/acordos-termos",
+        name: "Contratos e Atas",
+        path: "contratos-atas",
         icon: AiFillCaretRight,
         subgroup: false,
       },
@@ -563,9 +572,9 @@ let publicRoutes: IPublicRoute[] = [
       },
       {
         name: "Decretos e Portarias",
-        path: "leis-decretos-portarias",
+        path: "/leis-decretos-portarias",
         icon: AiOutlineProfile,
-        link: "http://ged.pmmc.com.br/weblink7/Browse.aspx",
+        link: "/leis-decretos-portarias/decretos-portarias",
       },
       {
         defaultPath: "/leis-decretos-portarias",
@@ -635,6 +644,12 @@ let publicRoutes: IPublicRoute[] = [
         path: "relatorio-demanda",
         icon: AiOutlineProfile,
         link: "https://mogidascruzes.1doc.com.br/b.php?pg=o/transparencia",
+      },
+      {
+        name: "Dashboard da LAI",
+        path: "https://app.powerbi.com/view?r=eyJrIjoiY2ZmODAzZDUtMDE2YS00ZWYzLWJhZGQtMWE4Nzc3OWQyMDgxIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
+        icon: AiOutlineProfile,
+        link: "https://app.powerbi.com/view?r=eyJrIjoiY2ZmODAzZDUtMDE2YS00ZWYzLWJhZGQtMWE4Nzc3OWQyMDgxIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
       },
     ],
   },

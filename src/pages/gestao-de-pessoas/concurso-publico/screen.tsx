@@ -8,6 +8,7 @@ import { color } from "highcharts";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import CardConcurso from "../../../components/CardConcursos";
 import TesteArquivos from "../../../components/ListarArquivos";
+import Video from "../../../components/Videos";
 
 type PropsInput = {
   handler: {};
@@ -28,9 +29,14 @@ function Screen({ handler }: PropsInput) {
   const title = contentMapSite?.titlePage;
   const description = contentMapSite?.description;
   const router = useRouter();
-  
+  const url_video = "https://www.youtube.com/embed/_2b8fcV3Q04?list=PLr6uMRVxi5CZDYEttIUVaIzsm07L7qI6a";
+  const titulo = "O QUE É CONCURSO PÚBLICO?"; 
+
   return (
     <ContainerBasic title={title} description={description}>
+      <Video url_video={url_video} titulo={titulo} />
+
+  
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}

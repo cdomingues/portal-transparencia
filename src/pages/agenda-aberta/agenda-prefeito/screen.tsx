@@ -8,6 +8,11 @@ import {
   Text,
   Box,
   useColorModeValue,
+  Accordion,
+  AccordionItem,
+  AccordionIcon,
+  AccordionButton,
+  AccordionPanel,
 } from "@chakra-ui/react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
@@ -17,6 +22,7 @@ import { baseUrl } from "../../../config";
 import { getScheduleMayor } from "../../../calls/agenda/agenda";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import { isMobile } from "react-device-detect";
+import Video from "../../../components/Videos";
 
 type PropsInput = {
   handler: any;
@@ -35,6 +41,7 @@ type Meeting = {
   pessoa: string;
   cargo: string;
   rank: number;
+  fim_compromisso: string;
 };
 
 export const contentMayorAgenda = {
@@ -122,9 +129,14 @@ function Screen({ handler }: PropsInput) {
   let getDay = getDateArray?.[0]?.split(" ")?.[1];
   let getYear = getDateArray?.[1]?.split(" ")?.[1];
   const accessibility = useFontSizeAccessibilityContext();
+  const url_video = "https://www.youtube.com/embed/K7_TUkedcGA?si=iPxaKODtZnboQT-_";
+  const titulo = "O QUE SÃO AS SEIS MEDIDAS?"; 
 
   return (
     <ContainerBasic title={title} description={description}>
+      <Video url_video={url_video} titulo={titulo} />
+
+
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
@@ -173,6 +185,9 @@ function Screen({ handler }: PropsInput) {
                 filteredValues?.map((item: Meeting, index: any) => {
                   const timeWithSubtraction = moment(item?.data_compromisso);
                   const getHours = timeWithSubtraction.format("HH:mm").split(":");
+
+                  const timeWithSubtraction2 = moment(item?.data_compromisso);
+                  const getHours2 = timeWithSubtraction2.format("HH:mm").split(":");
                   
 
                   return (
@@ -184,8 +199,9 @@ function Screen({ handler }: PropsInput) {
                           color="red"
                           marginTop={2}
                         >
-                          {getHours?.[0]}:{getHours?.[1]}
+                         Hora  Início: {getHours?.[0]}:{getHours?.[1]} {item?.fim_compromisso ? ` - Hora fim: ${getHours2?.[0]}:${getHours2?.[1]}` : ''}
                         </Heading>
+                        
                         <Heading
                           fontSize={accessibility?.fonts?.medium}
                           color="text.dark"
@@ -200,6 +216,27 @@ function Screen({ handler }: PropsInput) {
                         >
                           {item?.local}
                         </Text>
+                        <>
+      {item?.detalhe ? (
+        <Accordion allowMultiple>
+          <AccordionItem>
+            <h2>
+              <AccordionButton>
+                <Heading mb={1} fontSize={accessibility?.fonts?.medium} color="red" marginTop={2}>
+                  Detalhes:
+                </Heading>
+                <AccordionIcon />
+              </AccordionButton>
+            </h2>
+            <AccordionPanel>
+              <Text fontSize={accessibility?.fonts?.medium} color="text.dark" style={{ margin: 0 }}>
+                {item?.detalhe}
+              </Text>
+            </AccordionPanel>
+          </AccordionItem>
+        </Accordion>
+      ) : null}
+    </>
                         <div style={{ marginTop: 8 }}></div>
                         <Divider
                           width="100%"

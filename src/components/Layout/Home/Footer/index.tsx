@@ -14,6 +14,8 @@ import {
 import logo from "../../../../assets/images/Brasao_horizontal_normal.png";
 import logoDark from "../../../../assets/images/Brasao_horizontal_branco.png";
 import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAccessibility";
+import seloTansparencia2022 from "../../../../assets/images/selo_transparencia_ouro-2022.png"
+import seloTansparencia2023 from "../../../../assets/images/selo_transparencia_ouro-2023.png"
 //import PageViewCounter from "../../../PageView";
 
 function ListHeader({ children }: { children: ReactNode }) {
@@ -130,8 +132,29 @@ export default function LargeWithLogoCentered() {
 
         <Text pt={6} fontSize="sm" textAlign="center">
           © {new Date().getFullYear()} PMMC. Todos os direitos reservados
-        </Text>
-        
+        </Text> 
+        <Flex
+          align="center"
+          mt="20px"
+          _before={{
+            content: '""',
+            borderBottom: "1px solid",
+            borderColor: useColorModeValue("white", "gray.700"),
+            flexGrow: 1,
+            mr: 8,
+          }}
+          _after={{
+            content: '""',
+            borderBottom: "1px solid",
+            borderColor: useColorModeValue("white", "gray.700"),
+            flexGrow: 1,
+            ml: 8,
+          }}
+        >
+          
+        <Image alt="logo" width="160px"  src={seloTansparencia2023.src} />
+        </Flex>
+       
       </Box>
     </Box>
   );

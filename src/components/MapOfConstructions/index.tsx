@@ -13,7 +13,9 @@ import colors from "../../styles/colors";
 import { Input, Select, useColorModeValue } from "@chakra-ui/react";
 import { formatString } from "../../utils/stringUtils";
 import { isMobile } from "react-device-detect";
-
+import { ppas } from "../../pages/controle-de-obras/pesquisar-obras/screen";
+import { bairros } from "../../pages/controle-de-obras/pesquisar-obras/screen";
+import React from "react";
 const MapWithNoSSR = dynamic(() => import("../../components/Map"), {
   ssr: false,
 });
@@ -203,7 +205,8 @@ const MapOfConstructions = () => {
                   {formatString(constructionSelected?.nome_da_obra)}
                 </Text.Heading4Bold>
                 <Text.Heading5Regular marginTop={5}>
-                  Bairro: {formatString(constructionSelected?.bairro_desc)}
+                  Bairro: 
+                  {bairros.find(bairro => bairro.id === constructionSelected?.bairro)?.nome || ""}
                 </Text.Heading5Regular>
               </div>
             </div>
@@ -435,7 +438,9 @@ const MapOfConstructions = () => {
               {formatString(constructionSelected?.nome_da_obra)}
             </Text.Heading4Bold>
             <Text.Heading5Regular marginTop={5}>
-              Bairro: {formatString(constructionSelected?.bairro_desc)}
+              
+              Bairro: {formatString( bairros.find(bairro => bairro.id === constructionSelected?.bairro)?.nome || "")}
+             
             </Text.Heading5Regular>
           </div>
         </div>
@@ -464,7 +469,9 @@ const MapOfConstructions = () => {
           }}
         >
           <Text.Heading5Bold color={colors.white}>
-            {constructionSelected?.programa_ppa}{" "}
+          
+            
+            {ppas.find(ppa => ppa.id === constructionSelected?.programa_ppa)?.programa || ""}
             {/* {Number(constructionSelected?.situacao)}% */}
           </Text.Heading5Bold>
         </div>
@@ -499,7 +506,7 @@ const MapOfConstructions = () => {
           style={{ borderRadius: 10 }}
           onClick={() =>
             router.push(
-              `/controle-de-obras/construcao?${constructionSelected?._id}`
+              `/controle-de-obras/construcao?${constructionSelected?.id}`
             )
           }
         >

@@ -36,6 +36,7 @@ import ContainerHome from "../components/Container/newHome";
 import { ChartComponentLine } from "../components/ChartLineApex";
 import CardHome from "../components/CardHome";
 import ModalPopup from "../components/Modal";
+import Video from "../components/Videos";
 
 type PropsInput = {
   handler: {
@@ -60,6 +61,8 @@ export const contentInitial = {
   description:
     "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.",
 };
+const url_video = "https://www.youtube.com/embed/F4kk9FqoRHw?list=PLr6uMRVxi5CZDYEttIUVaIzsm07L7qI6a";
+  const titulo = "O que é a Lei de Acesso à Informação (LAI)?"; 
 
 function formatMoney(value: number): string {
   return `R$ ${Math.floor(value).toLocaleString("pt-BR")}`;
@@ -244,6 +247,7 @@ function HomeScreen({ handler }: PropsInput) {
 
   return (
     <ContainerHome title={title} description={description}>
+      
       <Stack
         style={{
           paddingLeft: isMobile ? 0 : "0%",
@@ -253,7 +257,7 @@ function HomeScreen({ handler }: PropsInput) {
         <Head>
           <title>Início</title>
         </Head>
-
+        
         <Box
           m={0}
           bg={useColorModeValue("white", "gray.800")}
@@ -264,8 +268,12 @@ function HomeScreen({ handler }: PropsInput) {
           overflow="-moz-initial"
           width="100%"
         >
+          
           <ModalPopup />
+          
+          
           <CardHome />
+          
         </Box>
       </Stack>
     </ContainerHome>

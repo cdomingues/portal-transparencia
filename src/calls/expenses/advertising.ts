@@ -32,7 +32,7 @@ export const getdvertisings = async (year?: number) => {
   try {
     const response = await axios.get(
       //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=fde32aaa-b073-4311-8d21-b86af17a973f",
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=42791083-d0db-4481-b8be-cfdf85e15c0a",
+      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=42791083-d0db-4481-b8be-cfdf85e15c0a&limit=5000",
       
       {
         headers: {
@@ -41,7 +41,7 @@ export const getdvertisings = async (year?: number) => {
         },
         params: {
           q: year,
-          limit: 4000,
+          
         },
       }
     );
@@ -78,7 +78,7 @@ export const getdvertisings = async (year?: number) => {
       };
     });
 
-    return { advertisings: mappingRows, years: ["2021", "2022", "2023"] };
+    return { advertisings: mappingRows, years: ["2021", "2022", "2023","2024"] };
   } catch (error) {
     if (axios.isAxiosError(error)) {
       const url = error.config?.url ?? "Unknown URL";
@@ -92,7 +92,7 @@ export const getChartYear = async () => {
   try {
     const response = await axios.get(
       //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=a8fdc20d-7236-4302-8630-738ccf60ba4b&limit=4000",
-        "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=42791083-d0db-4481-b8be-cfdf85e15c0a&limit=4000",
+        "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=42791083-d0db-4481-b8be-cfdf85e15c0a&limit=5000",
       {
         headers: {
           Authorization:
@@ -105,11 +105,11 @@ export const getChartYear = async () => {
 
     const years = [
    //   moment().subtract(5, "years").year(),
-     // moment().subtract(4, "years").year(),
+    //moment().subtract(4, "years").year(),
       moment().subtract(3, "years").year(),
       moment().subtract(2, "years").year(),
       moment().subtract(1, "years").year(),
-      //moment().year(),
+      moment().year(),
     ];
 
     const graphs = [];
@@ -154,7 +154,7 @@ export const getChart = async (year?: number) => {
   try {
     const response = await axios.get(
       //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=03146785-57db-4207-8924-85c492e8b9a8",
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=42791083-d0db-4481-b8be-cfdf85e15c0a&limit=4000",
+      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=42791083-d0db-4481-b8be-cfdf85e15c0a&limit=5000",
       {
         headers: {
           Authorization:

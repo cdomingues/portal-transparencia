@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
 import publicRoutes from "../../../routes/public";
 import { Box, Link, Stack, Text, useColorModeValue } from "@chakra-ui/react";
@@ -14,17 +14,10 @@ type PropsInput = {
 export const contentMapSite = {
   titlePage: "Decretos e Portarias",
   description:
-    "Redirecionando para o site http://ged.pmmc.com.br/weblink7/Browse.aspx ",
+    " ",
 };
 
-function redirecionarParaLinkExterno() {
-  setTimeout(function () {
-    window.location.href = 'http://ged.pmmc.com.br/weblink7/Browse.aspx'; // Substitua pelo seu link externo
-  }, 50); // 1000 milissegundos = 1 segundo
-}
 
-// Chame a função para iniciar o redirecionamento
-redirecionarParaLinkExterno();
 
 
 
@@ -32,8 +25,12 @@ function Screen({ handler }: PropsInput) {
   const accessibility = useFontSizeAccessibilityContext();
   const title = contentMapSite?.titlePage;
   const description = contentMapSite?.description;
-  const router = useRouter();
-  
+  const [isPopupOpen, setIsPopupOpen] = useState(true);
+
+  const closePopup = () => {
+    setIsPopupOpen(false);
+  };
+
   return (
     <ContainerBasic title={title} description={description}>
       <Box
@@ -49,7 +46,17 @@ function Screen({ handler }: PropsInput) {
         marginBottom="15px"
       >
         
-
+        <iframe src="https://ged-new.mogidascruzes.sp.gov.br/laserfiche/Login.aspx?db=PMMC" width="100%" height="600" ></iframe>
+        
+        {isPopupOpen && (
+        <div className="popup">
+          <div className="popup-content">
+            <h2>Pop-up Content</h2>
+            <p>This is a simple pop-up message.</p>
+            <button onClick={closePopup}>Close</button>
+          </div>
+        </div>
+      )}
 
       </Box>
     </ContainerBasic>

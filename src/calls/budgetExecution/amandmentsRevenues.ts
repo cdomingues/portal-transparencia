@@ -8,6 +8,37 @@ import { BudgetRevenueAmendmentsData } from "../../pages/api/execucao-orcamentar
 import moneyFormatter from "../../utils/moneyFormatter";
 import moment from "moment";
 
+type Emendas = {
+  _id: number;
+  
+  n_emenda: number;
+  ano: number;
+  trimestre: string;
+  autor: string;
+  partido: string;
+  orgao_concedente: string;
+  esfera: string;
+  modalidade: string;
+  categoria: string;
+  valor_previsto_emenda: number;
+  valor_realizado: number;
+  objeto: string;
+  funcao_governo: string;
+  envio_camara: string;
+  deliberacao_camara: string;
+  secretaria_resp: string;
+  situacao: string;
+  publicacao_edital: string;
+  link_acesso: string;
+  modalidade_licitacao: string;
+  decisao_autoridade: string;
+  contrato_assinado: string;
+  valor_finalizado: string;
+  empresa_contratada: string;
+  cnpj: string;
+}
+
+
 export const getAmendmentRevenues = async (year?: number) => {
   const years = [
     moment().subtract(5, "years").year(),
@@ -21,25 +52,56 @@ export const getAmendmentRevenues = async (year?: number) => {
   try {
     const response = await axios.get(
       //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=b9f57b82-5671-4b52-9585-08470e2ed9d9",
-     "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=1d346161-f390-4c60-aa2b-400d174b77f8",
+     "https://dadosadm.mogidascruzes.sp.gov.br/api/emendas",
       {
-        headers: {  
-          Authorization:
-            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJ4T2VWV29pdlZVTG9WTjJzZk1UQ0JrQmtmMjJGRVp5QWJ0bHdyajU0ZFJNIiwiaWF0IjoxNjc5Njg4ODYyfQ.N7uwCTBg9g21vHc3brf7ayK4rKK2zuUJnglptS6k__g",
-        },
+        
         params: {
           q: year,
         },
       }
     );
 
-    const rows = response.data?.result?.records || [];
+    const rows = response.data || [];
 
-    const mappingData: any = rows.map((row: any) => {
+    
+          
+    const mappingData: any = rows?.map((row: Emendas) => {
       return {
-        ...row,
-        valor_previsto_emenda: moneyFormatter(row?.valor_previsto_emenda),
-        valor_realizado: moneyFormatter(row?.valor_realizado),
+
+        _id: row?.["_id"],
+       // id_emenda: row?.["id_emenda"],
+       // n_emenda: row?.["n_emenda"],
+        ano: row?.["ano"],
+        trimestre: row?.["trimestre"],
+        autor: row?.["autor"],
+        partido: row?.["partido"],
+        orgao_concedente: row?.["orgao_concedente"],
+        esfera: row?.["esfera"],
+        modalidade: row?.["modalidade"],
+        categoria: row?.["categoria"],
+        valor_previsto_emenda: moneyFormatter(
+          Number(row?.["valor_previsto_emenda"])
+        ),
+       valor_realizado: moneyFormatter(
+        Number(row?.["valor_realizado"])
+      ),
+       
+        objeto: row?.["objeto"],
+        funcao_governo: row?.["funcao_governo"],
+        envio_camara: row?.["envio_camara"],
+        deliberacao_camara: row?.["deliberacao_camara"],
+        secretaria_resp: row?.["secretaria_resp"],
+        situacao: row?.["situacao"],
+        publicacao_edital: row?.["publicacao_edital"],
+        link_acesso: row?.["link_acesso"],
+        modalidade_licitacao: row?.["modalidade_licitacao"],
+        decisao_autoridade: row?.["decisao_autoridade"],
+        contrato_assinado: row?.["contrato_assinado"],
+        valor_finalizado: row?.["valor_finalizado"],
+        empresa_contratada: row?.["empresa_contratada"],
+        cnpj: row?.["cnpj"],
+       
+        
       };
     });
 
@@ -56,16 +118,11 @@ export const getAmendmentRevenues = async (year?: number) => {
 export const getChart = async () => {
   try {
     const response = await axios.get(
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=b9f57b82-5671-4b52-9585-08470e2ed9d9",
-      {
-        headers: {
-          Authorization:
-            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJ4T2VWV29pdlZVTG9WTjJzZk1UQ0JrQmtmMjJGRVp5QWJ0bHdyajU0ZFJNIiwiaWF0IjoxNjc5Njg4ODYyfQ.N7uwCTBg9g21vHc3brf7ayK4rKK2zuUJnglptS6k__g",
-        },
-      }
+      "https://dadosadm.mogidascruzes.sp.gov.br/api/emendas",
+      
     );
 
-    const rows = response.data?.result?.records || [];
+    const rows = response.data || [];
 
     const graphs = [];
     const years = [

@@ -3,6 +3,7 @@ import L from "leaflet";
 import useWindowDimensions from "../../../utils/useWindowDimensions";
 import "leaflet/dist/leaflet.css";
 import { useEffect, useState } from "react";
+import React from "react";
 
 type Props = {
   setConstructionSelected: any;
@@ -91,15 +92,14 @@ const MapAllMarkersComponent = ({
 
   const icon = L.divIcon({ className: "icon-marker" });
 
-  const getFileOfConstructions = async () => {
+  /* const getFileOfConstructions = async () => {
     const response = await fetch(
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=40d91f19-c371-4aaa-b6ba-7fd2427df05c",
+      "https://dadosadm.mogidascruzes.sp.gov.br/api/obras/",
       
       {
         headers: {
-          Authorization:
-            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJ4T2VWV29pdlZVTG9WTjJzZk1UQ0JrQmtmMjJGRVp5QWJ0bHdyajU0ZFJNIiwiaWF0IjoxNjc5Njg4ODYyfQ.N7uwCTBg9g21vHc3brf7ayK4rKK2zuUJnglptS6k__g",
-        },
+          "Authorization": "Token 691239ed466fd053651a57ac9c075f0d80c25cdd"
+        }
       }
     );
 
@@ -108,8 +108,38 @@ const MapAllMarkersComponent = ({
     if (!data) {
       return;
     }
-    setConstructionsFiltered(data?.result?.records || []);
-    return setConstructions(data?.result?.records || []);
+    setConstructionsFiltered(data?.results || []);
+    return setConstructions(data?.results || []);
+  }; */
+  const getFileOfConstructions = async () => {
+    let allResults: any[] = [];
+  
+    for (let page = 1; page <= 3; page++) {
+      const response = await fetch(
+        `https://dadosadm.mogidascruzes.sp.gov.br/api/obras/?page=${page}`,
+        {
+          headers: {
+            Authorization: "Token 691239ed466fd053651a57ac9c075f0d80c25cdd",
+          },
+        }
+      );
+  
+      const data = await response.json();
+  
+      if (!data.results || data.results.length === 0) {
+        // Se não houver mais resultados, saia do loop
+        break;
+      }
+  
+      // Adicione os resultados da página atual ao array allResults
+      allResults = [...allResults, ...data.results];
+    }
+  
+    // Defina os resultados filtrados e não filtrados conforme necessário
+    setConstructionsFiltered(allResults);
+    setConstructions(allResults);
+  
+    return allResults;
   };
 
   useEffect(() => {
@@ -128,26 +158,18 @@ const MapAllMarkersComponent = ({
 
   const translatorIcon = (value: string) => {
     const translator: any = {
-      "2006 - SANEAMENTO AMBIENTAL": L.divIcon({
-        className: "icon-marker environmental",
-      }),
-      "2004 - INFRAESTRUTURA": L.divIcon({
-        className: "icon-marker infrastructure",
-      }),
-      "2000 - MOGI EFICIENTE": L.divIcon({
-        className: "icon-marker efficient",
-      }),
-      "3100 - SAÚDE": L.divIcon({ className: "icon-marker health" }),
-      "3003 - ESPORTE": L.divIcon({ className: "icon-marker sport" }),
-      "2007 - MOBILIDADE URBANA": L.divIcon({
-        className: "icon-marker mobility",
-      }),
-      "3004 - SEGURANÇA": L.divIcon({ className: "icon-marker security" }),
-      "2001 - CIDADE INTELIGENTE": L.divIcon({
-        className: "icon-marker inovation",
-      }),
-      "1001 - PRIMEIROS PASSOS": L.divIcon({ className: "icon-marker steps" }),
-      "1000 - EDUCA MOGI": L.divIcon({ className: "icon-marker education" }),
+      
+      
+      "e2951a19-2fe6-414d-bdb6-03cb038a2f60": L.divIcon({ className: "icon-marker health" }),//3100 - SAÚDE
+      "2afecc1c-084f-4c05-824c-e4b58071c8a1": L.divIcon({ className: "icon-marker security" }), //004 - SEGURANÇA
+      "f8d4a8b6-389e-4ce4-96ac-79ae9079f4ad": L.divIcon({ className: "icon-marker sport" }),//3003 - ESPORTE
+      "22b5289e-990e-4e13-8ec4-9c479461eb3d": L.divIcon({className: "icon-marker mobility",}),//2007 - MOBILIDADE URBANA
+      "207706189-eb23-4195-8051-60350e124bd7": L.divIcon({className: "icon-marker environmental",}),//2006 - SANEAMENTO AMBIENTAL
+      "f30943c4-fbef-4f0f-9343-17315b896058": L.divIcon({className: "icon-marker infrastructure",}),//2004 - INFRAESTRUTURA
+      "78c05dc2-73dc-4d92-b5f5-e7fdd330bd6c": L.divIcon({className: "icon-marker inovation",}), //2001 - CIDADE INTELIGENTE
+      "5365203c-6e94-42b9-b0de-e04ce713c742": L.divIcon({className: "icon-marker efficient", }),//2000 - MOGI EFICIENTE
+      "2db3ac4b-97c1-4342-a59b-8283f227524b": L.divIcon({ className: "icon-marker steps" }), //1001 - PRIMEIROS PASSOS
+      "e6c84d7c-5ac3-42eb-87cf-19375f4d83d9": L.divIcon({ className: "icon-marker education" }), //1000 - EDUCA MOGI
     };
 
     return translator[value] ? translator[value] : icon;

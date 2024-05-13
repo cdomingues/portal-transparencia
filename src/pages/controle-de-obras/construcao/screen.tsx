@@ -9,47 +9,98 @@ import { useEffect, useState } from "react";
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { useRouter } from "next/router";
 import { formatString } from "../../../utils/stringUtils";
-import { background } from "@chakra-ui/react";
+import { Box, background, useColorModeValue } from "@chakra-ui/react";
 import { Button } from "react-day-picker";
 import { isMobile } from "react-device-detect";
 import { m } from "framer-motion";
+import { ppas } from "../pesquisar-obras/screen";
+import { bairros } from "../pesquisar-obras/screen";
+import moneyFormatter from "../../../utils/moneyFormatter";
 
 const ConstructionScreen = ({ id }: any) => {
   const [file, setFile] = useState<any>();
+  const [currentPage, setCurrentPage] = useState(1);
+const [hasNextPage, setHasNextPage] = useState(true);
   const router = useRouter();
+  const [valoresExecutados, setValoresExecutados] = useState<any[]>([]);
+  const [daysDiff, setDaysDiff] = useState<number>(0); 
+  const [percentualExecutado,setPercentualExecutado] = useState<number | undefined>();
+  const [responsavelFiscalizacaoFormatted, setResponsavelFiscalizacaoFormatted] = useState(null);
 
   const getFileOfConstructions = async () => {
-    const response = await fetch(
-      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=03146785-57db-4207-8924-85c492e8b9a8",
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=40d91f19-c371-4aaa-b6ba-7fd2427df05c",
-      {
-        headers: {
-          Authorization:
-            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJ4T2VWV29pdlZVTG9WTjJzZk1UQ0JrQmtmMjJGRVp5QWJ0bHdyajU0ZFJNIiwiaWF0IjoxNjc5Njg4ODYyfQ.N7uwCTBg9g21vHc3brf7ayK4rKK2zuUJnglptS6k__g",
-        },
+    
+      const response = await fetch(
+      `https://dadosadm.mogidascruzes.sp.gov.br/api/obras/${ id }`,
+      
+        {
+          headers: {
+            "Authorization": "Token 691239ed466fd053651a57ac9c075f0d80c25cdd"
+          }
+        }
+      );
+      
+  
+      const data = await response.json();
+  
+      if (!data) {
+        return;
       }
-    );
+  
+    
+      setFile(data);
+      setValoresExecutados(data.valorexecutado_set || []);
+      const startTime = new Date(data?.inicio_ate);
+      const endTime = new Date(data?.aditivo_prazo ?? data?.conclusao_ate);
+    //const endTime = new Date(data?.conclusao_ate);
+      const timeDiff = Math.abs(endTime.getTime() - startTime.getTime());
+      const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24)); // Convertendo milissegundos para dias
+      setDaysDiff(daysDiff);
 
-    const data = await response.json();
-    if (!data) {
-      return;
+      const responsavelFiscalizacao = file?.responsavel_fiscalizacao ? `${file?.responsavel_fiscalizacao.split('|')[0]} | RGF: ${file?.responsavel_fiscalizacao.split('|')[1]}` : null;
+
+
+      
+
+      
+      
     }
-    return setFile(data);
-  };
+    useEffect(() => {
 
-  useEffect(() => {
-    getFileOfConstructions();
-  }, []);
+     
+      const calculatePercentualExecutado = async () => {
+        try {
+          const valorTotalMedicao = parseFloat(file?.valor_total_medicao) || 0;
+          console.log(valorTotalMedicao);
+          
+          const valorTotalAditamento = parseFloat(file?.valor_total_aditamento_reajuste_contrato) || 0;
+          console.log(valorTotalAditamento);
+          
+          const percentualExecutado = Math.round((valorTotalMedicao / valorTotalAditamento) * 100 * 100) / 100;
+          console.log(percentualExecutado);
+          
+          setPercentualExecutado(percentualExecutado);
+        } catch (error) {
+          console.error("Error calculating percentualExecutado:", error);
+        }
+      };
+    
+      calculatePercentualExecutado();
+      getFileOfConstructions();
+      
+    }, [file]);
 
-  const buildingSelected = file?.result?.records?.filter(
-    (item: any) => item?._id === id
-  )?.[0];
-
-  const othersBuildings = file?.result?.records?.filter(
-    (item: any) => item?._id != id
-  );
+    
+    
+  
+    const [collapseOpen, setCollapseOpen] = useState(false);
+    const toggleCollapse = () => {
+      setCollapseOpen(!collapseOpen);
+    };
+ 
+  
 
   const buildingData = (item: any) => {
+    
     let arrayImages = [];
     arrayImages.push(
       item?.imagen_1 ||
@@ -72,464 +123,20 @@ const ConstructionScreen = ({ id }: any) => {
       return Math.abs(new Date(start).getTime() - new Date(end).getTime());
     }
 
-    var days = run(startTime, endTime) / (1000 * 60 * 60 * 24);
+    const days = run(startTime, endTime) / (1000 * 60 * 60 * 24);
 
-    return isMobile ? (
-      <div
-        style={{
-          backgroundColor: colors.white,
-          borderRadius: "10px",
-          padding: isMobile ? 0 : "10px",
-          marginTop: "25px",
-          marginBottom: "25px",
-          marginRight: isMobile ? 0 : "15px",
+   
 
-          maxWidth: isMobile ? "100%" : "100%",
-        }}
-        flex-shrink={1}
-      >
-        <div
-          style={
-            isMobile
-              ? { display: "flex", flexDirection: "column", width: "100%" }
-              : {
-                  display: "flex",
-                  flexDirection: "row",
-                  width: "100%",
-                  justifyContent: "space-between",
-                }
-          }
-        >
-          <div style={isMobile ? { width: "100%" } : { width: "60%" }}>
-            <div
-              style={{
-                backgroundColor: colors.white,
-                borderRadius: "10px",
-                boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.3)",
-                minHeight: "80px",
-                padding: "10px",
-                alignContent: "center",
-                marginBottom: "20px",
-              }}
-            >
-              <Text.Heading2Regular color={colors.grayDark} marginBottom={20}>
-                {formatString(item?.escopo_da_obra || item?.nome_da_obra)}
-              </Text.Heading2Regular>
-            </div>
-
-            <div>
-              <Style.DivImage>
-                <Carousel listImages={arrayImages} className="image" />
-              </Style.DivImage>
-            </div>
-            <div>
-              <Style.Bottom>
-                <div className="box-main">
-                  <div>
-                    <div>
-                      <Text.Heading4Bold color={colors.black} marginTop={5}>
-                        Empresa Contratada:
-                      </Text.Heading4Bold>
-
-                      <Text.Heading5Regular
-                        color={colors.black}
-                        textAlign="left"
-                        marginTop={5}
-                      >
-                        {formatString(item?.razao_social_contratada)}
-                      </Text.Heading5Regular>
-                    </div>
-
-                    <div>
-                      <Text.Heading4Bold color={colors.black} marginTop={5}>
-                        Contrato:
-                      </Text.Heading4Bold>
-
-                      <Text.Heading5Regular
-                        color={colors.black}
-                        textAlign="left"
-                        marginTop={10}
-                      >
-                        {item?.numero_contrato}
-                      </Text.Heading5Regular>
-                    </div>
-                  </div>
-                </div>
-              </Style.Bottom>
-            </div>
-          </div>
-
-          <div
-            style={
-              isMobile
-                ? { width: "100%", height: "100%" }
-                : { width: "35%", height: "100%" }
-            }
-          >
-            <Style.Datasheet>
-              <div
-                className="box-top"
-                style={
-                  isMobile
-                    ? { width: "100%", marginTop: "20px" }
-                    : { width: "100%" }
-                }
-              >
-                <Text.Heading2Regular color={colors.white}>
-                  Ficha Técnica
-                </Text.Heading2Regular>
-              </div>
-
-              <div className="box-main">
-                <Text.Heading4Bold color={colors.black}>
-                  Etapa:
-                </Text.Heading4Bold>
-                <div
-                  className="status"
-                  style={{
-                    color:
-                      Number(item?.percentual_exec) === 100
-                        ? colors.green
-                        : colors.red,
-                  }}
-                >
-                  <Text.Heading5Bold color={colors.white}>
-                    {item?.situacao}
-                  </Text.Heading5Bold>
-                </div>
-
-                <div className="row">
-                  <div>
-                    <Text.Heading4Bold color={colors.black}>
-                      Início:
-                    </Text.Heading4Bold>
-                    <Text.Heading5Regular color={colors.black}>
-                      {item?.inicio_ate}
-                    </Text.Heading5Regular>
-                  </div>
-
-                  <div>
-                    <Text.Heading4Bold color={colors.black}>
-                      Fim:
-                    </Text.Heading4Bold>
-                    <Text.Heading5Regular color={colors.black}>
-                      {item?.conclusao_ate}
-                    </Text.Heading5Regular>
-                  </div>
-                </div>
-
-                <Text.Heading4Bold color={colors.black} marginTop={20}>
-                  Programa:
-                </Text.Heading4Bold>
-                <Text.Heading5Regular color={colors.black}>
-                  {formatString(item?.programa_ppa)}
-                </Text.Heading5Regular>
-
-                <Text.Heading4Bold color={colors.black} marginTop={20}>
-                  Tipo de obra:
-                </Text.Heading4Bold>
-                <Text.Heading5Regular color={colors.black}>
-                  {formatString(
-                    item?.categoria && item?.categoria.slice(10).toUpperCase()
-                  )}
-                </Text.Heading5Regular>
-
-                <Text.Heading4Bold color={colors.black} marginTop={20}>
-                  Área responsável:
-                </Text.Heading4Bold>
-                <Text.Heading5Regular color={colors.black}>
-                  {formatString(item?.secretaria_responsavel.slice(22))}
-                </Text.Heading5Regular>
-
-                <Text.Heading4Bold color={colors.black} marginTop={20}>
-                  Prazo total:
-                </Text.Heading4Bold>
-                <Text.Heading5Regular color={colors.black}>
-                  {days} Dias
-                </Text.Heading5Regular>
-
-                <Text.Heading4Bold color={colors.black} marginTop={20}>
-                  Valor contrato:
-                </Text.Heading4Bold>
-                <Text.Heading5Regular color={colors.black}>
-                  {parseMoney(item?.valor_contrato)}
-                </Text.Heading5Regular>
-
-                <Text.Heading4Bold color={colors.black} marginTop={20}>
-                  Endereço da Obra:
-                </Text.Heading4Bold>
-                <Text.Heading5Regular color={colors.black} textAlign="left">
-                  {formatString(item?.endereco)}
-                </Text.Heading5Regular>
-
-                {/* <button className="button">
-                <Text.Heading4Regular
-                  color={colors.white}
-                  style={{ textTransform: "none" }}
-                  className="text"
-                >
-                  Informação da contratação
-                </Text.Heading4Regular>
-              </button> */}
-              </div>
-            </Style.Datasheet>
-          </div>
-
-          <div
-            style={
-              isMobile
-                ? { display: "none" }
-                : {
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                  }
-            }
-          >
-            <div></div>
-          </div>
-
-          <div
-            style={
-              isMobile
-                ? { display: "none" }
-                : {
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                  }
-            }
-          ></div>
-        </div>
-      </div>
-    ) : (
-      <div
-        style={{
-          backgroundColor: colors.white,
-          borderRadius: "10px",
-          padding: isMobile ? 0 : "10px",
-          marginTop: "25px",
-          marginRight: isMobile ? 0 : "15px",
-          maxHeight: isMobile ? "100%" : "750px",
-          maxWidth: isMobile ? "100%" : "100%",
-        }}
-        flex-shrink={1}
-      >
-        <div
-          style={
-            isMobile
-              ? { display: "flex", flexDirection: "column", width: "100%" }
-              : {
-                  display: "flex",
-                  flexDirection: "row",
-                  width: "100%",
-                  justifyContent: "space-between",
-                }
-          }
-        >
-          <div
-            style={
-              isMobile
-                ? { width: "100%", height: "100%" }
-                : { width: "35%", height: "100%" }
-            }
-          >
-            <Style.Datasheet>
-              <div className="box-top">
-                <Text.Heading2Regular color={colors.white}>
-                  Ficha Técnica
-                </Text.Heading2Regular>
-              </div>
-
-              <div className="box-main">
-                <Text.Heading4Bold color={colors.black}>
-                  Etapa:
-                </Text.Heading4Bold>
-                <div
-                  className="status"
-                  style={{
-                    color:
-                      Number(item?.percentual_exec) === 100
-                        ? colors.green
-                        : colors.red,
-                  }}
-                >
-                  <Text.Heading5Bold color={colors.white}>
-                    {item?.situacao}
-                  </Text.Heading5Bold>
-                </div>
-
-                <div className="row">
-                  <div>
-                    <Text.Heading4Bold color={colors.black}>
-                      Início:
-                    </Text.Heading4Bold>
-                    <Text.Heading5Regular color={colors.black}>
-                      {item?.inicio_ate}
-                    </Text.Heading5Regular>
-                  </div>
-
-                  <div>
-                    <Text.Heading4Bold color={colors.black}>
-                      Fim:
-                    </Text.Heading4Bold>
-                    <Text.Heading5Regular color={colors.black}>
-                      {item?.conclusao_ate}
-                    </Text.Heading5Regular>
-                  </div>
-                </div>
-
-                <Text.Heading4Bold color={colors.black} marginTop={20}>
-                  Programa:
-                </Text.Heading4Bold>
-                <Text.Heading5Regular color={colors.black}>
-                  {formatString(item?.programa_ppa)}
-                </Text.Heading5Regular>
-
-                <Text.Heading4Bold color={colors.black} marginTop={20}>
-                  Tipo de obra:
-                </Text.Heading4Bold>
-                <Text.Heading5Regular color={colors.black}>
-                  {formatString(
-                    item?.categoria && item?.categoria.slice(10).toUpperCase()
-                  )}
-                </Text.Heading5Regular>
-
-                <Text.Heading4Bold color={colors.black} marginTop={20}>
-                  Área responsável:
-                </Text.Heading4Bold>
-                <Text.Heading5Regular color={colors.black}>
-                  {formatString(item?.secretaria_responsavel.slice(22))}
-                </Text.Heading5Regular>
-
-                <Text.Heading4Bold color={colors.black} marginTop={20}>
-                  Prazo total:
-                </Text.Heading4Bold>
-                <Text.Heading5Regular color={colors.black}>
-                  {days} Dias
-                </Text.Heading5Regular>
-
-                <Text.Heading4Bold color={colors.black} marginTop={20}>
-                  Valor contrato:
-                </Text.Heading4Bold>
-                <Text.Heading5Regular color={colors.black}>
-                  {parseMoney(item?.valor_contrato)}
-                </Text.Heading5Regular>
-
-                <Text.Heading4Bold color={colors.black} marginTop={20}>
-                  Endereço da Obra:
-                </Text.Heading4Bold>
-                <Text.Heading5Regular color={colors.black} textAlign="left">
-                  {formatString(item?.endereco)}
-                </Text.Heading5Regular>
-
-                {/* <button className="button">
-                <Text.Heading4Regular
-                  color={colors.white}
-                  style={{ textTransform: "none" }}
-                  className="text"
-                >
-                  Informação da contratação
-                </Text.Heading4Regular>
-              </button> */}
-              </div>
-            </Style.Datasheet>
-          </div>
-
-          <div style={isMobile ? { width: "100%" } : { width: "60%" }}>
-            <div
-              style={{
-                backgroundColor: colors.white,
-                borderRadius: "10px",
-                padding: "10px",
-                marginRight: "15px",
-              }}
-            >
-              <Text.Heading2Regular color={colors.grayDark} marginBottom={20}>
-                {formatString(item?.escopo_da_obra || item?.nome_da_obra)}
-              </Text.Heading2Regular>
-            </div>
-            <div>
-              <Style.DivImage>
-                <Carousel listImages={arrayImages} className="image" />
-              </Style.DivImage>
-            </div>
-            <div>
-              <Style.Bottom>
-                <div className="box-main">
-                  <div className="row">
-                    <div>
-                      <Text.Heading4Bold color={colors.black}>
-                        Empresa Contratada:
-                      </Text.Heading4Bold>
-
-                      <Text.Heading5Regular
-                        color={colors.black}
-                        textAlign="left"
-                        marginTop={10}
-                      >
-                        {formatString(item?.razao_social_contratada)}
-                      </Text.Heading5Regular>
-                    </div>
-
-                    <div>
-                      <Text.Heading4Bold color={colors.black}>
-                        Contrato:
-                      </Text.Heading4Bold>
-
-                      <Text.Heading5Regular
-                        color={colors.black}
-                        textAlign="left"
-                        marginTop={10}
-                      >
-                        {item?.numero_contrato}
-                      </Text.Heading5Regular>
-                    </div>
-                  
-                  </div>
-                </div>
-              </Style.Bottom>
-            </div>
-          </div>
-
-          <div
-            style={
-              isMobile
-                ? { display: "none" }
-                : {
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                  }
-            }
-          >
-            <div></div>
-          </div>
-
-          <div
-            style={
-              isMobile
-                ? { display: "none" }
-                : {
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                  }
-            }
-          ></div>
-        </div>
-
-        <Style.Row></Style.Row>
-      </div>
-    );
+    
   };
 
   return (
+    
     <LayoutConstructions
-      title={buildingSelected?.escopo_da_obra}
-      bannerSrc={buildingSelected?.imagen_1}
-      bannerTitle={buildingSelected?.categoria}
-      bannerDescription={buildingSelected?.descricao_da_obra}
+      title={file?.escopo_da_obra}
+      bannerSrc={file?.imagen_1}
+      bannerTitle={file?.categoria}
+      bannerDescription={file?.descricao_da_obra}
     >
       <Style.Container>
         <a
@@ -538,10 +145,345 @@ const ConstructionScreen = ({ id }: any) => {
         >
           <BsFillArrowLeftCircleFill fontSize={30} /> <span>Voltar</span>
         </a>
-
-        {buildingData(buildingSelected)}
+      
+       
+        
+        {/*buildingData(file)}
         {/* {othersBuildings?.map((item: any) => buildingData(item))} */}
       </Style.Container>
+
+      <Box
+       m={0}
+       bg={useColorModeValue("gray.100", "gray.800")}
+       
+       padding={"15px"}
+       rounded="md"
+       overflow="hidden"
+       maxWidth="100%"
+       borderRadius="18px"
+       marginBottom="15px"
+      > 
+      
+      
+
+
+      <Box 
+      maxW="100%"
+      fontSize="x-large"
+      bgColor={"rgb(255, 112, 111)"}
+      borderRadius="10px"
+      textAlign="center"
+
+      >
+
+      Ficha Técnica
+
+      </Box>
+
+      <Box 
+      maxW="100%"
+       fontSize="large"
+       textAlign="center"
+       mt="10px"
+       >
+
+      {file?.nome_da_obra}
+
+      </Box>
+
+      <Box display="flex" flexDirection="row">
+        
+      <Box width="100%"
+       fontSize="large"
+       textAlign="center"
+       mt="10px"
+       //border="2px"
+       alignContent="center"
+      // display="flex" 
+       alignItems="center"
+       justifyContent="space-around"
+      // flexDirection="row"
+       >
+        <Box fontWeight= 'bold'>Descrição da Obra:</Box> <Box>{file?.descricao_da_obra}</Box>
+        </Box>
+
+      
+      
+      </Box>
+
+
+      <Box 
+      display="flex" flexDirection="row"
+       >
+         <Box width="50%"
+       fontSize="large"
+       textAlign="center"
+       mt="10px"
+      //border="2px"
+      alignItems="center"
+      justifyContent="space-around"
+      display="flex" 
+       >
+<Box  ><Box fontWeight= 'bold'>Número do Contrato: </Box><Box>{file?.numero_contrato}</Box>  </Box>
+<Box  ><Box fontWeight= 'bold'>Empresa Contratada: </Box><Box>{file?.razao_social_contratada}</Box>  </Box>
+       
+       
+
+       </Box>
+       
+       <Box 
+       width="50%"
+       fontSize="large"
+       textAlign="center"
+       mt="10px"
+      //border="2px"
+      alignItems="center"
+      justifyContent="space-around"
+      display="flex" 
+       >
+        <Box><Box fontWeight= 'bold'>Data Inicio: </Box><Box>{file?.inicio_ate}</Box>  </Box>
+       <Box> <Box fontWeight= 'bold'>Data Fim: </Box><Box> {file?.aditivo_prazo !== null ? file?.aditivo_prazo : file?.conclusao_ate} </Box></Box>
+        
+       </Box>
+      
+      
+
+       </Box>
+
+       <Box 
+      display="flex" flexDirection="row"
+       >
+         <Box width="50%"
+       fontSize="large"
+       textAlign="center"
+       mt="10px"
+      //border="2px"
+      alignItems="center"
+      justifyContent="space-around"
+      display="flex" 
+       >
+<Box><Box fontWeight= 'bold'>Endereço da Obra: </Box><Box>{file?.localizacao}</Box>  </Box>
+
+       </Box>
+       
+       <Box width="50%"
+       fontSize="large"
+       textAlign="center"
+       mt="10px"
+      //border="2px"
+      alignItems="center"
+      justifyContent="space-around"
+      display="flex" 
+       >
+        
+        <Box><Box fontWeight= 'bold'>Bairro: </Box><Box>{bairros.map(row =>{
+                            if(row.id === file?.bairro){
+                              return row.nome
+                            }
+                          })}</Box>  </Box>
+       </Box>
+      
+
+       </Box>
+      <Box display="flex" flexDirection="row">
+        
+      <Box width="50%"
+       fontSize="large"
+       textAlign="center"
+       mt="10px"
+       //border="2px"
+       alignContent="center"
+      // display="flex" 
+       alignItems="center"
+       justifyContent="space-around"
+      // flexDirection="row"
+       >
+        <Box fontWeight= 'bold'>Status da obra:</Box> <Box>{file?.status.split("-")[1]}</Box>
+        </Box>
+
+      <Box width="50%"
+       fontSize="large"
+       textAlign="center"
+       mt="10px"
+      //border="2px"
+      alignItems="center"
+      justifyContent="space-around"
+      display="flex" 
+       >
+        <Box><Box fontWeight= 'bold'>Prazo Total: </Box><Box>{daysDiff} </Box>  </Box>
+       </Box>
+      
+      </Box>
+      
+      <Box 
+      display="flex" flexDirection="row"
+       >
+         <Box width="50%"
+       fontSize="large"
+       textAlign="center"
+       mt="10px"
+      //border="2px"
+      alignItems="center"
+      justifyContent="space-around"
+      display="flex" 
+       >
+        <Box><Box fontWeight= 'bold'>Programa PPA: </Box><Box>{file?.programa_ppa}</Box>  </Box>
+       </Box>
+       
+       <Box width="50%"
+       fontSize="large"
+       textAlign="center"
+       mt="10px"
+      //border="2px"
+      alignItems="center"
+      justifyContent="space-around"
+      display="flex" 
+       >
+        <Box><Box fontWeight= 'bold'>Tipo: </Box><Box>{file?.tipo.split(":")[1]}</Box>  </Box>
+       </Box>
+      
+
+       </Box>
+
+
+       <Box 
+      display="flex" flexDirection="row"
+       >
+         <Box width="50%"
+       fontSize="large"
+       textAlign="center"
+       mt="10px"
+      //border="2px"
+      alignItems="center"
+      justifyContent="space-around"
+      display="flex" 
+       >
+<Box><Box fontWeight= 'bold'>Área responsável: </Box><Box>{file?.secretaria_responsavel.split(":")[1]}</Box>  </Box>
+
+       </Box>
+       
+       <Box width="50%"
+       fontSize="large"
+       textAlign="center"
+       mt="10px"
+      //border="2px"
+      alignItems="center"
+      justifyContent="space-around"
+      display="flex" 
+       >
+        
+        <Box><Box fontWeight= 'bold'>Orgão Responsavel:: </Box><Box>{file?.orgao_responsavel} </Box>  </Box>
+       </Box>
+      
+
+       </Box>
+
+       <Box 
+      display="flex" flexDirection="row"
+       >
+         <Box width="50%"
+       fontSize="large"
+       textAlign="center"
+       mt="10px"
+      //border="2px"
+      alignItems="center"
+      justifyContent="space-around"
+      display="flex" 
+       >
+<Box><Box fontWeight= 'bold'>Agente responsável pela fiscalização: </Box>
+<Box>{file?.responsavel_fiscalizacao ? `${file?.responsavel_fiscalizacao.split('|')[0]} | RGF: ${file?.responsavel_fiscalizacao.split('|')[1]}` : 'null'} </Box>  </Box>
+
+       </Box>
+       
+       <Box width="50%"
+       fontSize="large"
+       textAlign="center"
+       mt="10px"
+      //border="2px"
+      alignItems="center"
+      justifyContent="space-around"
+      display="flex" 
+       >
+        
+        <Box><Box fontWeight= 'bold'>Beneficiários: </Box><Box>{file?.beneficiarios} </Box>  </Box>
+       </Box>
+      
+
+       </Box>
+
+
+       <Box 
+      display="flex" flexDirection="row"
+       >
+         <Box width="50%"
+       fontSize="large"
+       textAlign="center"
+       mt="10px"
+      //border="2px"
+      alignItems="center"
+      justifyContent="space-around"
+      display="flex" 
+       >
+<Box><Box fontWeight= 'bold'>Valor previsto: </Box><Box>{moneyFormatter(file?.valor_total_aditamento_reajuste_contrato)}</Box>  </Box>
+
+       </Box>
+       
+       <Box width="50%"
+       fontSize="large"
+       textAlign="center"
+       mt="10px"
+      //border="2px"
+      alignItems="center"
+      justifyContent="space-around"
+      display="flex" 
+       >
+        
+        <Box><Box fontWeight= 'bold'>Valor executado: </Box><Box>{moneyFormatter(file?.valor_total_medicao)} </Box>  </Box>
+       </Box>
+      
+
+       </Box>
+
+       <Box 
+      display="flex" flexDirection="row"
+       >
+         <Box width="50%"
+       fontSize="large"
+       textAlign="center"
+       mt="10px"
+      //border="2px"
+      alignItems="center"
+      justifyContent="space-around"
+      display="flex" 
+       >
+<Box><Box fontWeight= 'bold'>Percentual executado: </Box><Box>{percentualExecutado}  %</Box>  </Box>
+
+       </Box>
+       
+       <Box width="50%"
+       fontSize="large"
+       textAlign="center"
+       mt="10px"
+      //border="2px"
+      alignItems="center"
+      justifyContent="space-around"
+      display="flex" 
+       >
+        
+        <Box><Box fontWeight= 'bold'>Percentual da etapa: </Box><Box>{file?.percentual_etapa} </Box>  </Box>
+       </Box>
+      
+
+       </Box>
+       <Box 
+      display="flex" 
+      flexDirection="row"
+      justifyContent="center"
+      mt="30px"
+       ><img width="50%"   src="https://www.stant.com.br/wp-content/uploads/2020/09/pexels-pixabay-159306_Easy-Resize.com_-1024x682.jpg" alt="" /></Box>
+
+      </Box>
+
     </LayoutConstructions>
   );
 };
