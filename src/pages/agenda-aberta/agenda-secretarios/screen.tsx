@@ -71,6 +71,10 @@ function Screen({ handler }: PropsInput) {
     "Caio Cunha",
     "Priscila Yamagami",
     "Pedro Rodrigues Miranda Neto",
+    "Secretário Municipal de Transparência e Dados Abertos - inativo",
+    "Severino Netto",
+    "Toriel Angelo Mota Sardinha",
+
     
   ];
   const [selected, setSelected] = useState<Date>();
@@ -172,7 +176,7 @@ function Screen({ handler }: PropsInput) {
     ?.filter((item: Meeting) => {
       const timeWithSubtraction = moment(item?.data_compromisso).subtract('hours');
       const isSameDate = timeWithSubtraction.format("YYYY-MM-DD") === String(moment(selected).format("YYYY-MM-DD"));
-      const isNotPrefeitoOrCoPrefeita = item?.cargo !== "Prefeito" && item?.cargo !== "Co-Prefeita";
+      const isNotPrefeitoOrCoPrefeita = item?.cargo !== "Prefeito" && item?.cargo !== "Co-Prefeita" ;
       const isSameCargo = selectedCargo === "" || selectedCargo === item?.nome;
 
       return isSameDate && isNotPrefeitoOrCoPrefeita && isSameCargo;
@@ -187,8 +191,6 @@ function Screen({ handler }: PropsInput) {
   const description = contentMayorAgenda?.description;
 
   
-  
-
   const dateSelected = moment(selected).format("LL");
   const translatorMonth: any = {
     January: "Janeiro",
@@ -245,6 +247,7 @@ function Screen({ handler }: PropsInput) {
   
 >
   <option value="">Todos os Cargos</option>
+  
   {apiCargos
    .filter((cargo) => !excludedList.includes(cargo.nome))
    .sort((a, b) => a.cargo.localeCompare(b.cargo))
@@ -322,7 +325,7 @@ function Screen({ handler }: PropsInput) {
                           color="text.dark"
                           style={{ margin: 0 }}
                         >
-                          {item?.cargo}
+                          { item?.cargo  }
                         </Text>
                         <Text
                           fontSize={accessibility?.fonts?.medium}

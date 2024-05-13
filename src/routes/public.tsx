@@ -98,21 +98,21 @@ let publicRoutes: IPublicRoute[] = [
     group: [
       {
         name: "Início",
-        path: "controle-de-obras/inicio",
+        path: "inicio",
         //defaultPath: "/controle-de-obras",
         icon: AiOutlineHome,
         ...contentConstructionsControl,
       },
       {
         name: "Sobre as Obras",
-        path: "/controle-de-obras/sobre-as-obras",
+        path: "sobre-as-obras",
         //defaultPath: "/controle-de-obras",
         icon: AiOutlineInfoCircle,
         ...contentAboutConstructions,
       },
       {
         name: "Pesquise Obras",
-        path: "/controle-de-obras/pesquisar-obras",
+        path: "pesquisar-obras",
         //defaultPath: "/controle-de-obras",
         icon: AiOutlineSearch,
         ...contentSearchConstructions,
@@ -301,6 +301,12 @@ let publicRoutes: IPublicRoute[] = [
         defaultPath: "/gestao-orcamentaria",
         name: "Gastos com publicidade",
         path: "despesas/propaganda",
+        icon: AiFillCaretRight,
+      },
+      {
+        defaultPath: "/gestao-orcamentaria",
+        name: "Divida Ativa",
+        path: "/divida-ativa",
         icon: AiFillCaretRight,
       },
     ],

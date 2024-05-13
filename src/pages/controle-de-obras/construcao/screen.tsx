@@ -17,6 +17,7 @@ import { ppas } from "../pesquisar-obras/screen";
 import { bairros } from "../pesquisar-obras/screen";
 import moneyFormatter from "../../../utils/moneyFormatter";
 
+
 const ConstructionScreen = ({ id }: any) => {
   const [file, setFile] = useState<any>();
   const [currentPage, setCurrentPage] = useState(1);
@@ -184,7 +185,10 @@ const [hasNextPage, setHasNextPage] = useState(true);
       maxW="100%"
        fontSize="large"
        textAlign="center"
-       mt="10px"
+       mt="20px"
+       fontWeight= 'bold'
+       mb="10px"
+      
        >
 
       {file?.nome_da_obra}
@@ -204,7 +208,7 @@ const [hasNextPage, setHasNextPage] = useState(true);
        justifyContent="space-around"
       // flexDirection="row"
        >
-        <Box fontWeight= 'bold'>Descrição da Obra:</Box> <Box>{file?.descricao_da_obra}</Box>
+        
         </Box>
 
       
@@ -241,8 +245,8 @@ const [hasNextPage, setHasNextPage] = useState(true);
       justifyContent="space-around"
       display="flex" 
        >
-        <Box><Box fontWeight= 'bold'>Data Inicio: </Box><Box>{file?.inicio_ate}</Box>  </Box>
-       <Box> <Box fontWeight= 'bold'>Data Fim: </Box><Box> {file?.aditivo_prazo !== null ? file?.aditivo_prazo : file?.conclusao_ate} </Box></Box>
+        <Box><Box fontWeight= 'bold'>Data Inicio: </Box><Box>{moment(file?.inicio_ate).format("DD/MM/YYYY ")}</Box>  </Box>
+       <Box> <Box fontWeight= 'bold'>Data Fim: </Box><Box> {file?.aditivo_prazo !== null ? moment(file?.aditivo_prazo).format("DD/MM/YYYY") : moment(file?.conclusao_ate).format("DD/MM/YYYY")} </Box></Box>
         
        </Box>
       
@@ -327,7 +331,12 @@ const [hasNextPage, setHasNextPage] = useState(true);
       justifyContent="space-around"
       display="flex" 
        >
-        <Box><Box fontWeight= 'bold'>Programa PPA: </Box><Box>{file?.programa_ppa}</Box>  </Box>
+        <Box><Box fontWeight= 'bold'>Programa PPA: </Box><Box>{ppas.map(ppa => {
+        if (ppa.id === file?.programa_ppa) {
+            return ppa.programa;
+        }
+        return null;
+    })}</Box>  </Box>
        </Box>
        
        <Box width="50%"
@@ -358,7 +367,7 @@ const [hasNextPage, setHasNextPage] = useState(true);
       justifyContent="space-around"
       display="flex" 
        >
-<Box><Box fontWeight= 'bold'>Área responsável: </Box><Box>{file?.secretaria_responsavel.split(":")[1]}</Box>  </Box>
+<Box><Box fontWeight= 'bold'>Área responsável pela fiscalização: </Box><Box>{file?.secretaria_responsavel.split(":")[1]}</Box>  </Box>
 
        </Box>
        
@@ -470,17 +479,59 @@ const [hasNextPage, setHasNextPage] = useState(true);
       display="flex" 
        >
         
-        <Box><Box fontWeight= 'bold'>Percentual da etapa: </Box><Box>{file?.percentual_etapa} </Box>  </Box>
+        <Box><Box fontWeight= 'bold'>Percentual da etapa: </Box><Box>{file?.percentual_etapa} %</Box> 
+        <Box fontWeight= 'bold'>Etapa: </Box><Box>{file?.etapas} </Box>  </Box>
        </Box>
       
 
+       </Box>
+       <Box 
+      display="flex" flexDirection="row"
+       >
+        
+       </Box>
+       <Box 
+      display="flex" flexDirection="row"
+       >
+         <Box width="50%"
+       fontSize="large"
+       textAlign="center"
+       mt="10px"
+      //border="2px"
+      alignItems="center"
+      justifyContent="space-around"
+      display="flex" 
+       >
+  <Box><Box fontWeight= 'bold'>Última atualização: </Box><Box>{moment(file?.updated_at).format("DD/MM/YYYY ")}  </Box>  </Box>
+
+       </Box>
+       
+       <Box width="50%"
+       fontSize="large"
+       textAlign="center"
+       mt="10px"
+      //border="2px"
+      alignItems="center"
+      justifyContent="space-around"
+      display="flex" 
+       >
+        
+        <Box><Box fontWeight= 'bold'> </Box><Box> </Box>  </Box>
+       </Box>
+      
+
+       </Box>
+       <Box 
+      display="flex" flexDirection="row"
+       >
+        
        </Box>
        <Box 
       display="flex" 
       flexDirection="row"
       justifyContent="center"
       mt="30px"
-       ><img width="50%"   src="https://www.stant.com.br/wp-content/uploads/2020/09/pexels-pixabay-159306_Easy-Resize.com_-1024x682.jpg" alt="" /></Box>
+       ></Box>
 
       </Box>
 
