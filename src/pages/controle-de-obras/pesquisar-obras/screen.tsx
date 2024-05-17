@@ -5,7 +5,7 @@ import * as Style from "../../../styles/components/pesquisar-obras/styles";
 import { parseMoney } from "../../../utils/mask";
 import colors from "../../../styles/colors";
 import Carousel from "../../../components/Swiper";
-import { Box, Img, Input, Select, useColorModeValue } from "@chakra-ui/react";
+import { Box, Img, Input, Link, Select, useColorModeValue } from "@chakra-ui/react";
 import { JSXElementConstructor, Key, ReactElement, ReactFragment, useState } from "react";
 import router from "next/router";
 import { formatString } from "../../../utils/stringUtils";
@@ -237,6 +237,13 @@ function capitalizeFirstLetter(text: string) {
 }
 
 const SearchBuildingsScreen = ({ handlers }: any) => {
+
+  const date = new Date();
+const dia = String(date.getDate()).padStart(2, '0');
+const mes = String(date.getMonth() + 1).padStart(2, '0');
+const ano = date.getFullYear();
+
+const dataFormatada = `${dia}/${mes}/${ano}`;
   
   const {
     arrayBuildings,
@@ -837,7 +844,7 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
         )
     } 
 />
-
+<Box>O município de Mogi das Cruzes na data {dataFormatada} não possui obras paralisadas, em conformidade  com o  <Link href="https://paineldeobras.tce.sp.gov.br/pentaho/api/repos/:public:Obra:painel_obras.wcdf/generatedContent?userid=anony&password=zero" target="blank" style={{ color: "#db334f" }}>painel de obras do TCE SP</Link>.</Box>
    </Box></Box>
 
           {arrayBuildings
@@ -935,10 +942,10 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
                     <div className="row">
                       <div className="item">
                         <Text.Heading4Bold color={colors.black}>
-                          Obra:
+                          Contrato:
                         </Text.Heading4Bold>
                         <Text.Heading5Regular color={colors.black}>
-                          {formatString(item?.nome_da_obra)}
+                          {formatString(item?.numero_contrato)}
                         </Text.Heading5Regular>
                       </div>
                       <div className="item">

@@ -1,54 +1,26 @@
-import React from "react";
-import Head from "next/head";
 //import BlogComponent from "../components/Blog";
 //import { News } from "../types";
-import { PublicPolicyData } from "../api/totalizador/politicas-publicas";
-import CardHorizon from "../../components/CardHorizon";
-import diretriz_orcamentaria from "../../assets/images/icones/diretriz_orcamentaria.svg";
-import balanco_anual from "../../assets/images/icones/balanco_anual.svg";
-import lei_orcamentaria from "../../assets/images/icones/lei_orcamentaria_anual.svg";
-import parecer_tribunal from "../../assets/images/icones/parecer_tribunal.svg";
-import plano_plurianual from "../../assets/images/icones/plano_plurianual.svg";
-import relatorio_gestao_fiscal from "../../assets/images/icones/relatorio_gestao_fiscal.svg";
-import relatorio_resumido from "../../assets/images/icones/relatorio_resumido.svg";
 import {
   Box,
-  Divider,
-  Flex,
   Heading,
-  Icon,
-  Skeleton,
+  Link,
   Stack,
   Stat,
   StatGroup,
-  StatHelpText,
-  StatLabel,
-  StatNumber,
-  Button,
   Text,
-  useColorModeValue,
+  useColorModeValue
 } from "@chakra-ui/react";
-import moneyFormatter from "../../utils/moneyFormatter";
-import moment from "moment";
 import { isMobile } from "react-device-detect";
-import { Chart } from "../../components/HomeChart";
-import { Chart2 } from "../../components/HomeChart2";
-import { ChartContainer } from "../../utils/styles";
-import {
-  BiBell,
-  BiBody,
-  BiCheckShield,
-  BiFlag,
-  BiFoodMenu,
-  BiHeart,
-} from "react-icons/bi";
-import useWindowDimensions from "../../utils/getWindowSize";
-import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
 import noticias from "../../../data/noticias.json";
+import relatorio_gestao_fiscal from "../../assets/images/icones/relatorio_gestao_fiscal.svg";
+import CardHorizon from "../../components/CardHorizon";
+import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
+import useWindowDimensions from "../../utils/getWindowSize";
+import { PublicPolicyData } from "../api/totalizador/politicas-publicas";
 //import News from "../../components/News";
 //import News from "../components/News";
-import DisplayNews from "../../components/NewsHome";
 import ContainerBasic from "../../components/Container/Basic";
+import DisplayNews from "../../components/NewsHome";
 import Video from "../../components/Videos";
 
 type PropsInput = {
@@ -69,9 +41,19 @@ type PropsInput = {
   };
 };
 
+const date = new Date();
+const dia = String(date.getDate()).padStart(2, '0');
+const mes = String(date.getMonth() + 1).padStart(2, '0');
+const ano = date.getFullYear();
+
+const dataFormatada = `${dia}/${mes}/${ano}`;
+const link = 'https://paineldeobras.tce.sp.gov.br/pentaho/api/repos/:public:Obra:painel_obras.wcdf/generatedContent?userid=anony&password=zero';
+
+
+
 export const contentInitial = {
   titlePage: "Portal de Obras",
-  description: "Conheça as obras que estão transformando nossa cidade.",
+  description: `Conheça as obras que estão transformando nossa cidade. `,
 };
 
 function Aside() {
@@ -139,6 +121,8 @@ function HomeScreen({ handler }: PropsInput) {
   return (
     <ContainerBasic title={titlePage} description={description}>
       <Video url_video={url_video} titulo={titulo} />
+
+      <Box>O município de Mogi das Cruzes na data {dataFormatada} não possui obras paralisadas, em conformidade  com o  <Link href="https://paineldeobras.tce.sp.gov.br/pentaho/api/repos/:public:Obra:painel_obras.wcdf/generatedContent?userid=anony&password=zero" target="blank" style={{ color: "#db334f" }}>painel de obras do TCE SP</Link>.</Box>
 
   
       <Stack

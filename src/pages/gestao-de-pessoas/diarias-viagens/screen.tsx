@@ -36,7 +36,7 @@ type PropsInput = {
 
 export const contentAdvertisements = {
   titlePage: "Diárias Viagens",
-  description: "Informações sobre o nome e o cargo/função do beneficiário, além do número de diárias usufruídas por afastamento, período de afastamento, motivo do afastamento e local de destino",
+  description: "Informações sobre o nome e o cargo/função do beneficiário, além do número de diárias usufruídas por afastamento, período de afastamento, motivo do afastamento e local de destino, em conformidade com Decreto Municipal nº 15.136/2015 (http://leismunicipa.is/0qsku)",
 }
 
 function Screen({
@@ -68,6 +68,7 @@ function Screen({
 
   return (
     <ContainerBasic title={title} description={description}>
+     
       <Video url_video={url_video} titulo={titulo} />
 
   

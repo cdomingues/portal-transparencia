@@ -20,7 +20,7 @@ const ModalContracts = ({ isOpen, onClose, contract }: any) => {
     <Modal isOpen={isOpen} onClose={onClose} size={"5xl"}>
       <ModalContainer>
         <ModalHeader style={{ backgroundColor: "#185DA6", color: "white" }}>
-          Contrato Nº {contract?.numero}
+          {contract?.tipo} Nº {contract?.numero}
         </ModalHeader>
         <ModalCloseButton style={{ color: "white" }} />
         <ModalBody
@@ -39,7 +39,7 @@ const ModalContracts = ({ isOpen, onClose, contract }: any) => {
               </Panel>
 
               <Panel>
-                <Files />
+                <Files contract={contract}/>
               </Panel>
             </TabPanels>
           </Tabs>

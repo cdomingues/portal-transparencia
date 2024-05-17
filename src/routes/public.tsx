@@ -217,6 +217,12 @@ let publicRoutes: IPublicRoute[] = [
         path: "/prestacao-de-contas",
         icon: AiFillCaretRight,
       },
+      {
+        defaultPath: "/ciclo-orcamentario",
+        name: "Desonerações/ Renúncia de Receita",
+        path: "desoneracoes-renuncias",
+        icon: AiFillCaretRight,
+      },
       
       
     ],
@@ -532,6 +538,20 @@ let publicRoutes: IPublicRoute[] = [
         icon: AiFillCaretRight,
         subgroup: false,
       },
+      {
+        defaultPath: "/acordos-termos",
+        name: "Relação dos Gestores de contratos encerrados",
+        path: "relacao-fiscais-encerrados",
+        icon: AiFillCaretRight,
+        subgroup: false,
+      },
+      {
+        defaultPath: "/acordos-termos",
+        name: "Relação dos Gestores de contratos vigentes",
+        path: "relacao-fiscais-vigentes",
+        icon: AiFillCaretRight,
+        subgroup: false,
+      },
     ],
   },
 
@@ -624,7 +644,14 @@ let publicRoutes: IPublicRoute[] = [
     name: "Ouvidoria",
     path: "/ouvidoria",
     icon: AiOutlineAudit,
-    group: undefined,
+    group: [
+      
+      {
+        name: "Pesquisação de Satisfação",
+        path: "/ouvidoria",
+        icon: AiOutlineProfile,
+        link: "/ouvidoria/pesquisa-de-satisfacao",
+      },]
   },
 
   {
@@ -706,6 +733,12 @@ let publicRoutes: IPublicRoute[] = [
     name: "VISUAS – Visor do Sistema Único de Assistência Social",
     path: "/visuas",
     link:"/visuas",
+    icon: AiOutlineAudit,
+    ...contentOtherInformations,
+  },
+  {
+    name: "Relatório de Gestão",
+    path: "/relatorio-gestao",
     icon: AiOutlineAudit,
     ...contentOtherInformations,
   },

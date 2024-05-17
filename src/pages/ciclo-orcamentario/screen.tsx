@@ -269,6 +269,8 @@ function HomeScreen({ handler }: PropsInput) {
                       link="http://www.cmmc.com.br/paginas/contas_do_executivo_municipal/"
                  backgroundColor="transparent"/>
                   </Box>
+                  
+                  
                 </Stack>
                 
 
@@ -288,6 +290,14 @@ function HomeScreen({ handler }: PropsInput) {
                   justifyContent={isMobile ? "flex-start" : "center"}
                 >
                    <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Desonerações/ Renúncia de Receita"
+                      imageURL={parecer_tribunal.src}
+                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
+                      link="ciclo-orcamentario/desoneracoes-renuncias/"
+                 backgroundColor="transparent"/>
+                  </Box>
+                  <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
                       title="Prestação de Contas à CMMC"
                       imageURL={parecer_tribunal.src}

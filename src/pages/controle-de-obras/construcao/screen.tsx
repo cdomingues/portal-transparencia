@@ -367,7 +367,7 @@ const [hasNextPage, setHasNextPage] = useState(true);
       justifyContent="space-around"
       display="flex" 
        >
-<Box><Box fontWeight= 'bold'>Área responsável pela fiscalização: </Box><Box>{file?.secretaria_responsavel.split(":")[1]}</Box>  </Box>
+<Box><Box fontWeight= 'bold'>Área responsável pela fiscalização: </Box><Box>{file?.secretaria_responsavel}</Box>  </Box>
 
        </Box>
        
@@ -479,7 +479,7 @@ const [hasNextPage, setHasNextPage] = useState(true);
       display="flex" 
        >
         
-        <Box><Box fontWeight= 'bold'>Percentual da etapa: </Box><Box>{file?.percentual_etapa} %</Box> 
+        <Box><Box fontWeight= 'bold'>Percentual da etapa: </Box><Box>{file?.percentual_etapa} %  </Box> 
         <Box fontWeight= 'bold'>Etapa: </Box><Box>{file?.etapas} </Box>  </Box>
        </Box>
       
@@ -502,7 +502,7 @@ const [hasNextPage, setHasNextPage] = useState(true);
       justifyContent="space-around"
       display="flex" 
        >
-  <Box><Box fontWeight= 'bold'>Última atualização: </Box><Box>{moment(file?.updated_at).format("DD/MM/YYYY ")}  </Box>  </Box>
+  <Box><Box fontWeight= 'bold'>Última atualização: </Box><Box>{moment(file?.data_etapa).format("DD/MM/YYYY ")}  </Box>  </Box>
 
        </Box>
        
@@ -516,7 +516,7 @@ const [hasNextPage, setHasNextPage] = useState(true);
       display="flex" 
        >
         
-        <Box><Box fontWeight= 'bold'> </Box><Box> </Box>  </Box>
+        <Box><Box fontWeight= 'bold'>Justificativa de Aditivo:  </Box><Box> {file?.justificativa_aditivo}</Box>  </Box>
        </Box>
       
 

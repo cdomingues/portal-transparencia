@@ -1,54 +1,69 @@
 import { Table, TableContainer, Tbody, Td, Thead, Tr } from "@chakra-ui/react";
-import { TColumn } from "../../../../../styles/components/contratos-atas/modal/styles";
+import { RowDetails, TColumn } from "../../../../../styles/components/contratos-atas/modal/styles";
+import { useEffect, useState } from "react";
 
-const Files = () => {
-  const mockTable = [
-    {
-      group: "10/02/23",
-      item: "1. AVISO DE LICITAÇÃO",
-      quantity: "Download",
-    },
-    {
-      group: "10/02/23",
-      item: "1. AVISO DE LICITAÇÃO",
-      quantity: "Download",
-    },
-    {
-      group: "10/02/23",
-      item: "1. AVISO DE LICITAÇÃO",
-      quantity: "Download",
-    },
-  ];
+interface Arquivo {
+  id: string;
+  arquivo: string;
+  id_contrato_id: string;
+}
+
+const Files = ({ contract }: any) => {
+  const [arquivos, setArquivos] = useState<Arquivo[]>([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    async function fetchArquivos(url: string) {
+      try {
+        let currentUrl = url;
+        let allArquivos: any[] | ((prevState: Arquivo[]) => Arquivo[]) = [];
+
+        while (currentUrl) {
+          const response = await fetch(currentUrl);
+          const data = await response.json();
+          allArquivos = [...allArquivos, ...data.results];
+          currentUrl = data.next;  // URL of the next page, if any
+        }
+
+        setArquivos(allArquivos);
+      } catch (error) {
+        console.error('Erro ao buscar arquivos:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchArquivos('https://dadosadm.mogidascruzes.sp.gov.br/');
+  }, []);
+
+  const arquivosFiltrados = arquivos.filter(arquivo => arquivo.id_contrato_id === contract.id_contrato);
 
   return (
-    <TableContainer>
-      <Table variant="simple">
-        <Thead>
-          <Tr>
-            <TColumn>Data</TColumn>
-            <TColumn>Descrição</TColumn>
-            <TColumn></TColumn>
-          </Tr>
-        </Thead>
-        <Tbody>
-          {mockTable?.map((item: any, index: number) => {
-            return (
-              <Tr
-                key={index}
-                style={{
-                  backgroundColor:
-                    (index + 1) % 2 === 0 ? "#f7f7f7" : "transparent",
-                }}
+    <div style={{ overflowX: "auto" }}>
+      <RowDetails>
+        <div className="column">
+          <div className="title">Processo: </div>
+          <div className="value">{contract?.processo}</div>
+        </div>
+        <br /></RowDetails>
+        {arquivosFiltrados.map(file => (
+          <RowDetails>
+          <div key={file.id} className="column">
+            <div className="title">Arquivo:</div>
+            <div className="value"> {file.arquivo.split('/').pop()} -
+              <a
+                href={file.arquivo}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: '#185DA6', fontWeight: 'normal', textDecoration: 'none' }}
               >
-                <Td>{item?.group}</Td>
-                <Td>{item?.item}</Td>
-                <Td>{item?.quantity}</Td>
-              </Tr>
-            );
-          })}
-        </Tbody>
-      </Table>
-    </TableContainer>
+                Download
+              </a>
+            </div>
+            <br />
+          </div></RowDetails>
+        ))}
+      
+    </div>
   );
 };
 

@@ -3,6 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import database from "../../../database";
 
 export type Row = {
+  id: string;
   tipo: string;
   numero: string;
   situacao: string;
@@ -17,6 +18,7 @@ export type Row = {
   fornecedor: string;
   grupo: string;
   objeto: string;
+  id_contrato: string;
 };
 
 export type ExpensesContractData = {

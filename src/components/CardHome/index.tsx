@@ -175,6 +175,10 @@ function CardHome() {
           label: "Prestação de Contas à CMMC",
           url: "/ciclo-orcamentario/prestacao-de-contas ",
         },
+        {
+          label: "Desonerações/ Renúncia de Receita",
+          url: "/ciclo-orcamentario/desoneracoes-renuncias",
+        },
       ],
     },
 
@@ -407,6 +411,12 @@ function CardHome() {
       { label: "Contratos Gestão", 
         url: "/acordos-termos/contratos-gestao" 
       },
+      { label: "Relação dos Gestores de contratos encerrados", 
+        url: "/acordos-termos/relacao-fiscais-encerrados" 
+      },
+      { label: "Relação dos Gestores de contratos vigentes", 
+        url: "/acordos-termos/relacao-fiscais-vigentes" 
+      },
       ],
     },
 
@@ -483,7 +493,7 @@ function CardHome() {
       backgroundColor: "green",
       showExtraLinks: false,
       extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Pesquisa de Satisfação", url: "/pesquisa-de-satisfacao" },
         { label: "Link 2", url: "http://exemplo.com/link2" },
       ],
     },
@@ -617,6 +627,18 @@ function CardHome() {
       imageURL: Ultimas_noticias.src,
       description: "Descrição 3",
       link: "/ultimas-noticias",
+      backgroundColor: "green",
+      showExtraLinks: false,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
+    },
+    {
+      title: "Relatórios de Gestão",
+      imageURL: Ultimas_noticias.src,
+      description: "Descrição 3",
+      link: "/relatorio-gestao",
       backgroundColor: "green",
       showExtraLinks: false,
       extraLinks: [

@@ -1,57 +1,26 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { use, useState } from "react";
-import * as Style from "../../../styles/components/controle-de-obras-inicio/styles";
-import { TableColumns } from "../../../components/Table";
-import LayoutConstructions from "../../../components/LayoutConstructions";
-import colors from "../../../styles/colors";
 import { useRouter } from "next/router";
-import {
-  AiFillIeSquare,
-  AiFillInfoCircle,
-  AiOutlineSearch,
-} from "react-icons/ai";
-import { IoIosConstruct } from "react-icons/io";
-import { TbUsers, TbBus, TbRibbonHealth } from "react-icons/tb";
-import { BsTree } from "react-icons/bs";
-import { AiFillAlipaySquare } from "react-icons/ai";
-import { FaRegBuilding } from "react-icons/fa";
+import { TableColumns } from "../../../components/Table";
 //import CardTotal from "../../../components/CardTotal";
-import MapOfConstructions from "../../../components/MapOfConstructions";
-import CardBigTransformation from "../../../components/CardBigTransformation";
-import CardTransformation from "../../../components/CardTransformation";
 import {
-  Alert,
   Box,
-  Heading,
   Img,
-  Input,
   Text,
-  background,
-  useColorModeValue,
+  useColorModeValue
 } from "@chakra-ui/react";
-import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
+import { isMobile } from "react-device-detect";
+import hBottom from "../../../assets/images/Icones_Home_Portal_Transparencia__botao_circulo.svg";
+import vagalumeDesk from "../../../assets/images/Portal-de-Obras_fototopo_homedesk.png";
+import vagalumeMobi from "../../../assets/images/Portal-de-Obras_fototopo_homemobi.png";
 import obras_espaco_publico from "../../../assets/images/icones/Portal de Obras_TOPO_espaco publico.svg";
-import obras_saneamento from "../../../assets/images/icones/Portal de Obras_TOPO_saneamento.svg";
 import obras_mobilidade from "../../../assets/images/icones/Portal de Obras_TOPO_mobilidade.svg";
+import obras_saneamento from "../../../assets/images/icones/Portal de Obras_TOPO_saneamento.svg";
 import obras_saude from "../../../assets/images/icones/Portal de Obras_TOPO_saude.svg";
-import CardObras from "../../../components/CardObras";
-import imgBigTransformations from "../../../assets/images/big_transformations.png";
 import wall from "../../../assets/images/logoportal_simbolo_portalobras.png";
 import wallNegative from "../../../assets/images/logoportal_simbolo_portalobras_negativo.png";
-import vagalumeMobi from "../../../assets/images/Portal-de-Obras_fototopo_homemobi.png";
-import vagalumeDesk from "../../../assets/images/Portal-de-Obras_fototopo_homedesk.png";
 import ContainerBasic from "../../../components/Container/Basic";
-import Icon from "react-icons-kit";
-import { find } from "lodash";
-import { IoAddCircleOutline, IoChevronBack } from "react-icons/io5";
-import { is } from "cheerio/lib/api/traversing";
-import { isMobile } from "react-device-detect";
-import seta from "../../../assets/images/icones/Icones_Home Portal Transparencia__botao abre.svg";
-import hBottom from "../../../assets/images/Icones_Home_Portal_Transparencia__botao_circulo.svg";
-import saude from "../../../assets/images/icones/icones portalobras/branco/Icones_Portal_de_Obras_TOPO_saude.svg";
-import saneamento from "../../../assets/images/icones/icones portalobras/branco/Icones_Portal_de_Obras_TOPO_saneamento.svg";
-import mobilidade from "../../../assets/images/icones/icones portalobras/branco/Icones_Portal_de_Obras_TOPO_mobilidade.svg";
-import natureza from "../../../assets/images/icones/icones portalobras/branco/Icones_Portal_de_Obras_TOPO_espaco_publico.svg";
+import MapOfConstructions from "../../../components/MapOfConstructions";
+import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 
 type PropsInput = {
   handler?: {
@@ -164,6 +133,7 @@ function Screen({ handler }: PropsInput) {
                 }}
               >
                 Conheça as obras que estão transformando a nossa cidade.
+               
               </div>
             </div>
 
