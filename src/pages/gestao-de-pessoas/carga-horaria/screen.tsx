@@ -28,6 +28,7 @@ import { MultiAxisChart } from "../../../components/MultiAxisChart";
 import TableComponent, { TableColumns } from "../../../components/Table";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import carga_horaria from '../../../../data/carga_horaria.json'
+import DadosAbertos from "../../../components/DadosAbertos";
 
 type PropsInput = {
   handler: {
@@ -137,7 +138,7 @@ function Screen({
         ))}
       </Tbody>
     </Table>
-
+<DadosAbertos data={carga_horaria} />
         
         </Box>
       </Box>

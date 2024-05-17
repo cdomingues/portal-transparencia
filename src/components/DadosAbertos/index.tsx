@@ -53,7 +53,7 @@ type Props = {
     )}`;
     const link = document.createElement("a");
     link.href = jsonString;
-    link.download = 'obras.json';
+    link.download = 'dados.json';
 
     link.click();
   };
@@ -113,7 +113,7 @@ return(
                 {!loading && (
                   <CsvDownload
                     style={{ width: "100%", textAlign: "left" }}
-                    filename={'obras.csv'}
+                    filename={'dados.csv'}
                     data={data}
                   >
                     <Text fontSize={accessibility.fonts.large}>.CSV</Text>

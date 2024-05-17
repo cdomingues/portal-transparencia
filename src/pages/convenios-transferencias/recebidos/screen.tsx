@@ -25,6 +25,7 @@ import { MultiAxisChart } from "../../../components/MultiAxisChart";
 import TableComponent, { TableColumns } from "../../../components/Table";
 import { AiOutlineDownload } from "react-icons/ai";
 import { FaDownload } from "react-icons/fa";
+import colors from "../../../styles/colors";
 
 type PropsInput = {
   handler: {
@@ -105,8 +106,29 @@ function Screen({
         
       </Stack>
       
-      <Divider borderWidth="2px" mt="10" mb="10" />
-      <TableComponent loading={loading} columns={columns} data={data} />
+      <iframe title="CONVÊNIOS - PORTAL TRANSPARÊNCIA" width="1000" height="700" src="https://app.powerbi.com/view?r=eyJrIjoiNGQ4MjE2YTUtMTc2Zi00ZTA1LWJmNmUtOGVjYjc2NjE3OGM5IiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9" ></iframe>
+      
+      
+      <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+                mt="5px"
+              > <Link href='https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/5a827a00-f564-46a8-aa17-38b3f5e954e3/Lista_de_Conv%C3%AAnios_2021_%C3%A0_2024.pdf' target="blank" style={{ color: "#db334f" }}> <Button
+              _hover={{ bg: "gray.200", color: "white" }}
+              size="sm"
+              bg="primary"
+              color="white"
+              
+              onClick={() => {
+                
+              }}
+              
+              style={{ width: 400 }}
+            >
+              <Text fontSize={accessibility.fonts.medium} color={colors.white}>Download da Lista de convenios de 2021 a 2024</Text>
+             
+            </Button></Link></Text>   
       </Box>
     </ContainerBasic>
     

@@ -27,6 +27,9 @@ import {
   Button,
   Text,
   useColorModeValue,
+  UnorderedList,
+  Link,
+  ListItem,
 } from "@chakra-ui/react";
 import moneyFormatter from "../../utils/moneyFormatter";
 import moment from "moment";
@@ -51,6 +54,7 @@ import DisplayNews from "../../components/NewsHome";
 import ContainerBasic from "../../components/Container/Basic";
 import despesas_covid from "../../assets/images/icones/despesas covid.svg"
 import receitas_covid from "../../assets/images/icones/receitas covid.svg"
+import { FaDownload } from "react-icons/fa";
 
 type PropsInput = {
   handler: {
@@ -120,48 +124,19 @@ function HomeScreen({ handler }: PropsInput) {
           borderRadius="18px"
           marginBottom="15px"
         >
-          <Stack direction={isMobile ? "column" : "row"} spacing={2}></Stack>
+          <Divider borderWidth="2px" mt="10" mb="10" />
+      {/* <TableComponent loading={loading} columns={columns} data={data} /> */}
+     
+      <UnorderedList listStyleType="none" 
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}>
 
-          <Stack direction="column">
-            <Heading
-              fontSize={accessibility?.fonts?.regular}
-              style={{ marginTop: "0px" }}
-            >
-              Relatório de Gestão
-            </Heading>
-
-            <StatGroup width="100%" mb={20}>
-              <Stat position="unset">
-                <Stack
-                  direction={isMobile ? "column" : "row"}
-                  align={isMobile ? "center" : "center"}
-                  justifyContent={isMobile ? "flex-start" : "center"}
-                >
-                  
-
-                  <Box padding="6" bg="transparent" flexDirection="row">
-                    <CardHorizon
-                      title="Relatório de Gestão"
-                      imageURL={relatorio_gestao_fiscal.src}
-                      description="Dispõe das receitas recebidas pelo órgão público para enfrentamento da emergência de saúde pública de importância internacional decorrente do coronavírus (COVID-19)."
-                      link="https://mogisp-my.sharepoint.com/:b:/g/personal/marcostorres_mogidascruzes_sp_gov_br/EWy-zb0beGJDuqeGKqmrCZsB58YgSflNVAmZvsf57lVbOg?e=xKS0Ve"
-                      backgroundColor="transparent"
-                    />
-                  </Box>
-
-                  {/* <Box padding="6" bg="transparent" flexDirection="row">
-                    <CardHorizon
-                      title="Despesas COVID-19"
-                      imageURL={despesas_covid.src}
-                      description="Dispõe das despesas empenhadas, liquidadas e pagas realizadas pelo órgão público para enfrentamento da emergência de saúde pública de importância internacional decorrente do coronavírus (COVID-19)."
-                      link="gestao-orcamentaria-covid/covid/despesas"
-                      backgroundColor="transparent"
-                    />
-                  </Box> */}
-                </Stack>
-              </Stat>
-            </StatGroup>
-          </Stack>
+                          <Link href="https://mogisp-my.sharepoint.com/personal/marcostorres_mogidascruzes_sp_gov_br/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fmarcostorres%5Fmogidascruzes%5Fsp%5Fgov%5Fbr%2FDocuments%2FPortal%5FTransparencia%2FRelatorio%5FGestao%2FRelato%CC%81rio%20Circunstaciado%202022%20e%20Plano%20de%20Atuac%CC%A7a%CC%83o%202023%20%281%29%20%284%29%2Epdf&parent=%2Fpersonal%2Fmarcostorres%5Fmogidascruzes%5Fsp%5Fgov%5Fbr%2FDocuments%2FPortal%5FTransparencia%2FRelatorio%5FGestao&ga=1" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}> Relatório Circunstanciado 2022 e Plano de Atuação 2023</ListItem ></div></Link>
+                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/41854082-18c2-4101-a51d-03dc7b079563/relatorios_circunstanciados_e_planos_de_at_dJvDFc5.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Relatório Circunstanciado e Plano de Atuação 2023-2024</ListItem ></div></Link>
+                         
+                          
+                          
+                        </UnorderedList>
         </Box>
       </Stack>
     </ContainerBasic>

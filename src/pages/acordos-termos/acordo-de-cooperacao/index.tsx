@@ -31,7 +31,7 @@ function Controller() {
     const mappedRows = filteredRows.map((item: any) => ({
       
       ...item,
-      valor_inicial: moneyFormatter(item?.valor_inicial),
+      valor_inicial: moneyFormatter(parseFloat(item?.valor_inicial)),
     }));
     setData(mappedRows);
    

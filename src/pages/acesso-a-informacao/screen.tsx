@@ -73,7 +73,7 @@ type PropsInput = {
 export const contentInitial = {
   titlePage: "LEI DE ACESSO À INFORMAÇÃO",
   description:
-    "A Lei Federal nº 12.527, sancionada em 18 de novembro de 2011, regulamenta o direito constitucional de acesso à informação, conhecida como LAI, Lei de Acesso à Informação ou Lei da Transparência, a lei é um mecanismo que permite a qualquer cidadão receber informações de seu interesse particular ou de interesse coletivo ou geral, que serão prestadas no prazo da lei, sob pena de responsabilidade, ressalvadas aquelas cujo sigilo seja imprescindível à segurança da sociedade, do Município ou do Estado.",
+    "A Lei Federal nº 12.527, sancionada em 18 de novembro de 2011, regulamenta o direito constitucional de acesso à informação, conhecida como LAI, Lei de Acesso à Informação ou Lei da Transparência, a lei é um mecanismo que permite a qualquer cidadão receber informações de seu interesse particular ou de interesse coletivo ou geral, que serão prestadas no prazo da lei, sob pena de responsabilidade, ressalvadas aquelas cujo sigilo seja imprescindível à segurança da sociedade, do Município ou do Estado. Ainda não dispomos de lista de informações classificadas ou desclassificadas como sigilosas, haja vista estarmos no prazo de adequação previsto na Lei Municipal nº 7.986/2023.",
 };
 
  function Aside() {
@@ -184,68 +184,17 @@ marginBottom="15px">
        align={isMobile ? "justify" : "left"}
        color="gray.500"
        fontSize={accessibility?.fonts?.regular}>
-       Em Mogi das Cruzes a regulamentação local foi realizada pela: <Link  href="http://leismunicipa.is/0ucro" target="blank" style={{ color: "#db334f" }}>Lei Municipal nº 7.986, de 28 de setembro de 2023. </Link> 
+       Em Mogi das Cruzes a regulamentação local foi realizada pela: <Link  href="http://leismunicipa.is/0ucro" target="blank" style={{ color: "#db334f" }}>Lei Municipal nº 7.986, de 28 de setembro de 2023  </Link> e a Secretaria Municipal de Transparência e Dados Abertos é a responsável pelo e-SIC.
       
       </Text>
       
-      <Text
-                align={isMobile ? "justify" : "left"}
-                fontWeight="700"
-                fontSize={accessibility?.fonts?.regular}
-              >
-                Como fazer uma Solicitação de acesso à informação - LAI (online e presencial) :
-                
-                
-              </Text>
-              <Text
-                align={isMobile ? "justify" : "left"}
-                fontWeight="700"
-                fontSize={accessibility?.fonts?.regular}
-              >
-                Online: 
-                
-                
-              </Text>
-        <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              > <Link href='https://lai.mogidascruzes.sp.gov.br' target="blank" style={{ color: "#db334f" }}>lai.mogidascruzes.sp.gov.br</Link></Text>
+      
 
 <Text
                 align={isMobile ? "justify" : "left"}
                 fontWeight="700"
                 fontSize={accessibility?.fonts?.regular}
-              >
-                Presencial: 
-                
-                
-              </Text>
-        <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              >PAC Prédio I </Text>
-
-<Text
-                align={isMobile ? "justify" : "left"}
-                fontWeight="700"
-                fontSize={accessibility?.fonts?.regular}
-              >
-                Dia e horário de atendimento:  
-                
-                
-              </Text>
-        <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              >Segunda a sexta-feira, das 8h às 13h30 e das 14h30 às 17h, no PAC do prédio sede da Prefeitura (Av. Ver. Narciso Yague Guimarães, 277 - Centro Cívico) </Text>
-
-<Text
-                align={isMobile ? "justify" : "left"}
-                fontWeight="700"
-                fontSize={accessibility?.fonts?.regular}
+                mt="20px"
               >
                 Telefone:
                 
@@ -260,6 +209,7 @@ marginBottom="15px">
                 align={isMobile ? "justify" : "left"}
                 fontWeight="700"
                 fontSize={accessibility?.fonts?.regular}
+                mt="5px"
               >
                 E-mail: 
                 
@@ -272,10 +222,29 @@ marginBottom="15px">
               >lai@mogidascruzes.sp.gov.br </Text>
 
 
+              <Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+                mt="5px"
+              >
+                Acessar serviço: 
+                
+                
+              </Text>
+              <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              > <Link href='https://lai.mogidascruzes.sp.gov.br' target="blank" style={{ color: "#db334f" }}>lai.mogidascruzes.sp.gov.br</Link></Text>
+
+
+
       <Text
                 align={isMobile ? "justify" : "left"}
                 fontWeight="700"
                 fontSize={accessibility?.fonts?.regular}
+                mt="5px"
               >
                 Quem pode solicitar:
                 
@@ -292,7 +261,7 @@ marginBottom="15px">
                 fontWeight="700"
                 fontSize={accessibility?.fonts?.regular}
               >
-                Prazos:
+                Local de entrada:
                 
                 
               </Text>
@@ -300,13 +269,62 @@ marginBottom="15px">
                 align={isMobile ? "justify" : "left"}
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}
-              >20 (vinte) dias corridos, prorrogáveis por mais 10 (dez) dias, totalizando 30 (trinta) dias corridos. </Text>
+              >PAC Prédio I -  prédio sede da Prefeitura (Av. Ver. Narciso Yague Guimarães, 277 - Centro Cívico)</Text>
 
 
 <Text
                 align={isMobile ? "justify" : "left"}
                 fontWeight="700"
                 fontSize={accessibility?.fonts?.regular}
+                mt="5px"
+              >
+                Dia e horário de atendimento:
+                
+                
+              </Text>
+        <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              >Segunda a sexta-feira das 8h às 13h30 e das 14h30 às 17h.</Text>
+            
+              <Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+                mt="5px"
+              >
+                Prazo:
+                
+                
+              </Text>
+        <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              >20 (vinte) dias corridos, prorrogáveis por mais 10 (dez) dias, totalizando 30 (trinta) dias corridos.  </Text>
+
+       <Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+                mt="5px"
+              >
+                Recursos:
+                
+                
+              </Text>
+        <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              >Apresentados em até 10 (dez) dias, por meio da plataforma online ou presencial, contra a decisão proferida.</Text>      
+              
+              <Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+                mt="5px"
               >
                 Taxas:
                 
@@ -316,42 +334,13 @@ marginBottom="15px">
                 align={isMobile ? "justify" : "left"}
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}
-              >A busca e o fornecimento da informação são gratuitos, ressalvada a cobrança do valor referente ao custo dos serviços e dos materiais utilizados, tais como reprodução de documentos, mídias digitais e postagem.  </Text>
-            
-              <Text
-                align={isMobile ? "justify" : "left"}
-                fontWeight="700"
-                fontSize={accessibility?.fonts?.regular}
-              >
-                Forma de acompanhamento:
-                
-                
-              </Text>
-        <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              >Por meio do  <Link  href="https://mogidascruzes.1doc.com.br/b.php?pg=wp/detalhes&itd=3" target="blank" style={{ color: "#db334f" }}  >sistema eletrônico</Link> ou pelo protocolo enviado por e-mail. .  </Text>
-
-       <Text
-                align={isMobile ? "justify" : "left"}
-                fontWeight="700"
-                fontSize={accessibility?.fonts?.regular}
-              >
-                Observações:
-                
-                
-              </Text>
-        <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              >Antes de fazer uma solicitação, verifique nossa seção de <Link href="https://www.mogidascruzes.sp.gov.br/pagina/gabinete/institucional" target="_blank" style={{ color: "#db334f" }}>Perguntas Frequentes</Link>.   </Text>      
+              >A busca e o fornecimento da informação são gratuitos, ressalvada a cobrança do valor referente ao custo dos serviços e dos materiais utilizados, tais como reprodução de documentos, mídias digitais e postagem.</Text>      
               
               <Text
                 align={isMobile ? "justify" : "left"}
                 fontWeight="700"
                 fontSize={accessibility?.fonts?.regular}
+                mt="5px"
               >
                 Confira nossos materiais a respeito:
                 
@@ -401,6 +390,7 @@ marginBottom="15px">
                 align={isMobile ? "justify" : "left"}
                 fontWeight="700"
                 fontSize={accessibility?.fonts?.regular}
+                mt="5px"
               >
                 Informações Classificadas ou desclassificadas como sigilosas:
                 
@@ -412,8 +402,71 @@ marginBottom="15px">
                 fontSize={accessibility?.fonts?.regular}
               >Ainda não dispomos de lista de informações classificadas como sigilosas, haja vista estarmos no prazo de adequação previsto na Lei Municipal nº 7.986/2023. </Text>      
 
+             <Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+                mt="5px"
+              >
+                Pontos Focais da LAI:
+                
+                
+              </Text>
+        <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              >Decreto nº 22.656, de 5 de abril de 2024. <Link href='http://leismunicipa.is/19qug' target="blank" style={{ color: "#db334f" }}>http://leismunicipa.is/19qug</Link></Text>   
+
+<Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+                mt="5px"
+              >
+                Comissão Municipal de Acesso à Informação:
+                
+                
+              </Text>
+        <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              >Decreto Municipal nº 22.654, de 5 de abril de 2024. <Link href='http://leismunicipa.is/19qug' target="blank" style={{ color: "#db334f" }}>http://leismunicipa.is/19qug</Link></Text>   
+<Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+                mt="5px"
+              >
+                LAI - Relatórios genéricos de pedidos:
+                
+                
+              </Text>
+        <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+                mt="5px"
+              > <Link href='https://dados.mogidascruzes.sp.gov.br/dataset/43e1380e-fee9-4c13-8b90-97a88c8b9e40/resource/92bf214f-1dbd-4bb4-bbf0-e8350a5324d5/download/dga-dtpi-smtda-2022_transparencia-passiva-pedidos-de-acesso-a-informacao.xlsx' target="blank" style={{ color: "#db334f" }}> <Button
+              _hover={{ bg: "gray.200", color: "white" }}
+              size="sm"
+              bg="primary"
+              color="white"
+              
+              onClick={() => {
+                
+              }}
+              
+              style={{ width: 180 }}
+            >
+              <Text fontSize={accessibility.fonts.medium} color={colors.white}>Download</Text>
+             
+            </Button></Link></Text>   
+
 
       </Box>
+      
     <Stack
  style={{
           paddingLeft: isMobile ? 0 : "0%",

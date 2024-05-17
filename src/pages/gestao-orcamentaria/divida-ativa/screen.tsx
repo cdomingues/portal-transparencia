@@ -6,7 +6,13 @@ import {
   Stack,
   Text,
   Box,
-  useColorModeValue
+  useColorModeValue,
+  Table,
+  Thead,
+  Th,
+  Tr,
+  Tbody,
+  Td
 } from "@chakra-ui/react";
 import React from "react";
 import { isMobile } from "react-device-detect";
@@ -18,6 +24,10 @@ import {
 } from "../../../components/GraphWrapper";
 import { MultiAxisChart } from "../../../components/MultiAxisChart";
 import TableComponent, { TableColumns } from "../../../components/Table";
+import lista_devedores from '../../../../data/lista_devedores.json'
+import DadosAbertos from "../../../components/DadosAbertos";
+import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
+import moneyFormatter from "../../../utils/moneyFormatter";
 
 type PropsInput = {
   handler: {
@@ -53,6 +63,7 @@ function Screen({
 }: PropsInput) {
   const title = contentAdvertisements?.titlePage;
   const description = contentAdvertisements?.description;
+  const accessibility = useFontSizeAccessibilityContext();
 
   const chartConfig = {
     direction: isMobile ? "column" : "row",
@@ -76,46 +87,64 @@ function Screen({
         borderRadius="18px"
         marginBottom="15px"
       >
-      <Stack direction="row">
-        <Stack minW={86} width="25%">
-          <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
-            Ano
-          </Text>
-          <Select
-            defaultValue={year}
-            onChange={(e) => setYear(e.target.value)}
-            bg="white"
-            variant="outline"
-            placeholder="Selecionar Ano"
-          >
-            {years?.map((year, index) => (
-              <option key={index} value={String(year)}>
-                {String(year)}
-              </option>
-            ))}
-          </Select>
-        </Stack>
-        <Stack minW={50} width="10%" justifyContent="flex-end">
-               <Button
-            w={'100px'}
-            h={'40px'}
-              disabled={loading}
-              onClick={() => handleByYear(year)}
-              _hover={{ bg: "gray.500", color: "white" }}
-              bg="table.primary"
-              color="white"
-              fontSize="small"
-            >
-         
-            Buscar
-          </Button>
-        </Stack>
-        
-      </Stack>
-      <Text fontSize="sm" fontWeight="550" paddingLeft="5px" paddingTop="10px"> Desculpe, falha ao carregar os dados, perda de conexão com o servidor de dados</Text>
-
-      <Divider borderWidth="2px" mt="10" mb="10" />
-      <TableComponent loading={loading} columns={columns} data={data} />
+      <Table overflowX={'auto'} variant="striped"
+            style={{
+              borderCollapse: "collapse",
+            }}>
+      <Thead backgroundColor={useColorModeValue('table.primary', "gray.800")}>
+        <Tr >
+          <Th style={{
+                          paddingTop: "12px",
+                          paddingBottom: "12px",
+                          textAlign: "left",
+                          color: "white",
+                          padding: "8px",
+                          fontSize: accessibility?.fonts?.small,
+                          
+                        }}>CPF/CNPJ</Th>
+          <Th style={{
+                          paddingTop: "12px",
+                          paddingBottom: "12px",
+                          textAlign: "left",
+                          color: "white",
+                          padding: "8px",
+                          fontSize: accessibility?.fonts?.small,
+                          
+                        }}>Nome</Th>
+          <Th style={{
+                          paddingTop: "12px",
+                          paddingBottom: "12px",
+                          textAlign: "left",
+                          color: "white",
+                          padding: "8px",
+                          fontSize: accessibility?.fonts?.small,
+                          
+                        }}>Nome Fantasia</Th>
+                        <Th style={{
+                          paddingTop: "12px",
+                          paddingBottom: "12px",
+                          textAlign: "left",
+                          color: "white",
+                          padding: "8px",
+                          fontSize: accessibility?.fonts?.small,
+                          
+                        }}>Valor Total</Th>
+                       
+        </Tr>
+      </Thead>
+      <Tbody>
+        {lista_devedores.map(info => (
+          <Tr key={info.cpfcnpf}>
+            <Td style={{fontSize: accessibility?.fonts?.small}} >{info.cpfcnpf}</Td>
+            <Td style={{fontSize: accessibility?.fonts?.small}} >{info.nome}</Td>
+            <Td style={{fontSize: accessibility?.fonts?.small}} >{info.nome_fantasia}</Td>
+            <Td style={{fontSize: accessibility?.fonts?.small}} >{moneyFormatter(info.valor_total)}</Td>
+      </Tr>
+        ))}
+      </Tbody>
+    </Table>
+    <DadosAbertos data={lista_devedores} />
+      
       </Box>
     </ContainerBasic>
     
