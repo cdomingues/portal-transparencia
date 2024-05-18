@@ -134,8 +134,8 @@ function Screen({
       </Thead>
       <Tbody>
         {lista_devedores.map(info => (
-          <Tr key={info.cpfcnpf}>
-            <Td style={{fontSize: accessibility?.fonts?.small}} >{info.cpfcnpf}</Td>
+          <Tr key={info.id}>
+            <Td style={{fontSize: accessibility?.fonts?.small}} >{info.id}</Td>
             <Td style={{fontSize: accessibility?.fonts?.small}} >{info.nome}</Td>
             <Td style={{fontSize: accessibility?.fonts?.small}} >{info.nome_fantasia}</Td>
             <Td style={{fontSize: accessibility?.fonts?.small}} >{moneyFormatter(info.valor_total)}</Td>
