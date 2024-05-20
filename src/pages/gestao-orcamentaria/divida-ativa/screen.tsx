@@ -24,7 +24,7 @@ import {
 } from "../../../components/GraphWrapper";
 import { MultiAxisChart } from "../../../components/MultiAxisChart";
 import TableComponent, { TableColumns } from "../../../components/Table";
-import lista_devedores from '../../../../data/lista_devedores.json'
+
 import DadosAbertos from "../../../components/DadosAbertos";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import moneyFormatter from "../../../utils/moneyFormatter";
@@ -34,12 +34,7 @@ type PropsInput = {
     columns: TableColumns;
     data: Array<any>;
     loading: boolean;
-    chart: any;
-    chartYear: any;
-    years: Number[];
-    setYear: any;
-    year: number;
-    handleByYear: any;
+    
   };
 };
 
@@ -53,12 +48,7 @@ function Screen({
     columns,
     data,
     loading,
-    chart,
-    chartYear,
-    setYear,
-    year,
-    years,
-    handleByYear,
+    
   },
 }: PropsInput) {
   const title = contentAdvertisements?.titlePage;
@@ -87,63 +77,8 @@ function Screen({
         borderRadius="18px"
         marginBottom="15px"
       >
-      <Table overflowX={'auto'} variant="striped"
-            style={{
-              borderCollapse: "collapse",
-            }}>
-      <Thead backgroundColor={useColorModeValue('table.primary', "gray.800")}>
-        <Tr >
-          <Th style={{
-                          paddingTop: "12px",
-                          paddingBottom: "12px",
-                          textAlign: "left",
-                          color: "white",
-                          padding: "8px",
-                          fontSize: accessibility?.fonts?.small,
-                          
-                        }}>CPF/CNPJ</Th>
-          <Th style={{
-                          paddingTop: "12px",
-                          paddingBottom: "12px",
-                          textAlign: "left",
-                          color: "white",
-                          padding: "8px",
-                          fontSize: accessibility?.fonts?.small,
-                          
-                        }}>Nome</Th>
-          <Th style={{
-                          paddingTop: "12px",
-                          paddingBottom: "12px",
-                          textAlign: "left",
-                          color: "white",
-                          padding: "8px",
-                          fontSize: accessibility?.fonts?.small,
-                          
-                        }}>Nome Fantasia</Th>
-                        <Th style={{
-                          paddingTop: "12px",
-                          paddingBottom: "12px",
-                          textAlign: "left",
-                          color: "white",
-                          padding: "8px",
-                          fontSize: accessibility?.fonts?.small,
-                          
-                        }}>Valor Total</Th>
-                       
-        </Tr>
-      </Thead>
-      <Tbody>
-        {lista_devedores.map(info => (
-          <Tr key={info.cpfcnpf}>
-            <Td style={{fontSize: accessibility?.fonts?.small}} >{info.cpfcnpf}</Td>
-            <Td style={{fontSize: accessibility?.fonts?.small}} >{info.nome}</Td>
-            <Td style={{fontSize: accessibility?.fonts?.small}} >{info.nome_fantasia}</Td>
-            <Td style={{fontSize: accessibility?.fonts?.small}} >{moneyFormatter(info.valor_total)}</Td>
-      </Tr>
-        ))}
-      </Tbody>
-    </Table>
-    <DadosAbertos data={lista_devedores} />
+       <TableComponent loading={loading} columns={columns} data={data} />
+    <DadosAbertos data={data} />
       
       </Box>
     </ContainerBasic>
