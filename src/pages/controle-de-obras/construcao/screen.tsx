@@ -502,7 +502,7 @@ const [hasNextPage, setHasNextPage] = useState(true);
       justifyContent="space-around"
       display="flex" 
        >
-  <Box><Box fontWeight= 'bold'>Última atualização: </Box><Box>{moment(file?.data_etapa).format("DD/MM/YYYY ")}  </Box>  </Box>
+  <Box><Box fontWeight= 'bold'>Última atualização: </Box><Box>{file?.data_etapa ? moment(file.data_etapa).format("DD/MM/YYYY") : " "} </Box>  </Box>
 
        </Box>
        

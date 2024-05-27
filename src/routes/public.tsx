@@ -99,17 +99,11 @@ let publicRoutes: IPublicRoute[] = [
       {
         name: "Início",
         path: "inicio",
-        //defaultPath: "/controle-de-obras",
+        defaultPath: "/controle-de-obras",
         icon: AiOutlineHome,
         ...contentConstructionsControl,
       },
-      {
-        name: "Sobre as Obras",
-        path: "sobre-as-obras",
-        //defaultPath: "/controle-de-obras",
-        icon: AiOutlineInfoCircle,
-        ...contentAboutConstructions,
-      },
+     
       {
         name: "Pesquise Obras",
         path: "pesquisar-obras",
@@ -133,7 +127,7 @@ let publicRoutes: IPublicRoute[] = [
       },
       {
         defaultPath: "/agenda-aberta",
-        name: "Co-Prefeita - Priscila Yamagami",
+        name: "Vice Prefeita - Priscila Yamagami",
         path: "agenda-coprefeita",
         icon: AiOutlineProfile,
         ...contentMayorAgenda,
@@ -662,7 +656,7 @@ let publicRoutes: IPublicRoute[] = [
   },
   {
     name: "LAI - Lei de Acesso à Informação",
-    path: "acesso-a-informacao",
+    path: "/acesso-a-informacao",
     icon: AiOutlineSolution,
     group: [
       

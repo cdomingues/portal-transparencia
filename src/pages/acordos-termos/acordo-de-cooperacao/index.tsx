@@ -3,6 +3,7 @@ import { getFile } from "../../../services/cloudStorage";
 import Screen from "./screen";
 import axios from "axios";
 import moneyFormatter from "../../../utils/moneyFormatter";
+import moment from "moment";
 
 function Controller() {
   const [loading, setLoading] = useState(false);
@@ -25,13 +26,15 @@ function Controller() {
   ];
 
   const getData = async () => {
-    const response = await axios.get("https://dadosadm.mogidascruzes.sp.gov.br/api/acordos")
-    const rows = response.data;
-        const filteredRows = rows.filter((item: { tipo: number; }) => item.tipo === 1);
-    const mappedRows = filteredRows.map((item: any) => ({
+  const response = await axios.get("https://dadosadm.mogidascruzes.sp.gov.br/api/acordos")
+  const rows = response.data;
+  const filteredRows = rows.filter((item: { tipo: number; }) => item.tipo === 1);
+  const mappedRows = filteredRows.map((item: any) => ({
       
       ...item,
       valor_inicial: moneyFormatter(parseFloat(item?.valor_inicial)),
+      data_inicio: moment(item.data_inicio).format("DD/MM/YYYY"),
+      data_fim: moment(item.data_fim).format("DD/MM/YYYY"),
     }));
     setData(mappedRows);
    

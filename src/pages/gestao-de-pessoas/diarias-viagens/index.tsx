@@ -1,5 +1,6 @@
 import { GetStaticProps } from "next";
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
+import moneyFormatter from "../../../utils/moneyFormatter";
 import Screen from "./screen";
 import {
   getChart,
@@ -8,17 +9,13 @@ import {
 } from "../../../calls/expenses/diarias";
 import { revalidate } from "../../../config";
 import moment from "moment";
+import axios from 'axios'
 
-function Controller({
-  chart = { datasets: [] },
-  chartYear = { datasets: [] },
-  advertisings = [],
-  years,
-}: any) {
-  const [year, setYear] = useState(moment().year());
+function Controller() {
+  //const [year, setYear] = useState(moment().year());
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState(advertisings);
-  const [newChart, setNewChart] = useState(chart);
+  const [data, setData] = useState([]);
+  //const [newChart, setNewChart] = useState(chart);
 
   const columns = [
    // { title: "_id", field: "_id" },
@@ -34,34 +31,38 @@ function Controller({
     {title: "Meia", field:"meia"}
   ];
 
-  
-
-  const handleByYear = async (year: number) => {
-    setYear(year);
-
-    setLoading(true);
-
-    const { advertisings } = await getdvertisings(year);
-
-    const { chart } = await getChart(year);
-
-    setLoading(false);
-
-    setNewChart(chart);
-
-    setData(advertisings);
+  const getData = async () => {
+    const response = await axios.get("https://dadosadm.mogidascruzes.sp.gov.br/api/diarias")
+    const rows = response.data;
+        
+    const mappedRows = rows.map((item: any) => ({
+      ano: item?.ano  ,
+      mes: item?.mes,
+      rgf: item?.rgf,
+      nome: item?.nome,
+      total: item?.total,
+      destino: item?.destino,
+      motivo:item?.motivo,
+      periodo_permanencia: item?.periodo_permanencia,
+      meia: item?.meia,
+      
+      
+    }));
+    setData(mappedRows);
+   
+    
   };
 
+  useEffect(() => {
+    getData();
+  }, []);
+
+  
   const handler = {
     data,
     columns,
     loading,
-    chart: newChart,
-    chartYear,
-    years,
-    setYear,
-    year,
-    handleByYear,
+    
   };
 
   return <Screen handler={handler} />;
@@ -69,18 +70,4 @@ function Controller({
 
 export default Controller;
 
-export const getStaticProps: GetStaticProps = async () => {
-  const { chart } = await getChart();
-  const { chartYear } = await getChartYear();
-  const { advertisings, years } = await getdvertisings();
 
-  return {
-    props: {
-      chartYear: chartYear || { datasets: [] },
-      chart: chart || { datasets: [] },
-      advertisings: advertisings || [],
-      years: years || [],
-    },
-    revalidate,
-  };
-};

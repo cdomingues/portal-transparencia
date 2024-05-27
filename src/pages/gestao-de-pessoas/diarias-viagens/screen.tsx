@@ -6,7 +6,8 @@ import {
   Stack,
   Text,
   Box,
-  useColorModeValue
+  useColorModeValue,
+  Link
 } from "@chakra-ui/react";
 import React from "react";
 import { isMobile } from "react-device-detect";
@@ -25,18 +26,18 @@ type PropsInput = {
     columns: TableColumns;
     data: Array<any>;
     loading: boolean;
-    chart: any;
-    chartYear: any;
-    years: Number[];
-    setYear: any;
-    year: number;
-    handleByYear: any;
+  
   };
 };
-
+const link_externo = <Link href='http://leismunicipa.is/0qsku' target="blank" style={{ color: "#db334f" }}> 
+            
+            Decreto Municipal nº 15.136/2015
+ 
+</Link>
 export const contentAdvertisements = {
   titlePage: "Diárias Viagens",
-  description: "Informações sobre o nome e o cargo/função do beneficiário, além do número de diárias usufruídas por afastamento, período de afastamento, motivo do afastamento e local de destino, em conformidade com Decreto Municipal nº 15.136/2015 (http://leismunicipa.is/0qsku)",
+  description: <>Informações sobre o nome e o cargo/função do beneficiário, além do número de diárias usufruídas por afastamento, período de afastamento, motivo do afastamento e local de destino, em conformidade com  {link_externo}
+  </>
 }
 
 function Screen({
@@ -44,12 +45,7 @@ function Screen({
     columns,
     data,
     loading,
-    chart,
-    chartYear,
-    setYear,
-    year,
-    years,
-    handleByYear,
+   
   },
 }: PropsInput) {
   const title = contentAdvertisements?.titlePage;
@@ -83,43 +79,7 @@ function Screen({
         borderRadius="18px"
         marginBottom="15px"
       >
-      <Stack direction="row">
-        <Stack minW={86} width="25%">
-          
-          <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
-            Ano
-          </Text>
-           <Select
-            defaultValue={year}
-            onChange={(e) => setYear(e.target.value)}
-            bg="white"
-            variant="outline"
-            placeholder="Selecionar Ano"
-          >
-            {years?.map((year, index) => (
-              <option key={index} value={String(year)}>
-                {String(year)}
-              </option>
-            ))}
-          </Select> 
-        </Stack>
-        <Stack minW={50} width="10%" justifyContent="flex-end">
-               <Button
-            w={'100px'}
-            h={'40px'}
-              disabled={loading}
-              onClick={() => handleByYear(year)}
-              _hover={{ bg: "gray.500", color: "white" }}
-              bg="table.primary"
-              color="white"
-              fontSize="small"
-            >
-         
-            Buscar
-          </Button>*
-        </Stack>
-        
-      </Stack>
+     
       
 
       <Divider borderWidth="2px" mt="10" mb="10" />

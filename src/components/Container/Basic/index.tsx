@@ -198,7 +198,7 @@ import DisplayNews from "../../../components/NewsHome";
 
 type PropsInput = {
   title: string;
-  description: string;
+  description: string | any;
   children: ReactNode;
   containerStyles?: React.CSSProperties;
   showAsideByDefault?: boolean; // New Prop

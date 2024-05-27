@@ -1,41 +1,48 @@
 import axios from "axios";
 import moment from "moment";
 import { baseUrl } from "../../config";
-import { ExpensesContractData } from "../../pages/api/despesas/contratos-atas";
 import moneyFormatter from "../../utils/moneyFormatter";
 
-export const getContracts = async (year?: number) => {
+export const getContracts = async (years?: number) => {
   try {
-    const response = await axios.get(`${baseUrl}/api/despesas/contratos-atas`, {
-      params: {
-        ano: year,
-      },
-    });
+    let nextPage = "https://dadosadm.mogidascruzes.sp.gov.br/api/contratos_atas";
+    let allResults: any[] = [];
+    let allYears: number[] = [];
 
-    const { rows, years }: ExpensesContractData = response.data;
+    while (nextPage) {
+      const response = await axios.get(nextPage, {
+        params: {
+          ano: years,
+        },
+      });
 
-    const mappingRows = rows.map((row) => {
+      const { results, next, years: responseYears } = response.data;
+
+      allResults = allResults.concat(results);
+      if (responseYears) {
+        allYears = allYears.concat(responseYears.map(({ ano }: { ano: number }) => ano));
+      }
+      nextPage = next;
+    }
+
+    const mappingRows = allResults.map((row) => {
       return {
         ...row,
         valor: moneyFormatter(Number(row.valor)),
-        valorAditado: moneyFormatter(Number(row.valorAditado)),
-        datainicio: row.datainicio
-          ? moment(row.datainicio).format("DD/MM/YYYY hh:mm")
+        id_contrato : row.id_contrato,
+        valorAditado: moneyFormatter(Number(row.valor_aditado)),
+        dataInicio: row.data_inicio
+          ? moment(row.data_inicio).format("DD/MM/YYYY HH:mm")
           : "",
-        datatermino: row.datatermino
-          ? moment(row.datatermino).format("DD/MM/YYYY hh:mm")
+        dataTermino: row.data_termino
+          ? moment(row.data_termino).format("DD/MM/YYYY HH:mm")
           : "",
       };
     });
 
-    return { contracts: mappingRows, years };
+    return { contracts: mappingRows, years: [...new Set(allYears)] }; // Remove duplicatas
   } catch (error) {
-    if (axios.isAxiosError(error)) {
-      const url = error.config?.url ?? "Unknown URL";
-      console.log(
-        `Error on get ${url}, data: ${error.response?.data}`
-      );
-    }
-    return { contracts: [], years: [] };
+    console.error("Error fetching contracts:", error);
+    throw error;
   }
 };

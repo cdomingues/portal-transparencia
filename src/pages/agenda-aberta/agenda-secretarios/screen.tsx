@@ -74,6 +74,7 @@ function Screen({ handler }: PropsInput) {
     "Secretário Municipal de Transparência e Dados Abertos - inativo",
     "Severino Netto",
     "Toriel Angelo Mota Sardinha",
+    "Marcos Torres.",
 
     
   ];
@@ -174,12 +175,13 @@ function Screen({ handler }: PropsInput) {
 
   const filteredValues = schedule
     ?.filter((item: Meeting) => {
-      const timeWithSubtraction = moment(item?.data_compromisso).subtract('hours');
+      const timeWithSubtraction = moment(item?.data_compromisso).subtract(1,'hours');
       const isSameDate = timeWithSubtraction.format("YYYY-MM-DD") === String(moment(selected).format("YYYY-MM-DD"));
       const isNotPrefeitoOrCoPrefeita = item?.cargo !== "Prefeito" && item?.cargo !== "Co-Prefeita" ;
       const isSameCargo = selectedCargo === "" || selectedCargo === item?.nome;
+      const isNotFutureDate = timeWithSubtraction.isSameOrBefore(moment(), 'day');
 
-      return isSameDate && isNotPrefeitoOrCoPrefeita && isSameCargo;
+      return isSameDate && isNotPrefeitoOrCoPrefeita && isSameCargo && isNotFutureDate;
     })
     .sort((a: Meeting, b: Meeting) => {
       const aHours = moment(a?.data_compromisso).format("HH:mm");

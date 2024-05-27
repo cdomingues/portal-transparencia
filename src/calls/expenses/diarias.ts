@@ -68,7 +68,7 @@ export const getdvertisings = async (year?: number) => {
       };
     });
 
-    return { advertisings: mappingRows, years: ["2020","2021", "2022", "2023"] };
+    return { advertisings: mappingRows, years: ["2020","2021", "2022", "2023","2024"] };
   } catch (error) {
     if (axios.isAxiosError(error)) {
       const url = error.config?.url ?? "Unknown URL";
@@ -137,18 +137,13 @@ export const getChart = async (year?: number) => {
   try {
     const response = await axios.get(
       //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=03146785-57db-4207-8924-85c492e8b9a8",
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=a8fdc20d-7236-4302-8630-738ccf60ba4b&limit=4000",
-      {
-        headers: {
-          Authorization:
-            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJ4T2VWV29pdlZVTG9WTjJzZk1UQ0JrQmtmMjJGRVp5QWJ0bHdyajU0ZFJNIiwiaWF0IjoxNjc5Njg4ODYyfQ.N7uwCTBg9g21vHc3brf7ayK4rKK2zuUJnglptS6k__g",
-        },
-      }
+      "https://dadosadm.mogidascruzes.sp.gov.br/api/diarias",
+      
     );
 
     const rows: AdvertisingResponse[] = response.data || [];
 
-    const year = 2022;
+    const year = 2024;
 
     let months = moment().year(year).endOf("year").month() + 1;
 

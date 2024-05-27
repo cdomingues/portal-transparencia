@@ -1,72 +1,51 @@
 import { GetStaticProps } from "next";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Screen from "./screen";
 import { getContracts } from "../../../calls/expenses/contractsMinutes";
 import { revalidate } from "../../../config";
 import moment from "moment";
-import axios from "axios";
-import moneyFormatter from "../../../utils/moneyFormatter";
-import {Row} from '../../../pages/api/despesas/contratos-atas'
+export interface ArquivoContrato {
+  id: number;
+  arquivo: string;
+  nome: string;
+  id_contrato_id: number | null;
+}
+
+export interface ApiResponse {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: ArquivoContrato[];
+}
+
 
 function Controller({ contracts = [], years = [] }: any) {
   const [year, setYear] = useState(moment().year());
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState<Row[]>([]);
+  const [data, setData] = useState(contracts);
+  const [data2, setData2]  = useState<ArquivoContrato[]>([]);
 
   const columns = [
-
-   
     { title: "Tipo", field: "tipo" },
+    { title: "Ano", field: "ano" },
     { title: "Número", field: "numero" },
     { title: "Situação", field: "situacao" },
     { title: "Licitação", field: "licitacao" },
     { title: "Modalidade", field: "modalidade" },
     { title: "Processo", field: "processo" },
-    { title: "Data Início", field: "data_inicio" },
-    { title: "Data Término", field: "data_termino" },
+    { title: "Data Início", field: "datainicio" },
+    { title: "Data Término", field: "datatermino" },
     { title: "Valor", field: "valor" },
-    { title: "Valor Aditado", field: "valor_aditado" },
-    { title: "Qntd Aditivos", field: "quantidade_aditivos" },
+    { title: "Valor Aditado", field: "valorAditado" },
+    { title: "Qntd Aditivos", field: "quantidadeAdivitos" },
     { title: "Fornecedor", field: "fornecedor" },
     { title: "Grupo", field: "grupo" },
     { title: "Objeto", field: "objeto" },
-    { title: "id_contrato", field: "id_contrato" },
+    { title: "Id Contrato", field: "id_contrato" },
    
 
-    
+
   ];
-
-
-  const getData = async () => {
-  try {
-    let apiUrl = "https://dadosadm.mogidascruzes.sp.gov.br/api/contratos_atas";
-    const allRows = [];
-
-    while (apiUrl) {
-      const response = await axios.get(apiUrl);
-      const { results, next } = response.data;
-      
-      const mappedRows = results.map((item: { valor: string; data_inicio: moment.MomentInput; data_termino: moment.MomentInput; id_contrato: any; }) => ({
-        ...item,
-        valor: moneyFormatter(parseFloat(item.valor)),
-        data_inicio: moment(item.data_inicio).format("DD/MM/YYYY"),
-        data_termino: moment(item.data_termino).format("DD/MM/YYYY"),
-        id_contrato: item.id_contrato,
-      }));
-
-      allRows.push(...mappedRows);
-      apiUrl = next; // Update the API URL to fetch the next page, if available
-    }
-
-    setData(allRows);
-  } catch (error) {
-    console.error("Error fetching data:", error);
-  }
-};
-
-  useEffect(() => {
-    getData();
-  }, []);
 
   const handleByYear = async (year: number) => {
     setYear(year);
@@ -77,8 +56,45 @@ function Controller({ contracts = [], years = [] }: any) {
 
     setLoading(false);
 
-   
+    setData(contracts);
   };
+
+  const arquivosColumns = [
+    { title: "Id", field: "id" },
+    { title: "Arquivo", field: 'arquivo'},
+    { title: "Nome", field: "nome" },
+    { title: "Contrato", field: "mes" },
+    { title: "Localização", field: "id_contrato_id" },
+    
+  ];
+
+  const fetchArquivos = async (page: number) => {
+    setLoading(true);
+    try {
+        let currentPage = page;
+        let hasMore = true;
+
+        while (hasMore) {
+            const response = await fetch(`https://dadosadm.mogidascruzes.sp.gov.br/api/arquivos_contratos_atas?page=${currentPage}`);
+            const result: ApiResponse = await response.json();
+            setData2((prevData: any) => [...prevData, ...result.results]);
+
+            if (result.next) {
+                currentPage++;
+            } else {
+                hasMore = false;
+            }
+        }
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    } finally {
+        setLoading(false);
+    }
+
+    
+    
+};
+
 
   const handler = {
     data,
@@ -88,6 +104,10 @@ function Controller({ contracts = [], years = [] }: any) {
     years,
     setYear,
     handleByYear,
+    data2,
+    setData2,
+    arquivosColumns
+    
   };
 
   return <Screen handler={handler} />;

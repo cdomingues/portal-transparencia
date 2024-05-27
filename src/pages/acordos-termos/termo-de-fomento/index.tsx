@@ -3,6 +3,7 @@ import { getFile } from "../../../services/cloudStorage";
 import Screen from "./screen";
 import axios from "axios";
 import moneyFormatter from "../../../utils/moneyFormatter";
+import moment from "moment";
 
 function Controller() {
   const [loading, setLoading] = useState(false);
@@ -32,6 +33,10 @@ function Controller() {
       
       ...item,
       valor_inicial: moneyFormatter(parseFloat(item?.valor_inicial)),
+      data_inicio: moment(item.data_inicio).format("DD/MM/YYYY"),
+        data_fim: moment(item.data_fim).format("DD/MM/YYYY"),
+      
+
     }));
     setData(mappedRows);
    

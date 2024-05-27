@@ -83,11 +83,14 @@ const Details = ({ contract }: any) => {
       </RowDetails>
       <RowDetails>
         <div className="column">
-          <div className="title">Arquivo:</div>
-          <div className="value">{contract?.grupo}</div>
+         
         </div>
       </RowDetails>
+     
+        
+      
     </div>
+   
   );
 };
 

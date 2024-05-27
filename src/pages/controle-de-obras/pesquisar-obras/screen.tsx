@@ -769,7 +769,7 @@ const dataFormatada = `${dia}/${mes}/${ano}`;
                             
               {
     arrayBuildings && Array.isArray(arrayBuildings) && arrayBuildings.length > 0 && 
-    Array.from(new Set(arrayBuildings.map(building => building.programa_ppa)))
+    Array.from(new Set(arrayBuildings.map(building => building.categoria)))
             .map((program: string, index: number) => {
         const programaNome = ppas.find(row => row.id === program)?.programa || program;
         return (
@@ -860,15 +860,15 @@ const dataFormatada = `${dia}/${mes}/${ano}`;
               item?.imagen_3 && arrayImages.push(item?.imagen_3);
               item?.imagen_4 && arrayImages.push(item?.imagen_4);
 
-              const program = item?.programa_ppa;
+              const program = item?.categoria;
 
               const programConfigTranslator: any = {
-                "07706189-eb23-4195-8051-60350e124bd7": {
+                "	Categoria: ÁGUA/ESGOTO": {
                   backgroundColor: "#87C13F",
                   imageBackgroundColor: "#7DA83C",
                   imageName: "saneamento",
                 },
-                "f30943c4-fbef-4f0f-9343-17315b896058": {
+                "Categoria: VIAS E LOGRADOUROS": {
                   backgroundColor: "#7F3F93",
                   imageBackgroundColor: "#713A80",
                   imageName: "infraestrutura",
@@ -878,7 +878,7 @@ const dataFormatada = `${dia}/${mes}/${ano}`;
                   imageBackgroundColor: "#CD507D",
                   imageName: "mogi-eficiente",
                 },
-                "e6c84d7c-5ac3-42eb-87cf-19375f4d83d9": {
+                "Categoria: UNIDADES DE EDUCAÇÃO": {
                   backgroundColor: "#008C57",
                   imageBackgroundColor: "#087D4D",
                   imageName: "educa-mogi",
@@ -888,7 +888,7 @@ const dataFormatada = `${dia}/${mes}/${ano}`;
                   imageBackgroundColor: "#DBAE2F",
                   imageName: "primeiros-passos",
                 },
-                "78c05dc2-73dc-4d92-b5f5-e7fdd330bd6c": {
+                "	Categoria: PARQUES E PRAÇAS": {
                   backgroundColor: "#22BFBD",
                   imageBackgroundColor: "#31A4A4",
                   imageName: "cidade-inteligente",
@@ -898,7 +898,7 @@ const dataFormatada = `${dia}/${mes}/${ano}`;
                   imageBackgroundColor: "#183560",
                   imageName: "seguranca",
                 },
-                "22b5289e-990e-4e13-8ec4-9c479461eb3d": {
+                "Categoria: MOBILIDADE URBANA": {
                   backgroundColor: "#F88B2A",
                   imageBackgroundColor: "#D67B28",
                   imageName: "mobilidade-urbana",
@@ -908,7 +908,7 @@ const dataFormatada = `${dia}/${mes}/${ano}`;
                   imageBackgroundColor: "#DD4134",
                   imageName: "esporte",
                 },
-                "e2951a19-2fe6-414d-bdb6-03cb038a2f60": {
+                "Categoria: UNIDADE DE SAÚDE": {
                   backgroundColor: "#0093D3",
                   imageBackgroundColor: "#0E83BB",
                   imageName: "saude",
@@ -986,15 +986,11 @@ const dataFormatada = `${dia}/${mes}/${ano}`;
                     </div> */}
                       <div className="item">
                         <Text.Heading4Bold color={colors.black}>
-                          Programa:
+                          Categoria:
                         </Text.Heading4Bold>
                         <Text.Heading5Regular color={colors.black}>
-                        {ppas.map(ppa => {
-        if (ppa.id === item?.programa_ppa) {
-            return ppa.programa;
-        }
-        return null;
-    })}
+                       
+                        {item?.categoria ? item?.categoria.split(':')[1]  : 'null'}
                         </Text.Heading5Regular>
                       </div>
                       <div className="item">
@@ -1025,21 +1021,11 @@ const dataFormatada = `${dia}/${mes}/${ano}`;
                   >
                     <div className="program-top">
                       <p className="vertical-text">
-                      {(() => {
-    let displayString = "";
-    ppas.forEach(ppa => {
-      if (ppa.id === item?.programa_ppa) {
-        displayString = ppa.programa;
-      }
-    });
-    return capitalizeFirstLetter(
-      String(
-        displayString
-          ?.split("-")?.[1]
-          ?.replace(" ", "")
-      ).toLowerCase()
-    ) || "";
-  })()}
+                      {capitalizeFirstLetter(
+                        String(
+                          item?.categoria?.split(":")?.[1]?.replace(" ", "")
+                        ).toLowerCase()
+                      ) || ""}
                       </p>
                     </div>
                     <div
