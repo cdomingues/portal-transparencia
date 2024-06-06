@@ -78,11 +78,13 @@ function Screen({ handler }: PropsInput) {
 
     
   ];
+  
   const [selected, setSelected] = useState<Date>();
   const [schedule, setSchedule] = useState<Array<Meeting>>([]);
   const [selectedCargo, setSelectedCargo] = useState<string>("");
   const [apiCargos, setApiCargos] = useState<Cargo[]>([]);
   const [nextPage, setNextPage] = useState<number | null>(1);
+  
   
    /* const handleGetOpenSchedule = async () => {
     const response = await fetch(
@@ -119,6 +121,7 @@ function Screen({ handler }: PropsInput) {
     try {
       const response = await fetch(url);
       const data = await response.json();
+      
 
       if (!data) {
         return;
@@ -148,6 +151,7 @@ function Screen({ handler }: PropsInput) {
   
   useEffect(() => {
     const fetchCargosFromApi = async () => {
+      
       try {
         const response = await axios.get("https://dadosadm.mogidascruzes.sp.gov.br/api/pessoas/");
         const data = response.data;
@@ -164,6 +168,7 @@ function Screen({ handler }: PropsInput) {
         console.error("Error fetching cargos from API:", error);
       }
     };
+
 
     fetchCargosFromApi();
   }, []);
@@ -191,7 +196,7 @@ function Screen({ handler }: PropsInput) {
 
   const title = contentMayorAgenda?.titlePage;
   const description = contentMayorAgenda?.description;
-
+  
   
   const dateSelected = moment(selected).format("LL");
   const translatorMonth: any = {
@@ -216,7 +221,8 @@ function Screen({ handler }: PropsInput) {
   const accessibility = useFontSizeAccessibilityContext();
   const url_video = "https://www.youtube.com/embed/K7_TUkedcGA?si=iPxaKODtZnboQT-_";
   const titulo = "O QUE SÃO AS SEIS MEDIDAS?"; 
-
+  
+  
   return (
     <ContainerBasic title={title} description={description}>
       <Video url_video={url_video} titulo={titulo} />
@@ -258,6 +264,7 @@ function Screen({ handler }: PropsInput) {
         {cargo.cargo}
     </option>
   ))}
+  
 </Select>
 
           <Stack direction="row" flexWrap="wrap-reverse">
@@ -327,7 +334,7 @@ function Screen({ handler }: PropsInput) {
                           color="text.dark"
                           style={{ margin: 0 }}
                         >
-                          { item?.cargo  }
+                            { item?.cargo}
                         </Text>
                         <Text
                           fontSize={accessibility?.fonts?.medium}

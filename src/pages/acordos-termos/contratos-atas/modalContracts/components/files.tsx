@@ -52,15 +52,15 @@ const Files = ({ contract }: any) => {
     return <div>Loading...</div>;
   }
 
-  console.log('Contract ID:', contract?.id_contrato);
-  console.log('Data:', data);
+ // console.log('Contract ID:', contract?.id_contrato);
+  //console.log('Data:', data);
 
   const filteredData = data.filter(file => {
-    console.log('Comparing:', file.id_contrato_id, contract?.id_contrato);
+    //console.log('Comparing:', file.id_contrato_id, contract?.id_contrato);
     return file.id_contrato_id === contract?.id_contrato;
   });
 
-  console.log('Filtered Data:', filteredData);
+  //console.log('Filtered Data:', filteredData);
 
   return (
     <div style={{ overflowX: "auto" }}>

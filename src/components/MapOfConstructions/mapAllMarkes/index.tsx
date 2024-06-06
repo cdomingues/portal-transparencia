@@ -164,16 +164,16 @@ const MapAllMarkersComponent = ({
     const translator: any = {
       
       
-      "e2951a19-2fe6-414d-bdb6-03cb038a2f60": L.divIcon({ className: "icon-marker health" }),//3100 - SAÚDE
+      "Categoria: UNIDADE DE SAÚDE": L.divIcon({ className: "icon-marker health" }),//3100 - SAÚDE
       "2afecc1c-084f-4c05-824c-e4b58071c8a1": L.divIcon({ className: "icon-marker security" }), //004 - SEGURANÇA
       "f8d4a8b6-389e-4ce4-96ac-79ae9079f4ad": L.divIcon({ className: "icon-marker sport" }),//3003 - ESPORTE
-      "22b5289e-990e-4e13-8ec4-9c479461eb3d": L.divIcon({className: "icon-marker mobility",}),//2007 - MOBILIDADE URBANA
-      "207706189-eb23-4195-8051-60350e124bd7": L.divIcon({className: "icon-marker environmental",}),//2006 - SANEAMENTO AMBIENTAL
-      "f30943c4-fbef-4f0f-9343-17315b896058": L.divIcon({className: "icon-marker infrastructure",}),//2004 - INFRAESTRUTURA
+      "Categoria: MOBILIDADE URBANA": L.divIcon({className: "icon-marker mobility",}),//2007 - MOBILIDADE URBANA
+      "Categoria: ÁGUA/ESGOTO": L.divIcon({className: "icon-marker environmental",}),//2006 - SANEAMENTO AMBIENTAL
+      "Categoria: VIAS E LOGRADOUROS": L.divIcon({className: "icon-marker infrastructure",}),//2004 - INFRAESTRUTURA
       "78c05dc2-73dc-4d92-b5f5-e7fdd330bd6c": L.divIcon({className: "icon-marker inovation",}), //2001 - CIDADE INTELIGENTE
-      "5365203c-6e94-42b9-b0de-e04ce713c742": L.divIcon({className: "icon-marker efficient", }),//2000 - MOGI EFICIENTE
+      "Categoria: PARQUES E PRAÇAS": L.divIcon({className: "icon-marker efficient", }),//2000 - MOGI EFICIENTE
       "2db3ac4b-97c1-4342-a59b-8283f227524b": L.divIcon({ className: "icon-marker steps" }), //1001 - PRIMEIROS PASSOS
-      "e6c84d7c-5ac3-42eb-87cf-19375f4d83d9": L.divIcon({ className: "icon-marker education" }), //1000 - EDUCA MOGI
+      "Categoria: UNIDADES DE EDUCAÇÃO": L.divIcon({ className: "icon-marker education" }), //1000 - EDUCA MOGI*
     };
 
     return translator[value] ? translator[value] : icon;
@@ -195,7 +195,7 @@ const MapAllMarkersComponent = ({
         
 
 
-      const programMatch = program ? program === item?.programa_ppa : true;
+      const programMatch = program ? program === item?.categoria : true;
 
       const addressMatch = directionConstruction
         ? item?.endereco
@@ -262,7 +262,7 @@ const MapAllMarkersComponent = ({
             <Marker
               key={index}
               position={[latitude, longitude]}
-              icon={translatorIcon(item?.programa_ppa)}
+              icon={translatorIcon(item?.categoria)}
               eventHandlers={{
                 click: (e) => {
                   setConstructionSelected(item);

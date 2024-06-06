@@ -309,6 +309,12 @@ let publicRoutes: IPublicRoute[] = [
         path: "/divida-ativa",
         icon: AiFillCaretRight,
       },
+      {
+        defaultPath: "/gestao-orcamentaria",
+        name: "Incentivos Fiscais",
+        path: "/incentivos-fiscais",
+        icon: AiFillCaretRight,
+      },
     ],
   },
 
@@ -746,6 +752,12 @@ let publicRoutes: IPublicRoute[] = [
   {
     name: "Últimas Notícias",
     path: "/ultimas-noticias",
+    icon: AiOutlineAudit,
+    ...contentOtherInformations,
+  },
+  {
+    name: "Veículos Oficiais",
+    path: "/veiculos-oficiais",
     icon: AiOutlineAudit,
     ...contentOtherInformations,
   },

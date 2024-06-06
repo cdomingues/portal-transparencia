@@ -52,14 +52,14 @@ const MapOfConstructions = () => {
     INICIADO: colors.primaryDefault,
     CONCLUÍDO: colors.green,
     RESCINDIDO: colors.red,
-    "2006 - SANEAMENTO AMBIENTAL": colors.programColors.green,
-    "2004 - INFRAESTRUTURA": colors.programColors.purple,
+    "Categoria: UNIDADES DE EDUCAÇÃO": colors.programColors.blue,
+    "Categoria: VIAS E LOGRADOUROS": colors.programColors.purple,
     "2000 - MOGI EFICIENTE": colors.programColors.pink,
-    "3100 - SAÚDE": colors.programColors.blueLight,
+    "Categoria: PARQUES E PRAÇAS": colors.programColors.pink,
     "3003 - ESPORTE": colors.programColors.red,
-    "2007 - MOBILIDADE URBANA": colors.programColors.orange,
-    "3004 - SEGURANÇA": colors.programColors.blue,
-    "2001 - CIDADE INTELIGENTE": colors.programColors.greeLight,
+    "Categoria: MOBILIDADE URBANA": colors.programColors.orange,
+    "Categoria: UNIDADE DE SAÚDE": colors.programColors.blueLight,
+    "Categoria: ÁGUA/ESGOTO": colors.programColors.green,
     "1001 - PRIMEIROS PASSOS": colors.programColors.yellow,
     "1000 - EDUCA MOGI": colors.randomColors.blue,
   };
@@ -114,24 +114,22 @@ const MapOfConstructions = () => {
           marginTop={5}
           marginBottom={7}
         >
-          Programa
+          Categoria
         </Text.Heading4Medium>
         <Select
           placeholder="Selecionar programa"
           onChange={(event) => setProgram(event.target.value)}
         >
-          <option value="2006 - SANEAMENTO AMBIENTAL">
-            Saneamento Ambiental
-          </option>
-          <option value="2004 - INFRAESTRUTURA">Infraestrutura</option>
-          <option value="2000 - MOGI EFICIENTE">Mogi Eficiente</option>
-          <option value="3100 - SAÚDE">Saúde</option>
-          <option value="3003 - ESPORTE">Esporte</option>
-          <option value="2007 - MOBILIDADE URBANA">Mobilidade Urbana</option>
-          <option value="3004 - SEGURANÇA">Segurança</option>
-          <option value="2001 - CIDADE INTELIGENTE">Cidade Inteligente</option>
+         
+          <option value="Categoria: UNIDADE DE SAÚDE">UNIDADE DE SAÚDE</option>
+          <option value="Categoria: MOBILIDADE URBANA">MOBILIDADE URBANA</option>
+          <option value="Categoria: PARQUES E PRAÇAS">PARQUES E PRAÇAS</option>
+          <option value="Categoria: UNIDADES DE EDUCAÇÃO">UNIDADES DE EDUCAÇÃO</option>
+          <option value="Categoria: VIAS E LOGRADOUROS">VIAS E LOGRADOUROS</option>
+          <option value="Categoria: ÁGUA/ESGOTO">ÁGUA/ESGOTO</option>
+          {/* <option value="2001 - CIDADE INTELIGENTE">Cidade Inteligente</option>
           <option value="1001 - PRIMEIROS PASSOS">Primeiros Passos</option>
-          <option value="1000 - EDUCA MOGI">Educa Mogi</option>
+          <option value="1000 - EDUCA MOGI">Educa Mogi</option> */}
           <option value="">Todos</option>
         </Select>
         <Text.Heading4Medium
@@ -230,12 +228,12 @@ const MapOfConstructions = () => {
               style={{
                 backgroundColor:
                   translatorSituationColor[
-                    constructionSelected?.programa_ppa
+                    constructionSelected?.categoria
                   ] || colors.grayDark,
               }}
             >
               <Text.Heading5Bold color={colors.white}>
-                {constructionSelected?.programa_ppa}{" "}
+                {constructionSelected?.categoria.split(':')[1]}{" "}
                 {/* {Number(constructionSelected?.situacao)}% */}
               </Text.Heading5Bold>
             </div>
@@ -338,24 +336,18 @@ const MapOfConstructions = () => {
       marginTop={5}
       marginBottom={7}
     >
-      Programa
+      Categoria
     </Text.Heading4Medium>
     <Select
       placeholder="Selecionar programa"
       onChange={(event) => setProgram(event.target.value)}
     >
-      <option value="2006 - SANEAMENTO AMBIENTAL">
-        Saneamento Ambiental
-      </option>
-      <option value="2004 - INFRAESTRUTURA">Infraestrutura</option>
-      <option value="2000 - MOGI EFICIENTE">Mogi Eficiente</option>
-      <option value="3100 - SAÚDE">Saúde</option>
-      <option value="3003 - ESPORTE">Esporte</option>
-      <option value="2007 - MOBILIDADE URBANA">Mobilidade Urbana</option>
-      <option value="3004 - SEGURANÇA">Segurança</option>
-      <option value="2001 - CIDADE INTELIGENTE">Cidade Inteligente</option>
-      <option value="1001 - PRIMEIROS PASSOS">Primeiros Passos</option>
-      <option value="1000 - EDUCA MOGI">Educa Mogi</option>
+        <option value="Categoria: UNIDADE DE SAÚDE">UNIDADE DE SAÚDE</option>
+          <option value="Categoria: MOBILIDADE URBANA">MOBILIDADE URBANA</option>
+          <option value="Categoria: PARQUES E PRAÇAS">PARQUES E PRAÇAS</option>
+          <option value="Categoria: UNIDADES DE EDUCAÇÃO">UNIDADES DE EDUCAÇÃO</option>
+          <option value="Categoria: VIAS E LOGRADOUROS">VIAS E LOGRADOUROS</option>
+          <option value="Categoria: ÁGUA/ESGOTO">ÁGUA/ESGOTO</option>
       <option value="">Todos</option>
     </Select>
     <Text.Heading4Medium
@@ -464,14 +456,14 @@ const MapOfConstructions = () => {
           style={{
             backgroundColor:
               translatorSituationColor[
-                constructionSelected?.programa_ppa
+                constructionSelected?.categoria
               ] || colors.grayDark,
           }}
         >
           <Text.Heading5Bold color={colors.white}>
           
             
-            {ppas.find(ppa => ppa.id === constructionSelected?.programa_ppa)?.programa || ""}
+            { constructionSelected?.categoria.split(':')[1]}
             {/* {Number(constructionSelected?.situacao)}% */}
           </Text.Heading5Bold>
         </div>
