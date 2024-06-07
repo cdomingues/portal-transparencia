@@ -13,9 +13,9 @@ type PropsInput = {
 };
 
 export const contentMapSite = {
-  titlePage: "Veiculos Oficiais",
+  titlePage: "Utilização de Veículos Oficiais",
   description:
-    "Descição página veiculos oficiais",
+    "Confira aqui as informações sobre o uso dos veículos oficiais e a serviço da Administração Direta e Indireta da Prefeitura de Mogi das Cruzes",
 };
 
 
