@@ -400,7 +400,22 @@ marginBottom="15px">
                 align={isMobile ? "justify" : "left"}
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}
-              >Ainda não dispomos de lista de informações classificadas ou desclassificadas como sigilosas, haja vista estarmos no prazo de adequação previsto na Lei Municipal nº 7.986/2023. </Text>      
+              >Ainda não dispomos de <Link href='https://drive.google.com/drive/folders/1FMhFHxgHanXZxJlJKSoQVVeLkkkjHEw_?usp=sharing' target="blank" style={{ color: "#db334f" }}>lista de informações </Link>classificadas ou desclassificadas como sigilosas, haja vista estarmos no prazo de adequação previsto na Lei Municipal nº 7.986/2023. </Text>      
+<Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+                mt="5px"
+              >
+                Omissão de Resposta:
+                
+                
+              </Text>
+        <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              >No caso de omissão de resposta ao pedido de acesso à informação, o requerente poderá apresentar reclamação no prazo de 10 (dez) dias à  <Link href='https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/institucional' target="blank" style={{ color: "#db334f" }}>Ouvidora-Geral do Município </Link>, conforme disposto na Lei nº 7.986, de 28 de setembro de 2023 (art. 23) e no Decreto nº 22604/2024 (art. 28, § único). </Text>      
 
              <Text
                 align={isMobile ? "justify" : "left"}
