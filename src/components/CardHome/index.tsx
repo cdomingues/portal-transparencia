@@ -104,7 +104,7 @@ function CardHome() {
           url: "/agenda-aberta/agenda-prefeito",
         },
         {
-          label: "Co-Prefeita - Priscila Yamagami",
+          label: "Vice Prefeita - Priscila Yamagami",
           url: "/agenda-aberta/agenda-coprefeita",
         }, 
         {
@@ -232,6 +232,10 @@ function CardHome() {
         {
           label: "Divida ativa",
           url: "/gestao-orcamentaria/divida-ativa",
+        },
+        {
+          label: "Incentivos Fiscais",
+          url: "/gestao-orcamentaria/incentivos-fiscais",
         },
       ],
     },
@@ -456,7 +460,7 @@ function CardHome() {
         },
         {
           label: "Decretos e Portarias",
-          url: "/leis-decretos-portarias/leis-decretos-portarias",
+          url: "https://ged.mogidascruzes.sp.gov.br/weblink7/Browse.aspx",
         },
         { label: "LGPD", url: "/leis-decretos-portarias/lgpd" },
       ],
@@ -639,6 +643,18 @@ function CardHome() {
       imageURL: Ultimas_noticias.src,
       description: "Descrição 3",
       link: "/relatorio-gestao",
+      backgroundColor: "green",
+      showExtraLinks: false,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
+    },
+    {
+      title: "Veículos Oficiais",
+      imageURL: Ultimas_noticias.src,
+      description: "Descrição 3",
+      link: "/veiculos-oficiais",
       backgroundColor: "green",
       showExtraLinks: false,
       extraLinks: [

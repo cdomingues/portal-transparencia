@@ -89,9 +89,11 @@ function Screen({ handler }: PropsInput) {
 
   const filteredValues = schedule
   ?.filter((item: Meeting) => {
-    // Linha modificada abaixo
     const timeWithSubtraction = moment(item?.data_compromisso);
-    return timeWithSubtraction.format("YYYY-MM-DD") === String(moment(selected).format("YYYY-MM-DD"));
+    const isSameDate = timeWithSubtraction.format("YYYY-MM-DD") === String(moment(selected).format("YYYY-MM-DD"));
+    const isNotFutureDate = timeWithSubtraction.isSameOrBefore(moment(), 'day');
+    return  isSameDate && isNotFutureDate
+    
   })
   // Uma linha depois para contexto
   .sort((a: Meeting, b: Meeting) => {
@@ -150,7 +152,7 @@ function Screen({ handler }: PropsInput) {
             fontSize={accessibility?.fonts?.ultraLarge}
             color="text.dark"
           >
-            AGENDA CO-PREEITA
+            AGENDA  VICE PREFEITA
           </Heading>
 
           <Stack direction="row" flexWrap="wrap-reverse">

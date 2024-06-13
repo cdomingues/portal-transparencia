@@ -47,7 +47,7 @@ function Screen({ handler }: PropsInput) {
                 fontSize={accessibility?.fonts?.regular}>
 
                           
-                          <Link href="https://mogisp.sharepoint.com/:x:/r/sites/PortaldaTransparencia/_layouts/15/Doc.aspx?sourcedoc=%7Bbb56e208-dc69-4319-9d52-15935364393b%7D&action=editnew" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Relatório Circunstanciado e Plano de Atuação 2023-2024</ListItem ></div></Link>
+                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/2d3d54cd-f228-40be-8f34-4f4f538a13e5/Avalia%C3%A7%C3%B5es_App_Colab_de_2023x2024Parcial.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}> Avaliações App Colab de 2023 x 2024</ListItem ></div></Link>
                          
                           
                           

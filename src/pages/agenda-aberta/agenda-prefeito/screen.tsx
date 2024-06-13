@@ -92,7 +92,9 @@ function Screen({ handler }: PropsInput) {
   ?.filter((item: Meeting) => {
     // Linha modificada abaixo
     const timeWithSubtraction = moment(item?.data_compromisso);
-    return timeWithSubtraction.format("YYYY-MM-DD") === String(moment(selected).format("YYYY-MM-DD"));
+    const isSameDate = timeWithSubtraction.format("YYYY-MM-DD") === String(moment(selected).format("YYYY-MM-DD"));
+    const isNotFutureDate = timeWithSubtraction.isSameOrBefore(moment(), 'day');
+    return  isSameDate && isNotFutureDate
   })
   // Uma linha depois para contexto
   .sort((a: Meeting, b: Meeting) => {

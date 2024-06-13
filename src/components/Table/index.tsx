@@ -181,7 +181,7 @@ function TableComponent({
                 style={{ paddingLeft: "8%", textAlign: "center" }}
                 width="600"
                 height="450"
-                src="https://www.youtube.com/embed/SfglOWPxyrg?si=bO3zVmTmXMGyZas0"
+                src=" "
               ></iframe>
               
             </ModalBody>
@@ -200,21 +200,7 @@ function TableComponent({
       </Modal>
       <DisplayFlex color="white" direction={isMobile ? "column" : "row"}>
         <Box p="4" pl={0}>
-          <Button
-            _hover={{ bg: "table.button.hover" }}
-            size="sm"
-            bg="table.primary"
-            color="white"
-            leftIcon={<BiCameraMovie />}
-            onClick={() => {
-              setModelType("movie");
-              onOpen();
-            }}
-            disabled={loading}
-            style={{ width: 180 }}
-          >
-            <Text fontSize={accessibility.fonts.medium} color={colors.white}>Vídeo explicativo</Text>
-          </Button>
+          
         </Box>
         <Box p="4" pl={0}>
           <Button

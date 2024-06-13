@@ -119,7 +119,7 @@ const getFileOfConstructions = async () => {
           (!buildingStep ||
             item?.situacao?.toLowerCase()?.includes(buildingStep?.toLowerCase())) &&
           (!buildingType ||
-            item?.programa_ppa
+            item?.categoria
               ?.toLowerCase()
               ?.includes(buildingType?.toLowerCase()))
       );

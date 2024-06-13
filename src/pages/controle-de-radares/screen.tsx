@@ -1,10 +1,12 @@
-import {  Box, useColorModeValue, Heading } from "@chakra-ui/react";
+import {  Box, useColorModeValue, Heading,Text } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 import React from "react";
 import ContainerBasic from "../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../components/Table";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
 import Video from "../../components/Videos";
+import { isMobile } from "react-device-detect";
+
 
 type PropsInput = {
   handler: {
@@ -81,6 +83,8 @@ function Screen({
        url_video={url_video}
         titulo = {titulo}
        />
+       
+      
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
@@ -92,7 +96,108 @@ function Screen({
         borderRadius="18px"
         marginBottom="15px"
       >
-       
+        <Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+                mt="20px"
+              >
+                Para onde vai o recurso arrecado com as multas?
+                
+                
+              </Text>
+        <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              >O recurso arrecadado é destinado para:<br/>
+
+5% vai para o Fundo Nacional de Segurança e Educação de Trânsito – FUNSET, conforme previsto no art. 320, §1º, do Código de Trânsito Brasileiro (Lei nº 9.503/1997);<br/>
+              
+30% é destinado ao DREM, desvinculação prevista na EC nº 93/2016;
+              
+ O restante vai para o Fundo Municipal de Mobilidade Urbana – FMMU, criado pela Lei Municipal nº 6.935/2014.<br/>
+              
+   Vale ressaltar, que além do desmembramento citado acima, são descontadas do valor os descontos por pagamento em dia, que é de 20% sob o valor do boleto, e as taxas bancárias de emissão e manutenção dos boletos.  
+              </Text>
+
+<Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+                mt="20px"
+              >
+                
+                O que é o FUNSET?
+                
+              </Text>
+        <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              >O Fundo Nacional de Segurança e Educação de Trânsito - FUNSET é um fundo de âmbito nacional destinado à segurança e educação de trânsito. O Código de Trânsito Brasileiro (CTB), instituído pela Lei nº 9.503, de 23 de setembro de 1997, em vigor desde 22 de janeiro de 1998, estabelece em seu artigo 320, parágrafo primeiro, que o percentual de 5% (cinco por cento) do valor das multas de trânsito deve ser depositado mensalmente, na conta do FUNSET, criado pela Lei nº 9.602 de 21 de janeiro de 1998 e regulamentado pelo Decreto nº 2.613, de 03 de junho de 1998, os quais estabelecem a gestão do referido fundo ao Departamento Nacional de Trânsito – DENATRAN.</Text>
+
+<Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+                mt="20px"
+              >
+                 O que é FMMU?
+                
+                
+              </Text>
+        <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              >O Fundo Municipal de Mobilidade Urbana – FMMU é um fundo de âmbito municipal no município de Mogi das Cruzes, criado com o objetivo de garantir condições financeiras para custeio e investimento em controle, operação, fiscalização e planejamento de trânsito e transporte público e de outras despesas e encargos decorrentes dessas atividades no município. O FMMU foi criado pela Lei Municipal nº 6.935/2014 e é administrado pelo Comitê Municipal de Mobilidade Urbana, composto por 5 membros e que se reuniu uma vez por mês.</Text>
+
+<Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+                mt="20px"
+              >
+                O que constituí o FMMU?
+                
+                
+              </Text>
+        <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              >Todas as receitas previstas no art. 8º da Lei Municipal nº 6.935/2014.</Text>
+              <Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+                mt="20px"
+              >
+                Para quê é destinado o recurso do FMMU?
+                
+                
+              </Text>
+        <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+                mb="50px"
+              >Conforme art. 10 da Lei Municipal nº 6.935/2014 é destinado para:<br/>
+              Desenvolvimento das atividades previstas no artigo 320 do Código de Trânsito Brasileiro;
+Financiamento de programas de educação para o trânsito;<br/>
+Implantação de programas visando à melhoria de qualidade do sistema de trânsito, circulação e transporte;<br/>
+Desenvolvimento, aprimoramento E capacitação de recursos humanos ligados à área de trânsito e transporte;<br/>
+Custeio e investimento em atividades associadas à circulação, ao transporte e ao trânsito, inclusive seu gerenciamento e monitoramento;<br/>
+Aquisição de material permanente ou de consumo e outros insumos necessários para planejamento, projeto, implantação, manutenção, operação e fiscalização do transporte público e do trânsito no Município;<br/>
+Contratação de estudos, projetos, planos ou implantações específicas para transporte público e trânsito;<br/>
+Investimentos em infraestrutura urbana de suporte aos sistemas de circulação, transporte público e trânsito no Município;<br/>
+Investimentos em equipamentos e capacitação tecnológica para gestão da circulação e dos serviços de transporte público e trânsito;<br/>
+Desenvolvimento de ações e serviços de apoio aos usuários e de garantia de segurança aos pedestres na circulação;<br/>
+Custeio e investimento das atividades desenvolvidas na gestão da circulação e dos serviços de transporte público e trânsito;<br/>
+Implementação de programas de segurança de trânsito;
+Melhorias do sistema municipal de transporte coletivo;  
+Otimização do sistema viário municipal.</Text>
         <div style={{ height: "500px", width: "100%" }}>
           <MapWithNoSSR
             coords={[-23.528986, -46.192973]}

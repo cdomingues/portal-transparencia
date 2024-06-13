@@ -400,7 +400,22 @@ marginBottom="15px">
                 align={isMobile ? "justify" : "left"}
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}
-              >Ainda não dispomos de lista de informações classificadas como sigilosas, haja vista estarmos no prazo de adequação previsto na Lei Municipal nº 7.986/2023. </Text>      
+              >Ainda não dispomos de <Link href='https://drive.google.com/drive/folders/1FMhFHxgHanXZxJlJKSoQVVeLkkkjHEw_?usp=sharing' target="blank" style={{ color: "#db334f" }}>lista de informações </Link>classificadas ou desclassificadas como sigilosas, haja vista estarmos no prazo de adequação previsto na Lei Municipal nº 7.986/2023. </Text>      
+<Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+                mt="5px"
+              >
+                Omissão de Resposta:
+                
+                
+              </Text>
+        <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              >No caso de omissão de resposta ao pedido de acesso à informação, o requerente poderá apresentar reclamação no prazo de 10 (dez) dias à  <Link href='https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/institucional' target="blank" style={{ color: "#db334f" }}>Ouvidora-Geral do Município </Link>, conforme disposto na Lei nº 7.986, de 28 de setembro de 2023 (art. 23) e no Decreto nº 22604/2024 (art. 28, § único). </Text>      
 
              <Text
                 align={isMobile ? "justify" : "left"}
@@ -448,21 +463,11 @@ marginBottom="15px">
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}
                 mt="5px"
-              > <Link href='https://dados.mogidascruzes.sp.gov.br/dataset/43e1380e-fee9-4c13-8b90-97a88c8b9e40/resource/92bf214f-1dbd-4bb4-bbf0-e8350a5324d5/download/dga-dtpi-smtda-2022_transparencia-passiva-pedidos-de-acesso-a-informacao.xlsx' target="blank" style={{ color: "#db334f" }}> <Button
-              _hover={{ bg: "gray.200", color: "white" }}
-              size="sm"
-              bg="primary"
-              color="white"
-              
-              onClick={() => {
-                
-              }}
-              
-              style={{ width: 180 }}
-            >
-              <Text fontSize={accessibility.fonts.medium} color={colors.white}>Download</Text>
+              >  <Link href='https://dados.mogidascruzes.sp.gov.br/dataset/lai-relatorios-genericos-de-pedidos' target="blank" style={{ color: "#db334f" }}> 
+            
+            Clique aqui para acessar
              
-            </Button></Link></Text>   
+           </Link></Text>   
 
 
       </Box>
@@ -549,7 +554,7 @@ marginBottom="15px"
                       title="Dashboard - LAI "
                       imageURL={relatorio_de_demandas.src}
                       description="Pedido de e-SIC."
-                      link="https://app.powerbi.com/view?r=eyJrIjoiZDcxMGQ1ZWQtY2U5Yi00YTgzLThlODgtZjk2MDkwZTRjNTAwIiwidCI6IjdkZTNiN2RlLWIzOGYtNDFhNi05ZDQ1LWIxZDlkMTg0OGM3OSJ9"
+                      link="https://app.powerbi.com/view?r=eyJrIjoiY2ZmODAzZDUtMDE2YS00ZWYzLWJhZGQtMWE4Nzc3OWQyMDgxIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9"
                       backgroundColor="transparent"/>
                   </Box>
                  

@@ -23,6 +23,10 @@ type PropsInput = {
     years: Number[];
     setYear: any;
     handleByYear: any;
+    data2: Array<any>;
+    setData2: any;
+    arquivosColumns: TableColumns;
+    
   };
 };
 export const contentContractsAndAtas = {
@@ -31,7 +35,7 @@ export const contentContractsAndAtas = {
     "Nesta página, confira as informações sobre contratos e atas celebrados pela Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por número, modalidade, processo, valor, fornecedor, objeto, entre outros itens. ",
 };
 function Screen({
-  handler: { columns, data, loading, handleByYear, setYear, year, years },
+  handler: { columns, data, loading, handleByYear, setYear, year, years,data2, setData2,arquivosColumns },
 }: PropsInput) {
   const [contract, setContract] = useState<any>(null);
   const title = contentContractsAndAtas?.titlePage;
@@ -102,6 +106,13 @@ function Screen({
       />
 
       <ModalContracts isOpen={isOpen} onClose={onClose} contract={contract} />
+      {/* <TableComponent
+        loading={loading}
+        columns={arquivosColumns}
+        data={data2}
+        
+      /> */}
+     
       </Box>
     </ContainerBasic>
   );
