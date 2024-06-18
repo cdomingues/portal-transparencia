@@ -106,8 +106,8 @@ let publicRoutes: IPublicRoute[] = [
      
       {
         name: "Pesquise Obras",
-        path: "pesquisar-obras",
-        //defaultPath: "/controle-de-obras",
+        path: "/pesquisar-obras",
+        defaultPath: "/controle-de-obras",
         icon: AiOutlineSearch,
         ...contentSearchConstructions,
       },

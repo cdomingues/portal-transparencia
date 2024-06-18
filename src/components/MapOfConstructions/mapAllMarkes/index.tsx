@@ -190,6 +190,7 @@ const MapAllMarkersComponent = ({
       const stepMatch = step
         ? step?.toLowerCase() === item.situacao?.toLowerCase()
         : true && item.tipo === "Tipo:OBRA" &&
+        item.situacao !== "RESCINDIDO" &&
         item.status !== "07 - OBRA RESCINDIDA"
 
         

@@ -162,7 +162,7 @@ const MapOfConstructions = () => {
         >
           <option value="INICIADO">Iniciado</option>
           <option value="CONCLUÍDO">Concluído</option>
-          <option value="RESCINDIDO">Rescindido</option>
+          
           <option value="">Todos</option>
         </Select>
       </Style.Search>
@@ -380,7 +380,7 @@ const MapOfConstructions = () => {
     >
       <option value="INICIADO">Iniciado</option>
       <option value="CONCLUÍDO">Concluído</option>
-      <option value="RESCINDIDO">Rescindido</option>
+      
       <option value="">Todos</option>
     </Select>
   </div>
