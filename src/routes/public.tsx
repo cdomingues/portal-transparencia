@@ -761,7 +761,12 @@ let publicRoutes: IPublicRoute[] = [
     icon: AiOutlineAudit,
     ...contentOtherInformations,
   },
-  
+  {
+    name: "Políticas e Programas ",
+    path: "/politicas-programas",
+    icon: AiOutlineAudit,
+    ...contentOtherInformations,
+  },
   {
     name: "Mapa do Site",
     path: "/mapa-do-site",

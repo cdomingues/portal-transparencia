@@ -463,7 +463,9 @@ const MapOfConstructions = () => {
           <Text.Heading5Bold color={colors.white}>
           
             
-            { constructionSelected?.categoria.split(':')[1]}
+            { constructionSelected?.categoria 
+                  ? constructionSelected.categoria.split(':')[1] 
+                  : null}
             {/* {Number(constructionSelected?.situacao)}% */}
           </Text.Heading5Bold>
         </div>

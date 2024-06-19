@@ -467,6 +467,27 @@ marginBottom="15px">
             
             Clique aqui para acessar
              
+           </Link></Text>  
+
+           <Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+                mt="5px"
+              >
+                Pedidos de acesso à informação e Respostas:
+                
+                
+              </Text>
+        <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+                mt="5px"
+              > Confira os pedidos de acesso à informação já protocolados e suas respectivas respostas.<br/> <Link href='https://dados.mogidascruzes.sp.gov.br/dataset/lai-pedidos-e-repostas-com-preservacao-de-identidade' target="blank" style={{ color: "#db334f" }}> 
+            
+            Clique aqui para acessar
+             
            </Link></Text>   
 
 

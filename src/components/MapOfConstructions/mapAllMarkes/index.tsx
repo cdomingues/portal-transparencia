@@ -131,19 +131,24 @@ const MapAllMarkersComponent = ({
       const data = await response.json();
   
       if (!data.results || data.results.length === 0) {
-        // Se não houver mais resultados, saia do loop
+        // If there are no more results, exit the loop
         break;
       }
   
-      // Adicione os resultados da página atual ao array allResults
+      // Add the current page results to the allResults array
       allResults = [...allResults, ...data.results];
     }
   
-    // Defina os resultados filtrados e não filtrados conforme necessário
-    setConstructionsFiltered(allResults);
+    // Filter the results to include only items with situacao "INICIADO" or "CONCLUIDO"
+    const filteredResults = allResults.filter(
+      (item: any) => item.situacao === "INICIADO" || item.situacao === "CONCLUÍDO"
+    );
+  
+    // Set the filtered and unfiltered results as needed
+    setConstructionsFiltered(filteredResults);  
     setConstructions(allResults);
   
-    return allResults;
+    return filteredResults;
   };
 
   useEffect(() => {
@@ -187,16 +192,15 @@ const MapAllMarkersComponent = ({
     const isLessThan = label === "above" ? false : true;
 
     const filtered = constructions.filter((item) => {
-      const stepMatch = step
-        ? step?.toLowerCase() === item.situacao?.toLowerCase()
-        : true && item.tipo === "Tipo:OBRA" &&
-        item.situacao !== "RESCINDIDO" &&
-        item.status !== "07 - OBRA RESCINDIDA"
+      const stepMatch = step 
+    ? step.toLowerCase() === item.situacao?.toLowerCase() : true;
 
         
 
 
       const programMatch = program ? program === item?.categoria : true;
+      const typeMatch = item.tipo === "Tipo:OBRA";
+      
 
       const addressMatch = directionConstruction
         ? item?.endereco
@@ -223,7 +227,7 @@ const MapAllMarkersComponent = ({
         : item?.valor_contrato > currentValue;
 
       return (
-        stepMatch && programMatch && addressMatch && nameMatch && valueMatch
+        stepMatch && programMatch && addressMatch && nameMatch && valueMatch  && typeMatch  
       );
     });
 
