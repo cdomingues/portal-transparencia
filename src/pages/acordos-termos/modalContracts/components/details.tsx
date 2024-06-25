@@ -35,6 +35,7 @@ const Details = ({ termo }: any) => {
 
         
       </RowDetails>
+      
 
       
 
@@ -53,6 +54,20 @@ const Details = ({ termo }: any) => {
         <div className="title">Interessado:</div>
           <div className="value">{termo?.interessado}</div>
         </div>
+      </RowDetails>
+
+      <RowDetails style={{ backgroundColor: "transparent" }}>
+        <div className="column">
+          <div className="title">CNPJ:</div>
+          <div className="value">{termo?.cnpj}</div>
+        </div>
+
+        <div className="column">
+          <div className="title">Contratada:</div>
+          <div className="value">{termo?.contratada}</div>
+        </div>
+
+       
       </RowDetails>
 
       
