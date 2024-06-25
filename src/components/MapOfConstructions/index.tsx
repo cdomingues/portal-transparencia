@@ -162,7 +162,7 @@ const MapOfConstructions = () => {
         >
           <option value="INICIADO">Iniciado</option>
           <option value="CONCLUÍDO">Concluído</option>
-          <option value="RESCINDIDO">Rescindido</option>
+          
           <option value="">Todos</option>
         </Select>
       </Style.Search>
@@ -380,7 +380,7 @@ const MapOfConstructions = () => {
     >
       <option value="INICIADO">Iniciado</option>
       <option value="CONCLUÍDO">Concluído</option>
-      <option value="RESCINDIDO">Rescindido</option>
+      
       <option value="">Todos</option>
     </Select>
   </div>
@@ -463,7 +463,9 @@ const MapOfConstructions = () => {
           <Text.Heading5Bold color={colors.white}>
           
             
-            { constructionSelected?.categoria.split(':')[1]}
+            { constructionSelected?.categoria 
+                  ? constructionSelected.categoria.split(':')[1] 
+                  : null}
             {/* {Number(constructionSelected?.situacao)}% */}
           </Text.Heading5Bold>
         </div>

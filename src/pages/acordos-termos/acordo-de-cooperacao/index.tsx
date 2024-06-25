@@ -17,9 +17,12 @@ function Controller() {
     {title:"Assunto",field: "assunto"},
     { title: "Data Início", field: "data_inicio" },
     { title: "Data Término", field: "data_fim" },
+    { title: "Repasse Mensal", field: "repasse_mensal" },
     { title: "Valor", field: "valor_inicial" },
     { title: "Secretaria Responsável", field: "secretaria_responsavel" },
     { title: "Interessado", field: "interessado" },
+    { title: "CNPJ", field: "cnpj" },
+    { title: "Contratada", field: "contratada" },
     { title: "tipo", field: "tipo" },
     { title: "ID", field: "id" },
     

@@ -277,6 +277,7 @@ const dataFormatada = `${dia}/${mes}/${ano}`;
       pageNumbers?.push(i);
     }
 
+    
     return (
       <div>
         <div className="pagination">
@@ -291,7 +292,8 @@ const dataFormatada = `${dia}/${mes}/${ano}`;
       </div>
     );
   }
- 
+  const existeParalisado = Array.isArray(arrayBuildings) && arrayBuildings.some(building => building.status === "99 - PARALISADO");
+
   return (
     
     <ContainerBasic
@@ -844,8 +846,21 @@ const dataFormatada = `${dia}/${mes}/${ano}`;
         )
     } 
 />
-<Box>O município de Mogi das Cruzes na data {dataFormatada} não possui obras paralisadas, em conformidade  com o  <Link href="https://paineldeobras.tce.sp.gov.br/pentaho/api/repos/:public:Obra:painel_obras.wcdf/generatedContent?userid=anony&password=zero" target="blank" style={{ color: "#db334f" }}>painel de obras do TCE SP</Link>.</Box>
-   </Box></Box>
+<Box>
+      {existeParalisado ? (
+        // Renderizar algo caso existam obras paralisadas
+        "  "
+      ) : (
+        // Renderizar mensagem caso não existam obras paralisadas
+        <>
+          O município de Mogi das Cruzes na data {dataFormatada} não possui obras paralisadas, em conformidade com o <Link href="https://paineldeobras.tce.sp.gov.br/pentaho/api/repos/:public:Obra:painel_obras.wcdf/generatedContent?userid=anony&password=zero" target="blank" style={{ color: "#db334f" }}>
+            painel de obras do TCE SP
+          </Link>.
+        </>
+      )}
+    </Box>
+
+ </Box></Box>
 
           {arrayBuildings
               ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)

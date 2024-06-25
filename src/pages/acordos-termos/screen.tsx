@@ -183,6 +183,32 @@ function HomeScreen({ handler }: PropsInput) {
                     />
                   </Box>
                 </Stack>
+
+                <Stack
+                  direction={isMobile ? "column" : "row"}
+                  align={isMobile ? "center" : "center"}
+                  justifyContent={isMobile ? "flex-start" : "center"}
+                >
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Relação dos gestores de contratos encerrados"
+                      imageURL={termo_de_fomento.src}
+                      description="..."
+                      link="acordos-termos/relacao-fiscais-encerrados"
+                      backgroundColor="transparent"
+                    />
+                  </Box>
+
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Relação dos gestores de contratos vigentes"
+                      imageURL={termo_de_fomento.src}
+                      description="..."
+                      link="acordos-termos/relacao-fiscais-vigentes"
+                      backgroundColor="transparent"
+                    />
+                  </Box>
+                </Stack>
               </Stat>
             </StatGroup>
           </Stack>

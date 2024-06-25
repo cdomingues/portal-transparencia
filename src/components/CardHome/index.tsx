@@ -651,6 +651,18 @@ function CardHome() {
       ],
     },
     {
+      title: "Políticas e Programas",
+      imageURL: Ultimas_noticias.src,
+      description: "Descrição 3",
+      link: "/politicas-programas",
+      backgroundColor: "green",
+      showExtraLinks: false,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
+    },
+    {
       title: "Veículos Oficiais",
       imageURL: Ultimas_noticias.src,
       description: "Descrição 3",

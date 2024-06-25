@@ -25,7 +25,6 @@ import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccess
 import { isMobile } from "react-device-detect";
 import Video from "../../../components/Videos";
 
-
 type PropsInput = {
   handler: any;
 };
@@ -47,9 +46,8 @@ type Meeting = {
   detalhe: string;
   tipo_compromisso: string;
   cargo: any;
-  fim_compromisso: string
+  fim_compromisso: string;
 };
-
 
 export const contentMayorAgenda = {
   titlePage: "Agenda Aberta",
@@ -58,7 +56,6 @@ export const contentMayorAgenda = {
 };
 
 function Screen({ handler }: PropsInput) {
-
   const excludedList = [
     "MOGI DAS CRUZES",
     "MOGI DAS CRUZES | SEPLAG",
@@ -75,59 +72,23 @@ function Screen({ handler }: PropsInput) {
     "Severino Netto",
     "Toriel Angelo Mota Sardinha",
     "Marcos Torres.",
-
-    
   ];
-  
+
   const [selected, setSelected] = useState<Date>();
   const [schedule, setSchedule] = useState<Array<Meeting>>([]);
   const [selectedCargo, setSelectedCargo] = useState<string>("");
   const [apiCargos, setApiCargos] = useState<Cargo[]>([]);
   const [nextPage, setNextPage] = useState<number | null>(1);
-  
-  
-   /* const handleGetOpenSchedule = async () => {
-    const response = await fetch(
-    
-       "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=e6ee12e9-2fec-4d91-acac-36b36bd179c2&limit=2000",
-       
-      {
-        
-      }
-    );
 
-    const data = await response.json();
-
-    if (!data) {
-      return;
-    }
-
-    return setSchedule(data?.result?.records);
-  };
-
-  useEffect(() => {
-    handleGetOpenSchedule();
-  }, []);  */
-
-   /* useEffect(() => {
-    fetch('https://dadosadm.mogidascruzes.sp.gov.br/api/agendas/')
-    .then(response =>response.json())
-    .then(data =>{
-      setSchedule(data.results)
-    })
-  }, []);   */
-
-   const fetchData = async (url: string) => {
+  const fetchData = async (url: string) => {
     try {
       const response = await fetch(url);
       const data = await response.json();
-      
 
       if (!data) {
         return;
       }
 
-      // Your logic to handle the fetched data
       const fetchedSchedule = data.results || [];
       setSchedule((prevSchedule) => [...prevSchedule, ...fetchedSchedule]);
 
@@ -147,21 +108,20 @@ function Screen({ handler }: PropsInput) {
       fetchData(apiUrl);
     }
   }, [nextPage]);
- 
-  
+
   useEffect(() => {
     const fetchCargosFromApi = async () => {
-      
       try {
-        const response = await axios.get("https://dadosadm.mogidascruzes.sp.gov.br/api/pessoas/");
+        const response = await axios.get(
+          "https://dadosadm.mogidascruzes.sp.gov.br/api/pessoas/"
+        );
         const data = response.data;
 
-        
-       // const fetchedCargos = data.results?.map((item: any) => item.cargo) || [];
-       const fetchedCargos = data.results?.map((item: any) => ({
-        cargo: item.cargo,
-        nome: item.nome,
-      })) || [];
+        const fetchedCargos =
+          data.results?.map((item: any) => ({
+            cargo: item.cargo,
+            nome: item.nome,
+          })) || [];
 
         setApiCargos(fetchedCargos);
       } catch (error) {
@@ -169,24 +129,53 @@ function Screen({ handler }: PropsInput) {
       }
     };
 
-
     fetchCargosFromApi();
   }, []);
 
-  
-
- 
-
-
   const filteredValues = schedule
     ?.filter((item: Meeting) => {
-      const timeWithSubtraction = moment(item?.data_compromisso).subtract(1,'hours');
-      const isSameDate = timeWithSubtraction.format("YYYY-MM-DD") === String(moment(selected).format("YYYY-MM-DD"));
-      const isNotPrefeitoOrCoPrefeita = item?.cargo !== "Prefeito" && item?.cargo !== "Co-Prefeita" ;
-      const isSameCargo = selectedCargo === "" || selectedCargo === item?.nome;
-      const isNotFutureDate = timeWithSubtraction.isSameOrBefore(moment(), 'day');
+      const timeWithSubtraction = moment(item?.data_compromisso).subtract(
+        1,
+        "hours"
+      );
+      const isSameDate =
+        timeWithSubtraction.format("YYYY-MM-DD") ===
+        String(moment(selected).format("YYYY-MM-DD"));
+      const isNotPrefeitoOrCoPrefeita =
+        item?.cargo !== "Prefeito" && item?.cargo !== "Co-Prefeita";
+      const isSameCargo =
+        selectedCargo === "" || selectedCargo === item?.nome;
+      const isNotFutureDate = timeWithSubtraction.isSameOrBefore(moment(), "day");
 
-      return isSameDate && isNotPrefeitoOrCoPrefeita && isSameCargo && isNotFutureDate;
+      return (
+        isSameDate && isNotPrefeitoOrCoPrefeita && isSameCargo && isNotFutureDate
+      );
+    })
+    .flatMap((item: Meeting) => {
+      // Duplicate if cargo is "Chefe de Gabinete do Prefeito"
+      if (item.cargo === "Chefe de Gabinete do Prefeito") {
+        return [
+          item,
+          {
+            ...item,
+            cargo: "Secretário Municipal de Desenvolvimento Econômico e Inovação",
+          },
+        ];
+      }
+      return [item];
+    })
+    .flatMap((item: Meeting) => {
+      // Duplicate if cargo is "Chefe de Gabinete do Prefeito"
+      if (item.cargo === "Secretário Municipal de Transparência e Dados Abertos") {
+        return [
+          item,
+          {
+            ...item,
+            cargo: "Secretário Municipal de Planejamento e Gestão Estratégica",
+          },
+        ];
+      }
+      return [item];
     })
     .sort((a: Meeting, b: Meeting) => {
       const aHours = moment(a?.data_compromisso).format("HH:mm");
@@ -196,8 +185,7 @@ function Screen({ handler }: PropsInput) {
 
   const title = contentMayorAgenda?.titlePage;
   const description = contentMayorAgenda?.description;
-  
-  
+
   const dateSelected = moment(selected).format("LL");
   const translatorMonth: any = {
     January: "Janeiro",
@@ -219,10 +207,10 @@ function Screen({ handler }: PropsInput) {
   let getDay = getDateArray?.[0]?.split(" ")?.[1];
   let getYear = getDateArray?.[1]?.split(" ")?.[1];
   const accessibility = useFontSizeAccessibilityContext();
-  const url_video = "https://www.youtube.com/embed/K7_TUkedcGA?si=iPxaKODtZnboQT-_";
-  const titulo = "O QUE SÃO AS SEIS MEDIDAS?"; 
-  
-  
+  const url_video =
+    "https://www.youtube.com/embed/K7_TUkedcGA?si=iPxaKODtZnboQT-_";
+  const titulo = "O QUE SÃO AS SEIS MEDIDAS?";
+
   return (
     <ContainerBasic title={title} description={description}>
       <Video url_video={url_video} titulo={titulo} />
@@ -245,27 +233,25 @@ function Screen({ handler }: PropsInput) {
           >
             AGENDA DOS SECRETARIOS
           </Heading>
-<Text>Selecione o Cargo</Text>
-<Select
-  minW={90}
-  width="45%"
-  bg={useColorModeValue("white", "gray.800")}
-  value={selectedCargo}
-  onChange={(event) => setSelectedCargo(event.target.value)}
-  
->
-  <option value="">Todos os Cargos</option>
-  
-  {apiCargos
-   .filter((cargo) => !excludedList.includes(cargo.nome))
-   .sort((a, b) => a.cargo.localeCompare(b.cargo))
-   .map((cargo) => (  
-    <option key={cargo.nome} value={cargo.nome}>
-        {cargo.cargo}
-    </option>
-  ))}
-  
-</Select>
+          <Text>Selecione o Cargo</Text>
+          <Select
+            minW={90}
+            width="45%"
+            bg={useColorModeValue("white", "gray.800")}
+            value={selectedCargo}
+            onChange={(event) => setSelectedCargo(event.target.value)}
+          >
+            <option value="">Todos os Cargos</option>
+
+            {apiCargos
+              .filter((cargo) => !excludedList.includes(cargo.nome))
+              .sort((a, b) => a.cargo.localeCompare(b.cargo))
+              .map((cargo) => (
+                <option key={cargo.nome} value={cargo.nome}>
+                  {cargo.cargo}
+                </option>
+              ))}
+          </Select>
 
           <Stack direction="row" flexWrap="wrap-reverse">
             <Stack
@@ -295,13 +281,14 @@ function Screen({ handler }: PropsInput) {
               ) : (
                 filteredValues?.map((item: Meeting) => {
                   const timeWithSubtraction = moment(item?.data_compromisso);
-                  const getHours = timeWithSubtraction.format("HH:mm").split(":");
+                  const getHours = timeWithSubtraction
+                    .format("HH:mm")
+                    .split(":");
 
                   const timeWithSubtraction2 = moment(item?.fim_compromisso);
-                  const getHours2 = timeWithSubtraction2.format("HH:mm").split(":");
-
-                
-                  
+                  const getHours2 = timeWithSubtraction2
+                    .format("HH:mm")
+                    .split(":");
 
                   return (
                     <>
@@ -312,8 +299,10 @@ function Screen({ handler }: PropsInput) {
                           color="red"
                           marginTop={2}
                         >
-                          Hora  Início: {getHours?.[0]}:{getHours?.[1]} {item?.fim_compromisso ? ` - Hora fim: ${getHours2?.[0]}:${getHours2?.[1]}` : ''}
-                         {/*  {getHours?.[0]}:{getHours?.[1]} */}
+                          Hora Início: {getHours?.[0]}:{getHours?.[1]}{" "}
+                          {item?.fim_compromisso
+                            ? ` - Hora fim: ${getHours2?.[0]}:${getHours2?.[1]}`
+                            : ""}
                         </Heading>
                         <Heading
                           fontSize={accessibility?.fonts?.medium}
@@ -334,7 +323,7 @@ function Screen({ handler }: PropsInput) {
                           color="text.dark"
                           style={{ margin: 0 }}
                         >
-                            { item?.cargo}
+                          {item?.cargo}
                         </Text>
                         <Text
                           fontSize={accessibility?.fonts?.medium}
@@ -345,26 +334,37 @@ function Screen({ handler }: PropsInput) {
                         </Text>
 
                         <>
-      {item?.detalhe ? (
-        <Accordion allowMultiple>
-          <AccordionItem>
-            <h2>
-              <AccordionButton>
-                <Heading mb={1} fontSize={accessibility?.fonts?.medium} color="red" marginTop={2}>
-                  Detalhes:
-                </Heading>
-                <AccordionIcon />
-              </AccordionButton>
-            </h2>
-            <AccordionPanel>
-              <Text fontSize={accessibility?.fonts?.medium} color="text.dark" style={{ margin: 0 }}>
-                {item?.detalhe}
-              </Text>
-            </AccordionPanel>
-          </AccordionItem>
-        </Accordion>
-      ) : null}
-    </>
+                          {item?.detalhe ? (
+                            <Accordion allowMultiple>
+                              <AccordionItem>
+                                <h2>
+                                  <AccordionButton>
+                                    <Heading
+                                      mb={1}
+                                      fontSize={
+                                        accessibility?.fonts?.medium
+                                      }
+                                      color="red"
+                                      marginTop={2}
+                                    >
+                                      Detalhes:
+                                    </Heading>
+                                    <AccordionIcon />
+                                  </AccordionButton>
+                                </h2>
+                                <AccordionPanel>
+                                  <Text
+                                    fontSize={accessibility?.fonts?.medium}
+                                    color="text.dark"
+                                    style={{ margin: 0 }}
+                                  >
+                                    {item?.detalhe}
+                                  </Text>
+                                </AccordionPanel>
+                              </AccordionItem>
+                            </Accordion>
+                          ) : null}
+                        </>
                         <div style={{ marginTop: 8 }}></div>
                         <Divider
                           width="100%"
@@ -380,18 +380,15 @@ function Screen({ handler }: PropsInput) {
             <Stack
               minW={300}
               maxW={isMobile ? "90%" : "100%"}
-              
-              
               direction="column"
               backgroundColor={useColorModeValue("white", "gray.800")}
               borderRadius={10}
               boxShadow="0px 1px 2px rgba(0, 0, 0, 0.3),
             0px 1px 3px 1px rgba(0, 0, 0, 0.15)"
               maxH={350}
-              style={{ marginBottom: 30}}
+              style={{ marginBottom: 30 }}
             >
               <DayPicker
-              
                 mode="single"
                 selected={selected}
                 onSelect={setSelected}

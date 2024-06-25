@@ -23,6 +23,7 @@ import {
 import { MultiAxisChart } from "../../../../components/MultiAxisChart";
 import TableComponent, { TableColumns } from "../../../../components/Table";
 import { FaDownload } from "react-icons/fa";
+import ListarArquivos from "../../../../components/ListarArquivos";
 
 type PropsInput = {
   handler: {
@@ -84,30 +85,9 @@ function Screen({
       >
      
       
-      <Divider borderWidth="2px" mt="10" mb="10" />
-      {/* <TableComponent loading={loading} columns={columns} data={data} /> */}
+    
      
-      <UnorderedList listStyleType="none" 
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}>
-
-                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/85f445d0-4a89-48b4-89a4-1acaabb536d6/Cronologica_jan_23.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}> Cronológica Janeiro de 2023</ListItem ></div></Link>
-                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/0c9e235a-0a42-447b-b15a-e866566627d3/Cronologica_Fev_2023.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Cronológica Fevereiro de 2023</ListItem ></div></Link>
-                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/ebc802ae-cad3-4eae-a86a-be925af16846/cronologica_marco_2023.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Cronológica Março de 2023</ListItem ></div></Link>
-                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/c256018c-b2ed-4349-a49a-e0e468eaae56/Cronologica_Abril_2023.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Cronológica Abril de 2023</ListItem ></div></Link>
-                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/f1d85288-1607-459b-8f1c-74c5ec2c5707/Cronologica_maio_23.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Cronológica Maio de 2023</ListItem ></div></Link>
-                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/157dabe2-5b9d-4905-b22d-1ce77d7b09df/Cronologica_Junho_2023.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Cronológica Junho de 2023</ListItem ></div></Link>
-                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/cf9db2be-8e8a-4f8c-8727-38f68fce00e3/Cronologica_Julho_2023.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Cronológica Julho de 2023</ListItem ></div></Link>
-                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/47c686ab-20e7-4ec3-8e25-c6d60a9bf1a3/Cronologica_Agosto_2023.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Cronológica Agosto de 2023</ListItem ></div></Link>
-                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/ec2d5ae6-1eb1-4d9d-91d6-14c88fa6d6a4/Cronol%C3%B3gica_Setembro_2023.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}> Cronológica Setembro de 2023</ListItem ></div></Link>
-                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/9efb2da7-12f8-41a9-954f-78555f25f724/Cronol%C3%B3gica_Outubro_2023.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Cronológica Outubro de 2023</ListItem ></div></Link>
-                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/6b90b73b-4e9c-46f4-a160-1462072043c7/Cronol%C3%B3gica_Novembro_2023.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Cronológica Novembro de 2023</ListItem ></div></Link>
-                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/108bfe30-b1be-4b42-b29d-af9e59390d49/Cronol%C3%B3gica_Dezembro_2023.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Cronológica Dezembro de 2023</ListItem ></div></Link>
-                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/a2870056-e00f-4e79-94d3-dc15a1e68241/Cronol%C3%B3gica_Janeiro_2024.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Cronológica Janeiro de 2024</ListItem ></div></Link>
-                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/4ed2963f-04c8-4864-ab50-9e620c0ee2bd/cronol%C3%B3gica_Fevereiro_2024.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Cronológica Fevereiro de 2024</ListItem ></div></Link>
-                          
-                          
-                        </UnorderedList>
+      <ListarArquivos tipoFiltro={16} />
       </Box>
     </ContainerBasic>
     
