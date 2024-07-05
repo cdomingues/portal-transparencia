@@ -254,6 +254,8 @@ const dataFormatada = `${dia}/${mes}/${ano}`;
     handleChangeSelectBuildingStep,
     buildingStep,
     handleChangeSelectBuildingType,
+    handleChangeSelectBuildingStatus,
+    buildingStatus,
     buildingType,
     handleFilterBuildings,
     page,
@@ -292,7 +294,7 @@ const dataFormatada = `${dia}/${mes}/${ano}`;
       </div>
     );
   }
-  const existeParalisado = Array.isArray(arrayBuildings) && arrayBuildings.some(building => building.status === "99 - PARALISADO");
+   const existeParalisado = Array.isArray(arrayBuildings) && arrayBuildings.some(building => building.status === "99 - PARALISADO");
 
   return (
     
@@ -776,13 +778,15 @@ const dataFormatada = `${dia}/${mes}/${ano}`;
         const programaNome = ppas.find(row => row.id === program)?.programa || program;
         return (
             <option key={index} value={program}>
-                {programaNome}
+                {programaNome.split(":")[1]}
             </option>
         );
     })
 }
     
             </Select>
+
+           
 
             <button className="buttons" onClick={() => handleFilterBuildings()}>
               <Text.Heading5Medium
@@ -1026,6 +1030,14 @@ const dataFormatada = `${dia}/${mes}/${ano}`;
                         </Text.Heading4Bold>
                         <Text.Heading5Regular color={colors.black}>
                           {formatString(item?.situacao)}
+                        </Text.Heading5Regular>
+                      </div>
+                      <div className="item">
+                        <Text.Heading4Bold color={colors.black}>
+                          Status:
+                        </Text.Heading4Bold>
+                        <Text.Heading5Regular color={colors.black}>
+                          {formatString(item?.status).split('-')[1]}
                         </Text.Heading5Regular>
                       </div>
                     </div>

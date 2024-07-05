@@ -431,7 +431,7 @@ marginBottom="15px">
                 align={isMobile ? "justify" : "left"}
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}
-              >Decreto nº 22.656, de 5 de abril de 2024. <Link href='http://leismunicipa.is/19qug' target="blank" style={{ color: "#db334f" }}>http://leismunicipa.is/19qug</Link></Text>   
+              >Decreto nº 22.656, de 5 de abril de 2024. <Link href='http://leismunicipa.is/19qum' target="blank" style={{ color: "#db334f" }}>http://leismunicipa.is/19qum</Link></Text>   
 
 <Text
                 align={isMobile ? "justify" : "left"}

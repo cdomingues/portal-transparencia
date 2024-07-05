@@ -10,13 +10,15 @@ import {
 } from "@chakra-ui/react";
 import { isMobile } from "react-device-detect";
 import hBottom from "../../../assets/images/Icones_Home_Portal_Transparencia__botao_circulo.svg";
-import vagalumeDesk from "../../../assets/images/Portal-de-Obras_fototopo_homedesk.png";
-import vagalumeMobi from "../../../assets/images/Portal-de-Obras_fototopo_homemobi.png";
+import wall from "../../../assets/images/logoportal_simbolo_portalobras.png";
+//import vagalumeDesk from "../../../assets/images/Portal-de-Obras_fototopo_homedesk.png";
+//import vagalumeMobi from "../../../assets/images/Portal-de-Obras_fototopo_homemobi.png";
+import pesquisaDesk from "../../../assets/images/Portal-de-Obras_fototopo_pesquisedesk.png";
 import obras_espaco_publico from "../../../assets/images/icones/Portal de Obras_TOPO_espaco publico.svg";
 import obras_mobilidade from "../../../assets/images/icones/Portal de Obras_TOPO_mobilidade.svg";
 import obras_saneamento from "../../../assets/images/icones/Portal de Obras_TOPO_saneamento.svg";
 import obras_saude from "../../../assets/images/icones/Portal de Obras_TOPO_saude.svg";
-import wall from "../../../assets/images/logoportal_simbolo_portalobras.png";
+//import wall from "../../../assets/images/logoportal_simbolo_portalobras.png";
 import wallNegative from "../../../assets/images/logoportal_simbolo_portalobras_negativo.png";
 import ContainerBasic from "../../../components/Container/Basic";
 import MapOfConstructions from "../../../components/MapOfConstructions";
@@ -141,7 +143,7 @@ function Screen({ handler }: PropsInput) {
               style={{
                 position: "relative", // Posição relativa para a div pai
                 height: "400px",
-                backgroundImage: `url(${vagalumeMobi.src})`,
+                backgroundImage: `url(${wall.src})`,
                 backgroundSize: "cover", // Garante que a imagem de fundo cubra toda a div
                 backgroundPosition: "center", // Centraliza a imagem de fundo
               }}
@@ -461,7 +463,7 @@ function Screen({ handler }: PropsInput) {
               style={{
                 position: "relative", // Posição relativa para a div pai
                 height: "450px",
-                backgroundImage: `url(${vagalumeDesk.src})`,
+                backgroundImage: `url(${pesquisaDesk.src})`,
                 backgroundSize: "cover", // Garante que a imagem de fundo cubra toda a div
                 backgroundPosition: "center", // Centraliza a imagem de fundo
                 width: "60%",

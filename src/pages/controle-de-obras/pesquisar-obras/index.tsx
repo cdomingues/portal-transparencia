@@ -75,6 +75,7 @@ const getFileOfConstructions = async () => {
   const [neighborhood, setNeighborhood] = useState("");
   const [buildingStep, setBuildingStep] = useState("");
   const [buildingType, setBuildingType] = useState("");
+  const [buildingStatus, setBuildingStatus] = useState("");
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
@@ -92,6 +93,10 @@ const getFileOfConstructions = async () => {
     setBuildingType(event.target.value as string);
   };
 
+  const handleChangeSelectBuildingStatus = (event: any) => {
+    setBuildingStatus(event.target.value as string);
+  };
+
   const handleFilterBuildings = () => {
     let filteredValues = file?.results;
   
@@ -101,7 +106,8 @@ const getFileOfConstructions = async () => {
       companyName ||
       neighborhood ||
       buildingStep ||
-      buildingType
+      buildingType ||
+      buildingStatus
     ) {
       // Aplicar os filtros apenas se algum deles estiver definido
       filteredValues = filteredValues.filter(
@@ -122,6 +128,11 @@ const getFileOfConstructions = async () => {
             item?.categoria
               ?.toLowerCase()
               ?.includes(buildingType?.toLowerCase()))
+              &&
+          (!buildingStatus ||
+            item?.categoria
+              ?.toLowerCase()
+              ?.includes(buildingStatus?.toLowerCase()))
       );
     }
   
@@ -135,6 +146,7 @@ const getFileOfConstructions = async () => {
     setNeighborhood("");
     setBuildingStep("");
     setBuildingType("");
+    setBuildingStatus("");
     // Chame a função de filtro para redefinir os valores filtrados
     handleFilterBuildings();
   };
@@ -165,6 +177,8 @@ const getFileOfConstructions = async () => {
     buildingStep,
     handleChangeSelectBuildingType,
     buildingType,
+    handleChangeSelectBuildingStatus,
+    buildingStatus,
     handleFilterBuildings,
     page,
     rowsPerPage,

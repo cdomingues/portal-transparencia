@@ -437,6 +437,22 @@ const MapOfConstructions = () => {
           </div>
         </div>
 
+       
+
+        <div
+          className="status"
+          style={{
+            backgroundColor:
+              translatorSituationColor[constructionSelected?.status] ||
+              colors.grayDark,
+          }}
+        >
+          <Text.Heading5Bold color={colors.white}>
+            {formatString(constructionSelected?.situacao)}{" "}
+            {/* {Number(constructionSelected?.situacao)}% */}
+          </Text.Heading5Bold>
+        </div>
+
         <div
           className="status"
           style={{
@@ -446,7 +462,7 @@ const MapOfConstructions = () => {
           }}
         >
           <Text.Heading5Bold color={colors.white}>
-            {formatString(constructionSelected?.situacao)}{" "}
+            {formatString(constructionSelected?.status).split("-")?.[1]}{" "}
             {/* {Number(constructionSelected?.situacao)}% */}
           </Text.Heading5Bold>
         </div>
@@ -469,6 +485,8 @@ const MapOfConstructions = () => {
             {/* {Number(constructionSelected?.situacao)}% */}
           </Text.Heading5Bold>
         </div>
+
+        
 
         <Text.Heading5Regular marginTop={5} marginBottom={5}>
           Secretaria Responsável:{" "}

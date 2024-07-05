@@ -71,10 +71,7 @@ function Controller() {
       return {
         ...item,
         kmh: item?.kmh || "-",
-        
-
-       
-
+      
       };
     });
     

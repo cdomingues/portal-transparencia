@@ -117,14 +117,13 @@ function HomeScreen({ handler }: PropsInput) {
   const { height, width } = useWindowDimensions();
   const url_video = "https://www.youtube.com/embed/K7_TUkedcGA?si=iPxaKODtZnboQT-_";
   const titulo = "O QUE SÃO AS SEIS MEDIDAS?"; 
+   
 
   return (
     <ContainerBasic title={titlePage} description={description}>
       <Video url_video={url_video} titulo={titulo} />
 
-      <Box>O município de Mogi das Cruzes na data {dataFormatada} não possui obras paralisadas, em conformidade  com o  <Link href="https://paineldeobras.tce.sp.gov.br/pentaho/api/repos/:public:Obra:painel_obras.wcdf/generatedContent?userid=anony&password=zero" target="blank" style={{ color: "#db334f" }}>painel de obras do TCE SP</Link>.</Box>
-
-  
+      
       <Stack
         style={{
           paddingLeft: isMobile ? 0 : "0%",

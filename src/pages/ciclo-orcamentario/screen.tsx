@@ -302,7 +302,7 @@ function HomeScreen({ handler }: PropsInput) {
                       title="Prestação de Contas à CMMC"
                       imageURL={parecer_tribunal.src}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="http://www.cmmc.com.br/paginas/contas_do_executivo_municipal/"
+                      link="ciclo-orcamentario/prestacao-de-contas"
                  backgroundColor="transparent"/>
                   </Box>
                   

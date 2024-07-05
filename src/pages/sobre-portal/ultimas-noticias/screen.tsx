@@ -101,19 +101,19 @@
 
 
 import React, { useState } from "react";
-import ContainerBasic from "../../components/Container/Basic";
+import ContainerBasic from "../../../components/Container/Basic";
 import { Box, Checkbox, Flex, Heading, Input, Stack, Textarea,InputGroup, InputLeftElement, Center, useColorModeValue } from "@chakra-ui/react";
-import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
-import useWindowDimensions from "../../utils/getWindowSize";
-import DisplayNews from "../../components/News";
-import noticias from '../../../data/noticias.json'
-import PaginationComponent from "../../components/PaginationComponent";
-import PaginationSelector from "../../components/PaginationSelector";
-import TableComponent, { TableColumns } from "../../components/Table";
-import PaginationComponent2 from "../../components/PaginationComponent";
+import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
+import useWindowDimensions from "../../../utils/getWindowSize";
+import DisplayNews from "../../../components/News";
+import noticias from '../../../../data/noticias.json'
+import PaginationComponent from "../../../components/PaginationComponent";
+import PaginationSelector from "../../../components/PaginationSelector";
+import TableComponent, { TableColumns } from "../../../components/Table";
+import PaginationComponent2 from "../../../components/PaginationComponent";
 import { AiOutlineSearch } from "react-icons/ai";
 import { isMobile } from "react-device-detect";
-import caraga_horaria from '../../../data/carga_horaria.json'
+import caraga_horaria from '../../../../data/carga_horaria.json'
 
 
 export const contentOtherInformations = {

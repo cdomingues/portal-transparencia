@@ -83,7 +83,7 @@ function Screen({ handler }: PropsInput) {
     "SME": "3068a6fc-e21e-4a2d-b0d7-3fb30897483c",
     "SMF": "c76e23ef-16e5-494f-a25b-43a37b84470a",
     "SMGOV":"bc61ea48-df23-47ba-9ed2-8f1f5ca7789d",
-    "SMHSRF": "bc61ea48-df23-47ba-9ed2-8f1f5ca7789d",
+    "SMHSRF": "75f14fc8-a8d8-4c76-85b8-9a596451966b",
     "SMS": "5834fe67-e4a5-47fb-abec-552540590e8f",
     "SMU": "4b1d5219-988b-4f50-918a-659e9b771a8c",
     "PGM":"234ff7ff-9d83-42d9-91c8-9c0a3f891a1d",
