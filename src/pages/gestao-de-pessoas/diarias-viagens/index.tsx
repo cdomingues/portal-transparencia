@@ -25,7 +25,7 @@ function Controller() {
     { title: "Nome", field: "nome" },
     { title: "Total (R$)", field: "total" },
     { title: "Destino", field: "destino" },
-    { title: "Motivo legítimo do deslocamento", field: "motivo" },
+    { title: "Motivo legítimo do deslocamento", field: "motivo_deslocamento" },
     { title: "Período de permanência", field: "periodo_permanencia" },
     {title: "inteira", field: "inteira"},
     {title: "Meia", field:"meia"}
@@ -42,8 +42,8 @@ function Controller() {
       nome: item?.nome,
       total: item?.total,
       destino: item?.destino,
-      motivo:item?.motivo,
-      periodo_permanencia: item?.periodo_permanencia,
+      motivo_deslocamento:item?.motivo_deslocamento,
+      periodo_permanencia: item?.periodo_permanencia + " h" ,
       meia: item?.meia,
       
       

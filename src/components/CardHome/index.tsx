@@ -626,18 +626,7 @@ function CardHome() {
       ],
     },
 
-    {
-      title: "Últimas Notícias",
-      imageURL: Ultimas_noticias.src,
-      description: "Descrição 3",
-      link: "/ultimas-noticias",
-      backgroundColor: "green",
-      showExtraLinks: false,
-      extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
-      ],
-    },
+   
     {
       title: "Relatórios de Gestão",
       imageURL: Ultimas_noticias.src,
@@ -662,6 +651,7 @@ function CardHome() {
         { label: "Link 2", url: "http://exemplo.com/link2" },
       ],
     },
+   
     {
       title: "Veículos Oficiais",
       imageURL: Ultimas_noticias.src,

@@ -193,8 +193,8 @@ import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccess
 import { isMobile } from "react-device-detect";
 import { useColorModeValue } from "@chakra-ui/react";
 import useWindowDimensions from "../../../../src/utils/getWindowSize";
-import noticias from "../../../../data/noticias.json";
-import DisplayNews from "../../../components/NewsHome";
+//import noticias from "../../../../data/noticias.json";
+//import DisplayNews from "../../../components/NewsHome";
 
 type PropsInput = {
   title: string;
@@ -227,37 +227,11 @@ function Aside() {
         borderRadius="18px"
         marginBottom="15px"
       >
+        
+        
+        
         <div style={{ padding: "10px" }}>
-          <Text
-            fontSize={accessibility?.fonts?.regular}
-            fontWeight="500"
-            color={"gray.500"}
-          >
-            Últimas Notícias
-          </Text>
-        </div>
-        {noticias.slice(0, 2).map((info) => {
-          return (
-            <DisplayNews
-              key={info.descricao}
-              data_noticia={info.data_noticia}
-              descricao={info.descricao}
-              foto={info.foto}
-              titulo={info.titulo}
-              link={info.link}
-            />
-          );
-        })}
-        <div style={{ padding: "0px", width: "95%" }}></div>
-        <div style={{ padding: "10px" }}>
-          <Text
-            fontWeight="500"
-            fontSize={accessibility?.fonts?.regular}
-            color={"gray.500"}
-            fontStyle={"italic"}
-          >
-            <a href="./ultimas-noticias">Acesse outras notícias</a>
-          </Text>
+         
         </div>
       </Box>
     </div>
@@ -362,82 +336,7 @@ function ContainerBasic({
           <Aside />
         </Stack>
       )}
-      {!isMobile && showToggleButton && (
-        <button
-          onClick={toggleAside}
-          onMouseOver={() => setIsHovered(true)}
-          onMouseOut={() => setIsHovered(false)}
-          style={{
-            position: "absolute",
-            right: "10px",
-            top: "120px",
-            transform: "translateY(-50%)",
-            backgroundColor: "",
-            border: "1px solid transparent",
-            borderRadius: "50%",
-            outline: "none",
-            cursor: "pointer",
-            width: "40px",
-            height: "200px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          {isHovered ? (
-            showAside ? (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                {/* Duas setas apontando para a direita */}
-                <line x1="4" y1="6" x2="20" y2="12" />
-                <line x1="4" y1="18" x2="20" y2="12" />
-              </svg>
-            ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                {/* Duas setas apontando para a esquerda */}
-                <line x1="20" y1="6" x2="4" y2="12" />
-                <line x1="20" y1="18" x2="4" y2="12" />
-              </svg>
-            )
-          ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              {/* Ícone de hambúrguer */}
-              <line x1="3" y1="12" x2="21" y2="12" />
-              <line x1="3" y1="6" x2="21" y2="6" />
-              <line x1="3" y1="18" x2="21" y2="18" />
-            </svg>
-          )}
-        </button>
-      )}
+    
     </Stack>
   );
 }

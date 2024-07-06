@@ -61,7 +61,7 @@ import { contentReportExtrabudget } from "../pages/ciclo-orcamentario/relatorio-
 import { contentAnnualBalance } from "../pages/contas/balancos-anuais/screen";
 import { contentCourtOpinions } from "../pages/contas/pareceres-tribunal/screen";
 import { contentPatrimony } from "../pages/patrimonio/screen";
-import { contentOtherInformations } from "../pages/ultimas-noticias/screen";
+import { contentOtherInformations } from "../pages/sobre-portal/ultimas-noticias/screen";
 import { contentSearchConstructions } from "../pages/controle-de-obras/pesquisar-obras/screen";
 import { contentAbout } from "../pages/sobre-portal/screen";
 import { pointRadial } from "d3";
@@ -749,12 +749,7 @@ let publicRoutes: IPublicRoute[] = [
     icon: AiOutlineAudit,
     ...contentOtherInformations,
   },
-  {
-    name: "Últimas Notícias",
-    path: "/ultimas-noticias",
-    icon: AiOutlineAudit,
-    ...contentOtherInformations,
-  },
+  
   {
     name: "Veículos Oficiais",
     path: "/veiculos-oficiais",
@@ -767,6 +762,8 @@ let publicRoutes: IPublicRoute[] = [
     icon: AiOutlineAudit,
     ...contentOtherInformations,
   },
+  
+  
   {
     name: "Mapa do Site",
     path: "/mapa-do-site",
