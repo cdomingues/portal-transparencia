@@ -22,6 +22,8 @@ import seta from "../../../assets/images/icones/Icones_Home Portal Transparencia
 import hBottom from "../../../assets/images/Icones_Home_Portal_Transparencia__botao_circulo.svg";
 import build from "next/dist/build";
 import DadosAbertos from "../../../components/DadosAbertos";
+import ConstructionScreen from "../construcao/screen";
+import ConstructionStatusChecker from "../../../components/ConstructionChecker";
 
 interface PropsPagination {
   totalPages: number;
@@ -242,6 +244,8 @@ const SearchBuildingsScreen = ({ handlers }: any) => {
 const dia = String(date.getDate()).padStart(2, '0');
 const mes = String(date.getMonth() + 1).padStart(2, '0');
 const ano = date.getFullYear();
+
+
 
 const dataFormatada = `${dia}/${mes}/${ano}`;
   
@@ -851,17 +855,7 @@ const dataFormatada = `${dia}/${mes}/${ano}`;
     } 
 />
 <Box>
-      {existeParalisado ? (
-        // Renderizar algo caso existam obras paralisadas
-        "  "
-      ) : (
-        // Renderizar mensagem caso não existam obras paralisadas
-        <>
-          O município de Mogi das Cruzes na data {dataFormatada} não possui obras paralisadas, em conformidade com o <Link href="https://paineldeobras.tce.sp.gov.br/pentaho/api/repos/:public:Obra:painel_obras.wcdf/generatedContent?userid=anony&password=zero" target="blank" style={{ color: "#db334f" }}>
-            painel de obras do TCE SP
-          </Link>.
-        </>
-      )}
+     <ConstructionStatusChecker />
     </Box>
 
  </Box></Box>
@@ -980,7 +974,7 @@ const dataFormatada = `${dia}/${mes}/${ano}`;
                           Montante:
                         </Text.Heading4Bold>
                         <Text.Heading5Regular color={colors.black}>
-                          {parseMoney(item?.valor_contrato)}
+                          {parseMoney(item?.valor_total_aditamento_reajuste_contrato)}
                         </Text.Heading5Regular>
                       </div>
                     </div>

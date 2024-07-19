@@ -417,6 +417,12 @@ let publicRoutes: IPublicRoute[] = [
         icon: AiFillCaretRight,
         link: "https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/cadastro-de-fornecedor",
       },
+      {
+        name: "Portal Nacional de Contratações Públicas",
+        path: "https://pncp.gov.br/app/editais?q=&status=recebendo_proposta&pagina=1",
+        icon: AiFillCaretRight,
+        link: "https://pncp.gov.br/app/editais?q=&status=recebendo_proposta&pagina=1",
+      },
     ],
   },
 
@@ -679,7 +685,7 @@ let publicRoutes: IPublicRoute[] = [
         link: "https://mogidascruzes.1doc.com.br/b.php?pg=o/transparencia",
       },
       {
-        name: "Dashboard da LAI",
+        name: "Painel de acompanhamento 2023",
         path: "https://app.powerbi.com/view?r=eyJrIjoiY2ZmODAzZDUtMDE2YS00ZWYzLWJhZGQtMWE4Nzc3OWQyMDgxIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
         icon: AiOutlineProfile,
         link: "https://app.powerbi.com/view?r=eyJrIjoiY2ZmODAzZDUtMDE2YS00ZWYzLWJhZGQtMWE4Nzc3OWQyMDgxIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",

@@ -324,6 +324,10 @@ function CardHome() {
           label: "Cadastro de Fornecedor",
           url: "/compras-publicas/cadastro-fornecedor",
         },
+        {
+          label: "Portal Nacional de Contratações Públicas",
+          url: "https://pncp.gov.br/app/editais?q=&status=recebendo_proposta&pagina=1",
+        },
       ],
     },
 
@@ -540,7 +544,7 @@ function CardHome() {
           url: "https://mogidascruzes.1doc.com.br/b.php?pg=wp/wp&itd=3&ss=5",
         },
         {
-          label: "Dashboard da LAI",
+          label: "Painel de acompanhamento 2023",
           url: "https://app.powerbi.com/view?r=eyJrIjoiY2ZmODAzZDUtMDE2YS00ZWYzLWJhZGQtMWE4Nzc3OWQyMDgxIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
         },
       ],

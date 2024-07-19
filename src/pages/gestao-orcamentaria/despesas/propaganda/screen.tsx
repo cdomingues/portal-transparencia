@@ -30,7 +30,9 @@ type PropsInput = {
     years: Number[];
     setYear: any;
     year: number;
-    handleByYear: any;
+    gastos: Array<any>;
+    setGastos: any;
+    
   };
 };
 
@@ -50,7 +52,9 @@ function Screen({
     setYear,
     year,
     years,
-    handleByYear,
+    gastos,
+    setGastos,
+   // handleByYear,
   },
 }: PropsInput) {
   const title = contentAdvertisements?.titlePage;
@@ -118,43 +122,10 @@ function Screen({
         borderRadius="18px"
         marginBottom="15px"
       >
-        <Stack direction="row">
-          <Stack minW={86} width="25%">
-            <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
-              Ano
-            </Text>
-            <Select
-              defaultValue={year}
-              onChange={(e) => setYear(e.target.value)}
-              bg="white"
-              variant="outline"
-              placeholder="Selecionar Ano"
-            >
-              {years?.map((year, index) => (
-                <option key={index} value={String(year)}>
-                  {String(year)}
-                </option>
-              ))}
-            </Select>
-          </Stack>
-          <Stack minW={50} width="10%" justifyContent="flex-end">
-            <Button
-              w={"100px"}
-              h={"40px"}
-              disabled={loading}
-              onClick={() => handleByYear(year)}
-              _hover={{ bg: "gray.500", color: "white" }}
-              bg="table.primary"
-              color="white"
-              fontSize="small"
-            >
-              Buscar
-            </Button>
-          </Stack>
-        </Stack>
+        
 
         <Divider borderWidth="2px" mt="10" mb="10" />
-        <TableComponent loading={loading} columns={columns} data={data} />
+        <TableComponent loading={loading} columns={columns} data={gastos} />
       </Box>
     </ContainerBasic>
   );

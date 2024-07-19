@@ -4,6 +4,8 @@ import Screen from "./screen";
 import { getChart, getChartYears, getRevenues } from "../../../calls/revenues";
 import { revalidate } from "../../../config";
 import moment from "moment";
+import axios from "axios";
+import moneyFormatter from "../../../utils/moneyFormatter";
 
 function Controller({
   chartYear = { datasets: [] },
@@ -14,6 +16,7 @@ function Controller({
   const [year, setYear] = useState(moment().year());
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(revenues);
+  const [receitas, setReceitas] = useState([]);
 
   const columns = [
     { title: "Ano", field: "ano" },
@@ -32,6 +35,31 @@ function Controller({
     { title: "Dez", field: "dezembro" },
     { title: "Total Arrecadado", field: "totalArrecadado" },
   ];
+
+
+  const getReceitas = async () => {
+    const response = await axios.get(
+      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=382c733a-95a0-49ad-ad20-4b6d41361b1d",
+      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=5b6fcdf7-e6f5-41f6-899b-ede6927daffb",
+  
+"https://dadosadm.mogidascruzes.sp.gov.br/api/receitas",    
+ {
+        
+      }
+    );
+
+    const rows = response.data;
+
+    const mappedRows = rows?.map((item: any) => {
+      return {
+        ...item,
+        porcentagem: item?.porcentagem + " %",
+        valor: moneyFormatter(parseFloat(item?.valor)),
+      };
+    });
+
+    setReceitas(mappedRows);
+  };
 
   const handleByYear = async (year: number) => {
     setYear(year);
@@ -55,6 +83,7 @@ function Controller({
     years,
     handleByYear,
     year,
+    receitas,
   };
 
   return <Screen handler={handler} />;

@@ -19,7 +19,7 @@ type PropsInput = {
 export const content = {
   titlePage: "Programa de Medicamento Gratuito",
   description:
-    "Os medicamentos de Alto Custo são fornecidos pelo Governo do Estado de São Paulo por meio da Secretaria de Estado da Saúde.  O guia de orientações ao paciente, o qual está disponível no portal da SES/SP. As orientações de acesso podem ser obtidas por “medicamento” e por “protocolo” conforme segue: ",
+    "A Relação Municipal de Medicamentos (REMUME) é uma lista de medicamentos que são disponibilizados pelos serviços de saúde de um município específico. Essa lista é elaborada com base nas necessidades de saúde da população local e segue as diretrizes do Sistema Único de Saúde (SUS) no Brasil. A REMUME inclui medicamentos essenciais, aqueles considerados prioritários para atender às principais demandas de saúde da comunidade.  ",
 };
 
 function Screen({ handler }: PropsInput) {
@@ -48,7 +48,7 @@ function Screen({ handler }: PropsInput) {
                 fontWeight="700"
                 fontSize={accessibility?.fonts?.regular}
               >
-                Medicamentos do CEAF:
+                Acesse aqui o arquivo da lista de medicamentos vigente:
                 
                 
               </Text>
@@ -57,19 +57,8 @@ function Screen({ handler }: PropsInput) {
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}
               >
-                <UnorderedList listStyleType="none" 
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}>
-                <ListItem justifyContent="flex-end">Acessar o portal do SES/SP: <Link href="https://www.saude.sp.gov.br">www.saude.sp.gov.br</Link>; </ListItem>
-
-                <ListItem justifyContent="flex-end">Clicar no link “medicamentos”; </ListItem>
-
-                <ListItem justifyContent="flex-end">Clicar no link: “Medicamentos do Componente Especializado da Assistência Farmacêutica; </ListItem>
-
-                <ListItem justifyContent="flex-end"> Clicar no link: “Relação Estadual de Medicamentos do Componente Especializado da Assistência Farmacêutica; </ListItem>
-
-                <ListItem justifyContent="flex-end"> Realizar a consulta por medicamento ou por protocolo clínico e diretrizes terapêuticas </ListItem>
-                </UnorderedList>
+               <Link href="https://www.mogidascruzes.sp.gov.br/public/site/doc/2023081009262064d4d76c414d0.pdf" target="_blank" style={{ color: "#db334f" }}>Relação Municipal de Medicamentos – REMUME – 2023</Link>
+              
 
               </Text>
 
@@ -78,7 +67,7 @@ function Screen({ handler }: PropsInput) {
                 fontWeight="700"
                 fontSize={accessibility?.fonts?.regular}
               >
-                Medicamentos dos Protocolos e Normas Técnicas Estaduais: 
+                Programas da Prefeitura de Mogi das Cruzes:  
                 
                 
               </Text>
@@ -87,21 +76,75 @@ function Screen({ handler }: PropsInput) {
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}
               >
-                <UnorderedList listStyleType="none" 
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}>
-                <ListItem justifyContent="flex-end">Acessar o portal do SES/SP: <Link href="https://www.saude.sp.gov.br">www.saude.sp.gov.br</Link>;  </ListItem>
-
-                <ListItem justifyContent="flex-end">Clicar no link “medicamentos”; </ListItem>
-
-                <ListItem justifyContent="flex-end">Clicar no link: “Medicamentos dos Protocolos e Normas Técnicas Estaduais” </ListItem>
-
-                <ListItem justifyContent="flex-end"> Clicar no link: “Relação dos Medicamentos dos Protocolos e Normas Técnicas Estaduais; </ListItem>
-
-                <ListItem justifyContent="flex-end"> Realizar a consulta por medicamento ou por protocolo e norma técnica estadual. </ListItem>
-                </UnorderedList>
+            Programa de Medicamento Gratuito    <Link href="https://www.mogidascruzes.sp.gov.br/servico/saude/programa-de-medicamento-gratuito" target="_blank" style={{ color: "#db334f" }}>https://www.mogidascruzes.sp.gov.br/servico/saude/programa-de-medicamento-gratuito</Link>
+              
 
               </Text>
+              <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              >
+            Programa de Medicamento em Casa   <Link href="https://www.mogidascruzes.sp.gov.br/servico/todos-os-assuntos/programa-de-medicamento-em-casa" target="_blank" style={{ color: "#db334f" }}>https://www.mogidascruzes.sp.gov.br/servico/todos-os-assuntos/programa-de-medicamento-em-casa</Link>
+              
+
+              </Text>
+
+              <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              >
+            Fornecimento de Insumos de Enfermagem e Medicamentos para Acamados    <Link href="https://www.mogidascruzes.sp.gov.br/servico/todos-os-assuntos/fornecimento-de-insumos-de-enfermagem-e-medicamentos-para-acamados" target="_blank" style={{ color: "#db334f" }}>https://www.mogidascruzes.sp.gov.br/servico/todos-os-assuntos/fornecimento-de-insumos-de-enfermagem-e-medicamentos-para-acamados</Link>
+              
+
+              </Text>
+
+
+              <Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+              >
+                Programas do Estado de São Paulo    
+                
+                
+              </Text>
+              <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              >Medicamentos de Alto Custo </Text>
+        <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              >
+            Os medicamentos de Alto Custo são fornecidos pelo Governo do Estado de São Paulo por meio da Secretaria de Estado da Saúde. 
+
+O guia de orientações ao paciente, está disponível no portal da Secretaria Estadual   <Link href="https://www.saude.sp.gov.br/" target="_blank" style={{ color: "#db334f" }}>https://www.saude.sp.gov.br/</Link>
+              
+
+              </Text>
+              <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              >
+           Acesse aqui a lista por Componente Especializado da Assistência Farmacêutica (CEAF)     <Link href="https://www.saude.sp.gov.br/ses/perfil/gestor/assistencia-farmaceutica/medicamentos-dos-componentes-da-assistencia-farmaceutica/medicamentos-do-componente-especializado-da-assistencia-farmaceutica/" target="_blank" style={{ color: "#db334f" }}>Medicamentos do Componente Especializado da Assistência Farmacêutica</Link>
+              
+
+              </Text>
+              <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              >
+           Acesse aqui a lista por Protocolos e Normas Técnicas Estaduais       <Link href="https://www.saude.sp.gov.br/ses/perfil/gestor/assistencia-farmaceutica/medicamentos-dos-protocolos-e-normas-tecnicas-estaduais/" target="_blank" style={{ color: "#db334f" }}>Medicamentos dos Protocolos e Normas Técnicas Estaduais</Link>
+              
+
+              </Text>
+              
 
               
 

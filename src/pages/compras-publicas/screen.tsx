@@ -242,6 +242,24 @@ marginBottom="15px"
                   </Box>
                   
                 </Stack>
+
+                <Stack
+                direction={isMobile ? "column" : "row"}
+                align={isMobile ? "center" : "center"}
+                justifyContent={isMobile ? "flex-start" : "center"}
+              >
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                  <CardHorizon
+                      title="Portal Nacional de Contratações Públicas"
+                      imageURL={cadastro_de_fornecedores.src}
+                      description="A empresa interessada em participar de licitações na modalidade Tomada de Preços ou que pretenda manifestar interesse em licitações ..."
+                      link="https://pncp.gov.br/app/editais?q=&status=recebendo_proposta&pagina=1"
+                 backgroundColor="transparent"/>
+                  </Box>
+
+                 
+                  
+                </Stack>
                 
             </Stat>
 

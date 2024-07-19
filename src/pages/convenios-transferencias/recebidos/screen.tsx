@@ -114,7 +114,8 @@ function Screen({
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}
                 mt="5px"
-              > <Link href='https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/5a827a00-f564-46a8-aa17-38b3f5e954e3/Lista_de_Conv%C3%AAnios_2021_%C3%A0_2024.pdf' target="blank" style={{ color: "#db334f" }}> <Button
+              > <Link href='https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/5a827a00-f564-46a8-aa17-38b3f5e954e3/Lista_de_Conv%C3%AAnios_2021_%C3%A0_2024.pdf' target="blank" style={{ color: "#db334f" }}> 
+              <Button
               _hover={{ bg: "gray.200", color: "white" }}
               size="sm"
               bg="primary"

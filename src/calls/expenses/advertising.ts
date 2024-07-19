@@ -21,7 +21,7 @@ type AdvertisingResponse = {
   agencia_contratada: string;
   data_inicio: string;
   data_termino: string;
-  valor_total_veiculacao: number;
+  valor_total_veiculacao: string;
   honorario_agencia_veiculacao: number;
   honorario_agencia_producao: number | null | string;
   data_pagamento: string;
@@ -32,13 +32,10 @@ export const getdvertisings = async (year?: number) => {
   try {
     const response = await axios.get(
       //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=fde32aaa-b073-4311-8d21-b86af17a973f",
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=42791083-d0db-4481-b8be-cfdf85e15c0a&limit=5000",
+      "https://dadosadm.mogidascruzes.sp.gov.br/api/gastos_publicidade",
       
       {
-        headers: {
-          Authorization:
-            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJ4T2VWV29pdlZVTG9WTjJzZk1UQ0JrQmtmMjJGRVp5QWJ0bHdyajU0ZFJNIiwiaWF0IjoxNjc5Njg4ODYyfQ.N7uwCTBg9g21vHc3brf7ayK4rKK2zuUJnglptS6k__g",
-        },
+        
         params: {
           q: year,
           
@@ -46,11 +43,11 @@ export const getdvertisings = async (year?: number) => {
       }
     );
 
-    const rows: AdvertisingResponse[] = response.data?.result?.records || [];
+    const rows: AdvertisingResponse[] = response?.data || [];
 
     const mappingRows = rows?.map((row: AdvertisingResponse) => {
       return {
-        _id: row?.["_id"],
+        index: row?.["index"],
         ano: row?.["ano"],
         competencia: row?.["competencia"].split("-")[1],
         campanha: row?.["campanha"],
@@ -73,7 +70,7 @@ export const getdvertisings = async (year?: number) => {
         honorario_agencia_producao: moneyFormatter(
           Number(row?.["honorario_agencia_producao"])
         ),
-        rank: row?.rank || "",
+        //rank: row?.rank || "",
         data_pagamento: row?.data_pagamento.split(" ")[0]
       };
     });
@@ -91,8 +88,7 @@ export const getdvertisings = async (year?: number) => {
 export const getChartYear = async () => {
   try {
     const response = await axios.get(
-      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=a8fdc20d-7236-4302-8630-738ccf60ba4b&limit=4000",
-        "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=42791083-d0db-4481-b8be-cfdf85e15c0a&limit=5000",
+      "https://dadosadm.mogidascruzes.sp.gov.br/api/gastos_publicidade",
       {
         headers: {
           Authorization:
@@ -101,11 +97,9 @@ export const getChartYear = async () => {
       }
     );
 
-    const rows: AdvertisingResponse[] = response.data?.result?.records || [];
+    const rows: AdvertisingResponse[] = response.data || [];
 
     const years = [
-   //   moment().subtract(5, "years").year(),
-    //moment().subtract(4, "years").year(),
       moment().subtract(3, "years").year(),
       moment().subtract(2, "years").year(),
       moment().subtract(1, "years").year(),
@@ -115,11 +109,10 @@ export const getChartYear = async () => {
     const graphs = [];
 
     for (const year of years) {
-      const filteredRows = rows.filter((row) => row["ano"] == year);
-
+      const filteredRows = rows.filter((row) => row.ano === year);
 
       const sum = filteredRows.reduce((acumulador, item) => {
-        return acumulador + item.valor_total_veiculacao;
+        return acumulador + parseFloat(item.valor_total_veiculacao);
       }, 0);
 
       graphs.push({
@@ -153,8 +146,7 @@ export const getChartYear = async () => {
 export const getChart = async (year?: number) => {
   try {
     const response = await axios.get(
-      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=03146785-57db-4207-8924-85c492e8b9a8",
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=42791083-d0db-4481-b8be-cfdf85e15c0a&limit=5000",
+      "https://dadosadm.mogidascruzes.sp.gov.br/api/gastos_publicidade",
       {
         headers: {
           Authorization:
@@ -163,10 +155,9 @@ export const getChart = async (year?: number) => {
       }
     );
 
-    const rows: AdvertisingResponse[] = response.data?.result?.records || [];
+    const rows: AdvertisingResponse[] = response.data || [];
 
-    const year = 2023;
-
+    year = year ?? moment().year();
     let months = moment().year(year).endOf("year").month() + 1;
 
     const graphs = [];
@@ -176,12 +167,12 @@ export const getChart = async (year?: number) => {
     for (let index = 1; index <= months; index++) {
       const filteredRows = rows.filter(
         (row) =>
-          moment(row?.data_inicio).month() + 1 === index &&
-          row?.ano === year
+          moment(row.data_inicio).month() + 1 === index &&
+          row.ano === year
       );
 
       const sum = filteredRows.reduce((acumulador, item) => {
-        return acumulador + item.valor_total_veiculacao;
+        return acumulador + parseFloat(item.valor_total_veiculacao);
       }, 0);
 
       acamulatedAmount += Number(sum) || 0;

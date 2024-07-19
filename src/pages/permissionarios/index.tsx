@@ -1,8 +1,34 @@
 import React, { useEffect, useState } from "react";
 import Screen from "./screen";
 
+export interface Produto {
+  nome: string;
+}
+
+export interface ResultItem {
+  id: number;
+  produtos: Produto[];
+  nome: string;
+  telefone: string;
+  email: string;
+  localizacao: string;
+  local: string;
+  ativo: boolean;
+}
+
+export interface FormattedResultItem {
+  id: number;
+  produtos: string;
+  nome: string;
+  telefone: string;
+  email: string;
+  localizacao: string;
+  local: string;
+  ativo: boolean;
+}
+
 export interface ApiResponse {
-  results: any;
+  results: ResultItem[];
   count: number;
   next: string | null;
   previous: string | null;
@@ -10,8 +36,9 @@ export interface ApiResponse {
 
 function Controller() {
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState([]);
-
+  const [data, setData] = useState<FormattedResultItem[]>([]);
+  const [nextPage, setNextPage] = useState<string | null>('https://dadosadm.mogidascruzes.sp.gov.br/api/permissionarios?page=1');
+  
   const columns = [
     { title: "Nome", field: "nome" },
     { title: "Telefone", field: "telefone" },
@@ -21,42 +48,37 @@ function Controller() {
     { title: "Produtos", field: "produtos" }
   ];
 
-  useEffect(() => {
-    fetchAllData();
-  }, []);
-
-  const fetchAllData = async () => {
-    setLoading(true);
+  const fetchData = async (url: string) => {
     try {
-      const response = await fetch('https://dadosadm.mogidascruzes.sp.gov.br/api/permissionarios?page=1');
-      const result: ApiResponse = await response.json();
+      setLoading(true);
+      const response = await fetch(url);
+      const data: ApiResponse = await response.json();
 
-      const totalPages = Math.ceil(result.count / result.results.length);
-
-      const promises = [];
-      for (let i = 1; i <= totalPages; i++) {
-        promises.push(fetch(`https://dadosadm.mogidascruzes.sp.gov.br/api/permissionarios?page=${i}`).then(res => res.json()));
-      }
-
-      const results = await Promise.all(promises);
-      const allItems = results.flatMap(res => res.results);
-
-      const uniqueItems: any = Array.from(new Set(allItems.map(item => item.id)))
-        .map(id => allItems.find(item => item.id === id));
-
-      // Transformar produtos em uma string
-      const transformedItems = uniqueItems.map((item: { produtos: any[]; }) => ({
+      const formattedData = data.results.map(item => ({
         ...item,
-        produtos: item.produtos.map(produto => produto.nome).join(" / ")
+        produtos: item.produtos.map((produto: { nome: any; }) => produto.nome).join(' / ')
       }));
 
-      setData(transformedItems);
+      setData((prevData) => [...prevData, ...formattedData]);
+
+      if (data.next) {
+        setNextPage(data.next);
+      } else {
+        setNextPage(null);
+      }
+
+      setLoading(false);
     } catch (error) {
-      console.error('Error fetching data:', error);
-    } finally {
+      console.error('Erro ao obter os dados:', error);
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (nextPage !== null) {
+      fetchData(nextPage);
+    }
+  }, [nextPage]);
 
   const handler = {
     data,
