@@ -749,6 +749,13 @@ let publicRoutes: IPublicRoute[] = [
     ...contentOtherInformations,
   },
   {
+    name: "Governo Digital",
+    path: "/governo-digital",
+    link:"/governo-digital ",
+    icon: AiOutlineAudit,
+    ...contentOtherInformations,
+  },
+  {
     name: "Dados Abertos",
     path: "/dados-abertos",
     link:"https://dados.mogidascruzes.sp.gov.br/ ",

@@ -615,7 +615,18 @@ function CardHome() {
       ],
     },
 
-    
+    {
+      title: "Governo Digital",
+      imageURL: Plano_municipal_educacao.src,
+      description: "Descrição 2",
+      link: "/governo-digital",
+      backgroundColor: "blue",
+      showExtraLinks: false,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
+    },
 
     {
       title: "Dados Abertos",
