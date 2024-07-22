@@ -1,5 +1,5 @@
 import { GetStaticProps } from "next";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Screen from "./screen";
 import {
   getChart,
@@ -8,6 +8,8 @@ import {
 } from "../../../../calls/expenses/advertising";
 import { revalidate } from "../../../../config";
 import moment from "moment";
+import axios from "axios";
+import moneyFormatter from "../../../../utils/moneyFormatter";
 
 function Controller({
   chart = { datasets: [] },
@@ -19,6 +21,7 @@ function Controller({
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(advertisings);
   const [newChart, setNewChart] = useState(chart);
+  const [gastos,setGastos] = useState([])
 
   const columns = [
     //{ title: "Id", field: "id" },
@@ -64,7 +67,35 @@ function Controller({
     setYear,
     year,
     handleByYear,
+    gastos,
+    setGastos,
   };
+
+  const getGastos = async  () =>{
+    const response = await axios.get(
+      'https://dadosadm.mogidascruzes.sp.gov.br/api/gastos_publicidade'
+    );
+    const rows = response.data;
+    const mappedRows = rows?.map((item: any) => {
+      return {
+        ...item,
+        competencia: item?.["competencia"].split("-")[1] , 
+        data_inicio: item?.data_inicio ? moment(item.data_inicio).format("DD/MM/YYYY") : "",
+        data_termino: item?.data_termino ? moment(item.data_termino).format("DD/MM/YYYY") : "",
+        data_pagamento: item?.data_pagamento ? moment(item.datdata_pagamentoa_inicio).format("DD/MM/YYYY") : "",
+       valor_total_veiculacao: moneyFormatter(parseFloat(item?.valor_total_veiculacao)),
+       honorario_agencia_veiculacao: moneyFormatter(parseFloat(item?.honorario_agencia_veiculacao)),
+       honorario_agencia_producao: moneyFormatter(parseFloat(item?.honorario_agencia_producao)),
+
+       
+      };
+    });
+    setGastos(mappedRows)
+  }
+  useEffect(() => {
+    getGastos();
+    
+  }, []);
 
   return <Screen handler={handler} />;
 }
@@ -75,6 +106,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const { chart } = await getChart();
   const { chartYear } = await getChartYear();
   const { advertisings, years } = await getdvertisings();
+ 
 
   return {
     props: {

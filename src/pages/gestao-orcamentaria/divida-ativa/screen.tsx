@@ -77,6 +77,16 @@ function Screen({
         borderRadius="18px"
         marginBottom="15px"
       >
+      <Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+                mt="20px"
+              >
+               Base atualizada em 19/07/2024
+                
+                
+              </Text>
        <TableComponent loading={loading} columns={columns} data={data} />
     <DadosAbertos data={data} />
       

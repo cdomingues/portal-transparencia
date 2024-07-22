@@ -218,10 +218,10 @@ marginBottom="15px"
               >
                   <Box padding="6" bg="transparent" flexDirection="row">
                   <CardHorizon
-                      title="Repasses"
+                      title="Convenios"
                       imageURL={repasses.src}
                       description="Acompanhe os repasses feitos pela Prefeitura de Mogi das Cruzes às organizações do Terceiro Setor com as quais firmou contratos ou convênios."
-                      link="convenios-transferencias/repasses"
+                      link="convenios-transferencias/convenios"
                  backgroundColor="transparent"/>
                   </Box>
            

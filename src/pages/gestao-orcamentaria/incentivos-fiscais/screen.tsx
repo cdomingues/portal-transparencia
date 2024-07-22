@@ -13,7 +13,7 @@ type PropsInput = {
 };
 
 export const contentMapSite = {
-  titlePage: "Incentivos Fiscais-  Projetos Culturais",
+  titlePage: "Incentivos Fiscais",
   description:
     "   ",
 };
@@ -43,6 +43,10 @@ function Screen({ handler }: PropsInput) {
         marginBottom="15px"
       >
         <Divider borderWidth="2px" mt="10" mb="10" />
+        <Text fontSize="large" fontWeight="550" paddingLeft="5px" pb="15px">
+          Incentivos Fiscais - Projetos Culturais
+        </Text>
+        
         <UnorderedList listStyleType="none" 
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}>
@@ -53,6 +57,79 @@ function Screen({ handler }: PropsInput) {
                           
                           
                         </UnorderedList>
+
+
+
+                        <Divider borderWidth="2px" mt="10" mb="10" />
+
+<Text fontSize="large" fontWeight="550" paddingLeft="5px" pb="15px">
+  Incentivos Fiscais - Projetos Esportivos
+</Text>
+
+
+        <Text  fontSize="sm" fontWeight="550" paddingLeft="5px" pb="15px" color="gray.500">
+        
+        A <Link href='https://www.mogidascruzes.sp.gov.br/public/site/doc/20231109111722654cdbe29447a.pdf' target="blank" style={{ color: "#db334f" }}> 
+            
+         Lei Complementar 184/2023 
+             
+           </Link>
+         criou um incentivo fiscal local para contribuintes do IPTU e ISS que fizerem doações ou patrocínios financeiros para o desenvolvimento do esporte amador na cidade, por meio do Fundo Municipal do Esporte (FME). Cada proponente tem até 180 dias para fazer a captação do recurso. As empresas tem até o dia 20 de cada mês para se cadastrarem.
+
+Foram entregues (25/04/2024) os CIDs - Certificado de Incentivo ao Desporto para todos os proponentes que escreveram os projetos na LIDE e foram aprovados. Ao todo foram inscritos 65 projetos e desses, 41 foram aprovados, 6 aguardam recurso e 18 foram indeferidos e arquivados. Os projetos foram enquadrados nas áreas Educacional, Formação Desportiva, Rendimento, Sóciodesportiva, Participativa e Gestão e desenvolvimento desportivo. 
+
+Para os próximos anos, estamos em fase de estudos de um sistema informatizado que vai facilitar tanto a entrega quanto a análise dos processos. 
+
+Atualmente, os Projetos Esportivos estão na fase de captação de recursos pelos proponentes via IPTU e ISS. 
+
+<Text fontWeight="bold">Data de referência: 18/07/2024</Text>
+        </Text>
+<UnorderedList listStyleType="none" 
+        color="gray.500"
+        fontSize={accessibility?.fonts?.regular}>
+
+                  
+
+
+<Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/e007aa29-fda5-4fd1-a180-8102e1b0e4a7/Decreto_LIDE_2023.pdf" target="_blank">
+  <div style={{ display: 'flex', alignItems: 'center' }}>
+    <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} />
+    <ListItem className="list-group-item" pb={2}>
+      Decreto LIDE 2023
+    </ListItem>
+  </div>
+</Link>
+
+<Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/1babe010-2cbb-4571-b080-f886ad666588/Lei_Complementar_184_de_7_de_novembro_de_2_FEwJjuS.pdf" target="_blank">
+  <div style={{ display: 'flex', alignItems: 'center' }}>
+    <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} />
+    <ListItem className="list-group-item" pb={2}>
+      Lei Complementar 184 de 7 de novembro de 2023.LEI DE INCENTIVO MOGI
+    </ListItem>
+  </div>
+</Link>
+
+<Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/d6ae585a-085a-4ad7-ba73-48aed1147fda/Rela%C3%A7%C3%A3o_Projetos_LIDE_2024.pdf" target="_blank">
+  <div style={{ display: 'flex', alignItems: 'center' }}>
+    <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} />
+    <ListItem className="list-group-item" pb={2}>
+      Relação Projetos LIDE 2024
+    </ListItem>
+  </div>
+</Link>
+
+<Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/3dd3acf8-78a5-4aa9-9a3e-597aa2e6ca24/RESOLU%C3%87%C3%83O_SMEL_n%C2%BA_01.2024_ok.pdf" target="_blank">
+  <div style={{ display: 'flex', alignItems: 'center' }}>
+    <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} />
+    <ListItem className="list-group-item" pb={2}>
+      RESOLUÇÃO SMEL nº 01.2024
+    </ListItem>
+  </div>
+</Link>
+
+                  
+                  
+                </UnorderedList>                 
      
      
 

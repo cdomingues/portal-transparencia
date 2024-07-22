@@ -59,9 +59,6 @@ const [hasNextPage, setHasNextPage] = useState(true);
 
       const responsavelFiscalizacao = file?.responsavel_fiscalizacao ? `${file?.responsavel_fiscalizacao.split('|')[0]} | RGF: ${file?.responsavel_fiscalizacao.split('|')[1]}` : null;
 
-
-      
-
       
       
     }
@@ -302,7 +299,7 @@ const [hasNextPage, setHasNextPage] = useState(true);
        justifyContent="space-around"
       // flexDirection="row"
        >
-        <Box fontWeight= 'bold'>Status da obra:</Box> <Box>{file?.status.split("-")[1]}</Box>
+        <Box fontWeight= 'bold'>Status da obra:</Box> <Box>{file?.status ? file.status.split("-")[1] : 'Status não disponível'}</Box>
         </Box>
 
       <Box width="50%"
@@ -348,7 +345,8 @@ const [hasNextPage, setHasNextPage] = useState(true);
       justifyContent="space-around"
       display="flex" 
        >
-        <Box><Box fontWeight= 'bold'>Tipo: </Box><Box>{file?.tipo.split(":")[1]}</Box>  </Box>
+        <Box><Box fontWeight= 'bold'>Tipo: </Box><Box>{file?.tipo ? file?.tipo.split(":")[1] : " "}</Box>  </Box>
+
        </Box>
       
 

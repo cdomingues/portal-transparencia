@@ -36,7 +36,7 @@ const link_externo = <Link href='http://leismunicipa.is/0qsku' target="blank" st
 </Link>
 export const contentAdvertisements = {
   titlePage: "Diárias Viagens",
-  description: <>Informações sobre o nome e o cargo/função do beneficiário, além do número de diárias usufruídas por afastamento, período de afastamento, motivo do afastamento e local de destino, em conformidade com  {link_externo}
+  description: <>Informações sobre o nome e o cargo/função do beneficiário, além do número de diárias usufruídas por afastamento, período de afastamento, motivo do afastamento e local de destino, em conformidade com a relação de valores padrão de diárias dentro do Estado, fora do Estado e fora do país, prevista no  {link_externo}
   </>
 }
 
