@@ -77,21 +77,32 @@ const ConstructionStatusChecker = () => {
 
   return (
     <div>
-      {isLoading ? (
-        <p>Carregando...</p>
-      ) : (
-        <div>
-          
-          {existeParalisado ? (
-             <p>  O município de Mogi das Cruzes na data {dataFormatada}  possui obras paralisadas, que podem ser conferidas em <Link href="https://paineldeobras.tce.sp.gov.br/pentaho/api/repos/:public:Obra:painel_obras.wcdf/generatedContent?userid=anony&password=zero" target="blank" style={{ color: "#db334f" }}>
-             painel de obras do TCE SP
-           </Link>.</p>
-          ) :(
-            <p>  O município de Mogi das Cruzes na data {dataFormatada} não possui obras paralisadas, em conformidade com o <Link href="https://paineldeobras.tce.sp.gov.br/pentaho/api/repos/:public:Obra:painel_obras.wcdf/generatedContent?userid=anony&password=zero" target="blank" style={{ color: "#db334f" }}>
+      {existeParalisado ? (
+        <p>
+          O município de Mogi das Cruzes na data {dataFormatada} possui obras
+          paralisadas, que podem ser conferidas em{" "}
+          <Link
+            href="https://paineldeobras.tce.sp.gov.br/pentaho/api/repos/:public:Obra:painel_obras.wcdf/generatedContent?userid=anony&password=zero"
+            target="blank"
+            style={{ color: "#db334f" }}
+          >
             painel de obras do TCE SP
-          </Link>.</p>
-          )}
-        </div>
+          </Link>
+          .
+        </p>
+      ) : (
+        <p>
+          O município de Mogi das Cruzes na data {dataFormatada} não possui obras
+          paralisadas, em conformidade com o{" "}
+          <Link
+            href="https://paineldeobras.tce.sp.gov.br/pentaho/api/repos/:public:Obra:painel_obras.wcdf/generatedContent?userid=anony&password=zero"
+            target="blank"
+            style={{ color: "#db334f" }}
+          >
+            painel de obras do TCE SP
+          </Link>
+          .
+        </p>
       )}
     </div>
   );
