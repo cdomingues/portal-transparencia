@@ -1,5 +1,5 @@
 import { GetStaticProps } from "next";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Screen from "./screen";
 import { getChart, getChartYears, getRevenues } from "../../../calls/revenues";
 import { revalidate } from "../../../config";
@@ -33,7 +33,8 @@ function Controller({
     { title: "Out", field: "outubro" },
     { title: "Nov", field: "novembro" },
     { title: "Dez", field: "dezembro" },
-    { title: "Total Arrecadado", field: "totalArrecadado" },
+    { title: "Total Arrecadado", field: "total_arrecadado" },
+    {title:'Total Previsto',field:'total_previsto'}
   ];
 
 
@@ -53,14 +54,29 @@ function Controller({
     const mappedRows = rows?.map((item: any) => {
       return {
         ...item,
-        porcentagem: item?.porcentagem + " %",
-        valor: moneyFormatter(parseFloat(item?.valor)),
+        janeiro: moneyFormatter(parseFloat(item?.janeiro)),
+        fevereiro: moneyFormatter(parseFloat(item?.fevereiro)),
+        marco: moneyFormatter(parseFloat(item?.marco)),
+        abril: moneyFormatter(parseFloat(item?.abril)),
+        maio: moneyFormatter(parseFloat(item?.maio)),
+        junho: moneyFormatter(parseFloat(item?.junho)),
+        julho: moneyFormatter(parseFloat(item?.julho)),
+        agosto: moneyFormatter(parseFloat(item?.agosto)),
+        setembro: moneyFormatter(parseFloat(item?.setembro)),
+        outubro: moneyFormatter(parseFloat(item?.outubro)),
+        novembro: moneyFormatter(parseFloat(item?.novembro)),
+        dezembro: moneyFormatter(parseFloat(item?.dezembro)),
+        total_arrecadado: moneyFormatter(parseFloat(item?.total_arrecadado)),
+        total_previsto: moneyFormatter(parseFloat(item?.total_previsto)),
+        
       };
     });
 
     setReceitas(mappedRows);
   };
-
+  useEffect(() => {
+    getReceitas()
+  }, []);
   const handleByYear = async (year: number) => {
     setYear(year);
 

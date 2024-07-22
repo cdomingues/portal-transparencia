@@ -30,6 +30,7 @@ type PropsInput = {
     years: Number[];
     handleByYear: any;
     year: number;
+    receitas: Array<any>;
   };
 };
 export const contentRevenue = {
@@ -48,6 +49,7 @@ function RevenueScreen({
     year,
     years,
     handleByYear,
+    receitas
   },
 }: PropsInput) {
   const title = contentRevenue?.titlePage;
@@ -175,7 +177,7 @@ function RevenueScreen({
             </Stack>
           </Stack>
           <Divider borderWidth="2px" mt="10" mb="10" />
-          <TableComponent loading={loading} columns={columns} data={data} />
+          <TableComponent loading={loading} columns={columns} data={receitas} />
         </Box>
       </MultipleGraphWrapper>
     </ContainerBasic>
