@@ -134,6 +134,13 @@ let publicRoutes: IPublicRoute[] = [
       },
       {
         defaultPath: "/agenda-aberta",
+        name: "Chefe de Gabinete - Gabriel Bastianelli",
+        path: "agenda-chefe-gabinete",
+        icon: AiOutlineProfile,
+        ...contentMayorAgenda,
+      },
+      {
+        defaultPath: "/agenda-aberta",
         name: "Demais Autoridades",
         path: "agenda-secretarios",
         icon: AiOutlineProfile,

@@ -108,6 +108,10 @@ function CardHome() {
           url: "/agenda-aberta/agenda-coprefeita",
         }, 
         {
+          label: "Chefe de Gabinete - Gabriel Bastianelli",
+          url: "/agenda-aberta/agenda-chefe-gabinete",
+        }, 
+        {
           label: "Demais Autoridades",
           url: "/agenda-aberta/agenda-secretarios",
         }, 
