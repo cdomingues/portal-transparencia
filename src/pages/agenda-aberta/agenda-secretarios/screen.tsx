@@ -72,6 +72,7 @@ function Screen({ handler }: PropsInput) {
     "Severino Netto",
     "Toriel Angelo Mota Sardinha",
     "Marcos Torres.",
+    
   ];
 
   const [selected, setSelected] = useState<Date>();
@@ -144,25 +145,15 @@ function Screen({ handler }: PropsInput) {
       const isNotPrefeitoOrCoPrefeita =
         item?.cargo !== "Prefeito" && item?.cargo !== "Co-Prefeita";
       const isSameCargo =
-        selectedCargo === "" || selectedCargo === item?.nome;
+        selectedCargo === "" ||
+        selectedCargo === item?.nome ||
+        (selectedCargo === "Secretário Municipal de Desenvolvimento Econômico e Inovação" &&
+          item.cargo === "Chefe de Gabinete do Prefeito");
       const isNotFutureDate = timeWithSubtraction.isSameOrBefore(moment(), "day");
 
       return (
         isSameDate && isNotPrefeitoOrCoPrefeita && isSameCargo && isNotFutureDate
       );
-    })
-    .flatMap((item: Meeting) => {
-      // Duplicate if cargo is "Chefe de Gabinete do Prefeito"
-      if (item.cargo === "Chefe de Gabinete do Prefeito") {
-        return [
-          item,
-          {
-            ...item,
-            cargo: "Secretário Municipal de Desenvolvimento Econômico e Inovação",
-          },
-        ];
-      }
-      return [item];
     })
     .flatMap((item: Meeting) => {
       // Duplicate if cargo is "Chefe de Gabinete do Prefeito"
@@ -176,6 +167,13 @@ function Screen({ handler }: PropsInput) {
         ];
       }
       return [item];
+    })
+    .map((item: Meeting) => {
+      if (item.cargo === "Chefe de Gabinete do Prefeito" &&
+          selectedCargo === "Secretário Municipal de Desenvolvimento Econômico e Inovação") {
+        return { ...item, cargo: "Secretário Municipal de Desenvolvimento Econômico e Inovação" };
+      }
+      return item;
     })
     .sort((a: Meeting, b: Meeting) => {
       const aHours = moment(a?.data_compromisso).format("HH:mm");
@@ -243,14 +241,42 @@ function Screen({ handler }: PropsInput) {
           >
             <option value="">Todos os Cargos</option>
 
-            {apiCargos
-              .filter((cargo) => !excludedList.includes(cargo.nome))
-              .sort((a, b) => a.cargo.localeCompare(b.cargo))
-              .map((cargo) => (
-                <option key={cargo.nome} value={cargo.nome}>
-                  {cargo.cargo}
-                </option>
-              ))}
+            
+<option value="Felipe Monteiro de Almeida">Secretário Municipal de Agricultura e Abastecimento</option>
+<option value="Rodolfo Marcondes">Secretário Adjunto de Agricultura e Abastecimento</option>
+<option value="Felipe Rocha Magalhães">Secretário Municipal de Assuntos Jurídicos</option>
+<option value="Adriana Ferreira dos Santos">Secretária Municipal de Assistência Social</option>
+<option value="Gabriel Bastianelli">Secretário Municipal de Desenvolvimento Economico e Inovação</option>
+<option value="Carlos Lothar Kautza">Secretário Municipal de Habitação Social e Regularização Fundiária</option>
+<option value="Claudinéli Moreira Ramos">Secretária Municipal de Cultura</option>
+<option value="Cristiane Batista Santana">Secretária Adjunta de Cultura</option>
+<option value="Marilu Felipe dos Santos Beranger">Secretária Municipal de Educação</option>
+<option value="Mariane Prestes da Silva Pena">Secretária Adjunta de Educação</option>
+<option value="Gustavo Carvalho Nogueira">Secretário Municipal de Esportes e Lazer</option>
+<option value="Paulo Cardozo de Mello Boccuzzi">Secretário Adjunto de Esportes e Lazer</option>
+<option value="Eric Welson de Andrade">Secretário Adjunto de Gestão Pública</option>
+<option value="Jony M. R. Santos">Secretário Municipal de Gestão Pública</option>
+<option value="Ionara Amélia Fernandes">Secretária Municipal de Meio Ambiente e Proteção Animal</option>
+<option value="Claudio Marcelo de Faria Rodrigues">Secretário Municipal de Urbanismo</option>
+<option value="Nídia Fátima Cristóforo">Secretária Adjunta da Secretaria de Urbanismo</option>
+<option value="Ricardo Abílio Rossi Cardoso">Secretário Municipal de Finanças</option>
+<option value="Jéssica Cristina da Silva">Secretária Adjunta de Planejamento e Gestão Estratégica</option>
+<option value="Marcos Torres">Secretário Municipal de Planejamento e Gestão Estratégica</option>
+<option value="Augusto Cesar Barbosa">Secretário Adjunto de Segurança</option>
+<option value="Augusto Cesar Barbosa">Secretário Municipal de Segurança</option>
+<option value="Toriel Angelo Mota Sardinha">Secretário Municipal de Segurança</option>
+<option value="William Harada">Secretário Municipal de Saúde</option>
+<option value="Alessandro Silveira">Secretário Municipal de Infraestrutura Urbana</option>
+<option value="Joaquim Lopes da Silva Junior">Secretário Adjunto de Infraestrutura Urbana</option>
+<option value="Cristiane Ayres Contri">Secretária Adjunta de Transparência e Dados Abertos</option>
+
+<option value="Marcos Torres">Secretário Municipal de Transparência e Dados Abertos</option>
+<option value="Rubens Pedro">Secretário Adjunto de Governo</option>
+<option value="Rubens Pedro">Secretário Adjunto de Governo</option>
+
+   
+
+
           </Select>
 
           <Stack direction="row" flexWrap="wrap-reverse">
@@ -323,7 +349,9 @@ function Screen({ handler }: PropsInput) {
                           color="text.dark"
                           style={{ margin: 0 }}
                         >
-                          {item?.cargo}
+                            {selectedCargo === "Gabriel Bastianelli" 
+          ? "Secretário Municipal de Desenvolvimento Econômico" 
+          : item?.cargo}
                         </Text>
                         <Text
                           fontSize={accessibility?.fonts?.medium}

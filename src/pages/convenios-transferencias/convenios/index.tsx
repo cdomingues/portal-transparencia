@@ -1,9 +1,9 @@
 import { GetStaticProps } from "next";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Screen from "./screen";
-import { getContracts } from "../../../calls/expenses/contractsMinutes";
 import { revalidate } from "../../../config";
 import moment from "moment";
+
 export interface ArquivoContrato {
   id: number;
   arquivo: string;
@@ -18,12 +18,30 @@ export interface ApiResponse {
   results: ArquivoContrato[];
 }
 
+const getContracts = async (year?: number) => {
+  try {
+    const url = year 
+      ? `https://dadosadm.mogidascruzes.sp.gov.br/api/contratos_atas?tipo=CONVENIO&year=${year}` 
+      : `https://dadosadm.mogidascruzes.sp.gov.br/api/contratos_atas?tipo=CONVENIO`;
+      
+    const response = await fetch(url);
+    const data = await response.json();
+
+    return {
+      contracts: data.results || [],
+      years: data.years || []
+    };
+  } catch (error) {
+    console.error('Error fetching contracts:', error);
+    return { contracts: [], years: [] };
+  }
+};
 
 function Controller({ contracts = [], years = [] }: any) {
   const [year, setYear] = useState(moment().year());
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(contracts);
-  const [data2, setData2]  = useState<ArquivoContrato[]>([]);
+  const [data2, setData2] = useState<ArquivoContrato[]>([]);
 
   const columns = [
     { title: "Tipo", field: "tipo" },
@@ -42,59 +60,40 @@ function Controller({ contracts = [], years = [] }: any) {
     { title: "Grupo", field: "grupo" },
     { title: "Objeto", field: "objeto" },
     { title: "Id Contrato", field: "id_contrato" },
-   
-
-
   ];
 
   const handleByYear = async (year: number) => {
     setYear(year);
-
     setLoading(true);
-
     const { contracts } = await getContracts(year);
-
     setLoading(false);
-
     setData(contracts);
   };
 
   const arquivosColumns = [
     { title: "Id", field: "id" },
-    { title: "Arquivo", field: 'arquivo'},
+    { title: "Arquivo", field: 'arquivo' },
     { title: "Nome", field: "nome" },
     { title: "Contrato", field: "mes" },
     { title: "Localização", field: "id_contrato_id" },
-    
   ];
 
-  const fetchArquivos = async (page: number) => {
+  const fetchArquivos = async () => {
     setLoading(true);
     try {
-        let currentPage = page;
-        let hasMore = true;
-
-        while (hasMore) {
-            const response = await fetch(`https://dadosadm.mogidascruzes.sp.gov.br/api/arquivos_contratos_atas?page=${currentPage}`);
-            const result: ApiResponse = await response.json();
-            setData2((prevData: any) => [...prevData, ...result.results]);
-
-            if (result.next) {
-                currentPage++;
-            } else {
-                hasMore = false;
-            }
-        }
+      const response = await fetch('https://dadosadm.mogidascruzes.sp.gov.br/api/contratos_atas?tipo=CONVENIO');
+      const result: ApiResponse = await response.json();
+      setData2(result.results);
     } catch (error) {
-        console.error('Error fetching data:', error);
+      console.error('Error fetching data:', error);
     } finally {
-        setLoading(false);
+      setLoading(false);
     }
+  };
 
-    
-    
-};
-
+  useEffect(() => {
+    fetchArquivos();
+  }, []);
 
   const handler = {
     data,
@@ -107,7 +106,6 @@ function Controller({ contracts = [], years = [] }: any) {
     data2,
     setData2,
     arquivosColumns
-    
   };
 
   return <Screen handler={handler} />;
