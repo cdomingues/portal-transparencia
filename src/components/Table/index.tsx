@@ -59,6 +59,7 @@ import colors from "../../styles/colors";
 export type TableColumns = Array<{
   title: string;
   field: string;
+  hidden?: boolean;
 }>;
 
 type Props = {
@@ -66,6 +67,7 @@ type Props = {
   data: Array<any>;
   loading?: boolean;
   withFilter?: boolean;
+  hidden?: boolean;
   openModal?: (value?: any) => void;
 };
 
