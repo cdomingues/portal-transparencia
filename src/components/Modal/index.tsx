@@ -23,19 +23,28 @@ const ModalPopup: React.FC = () => {
       <ModalOverlay />
       <ModalContent width={["full", "700px"]} height={["full", "400px"]}>
         <ModalHeader>
-          Sistemas da Prefeitura em Manutenção
+          Transição para o Novo Portal de Transparência em Andamento
         </ModalHeader>
         <ModalCloseButton />
         <ModalBody>
-          Nos próximos dias, os servidores da prefeitura estarão em manutenção, portanto o Portal da Transparência poderá sofrer alguma instabilidade <br />
-          
+          Estamos atualmente em processo de transição para nosso novo Portal de
+          Transparência. <br />
+          Durante essa fase, você poderá experienciar algumas interrupções no
+          serviço ou lentidão na navegação.
           <br /><br />
           Agradecemos sua paciência e compreensão enquanto trabalhamos para
           melhorar sua experiência.
           <br />
           <br />
-          
-          
+          Caso queira acessar o conteúdo do portal anterior, acesse o link{" "}
+          <Link
+            color="blue.500"
+            href="https://portaldatransparencia.mogidascruzes.sp.gov.br/"
+            isExternal
+          >
+            Portal versão anterior
+          </Link>
+          .
         </ModalBody>
       </ModalContent>
     </Modal>
