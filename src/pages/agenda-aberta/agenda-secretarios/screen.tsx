@@ -240,41 +240,33 @@ function Screen({ handler }: PropsInput) {
             onChange={(event) => setSelectedCargo(event.target.value)}
           >
             <option value="">Todos os Cargos</option>
-
-            
-<option value="Felipe Monteiro de Almeida">Secretário Municipal de Agricultura e Abastecimento</option>
-<option value="Rodolfo Marcondes">Secretário Adjunto de Agricultura e Abastecimento</option>
-<option value="Felipe Rocha Magalhães">Secretário Municipal de Assuntos Jurídicos</option>
-<option value="Adriana Ferreira dos Santos">Secretária Municipal de Assistência Social</option>
-<option value="Gabriel Bastianelli">Secretário Municipal de Desenvolvimento Economico e Inovação</option>
-<option value="Carlos Lothar Kautza">Secretário Municipal de Habitação Social e Regularização Fundiária</option>
-<option value="Claudinéli Moreira Ramos">Secretária Municipal de Cultura</option>
-<option value="Cristiane Batista Santana">Secretária Adjunta de Cultura</option>
-<option value="Marilu Felipe dos Santos Beranger">Secretária Municipal de Educação</option>
-<option value="Mariane Prestes da Silva Pena">Secretária Adjunta de Educação</option>
-<option value="Gustavo Carvalho Nogueira">Secretário Municipal de Esportes e Lazer</option>
-<option value="Paulo Cardozo de Mello Boccuzzi">Secretário Adjunto de Esportes e Lazer</option>
-<option value="Eric Welson de Andrade">Secretário Adjunto de Gestão Pública</option>
-<option value="Jony M. R. Santos">Secretário Municipal de Gestão Pública</option>
-<option value="Ionara Amélia Fernandes">Secretária Municipal de Meio Ambiente e Proteção Animal</option>
-<option value="Claudio Marcelo de Faria Rodrigues">Secretário Municipal de Urbanismo</option>
-<option value="Nídia Fátima Cristóforo">Secretária Adjunta da Secretaria de Urbanismo</option>
-<option value="Ricardo Abílio Rossi Cardoso">Secretário Municipal de Finanças</option>
-<option value="Jéssica Cristina da Silva">Secretária Adjunta de Planejamento e Gestão Estratégica</option>
-<option value="Marcos Torres">Secretário Municipal de Planejamento e Gestão Estratégica</option>
-<option value="Augusto Cesar Barbosa">Secretário Adjunto de Segurança</option>
-<option value="Augusto Cesar Barbosa">Secretário Municipal de Segurança</option>
-<option value="Toriel Angelo Mota Sardinha">Secretário Municipal de Segurança</option>
-<option value="William Harada">Secretário Municipal de Saúde</option>
-<option value="Alessandro Silveira">Secretário Municipal de Infraestrutura Urbana</option>
-<option value="Joaquim Lopes da Silva Junior">Secretário Adjunto de Infraestrutura Urbana</option>
-<option value="Cristiane Ayres Contri">Secretária Adjunta de Transparência e Dados Abertos</option>
-
-<option value="Marcos Torres">Secretário Municipal de Transparência e Dados Abertos</option>
-<option value="Rubens Pedro">Secretário Adjunto de Governo</option>
-<option value="Rubens Pedro">Secretário Adjunto de Governo</option>
-
-   
+            <option value="Nídia Fátima Cristóforo">Secretária Adjunta da Secretaria de Urbanismo</option>
+            <option value="Mariane Prestes da Silva Pena">Secretária Adjunta de Educação</option>
+            <option value="Jéssica Cristina da Silva">Secretária Adjunta de Planejamento e Gestão Estratégica</option>
+            <option value="Cristiane Ayres Contri">Secretária Adjunta de Transparência e Dados Abertos</option>
+            <option value="Adriana Ferreira dos Santos">Secretária Municipal de Assistência Social</option>
+            <option value="Claudinéli Moreira Ramos">Secretária Municipal de Cultura</option>
+            <option value="Marilu Felipe dos Santos Beranger">Secretária Municipal de Educação</option>
+            <option value="Ionara Amélia Fernandes">Secretária Municipal de Meio Ambiente e Proteção Animal</option>
+            <option value="Marcelo Silvério">Secretário Adjunto de Assuntos Jurídicos</option>
+            <option value="Claudemir de Menezes">Secretário Adjunto de Desenvolvimento Econômico e Inovação</option>
+            <option value="Paulo Cardozo de Mello Boccuzzi">Secretário Adjunto de Esportes e Lazer</option>
+            <option value="Eric Welson de Andrade">Secretário Adjunto de Gestão Pública</option>
+            <option value="Rubens Pedro">Secretário Adjunto de Governo</option>
+            <option value="Joaquim Lopes da Silva Junior">Secretário Adjunto de Infraestrutura Urbana</option>
+            <option value="Felipe Monteiro de Almeida">Secretário Municipal de Agricultura e Abastecimento</option>
+            <option value="Felipe Rocha Magalhães">Secretário Municipal de Assuntos Jurídicos</option>
+            <option value="Gabriel Bastianelli">Secretário Municipal de Desenvolvimento Economico e Inovação</option>
+            <option value="Gustavo Carvalho Nogueira">Secretário Municipal de Esportes e Lazer</option>
+            <option value="Ricardo Abílio Rossi Cardoso">Secretário Municipal de Finanças</option>
+            <option value="Jony M. R. Santos">Secretário Municipal de Gestão Pública</option>
+            <option value="Carlos Lothar Kautza">Secretário Municipal de Habitação Social e Regularização Fundiária</option>
+            <option value="Alessandro Silveira">Secretário Municipal de Infraestrutura Urbana</option>
+            <option value="Marcos Torres">Secretário Municipal de Planejamento e Gestão Estratégica</option>
+            <option value="William Harada">Secretário Municipal de Saúde</option>
+            <option value="Augusto Cesar Barbosa">Secretário Municipal de Segurança</option>
+            <option value="Marcos Torres">Secretário Municipal de Transparência e Dados Abertos</option>
+            <option value="Claudio Marcelo de Faria Rodrigues">Secretário Municipal de Urbanismo</option>
 
 
           </Select>

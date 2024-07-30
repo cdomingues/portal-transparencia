@@ -2,86 +2,65 @@ import { Table, TableContainer, Tbody, Td, Thead, Tr } from "@chakra-ui/react";
 import { RowDetails, TColumn } from "../../../../../styles/components/contratos-atas/modal/styles";
 import { useEffect, useState } from "react";
 
-export interface ArquivoContrato {
+export interface ArquivoLicitacao {
   id: number;
-  arquivo: string;
+  tabela: string;
+  id_tabela: number;
+  data: string;
+  descricao: string;
   nome: string;
-  id_contrato_id: number | null;
-}
-
-export interface ApiResponse {
-  count: number;
-  next: string | null;
-  previous: string | null;
-  results: ArquivoContrato[];
+  arquivod: string ;
+  arquivo: string | null;
+  DownloadAcesso: string;
 }
 
 const Files = ({ contract }: any) => {
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState<ArquivoContrato[]>([]);
+  const [data, setData] = useState<ArquivoLicitacao[]>([]);
 
   useEffect(() => {
-    fetchAllData(1);
+    const fetchArquivosLicitaco = async () => {
+      try {
+        const response = await fetch(`https://dadosadm.mogidascruzes.sp.gov.br/api/licitacoes-arquivos/?id_tabela=${contract.id}`);
+        if (!response.ok) {
+          throw new Error('Falha ao carregar os dados');
+        }
+        const data = await response.json();
+        console.log('Dados recebidos:', data); // Verifique os dados recebidos no console
+        setData(data.results);
+      } catch (error) {
+        console.error('Erro ao carregar os dados:', error);
+      }
+    };
+
+    fetchArquivosLicitaco();
   }, []);
 
-  const fetchAllData = async (page: number) => {
-    setLoading(true);
-    try {
-      let currentPage = page;
-      let hasMore = true;
-
-      while (hasMore) {
-        const response = await fetch(`https://dadosadm.mogidascruzes.sp.gov.br/api/arquivos_contratos_atas?page=${currentPage}`);
-        const result: ApiResponse = await response.json();
-        setData((prevData) => [...prevData, ...result.results]);
-
-        if (result.next) {
-          currentPage++;
-        } else {
-          hasMore = false;
-        }
-      }
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
+ 
  // console.log('Contract ID:', contract?.id_contrato);
   //console.log('Data:', data);
 
   const filteredData = data.filter(file => {
     //console.log('Comparing:', file.id_contrato_id, contract?.id_contrato);
-    return file.id_contrato_id === contract?.id_contrato;
+    return file.id_tabela === contract?.id;
   });
 
   //console.log('Filtered Data:', filteredData);
 
   return (
     <div style={{ overflowX: "auto" }}>
-      <RowDetails>
-        <div className="column">
-          <div className="title">Processo: </div>
-          <div className="value">{contract?.processo} - {contract?.id_contrato}</div>
-        </div>
-        <br />
-      </RowDetails>
+      
       {filteredData.length === 0 ? (
-        <div>Sem arquivos para esse contrato</div>
+        <div>Sem arquivos para essa licitação</div>
       ) : (
         filteredData.map(file => (
           <RowDetails key={file.id}>
             <div className="column">
               <div className="title">Arquivo:</div>
               <div className="value">
-                {file.nome} -
+                {file.descricao} -
                 <a
-                  href={file.arquivo}
+                  href={`https://licitacao-mgcon.mogidascruzes.sp.gov.br/arquivo/download?id=${file.id}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ color: '#185DA6', fontWeight: 'normal', textDecoration: 'none' }}
