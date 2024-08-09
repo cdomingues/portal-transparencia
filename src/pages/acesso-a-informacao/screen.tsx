@@ -612,15 +612,9 @@ marginBottom="15px"
                       link="https://mogidascruzes.1doc.com.br/b.php?pg=wp/wp&itd=3&ss=5 "
                       backgroundColor="transparent"/>
                   </Box>
-                  <Box padding="6" bg="transparent" flexDirection="row">
-                  <CardHorizon
-                      title=" Painel de acompanhamento 2023"
-                      imageURL={relatorio_de_demandas.src}
-                      description="Pedido de e-SIC."
-                      link="https://app.powerbi.com/view?r=eyJrIjoiY2RiMWYxZWQtN2NlOS00NTNjLTkyMGEtZmNiOWVhMmYzNTJiIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9"
-                      
-                      backgroundColor="transparent"/>
-                  </Box>
+                  
+
+                  
                  
                  
 
@@ -635,6 +629,24 @@ marginBottom="15px"
               >
                   
                   
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                  <CardHorizon
+                      title=" Painel de acompanhamento 2023"
+                      imageURL={relatorio_de_demandas.src}
+                      description="Pedido de e-SIC."
+                      link="https://app.powerbi.com/view?r=eyJrIjoiY2ZmODAzZDUtMDE2YS00ZWYzLWJhZGQtMWE4Nzc3OWQyMDgxIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9"
+                      
+                      backgroundColor="transparent"/>
+                  </Box>
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                  <CardHorizon
+                      title=" Painel de acompanhamento 2024"
+                      imageURL={relatorio_de_demandas.src}
+                      description="Pedido de e-SIC."
+                      link="https://app.powerbi.com/view?r=eyJrIjoiY2RiMWYxZWQtN2NlOS00NTNjLTkyMGEtZmNiOWVhMmYzNTJiIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9"
+                      
+                      backgroundColor="transparent"/>
+                  </Box>
                 </Stack>
                
             </Stat>

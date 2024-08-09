@@ -14,8 +14,9 @@ import {
 import logo from "../../../../assets/images/Brasao_horizontal_normal.png";
 import logoDark from "../../../../assets/images/Brasao_horizontal_branco.png";
 import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAccessibility";
-import seloTansparencia2022 from "../../../../assets/images/selo_transparencia_ouro-2022.png"
+import seloTansparencia2022 from "../../../../assets/images/selo_ouro (1).png"
 import seloTansparencia2023 from "../../../../assets/images/selo_transparencia_ouro-2023.png"
+import pnpc from "../../../../assets/images/logo-PNPC.png"
 //import PageViewCounter from "../../../PageView";
 
 function ListHeader({ children }: { children: ReactNode }) {
@@ -152,7 +153,10 @@ export default function LargeWithLogoCentered() {
           }}
         >
           
-        <Image alt="logo" width="160px"  src={seloTansparencia2023.src} />
+          <Image alt="logo" width="160px" pr="20px" src={seloTansparencia2022.src}/>
+        <Image alt="logo" width="160px" pr="20px"  src={seloTansparencia2023.src} />
+        <Image alt="logo" width="160px" pr="20px" src={pnpc.src} />
+        
         </Flex>
        
       </Box>

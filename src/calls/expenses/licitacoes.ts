@@ -2,6 +2,7 @@ import axios from "axios";
 import moment from "moment";
 import { baseUrl } from "../../config";
 import moneyFormatter from "../../utils/moneyFormatter";
+import { objetos_licitacao } from "../../utils/objetos_licitacao"; 
 
 export const getLicitacoes = async (years?: number) => {
   try {
@@ -37,8 +38,8 @@ export const getLicitacoes = async (years?: number) => {
         }
       };
       
-      const getTipoText = (tipo: number | undefined) => {
-        switch (tipo) {
+      const getTipoText = (id_tipolicitacao: any) => {
+        switch (id_tipolicitacao) {
           case 2:
             return 'Pregão Presencial';
           case 3:
@@ -81,16 +82,20 @@ export const getLicitacoes = async (years?: number) => {
             return 'Desconhecido'; // Valor padrão para quando tipo não é reconhecido
         }
       };
-      
+
+      const objetoLicitacao = objetos_licitacao.find(
+        (objeto) => objeto.id_objeto === row.id_objeto
+      );
+
       return {
         ...row,
         situacao: getSituacaoText(row?.situacao),
-        dataAbertura:  moment(row.data_inicio).format("DD/MM/YYYY"),
-        publicacaoInicio:  moment(row.publicacaoInicio).format("DD/MM/YYYY"),
-        publicacaoFim:  moment(row.publicacaoFim).format("DD/MM/YYYY"),
-
-       
-      };
+        dataAbertura: moment(row.data_inicio).format("DD/MM/YYYY"),
+        publicacaoInicio: moment(row.publicacaoInicio).format("DD/MM/YYYY"),
+        publicacaoFim: moment(row.publicacaoFim).format("DD/MM/YYYY"),
+        id_tipolicitacao: getTipoText(row?.id_tipolicitacao) ,
+        id_objeto: objetoLicitacao?.descricao || "não informado",
+        complemento: row.complemento || " não informado"};
     });
 
     return { contracts: mappingRows, years: [...new Set(allYears)] }; // Remove duplicatas

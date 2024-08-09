@@ -124,7 +124,7 @@ const Details = ({ contract }: any) => {
       <RowDetails style={{ backgroundColor: "transparent" }}>
         <div className="column">
           <div className="title">Objeto:</div>
-          <div className="value">{contract?.objeto}</div>
+          <div className="value">{contract?.id_objeto}</div>
         </div>
       </RowDetails>
 

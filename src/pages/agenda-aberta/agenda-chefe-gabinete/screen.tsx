@@ -158,6 +158,14 @@ function Screen({ handler }: PropsInput) {
             AGENDA DO CHEFE DE GABINETE 
           </Heading>
 
+          <Text
+                          fontSize={accessibility?.fonts?.large}
+                          color="text.dark"
+                          style={{ margin: 0 }}
+                        >
+                          Gabriel Bastianelli
+                        </Text>
+
           <Stack direction="row" flexWrap="wrap-reverse">
             <Stack
               flex={1}
