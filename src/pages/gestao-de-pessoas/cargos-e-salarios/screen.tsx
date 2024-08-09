@@ -31,7 +31,7 @@ type PropsInput = {
 };
 export const contentContractsAndAtas = {
   titlePage: "Cargos e salários",
-  description:"Conforme previsto no § 6º do Art. 39 da Constituição Federal, com a redação dada pela Emenda Constitucional nº 19/98, torna-se público a tabela de subsídios, salários e vencimentos dos cargos e empregos públicos, válida a partir de 1ª de março de 2023, em conformidade com o disposto na Lei nº 7.917, de 20 de abril de 2023.",
+  description:"Conforme previsto no § 6º do Art. 39 da Constituição Federal, com a redação dada pela Emenda Constitucional nº 19/98, torna-se pública a tabela de subsídios, salários e vencimentos dos cargos e empregos públicos, válida a partir de 1ª de março de 2024, em conformidade com o disposto na Lei nº 8.088, de 24 de abril de 2024.",
 }
 function Screen({
   handler: { columns, data, loading },

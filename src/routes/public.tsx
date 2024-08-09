@@ -48,7 +48,6 @@ import { contentPublicServants } from "../pages/ciclo-orcamentario/servidores-pu
 //import { contentPROMAE } from "../pages/ciclo-orcamentario/promae/screen";
 import { contentRevenue } from "../pages/gestao-orcamentaria/receitas/screen";
 import { contentContractsAndAtas } from "../pages/gestao-orcamentaria-outros/contratos-atas/screen";
-import { contentBids } from "../pages/compras-publicas/licitacoes/screen";
 
 import { contentAdvancesAndAccommodation } from "../pages/gestao-de-pessoas/adiantamento-hospedagem/screen";
 import { contentRecipesAmendments } from "../pages/gestao-orcamentaria/receitas/receitas-emendas/screen";
