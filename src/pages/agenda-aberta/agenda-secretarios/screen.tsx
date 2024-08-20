@@ -248,6 +248,7 @@ function Screen({ handler }: PropsInput) {
             <option value="Claudinéli Moreira Ramos">Secretária Municipal de Cultura</option>
             <option value="Marilu Felipe dos Santos Beranger">Secretária Municipal de Educação</option>
             <option value="Ionara Amélia Fernandes">Secretária Municipal de Meio Ambiente e Proteção Animal</option>
+            <option value="Miriam Carrasco Benites da Silva">Secretária Municipal de Mobilidade Urbana</option>
             <option value="Marcelo Silvério">Secretário Adjunto de Assuntos Jurídicos</option>
             <option value="Claudemir de Menezes">Secretário Adjunto de Desenvolvimento Econômico e Inovação</option>
             <option value="Paulo Cardozo de Mello Boccuzzi">Secretário Adjunto de Esportes e Lazer</option>
