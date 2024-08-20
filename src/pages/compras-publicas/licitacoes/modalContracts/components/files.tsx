@@ -37,11 +37,9 @@ const Files = ({ contract }: any) => {
   }, []);
 
  
- // console.log('Contract ID:', contract?.id_contrato);
-  //console.log('Data:', data);
 
   const filteredData = data.filter(file => {
-    //console.log('Comparing:', file.id_contrato_id, contract?.id_contrato);
+    
     return file.id_tabela === contract?.id;
   });
 
