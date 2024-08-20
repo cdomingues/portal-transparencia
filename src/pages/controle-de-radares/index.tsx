@@ -18,6 +18,7 @@ function Controller() {
     { title: "Faixas", field: "faixas" },
     { title: "Velocidade", field: "kmh" },
     { title: "Status", field: "status" },
+    { title: "Justificativa", field: "justificativa" },
     
     
   ];

@@ -240,6 +240,7 @@ function Screen({ handler }: PropsInput) {
             onChange={(event) => setSelectedCargo(event.target.value)}
           >
             <option value="">Todos os Cargos</option>
+            <option value="Pedro Ivo">Diretor Superintendente do IPREM</option>
             <option value="Nídia Fátima Cristóforo">Secretária Adjunta da Secretaria de Urbanismo</option>
             <option value="Mariane Prestes da Silva Pena">Secretária Adjunta de Educação</option>
             <option value="Jéssica Cristina da Silva">Secretária Adjunta de Planejamento e Gestão Estratégica</option>
