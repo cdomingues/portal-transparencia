@@ -90,10 +90,10 @@ export const getLicitacoes = async (years?: number) => {
       return {
         ...row,
         situacao: getSituacaoText(row?.situacao),
-        dataAbertura: moment(row.data_inicio).format("DD/MM/YYYY"),
+        dataAbertura: moment(row.dataAbertura).format("DD/MM/YYYY"),
         publicacaoInicio: moment(row.publicacaoInicio).format("DD/MM/YYYY"),
-        publicacaoFim: moment(row.publicacaoFim).format("DD/MM/YYYY"),
-        id_tipolicitacao: getTipoText(row?.id_tipolicitacao) ,
+publicacaoFim: moment(row.publicacaoFim).format("DD/MM/YYYY"),
+        id_tipolicitacao: getTipoText(row?.id_tipolicitacao),
         id_objeto: objetoLicitacao?.descricao || "não informado",
         complemento: row.complemento || " não informado"};
     });
