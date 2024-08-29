@@ -23,12 +23,12 @@ const Details = ({ contract }: any) => {
       <RowDetails style={{ backgroundColor: "transparent" }}>
         <div className="column">
           <div className="title">Início:</div>
-          <div className="value">{contract?.datainicio}</div>
+          <div className="value">{contract?.data_inicio}</div>
         </div>
 
         <div className="column">
           <div className="title">Término:</div>
-          <div className="value">{contract?.datatermino}</div>
+          <div className="value">{contract?.data_termino}</div>
         </div>
 
         <div className="column">

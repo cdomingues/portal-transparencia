@@ -53,8 +53,11 @@ function Screen({ handler }: PropsInput) {
 
                           
                           <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/7cbc0b44-8597-48f5-824f-dd265c214317/16.4_Dados_espec%C3%ADficos_sobre_incentivos_re_1dt7MUw.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Dados específicos sobre incentivos relacionados a projetos culturais -  LIC Mogi</ListItem ></div></Link>
-                         
-                          
+                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/c68eacec-9d1a-4d47-bd91-268f99168aff/RELATORIOS_LIC_2019.xlsx" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}> RELATORIOS LIC 2019</ListItem ></div></Link>
+                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/6e417080-286a-4800-84d9-b96007f2a47e/RELATORIOS_LIC_2020.xlsx" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}> RELATORIOS LIC 2020</ListItem ></div></Link>
+                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/0a818c57-7ace-4ce0-89eb-9d628c8f91fd/RELATORIOS_LIC_2021.xlsx" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}> RELATORIOS LIC 2021</ListItem ></div></Link>
+                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/b1b6f0db-f5dc-42c9-967b-6d0582feeca8/RELATORIOS_LIC_2022.xlsx" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}> RELATORIOS LIC 2022</ListItem ></div></Link>
+                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/b48fdeb0-fe8b-4372-9c0c-0fc12fe7fd00/RELATORIOS_LIC_2023.xlsx" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}> RELATORIOS LIC 2023</ListItem ></div></Link>
                           
                         </UnorderedList>
 
@@ -67,7 +70,7 @@ function Screen({ handler }: PropsInput) {
 </Text>
 
 
-        <Text  fontSize="sm" fontWeight="550" paddingLeft="5px" pb="15px" color="gray.500">
+        <Text  fontSize="m"  paddingLeft="5px" pb="15px" color="gray.500" textAlign="justify">
         
         A <Link href='https://www.mogidascruzes.sp.gov.br/public/site/doc/20231109111722654cdbe29447a.pdf' target="blank" style={{ color: "#db334f" }}> 
             
