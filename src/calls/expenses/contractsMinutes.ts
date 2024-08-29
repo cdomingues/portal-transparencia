@@ -32,10 +32,9 @@ export const getContracts = async (years?: number) => {
         valor: moneyFormatter(Number(row.valor)),
         id_contrato : row.id_contrato,
         valorAditado: moneyFormatter(Number(row.valor_aditado)),
-        dataInicio: row.data_inicio  ? moment(row.data_inicio).format("DD/MM/YYYY HH:mm"): "",
-        dataTermino: row.data_termino
-          ? moment(row.data_termino).format("DD/MM/YYYY HH:mm")
-          : "",
+        data_inicio:  moment(row.data_inicio).format("DD/MM/YYYY"),
+        data_termino:  moment(new Date(row.data_termino)).format("DD/MM/YYYY"),
+        
       };
     });
 

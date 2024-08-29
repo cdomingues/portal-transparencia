@@ -179,6 +179,32 @@ const anosDisponiveis=  Array.from(new Set(concursos.map((info) => new Date(info
   </AccordionItem>))}
        
     </Accordion>
+
+    {/* <Box>
+      <Text fontWeight="700">Outros Arquivos</Text>
+      {arquivosConcursos
+        .filter((arquivo) => arquivo.id_concurso === 0)
+        .sort((a, b) => new Date(b.data).getTime() - new Date(a.data).getTime())
+        .map((item) => (
+          <Flex key={item.id} my={2}>
+            <Box p={2} marginRight={5}>
+              {new Date(item.data).toLocaleDateString('pt-BR', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+              })}
+            </Box>
+            <Box maxWidth="100%" p={2}>
+              <Link
+                href={`https://wwwtrans.mogidascruzes.sp.gov.br/docs/${item.nome_arquivo}`}
+                target="_blank"
+              >
+                {item.titulo ? item.titulo : item.nome_arquivo}
+              </Link>
+            </Box>
+          </Flex>
+        ))}
+    </Box> */}
    
       </>
   );
