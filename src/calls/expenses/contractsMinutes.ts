@@ -44,7 +44,7 @@ export const getContracts = async (years?: number) => {
     throw error;
   }
 };
-
+  
 
 export const getAtas = async (years?: number) => {
   try {
