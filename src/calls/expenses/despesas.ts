@@ -6,7 +6,7 @@ import { objetos_licitacao } from "../../utils/objetos_licitacao";
 
 export const getDiarias = async (years?: number) => {
   try {
-    let nextPage = "https://dadosadm.mogidascruzes.sp.gov.br/api/diarias_adiantamentos";
+    let nextPage = "https://dadosadm.mogidascruzes.sp.gov.br/api/despesas";
     let allResults: any[] = [];
     let allYears: number[] = [];
 
@@ -28,7 +28,7 @@ export const getDiarias = async (years?: number) => {
 
       return {
         ...row,
-        id: row.id,
+        vlr_empenho: "R$" + row.vlr_empenho  ,
         dataAbertura: moment(row.dataAbertura).format("DD/MM/YYYY"),
         publicacaoInicio: moment(row.publicacaoInicio).format("DD/MM/YYYY"),
 publicacaoFim: moment(row.publicacaoFim).format("DD/MM/YYYY"),
