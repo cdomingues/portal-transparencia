@@ -29,14 +29,14 @@ const ModalContracts = ({ isOpen, onClose, contract }: any) => {
         <ModalBody
           style={{ paddingLeft: 0, paddingRight: 0, paddingBottom: 0 }}
         >
-          <Tabs style={{ padding: 0, margin: 0 }}>
-            <ListTabs>
-              <TabItem>Detalhes</TabItem>
+          <Tabs style={{ padding: 0, margin: 0 }} >
+            <ListTabs >
+              <TabItem fontWeight="500">Detalhes</TabItem>
 
-              <TabItem>Prestação de Contas</TabItem>
-              <TabItem>Liquidacoes</TabItem>
-              <TabItem>Itens Empenho</TabItem>
-              <TabItem>Pagamentos</TabItem>
+              <TabItem fontWeight="500">Prestação de Contas</TabItem>
+              <TabItem fontWeight="500">Liquidacoes</TabItem>
+              <TabItem fontWeight="500">Itens Empenho</TabItem>
+              <TabItem fontWeight="500">Pagamentos</TabItem>
             </ListTabs>
 
             <TabPanels>

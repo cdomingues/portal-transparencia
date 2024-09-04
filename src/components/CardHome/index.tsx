@@ -200,10 +200,7 @@ function CardHome() {
           label: "Emendas Parlamentares",
           url: "/gestao-orcamentaria/receitas/receitas-emendas",
         },
-        {
-          label: "Multas de Trânsito",
-          url: "/gestao-orcamentaria/receitas/multa-transito",
-        },
+        
         {
           label: "Despesas Gerais",
           url: "/gestao-orcamentaria/despesas/despesas-gerais",
@@ -212,10 +209,7 @@ function CardHome() {
           label: "Emendas Parlamentares",
           url: "/gestao-orcamentaria/despesas/despesas-emendas",
         },
-        {
-          label: "Multas de Trânsito",
-          url: "/gestao-orcamentaria/despesas/despesas-multas-transito",
-        },
+        
         {
           label: "Propaganda e Publicidade",
           url: "/gestao-orcamentaria/despesas/propaganda",
@@ -229,7 +223,7 @@ function CardHome() {
           url: "/gestao-orcamentaria/despesas/despesas-restos",
         },
         {
-          label: "Pagamentos",
+          label: "Ordem Cronológica de Pagamentos",
           url: "/gestao-orcamentaria/despesas/pagamentos",
         },
         
@@ -351,14 +345,14 @@ function CardHome() {
           label: "Folha de Pagamento",
           url: "/gestao-de-pessoas/folha-pagamento",
         },
-        {
+       /*  {
           label: "Passagens e locomoção",
           url: "/gestao-de-pessoas/passagens-locomocao",
         },
         {
           label: "Adiantamento e Hospedagem",
           url: "/gestao-de-pessoas/adiantamento-hospedagem",
-        },
+        }, */
         {
           label: "Cargos e Salarios",
           url: "/gestao-de-pessoas/cargos-e-salarios",

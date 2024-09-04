@@ -26,11 +26,11 @@ const ModalContracts = ({ isOpen, onClose, termo }: any) => {
         <ModalBody
           style={{ paddingLeft: 0, paddingRight: 0, paddingBottom: 0 }}
         >
-          <Tabs style={{ padding: 0, margin: 0 }}>
+          <Tabs style={{ padding: 0, margin: 0 }} >
             <ListTabs>
               <TabItem>Detalhes</TabItem>
 
-              <TabItem>Arquivos</TabItem>
+              <TabItem >Arquivos</TabItem>
             </ListTabs>
 
             <TabPanels>

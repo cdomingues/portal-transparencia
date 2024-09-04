@@ -12,15 +12,19 @@ import {
 } from "@chakra-ui/react";
 import Details from "./components/details";
 
-import Files from "./components/files";
-import { ListTabs, ModalContainer, Panel, TabItem } from "../../../../styles/components/contratos-atas/modal/styles";
+
+import { ListTabs, ModalContainer, Panel, TabItem } from "../../../../../styles/components/contratos-atas/modal/styles";
+import Liquidacoes from "./components/liquidacoes";
+import ItensEmpenho from "./components/itens_empenho";
+import Pagamentos from "./components/pagamentos";
+import Documentos from "./components/documentos";
 
 const ModalContracts = ({ isOpen, onClose, contract }: any) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose} size={"5xl"}>
       <ModalContainer>
         <ModalHeader style={{ backgroundColor: "#185DA6", color: "white" }}>
-          Contrato Nº {contract?.numero}
+          Empenho {contract?.nr_empenho} / {contract?.exercicio_empenho} 
         </ModalHeader>
         <ModalCloseButton style={{ color: "white" }} />
         <ModalBody
@@ -30,17 +34,36 @@ const ModalContracts = ({ isOpen, onClose, contract }: any) => {
             <ListTabs>
               <TabItem>Detalhes</TabItem>
 
-              <TabItem>Arquivos</TabItem>
+              
+              <TabItem>Liquidacoes</TabItem>
+              <TabItem>Itens Empenho</TabItem>
+              <TabItem>Pagamentos</TabItem>
+              <TabItem>Documentos</TabItem>
             </ListTabs>
 
             <TabPanels>
               <Panel>
                 <Details contract={contract} />
               </Panel>
+              
 
               <Panel>
-                <Files />
+              <Liquidacoes contract={contract}/>
               </Panel>
+
+              <Panel>
+                <ItensEmpenho contract={contract} />
+              </Panel>
+
+              <Panel>
+                <Pagamentos contract={contract} />
+              </Panel>
+
+              <Panel>
+                <Documentos contract={contract} />
+              </Panel>
+
+
             </TabPanels>
           </Tabs>
         </ModalBody>

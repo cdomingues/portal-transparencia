@@ -18,7 +18,7 @@ const Files = ({ contract }: any) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch( `https://dadosadm.mogidascruzes.sp.gov.br/api/arquivo_diarias?despesa=${contract.id}` );
+        const response = await fetch( `https://dadosadm.mogidascruzes.sp.gov.br/api/arquivo_diarias?nr_empenho=${contract.nr_empenho}&exercicio_empenho=${contract.exercicio_empenho}` );
         console.log(contract.id)
         if (!response.ok) {
           throw new Error('Falha ao carregar os dados');
@@ -35,7 +35,7 @@ const Files = ({ contract }: any) => {
   }, []);
 
   
-    return <p>..</p>;
+    
   
 
   if (data.length === 0) {
@@ -49,14 +49,15 @@ const Files = ({ contract }: any) => {
           
         </Thead>
         <Tbody>
+          <Tr>Arquivos</Tr>
           {data.map((file) => (
             <Tr key={file.id}>
-              <Td>{file.id}</Td>
-              <Td>{file.descricao}</Td>
-              <Td>
-                <a href={file.arquivo} download>
+              
+              <div className="title">{file.descricao}</div>
+              <Td><div className="value">
+                <a href={file.arquivo} download target="blank" rel="noopener noreferrer"  style={{ color: '#185DA6', fontWeight: 'normal', textDecoration: 'none' }}>
                   Download
-                </a>
+                </a></div>
               </Td>
             </Tr>
           ))}
