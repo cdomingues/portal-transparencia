@@ -91,6 +91,10 @@ const Details = ({ payments, payrollData }: any) => {
                 return null;
               }
 
+              if (item?.Descricao === "INSS PARTE EMPRESA") {
+                return null;
+              }
+
               return (
                 <Tr
                   key={index}
