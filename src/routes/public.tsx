@@ -47,13 +47,13 @@ import { contentPublicWorks } from "../pages/controle-de-obras/obras-publicas/sc
 import { contentPublicServants } from "../pages/ciclo-orcamentario/servidores-publicos-estagiarios/screen";
 //import { contentPROMAE } from "../pages/ciclo-orcamentario/promae/screen";
 import { contentRevenue } from "../pages/gestao-orcamentaria/receitas/screen";
-import { contentContractsAndAtas } from "../pages/gestao-orcamentaria-outros/contratos-atas/screen";
+//import { contentContractsAndAtas } from "../pages/gestao-orcamentaria-outros/contratos-atas/screen";
 
-import { contentAdvancesAndAccommodation } from "../pages/gestao-de-pessoas/adiantamento-hospedagem/screen";
+import { contentAdvancesAndAccommodation } from "../pages/gestao-de-pessoas/off-adiantamento-hospedagem/screen";
 import { contentRecipesAmendments } from "../pages/gestao-orcamentaria/receitas/receitas-emendas/screen";
-import { contentGeneralCosts } from "../pages/gestao-orcamentaria/despesas/despesas-gerais/screen";
+import { contentGeneralCosts } from "../pages/gestao-orcamentaria/despesas/despesas-gerais-old/screen";
 import { contentExpensesRemains } from "../pages/gestao-orcamentaria/despesas/despesas-restos/screen";
-import { contentTrafficFines } from "../pages/gestao-orcamentaria/receitas/multa-transito/screen";
+import { contentTrafficFines } from "../pages/gestao-orcamentaria/receitas/off-multa-transito/screen";
 import { contentExpensesParliamentaryAmendments } from "../pages/gestao-orcamentaria/despesas/despesas-emendas/screen";
 
 import { contentReportExtrabudget } from "../pages/ciclo-orcamentario/relatorio-resumido/screen";
@@ -254,12 +254,7 @@ let publicRoutes: IPublicRoute[] = [
         path: "receitas/receitas-emendas",
         icon: AiFillCaretRight,
       },
-      {
-        defaultPath: "/gestao-orcamentaria",
-        name: "Multas de Trânsito",
-        path: "receitas/multa-transito",
-        icon: AiFillCaretRight,
-      },
+     
       
        {
         // defaultPath: "/gestao-orcamentaria",
@@ -279,12 +274,7 @@ let publicRoutes: IPublicRoute[] = [
         path: "despesas/despesas-emendas",
         icon: AiFillCaretRight,
       },
-      {
-        defaultPath: "/gestao-orcamentaria",
-        name: "Multas de Trânsito",
-        path: "despesas/despesas-multas-transito",
-        icon: AiFillCaretRight,
-      },
+     
       {
         defaultPath: "/gestao-orcamentaria",
         name: "Restos a Pagar",
@@ -293,7 +283,7 @@ let publicRoutes: IPublicRoute[] = [
       },
       {
         defaultPath: "/gestao-orcamentaria",
-        name: "Pagamentos",
+        name: "Ordem Cronológica de Pagamentos",
         path: "despesas/pagamentos",
         icon: AiFillCaretRight,
       },
@@ -446,13 +436,13 @@ let publicRoutes: IPublicRoute[] = [
         subgroup: false,
       },
 
-      {
+     /*  {
         defaultPath: "/gestao-de-pessoas",
         name: "Passagens e locomoção",
         path: "passagens-locomocao",
         icon: AiFillCaretRight,
         subgroup: false,
-      },
+      }, 
 
       {
         defaultPath: "/gestao-de-pessoas",
@@ -460,7 +450,7 @@ let publicRoutes: IPublicRoute[] = [
         path: "adiantamento-hospedagem",
         icon: AiFillCaretRight,
         subgroup: false,
-      },
+      },*/
 
       {
         defaultPath: "/gestao-de-pessoas",

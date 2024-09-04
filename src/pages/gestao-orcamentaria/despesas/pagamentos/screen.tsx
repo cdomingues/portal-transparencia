@@ -40,7 +40,7 @@ type PropsInput = {
 };
 
 export const contentAdvertisements = {
-  titlePage: "Pagamentos",
+  titlePage: "Ordem Cronológica de Pagamentos",
   description: "Divulgação da ordem cronológica de seus pagamentos, bem como as justificativas que fundamentaram a eventual alteração dessa ordem.",
 }
 
