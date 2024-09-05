@@ -49,7 +49,8 @@ function Controller({ contracts = [], years = [] }: any) {
     { title: "Elemento", field: "elemento" },
     { title: "Subelemento", field: "subelemento" },
     { title: "Processo", field: "cod_processo" },
-    { title: "Licitação", field: "licitacao_modalidade" },
+    { title: "Licitação", field: "licitacao_numero" },
+    { title: "Tipo de Licitação", field: "licitacao_modalidade" },
     
     //{title:"ID",field:'id'},
      

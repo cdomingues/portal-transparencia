@@ -38,11 +38,11 @@ export const getPayroll = async ({
         liquido: moneyFormatter(Number(row.liquido) || 0),
         desconto: moneyFormatter(Number(row.desconto || 0)),
         dataadmissao: row.dataadmissao
-          ? moment(row.dataadmissao).format("DD/MM/YYYY hh:mm")
-          : "",
-        dataexoneracao: row.dataexoneracao
-          ? moment(row.dataexoneracao).format("DD/MM/YYYY hh:mm")
-          : "",
+  ? moment(row.dataadmissao).add(1, 'days').format("DD/MM/YYYY hh:mm")
+  : "",
+dataexoneracao: row.dataexoneracao
+  ? moment(row.dataexoneracao).add(1, 'days').format("DD/MM/YYYY hh:mm")
+  : "",
       };
     });
 
