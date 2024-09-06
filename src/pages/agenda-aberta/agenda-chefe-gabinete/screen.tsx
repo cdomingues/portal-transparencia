@@ -145,7 +145,7 @@ function Screen({ handler }: PropsInput) {
             color="text.dark"
             style={{ margin: 0 }}
           >
-            Fabiana Camacho Bava
+           
           </Text>
 
           <Stack direction="row" flexWrap="wrap-reverse">
@@ -162,6 +162,7 @@ function Screen({ handler }: PropsInput) {
                 fontSize={accessibility?.fonts?.regular}
                 color="text.dark"
               >
+                
                 {getDay} de {getMonth} de {getYear}
               </Heading>
               <Divider width="100%" height={"1px"} backgroundColor="red" />

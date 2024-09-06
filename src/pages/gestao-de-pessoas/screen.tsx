@@ -151,32 +151,6 @@
 
                     <Box padding="6" bg="transparent" flexDirection="row">
                       <CardHorizon
-                        title="Passagens e Locomoção"
-                        imageURL={passagens_e_locomoção.src}
-                        description="Os agentes públicos podem realizar também diversas atividades além dos limites do município, no exercício de sua função e em benefício da cidade. Você pode acompanhar os gastos relacionados a passagens e locomoção nesta página."
-                        link="gestao-de-pessoas/passagens-locomocao"
-                        backgroundColor="transparent"
-                      />
-                    </Box>
-                  </Stack>
-                  <Stack
-                    direction={isMobile ? "column" : "row"}
-                    align={isMobile ? "center" : "center"}
-                    justifyContent={isMobile ? "flex-start" : "center"}
-                  >
-                  <Box padding="6" bg="transparent" flexDirection="row">
-                      <CardHorizon
-                        title="Adiantamento e Hospedagem"
-                        imageURL={cargos_e_salarios.src}
-                        description="Adiantamentos são recursos financeiros conferidos a um servidor público, a fim de que possa realizar despesas que não possam aguardar o ciclo normal de compras."
-                        link="gestao-de-pessoas/adiantamento-hospedagem"
-                        backgroundColor="transparent"
-                      />
-                    </Box>
-
-                    
-                    <Box padding="6" bg="transparent" flexDirection="row">
-                      <CardHorizon
                         title="Cargos e salários"
                         imageURL={cargos_e_salarios.src}
                         description="Nesta página, confira as informações sobre cargos e salários na Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por matrícula, nome, cargo entre outros itens."
@@ -184,7 +158,10 @@
                         backgroundColor="transparent"
                       />
                     </Box>
+
+                    
                   </Stack>
+                  
                   <Stack
                     direction={isMobile ? "column" : "row"}
                     align={isMobile ? "center" : "center"}

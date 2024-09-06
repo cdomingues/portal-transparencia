@@ -230,7 +230,7 @@ let publicRoutes: IPublicRoute[] = [
 
 
   {
-    name: "Gestão Orçamentária",
+    name: "Execução Orçamentária",
     path: "/gestao-orcamentaria",
     element: <div></div>,
     icon: BsFileText,
