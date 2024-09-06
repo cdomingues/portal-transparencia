@@ -1,5 +1,5 @@
 import { Table, TableContainer, Tbody, Td, Thead, Tr } from "@chakra-ui/react";
-import { RowDetails, TColumn } from "../../../../styles/components/contratos-atas/modal/styles";
+import { RowDetails, TColumn } from "../../../../../../styles/components/contratos-atas/modal/styles";
 import { useEffect, useState } from "react";
 
 export interface Arquivo {
