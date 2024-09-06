@@ -27,6 +27,7 @@ type PropsInput = {
 };
 
 type Meeting = {
+  nome: string;
   _id: number;
   id: string;
   created_at: string;
