@@ -28,10 +28,9 @@ export const getDiarias = async (years?: number) => {
 
       return {
         ...row,
-        id: row.id,
-        dataAbertura: moment(row.dataAbertura).format("DD/MM/YYYY"),
-        publicacaoInicio: moment(row.publicacaoInicio).format("DD/MM/YYYY"),
-publicacaoFim: moment(row.publicacaoFim).format("DD/MM/YYYY"),
+        
+        data_movto: moment(row.data_movto).format("DD/MM/YYYY"),
+        vlr_empenho : moneyFormatter(Number(row.vlr_empenho)),
        
         
         complemento: row.complemento || " não informado"};

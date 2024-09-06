@@ -187,14 +187,14 @@ function CardHome() {
     },
 
     {
-      title: "Gestão Orçamentária",
+      title: "Execução Orçamentária",
       imageURL: Gestao_orcamentaria.src,
       description: "Descrição 3",
       link: "/gestao-orcamentaria",
       backgroundColor: "transparent",
       showExtraLinks: true,
       extraLinks: [
-        { label: "Gestão  Orçamentária- Início", url: "/gestao-orcamentaria/" },
+        { label: "Execução  Orçamentária- Início", url: "/gestao-orcamentaria/" },
         { label: "Receitas Gerais", url: "/gestao-orcamentaria/receitas" },
         {
           label: "Emendas Parlamentares",
