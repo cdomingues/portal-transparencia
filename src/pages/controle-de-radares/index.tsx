@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Screen from "./screen";
 import axios from "axios";
 import moneyFormatter from "../../utils/moneyFormatter";
+import {localizacao_radares} from '../../utils/localizacao_radares'
 
 function Controller() {
   const [loading, setLoading] = useState(false);
@@ -56,29 +57,23 @@ function Controller() {
   };
 
   const getData = async () => {
-    const response = await axios.get(
-      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=4722d644-7c8e-415f-87fe-8cfcc8013af8",
-      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=822a6c76-4c9b-413b-8299-abd40f903bf4",
-      "https://mobilidadeservicos.mogidascruzes.sp.gov.br/api/radar_info",
-      {
-        
-      }
-    );
-    const rows = response.data;
-    
-
-    const mappedRows = rows.map((item: any) => {
-      
-      return {
-        ...item,
-        kmh: item?.kmh || "-",
-      
-      };
-    });
-    
-
-    setData(mappedRows);
-    
+    try {
+      // Supondo que `localizacao_radares` seja uma lista de objetos
+      const rows = localizacao_radares;
+  
+      // Mapeando os dados, adicionando o campo `kmh` se ele não existir
+      const mappedRows: any = rows.map((item: { kmh: any; }) => {
+        return {
+          ...item,
+          kmh: item?.kmh || "-", // Adiciona o valor "-" se kmh não existir
+        };
+      });
+  
+      // Atualiza o estado com os dados mapeados
+      setData(mappedRows);
+    } catch (error) {
+      console.error("Erro ao carregar dados:", error);
+    }
   };
 
 
