@@ -83,7 +83,7 @@ function Screen({
                 fontSize={accessibility?.fonts?.regular}
                 mt="20px"
               >
-               Base atualizada em 19/07/2024
+               Base atualizada em 05/09/2024
                 
                 
               </Text>

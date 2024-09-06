@@ -108,7 +108,7 @@ function CardHome() {
           url: "/agenda-aberta/agenda-coprefeita",
         }, 
         {
-          label: "Chefe de Gabinete - Gabriel Bastianelli",
+          label: "Chefe de Gabinete - Fabiana Camacho Bava",
           url: "/agenda-aberta/agenda-chefe-gabinete",
         }, 
         {

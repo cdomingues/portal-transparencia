@@ -80,7 +80,7 @@ function Screen({ handler }: PropsInput) {
 
 
   useEffect(() => {
-    fetch('https://dadosadm.mogidascruzes.sp.gov.br/api/pessoas/d22ba2d3-d29f-4104-973c-341074bf1149/') 
+    fetch('https://dadosadm.mogidascruzes.sp.gov.br/api/pessoas/99c579da-595e-439f-a105-e59ef3cd4e1a/') 
        
     .then(response =>response.json())
     .then(data =>{
@@ -163,7 +163,7 @@ function Screen({ handler }: PropsInput) {
                           color="text.dark"
                           style={{ margin: 0 }}
                         >
-                          Gabriel Bastianelli
+                          Fabiana Camacho Bava
                         </Text>
 
           <Stack direction="row" flexWrap="wrap-reverse">
