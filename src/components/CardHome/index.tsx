@@ -369,8 +369,12 @@ function CardHome() {
           url: "/gestao-de-pessoas/concurso-publico",
         },
         {
-          label: "Diárias e Viagens",
+          label: "Diárias",
           url: "/gestao-de-pessoas/diarias-viagens",
+        },
+        {
+          label: "Viagens",
+          url: "/gestao-de-pessoas/viagens",
         },
       ],
     },
@@ -544,6 +548,10 @@ function CardHome() {
         {
           label: "Painel de acompanhamento 2023",
           url: "https://app.powerbi.com/view?r=eyJrIjoiY2ZmODAzZDUtMDE2YS00ZWYzLWJhZGQtMWE4Nzc3OWQyMDgxIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
+        },
+        {
+          label: "Painel de acompanhamento 2024",
+          url: "https://app.powerbi.com/view?r=eyJrIjoiY2RiMWYxZWQtN2NlOS00NTNjLTkyMGEtZmNiOWVhMmYzNTJiIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
         },
       ],
     },

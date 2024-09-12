@@ -522,4 +522,17 @@ export const localizacao_radares = [
       "status": "Em operação",
       "justificativa": "Local com longo trecho em declive seguido de curva acentuada e transversais, além de faixas de retorno. É comum o trânsito de maquinário agrícola, além de escolares e alunos de uma instituição próxima. \r\n"
     }
+    , {
+      "id": 135,
+      "logradouro": "Rua Dr. Correa x Rua Barão de Jaceguai ",
+      "numero": "100",
+      "subtipo": "FIXO - Redutor ",
+      "latitude": "-23.5214264",
+      "longitude": "-46.1899999",
+      "sentido": "Centro-Bairro",
+      "faixas": "",
+      "kmh": "",
+      "status": "Em operação",
+      "justificativa": "O cruzamento em questão possui grande fluxo, limitações físicas e de visibilidade. A presença de uma travessia sinalizada de pedestres, aliada a essas limitações, bem como as características de fluxo das vias, que são corredores troncais do transporte coletivo, justificam a instalação do equipamento para inibir o avanço semafórico. "
+    }
   ]

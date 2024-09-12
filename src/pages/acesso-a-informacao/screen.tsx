@@ -71,7 +71,7 @@ type PropsInput = {
 };
 
 export const contentInitial = {
-  titlePage: "LEI DE ACESSO À INFORMAÇÃO",
+  titlePage: "Lei de Acesso à Informação",
   description:
     "A Lei Federal nº 12.527, sancionada em 18 de novembro de 2011, regulamenta o direito constitucional de acesso à informação, conhecida como LAI, Lei de Acesso à Informação ou Lei da Transparência, a lei é um mecanismo que permite a qualquer cidadão receber informações de seu interesse particular ou de interesse coletivo ou geral, que serão prestadas no prazo da lei, sob pena de responsabilidade, ressalvadas aquelas cujo sigilo seja imprescindível à segurança da sociedade, do Município ou do Estado. Ainda não dispomos de lista de informações classificadas ou desclassificadas como sigilosas, haja vista estarmos no prazo de adequação previsto na Lei Municipal nº 7.986/2023.",
 };
@@ -474,7 +474,6 @@ marginBottom="15px">
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}
               >Decreto nº 22.656, de 5 de abril de 2024. <Link href='http://leismunicipa.is/19qum' target="blank" style={{ color: "#db334f" }}>http://leismunicipa.is/19qum</Link></Text>   
-
 <Text
                 align={isMobile ? "justify" : "left"}
                 fontWeight="700"
@@ -490,6 +489,24 @@ marginBottom="15px">
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}
               >Decreto Municipal nº 22.654, de 5 de abril de 2024. <Link href='http://leismunicipa.is/19qug' target="blank" style={{ color: "#db334f" }}>http://leismunicipa.is/19qug</Link></Text>   
+<Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+                mt="5px"
+              >
+                Política Municipal de Transparência no Município de Mogi das Cruzes:
+                
+                
+              </Text>
+        <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              >Política Municipal de Transparência no Município: Lei Municipal nº 8.128, de 10 de julho de 2024. <Link href='http://leismunicipa.is/1kx5p' target="blank" style={{ color: "#db334f" }}>http://leismunicipa.is/1kx5p</Link></Text>   
+
+
+
 <Text
                 align={isMobile ? "justify" : "left"}
                 fontWeight="700"
