@@ -1,8 +1,8 @@
 import { GetStaticProps } from "next";
 import React, { useState } from "react";
 import Screen from "./screen";
-import { getDiarias } from "../../calls/expenses/despesas_viagens";
-import { revalidate } from "../../config";
+import { getDiarias } from "../../../calls/expenses/despesas_viagens";
+import { revalidate } from "../../../config";
 import moment from "moment";
 import { title } from "process";
 export interface ArquivoContrato {
@@ -32,6 +32,7 @@ function Controller({ contracts = [], years = [] }: any) {
     {title:"Empenho",field:'nr_empenho'},
     {title:"Exercício empenho",field:'exercicio_empenho'},
     { title: "Fornecedor", field: "descr_fornecedor" },
+    { title: "CNPJ", field: "cnpj_fornecedor" },
     { title: "Funcional", field: "class_funcional" },
     { title: "Descrição Funcional", field: "descr_funcional" },
     { title: "Ação", field: "acao" },

@@ -205,7 +205,7 @@
 
                     <Box padding="6" bg="transparent" flexDirection="row">
                       <CardHorizon
-                        title="Diárias e Viagens"
+                        title="Diárias"
                         imageURL={cargos_e_salarios.src}
                         description="Carga horária de todos os cargos."
                         link="gestao-de-pessoas/diarias-viagens"
@@ -221,7 +221,15 @@
                     justifyContent={isMobile ? "flex-start" : "center"}
                   >
                     
-
+                    <Box padding="6" bg="transparent" flexDirection="row">
+                      <CardHorizon
+                        title="Viagens"
+                        imageURL={cargos_e_salarios.src}
+                        description="Carga horária de todos os cargos."
+                        link="gestao-de-pessoas/viagens"
+                        backgroundColor="transparent"
+                      />
+                    </Box>
                     
 
                   </Stack>

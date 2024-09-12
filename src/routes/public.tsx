@@ -485,8 +485,15 @@ let publicRoutes: IPublicRoute[] = [
 
       {
         defaultPath: "/gestao-de-pessoas",
-        name: "Diárias e Viagens",
+        name: "Diárias",
         path: "diarias-viagens",
+        icon: AiFillCaretRight,
+        subgroup: false,
+      },
+      {
+        defaultPath: "/gestao-de-pessoas",
+        name: "Viagens",
+        path: "viagens",
         icon: AiFillCaretRight,
         subgroup: false,
       },

@@ -46,12 +46,22 @@ function Screen({ handler }: PropsInput) {
         <Text fontSize="large" fontWeight="550" paddingLeft="5px" pb="15px">
           Incentivos Fiscais - Projetos Culturais
         </Text>
+
+        <Text  fontSize="m"  paddingLeft="5px" pb="15px" color="gray.500" textAlign="justify">
+        A Lei Municipal de Incentivo à Cultura de Mogi das Cruzes é uma importante ferramenta para o financiamento de projetos culturais na cidade. Criada em 2014 e regulamentada em 2015, essa lei permite que tanto pessoas físicas quanto jurídicas direcionem até 20% dos seus impostos de IPTU e ISS para apoiar iniciativas culturais que foram previamente aprovadas. Essa destinação é possível graças a um estudo financeiro conduzido pela Secretaria Municipal de Finanças, que determinou que entre 1,5% e 3% da receita anual desses tributos pode ser investida em projetos culturais.
+<br/>
+A lei é abrangente e contempla diversas áreas, como música, dança, cinema, literatura, artes visuais e até pesquisa científica, incentivando a diversidade e o crescimento cultural na cidade. Essa política não só fortalece o cenário cultural local, mas também engaja a comunidade e empresas na valorização e apoio às manifestações culturais.
+        </Text>
+
+        
         
         <UnorderedList listStyleType="none" 
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}>
 
-                          
+                          <Link href="http://www3.cultura.pmmc.com.br/lic/documentos/cartilha_lic.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}> Cartilha LIC</ListItem ></div></Link>
+                          <Link href="http://www.cultura.pmmc.com.br/images/stories/2015/lei6959-2014.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>Lei 6959/2014</ListItem ></div></Link>
+                          <Link href="http://www3.cultura.pmmc.com.br/lic/documentos/decreto15940-2016.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>Decreto 15940/2016</ListItem ></div></Link>
                           <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/7cbc0b44-8597-48f5-824f-dd265c214317/16.4_Dados_espec%C3%ADficos_sobre_incentivos_re_1dt7MUw.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Dados específicos sobre incentivos relacionados a projetos culturais -  LIC Mogi</ListItem ></div></Link>
                           <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/c68eacec-9d1a-4d47-bd91-268f99168aff/RELATORIOS_LIC_2019.xlsx" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}> RELATORIOS LIC 2019</ListItem ></div></Link>
                           <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/6e417080-286a-4800-84d9-b96007f2a47e/RELATORIOS_LIC_2020.xlsx" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}> RELATORIOS LIC 2020</ListItem ></div></Link>

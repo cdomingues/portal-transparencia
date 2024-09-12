@@ -2,7 +2,7 @@ import moment from "moment";
 //import type { NextApiRequest, NextApiResponse } from "next";
 
 import { useEffect, useState } from "react";
-import { useColorModeValue,Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Button, Collapse, Divider, Link, Popover, PopoverTrigger, Stack, Flex, Spacer,Text, Select, Center } from "@chakra-ui/react";
+import { useColorModeValue,Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Button, Collapse, Divider, Link, Popover, PopoverTrigger, Stack, Flex, Spacer,Text, Select, Center, Tabs, TabList, Tab, TabPanels, TabPanel } from "@chakra-ui/react";
 import React from "react";
 import { useFontSizeAccessibilityContext } from  '../../context/fontSizeAccessibility'
 
@@ -45,6 +45,7 @@ interface ArquivoConcurso {
   data: string; 
   nome_arquivo: string;
   titulo: string;
+  status:number;
 }
 
 useEffect(() => {
@@ -66,6 +67,26 @@ const anosDisponiveis=  Array.from(new Set(concursos.map((info) => new Date(info
   return (
     
 <>
+<Tabs> 
+
+  <TabList>
+    <Tab>
+    <Text
+    align={isMobile ? "justify" : "left"}
+    fontWeight="700"
+    fontSize={accessibility?.fonts?.regular}
+  >Concursos</Text></Tab>
+    <Tab> <Text
+    align={isMobile ? "justify" : "left"}
+    fontWeight="700"
+    fontSize={accessibility?.fonts?.regular}
+  >Informações Gerais</Text></Tab>
+  </TabList>
+
+
+<TabPanels>
+
+  <TabPanel>
   <Text
     align={isMobile ? "justify" : "left"}
     fontWeight="700"
@@ -137,7 +158,7 @@ const anosDisponiveis=  Array.from(new Set(concursos.map((info) => new Date(info
     <AccordionPanel m={4} p={8} bg={"white"} borderRadius={4}>
     
     
-    {info.status === 1 && (
+    {info.status === 1 &&  (
      
      <>
         <Button fontSize={accessibility?.fonts?.regular} 
@@ -151,17 +172,13 @@ const anosDisponiveis=  Array.from(new Set(concursos.map((info) => new Date(info
     )}
      
      {arquivosConcursos
-      .filter((arquivo) => arquivo.id_concurso === info.id)
+      .filter((arquivo) => arquivo.id_concurso === info.id )
       .sort((a, b) =>   b.id - a.id)
       .map((item) => (
         
        <Flex key={item.id_concurso}   >
           <Box flex="end" p={2} marginRight={5}>
-          {new Date(item.data).toLocaleDateString('pt-BR', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit'
-    })}
+          {moment(item.data).format('DD/MM/YYYY')}
             <br/></Box>
          
          <Box  maxWidth="100%"  p={2}>
@@ -179,20 +196,18 @@ const anosDisponiveis=  Array.from(new Set(concursos.map((info) => new Date(info
   </AccordionItem>))}
        
     </Accordion>
+  </TabPanel>
 
-    {/* <Box>
-      <Text fontWeight="700">Outros Arquivos</Text>
+  <TabPanel>
+  <Box>
+      <Text fontWeight="700">Informações Gerais</Text>
       {arquivosConcursos
-        .filter((arquivo) => arquivo.id_concurso === 0)
+        .filter((arquivo) => arquivo.id_concurso === 0 && arquivo.status  === 1)
         .sort((a, b) => new Date(b.data).getTime() - new Date(a.data).getTime())
         .map((item) => (
           <Flex key={item.id} my={2}>
             <Box p={2} marginRight={5}>
-              {new Date(item.data).toLocaleDateString('pt-BR', {
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit',
-              })}
+              {moment(item.data).format('DD/MM/YYYY')}
             </Box>
             <Box maxWidth="100%" p={2}>
               <Link
@@ -204,7 +219,12 @@ const anosDisponiveis=  Array.from(new Set(concursos.map((info) => new Date(info
             </Box>
           </Flex>
         ))}
-    </Box> */}
+    </Box>
+  </TabPanel>
+</TabPanels>
+</Tabs>
+
+    
    
       </>
   );
