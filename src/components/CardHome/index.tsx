@@ -699,18 +699,7 @@ function CardHome() {
       ],
     },
 
-    {
-      title: "Portal Antigo",
-      imageURL: Mapa_do_site.src,
-      description: "Descrição 3",
-      link: "https://portaldatransparencia.mogidascruzes.sp.gov.br/",
-      backgroundColor: "green",
-      showExtraLinks: false,
-      extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
-      ],
-    },
+   
   ];
 
   return (
