@@ -13,6 +13,9 @@ function Controller({ chart = { datasets: [] }, revenues = [], years }: any) {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(revenues);
 
+
+  
+
   const columns = [
     //{ title: "Id Emenda", field: "id_emenda" },
     { title: "Número Emenda", field: "n_emenda" },
@@ -27,6 +30,10 @@ function Controller({ chart = { datasets: [] }, revenues = [], years }: any) {
     { title: "Valor Previsto", field: "valor_previsto_emenda" },
     { title: "Valor Realizado", field: "valor_realizado" },
     { title: "Objeto", field: "objeto" },
+    { title: "Empresa", field: "empresa_contratada" },
+    { title: "CNPJ", field: "cnpj" },
+    { title: "Informações Gerais", field: "informacoes_gerais" },
+    
   ];
 
   const handleByYear = async (year: number) => {

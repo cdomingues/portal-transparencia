@@ -14,12 +14,12 @@ type PropsInput = {
 export const contentMapSite = {
   titlePage: "Transparência SEMAE",
   description:
-    "Redirecionando para o site http://www.transparenciasemae.pmmc.com.br/ ",
+    "Redirecionando para o site https://www.semae.sp.gov.br/ ",
 };
 
 function redirecionarParaLinkExterno() {
   setTimeout(function () {
-    window.location.href = 'http://www.transparenciasemae.pmmc.com.br/'; // Substitua pelo seu link externo
+    window.location.href = 'https://www.semae.sp.gov.br/'; // Substitua pelo seu link externo
   }, 50); // 1000 milissegundos = 1 segundo
 }
 

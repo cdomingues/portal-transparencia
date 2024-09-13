@@ -74,12 +74,7 @@ function Screen({ handler: { columns, data, loading } }: PropsInput) {
         borderRadius="18px"
         marginBottom="15px"
       >
-        <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-                mt="5px"
-              >Base de dados em atualização, itens registrados a partir de 01/01/2023.</Text>
+       
       <TableComponent loading={loading} columns={columns} data={data} />
 
       <Text
@@ -87,7 +82,14 @@ function Screen({ handler: { columns, data, loading } }: PropsInput) {
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}
                 mt="5px"
-              >Selecione a lista de Patrimonio referente a cada ano para download</Text>
+              >Base de dados com itens registrados a partir de 01/01/2023. <br/>Para acessar anos anteriores selecione a lista de Patrimônio referente a cada ano para download:</Text>
+
+      <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+                mt="5px"
+              > </Text><br/>
 
       <Select 
       minW={90}

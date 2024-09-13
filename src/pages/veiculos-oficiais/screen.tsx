@@ -87,6 +87,20 @@ function Screen({ handler }: PropsInput) {
     "SMS": "5834fe67-e4a5-47fb-abec-552540590e8f",
     "SMU": "4b1d5219-988b-4f50-918a-659e9b771a8c",
     "PGM":"234ff7ff-9d83-42d9-91c8-9c0a3f891a1d",
+    "SMC":"33311806-f47b-47da-901e-7787706ca275",
+    "SMAJ":"1e4a5ada-9bec-405f-a1f6-567fb35726bc",
+"SMDEI":"dd07c404-ab46-4325-be94-e25608faa6a8",
+"SMEL":"3d9d9a02-c40b-4a66-85ee-42b303f2d8fe",
+"SMTDA":"e2fdc363-c27c-4610-b188-af12afd94fd7",
+"SMMU":"cb8f80e6-7d16-4ade-9ac6-86bd435ed1d7",
+"SMSEG":"d0d85707-7ca4-49c8-a09e-2d41f4d5b133",
+"SMGP":"fc2de97c-d547-4184-9a4a-94d4266fb5ec",
+"SMIU":"59097422-a218-4690-84ec-4ee48d62acdc",
+"OGM":"5a9b2343-3fbf-4fcc-b4fb-fde1172026ab",
+"CGM":"afcd5c7d-7c28-41da-a0fc-bd67bbddc914",
+"IPREM":"26d1ca39-c306-4b14-b480-10676fb639e5",
+
+
     
     
   };

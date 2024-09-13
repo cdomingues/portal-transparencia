@@ -285,6 +285,16 @@ function HomeScreen({ handler }: PropsInput) {
                     />
                   </Box>
 
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Adiantamentos"
+                      imageURL={restos_a_pagar.src}
+                      description="Os restos a pagar são as despesas que a com compromisso de serem utilizadas dentro do orçamento, mas que não foram pagas até o final do exercício. Confira aqui as informações sobre as despesas empenhadas, liquidadas e pagas relativas a essa natureza."
+                      link="gestao-orcamentaria/despesas/adiantamentos"
+                      backgroundColor="transparent"
+                    />
+                  </Box>
+
                   
                 </Stack>
               </Stat>
