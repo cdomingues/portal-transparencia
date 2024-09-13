@@ -95,7 +95,7 @@ Para os próximos anos, estamos em fase de estudos de um sistema informatizado q
 
 Atualmente, os Projetos Esportivos estão na fase de captação de recursos pelos proponentes via IPTU e ISS. 
 
-<Text fontWeight="bold">Data de referência: 18/07/2024</Text>
+<Text >Data de referência: 13/09/2024</Text>
         </Text>
 <UnorderedList listStyleType="none" 
         color="gray.500"

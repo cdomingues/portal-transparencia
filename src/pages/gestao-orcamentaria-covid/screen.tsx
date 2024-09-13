@@ -159,6 +159,29 @@ function HomeScreen({ handler }: PropsInput) {
                     />
                   </Box>
                 </Stack>
+
+                <Stack
+                  direction={isMobile ? "column" : "row"}
+                  align={isMobile ? "center" : "center"}
+                  justifyContent={isMobile ? "flex-start" : "center"}
+                >
+                  
+
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Compras COVID-19"
+                      imageURL={despesas_covid.src}
+                      description="Dispõe das receitas recebidas pelo órgão público para enfrentamento da emergência de saúde pública de importância internacional decorrente do coronavírus (COVID-19)."
+                      link="http://covid19.pmmc.com.br/"
+                      backgroundColor="transparent"
+                    />
+                  </Box>
+
+                
+                </Stack>
+
+
+
               </Stat>
             </StatGroup>
           </Stack>

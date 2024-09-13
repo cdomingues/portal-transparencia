@@ -82,36 +82,6 @@ let publicRoutes: IPublicRoute[] = [
     group: undefined,
     ...contentInitial,
   },
-  
-  {
-    name: "Perfil do Municipio",
-    icon:  BsFileText,
-    path: "/perfil-do-municipio",
-    group: undefined,
-    ...contentMunicipalityProfile,
-  },
-  {
-    name: "Portal de Obras",
-    icon: BsBricks,
-    path: "/controle-de-obras",
-    group: [
-      {
-        name: "Início",
-        path: "inicio",
-        defaultPath: "/controle-de-obras",
-        icon: AiOutlineHome,
-        ...contentConstructionsControl,
-      },
-     
-      {
-        name: "Pesquise Obras",
-        path: "/pesquisar-obras",
-        defaultPath: "/controle-de-obras",
-        icon: AiOutlineSearch,
-        ...contentSearchConstructions,
-      },
-    ],
-  },
   {
     name: "Agenda Aberta",
     path: "/agenda-aberta",
@@ -148,14 +118,6 @@ let publicRoutes: IPublicRoute[] = [
       
     ],
   },
-
-  {
-    name: "Pagamentos a fornecedores",
-    path: "/pagamento-fornecedor" ,
-    icon: AiOutlineProfile,
-    group: undefined,
-  },
-
   {
     name: "Ciclo Orcamentário",
     path: "/ciclo-orcamentario",
@@ -228,6 +190,146 @@ let publicRoutes: IPublicRoute[] = [
     ],
   },
 
+  {
+    name: "Compras Públicas",
+    path: "/compras-publicas",
+    element: <div></div>,
+    icon: BsFileText,
+    group: [
+      {
+        defaultPath: "/compras-publicas",
+        name: "Licitações",
+        path: "licitacoes",
+        icon: AiFillCaretRight,
+        subgroup: true,
+      },
+
+      {
+        defaultPath: "https://licitacao-mgcon.mogidascruzes.sp.gov.br/",
+        name: "Licitações Portal Antigo",
+        path: "https://licitacao-mgcon.mogidascruzes.sp.gov.br/",
+        icon: AiFillCaretRight,
+        subgroup: true,
+      },
+     
+
+      {
+        name: "Pregão Eletrônico",
+        path: "pregao-eletronico",
+        icon: AiFillCaretRight,
+        link: "https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/pregao-eletronico",
+      },
+      {
+        name: "Cadastro de Fornecedor",
+        path: "cadastro-fornecedor",
+        icon: AiFillCaretRight,
+        link: "https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/cadastro-de-fornecedor",
+      },
+      {
+        name: "Portal Nacional de Contratações Públicas",
+        path: "https://pncp.gov.br/app/editais?q=&status=recebendo_proposta&pagina=1",
+        icon: AiFillCaretRight,
+        link: "https://pncp.gov.br/app/editais?q=&status=recebendo_proposta&pagina=1",
+      },
+    ],
+  },
+  {
+    name: "Contratos, Termos e Atas de registro de preços",
+    path: "/acordos-termos",
+    element: <div></div>,
+    icon: BsFileText,
+    group: [
+      {
+        defaultPath: "/acordos-termos",
+        name: "Acordo de Cooperação",
+        path: "acordo-de-cooperacao",
+        icon: AiFillCaretRight,
+        subgroup: false,
+      },
+      {
+        defaultPath: "/acordos-termos",
+        name: "Termo de Parceria",
+        path: "termo-de-colaboracao",
+        icon: AiFillCaretRight,
+        subgroup: false,
+      },
+      {
+        defaultPath: "/acordos-termos",
+        name: "Termo de Fomento",
+        path: "termo-de-fomento",
+        icon: AiFillCaretRight,
+        subgroup: false,
+      },
+      
+      {
+        defaultPath: "/acordos-termos",
+        name: "Contratos e Atas",
+        path: "contratos-atas",
+        icon: AiFillCaretRight,
+        subgroup: false,
+      },
+      {
+        defaultPath: "/acordos-termos",
+        name: "Relação dos Gestores de contratos encerrados",
+        path: "relacao-fiscais-encerrados",
+        icon: AiFillCaretRight,
+        subgroup: false,
+      },
+      {
+        defaultPath: "/acordos-termos",
+        name: "Relação dos Gestores de contratos vigentes",
+        path: "relacao-fiscais-vigentes",
+        icon: AiFillCaretRight,
+        subgroup: false,
+      },
+    ],
+  },
+  {
+    name: "Controle de Radares",
+    icon: BsCameraVideo,
+    path: "/controle-de-radares",
+    group: undefined,
+    ...contentRadarsControl,
+  },
+
+  {
+    name: "Consulta de Fornecedores a Pagamentos",
+    path: "/pagamento-fornecedor" ,
+    icon: AiOutlineProfile,
+    group: undefined,
+  },
+
+  {
+    name: "Convênios e Transferências",
+    path: "/convenios-transferencias",
+    element: <div></div>,
+    icon: BiBriefcaseAlt,
+    group: [
+     
+      {
+        defaultPath: "/convenios-transferencias",
+        name: "Recebidos",
+        path: "recebidos",
+        icon: AiOutlineTable,
+
+      },
+     /*  {
+        defaultPath: "/convenios-transferencias",
+        name: "Repasses",
+        path: "repasses",
+        icon: AiOutlineTable,
+
+      }, */
+    ],
+  },
+
+  {
+    name: "Dados Abertos",
+    path: "/dados-abertos",
+    link:"https://dados.mogidascruzes.sp.gov.br/ ",
+    icon: AiOutlineAudit,
+    ...contentOtherInformations,
+  },
 
   {
     name: "Execução Orçamentária",
@@ -274,6 +376,12 @@ let publicRoutes: IPublicRoute[] = [
         path: "despesas/despesas-emendas",
         icon: AiFillCaretRight,
       },
+      {
+        defaultPath: "/gestao-orcamentaria",
+        name: "Adiantamentos",
+        path: "despesas/adiantamentos",
+        icon: AiFillCaretRight,
+      },
      
       {
         defaultPath: "/gestao-orcamentaria",
@@ -310,114 +418,6 @@ let publicRoutes: IPublicRoute[] = [
         name: "Incentivos Fiscais",
         path: "/incentivos-fiscais",
         icon: AiFillCaretRight,
-      },
-    ],
-  },
-
-  
-
-
-  {
-    name: "Gestão Orcamentária - Covid-19",
-    path: "/gestao-orcamentaria-covid",
-    element: <div></div>,
-    icon: BsFileText,
-    group: [
-      {
-        defaultPath: "/gestao-orcamentaria-covid",
-        name: "Receitas",
-        path: "covid/receitas",
-        icon: AiFillCaretRight,
-      },
-      {
-        defaultPath: "/gestao-orcamentaria-covid",
-        name: "Despesas",
-        path: "covid/despesas",
-        icon: AiFillCaretRight,
-      },
-    ],
-  },
-
-  {
-    name: "Gestão Extra Orçamentária",
-    path: "/gestao-extra-orcamentaria",
-    element: <div></div>,
-    icon: BsFileText,
-    group: [
-      {
-        defaultPath: "/gestao-extra-orcamentaria",
-        name: "Receitas Extra Orçamentárias",
-        path: "receitas",
-        icon: AiFillCaretRight,
-        subgroup: false,
-      },
-
-
-      {
-        defaultPath: "/gestao-extra-orcamentaria",
-        name: "Despesas Extra Orçamentárias",
-        path: "despesas",
-        icon: AiFillCaretRight,
-        subgroup: false,
-      },
-    ],
-  },
-  {
-    name: "Promae",
-    path: "/promae",
-    icon: BsFileText,
-    group: undefined,
-  },
-  
-  {
-    name: "Controle de Radares",
-    icon: BsCameraVideo,
-    path: "/controle-de-radares",
-    group: undefined,
-    ...contentRadarsControl,
-  },
-
-
-  {
-    name: "Compras Públicas",
-    path: "/compras-publicas",
-    element: <div></div>,
-    icon: BsFileText,
-    group: [
-      {
-        defaultPath: "/compras-publicas",
-        name: "Licitações",
-        path: "licitacoes",
-        icon: AiFillCaretRight,
-        subgroup: true,
-      },
-
-      {
-        defaultPath: "https://licitacao-mgcon.mogidascruzes.sp.gov.br/",
-        name: "Licitações Portal Antigo",
-        path: "https://licitacao-mgcon.mogidascruzes.sp.gov.br/",
-        icon: AiFillCaretRight,
-        subgroup: true,
-      },
-     
-
-      {
-        name: "Pregão Eletrônico",
-        path: "pregao-eletronico",
-        icon: AiFillCaretRight,
-        link: "https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/pregao-eletronico",
-      },
-      {
-        name: "Cadastro de Fornecedor",
-        path: "cadastro-fornecedor",
-        icon: AiFillCaretRight,
-        link: "https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/cadastro-de-fornecedor",
-      },
-      {
-        name: "Portal Nacional de Contratações Públicas",
-        path: "https://pncp.gov.br/app/editais?q=&status=recebendo_proposta&pagina=1",
-        icon: AiFillCaretRight,
-        link: "https://pncp.gov.br/app/editais?q=&status=recebendo_proposta&pagina=1",
       },
     ],
   },
@@ -499,65 +499,26 @@ let publicRoutes: IPublicRoute[] = [
       },
     ],
   },
+
   {
-    name: "Patrimônio",
-    path: "/patrimonio",
-    element: <div></div>,
-    icon: BsFileText,
-    group: undefined
-  },
-  {
-    name: "Contratos, Termos e Atas de registro de preços",
-    path: "/acordos-termos",
+    name: "Gestão Extra Orçamentária",
+    path: "/gestao-extra-orcamentaria",
     element: <div></div>,
     icon: BsFileText,
     group: [
       {
-        defaultPath: "/acordos-termos",
-        name: "Acordo de Cooperação",
-        path: "acordo-de-cooperacao",
+        defaultPath: "/gestao-extra-orcamentaria",
+        name: "Receitas Extra Orçamentárias",
+        path: "receitas",
         icon: AiFillCaretRight,
         subgroup: false,
       },
+
+
       {
-        defaultPath: "/acordos-termos",
-        name: "Termo de Parceria",
-        path: "termo-de-colaboracao",
-        icon: AiFillCaretRight,
-        subgroup: false,
-      },
-      {
-        defaultPath: "/acordos-termos",
-        name: "Termo de Fomento",
-        path: "termo-de-fomento",
-        icon: AiFillCaretRight,
-        subgroup: false,
-      },
-      {
-        defaultPath: "/acordos-termos",
-        name: "Contratos gestão",
-        path: "contratos-gestao",
-        icon: AiFillCaretRight,
-        subgroup: false,
-      },
-      {
-        defaultPath: "/acordos-termos",
-        name: "Contratos e Atas",
-        path: "contratos-atas",
-        icon: AiFillCaretRight,
-        subgroup: false,
-      },
-      {
-        defaultPath: "/acordos-termos",
-        name: "Relação dos Gestores de contratos encerrados",
-        path: "relacao-fiscais-encerrados",
-        icon: AiFillCaretRight,
-        subgroup: false,
-      },
-      {
-        defaultPath: "/acordos-termos",
-        name: "Relação dos Gestores de contratos vigentes",
-        path: "relacao-fiscais-vigentes",
+        defaultPath: "/gestao-extra-orcamentaria",
+        name: "Despesas Extra Orçamentárias",
+        path: "despesas",
         icon: AiFillCaretRight,
         subgroup: false,
       },
@@ -565,31 +526,90 @@ let publicRoutes: IPublicRoute[] = [
   },
 
   {
-    name: "Convênios e Transferências",
-    path: "/convenios-transferencias",
+    name: "Gestão Orcamentária - Covid-19",
+    path: "/gestao-orcamentaria-covid",
     element: <div></div>,
-    icon: BiBriefcaseAlt,
+    icon: BsFileText,
     group: [
       {
-        defaultPath: "/convenios-transferencias",
-        name: "Contratos de Gestão",
-        path: "contratos-gestao",
-        icon: AiOutlineTable,
-        ...contentContractManagement,
+        defaultPath: "/gestao-orcamentaria-covid",
+        name: "Receitas",
+        path: "covid/receitas",
+        icon: AiFillCaretRight,
       },
       {
-        defaultPath: "/convenios-transferencias",
-        name: "Recebidos",
-        path: "recebidos",
-        icon: AiOutlineTable,
-
+        defaultPath: "/gestao-orcamentaria-covid",
+        name: "Despesas",
+        path: "covid/despesas",
+        icon: AiFillCaretRight,
       },
       {
-        defaultPath: "/convenios-transferencias",
-        name: "Repasses",
-        path: "repasses",
-        icon: AiOutlineTable,
+        defaultPath: "",
+        name: "Compras Covid 19",
+        path: "http://covid19.pmmc.com.br/",
+        icon: AiFillCaretRight,
+      },
+    ],
+  },
 
+  {
+    name: "Governo Aberto",
+    path: "/governo-aberto",
+    link:"/governo-aberto",
+    icon: AiOutlineAudit,
+    ...contentOtherInformations,
+  },
+
+  {
+    name: "Governo Digital",
+    path: "/governo-digital",
+    link:"/governo-digital ",
+    icon: AiOutlineAudit,
+    ...contentOtherInformations,
+  },
+  {
+    name: "Institutos e Autarquias",
+    path: "/instituto-autarquia",
+    icon: AiOutlineSolution,
+    group: [
+      {
+        name: "Transparência SEMAE",
+        path: "transparencia-semae",
+        icon: AiOutlineProfile,
+        link: "https://www.semae.sp.gov.br/",
+      },
+      {
+        name: "Transparência IPREM",
+        path: "transparencia-iprem",
+        icon: AiOutlineProfile,
+        link: "http://www.iprem.pmmc.com.br/?page_id=1542",
+      },
+    ],
+  },
+
+  {
+    name: "LAI - Lei de Acesso à Informação",
+    path: "/acesso-a-informacao",
+    icon: AiOutlineSolution,
+    group: [
+      
+      {
+        name: "Acesso a Informação LAI",
+        path: "acesso-informacao",
+        icon: AiOutlineProfile,
+        link: "https://mogidascruzes.1doc.com.br/b.php?pg=wp/detalhes&itd=3",
+      },
+      {
+        name: "Relatório de Demandas LAI",
+        path: "relatorio-demanda",
+        icon: AiOutlineProfile,
+        link: "https://mogidascruzes.1doc.com.br/b.php?pg=o/transparencia",
+      },
+      {
+        name: "Painel de acompanhamento 2023",
+        path: "https://app.powerbi.com/view?r=eyJrIjoiY2ZmODAzZDUtMDE2YS00ZWYzLWJhZGQtMWE4Nzc3OWQyMDgxIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
+        icon: AiOutlineProfile,
+        link: "https://app.powerbi.com/view?r=eyJrIjoiY2ZmODAzZDUtMDE2YS00ZWYzLWJhZGQtMWE4Nzc3OWQyMDgxIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
       },
     ],
   },
@@ -622,31 +642,10 @@ let publicRoutes: IPublicRoute[] = [
   },
 
   {
-    name: "Governo Aberto",
-    path: "/governo-aberto",
-    link:"/governo-aberto",
-    icon: AiOutlineAudit,
-    ...contentOtherInformations,
-  },
-
-  {
-    name: "Institutos e Autarquias",
-    path: "/instituto-autarquia",
-    icon: AiOutlineSolution,
-    group: [
-      {
-        name: "Transparência SEMAE",
-        path: "transparencia-semae",
-        icon: AiOutlineProfile,
-        link: "http://www.transparenciasemae.pmmc.com.br/",
-      },
-      {
-        name: "Transparência IPREM",
-        path: "transparencia-iprem",
-        icon: AiOutlineProfile,
-        link: "http://www.iprem.pmmc.com.br/?page_id=1542",
-      },
-    ],
+    name: "Mapa do Site",
+    path: "/mapa-do-site",
+    icon: AiOutlineGlobal,
+    group: undefined,
   },
 
   {
@@ -664,47 +663,35 @@ let publicRoutes: IPublicRoute[] = [
   },
 
   {
+    name: "Patrimônio",
+    path: "/patrimonio",
+    element: <div></div>,
+    icon: BsFileText,
+    group: undefined
+  },
+
+  {
+    name: "Perfil do Municipio",
+    icon:  BsFileText,
+    path: "/perfil-do-municipio",
+    group: undefined,
+    ...contentMunicipalityProfile,
+  },
+
+  {
     name: "Perguntas Frequentes",
     path: "/perguntas-frequentes",
     icon: AiOutlineAudit,
     ...contentAbout,
   },
-  {
-    name: "LAI - Lei de Acesso à Informação",
-    path: "/acesso-a-informacao",
-    icon: AiOutlineSolution,
-    group: [
-      
-      {
-        name: "Acesso a Informação LAI",
-        path: "acesso-informacao",
-        icon: AiOutlineProfile,
-        link: "https://mogidascruzes.1doc.com.br/b.php?pg=wp/detalhes&itd=3",
-      },
-      {
-        name: "Relatório de Demandas LAI",
-        path: "relatorio-demanda",
-        icon: AiOutlineProfile,
-        link: "https://mogidascruzes.1doc.com.br/b.php?pg=o/transparencia",
-      },
-      {
-        name: "Painel de acompanhamento 2023",
-        path: "https://app.powerbi.com/view?r=eyJrIjoiY2ZmODAzZDUtMDE2YS00ZWYzLWJhZGQtMWE4Nzc3OWQyMDgxIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
-        icon: AiOutlineProfile,
-        link: "https://app.powerbi.com/view?r=eyJrIjoiY2ZmODAzZDUtMDE2YS00ZWYzLWJhZGQtMWE4Nzc3OWQyMDgxIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
-      },
-    ],
-  },
-
-
-
-  
+ 
   {
     name: "Plano Municipal de Educação",
     path: "/plano-municipal-educacao",
     icon: AiOutlineAudit,
     ...contentOtherInformations,
   },
+
   {
     name: "Plano Municipal de Saúde",
     path: "/plano-municipal-saude",
@@ -738,33 +725,58 @@ let publicRoutes: IPublicRoute[] = [
       
     ],
   },
+
   {
-    name: "VISUAS – Visor do Sistema Único de Assistência Social",
-    path: "/visuas",
-    link:"/visuas",
+    name: "Políticas e Programas ",
+    path: "/politicas-programas",
     icon: AiOutlineAudit,
     ...contentOtherInformations,
   },
+
+  {
+    name: "Portal de Obras",
+    icon: BsBricks,
+    path: "/controle-de-obras",
+    group: [
+      {
+        name: "Início",
+        path: "inicio",
+        defaultPath: "/controle-de-obras",
+        icon: AiOutlineHome,
+        ...contentConstructionsControl,
+      },
+     
+      {
+        name: "Pesquise Obras",
+        path: "/pesquisar-obras",
+        defaultPath: "/controle-de-obras",
+        icon: AiOutlineSearch,
+        ...contentSearchConstructions,
+      },
+    ],
+  },
+  
+
+ 
+  {
+    name: "Promae",
+    path: "/promae",
+    icon: BsFileText,
+    group: undefined,
+  },
+  
   {
     name: "Relatório de Gestão",
     path: "/relatorio-gestao",
     icon: AiOutlineAudit,
     ...contentOtherInformations,
   },
-  {
-    name: "Governo Digital",
-    path: "/governo-digital",
-    link:"/governo-digital ",
-    icon: AiOutlineAudit,
-    ...contentOtherInformations,
-  },
-  {
-    name: "Dados Abertos",
-    path: "/dados-abertos",
-    link:"https://dados.mogidascruzes.sp.gov.br/ ",
-    icon: AiOutlineAudit,
-    ...contentOtherInformations,
-  },
+  
+  
+  
+
+  
+  
   
   {
     name: "Veículos Oficiais",
@@ -773,25 +785,17 @@ let publicRoutes: IPublicRoute[] = [
     ...contentOtherInformations,
   },
   {
-    name: "Políticas e Programas ",
-    path: "/politicas-programas",
+    name: "VISUAS – Visor do Sistema Único de Assistência Social",
+    path: "/visuas",
+    link:"/visuas",
     icon: AiOutlineAudit,
     ...contentOtherInformations,
   },
   
   
-  {
-    name: "Mapa do Site",
-    path: "/mapa-do-site",
-    icon: AiOutlineGlobal,
-    group: undefined,
-  },
-  {
-    name: "Portal Antigo",
-    path: "/portal-antigo",
-    icon: AiOutlineGlobal,
-    group: undefined,
-  },
+  
+  
+ 
   // {
   //   name: "Nivel 1",
   //   path: "/nivel1",

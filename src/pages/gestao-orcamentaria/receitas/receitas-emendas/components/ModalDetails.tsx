@@ -8,6 +8,7 @@ import {
 } from "@chakra-ui/react";
 import { ListTabs, ModalContainer, Panel, RowDetails, TabItem } from "./styles";
 import Details from "./Details";
+import Info from "./info";
 
 const ModalDetails = ({ isOpen, onClose, data }: any) => {
   return (
@@ -23,11 +24,16 @@ const ModalDetails = ({ isOpen, onClose, data }: any) => {
           <Tabs style={{ padding: 0, margin: 0 }}>
             <ListTabs>
               <TabItem>Detalhes</TabItem>
+              <TabItem>Informações</TabItem>
             </ListTabs>
 
             <TabPanels>
               <Panel>
                 <Details data={data} />
+                
+              </Panel>
+              <Panel>
+              <Info data={data} />
               </Panel>
             </TabPanels>
           </Tabs>

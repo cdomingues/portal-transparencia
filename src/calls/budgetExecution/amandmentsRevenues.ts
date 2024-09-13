@@ -36,6 +36,7 @@ type Emendas = {
   valor_finalizado: string;
   empresa_contratada: string;
   cnpj: string;
+  informacoes_gerais:string
 }
 
 
@@ -70,7 +71,7 @@ export const getAmendmentRevenues = async (year?: number) => {
 
         _id: row?.["_id"],
        // id_emenda: row?.["id_emenda"],
-       // n_emenda: row?.["n_emenda"],
+        n_emenda: row?.["n_emenda"],
         ano: row?.["ano"],
         trimestre: row?.["trimestre"],
         autor: row?.["autor"],
@@ -100,6 +101,7 @@ export const getAmendmentRevenues = async (year?: number) => {
         valor_finalizado: row?.["valor_finalizado"],
         empresa_contratada: row?.["empresa_contratada"],
         cnpj: row?.["cnpj"],
+        informacoes_gerais: row?.["informacoes_gerais"]
        
         
       };

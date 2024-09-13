@@ -62,32 +62,6 @@ function CardHome() {
 
   const cardData = [
     {
-      title: "Perfil do Município",
-      imageURL: Perfil_municipio.src,
-      description: "Descrição 1",
-      link: "/perfil-do-municipio",
-      backgroundColor: "transparent",
-      showExtraLinks: false,
-      extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
-      ],
-    },
-    {
-      title: "Portal de Obras",
-      imageURL: Controle_de_obras.src,
-      description: "Descrição 3",
-      link: "/controle-de-obras",
-      backgroundColor: "green",
-      showExtraLinks: true,
-      extraLinks: [
-        { label: "Portal de Obras", url: "/controle-de-obras/inicio" },
-        { label: "Pesquise Obras", url: "/controle-de-obras/pesquisar-obras" },
-        { label: "Versão Antiga", url: "/controle-de-obras/obras-publicas" },
-      ],
-    },
-
-    {
       title: "Agenda Aberta",
       imageURL: Agenda_aberta.src,
       description: "Descrição 3",
@@ -117,26 +91,6 @@ function CardHome() {
         }, 
       ],
     },
-
-    {
-      title: "Pagamentos a Fornecedores",
-      imageURL: Gestao_extra_orcamentaria.src,
-      description: "Descrição 3",
-      link: "http://consultacompras.pmmc.com.br/pagamento-fornecedor",
-      backgroundColor: "green",
-      showExtraLinks: false,
-      extraLinks: [
-        {
-          label: "Receitas Extra Orçamentárias",
-          url: "/gestao-extra-orcamentaria/receitas",
-        },
-        {
-          label: "Despesas Extra Orçamentárias",
-          url: "/gestao-extra-orcamentaria/despesas",
-        },
-      ],
-    },
-
     {
       title: "Ciclo Orçamentário",
       imageURL: Ciclo_orcamentario.src,
@@ -187,6 +141,132 @@ function CardHome() {
     },
 
     {
+      title: "Compras Públicas",
+      imageURL: Compras_publicas.src,
+      description: "Descrição 2",
+      link: "/compras-publicas",
+      backgroundColor: "blue",
+      showExtraLinks: true,
+      extraLinks: [
+        { label: "Compras Públicas - Início", url: "/compras-publicas/" },
+        { label: "Licitações", url: "/compras-publicas/licitacoes" },
+        { label: "Licitações Portal Antigo", url: "https://licitacao-mgcon.mogidascruzes.sp.gov.br/" },
+        {
+          label: "Pregão Eletrônico",
+          url: "/compras-publicas/pregao-eletronico",
+        },
+        {
+          label: "Cadastro de Fornecedor",
+          url: "/compras-publicas/cadastro-fornecedor",
+        },
+        {
+          label: "Portal Nacional de Contratações Públicas",
+          url: "https://pncp.gov.br/app/editais?q=&status=recebendo_proposta&pagina=1",
+        },
+      ],
+    },
+
+    {
+      title: "Contratos, Termos e Atas de registro de preços",
+      imageURL: Acordos_termos.src,
+      description: "Descrição 1",
+      link: "/acordos-termos",
+      backgroundColor: "white",
+      showExtraLinks: true,
+      extraLinks: [
+        {
+          label: "Acordos e Termos - Início",
+          url: "/acordos-termos/",
+        },
+        {
+          label: "Acordo de Cooperação",
+          url: "/acordos-termos/acordo-de-cooperacao",
+        },
+        {
+          label: "Termo de Colaboração",
+          url: "/acordos-termos/termo-de-colaboracao",
+        },
+        { label: "Termo de Fomento", 
+        url: "/acordos-termos/termo-de-fomento" 
+      },
+      { label: "Contratos e Atas", 
+        url: "/acordos-termos/contratos-atas" 
+      },
+     
+      { label: "Relação dos Gestores de contratos encerrados", 
+        url: "/acordos-termos/relacao-fiscais-encerrados" 
+      },
+      { label: "Relação dos Gestores de contratos vigentes", 
+        url: "/acordos-termos/relacao-fiscais-vigentes" 
+      },
+      ],
+    },
+
+    {
+      title: "Controle de Radares",
+      imageURL: Controle_de_radares.src,
+      description: "Descrição 2",
+      link: "/controle-de-radares",
+      backgroundColor: "blue",
+      showExtraLinks: false,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
+    },
+
+
+    {
+      title: "Consulta de Fornecedores a Pagamentos",
+      imageURL: Gestao_extra_orcamentaria.src,
+      description: "Descrição 3",
+      link: "http://consultacompras.pmmc.com.br/pagamento-fornecedor",
+      backgroundColor: "green",
+      showExtraLinks: false,
+      extraLinks: [
+        {
+          label: "Receitas Extra Orçamentárias",
+          url: "/gestao-extra-orcamentaria/receitas",
+        },
+        {
+          label: "Despesas Extra Orçamentárias",
+          url: "/gestao-extra-orcamentaria/despesas",
+        },
+      ],
+    },
+
+    {
+      title: "Convênios e Transferências",
+      imageURL: Convenios_transferencias.src,
+      description: "/convenios-transferencias",
+      link: "/link2",
+      backgroundColor: "blue",
+      showExtraLinks: true,
+      extraLinks: [
+        { label: "Convênios e Transferências - Início", url: "/convenios-transferencias/" },
+       // {label: "Contratos de Gestão",url: "/convenios-transferencias/contratos-gestao",},
+        { label: "Recebidos", url: "/convenios-transferencias/recebidos" },
+        //{ label: "Repasses", url: "/convenios-transferencias/repasses" },
+      ],
+    },
+
+    {
+      title: "Dados Abertos",
+      imageURL: Plano_municipal_educacao.src,
+      description: "Descrição 2",
+      link: "https://dados.mogidascruzes.sp.gov.br/",
+      backgroundColor: "blue",
+      showExtraLinks: false,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
+    },
+
+
+    
+
+    {
       title: "Execução Orçamentária",
       imageURL: Gestao_orcamentaria.src,
       description: "Descrição 3",
@@ -219,6 +299,10 @@ function CardHome() {
           url: "/gestao-orcamentaria/despesas/subvencoes",
         },
         {
+          label: "Adiantamentos",
+          url: "/gestao-orcamentaria/despesas/adiantamentos",
+        },
+        {
           label: "Restos a Pagar",
           url: "/gestao-orcamentaria/despesas/despesas-restos",
         },
@@ -234,97 +318,6 @@ function CardHome() {
         {
           label: "Incentivos Fiscais",
           url: "/gestao-orcamentaria/incentivos-fiscais",
-        },
-      ],
-    },
-
-
-    {
-      title: "Gestão Orçamentária - Covid-19",
-      imageURL: Gestao_orcamentaria_covid.src,
-      description: "Descrição 1",
-      link: "/gestao-orcamentaria-covid",
-      backgroundColor: "white",
-      showExtraLinks: true,
-      extraLinks: [
-        { label: "Gestão Orçamentária - Covid-19 - Início", url: "covid/" },
-        { label: "Receitas", url: "covid/receitas" },
-        { label: "Despesas", url: "covid/despesas" },
-      ],
-    },
-
-    {
-      title: "Gestão Extra Orçamentária",
-      imageURL: Gestao_extra_orcamentaria.src,
-      description: "Descrição 3",
-      link: "/gestao-extra-orcamentaria",
-      backgroundColor: "green",
-      showExtraLinks: true,
-      extraLinks: [
-        {
-          label: "Gestão Extra Orçamentária - Início",
-          url: "/gestao-extra-orcamentaria/",
-        },
-        {
-          label: "Receitas Extra Orçamentárias",
-          url: "/gestao-extra-orcamentaria/receitas",
-        },
-        {
-          label: "Despesas Extra Orçamentárias",
-          url: "/gestao-extra-orcamentaria/despesas",
-        },
-      ],
-    },
-    
-    {
-      title: "Promae",
-      imageURL: promae.src,
-      description: "Descrição 3",
-      link: "/promae",
-      backgroundColor: "green",
-      showExtraLinks: false,
-      extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
-      ],
-    },
-
-
-    {
-      title: "Controle de Radares",
-      imageURL: Controle_de_radares.src,
-      description: "Descrição 2",
-      link: "/controle-de-radares",
-      backgroundColor: "blue",
-      showExtraLinks: false,
-      extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
-      ],
-    },
-
-    {
-      title: "Compras Públicas",
-      imageURL: Compras_publicas.src,
-      description: "Descrição 2",
-      link: "/compras-publicas",
-      backgroundColor: "blue",
-      showExtraLinks: true,
-      extraLinks: [
-        { label: "Compras Públicas - Início", url: "/compras-publicas/" },
-        { label: "Licitações", url: "/compras-publicas/licitacoes" },
-        { label: "Licitações Portal Antigo", url: "https://licitacao-mgcon.mogidascruzes.sp.gov.br/" },
-        {
-          label: "Pregão Eletrônico",
-          url: "/compras-publicas/pregao-eletronico",
-        },
-        {
-          label: "Cadastro de Fornecedor",
-          url: "/compras-publicas/cadastro-fornecedor",
-        },
-        {
-          label: "Portal Nacional de Contratações Públicas",
-          url: "https://pncp.gov.br/app/editais?q=&status=recebendo_proposta&pagina=1",
         },
       ],
     },
@@ -377,13 +370,51 @@ function CardHome() {
           url: "/gestao-de-pessoas/viagens",
         },
       ],
+    },  
+
+    {
+      title: "Gestão Extra Orçamentária",
+      imageURL: Gestao_extra_orcamentaria.src,
+      description: "Descrição 3",
+      link: "/gestao-extra-orcamentaria",
+      backgroundColor: "green",
+      showExtraLinks: true,
+      extraLinks: [
+        {
+          label: "Gestão Extra Orçamentária - Início",
+          url: "/gestao-extra-orcamentaria/",
+        },
+        {
+          label: "Receitas Extra Orçamentárias",
+          url: "/gestao-extra-orcamentaria/receitas",
+        },
+        {
+          label: "Despesas Extra Orçamentárias",
+          url: "/gestao-extra-orcamentaria/despesas",
+        },
+      ],
     },
 
     {
-      title: "Patrimônio",
-      imageURL: Patrimonio.src,
-      description: "Descrição 2",
-      link: "/patrimonio",
+      title: "Gestão Orçamentária - Covid-19",
+      imageURL: Gestao_orcamentaria_covid.src,
+      description: "Descrição 1",
+      link: "/gestao-orcamentaria-covid",
+      backgroundColor: "white",
+      showExtraLinks: true,
+      extraLinks: [
+        { label: "Gestão Orçamentária - Covid-19 - Início", url: "covid/" },
+        { label: "Receitas", url: "covid/receitas" },
+        { label: "Despesas", url: "covid/despesas" },
+        { label: " Compras COVID-19", url: "http://covid19.pmmc.com.br/" },
+        
+      ],
+    },
+    {
+      title: "Governo Aberto",
+      imageURL: Leis_decretos_portarias.src,
+      description: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-transparencia-e-dados-abertos/governo-aberto",
+      link: "/governo-aberto",
       backgroundColor: "blue",
       showExtraLinks: false,
       extraLinks: [
@@ -393,82 +424,15 @@ function CardHome() {
     },
 
     {
-      title: "Contratos, Termos e Atas de registro de preços",
-      imageURL: Acordos_termos.src,
-      description: "Descrição 1",
-      link: "/acordos-termos",
-      backgroundColor: "white",
-      showExtraLinks: true,
-      extraLinks: [
-        {
-          label: "Acordos e Termos - Início",
-          url: "/acordos-termos/",
-        },
-        {
-          label: "Acordo de Cooperação",
-          url: "/acordos-termos/acordo-de-cooperacao",
-        },
-        {
-          label: "Termo de Colaboração",
-          url: "/acordos-termos/termo-de-colaboracao",
-        },
-        { label: "Termo de Fomento", 
-        url: "/acordos-termos/termo-de-fomento" 
-      },
-      { label: "Contratos e Atas", 
-        url: "/acordos-termos/contratos-atas" 
-      },
-      { label: "Contratos Gestão", 
-        url: "/acordos-termos/contratos-gestao" 
-      },
-      { label: "Relação dos Gestores de contratos encerrados", 
-        url: "/acordos-termos/relacao-fiscais-encerrados" 
-      },
-      { label: "Relação dos Gestores de contratos vigentes", 
-        url: "/acordos-termos/relacao-fiscais-vigentes" 
-      },
-      ],
-    },
-
-    {
-      title: "Convênios e Transferências",
-      imageURL: Convenios_transferencias.src,
-      description: "/convenios-transferencias",
-      link: "/link2",
+      title: "Governo Digital",
+      imageURL: Plano_municipal_educacao.src,
+      description: "Descrição 2",
+      link: "/governo-digital",
       backgroundColor: "blue",
-      showExtraLinks: true,
+      showExtraLinks: false,
       extraLinks: [
-        { label: "Convênios e Transferências - Início", url: "/convenios-transferencias/" },
-        {
-          label: "Contratos de Gestão",
-          url: "/convenios-transferencias/contratos-gestao",
-        },
-        { label: "Recebidos", url: "/convenios-transferencias/recebidos" },
-        { label: "Repasses", url: "/convenios-transferencias/repasses" },
-      ],
-    },
-
-    {
-      title: "Leis, Decretos e Portarias",
-      imageURL: Leis_decretos_portarias.src,
-      description: "Descrição 3",
-      link: "/leis-decretos-portarias",
-      backgroundColor: "green",
-      showExtraLinks: true,
-      extraLinks: [
-        {
-          label: "Leis, Decretos e Portarias - Início",
-          url: "/leis-decretos-portarias/",
-        },
-        {
-          label: "Leis Municipais",
-          url: "/leis-decretos-portarias/protocolo-geral",
-        },
-        {
-          label: "Decretos e Portarias",
-          url: "https://ged.mogidascruzes.sp.gov.br/weblink7/Browse.aspx",
-        },
-        { label: "LGPD", url: "/leis-decretos-portarias/lgpd" },
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
       ],
     },
 
@@ -492,32 +456,6 @@ function CardHome() {
           label: "Transparência IPREM",
           url: "/instituto-autarquia/transparencia-iprem",
         },
-      ],
-    },
-
-    {
-      title: "Ouvidoria",
-      imageURL: Ouvidoria.src,
-      description: "Descrição 3",
-      link: "/ouvidoria",
-      backgroundColor: "green",
-      showExtraLinks: false,
-      extraLinks: [
-        { label: "Pesquisa de Satisfação", url: "/pesquisa-de-satisfacao" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
-      ],
-    },
-
-    {
-      title: "Perguntas Frequentes",
-      imageURL: Perguntas_frequentes.src,
-      description: "Descrição 2",
-      link: "/perguntas-frequentes",
-      backgroundColor: "blue",
-      showExtraLinks: false,
-      extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
       ],
     },
 
@@ -557,10 +495,88 @@ function CardHome() {
     },
 
     {
-      title: "Governo Aberto",
+      title: "Leis, Decretos e Portarias",
       imageURL: Leis_decretos_portarias.src,
-      description: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-transparencia-e-dados-abertos/governo-aberto",
-      link: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-transparencia-e-dados-abertos/governo-aberto",
+      description: "Descrição 3",
+      link: "/leis-decretos-portarias",
+      backgroundColor: "green",
+      showExtraLinks: true,
+      extraLinks: [
+        {
+          label: "Leis, Decretos e Portarias - Início",
+          url: "/leis-decretos-portarias/",
+        },
+        {
+          label: "Leis Municipais",
+          url: "/leis-decretos-portarias/protocolo-geral",
+        },
+        {
+          label: "Decretos e Portarias",
+          url: "https://ged.mogidascruzes.sp.gov.br/weblink7/Browse.aspx",
+        },
+        { label: "LGPD", url: "/leis-decretos-portarias/lgpd" },
+      ],
+    },
+
+    {
+      title: "Mapa do Site",
+      imageURL: Mapa_do_site.src,
+      description: "Descrição 3",
+      link: "/mapa-do-site",
+      backgroundColor: "green",
+      showExtraLinks: false,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
+    },
+
+    {
+      title: "Ouvidoria",
+      imageURL: Ouvidoria.src,
+      description: "Descrição 3",
+      link: "/ouvidoria",
+      backgroundColor: "green",
+      showExtraLinks: false,
+      extraLinks: [
+        { label: "Pesquisa de Satisfação", url: "/pesquisa-de-satisfacao" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
+    },
+    
+   
+
+    {
+      title: "Patrimônio",
+      imageURL: Patrimonio.src,
+      description: "Descrição 2",
+      link: "/patrimonio",
+      backgroundColor: "blue",
+      showExtraLinks: false,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
+    },
+
+    {
+      title: "Perfil do Município",
+      imageURL: Perfil_municipio.src,
+      description: "Descrição 1",
+      link: "/perfil-do-municipio",
+      backgroundColor: "transparent",
+      showExtraLinks: false,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
+    },
+
+    {
+      title: "Perguntas Frequentes",
+      imageURL: Perguntas_frequentes.src,
+      description: "Descrição 2",
+      link: "/perguntas-frequentes",
       backgroundColor: "blue",
       showExtraLinks: false,
       extraLinks: [
@@ -606,14 +622,12 @@ function CardHome() {
         { label: "Medicamentos", url: "/plano-municipal-saude/medicamentos" },
       ],
     },
-
-
     {
-      title: "Visuas - Visor do Sistema Único de Assistência Social",
-      imageURL: Plano_municipal_educacao.src,
-      description: "Descrição 2",
-      link: "https://visuas.mogidascruzes.sp.gov.br/",
-      backgroundColor: "blue",
+      title: "Políticas e Programas",
+      imageURL: Ultimas_noticias.src,
+      description: "Descrição 3",
+      link: "/politicas-programas",
+      backgroundColor: "green",
       showExtraLinks: false,
       extraLinks: [
         { label: "Link 1", url: "http://exemplo.com/link1" },
@@ -622,24 +636,25 @@ function CardHome() {
     },
 
     {
-      title: "Governo Digital",
-      imageURL: Plano_municipal_educacao.src,
-      description: "Descrição 2",
-      link: "/governo-digital",
-      backgroundColor: "blue",
-      showExtraLinks: false,
+      title: "Portal de Obras",
+      imageURL: Controle_de_obras.src,
+      description: "Descrição 3",
+      link: "/controle-de-obras",
+      backgroundColor: "green",
+      showExtraLinks: true,
       extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
+        { label: "Portal de Obras", url: "/controle-de-obras/inicio" },
+        { label: "Pesquise Obras", url: "/controle-de-obras/pesquisar-obras" },
+        { label: "Versão Antiga", url: "/controle-de-obras/obras-publicas" },
       ],
     },
 
     {
-      title: "Dados Abertos",
-      imageURL: Plano_municipal_educacao.src,
-      description: "Descrição 2",
-      link: "https://dados.mogidascruzes.sp.gov.br/",
-      backgroundColor: "blue",
+      title: "Promae",
+      imageURL: promae.src,
+      description: "Descrição 3",
+      link: "/promae",
+      backgroundColor: "green",
       showExtraLinks: false,
       extraLinks: [
         { label: "Link 1", url: "http://exemplo.com/link1" },
@@ -648,23 +663,12 @@ function CardHome() {
     },
 
    
+   
     {
       title: "Relatórios de Gestão",
       imageURL: Ultimas_noticias.src,
       description: "Descrição 3",
       link: "/relatorio-gestao",
-      backgroundColor: "green",
-      showExtraLinks: false,
-      extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
-      ],
-    },
-    {
-      title: "Políticas e Programas",
-      imageURL: Ultimas_noticias.src,
-      description: "Descrição 3",
-      link: "/politicas-programas",
       backgroundColor: "green",
       showExtraLinks: false,
       extraLinks: [
@@ -687,17 +691,19 @@ function CardHome() {
     },
 
     {
-      title: "Mapa do Site",
-      imageURL: Mapa_do_site.src,
-      description: "Descrição 3",
-      link: "/mapa-do-site",
-      backgroundColor: "green",
+      title: "Visuas - Visor do Sistema Único de Assistência Social",
+      imageURL: Plano_municipal_educacao.src,
+      description: "Descrição 2",
+      link: "https://visuas.mogidascruzes.sp.gov.br/",
+      backgroundColor: "blue",
       showExtraLinks: false,
       extraLinks: [
         { label: "Link 1", url: "http://exemplo.com/link1" },
         { label: "Link 2", url: "http://exemplo.com/link2" },
       ],
     },
+
+   
 
    
   ];

@@ -1,4 +1,4 @@
-import {  Box, useColorModeValue, Heading,Text } from "@chakra-ui/react";
+import {  Box, useColorModeValue, Heading,Text, Link } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 import React from "react";
 import ContainerBasic from "../../components/Container/Basic";
@@ -198,6 +198,24 @@ Custeio e investimento das atividades desenvolvidas na gestão da circulação e
 Implementação de programas de segurança de trânsito;
 Melhorias do sistema municipal de transporte coletivo;  
 Otimização do sistema viário municipal.</Text>
+
+<Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+                mt="20px"
+              >
+                 Por onde acompanhar a aplicação dos recursos arrecadados?
+                
+                
+              </Text>
+        <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              >Acompanhe a execução do FMMU por meio da página  <Link href='https://dadosabertos.mogidascruzes.sp.gov.br/gestao-orcamentaria/despesas/despesas-gerais' target="blank" style={{ color: "#db334f" }}>Despesas</Link></Text>
+<br/>
+
         <div style={{ height: "500px", width: "100%" }}>
           <MapWithNoSSR
             coords={[-23.528986, -46.192973]}
