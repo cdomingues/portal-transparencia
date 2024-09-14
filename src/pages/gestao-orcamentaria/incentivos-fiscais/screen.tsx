@@ -52,6 +52,7 @@ function Screen({ handler }: PropsInput) {
 <br/>
 A lei é abrangente e contempla diversas áreas, como música, dança, cinema, literatura, artes visuais e até pesquisa científica, incentivando a diversidade e o crescimento cultural na cidade. Essa política não só fortalece o cenário cultural local, mas também engaja a comunidade e empresas na valorização e apoio às manifestações culturais.
         </Text>
+        <Text >Data de referência: 13/09/2024</Text>
 
         
         

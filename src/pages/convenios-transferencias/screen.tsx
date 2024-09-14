@@ -190,14 +190,14 @@ marginBottom="15px"
                 align={isMobile ? "center" : "center"}
                 justifyContent={isMobile ? "flex-start" : "center"}
               >
-                  <Box padding="6" bg="transparent" flexDirection="row">
-                   <CardHorizon
-                      title="Contratos de Gestão"
-                      imageURL={contratos_de_gestao.src}
-                      description="Confira aqui os contratos com as organizações do terceiro setor celebrados pela Prefeitura de Mogi das Cruzes."
-                      link="convenios-transferencias/contratos-gestao"
+                   <Box padding="6" bg="transparent" flexDirection="row">
+                  <CardHorizon
+                      title="Convenios"
+                      imageURL={repasses.src}
+                      description="Acompanhe os repasses feitos pela Prefeitura de Mogi das Cruzes às organizações do Terceiro Setor com as quais firmou contratos ou convênios."
+                      link="convenios-transferencias/convenios"
                  backgroundColor="transparent"/>
-                                    </Box>
+                  </Box>
                  
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
@@ -211,22 +211,7 @@ marginBottom="15px"
                   </Box>
                
               </Stack>
-              <Stack
-                direction={isMobile ? "column" : "row"}
-                align={isMobile ? "center" : "center"}
-                justifyContent={isMobile ? "flex-start" : "center"}
-              >
-                  <Box padding="6" bg="transparent" flexDirection="row">
-                  <CardHorizon
-                      title="Convenios"
-                      imageURL={repasses.src}
-                      description="Acompanhe os repasses feitos pela Prefeitura de Mogi das Cruzes às organizações do Terceiro Setor com as quais firmou contratos ou convênios."
-                      link="convenios-transferencias/convenios"
-                 backgroundColor="transparent"/>
-                  </Box>
-           
-                  
-                </Stack>
+             
                 
             </Stat>
 
