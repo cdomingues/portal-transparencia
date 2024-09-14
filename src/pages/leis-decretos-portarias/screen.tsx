@@ -193,7 +193,7 @@ marginBottom="15px"
               >
                   <Box padding="6" bg="transparent" flexDirection="row">
                    <CardHorizon
-                      title="Leis Municipais"
+                      title="Leis e Decretos Municipais"
                       imageURL={protocolo_geral.src}
                       description="Pesquisa de Demanda do Cidadão."
                       link="https://leismunicipais.com.br/prefeitura/sp/mogi-das-cruzes"
@@ -202,7 +202,7 @@ marginBottom="15px"
                  
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Decretos e Portarias"
+                      title="Portarias"
                       imageURL={protocolo_geral.src}
                       description="Abertura e Consulta de Pedidos de e-Sic"
                       link="http://ged.pmmc.com.br/weblink7/Browse.aspx"

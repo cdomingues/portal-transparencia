@@ -507,11 +507,11 @@ function CardHome() {
           url: "/leis-decretos-portarias/",
         },
         {
-          label: "Leis Municipais",
+          label: "Leis e Decretos Municipais",
           url: "/leis-decretos-portarias/protocolo-geral",
         },
         {
-          label: "Decretos e Portarias",
+          label: "Portarias",
           url: "https://ged.mogidascruzes.sp.gov.br/weblink7/Browse.aspx",
         },
         { label: "LGPD", url: "/leis-decretos-portarias/lgpd" },
