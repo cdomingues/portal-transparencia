@@ -95,6 +95,14 @@ const Details = ({ payments, payrollData }: any) => {
                 return null;
               }
 
+              if (item?.Descricao === "DESPESA ADMINISTRATIVA IPREM") {
+                return null;
+              }
+
+              if (item?.Descricao === "IPREM EMPRESA -DEFICIT TECNICO") {
+                return null;
+              }
+
               return (
                 <Tr
                   key={index}
