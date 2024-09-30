@@ -18,7 +18,8 @@ export type Row = {
   fornecedor: string;
   grupo: string;
   objeto: string;
-  id_contrato: string;
+  idContrato: string;
+
 };
 
 export type ExpensesContractData = {

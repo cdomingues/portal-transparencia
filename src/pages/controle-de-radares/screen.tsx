@@ -110,15 +110,14 @@ function Screen({
                 align={isMobile ? "justify" : "left"}
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}
+                textAlign={"justify"}
               >O recurso arrecadado é destinado para:<br/>
 
 5% vai para o Fundo Nacional de Segurança e Educação de Trânsito – FUNSET, conforme previsto no art. 320, §1º, do Código de Trânsito Brasileiro (Lei nº 9.503/1997);<br/>
               
-30% é destinado ao DREM, desvinculação prevista na EC nº 93/2016;
-              
- O restante vai para o Fundo Municipal de Mobilidade Urbana – FMMU, criado pela Lei Municipal nº 6.935/2014.<br/>
-              
-   Vale ressaltar, que além do desmembramento citado acima, são descontadas do valor os descontos por pagamento em dia, que é de 20% sob o valor do boleto, e as taxas bancárias de emissão e manutenção dos boletos.  
+30% é destinado ao DREM, desvinculação prevista na EC nº 93/2016; O restante vai para o Fundo Municipal de Mobilidade Urbana – FMMU, criado pela Lei Municipal nº 6.935/2014.<br/>
+                            
+Vale ressaltar, que além do desmembramento citado acima, são descontadas do valor os descontos por pagamento em dia, que é de 20% sob o valor do boleto ou de 40%, quando o proprietário ou condutor do veículo, com adesão prévia ao Sistema de Notificação Eletrônica (SNE), solicita, através do Aplicativo Carteira Digital de Trânsito (CDT) do Serviço Nacional de Processamento de Dados (SERPRO) o boleto com desconto e renúncia o direito de defesa, nos termos do § 1º do Art. 284 da Lei Nº 9.503/1997, além das taxas bancárias de emissão e manutenção dos boletos.
               </Text>
 
 <Text

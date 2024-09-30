@@ -426,7 +426,7 @@ marginBottom="15px">
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}
               >No caso de omissão de resposta ao pedido de acesso à informação, o requerente poderá apresentar reclamação no prazo de 10 (dez) dias à  <Link href='https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/institucional' target="blank" style={{ color: "#db334f" }}>Ouvidora-Geral do Município </Link>, conforme disposto na Lei nº 7.986, de 28 de setembro de 2023 (art. 23) e no Decreto nº 22604/2024 (art. 28, § único) </Text>      
-<Text
+{/* <Text
                 align={isMobile ? "justify" : "left"}
                 fontWeight="700"
                 fontSize={accessibility?.fonts?.regular}
@@ -442,14 +442,14 @@ marginBottom="15px">
                 fontSize={accessibility?.fonts?.regular}
               > Jacqueline Cristina Ribeiro,
               Julia Oliveira Ruela e 
-              Julia Sthefany Barbosa dos Santos</Text>
+              Julia Sthefany Barbosa dos Santos</Text> */}
               <Text
                 align={isMobile ? "justify" : "left"}
                 fontWeight="700"
                 fontSize={accessibility?.fonts?.regular}
                 mt="5px"
               >
-                Nome da autoridade de Monitoramento da LAI::
+                Autoridade de Monitoramento da LAI::
                 
                 
               </Text>
@@ -495,7 +495,7 @@ marginBottom="15px">
                 fontSize={accessibility?.fonts?.regular}
                 mt="5px"
               >
-                Política Municipal de Transparência no Município de Mogi das Cruzes:
+                Política Municipal de Transparência do Município de Mogi das Cruzes:
                 
                 
               </Text>
