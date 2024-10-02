@@ -10,16 +10,20 @@ const Details = ({ payments, payrollData }: any) => {
     });
   };
 
- 
+  const calculateOtherDiscountsTotal = (data: any[]) => {
+    return data
+      .filter(item => item?.Descricao === "OUTROS DESCONTOS")
+      .reduce((total, item) => total + (item?.Valor || 0), 0);
+  };
 
   // Calculando o total de OUTROS DESCONTOS
-  //const otherDiscountsTotal = calculateOtherDiscountsTotal(payrollData);
+  const otherDiscountsTotal = calculateOtherDiscountsTotal(payrollData);
 
   // Filtrando dados para remover itens "OUTROS DESCONTOS" individuais
-  //const filteredPayrollData = payrollData.filter((item: { Descricao: string; }) => item?.Descricao !== "OUTROS DESCONTOS");
+  const filteredPayrollData = payrollData.filter((item: { Descricao: string; }) => item?.Descricao !== "OUTROS DESCONTOS");
 
   // Ordenando os dados filtrados
-  const sortedPayrollData = [...payrollData].sort((a, b) => {
+  const sortedPayrollData = [...filteredPayrollData].sort((a, b) => {
     // Convert salariobase to string
     const aBase = a.salariobase === 0 ? "Não" : "Sim";
     const bBase = b.salariobase === 0 ? "Não" : "Sim";
@@ -121,11 +125,11 @@ const Details = ({ payments, payrollData }: any) => {
             })}
 
            
-             {/*  <Tr >
+               <Tr >
                 <Td fontSize="small">OUTROS DESCONTOS</Td>
                 <Td fontSize="small">{formatCurrency(otherDiscountsTotal)}</Td>
                 <Td fontSize="small">Não</Td>
-              </Tr> */}
+              </Tr> 
             
           </Tbody>
         </Table>
