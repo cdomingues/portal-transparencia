@@ -17,7 +17,7 @@ const Details = ({ payments, payrollData }: any) => {
   };
 
   // Calculando o total de OUTROS DESCONTOS
-  const otherDiscountsTotal = calculateOtherDiscountsTotal(payrollData);
+  //const otherDiscountsTotal = calculateOtherDiscountsTotal(payrollData);
 
   // Filtrando dados para remover itens "OUTROS DESCONTOS" individuais
   const filteredPayrollData = payrollData.filter((item: { Descricao: string; }) => item?.Descricao !== "OUTROS DESCONTOS");
@@ -87,7 +87,7 @@ const Details = ({ payments, payrollData }: any) => {
           <Tbody>
             {sortedPayrollData.map((item: any, index: number) => {
               // Ignorar o item "IPREM PARTE EMPRESA"
-              if (item?.Descricao === "IPREM PARTE EMPRESA") {
+              /* if (item?.Descricao === "IPREM PARTE EMPRESA") {
                 return null;
               }
 
@@ -101,7 +101,7 @@ const Details = ({ payments, payrollData }: any) => {
 
               if (item?.Descricao === "IPREM EMPRESA -DEFICIT TECNICO") {
                 return null;
-              }
+              } */
 
               return (
                 <Tr
@@ -125,11 +125,11 @@ const Details = ({ payments, payrollData }: any) => {
             })}
 
            
-              <Tr >
+             {/*  <Tr >
                 <Td fontSize="small">OUTROS DESCONTOS</Td>
                 <Td fontSize="small">{formatCurrency(otherDiscountsTotal)}</Td>
                 <Td fontSize="small">Não</Td>
-              </Tr>
+              </Tr> */}
             
           </Tbody>
         </Table>

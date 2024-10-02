@@ -76,7 +76,7 @@ function Screen({ handler }: PropsInput) {
                 fontSize={accessibility?.fonts?.regular}
                 mb={4}
               >
-                PERIODICIDADE: Trimestral  <br/>
+                PERIODICIDADE: Quadrimestral  <br/>
                 PREVISÃO LEGAL: <Link  href="http://legislacao.planalto.gov.br/legisla/legislacao.nsf/Viw_Identificacao/lcp%20141-2012?OpenDocument" target="blank" style={{ color: "#db334f" }}>LEI COMPLEMENTAR Nº 141, DE 13 DE JANEIRO DE 2012 (Art. 23; Art. 34; Art. 37)</Link>  <br/>
                 Para mais informações, acessar:  <br/>
                 <Link href="https://www.mogidascruzes.sp.gov.br/public/site/doc/2023092917280865173358127fa.pdf" target="blank" style={{ color: "#db334f" }} >Audiência do 2º Quadrimestre 23</Link><br/>
