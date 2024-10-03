@@ -7,8 +7,9 @@ import {
   Text,
   Box,
   useColorModeValue,
+  useDisclosure,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import { isMobile } from "react-device-detect";
 import Chart from "../../../../components/Chart";
 import ContainerBasic from "../../../../components/Container/Basic";
@@ -19,11 +20,15 @@ import {
 import { MultiAxisChart } from "../../../../components/MultiAxisChart";
 import TableComponent, { TableColumns } from "../../../../components/Table";
 import Video from "../../../../components/Videos";
+import ModalContracts from "./modalContracts";
+import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAccessibility";
 
 type PropsInput = {
   handler: {
     columns: TableColumns;
+    columnsDespesasPublicidade: TableColumns;
     data: Array<any>;
+    data2: Array<any>;
     loading: boolean;
     chart: any;
     chartYear: any;
@@ -32,6 +37,7 @@ type PropsInput = {
     year: number;
     gastos: Array<any>;
     setGastos: any;
+    setData2: any;
     
   };
 };
@@ -45,6 +51,9 @@ export const contentAdvertisements = {
 function Screen({
   handler: {
     columns,
+    columnsDespesasPublicidade,
+    data2,
+    setData2,
     data,
     loading,
     chart,
@@ -54,11 +63,20 @@ function Screen({
     years,
     gastos,
     setGastos,
+  
    // handleByYear,
   },
 }: PropsInput) {
   const title = contentAdvertisements?.titlePage;
   const description = contentAdvertisements?.description;
+  const [contract, setContract] = useState<any>(null);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const accessibility = useFontSizeAccessibilityContext();
+
+  const handleOpenModal = (item: any) => {
+    onOpen();
+    setContract(item?.row?.values);
+  };
 
   const chartConfig = {
     direction: isMobile ? "column" : "row",
@@ -126,6 +144,18 @@ function Screen({
 
         <Divider borderWidth="2px" mt="10" mb="10" />
         <TableComponent loading={loading} columns={columns} data={gastos} />
+
+
+        <Divider borderWidth="2px" mt="10" mb="10" />
+        <Heading
+          mb={2}
+          fontSize={accessibility?.fonts?.ultraLarge}
+          color="text.dark"
+        >
+          Outras Despesas com Publicidade
+        </Heading>
+        <TableComponent loading={loading} columns={columnsDespesasPublicidade} data={data2}  openModal={handleOpenModal}/>
+        <ModalContracts isOpen={isOpen} onClose={onClose} contract={contract} />
       </Box>
     </ContainerBasic>
   );
