@@ -19,18 +19,20 @@ import {
 } from "../../../../components/GraphWrapper";
 import { MultiAxisChart } from "../../../../components/MultiAxisChart";
 import TableComponent, { TableColumns } from "../../../../components/Table";
+import ModalContracts from "./modalContracts";
 
 type PropsInput = {
   handler: {
     columns: TableColumns;
     data: Array<any>;
     loading: boolean;
-    chart: any;
-    chartYear: any;
+    year: number;
     years: Number[];
     setYear: any;
-    year: number;
     handleByYear: any;
+    data2: Array<any>;
+    setData2: any;
+    arquivosColumns: TableColumns;
   };
 };
 
@@ -42,18 +44,10 @@ export const contentGrants = {
 
 function Screen({
   handler: {
-    columns,
-    data,
-    loading,
-    chart,
-    chartYear,
-    setYear,
-    year,
-    years,
-    handleByYear,
+    columns, data, loading, handleByYear, setYear, year, years,data2, setData2,arquivosColumns
   },
 }: PropsInput) {
-  const [grants, setGrants] = useState<any>(null);
+  const [contract, setContract] = useState<any>(null);
   const title = contentGrants?.titlePage;
   const description = contentGrants?.description;
   const chartConfig = {
@@ -67,8 +61,8 @@ function Screen({
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleOpenModal = (item: any) => {
-    // onOpen();
-    // setGrants(item?.row?.values);
+    onOpen();
+    setContract(item?.row?.values);
   };
 
   return (
@@ -84,7 +78,7 @@ function Screen({
         borderRadius="18px"
         marginBottom="15px"
       >
-        <MultipleGraphWrapper>
+        {/* <MultipleGraphWrapper>
           <GraphWrapper>
             <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
               Subvenções Mensal Acumulado
@@ -101,7 +95,7 @@ function Screen({
               <Chart type="bar" data={chartYear} />
             )}
           </GraphWrapper>
-        </MultipleGraphWrapper>
+        </MultipleGraphWrapper> */}
       </Box>
       <Box
         m={0}
@@ -157,6 +151,7 @@ function Screen({
           data={data}
           openModal={handleOpenModal}
         />
+        <ModalContracts isOpen={isOpen} onClose={onClose} contract={contract} />
       </Box>
     </ContainerBasic>
   );

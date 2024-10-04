@@ -46,6 +46,7 @@ type Props = {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const accessibility = useFontSizeAccessibilityContext();
+  
 
   const exportJson = () => {
     const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
@@ -115,7 +116,8 @@ return(
                     style={{ width: "100%", textAlign: "left" }}
                     filename={'dados.csv'}
                     data={data}
-                  >
+                    delimiter = ";"
+                                     >
                     <Text fontSize={accessibility.fonts.large}>.CSV</Text>
                   </CsvDownload>
                 )}

@@ -1,36 +1,61 @@
 import { GetStaticProps } from "next";
 import React, { useState } from "react";
 import Screen from "./screen";
-import {
-  getChart,
-  getChartYear,
-  getGrants,
-} from "../../../../calls/expenses/grants";
+import { getDespesasSubvencoes } from "../../../../calls/expenses/subvencoes";
 import { revalidate } from "../../../../config";
 import moment from "moment";
+import { title } from "process";
+export interface ArquivoContrato {
+  id: number;
+  arquivo: string;
+  nome: string;
+  id_contrato_id: number | null;
+}
 
-function Controller({
-  chart = { datasets: [] },
-  chartYear = { datasets: [] },
-  grants = [],
-  years,
-}: any) {
+export interface ApiResponse {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: ArquivoContrato[];
+}
+
+
+function Controller({ contracts = [], years = [] }: any) {
   const [year, setYear] = useState(moment().year());
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState(grants);
-  const [newChart, setNewChart] = useState(chart);
+  const [data, setData] = useState(contracts);
+  const [data2, setData2]  = useState<ArquivoContrato[]>([]);
+  
 
   const columns = [
-    { title: "Número", field: "numero" },
-    { title: "Modalidade", field: "modalidade" },
-    { title: "CPF/CNPJ", field: "cpfcnpj" },
-    { title: "Fornecedor", field: "fornecedor" },
-    { title: "Data", field: "data" },
-    { title: "Empenhado", field: "empenhado" },
-    { title: "Liquidado", field: "liquidado" },
-    { title: "Pago", field: "pago" },
+    
+    {title:"Empenho",field:'nr_empenho'},
+    {title:"Exercício empenho",field:'exercicio_empenho'},
+    { title: "Fornecedor", field: "descr_fornecedor" },
+    { title: "CNPJ", field: "cnpj_fornecedor" },
+    { title: "Funcional", field: "class_funcional" },
+    { title: "Descrição Funcional", field: "descr_funcional" },
+    { title: "Ação", field: "acao" },
+    { title: "Função", field: "funcao" },
+    { title: "Subfunção", field: "subfuncao" },
     { title: "Programa", field: "programa" },
-    { title: "Unidade", field: "unidade" },
+    { title: "Data Movimentação", field: "data_movto" },
+    { title: "Valor do Empenho", field: "vlr_empenho" },
+    { title: "Tipo de Empenho", field: "tipo_empenho" },
+    { title: "Evento Custo", field: "evento_custo" },
+    { title: "Descrição de Evento Custo", field: "descr_evento_custo" },
+    { title: "Vinculo", field: "vinculo" },
+    { title: "Unidade Orçamentária", field: "unid_orcam" },
+    { title: "Categoria", field: "categoria" },
+    { title: "Elemento", field: "elemento" },
+    { title: "Subelemento", field: "subelemento" },
+    { title: "Processo", field: "cod_processo" },
+    { title: "Licitação", field: "licitacao_modalidade" },
+    
+    //{title:"ID",field:'id'},
+     
+  
+
   ];
 
   const handleByYear = async (year: number) => {
@@ -38,27 +63,37 @@ function Controller({
 
     setLoading(true);
 
-    const { grants } = await getGrants(year);
-
-    const { chart } = await getChart(year);
+    const { contracts } = await getDespesasSubvencoes(year);
 
     setLoading(false);
 
-    setNewChart(chart);
-
-    setData(grants);
+    setData(contracts);
   };
+
+  const arquivosColumns = [
+    { title: "Id", field: "id" },
+    { title: "Arquivo", field: 'arquivo'},
+    { title: "Nome", field: "nome" },
+    { title: "Contrato", field: "mes" },
+    { title: "Localização", field: "id_contrato_id" },
+    
+  ];
+
+  
+
 
   const handler = {
     data,
     columns,
     loading,
-    chart: newChart,
-    chartYear,
+    year,
     years,
     setYear,
-    year,
     handleByYear,
+    data2,
+    setData2,
+    arquivosColumns
+    
   };
 
   return <Screen handler={handler} />;
@@ -67,16 +102,11 @@ function Controller({
 export default Controller;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { chart } = await getChart();
-  const { chartYear } = await getChartYear();
-  const { grants, years } = await getGrants();
-
+  const { contracts } = await getDespesasSubvencoes();
   return {
     props: {
-      chartYear: chartYear || { datasets: [] },
-      chart: chart || { datasets: [] },
-      grants: grants || [],
-      years: years || [],
+      contracts: contracts || [],
+      
     },
     revalidate,
   };

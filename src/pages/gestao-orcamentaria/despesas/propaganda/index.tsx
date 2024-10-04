@@ -6,6 +6,7 @@ import {
   getChartYear,
   getdvertisings,
 } from "../../../../calls/expenses/advertising";
+import {getDespesasPublicidade} from "../../../../calls/expenses/outras_despesas_publicidade"
 import { revalidate } from "../../../../config";
 import moment from "moment";
 import axios from "axios";
@@ -15,11 +16,13 @@ function Controller({
   chart = { datasets: [] },
   chartYear = { datasets: [] },
   advertisings = [],
+  contracts = [],
   years,
 }: any) {
   const [year, setYear] = useState(moment().year());
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(advertisings);
+  const [data2, setData2] = useState(contracts);
   const [newChart, setNewChart] = useState(chart);
   const [gastos,setGastos] = useState([])
 
@@ -41,12 +44,39 @@ function Controller({
     { title: "Data Pagamento", field: "data_pagamento",  },
   ];
 
+  const columnsDespesasPublicidade = [
+    {title:"Empenho",field:'nr_empenho'},
+    {title:"Exercício empenho",field:'exercicio_empenho'},
+    { title: "Fornecedor", field: "descr_fornecedor" },
+    { title: "CNPJ", field: "cnpj_fornecedor" },
+    { title: "Funcional", field: "class_funcional" },
+    { title: "Descrição Funcional", field: "descr_funcional" },
+    { title: "Ação", field: "acao" },
+    { title: "Função", field: "funcao" },
+    { title: "Subfunção", field: "subfuncao" },
+    { title: "Programa", field: "programa" },
+    { title: "Data Movimentação", field: "data_movto" },
+    { title: "Valor do Empenho", field: "vlr_empenho" },
+    { title: "Tipo de Empenho", field: "tipo_empenho" },
+    { title: "Evento Custo", field: "evento_custo" },
+    { title: "Descrição de Evento Custo", field: "descr_evento_custo" },
+    { title: "Vinculo", field: "vinculo" },
+    { title: "Unidade Orçamentária", field: "unid_orcam" },
+    { title: "Categoria", field: "categoria" },
+    { title: "Elemento", field: "elemento" },
+    { title: "Subelemento", field: "subelemento" },
+    { title: "Processo", field: "cod_processo" },
+    { title: "Licitação", field: "licitacao_modalidade" },
+  ]
+
   const handleByYear = async (year: number) => {
     setYear(year);
 
     setLoading(true);
 
     const { advertisings } = await getdvertisings(year);
+
+    const {contracts} = await getDespesasPublicidade(year)
 
     const { chart } = await getChart(year);
 
@@ -55,10 +85,15 @@ function Controller({
     setNewChart(chart);
 
     setData(advertisings);
+
+    setData2(contracts)
   };
+
+  
 
   const handler = {
     data,
+    data2,
     columns,
     loading,
     chart: newChart,
@@ -69,7 +104,13 @@ function Controller({
     handleByYear,
     gastos,
     setGastos,
+    setData2,
+    columnsDespesasPublicidade,
   };
+
+  
+  
+
 
   const getGastos = async  () =>{
     const response = await axios.get(
@@ -106,6 +147,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const { chart } = await getChart();
   const { chartYear } = await getChartYear();
   const { advertisings, years } = await getdvertisings();
+  const {contracts} = await getDespesasPublicidade();
  
 
   return {
@@ -114,6 +156,7 @@ export const getStaticProps: GetStaticProps = async () => {
       chart: chart || { datasets: [] },
       advertisings: advertisings || [],
       years: years || [],
+      contracts: contracts || [],
     },
     revalidate,
   };
