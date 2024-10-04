@@ -116,7 +116,7 @@ return(
                     style={{ width: "100%", textAlign: "left" }}
                     filename={'dados.csv'}
                     data={data}
-                    //delimiter = {";"}
+                    delimiter = {";"}
                                      >
                     <Text fontSize={accessibility.fonts.large}>.CSV</Text>
                   </CsvDownload>
