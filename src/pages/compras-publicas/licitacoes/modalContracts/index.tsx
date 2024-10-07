@@ -14,6 +14,7 @@ import Details from "./components/details";
 
 import Files from "./components/files";
 import { ListTabs, ModalContainer, Panel, TabItem } from "../../../../styles/components/contratos-atas/modal/styles";
+import Ocorrencias from "./components/ocorrencias";
 
 const ModalContracts = ({ isOpen, onClose, contract }: any) => {
   return (
@@ -31,6 +32,8 @@ const ModalContracts = ({ isOpen, onClose, contract }: any) => {
               <TabItem>Detalhes</TabItem>
 
               <TabItem>Arquivos</TabItem>
+
+              <TabItem>Ocorrências</TabItem>
             </ListTabs>
 
             <TabPanels>
@@ -41,6 +44,12 @@ const ModalContracts = ({ isOpen, onClose, contract }: any) => {
               <Panel>
                 <Files contract={contract}/>
               </Panel>
+
+              <Panel>
+                <Ocorrencias contract={contract}/>
+              </Panel>
+
+
             </TabPanels>
           </Tabs>
         </ModalBody>
