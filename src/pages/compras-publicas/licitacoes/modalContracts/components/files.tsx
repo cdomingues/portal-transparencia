@@ -49,28 +49,30 @@ const Files = ({ contract }: any) => {
     <div style={{ overflowX: "auto" }}>
       
       {filteredData.length === 0 ? (
-        <div>Sem arquivos para essa licitação</div>
-      ) : (
-        filteredData.map(file => (
-          <RowDetails key={file.id}>
-            <div className="column">
-              <div className="title">Arquivo:</div>
-              <div className="value">
-                {file.descricao} -
-                <a
-                  href={`https://licitacao-mgcon.mogidascruzes.sp.gov.br/arquivo/download?id=${file.id}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: '#185DA6', fontWeight: 'normal', textDecoration: 'none' }}
-                >
-                  Download
-                </a>
-              </div>
-              <br />
-            </div>
-          </RowDetails>
-        ))
-      )}
+  <div>Sem arquivos para essa licitação</div>
+) : (
+  filteredData
+    .filter(file => file.tabela === 'LICITACAO') // Filtra apenas quando a tabela for 'licitação'
+    .map(file => (
+      <RowDetails key={file.id}>
+        <div className="column">
+          <div className="title">Arquivo:</div>
+          <div className="value">
+            {file.descricao} -
+            <a
+              href={`https://licitacao-mgcon.mogidascruzes.sp.gov.br/arquivo/download?id=${file.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#185DA6', fontWeight: 'normal', textDecoration: 'none' }}
+            >
+              Download
+            </a>
+          </div>
+          <br />
+        </div>
+      </RowDetails>
+    ))
+)}
     </div>
   );
 };
