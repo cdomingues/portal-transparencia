@@ -67,7 +67,7 @@ const Ocorrencias = ({ contract }: any) => {
           {filteredData.map(file => (
             <RowDetails key={file.id}>
               <div className="column">
-                <div className="value">{file.id}</div> - 
+                 
                 <div className="value">{moment(file.data).format("DD/MM/YYYY")}</div> - 
                 <div className="value">{file.descricao}</div> - 
                 <div className="value">{file.complemento}</div>
