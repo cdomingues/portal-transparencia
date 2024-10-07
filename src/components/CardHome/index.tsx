@@ -571,6 +571,18 @@ function CardHome() {
         { label: "Link 2", url: "http://exemplo.com/link2" },
       ],
     },
+    {
+      title: "Permissionários",
+      imageURL: Perguntas_frequentes.src,
+      description: "Descrição 2",
+      link: "/permissionarios",
+      backgroundColor: "blue",
+      showExtraLinks: false,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
+    },
 
     {
       title: "Perguntas Frequentes",

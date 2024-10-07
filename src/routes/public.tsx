@@ -684,6 +684,13 @@ let publicRoutes: IPublicRoute[] = [
     icon: AiOutlineAudit,
     ...contentAbout,
   },
+
+  {
+    name: "Permissionários",
+    path: "/permissionarios",
+    icon: AiOutlineAudit,
+    ...contentAbout,
+  },
  
   {
     name: "Plano Municipal de Educação",
