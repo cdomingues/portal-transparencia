@@ -14,17 +14,10 @@ type PropsInput = {
 export const contentMapSite = {
   titlePage: "Portal Antigo",
   description:
-    "Redirecionando para o site https://portaldatransparencia.mogidascruzes.sp.gov.br/ ",
+    " ",
 };
 
-function redirecionarParaLinkExterno() {
-  setTimeout(function () {
-    window.location.href = 'https://portaldatransparencia.mogidascruzes.sp.gov.br/'; // Substitua pelo seu link externo
-  }, 100); // 1000 milissegundos = 1 segundo
-}
 
-// Chame a função para iniciar o redirecionamento
-redirecionarParaLinkExterno();
 
 
 
