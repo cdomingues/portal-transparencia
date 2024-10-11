@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Screen from "./screen";
 import { GetStaticProps } from "next";
 import {
@@ -8,6 +8,7 @@ import {
 } from "../../../calls/expenses/passage";
 import { revalidate } from "../../../config";
 import moment from "moment";
+import axios from "axios";
 
 function Controller({
   chart = { datasets: [] },
@@ -25,6 +26,25 @@ function Controller({
     { title: "Carga horária", field: "horas_semanais" },
     
   ];
+
+const getCargaHoraria = async ()=>{
+  const response = await axios.get(
+    "https://dadosadm.mogidascruzes.sp.gov.br/api/carga_horaria"
+  );
+
+  const rows = response.data;
+
+  const mappedRows = rows?.map((item: any)=>{
+    return{
+      ...item,
+    }
+  })
+  setData(mappedRows);
+}
+
+useEffect(() => {
+  getCargaHoraria();
+}, []);
 
   const handleByYear = async (year: number) => {
     setYear(year);
