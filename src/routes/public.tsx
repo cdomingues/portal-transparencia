@@ -270,6 +270,13 @@ let publicRoutes: IPublicRoute[] = [
       },
       {
         defaultPath: "/acordos-termos",
+        name: "Contratos de Gestão",
+        path: "contratos-gestao",
+        icon: AiFillCaretRight,
+        subgroup: false,
+      },
+      {
+        defaultPath: "/acordos-termos",
         name: "Relação dos Gestores de contratos encerrados",
         path: "relacao-fiscais-encerrados",
         icon: AiFillCaretRight,

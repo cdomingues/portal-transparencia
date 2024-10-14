@@ -192,6 +192,9 @@ function CardHome() {
       { label: "Contratos e Atas", 
         url: "/acordos-termos/contratos-atas" 
       },
+      { label: "Contratos de Gestão", 
+        url: "/acordos-termos/contratos-gestao" 
+      },
      
       { label: "Relação dos Gestores de contratos encerrados", 
         url: "/acordos-termos/relacao-fiscais-encerrados" 
