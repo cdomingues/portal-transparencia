@@ -230,10 +230,7 @@ const anosDisponiveis=  Array.from(new Set(concursos.map((info) => new Date(info
               {moment(item.data).format('DD/MM/YYYY')}
             </Box>
             <Box maxWidth="100%" p={2}>
-              <Link
-                href={`https://dadosadm.mogidascruzes.sp.gov.br/${item.arquivo}`}
-                target="_blank"
-              >
+            <Link href={`https://wwwtrans.mogidascruzes.sp.gov.br/docs/${item.nome_arquivo}`} target="_blank"  >
                 {item.titulo ? item.titulo : item.nome_arquivo}
               </Link>
             </Box>
