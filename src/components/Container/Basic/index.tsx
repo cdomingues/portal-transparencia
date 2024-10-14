@@ -197,7 +197,7 @@ import useWindowDimensions from "../../../../src/utils/getWindowSize";
 //import DisplayNews from "../../../components/NewsHome";
 
 type PropsInput = {
-  title: string;
+  title: string | any;
   description: string | any;
   children: ReactNode;
   containerStyles?: React.CSSProperties;

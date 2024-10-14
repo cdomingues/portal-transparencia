@@ -1,12 +1,28 @@
-import {  Box, useColorModeValue, Heading,Text, Link } from "@chakra-ui/react";
+import {  Box, useColorModeValue, Heading,Text, Link, Icon, AccordionPanel, AccordionItem, Accordion, AccordionButton, AccordionIcon, Flex, Stack } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ContainerBasic from "../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../components/Table";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
 import Video from "../../components/Videos";
 import { isMobile } from "react-device-detect";
+import { AiOutlineDownload } from "react-icons/ai";
 
+type Arquivo = {
+  ano: any;
+  pk: string;
+  nome: string;
+  area?: string | null;
+  descricao: string;
+  file: string;
+  created_at: string;
+  tipo: number;
+};
+
+type ApiResponse = {
+  results: Arquivo[];
+  next: string | null;
+};
 
 type PropsInput = {
   handler: {
@@ -75,6 +91,50 @@ function Screen({
   const accessibility = useFontSizeAccessibilityContext();
   const url_video = "https://www.youtube.com/embed/K7_TUkedcGA?si=iPxaKODtZnboQT-_";
   const titulo = "O QUE SÃO AS SEIS MEDIDAS?";
+
+  const [arquivos, setArquivos] = useState<Arquivo[]>([]);
+  const [nextPage, setNextPage] = useState<number | null>(1);
+
+  const apiUrl = "https://dadosadm.mogidascruzes.sp.gov.br";
+  const url = `${apiUrl}/api/arquivos/?page_size=50&file_type=15`;
+
+  const fetchData = async (url: string) => {
+    try {
+      const response = await fetch(url);
+      const data: ApiResponse = await response.json();
+
+      if (data.next !== null) {
+        setNextPage((prevPage) => (prevPage !== null ? prevPage + 1 : null));
+      } else {
+        setNextPage(null);
+      }
+
+      setArquivos((prevArquivos) => [...prevArquivos, ...data.results]);
+
+      if (data.next !== null) {
+        await fetchData(data.next);
+      }
+    } catch (error) {
+      console.error('Erro ao obter os arquivos:', error);
+    }
+  };
+
+  useEffect(() => {
+    if (nextPage !== null) {
+      const initialUrl = `${apiUrl}/api/arquivos/?page=${nextPage}&file_type=18`;
+      fetchData(initialUrl);
+    }
+  }, [nextPage]);
+
+  const areaIdentifiers: any = {
+   
+"SMMU":"cb8f80e6-7d16-4ade-9ac6-86bd435ed1d7",
+
+
+
+    
+    
+  };
 
 
   return (
@@ -214,7 +274,68 @@ Otimização do sistema viário municipal.</Text>
                 fontSize={accessibility?.fonts?.regular}
               >Acompanhe a execução do FMMU por meio da página  <Link href='https://dadosabertos.mogidascruzes.sp.gov.br/gestao-orcamentaria/despesas/despesas-gerais' target="blank" style={{ color: "#db334f" }}>Despesas</Link></Text>
 <br/>
-
+<Box
+        m={0}
+        bg={useColorModeValue("white", "gray.800")}
+        
+        padding={"15px"}
+        rounded="md"
+        overflow="hidden"
+        width="100%"
+        borderRadius="18px"
+        marginBottom="15px"
+      >
+        <Heading
+          mb={2}
+          fontSize={accessibility?.fonts?.ultraLarge}
+          color="text.dark"
+        >
+            Demonstrativo de Receita e sua destinação e Detalhamento de Despesas FMMU 
+        </Heading>
+        <Accordion allowToggle borderRadius={4}>
+          {Object.keys(areaIdentifiers).map((section) => (
+            <AccordionItem bg={"gray.100"} pt={4} key={section}>
+              <h2>
+                <AccordionButton>
+                  <Box as="span" flex='1' textAlign='left'>
+                  Janeiro à Agosto de 2024
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel m={4} p={8} bg={"white"} borderRadius={4}>
+                <Flex>
+                  <Box flex="end" p={2} marginRight={5}></Box>
+                  <Box maxWidth="100%" p={2}>
+                    {arquivos
+                    .filter((arquivo) => {
+    console.log(arquivo.pk); // Verificar o valor do pk para cada arquivo
+    return arquivo.area === areaIdentifiers[section] && arquivo.nome !== "Audiência LOA 2022";
+  })
+                      .sort((a, b) => a.ano - b.ano) // Sort by year for better organization
+                      .map((arquivo) => (
+                        <Link href={`${apiUrl}${arquivo.file}`} download target="_blank" key={arquivo.pk}>
+                          <Stack
+                            direction="row"
+                            maxW="600px"
+                            color="gray"
+                            p={2}
+                            borderRadius="md"
+                            _hover={{ bg: 'gray.200' }}
+                            marginTop={5}
+                          >
+                            <h1>{arquivo.nome} </h1>
+                            <Icon as={AiOutlineDownload} />
+                          </Stack>
+                        </Link>
+                      ))}
+                  </Box>
+                </Flex>
+              </AccordionPanel>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </Box>
         <div style={{ height: "500px", width: "100%" }}>
           <MapWithNoSSR
             coords={[-23.528986, -46.192973]}
@@ -236,6 +357,8 @@ Otimização do sistema viário municipal.</Text>
           />
         </div>
       </Box>
+
+      
 
       <Box
         m={0}

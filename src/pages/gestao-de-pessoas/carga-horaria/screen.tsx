@@ -89,58 +89,9 @@ function Screen({
         marginBottom="15px"
       >
        
-
+       <TableComponent columns={columns} loading={loading} data={data} />
        
-        <Box overflowX={'auto'}>
-
-        <Table overflowX={'auto'} variant="striped"
-            style={{
-              borderCollapse: "collapse",
-            }}>
-      <Thead backgroundColor={useColorModeValue('table.primary', "gray.800")}>
-        <Tr >
-          <Th style={{
-                          paddingTop: "12px",
-                          paddingBottom: "12px",
-                          textAlign: "left",
-                          color: "white",
-                          padding: "8px",
-                          fontSize: accessibility?.fonts?.regular,
-                          
-                        }}>ID</Th>
-          <Th style={{
-                          paddingTop: "12px",
-                          paddingBottom: "12px",
-                          textAlign: "left",
-                          color: "white",
-                          padding: "8px",
-                          fontSize: accessibility?.fonts?.regular,
-                          
-                        }}>Descrição</Th>
-          <Th style={{
-                          paddingTop: "12px",
-                          paddingBottom: "12px",
-                          textAlign: "left",
-                          color: "white",
-                          padding: "8px",
-                          fontSize: accessibility?.fonts?.regular,
-                          
-                        }}>Horas Semanais</Th>
-        </Tr>
-      </Thead>
-      <Tbody>
-        {carga_horaria.map(info => (
-          <Tr key={info.id}>
-            <Td>{info.id}</Td>
-            <Td>{info.descricao}</Td>
-            <Td>{info.horas_semanais}</Td>
-          </Tr>
-        ))}
-      </Tbody>
-    </Table>
-<DadosAbertos data={carga_horaria} />
-        
-        </Box>
+       
       </Box>
     </ContainerBasic>
   );
