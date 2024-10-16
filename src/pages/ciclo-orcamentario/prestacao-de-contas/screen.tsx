@@ -152,6 +152,12 @@ function Screen({ handler }: PropsInput) {
                   <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/a1c93110-b807-4de3-a0ea-c0342ed41447/65%C2%AA_Audi%C3%AAncia_do_1%C2%BA_Quadrimestre_22.pdf" target="blank" style={{ color: "#db334f" }} >65ª Audiência do 1º Quadrimestre 22</Link><br/>
                  <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/f69c589c-1ce9-439d-9e56-4dbb1b2b7e57/66%C2%AA_Audi%C3%AAncia_do_2%C2%BA_Quadrimestre_22.pdf" target="blank" style={{ color: "#db334f" }} >66ª Audiência do 2º Quadrimestre 22</Link><br/>
                 <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/20f2833f-3236-48e2-ab43-49d897f2da6f/67%C2%AA_Audi%C3%AAncia_do_3%C2%BA_Quadrimestre_22.pdf" target="blank" style={{ color: "#db334f" }} >67ª Audiência do 3º Quadrimestre 22</Link><br/>
+                <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/69072435-570c-47bb-a14d-b7da393f4e61/68%C2%AA_Audi%C3%AAncia_1%C2%BA_Quadrimestre_23.pdf" target="blank" style={{ color: "#db334f" }} >68ª Audiência do 1º Quadrimestre 23</Link><br/>
+                <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/defde387-9b66-4cfe-ab7b-498b1c38a04c/69%C2%AA_Audi%C3%AAncia_do_2%C2%BA_Quadrimestre_23.pdf" target="blank" style={{ color: "#db334f" }} >69ª Audiência do 2º Quadrimestre 23</Link><br/>
+                <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/20c87c2f-0b90-4aa2-a317-a3e1a7a090db/70%C2%AA_Audi%C3%AAncia_do_3%C2%BA_Quadrimestre_23.pdf" target="blank" style={{ color: "#db334f" }} >70ª Audiência do 3º Quadrimestre 23</Link><br/>
+                <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/91ee00dd-4ac6-40c7-b08b-9ea67d9d2748/71%C2%AA_Audi%C3%AAncia_do_1%C2%BA_Quadrimestre_24.pdf" target="blank" style={{ color: "#db334f" }} >71ª Audiência do 1º Quadrimestre 24</Link><br/>
+                <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/49739d7a-df4e-4eb0-bc2e-f3e4f0102896/72%C2%AA_Audi%C3%AAncia_do_2%C2%BA_Quadrimestre_24.pdf" target="blank" style={{ color: "#db334f" }} >72ª Audiência do 2º Quadrimestre 24</Link><br/>
+                
                  </Text>
 
         <Text

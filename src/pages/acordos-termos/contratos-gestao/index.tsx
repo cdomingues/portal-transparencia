@@ -30,8 +30,6 @@ function Controller({ contracts = [], years = [] }: any) {
     { title: "Ano", field: "ano" },
     { title: "Número", field: "numero" },
     { title: "Situação", field: "situacao" },
-    { title: "Licitação", field: "licitacao" },
-    { title: "Modalidade", field: "modalidade" },
     { title: "Processo", field: "processo" },
     { title: "Data Início", field: "data_inicio" },
     { title: "Data Término", field: "data_termino" },

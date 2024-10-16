@@ -268,12 +268,7 @@ Otimização do sistema viário municipal.</Text>
                 
                 
               </Text>
-        <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              >Acompanhe a execução do FMMU por meio da página  <Link href='https://dadosabertos.mogidascruzes.sp.gov.br/gestao-orcamentaria/despesas/despesas-gerais' target="blank" style={{ color: "#db334f" }}>Despesas</Link></Text>
-<br/>
+        <br/>
 <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
