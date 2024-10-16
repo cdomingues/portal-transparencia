@@ -61,14 +61,14 @@ interface InformacoesGerais{
 }
 
 useEffect(() => {
-  fetch("https://dadosadm.mogidascruzes.sp.gov.br/api/concursos")
+  fetch("https://dadosadm.mogidascruzes.sp.gov.br/api/lista_concursos")
     .then((response) => response.json())
     .then((data) => setConcursos(data))
     .catch((error) => console.error("Error fetching concursos:", error));
 }, []);
 
 useEffect(() => {
-  fetch("https://dadosadm.mogidascruzes.sp.gov.br/api/consurso-arquivos")
+  fetch("https://dadosadm.mogidascruzes.sp.gov.br/api/lista_arquivo_concurso")
     .then((response) => response.json())
     .then((data) => setArquivosConcursos(data))
     .catch((error) => console.error("Error fetching arquivos_concursos:", error));
@@ -202,8 +202,7 @@ const anosDisponiveis=  Array.from(new Set(concursos.map((info) => new Date(info
             <br/></Box>
          
          <Box  maxWidth="100%"  p={2}>
-         <Link href={`https://wwwtrans.mogidascruzes.sp.gov.br/docs/${item.nome_arquivo}`} target="_blank"  >
-         
+         <Link href={`https://dadosadm.mogidascruzes.sp.gov.br/${item.arquivo}`} target="_blank"  >
           {item.titulo}
           </Link><p/>
           
@@ -231,7 +230,10 @@ const anosDisponiveis=  Array.from(new Set(concursos.map((info) => new Date(info
               {moment(item.data).format('DD/MM/YYYY')}
             </Box>
             <Box maxWidth="100%" p={2}>
-            <Link href={`https://dadosadm.mogidascruzes.sp.gov.br/${item.arquivo}`} target="_blank"  >
+              <Link
+                href={`https://dadosadm.mogidascruzes.sp.gov.br/${item.arquivo}`}
+                target="_blank"
+              >
                 {item.titulo ? item.titulo : item.nome_arquivo}
               </Link>
             </Box>
