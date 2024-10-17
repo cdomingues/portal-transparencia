@@ -19,8 +19,8 @@ type PropsInput = {
 };
 
 export const contentMapSite = {
-  titlePage: "Permissionários",
-  description: "Confira aqui as informações sobre permissionários e seus locais",
+  titlePage: "Feiras, Mercado Municipal e Mercado do Produtor",
+  description: "Confira aqui as informações sobre Feiras, Mercado Municipal e Mercado do Produtor",
 };
 
 function Screen({ handler: { columns, data, loading } }: PropsInput) {

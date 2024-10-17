@@ -693,7 +693,7 @@ let publicRoutes: IPublicRoute[] = [
   },
 
   {
-    name: "Permissionários",
+    name: "Feiras, Mercado Municipal e Mercado do Produtor",
     path: "/permissionarios",
     icon: AiOutlineAudit,
     ...contentAbout,

@@ -575,7 +575,7 @@ function CardHome() {
       ],
     },
     {
-      title: "Permissionários",
+      title: "Feiras, Mercado Municipal e Mercado do Produtor",
       imageURL: Perguntas_frequentes.src,
       description: "Descrição 2",
       link: "/permissionarios",
