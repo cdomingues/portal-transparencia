@@ -193,7 +193,7 @@ const anosDisponiveis=  Array.from(new Set(concursos.map((info) => new Date(info
      
      {arquivosConcursos
       .filter((arquivo) => arquivo.id_concurso === info.id )
-      .sort((a, b) =>   b.id - a.id)
+      .sort((a, b) => new Date(b.data).getTime() - new Date(a.data).getTime())
       .map((item) => (
         
        <Flex key={item.id_concurso}   >
