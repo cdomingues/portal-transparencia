@@ -102,7 +102,7 @@ function Screen({
         loading={loading}
         columns={columns}
         data={data}
-        openModal={handleOpenModal}
+       openModal={handleOpenModal}
       />
 
       <ModalContracts isOpen={isOpen} onClose={onClose} contract={contract} />

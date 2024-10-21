@@ -647,6 +647,13 @@ let publicRoutes: IPublicRoute[] = [
       },
     ],
   },
+  {
+    defaultPath:"",
+    name:"LIGA",
+    path:"https://liga.sp.gov.br/",
+    icon: AiOutlineProfile
+
+  },
 
   {
     name: "Mapa do Site",

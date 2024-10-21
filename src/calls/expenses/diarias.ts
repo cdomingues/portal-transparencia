@@ -29,7 +29,7 @@ type AdvertisingResponse = {
 export const getdvertisings = async (year?: number) => {
   try {
     const response = await axios.get(
-      "https://dadosadm.mogidascruzes.sp.gov.br/api/diarias"
+      "https://dadosadm.mogidascruzes.sp.gov.br/lista_diaria"
       //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=a8fdc20d-7236-4302-8630-738ccf60ba4b",
     
     );
