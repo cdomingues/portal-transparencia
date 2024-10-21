@@ -522,6 +522,19 @@ function CardHome() {
     },
 
     {
+      title: "LIGA",
+      imageURL: Mapa_do_site.src,
+      description: "Descrição 3",
+      link: "https://liga.sp.gov.br/",
+      backgroundColor: "green",
+      showExtraLinks: false,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
+    },
+
+    {
       title: "Mapa do Site",
       imageURL: Mapa_do_site.src,
       description: "Descrição 3",

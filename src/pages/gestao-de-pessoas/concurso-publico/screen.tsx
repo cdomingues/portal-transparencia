@@ -75,7 +75,7 @@ Endereço: Av. Vereador Narciso Yague Guimarães, 277, 1º andar - Centro Cívic
 
 
       </Box>
-      <CardConcurso /> 
+      <CardConcurso url_concurso="https://dadosadm.mogidascruzes.sp.gov.br/api/lista_concursos"/> 
       
     </ContainerBasic>
   );

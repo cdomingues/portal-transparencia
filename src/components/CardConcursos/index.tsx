@@ -16,9 +16,12 @@ const statusTextMapping = new Map([
   [2, 'Em Andamento'],
 ]);
 
+interface UrlConcurso  {
+  url_concurso: string;
+}
 
 
-const CardConcurso = ()=>{
+const CardConcurso: React.FC<UrlConcurso> = ({url_concurso})=>{
   
   const accessibility = useFontSizeAccessibilityContext();
  
@@ -30,6 +33,7 @@ const [filtroStatus, setFiltroStatus] = useState('');
 const [concursos, setConcursos] = useState<Concurso[]>([]); 
 const [arquivosConcursos, setArquivosConcursos] = useState<ArquivoConcurso[]>([]);
 const [informacoesGerais,setInformacoesGerais] = useState<InformacoesGerais[]>([]);
+const urlconcurso = url_concurso
 
 
 interface Concurso {
@@ -61,7 +65,7 @@ interface InformacoesGerais{
 }
 
 useEffect(() => {
-  fetch("https://dadosadm.mogidascruzes.sp.gov.br/api/lista_concursos")
+  fetch(url_concurso)
     .then((response) => response.json())
     .then((data) => setConcursos(data))
     .catch((error) => console.error("Error fetching concursos:", error));
