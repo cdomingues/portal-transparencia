@@ -171,7 +171,7 @@ const anosDisponiveis=  Array.from(new Set(concursos.map((info) => new Date(info
         <h2>
       <AccordionButton >
         <Box as="span" flex='1' textAlign='left' >
-      {info.id} - {info.titulo}
+      {info.titulo}
         
         </Box>
         <Box marginRight="8px">{statusTextMapping.get(info.status)}</Box>
