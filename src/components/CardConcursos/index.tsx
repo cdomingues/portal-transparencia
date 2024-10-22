@@ -52,6 +52,7 @@ interface ArquivoConcurso {
   titulo: string;
   status:number;
   arquivo: string;
+  id_tipo_arquivo: number;
 }
 
 interface InformacoesGerais{
@@ -86,7 +87,7 @@ useEffect(() => {
 }, []);
 
 const anosDisponiveis=  Array.from(new Set(concursos.map((info) => new Date(info.data).getFullYear())));
-
+  let contador = 0
 
   return (
     
@@ -161,6 +162,7 @@ const anosDisponiveis=  Array.from(new Set(concursos.map((info) => new Date(info
           (!filtroAno || new Date(info.data).getFullYear() === parseInt(filtroAno, 10)) &&
           (!filtroStatus || statusTextMapping.get(info.status) === filtroStatus)
       )
+      .sort((a, b) =>b.id - a.id)      
     .map((info) => (
       <AccordionItem key={info.id}
       bg={"gray.100"}
@@ -169,7 +171,7 @@ const anosDisponiveis=  Array.from(new Set(concursos.map((info) => new Date(info
         <h2>
       <AccordionButton >
         <Box as="span" flex='1' textAlign='left' >
-        {info.titulo}
+      {info.id} - {info.titulo}
         
         </Box>
         <Box marginRight="8px">{statusTextMapping.get(info.status)}</Box>
@@ -194,10 +196,32 @@ const anosDisponiveis=  Array.from(new Set(concursos.map((info) => new Date(info
       
       </>
     )}
-     
+     <Text fontWeight="700">Publicações</Text>
      {arquivosConcursos
-      .filter((arquivo) => arquivo.id_concurso === info.id )
-      .sort((a, b) => new Date(b.data).getTime() - new Date(a.data).getTime())
+      .filter((arquivo) => arquivo.id_concurso === info.id && arquivo.id_tipo_arquivo === 1 && arquivo.status ===1)
+      .sort((a, b) => new Date(a.data).getTime() - new Date(b.data).getTime())
+      .map((item) => (
+        
+       <Flex key={item.id_concurso}   >
+          <Box flex="end" p={2} marginRight={5}>
+         {moment(item.data).format('DD/MM/YYYY')}
+            <br/></Box>
+         
+         <Box  maxWidth="100%"  p={2}>
+         <Link href={`https://dadosadm.mogidascruzes.sp.gov.br/${item.arquivo}`} target="_blank"  >
+          {item.titulo}
+          </Link><p/>
+          
+          </Box>
+                  
+          
+        </Flex>
+        
+      ))}
+      <Text pt="20px" fontWeight="700">Convocações</Text>
+      {arquivosConcursos
+      .filter((arquivo) => arquivo.id_concurso === info.id && arquivo.id_tipo_arquivo === 2  && arquivo.status ===1)
+      .sort((a, b) => new Date(a.data).getTime() - new Date(b.data).getTime())
       .map((item) => (
         
        <Flex key={item.id_concurso}   >
