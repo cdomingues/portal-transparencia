@@ -34,7 +34,7 @@ function Screen({ handler }: PropsInput) {
   const description = contentMapSite?.description;
   const router = useRouter();
 
-  const url_video = "https://youtu.be/hxylu6oWJLU?list=PLr6uMRVxi5CZDYEttIUVaIzsm07L7qI6a";
+  const url_video = "https://www.youtube.com/embed/hxylu6oWJLU";
   const titulo = "O QUE É GOVERNO ABERTO?"; 
   
   return (
@@ -70,7 +70,7 @@ Com o objetivo de incentivar a eficiência e eficácia por meio dos princípios 
       mt="20px"
       color="black"
     >
-    1º Plano de Ação Mogiano de Governo Aberto 
+    1º Plano de Ação de Governo Aberto 
     
   </Text>
   Pensando nisso, a Prefeitura de Mogi das Cruzes, por meio da Secretaria de Transparência e Dados Abertos, realizou o processo de elaboração do seu 1º Plano de Ação Mogiano de Governo Aberto.<br/><br/>
@@ -266,19 +266,22 @@ mt="5px"
 NOV/24 - 29/11 - 14h - online (a confirmar) 
 </Text>
 
-<Text
-align={isMobile ? "justify" : "left"}
-fontWeight="700"
-fontSize={accessibility?.fonts?.regular}
-mt="5px"
->
-Quem é você no rolê de Governo Aberto? 
-</Text>
+
 
 
 <Img pt="20px" src={(governo_aberto.src)} alt="" style={{
     maxWidth: "700px",
-  }}/>
+  }}/><Text
+  align={isMobile ? "justify" : "left"}
+  fontWeight="700"
+  fontSize={accessibility?.fonts?.ultraLarge}
+  
+  mt="5px"
+  pt="30px"
+  pb="25px"
+  >
+  Cronograma do 1º Plano de Ação Mogiano de Governo Aberto 
+  </Text>
 <Img pt="20px" src={(cronograma1.src)} alt="" style={{
     maxWidth: "700px",
   }} />
