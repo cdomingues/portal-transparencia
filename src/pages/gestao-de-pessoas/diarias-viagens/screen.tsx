@@ -1,3 +1,4 @@
+
 import {
   Button,
   Divider,
@@ -59,7 +60,7 @@ function Screen({
     fontSize: isMobile ? "medium" : "larger",
   };
 
-  const url_video = "https://www.youtube.com/embed/SLpPmKpU74U?list=PLr6uMRVxi5CZDYEttIUVaIzsm07L7qI6a";
+  const url_video = "https://www.youtube.com/embed/oxEi5mS-Mrg";
   const titulo = "O QUE SÃO AS SEIS MEDIDAS?"; 
 
   return (
