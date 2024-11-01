@@ -1,8 +1,10 @@
-import { Button, Divider, Select, Stack, Text, Box, useColorModeValue } from "@chakra-ui/react";
+import { Button, Divider, Select, Stack, Text, Box, useColorModeValue, UnorderedList, Link, ListItem } from "@chakra-ui/react";
 import React from "react";
 import Chart from "../../../../components/Chart";
 import ContainerBasic from "../../../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../../../components/Table";
+import { FaDownload } from "react-icons/fa";
+import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAccessibility";
 
 type PropsInput = {
   handler: {
@@ -36,6 +38,7 @@ function Screen({
 }: PropsInput) {
   const title = contentExpensesRemains?.titlePage;
   const description = contentExpensesRemains?.description;
+  const accessibility = useFontSizeAccessibilityContext();
   return (
     <ContainerBasic title={title} description={description}>
        <Box
@@ -49,11 +52,9 @@ function Screen({
           borderRadius="18px"
           marginBottom="15px"
         >
-      {chart?.datasets?.length > 0 && (
-        <Chart type="bar" data={chart} />
-      )}
+    
       </Box>
-      {/* <Divider borderWidth="2px" mt="10" mb="10" /> */}
+      
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
@@ -65,46 +66,18 @@ function Screen({
         borderRadius="18px"
         marginBottom="15px"
       >
-
-      <Stack direction="row">
-        <Stack minW={86} width="25%">
-          <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
-            Ano
-          </Text>
-          <Select
-            defaultValue={year}
-            onChange={(e) => setYear(e.target.value)}
-            bg="white"
-            variant="outline"
-            placeholder="Selecionar Ano"
-          >
-            {years?.map((year, index) => (
-              <option key={index} value={String(year)}>
-                {String(year)}
-              </option>
-            ))}
-          </Select>
-        </Stack>
-        <Stack minW={50} width="10%" justifyContent="flex-end">
-               <Button
-            w={'100px'}
-            h={'40px'}
-              disabled={loading}
-              onClick={() => handleByYear(year)}
-              _hover={{ bg: "gray.500", color: "white" }}
-              bg="table.primary"
-              color="white"
-              fontSize="small"
-            >
          
-            Buscar
-          </Button>
-        </Stack>
-      </Stack>
+          <UnorderedList listStyleType="none" 
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}>
 
-      <Divider borderWidth="2px" mt="10" mb="10" />
+                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/5d885797-2dbf-4265-839e-e8cb4b1e2360/Restos_a_Pagar_-_2021.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>Restos a pagar 2021</ListItem ></div></Link>
+                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/94fc544e-0fc8-48f9-927a-fabcccbf4249/Restos_a_Pagar_-_2022.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>Restos a pagar 2022</ListItem ></div></Link>
+                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/3c8a1018-ae2a-4ac9-8183-a55c725cc456/Restos_a_Pagar_-_2023.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>Restos a pagar 2023</ListItem ></div></Link>
+                          
+                        </UnorderedList>
 
-      <TableComponent loading={loading} columns={columns} data={data} />
+    
       </Box>
     </ContainerBasic>
   );
