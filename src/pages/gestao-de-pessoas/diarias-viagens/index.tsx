@@ -32,7 +32,7 @@ function Controller() {
   ];
 
   const getData = async () => {
-    const response = await axios.get("https://dadosadm.mogidascruzes.sp.gov.br/api/diarias")
+    const response = await axios.get("https://dadosadm.mogidascruzes.sp.gov.br/api/lista_diaria")
     const rows = response.data;
         
     const mappedRows = rows.map((item: any) => ({

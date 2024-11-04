@@ -52,7 +52,7 @@ export const getdvertisings = async (year?: number) => {
       return {
         index: row?.["index"],
         ano: row?.["ano"],
-        mes:row["mes"],
+        mes:String(row["mes"]),
         rgf: row?.["rgf"],
         nome: row?.["nome"],
         //total: row?.["total_r"],
