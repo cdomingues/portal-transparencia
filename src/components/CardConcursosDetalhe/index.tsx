@@ -32,7 +32,6 @@ const [filtroAno, setFiltroAno] = useState('');
 const [filtroStatus, setFiltroStatus] = useState('');
 const [concursos, setConcursos] = useState<Concurso[]>([]); 
 const [arquivosConcursos, setArquivosConcursos] = useState<ArquivoConcurso[]>([]);
-const [informacoesGerais,setInformacoesGerais] = useState<InformacoesGerais[]>([]);
 const urlconcurso = url_concurso
 
 
@@ -79,12 +78,7 @@ useEffect(() => {
     .catch((error) => console.error("Error fetching arquivos_concursos:", error));
 }, []);
 
-useEffect(() => {
-  fetch("https://dadosadm.mogidascruzes.sp.gov.br/api//informacoes_gerais")
-    .then((response) => response.json())
-    .then((data) => setInformacoesGerais(data))
-    .catch((error) => console.error("Error fetching arquivos_concursos:", error));
-}, []);
+
 
 const anosDisponiveis=  Array.from(new Set(concursos.map((info) => new Date(info.data).getFullYear())));
   let contador = 0
@@ -92,67 +86,11 @@ const anosDisponiveis=  Array.from(new Set(concursos.map((info) => new Date(info
   return (
     
 <>
-<Tabs> 
 
-  <TabList>
-    <Tab>
-    <Text
-    align={isMobile ? "justify" : "left"}
-    fontWeight="700"
-    fontSize={accessibility?.fonts?.regular}
-  >Concursos</Text></Tab>
-    <Tab> <Text
-    align={isMobile ? "justify" : "left"}
-    fontWeight="700"
-    fontSize={accessibility?.fonts?.regular}
-  >Informações Gerais</Text></Tab>
-  </TabList>
-
-
-<TabPanels>
-
-  <TabPanel>
-  <Text
-    align={isMobile ? "justify" : "left"}
-    fontWeight="700"
-    fontSize={accessibility?.fonts?.regular}
-  >Lista de Concursos</Text>
+  
   <Box style={{ display: 'flex', gap: '10px' }} pb={5} >
 
-  <Text pt={2}>Filtrar por ano: </Text>
-    <Select
-      id="anoSelect"
-      value={filtroAno}
-      onChange={(e) => setFiltroAno(e.target.value)}
-      w="20%"
-      
-    >
-      <option value="">Todos</option>
-      {anosDisponiveis.sort((a, b) => b -a ) .map((ano) => (
-        <option key={ano} value={ano}>
-          {ano}
-        </option>
-      ))}
-    </Select>
-
-    <Text pt={2} >Filtrar por status: </Text>
-    <Select
-      id="statusSelect"
-      value={filtroStatus}
-      onChange={(e) => setFiltroStatus(e.target.value)}
-      w="20%"
-      
-    >
-      <option value="">Todos</option>
-      {statusDisponiveis.map((status) => (
-        <option key={status} value={status}>
-          {status}
-        </option>
-      ))}
-    </Select>
   </Box>
-
-
 
     <Accordion allowToggle borderRadius={4}>
       
@@ -193,20 +131,9 @@ const anosDisponiveis=  Array.from(new Set(concursos.map((info) => new Date(info
         }
         mb={4}
         >Link para Inscrição</Button>
-  
-      </>
       
+      </>
     )}
-    
-      <>
-        <Button fontSize={accessibility?.fonts?.regular} 
-        onClick={() =>
-          window.open(`https://dadosabertos.mogidascruzes.sp.gov.br/gestao-de-pessoas/concurso-publico-detalhes?id=${info.id}`, '_blank')
-        }
-        mb={4}
-        >Detalhes</Button>
-         </>
-
      <Text fontWeight="700">Publicações</Text>
      {arquivosConcursos
       .filter((arquivo) => arquivo.id_concurso === info.id && arquivo.id_tipo_arquivo === 1 && arquivo.status ===1)
@@ -252,39 +179,14 @@ const anosDisponiveis=  Array.from(new Set(concursos.map((info) => new Date(info
         
       ))}
      
-     
+    
 
     </AccordionPanel>
   </AccordionItem>))}
        
     </Accordion>
-  </TabPanel>
+ 
 
-  <TabPanel>
-  <Box>
-      <Text fontWeight="700">Informações Gerais</Text>
-      {informacoesGerais
-        
-        .sort((a, b) => new Date(b.data).getTime() - new Date(a.data).getTime())
-        .map((item) => (
-          <Flex key={item.id} my={2}>
-            <Box p={2} marginRight={5}>
-              {moment(item.data).format('DD/MM/YYYY')}
-            </Box>
-            <Box maxWidth="100%" p={2}>
-              <Link
-                href={`https://dadosadm.mogidascruzes.sp.gov.br/${item.arquivo}`}
-                target="_blank"
-              >
-                {item.titulo ? item.titulo : item.nome_arquivo}
-              </Link>
-            </Box>
-          </Flex>
-        ))}
-    </Box>
-  </TabPanel>
-</TabPanels>
-</Tabs>
 
     
    

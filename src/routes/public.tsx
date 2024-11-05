@@ -176,7 +176,7 @@ let publicRoutes: IPublicRoute[] = [
       {
         defaultPath: "/ciclo-orcamentario",
         name: "Prestação de Contas à CMMC",
-        path: "/prestacao-de-contas",
+        path: "prestacao-de-contas",
         icon: AiFillCaretRight,
       },
       {
@@ -205,9 +205,9 @@ let publicRoutes: IPublicRoute[] = [
       },
 
       {
-        defaultPath: "https://licitacao-mgcon.mogidascruzes.sp.gov.br/",
+        defaultPath: "/compras-publicas",
         name: "Licitações Portal Antigo",
-        path: "https://licitacao-mgcon.mogidascruzes.sp.gov.br/",
+        path: "licitacoes-portal-antigo",
         icon: AiFillCaretRight,
         subgroup: true,
       },
@@ -226,10 +226,11 @@ let publicRoutes: IPublicRoute[] = [
         link: "https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/cadastro-de-fornecedor",
       },
       {
+        defaultPath: "/compras-publicas",
         name: "Portal Nacional de Contratações Públicas",
-        path: "https://pncp.gov.br/app/editais?q=&status=recebendo_proposta&pagina=1",
+        path: "pncp",
         icon: AiFillCaretRight,
-        link: "https://pncp.gov.br/app/editais?q=&status=recebendo_proposta&pagina=1",
+        
       },
     ],
   },
@@ -417,13 +418,13 @@ let publicRoutes: IPublicRoute[] = [
       {
         defaultPath: "/gestao-orcamentaria",
         name: "Divida Ativa",
-        path: "/divida-ativa",
+        path: "divida-ativa",
         icon: AiFillCaretRight,
       },
       {
         defaultPath: "/gestao-orcamentaria",
         name: "Incentivos Fiscais",
-        path: "/incentivos-fiscais",
+        path: "incentivos-fiscais",
         icon: AiFillCaretRight,
       },
     ],
@@ -551,9 +552,9 @@ let publicRoutes: IPublicRoute[] = [
         icon: AiFillCaretRight,
       },
       {
-        defaultPath: "",
+        defaultPath: "/gestao-orcamentaria-covid",
         name: "Compras Covid 19",
-        path: "http://covid19.pmmc.com.br/",
+        path: "compras-covid",
         icon: AiFillCaretRight,
       },
     ],
@@ -593,7 +594,15 @@ let publicRoutes: IPublicRoute[] = [
       },
     ],
   },
+  {
+    name: "Inventário de Dados",
+    path: "/inventario-de-dados",
+    link:"/governo-digital ",
+    icon: AiOutlineAudit,
+    ...contentOtherInformations,
+  },
 
+ 
   {
     name: "LAI - Lei de Acesso à Informação",
     path: "/acesso-a-informacao",
@@ -614,9 +623,15 @@ let publicRoutes: IPublicRoute[] = [
       },
       {
         name: "Painel de acompanhamento 2023",
-        path: "https://app.powerbi.com/view?r=eyJrIjoiY2ZmODAzZDUtMDE2YS00ZWYzLWJhZGQtMWE4Nzc3OWQyMDgxIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
+        path: "painel-2023",
         icon: AiOutlineProfile,
         link: "https://app.powerbi.com/view?r=eyJrIjoiY2ZmODAzZDUtMDE2YS00ZWYzLWJhZGQtMWE4Nzc3OWQyMDgxIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
+      },
+      {
+        name: "Painel de acompanhamento 2024",
+        path: "painel-2024",
+        icon: AiOutlineProfile,
+        link: "https://app.powerbi.com/view?r=eyJrIjoiY2RiMWYxZWQtN2NlOS00NTNjLTkyMGEtZmNiOWVhMmYzNTJiIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
       },
     ],
   },
@@ -634,7 +649,7 @@ let publicRoutes: IPublicRoute[] = [
       },
       {
         name: "Decretos e Portarias",
-        path: "/leis-decretos-portarias",
+        path: "leis-decretos-portarias",
         icon: AiOutlineProfile,
         link: "/leis-decretos-portarias/decretos-portarias",
       },
@@ -648,9 +663,9 @@ let publicRoutes: IPublicRoute[] = [
     ],
   },
   {
-    defaultPath:"",
+    defaultPath:"/liga",
     name:"LIGA",
-    path:"https://liga.sp.gov.br/",
+    path:"/liga",
     icon: AiOutlineProfile
 
   },
@@ -664,15 +679,15 @@ let publicRoutes: IPublicRoute[] = [
 
   {
     name: "Ouvidoria",
-    path: "/ouvidoria",
+    path: "ouvidoria",
     icon: AiOutlineAudit,
     group: [
       
       {
         name: "Pesquisação de Satisfação",
-        path: "/ouvidoria",
+        path: "pesquisa-de-satisfacao",
         icon: AiOutlineProfile,
-        link: "/ouvidoria/pesquisa-de-satisfacao",
+        link: "ouvidoria/pesquisa-de-satisfacao",
       },]
   },
 
@@ -769,7 +784,7 @@ let publicRoutes: IPublicRoute[] = [
      
       {
         name: "Pesquise Obras",
-        path: "/pesquisar-obras",
+        path: "pesquisar-obras",
         defaultPath: "/controle-de-obras",
         icon: AiOutlineSearch,
         ...contentSearchConstructions,
