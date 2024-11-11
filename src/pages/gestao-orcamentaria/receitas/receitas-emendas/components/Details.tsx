@@ -25,7 +25,7 @@ const Details = ({ data }: any) => {
       </RowDetails>
 
       <RowDetails style={{ backgroundColor: "transparent" }}>
-        <div className="left">Secrêtaria:</div>
+        <div className="left">Secretaria:</div>
         <div className="right">{data?.secretaria_resp}</div>
       </RowDetails>
 

@@ -32,8 +32,8 @@ export const getContracts = async (years?: number) => {
         valor: moneyFormatter(Number(row.valor)),
         id_contrato : row.id_contrato,
         valorAditado: moneyFormatter(Number(row.valor_aditado)),
-        data_inicio:  moment(row.data_inicio).format("DD/MM/YYYY"),
-        data_termino:  moment(new Date(row.data_termino)).format("DD/MM/YYYY"),
+        data_inicio:  moment(row.data_inicio).add(1, 'days').format("DD/MM/YYYY"),
+        data_termino:  moment(new Date(row.data_termino)).add(1, 'days').format("DD/MM/YYYY"),
         
       };
     });
