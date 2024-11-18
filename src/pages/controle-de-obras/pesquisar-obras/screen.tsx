@@ -821,8 +821,8 @@ const dataFormatada = `${dia}/${mes}/${ano}`;
         arrayBuildings?.filter((item: { tipo: string; status: string; nome_da_obra: string }) => 
             item.tipo === "Tipo:OBRA" && item.status !== "07 - OBRA RESCINDIDA"
         )
-        .map(({  id, situacao, status, tipo, categoria, nome_da_obra, secretaria_responsavel, orgao_responsavel, responsavel_fiscalizacao, valoraditamento_set, valor_total_medicao, valor_total_aditamento, valor_total_aditamento_reajuste_contrato, numero_contrato, titulo, descricao_da_obra, localizacao, data_etapa, percentual_etapa, etapas, cnpj, razao_social_contratada, numero_processo, conclusao_ate, aditivo_prazo, justificativa_aditivo, valor_contrato, ano_licitacao  }: 
-          {  id: string; 
+        .map(({  situacao, status, tipo, categoria, nome_da_obra, secretaria_responsavel, orgao_responsavel, responsavel_fiscalizacao,  valor_total_medicao, valor_total_aditamento, valor_total_aditamento_reajuste_contrato, numero_contrato, titulo, descricao_da_obra, localizacao, data_etapa, percentual_etapa, etapas, cnpj, razao_social_contratada, numero_processo, conclusao_ate, aditivo_prazo, justificativa_aditivo, valor_contrato, ano_licitacao  }: 
+          {  
             situacao: string; 
             status: string; 
             tipo: string; 
@@ -831,7 +831,7 @@ const dataFormatada = `${dia}/${mes}/${ano}`;
             secretaria_responsavel: string; 
             orgao_responsavel: string; 
             responsavel_fiscalizacao: string; 
-            valoraditamento_set: any[]; 
+            
             valor_total_medicao: number; 
             valor_total_aditamento: number; 
             valor_total_aditamento_reajuste_contrato: number; 
@@ -850,7 +850,7 @@ const dataFormatada = `${dia}/${mes}/${ano}`;
             justificativa_aditivo: string; 
             valor_contrato: string; 
             ano_licitacao: number;  }) => 
-            ({ id, situacao, status, tipo, categoria, nome_da_obra, secretaria_responsavel, orgao_responsavel, responsavel_fiscalizacao, valoraditamento_set, valor_total_medicao, valor_total_aditamento, valor_total_aditamento_reajuste_contrato, numero_contrato, titulo, descricao_da_obra, localizacao, data_etapa, percentual_etapa, etapas, cnpj, razao_social_contratada, numero_processo, conclusao_ate, aditivo_prazo, justificativa_aditivo, valor_contrato, ano_licitacao })
+            ({  situacao, status, tipo, categoria, nome_da_obra, secretaria_responsavel, orgao_responsavel, responsavel_fiscalizacao,  valor_total_medicao, valor_total_aditamento, valor_total_aditamento_reajuste_contrato, numero_contrato, titulo, descricao_da_obra, localizacao, data_etapa, percentual_etapa, etapas, cnpj, razao_social_contratada, numero_processo, conclusao_ate, aditivo_prazo, justificativa_aditivo, valor_contrato, ano_licitacao })
         )
     } 
 />

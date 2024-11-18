@@ -54,7 +54,7 @@ import { contentRecipesAmendments } from "../pages/gestao-orcamentaria/receitas/
 import { contentGeneralCosts } from "../pages/gestao-orcamentaria/despesas/despesas-gerais-old/screen";
 import { contentExpensesRemains } from "../pages/gestao-orcamentaria/despesas/despesas-restos/screen";
 import { contentTrafficFines } from "../pages/gestao-orcamentaria/receitas/off-multa-transito/screen";
-import { contentExpensesParliamentaryAmendments } from "../pages/gestao-orcamentaria/despesas/despesas-emendas/screen";
+import { contentExpensesParliamentaryAmendments } from "../pages/gestao-orcamentaria/despesas/despesas-emendas-old/screen";
 
 import { contentReportExtrabudget } from "../pages/ciclo-orcamentario/relatorio-resumido/screen";
 import { contentAnnualBalance } from "../pages/contas/balancos-anuais/screen";
