@@ -1,36 +1,34 @@
-import { useColorModeValue, Box , Text, UnorderedList, ListItem, Link} from "@chakra-ui/react";
-import React from "react";
-import { Laws } from ".";
+import { useColorModeValue, Box , Text, Select, Icon, Stack, Link, Divider} from "@chakra-ui/react";
+import React, { useState } from "react";
+
 import ContainerBasic from "../../../components/Container/Basic";
-import PlanContainerLaw from "../../../components/Container/PlanLaw";
+import publicacoes_saude from '../../../../data/publicacoes_saude.json';
 import { isMobile } from "react-device-detect";
+import { AiOutlineDownload } from "react-icons/ai";
+import HTMLReactParser from "html-react-parser";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
-import {FaMapMarker} from "react-icons/fa";
 
-type PropsInput = {
-  handler: {
-    laws: Laws;
-    handleSelectValue: (value: number) => void;
-    selectOptions: Array<string | number>;
-    selectValue: number;
-  };
-};
 
-export const content = {
-  titlePage: "Programa de Medicamento Gratuito",
+
+export const contentPROMAE = {
+  titlePage: "Plano Municipal de Saúde",
   description:
-    "A Relação Municipal de Medicamentos (REMUME) é uma lista de medicamentos que são disponibilizados pelos serviços de saúde de um município específico. Essa lista é elaborada com base nas necessidades de saúde da população local e segue as diretrizes do Sistema Único de Saúde (SUS) no Brasil. A REMUME inclui medicamentos essenciais, aqueles considerados prioritários para atender às principais demandas de saúde da comunidade.  ",
+    "Divulga o plano de saúde, a programação anual e o relatório de gestão.",
 };
 
-function Screen({ handler }: PropsInput) {
-  const { handleSelectValue, selectOptions, laws, selectValue } = handler;
-  const accessibility = useFontSizeAccessibilityContext();
-  const title = content?.titlePage;
-  const description = content?.description;
-
+function Screen() {
   
 
-  return ( <>
+  const title = contentPROMAE?.titlePage;
+  const description = contentPROMAE?.description;
+  const [publicacao,setPublicacao] =useState<string>('');
+  const accessibility = useFontSizeAccessibilityContext();
+  
+  const selectedPublication = publicacoes_saude.find(
+    (info) => info.volume === publicacao
+  );
+
+  return (
     <ContainerBasic title={title} description={description}>
       <Box
         m={0}
@@ -43,7 +41,60 @@ function Screen({ handler }: PropsInput) {
         borderRadius="18px"
         marginBottom="15px"
       >
-        <Text
+        <Box display="flex" alignContent="center" flexDirection={isMobile ?  "column" : "column"}>
+      
+        <Select
+          minW={90}
+          width="45%"
+          bg={useColorModeValue("white", "gray.800")}
+          onChange={ev => setPublicacao(ev.target.value)}
+        >
+          <option value="">Selecione</option>
+          {publicacoes_saude.map((info) => (
+            // eslint-disable-next-line react/jsx-key
+            <option key={info.id} value={info.volume}>{info.volume}</option>
+          ))}
+        </Select>
+      
+        </Box>
+        {selectedPublication && (
+
+          
+<div>
+<a href={selectedPublication.src} target="_blank">
+   <Stack
+   marginTop={5}
+direction="row"
+
+color={ 'gray'}
+p={2}
+borderRadius="md"
+cursor="pointer"
+_hover={{ bg: 'gray.200' }}
+//onClick={() => handleClick(law.link, index)}
+>
+<Icon as={AiOutlineDownload} />
+<p>{HTMLReactParser(selectedPublication.description)}</p>
+
+</Stack>
+</a>
+</div>
+)}
+<Divider pt="30px"/>
+
+<Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.large}
+                pt="20px"
+                pb="20px"
+              >
+               Medicamentos
+                
+                
+              </Text>
+
+<Text
                 align={isMobile ? "justify" : "left"}
                 fontWeight="700"
                 fontSize={accessibility?.fonts?.regular}
@@ -144,16 +195,8 @@ O guia de orientações ao paciente, está disponível no portal da Secretaria E
               
 
               </Text>
-              
-
-              
-
-
       </Box>
     </ContainerBasic>
-
-</>
-     
   );
 }
 

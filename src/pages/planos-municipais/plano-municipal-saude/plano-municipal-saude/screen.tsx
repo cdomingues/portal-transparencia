@@ -1,22 +1,30 @@
+/* eslint-disable react/jsx-key */
 import { useColorModeValue, Box , Text, Select, Icon, Stack} from "@chakra-ui/react";
 import React, { useState } from "react";
-
-import ContainerBasic from "../../components/Container/Basic";
-import publicacoes_saude from '../../../data/publicacoes_saude.json';
+import { Laws } from ".";
+import ContainerBasic from "../../../../components/Container/Basic";
+import publicacoes_saude from '../../../../../data/publicacoes_saude.json';
 import { isMobile } from "react-device-detect";
 import { AiOutlineDownload } from "react-icons/ai";
 import HTMLReactParser from "html-react-parser";
 
-
+type PropsInput = {
+  handler: {
+    laws: Laws;
+    handleSelectValue: (value: number) => void;
+    selectOptions: Array<string | number>;
+    selectValue: number;
+  };
+};
 
 export const contentPROMAE = {
-  titlePage: "Plano Municipal de Saúde",
+  titlePage: "Plano de Saúde do Municipio",
   description:
     "Divulga o plano de saúde, a programação anual e o relatório de gestão.",
 };
 
-function Screen() {
-  
+function Screen({ handler }: PropsInput) {
+  const { handleSelectValue, selectOptions, laws, selectValue } = handler;
 
   const title = contentPROMAE?.titlePage;
   const description = contentPROMAE?.description;
@@ -41,18 +49,16 @@ function Screen() {
       >
         <Box display="flex" alignContent="center" flexDirection={isMobile ?  "column" : "column"}>
       
-        <Select
-          minW={90}
-          width="45%"
-          bg={useColorModeValue("white", "gray.800")}
-          onChange={ev => setPublicacao(ev.target.value)}
-        >
-          <option value="">Selecione</option>
-          {publicacoes_saude.map((info) => (
-            // eslint-disable-next-line react/jsx-key
-            <option key={info.id} value={info.volume}>{info.volume}</option>
-          ))}
-        </Select>
+      <Select 
+      minW={90}
+      width="45%"
+      bg={useColorModeValue("white", "gray.800")  }     
+      onChange={ev => setPublicacao(ev.target.value  )}     
+      >
+      {publicacoes_saude.map((info)=>(
+        <option key={info.id}  value={info.volume}>{info.volume}</option>
+      ))}
+    </Select>
       
         </Box>
         {selectedPublication && (

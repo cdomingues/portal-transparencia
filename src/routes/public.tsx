@@ -429,6 +429,13 @@ let publicRoutes: IPublicRoute[] = [
       },
     ],
   },
+  {
+    defaultPath:"/fundos-municipais",
+    name:"Fundos Municipais",
+    path:"/fundos-municipais",
+    icon: AiOutlineProfile
+
+  },
 
   {
     name: "Gestão de Pessoas",
@@ -566,6 +573,13 @@ let publicRoutes: IPublicRoute[] = [
     link:"/governo-aberto",
     icon: AiOutlineAudit,
     ...contentOtherInformations,
+    group: [
+      {
+        name: "LIGA",
+        path: "liga",
+        icon: AiOutlineProfile,
+        link: "https://liga.sp.gov.br/",
+      },]
   },
 
   {
@@ -729,35 +743,27 @@ let publicRoutes: IPublicRoute[] = [
   },
 
   {
-    name: "Plano Municipal de Saúde",
-    path: "/plano-municipal-saude",
+    name: "Planos Municipais",
+    path: "/planos-municipais",
     icon: AiOutlineSolution,
     group: [
       {
-        defaultPath: "/plano-municipal-saude",
+        defaultPath: "/planos-municipais",
         name: "Plano Municipal de Saúde",
         path: "plano-municipal-saude",
         icon: AiOutlineProfile,
         
       },
       {
-        defaultPath: "/plano-municipal-saude",
+        defaultPath: "/planos-municipais",
 
-        name: "Serviços de Saúde",
-        path: "servicos-saude",
+        name: "Plano Municipal de Educação",
+        path: "plano-municipal-educacao",
 
         icon: AiOutlineProfile,
         
       },
-      {
-        defaultPath: "/plano-municipal-saude",
-
-        name: "Medicamentos",
-        path: "medicamentos",
- 
-        icon: AiOutlineProfile,
-        
-      },
+     
       
     ],
   },

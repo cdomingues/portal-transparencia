@@ -72,9 +72,9 @@ type PropsInput = {
 };
 
 export const contentInitial = {
-  titlePage: "Acordos e Termos",
+  titlePage: "Contratos e Atas",
   description:
-    "Um acordo de colaboração, também conhecido como acordo de cooperação, é um instrumento formal utilizado por entes públicos para estabelecer um vínculo cooperativo ou de parceria entre si, ou ainda com entidades privadas, que tenham interesses e condições recíprocas ou equivalentes, de modo a realizar um propósito comum, voltado ao interesse público. ",
+    "Nesta página, confira as informações sobre contratos e atas celebrados pela Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por número, modalidade, processo, valor, fornecedor, objeto, entre outros itens. ",
 };
 
 function HomeScreen({ handler }: PropsInput) {
@@ -133,6 +133,7 @@ function HomeScreen({ handler }: PropsInput) {
 
             <StatGroup width="100%" mb={20}>
               <Stat position="unset">
+                
                 <Stack
                   direction={isMobile ? "column" : "row"}
                   align={isMobile ? "center" : "center"}
@@ -140,43 +141,68 @@ function HomeScreen({ handler }: PropsInput) {
                 >
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Acordo de Cooperação"
-                      imageURL={acordo_de_colaboração.src}
-                      description="..."
-                      link="acordos-termos/acordo-de-cooperacao"
-                      backgroundColor="transparent"
-                    />
-                  </Box>
-
-                  <Box padding="6" bg="transparent" flexDirection="row">
-                    <CardHorizon
-                      title="Termo de Colaboração"
-                      imageURL={termo_de_colaboração.src}
-                      description="..."
-                      link="acordos-termos/termo-de-colaboracao"
-                      backgroundColor="transparent"
-                    />
-                  </Box>
-                </Stack>
-                <Stack
-                  direction={isMobile ? "column" : "row"}
-                  align={isMobile ? "center" : "center"}
-                  justifyContent={isMobile ? "flex-start" : "center"}
-                >
-                  <Box padding="6" bg="transparent" flexDirection="row">
-                    <CardHorizon
-                      title="Termo de Fomento"
+                      title="Contratos"
                       imageURL={termo_de_fomento.src}
                       description="..."
-                      link="acordos-termos/termo-de-fomento"
+                      link="contratos-atas/contratos"
                       backgroundColor="transparent"
                     />
                   </Box>
 
-                 
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Contratos de Gestão"
+                      imageURL={termo_de_fomento.src}
+                      description="..."
+                      link="contratos-atas/contratos-gestao"
+                      backgroundColor="transparent"
+                    />
+                  </Box>
                 </Stack>
 
+                <Stack
+                  direction={isMobile ? "column" : "row"}
+                  align={isMobile ? "center" : "center"}
+                  justifyContent={isMobile ? "flex-start" : "center"}
+                >
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="ATAS"
+                      imageURL={termo_de_fomento.src}
+                      description="..."
+                      link="contratos-atas/atas"
+                      backgroundColor="transparent"
+                    />
+                  </Box>
+
                 
+                </Stack>
+
+                <Stack
+                  direction={isMobile ? "column" : "row"}
+                  align={isMobile ? "center" : "center"}
+                  justifyContent={isMobile ? "flex-start" : "center"}
+                >
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Relação dos gestores de contratos encerrados"
+                      imageURL={termo_de_fomento.src}
+                      description="..."
+                      link="acordos-termos/relacao-fiscais-encerrados"
+                      backgroundColor="transparent"
+                    />
+                  </Box>
+
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                    <CardHorizon
+                      title="Relação dos gestores de contratos vigentes"
+                      imageURL={termo_de_fomento.src}
+                      description="..."
+                      link="acordos-termos/relacao-fiscais-vigentes"
+                      backgroundColor="transparent"
+                    />
+                  </Box>
+                </Stack>
               </Stat>
             </StatGroup>
           </Stack>

@@ -402,8 +402,8 @@ function TableComponent({
                             }}
                           >
                             {isLink ? (
-                              <Link href={cell?.value} isExternal>
-                                Detalhes
+                              <Link    style={{color:"red"}}href={cell?.value} isExternal>
+                               Link para a página
                               </Link>
                             ) : (
                               <div style={{ textAlign: "center" }}>

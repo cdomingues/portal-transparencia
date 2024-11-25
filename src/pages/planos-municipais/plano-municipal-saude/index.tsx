@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Screen from "./screen";
-
-
 
 function Controller({}: any) {
   return <Screen />;
