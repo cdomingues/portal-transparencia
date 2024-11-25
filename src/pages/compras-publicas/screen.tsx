@@ -88,29 +88,8 @@ borderRadius="18px"
 marginBottom="15px"
 >
 
-      <div style={{padding: "10px"}}>
-        <Text
-        fontWeight="500"
-        color={"gray.500"}
-        >Últimas Notícias</Text>
-      </div>
-      {
-            noticias.slice(0,2).map((info)=>{
-             return( 
-             
-              <DisplayNews 
-                 key={info.descricao}
-                 data_noticia={info.data_noticia}
-                 descricao={info.descricao}
-                 foto={info.foto} 
-                 titulo={info.titulo} 
-                 link={info.link}   
-                 
-                
-            />
-             )
-            })
-          }
+    
+     
           <div style={{ padding: "0px", width:"100%"}} >
 
 </div>

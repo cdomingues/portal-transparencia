@@ -5,7 +5,7 @@ import moneyFormatter from "../../utils/moneyFormatter";
 
 export const getContracts = async (years?: number) => {
   try {
-    let nextPage = "https://dadosadm.mogidascruzes.sp.gov.br/api/contratos_atas";
+    let nextPage = "https://dadosadm.mogidascruzes.sp.gov.br/api/contratos_atas?tipo=CONTRATO";
     let allResults: any[] = [];
     let allYears: number[] = [];
 

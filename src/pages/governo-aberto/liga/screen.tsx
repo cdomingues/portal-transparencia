@@ -1,11 +1,11 @@
 import React from "react";
-import ContainerBasic from "../../components/Container/Basic";
-import publicRoutes from "../../routes/public";
+import ContainerBasic from "../../../components/Container/Basic";
+import publicRoutes from "../../../routes/public";
 import { Box, Link, Stack, Text, useColorModeValue } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { isMobile } from "react-device-detect";
 import { color } from "highcharts";
-import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
+import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 
 type PropsInput = {
   handler: {};

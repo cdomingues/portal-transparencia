@@ -236,6 +236,25 @@ marginBottom="15px">
               
                  </Text>
 
+             <Text
+                align={isMobile ? "justify" : "left"}
+                fontWeight="700"
+                fontSize={accessibility?.fonts?.regular}
+                paddingTop="5px"
+              >
+                POLÍTICA MUNICIPAL DE PRIVACIDADE E PROTEÇÃO DE DADOS PESSOAIS DO PODER EXECUTIVO MUNICIPAL
+                
+                
+              </Text>
+                      <Text
+                align={isMobile ? "justify" : "left"}
+                color="gray.500"
+                fontSize={accessibility?.fonts?.regular}
+              > Decreto nº 23.153/2024  </Text>    
+               <Text  color="gray.500"
+                fontSize={accessibility?.fonts?.regular} justifyContent="flex-end"> <Link href="http://leismunicipa.is/1qj9e">http://leismunicipa.is/1qj9e </Link> </Text>
+
+
 
       </Box>
     

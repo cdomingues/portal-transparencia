@@ -259,15 +259,13 @@ function CardHome() {
       description: "Descrição 2",
       link: "https://dados.mogidascruzes.sp.gov.br/",
       backgroundColor: "blue",
-      showExtraLinks: false,
+      showExtraLinks: true,
       extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
+        { label: "Inventário de Dados", url: "https://app.powerbi.com/view?r=eyJrIjoiYmQxYzMwZTItYjQwMy00YzcyLWJjMjctMzgxNjgyNDUxOWQ2IiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9" },
+        
       ],
     },
-
-
-    
+  
 
     {
       title: "Execução Orçamentária",
@@ -322,6 +320,18 @@ function CardHome() {
           label: "Incentivos Fiscais",
           url: "/gestao-orcamentaria/incentivos-fiscais",
         },
+      ],
+    },
+    {
+      title: "Fundos Municipais",
+      imageURL: Perguntas_frequentes.src,
+      description: "Descrição 2",
+      link: "/fundos-municipais",
+      backgroundColor: "blue",
+      showExtraLinks: false,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
       ],
     },
 
@@ -419,10 +429,10 @@ function CardHome() {
       description: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-transparencia-e-dados-abertos/governo-aberto",
       link: "/governo-aberto",
       backgroundColor: "blue",
-      showExtraLinks: false,
+      showExtraLinks: true,
       extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
+        { label: "LIGA - Laboratório de Inovação em Governo Aberto", url: "https://liga.sp.gov.br/" },
+        
       ],
     },
 
@@ -488,7 +498,7 @@ function CardHome() {
           url: "/acesso-a-informacao/",
         },
         {
-          label: "Acesso a Informação LAI",
+          label: "Solicitar Acesso à Informação",
           url: "/acesso-a-informacao/acesso-informacao",
         },
         {
@@ -500,11 +510,11 @@ function CardHome() {
           url: "https://mogidascruzes.1doc.com.br/b.php?pg=wp/wp&itd=3&ss=5",
         },
         {
-          label: "Painel de acompanhamento 2023",
+          label: "Painel de Acompanhamento da LAI 2023",
           url: "https://app.powerbi.com/view?r=eyJrIjoiY2ZmODAzZDUtMDE2YS00ZWYzLWJhZGQtMWE4Nzc3OWQyMDgxIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
         },
         {
-          label: "Painel de acompanhamento 2024",
+          label: "Painel de Acompanhamento da LAI2024",
           url: "https://app.powerbi.com/view?r=eyJrIjoiY2RiMWYxZWQtN2NlOS00NTNjLTkyMGEtZmNiOWVhMmYzNTJiIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
         },
       ],
@@ -531,19 +541,6 @@ function CardHome() {
           url: "https://ged.mogidascruzes.sp.gov.br/weblink7/Browse.aspx",
         },
         { label: "LGPD", url: "/leis-decretos-portarias/lgpd" },
-      ],
-    },
-
-    {
-      title: "LIGA",
-      imageURL: Mapa_do_site.src,
-      description: "Descrição 3",
-      link: "https://liga.sp.gov.br/",
-      backgroundColor: "green",
-      showExtraLinks: false,
-      extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
       ],
     },
 
@@ -628,41 +625,20 @@ function CardHome() {
 
 
     {
-      title: "Plano Municipal de Educação",
+      title: "Planos Municipais",
       imageURL: Plano_municipal_educacao.src,
       description: "Descrição 2",
-      link: "/plano-municipal-educacao",
+      link: "/planos-municipais",
       backgroundColor: "blue",
-      showExtraLinks: false,
+      showExtraLinks: true,
       extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
+        { label: "Plano Municipal de Saúde", url: "planos-municipais/plano-municipal-saude" },
+        { label: "Plano Municipal de Educação", url: "planos-municipais/plano-municipal-educacao" },
+        
       ],
     },
 
-    {
-      title: "Plano Municipal de Saúde",
-      imageURL: Plano_municipal_saude.src,
-      description: "Descrição 3",
-      link: "/plano-municipal-saude",
-      backgroundColor: "green",
-      showExtraLinks: true,
-      extraLinks: [
-        {
-          label: "Plano Municipal de Saúde - Início",
-          url: "/plano-municipal-saude/",
-        },
-        {
-          label: "Plano Municipal de Saúde",
-          url: "/plano-municipal-saude/plano-municipal-saude",
-        },
-        {
-          label: "Serviços de Saúde",
-          url: "/plano-municipal-saude/servicos-saude",
-        },
-        { label: "Medicamentos", url: "/plano-municipal-saude/medicamentos" },
-      ],
-    },
+    
     {
       title: "Políticas e Programas",
       imageURL: Ultimas_noticias.src,
@@ -691,7 +667,7 @@ function CardHome() {
     },
 
     {
-      title: "Promae",
+      title: "PROMAE - Programa de Investimentos e Empregos",
       imageURL: promae.src,
       description: "Descrição 3",
       link: "/promae",
@@ -732,7 +708,7 @@ function CardHome() {
     },
 
     {
-      title: "Visuas - Visor do Sistema Único de Assistência Social",
+      title: "VISUAS - Visor do Sistema Único de Assistência Social",
       imageURL: Plano_municipal_educacao.src,
       description: "Descrição 2",
       link: "https://visuas.mogidascruzes.sp.gov.br/",

@@ -34,39 +34,52 @@ const FilesList: React.FC<FilesListProps> = ({ tipoFiltro }) => {
   
   //const count = "page_size=100" 
 
-  const fetchData = async (url: RequestInfo | URL) => {
+  const fetchData = async () => {
+    let currentPage = 1; // Começa na página inicial
+    let hasMorePages = true;
+  
     try {
-      const response = await fetch(url);
-      const data = await response.json();
-
-      if (data.next !== null) {
-        setNextPage((prevPage) => (prevPage !== null ? prevPage + 1 : null));
-      } else {
-        setNextPage(null);
+      while (hasMorePages) {
+        const response = await fetch(
+          `${apiUrl}/api/arquivos/?page=${currentPage}&file_type=${tipoFiltro}`
+        );
+  
+        if (!response.ok) {
+          console.error(`Erro na requisição: ${response.status} - ${response.statusText}`);
+          break;
+        }
+  
+        const data = await response.json();
+  
+        // Filtrar os resultados conforme o ano selecionado
+        const filteredResults = data.results.filter((arquivo: { ano: number }) =>
+          selectedYear ? arquivo.ano === selectedYear : true
+        );
+  
+        // Atualizar estado com novos dados
+        setArquivos((prevArquivos) => [...prevArquivos, ...filteredResults]);
+  
+        // Verifica se há mais páginas
+        if (data.next) {
+          currentPage++; // Incrementa a página para a próxima iteração
+        } else {
+          hasMorePages = false; // Encerra o loop quando não houver próxima página
+        }
       }
-
-      // Filtre os resultados se necessário
-      const filteredResults = data.results.filter((arquivo: { ano: number; }) =>
-        selectedYear ? arquivo.ano === selectedYear : true
-      );
-
-      // Atualize o estado arquivos usando a função de espalhamento para preservar os dados anteriores
-      setArquivos((prevArquivos) => [...prevArquivos, ...filteredResults]);
-
-      if (data.next !== null) {
-        await fetchData(data.next);
-      }
+  
+      // Reseta o estado da página para evitar reexecuções
+      setNextPage(null);
     } catch (error) {
-      console.error('Erro ao obter os arquivos:', error);
+      console.error("Erro ao obter os arquivos:", error);
     }
   };
-
+  
   useEffect(() => {
     if (nextPage !== null) {
-      const initialUrl = `${apiUrl}/api/arquivos/?page=${nextPage}&file_type=${tipoFiltro}`;
-      fetchData(initialUrl);
+      fetchData();
     }
   }, [nextPage, tipoFiltro]);
+  
 
   return (
     <Box display="flex" alignContent="center" flexDirection={isMobile ?  "column" : "column"}>
