@@ -83,6 +83,37 @@ let publicRoutes: IPublicRoute[] = [
     ...contentInitial,
   },
   {
+    name: "Acordos e Termos",
+    path: "/acordos-termos",
+    element: <div></div>,
+    icon: BsFileText,
+    group: [
+      {
+        defaultPath: "/acordos-termos",
+        name: "Acordo de Cooperação",
+        path: "acordo-de-cooperacao",
+        icon: AiFillCaretRight,
+        subgroup: false,
+      },
+      {
+        defaultPath: "/acordos-termos",
+        name: "Termo de Parceria",
+        path: "termo-de-colaboracao",
+        icon: AiFillCaretRight,
+        subgroup: false,
+      },
+      {
+        defaultPath: "/acordos-termos",
+        name: "Termo de Fomento",
+        path: "termo-de-fomento",
+        icon: AiFillCaretRight,
+        subgroup: false,
+      },
+      
+      
+    ],
+  },
+  {
     name: "Agenda Aberta",
     path: "/agenda-aberta",
     icon: AiOutlineAppstore,
@@ -235,56 +266,44 @@ let publicRoutes: IPublicRoute[] = [
     ],
   },
   {
-    name: "Contratos, Termos e Atas de registro de preços",
-    path: "/acordos-termos",
+    name: "Contratos, Contratos de Gestão e Atas de registro de preços",
+    path: "/contratos-atas",
     element: <div></div>,
     icon: BsFileText,
     group: [
-      {
-        defaultPath: "/acordos-termos",
-        name: "Acordo de Cooperação",
-        path: "acordo-de-cooperacao",
-        icon: AiFillCaretRight,
-        subgroup: false,
-      },
-      {
-        defaultPath: "/acordos-termos",
-        name: "Termo de Parceria",
-        path: "termo-de-colaboracao",
-        icon: AiFillCaretRight,
-        subgroup: false,
-      },
-      {
-        defaultPath: "/acordos-termos",
-        name: "Termo de Fomento",
-        path: "termo-de-fomento",
-        icon: AiFillCaretRight,
-        subgroup: false,
-      },
       
       {
-        defaultPath: "/acordos-termos",
-        name: "Contratos e Atas",
-        path: "contratos-atas",
+        defaultPath: "/contratos-atas",
+        name: "Contratos",
+        path: "contratos",
         icon: AiFillCaretRight,
         subgroup: false,
       },
       {
-        defaultPath: "/acordos-termos",
+        defaultPath: "/contratos-atas",
         name: "Contratos de Gestão",
         path: "contratos-gestao",
         icon: AiFillCaretRight,
         subgroup: false,
       },
+      
       {
-        defaultPath: "/acordos-termos",
+        defaultPath: "/contratos-atas",
+        name: "Atas",
+        path: "atas",
+        icon: AiFillCaretRight,
+        subgroup: false,
+      },
+      
+      {
+        defaultPath: "/contratos-atas",
         name: "Relação dos Gestores de contratos encerrados",
         path: "relacao-fiscais-encerrados",
         icon: AiFillCaretRight,
         subgroup: false,
       },
       {
-        defaultPath: "/acordos-termos",
+        defaultPath: "/contratos-atas",
         name: "Relação dos Gestores de contratos vigentes",
         path: "relacao-fiscais-vigentes",
         icon: AiFillCaretRight,
@@ -292,6 +311,7 @@ let publicRoutes: IPublicRoute[] = [
       },
     ],
   },
+  
   {
     name: "Controle de Radares",
     icon: BsCameraVideo,
@@ -429,13 +449,13 @@ let publicRoutes: IPublicRoute[] = [
       },
     ],
   },
-  {
+  /* {
     defaultPath:"/fundos-municipais",
     name:"Fundos Municipais",
     path:"/fundos-municipais",
     icon: AiOutlineProfile
 
-  },
+  }, */
 
   {
     name: "Gestão de Pessoas",
