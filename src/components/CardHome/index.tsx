@@ -61,6 +61,34 @@ function CardHome() {
 
 
   const cardData = [
+    
+    {
+      title: "Acordos e Termos",
+      imageURL: Acordos_termos.src,
+      description: "Descrição 1",
+      link: "/acordos-termos",
+      backgroundColor: "white",
+      showExtraLinks: true,
+      extraLinks: [
+        {
+          label: "Acordos e Termos - Início",
+          url: "/acordos-termos/",
+        },
+        {
+          label: "Acordo de Cooperação",
+          url: "/acordos-termos/acordo-de-cooperacao",
+        },
+        {
+          label: "Termo de Colaboração",
+          url: "/acordos-termos/termo-de-colaboracao",
+        },
+        { label: "Termo de Fomento", 
+        url: "/acordos-termos/termo-de-fomento" 
+      },
+     
+      ],
+    },
+
     {
       title: "Agenda Aberta",
       imageURL: Agenda_aberta.src,
@@ -167,43 +195,39 @@ function CardHome() {
     },
 
     {
-      title: "Contratos, Termos e Atas de registro de preços",
+      title: "Contratos, Contratos de Gestão e Atas ",
       imageURL: Acordos_termos.src,
       description: "Descrição 1",
-      link: "/acordos-termos",
+      link: "/contratos-atas",
       backgroundColor: "white",
       showExtraLinks: true,
       extraLinks: [
         {
-          label: "Acordos e Termos - Início",
-          url: "/acordos-termos/",
+          label: "Contratos, Contratos de Gestão e Atas  - Início",
+          url: "/contratos/",
         },
-        {
-          label: "Acordo de Cooperação",
-          url: "/acordos-termos/acordo-de-cooperacao",
-        },
-        {
-          label: "Termo de Colaboração",
-          url: "/acordos-termos/termo-de-colaboracao",
-        },
-        { label: "Termo de Fomento", 
-        url: "/acordos-termos/termo-de-fomento" 
-      },
-      { label: "Contratos e Atas", 
-        url: "/acordos-termos/contratos-atas" 
+        
+      { label: "Contratos", 
+        url: "/contratos-atas/contratos" 
       },
       { label: "Contratos de Gestão", 
-        url: "/acordos-termos/contratos-gestao" 
+        url: "/contratos-atas/contratos-gestao" 
+      },
+
+      { label: "Atas", 
+        url: "/contratos-atas/atas" 
       },
      
       { label: "Relação dos Gestores de contratos encerrados", 
-        url: "/acordos-termos/relacao-fiscais-encerrados" 
+        url: "/contratos-atas/relacao-fiscais-encerrados" 
       },
       { label: "Relação dos Gestores de contratos vigentes", 
-        url: "/acordos-termos/relacao-fiscais-vigentes" 
+        url: "/contratos-atas/relacao-fiscais-vigentes" 
       },
       ],
     },
+
+    
 
     {
       title: "Controle de Radares",
@@ -322,7 +346,7 @@ function CardHome() {
         },
       ],
     },
-    {
+    /* {
       title: "Fundos Municipais",
       imageURL: Perguntas_frequentes.src,
       description: "Descrição 2",
@@ -333,7 +357,7 @@ function CardHome() {
         { label: "Link 1", url: "http://exemplo.com/link1" },
         { label: "Link 2", url: "http://exemplo.com/link2" },
       ],
-    },
+    }, */
 
     {
       title: "Gestão de Pessoas",
@@ -625,12 +649,25 @@ function CardHome() {
 
 
     {
-      title: "Planos Municipais",
+      title: "Plano Municipal de Educação",
       imageURL: Plano_municipal_educacao.src,
       description: "Descrição 2",
-      link: "/planos-municipais",
+      link: "/plano-municipal-educacao",
       backgroundColor: "blue",
-      showExtraLinks: true,
+      showExtraLinks: false,
+      extraLinks: [
+        { label: "Plano Municipal de Saúde", url: "planos-municipais/plano-municipal-saude" },
+        { label: "Plano Municipal de Educação", url: "planos-municipais/plano-municipal-educacao" },
+        
+      ],
+    },
+    {
+      title: "Plano Municipal de Saúde",
+      imageURL: Plano_municipal_educacao.src,
+      description: "Descrição 2",
+      link: "/plano-municipal-saude",
+      backgroundColor: "blue",
+      showExtraLinks: false,
       extraLinks: [
         { label: "Plano Municipal de Saúde", url: "planos-municipais/plano-municipal-saude" },
         { label: "Plano Municipal de Educação", url: "planos-municipais/plano-municipal-educacao" },

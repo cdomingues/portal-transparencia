@@ -2,8 +2,8 @@
 import { useColorModeValue, Box , Text, Select, Icon, Stack} from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Laws } from ".";
-import ContainerBasic from "../../../../components/Container/Basic";
-import publicacoes_saude from '../../../../../data/publicacoes_saude.json';
+import ContainerBasic from "../../../components/Container/Basic";
+import publicacoes_saude from '../../../../data/publicacoes_saude.json';
 import { isMobile } from "react-device-detect";
 import { AiOutlineDownload } from "react-icons/ai";
 import HTMLReactParser from "html-react-parser";
