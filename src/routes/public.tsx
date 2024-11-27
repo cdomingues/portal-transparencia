@@ -761,8 +761,14 @@ let publicRoutes: IPublicRoute[] = [
     icon: AiOutlineAudit,
     ...contentOtherInformations,
   },
-
   {
+    name: "Plano Municipal de Saúde",
+    path: "/plano-municipal-saude",
+    icon: AiOutlineAudit,
+    ...contentOtherInformations,
+  },
+
+ /*  {
     name: "Planos Municipais",
     path: "/planos-municipais",
     icon: AiOutlineSolution,
@@ -786,7 +792,7 @@ let publicRoutes: IPublicRoute[] = [
      
       
     ],
-  },
+  }, */
 
   {
     name: "Políticas e Programas ",

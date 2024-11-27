@@ -30,7 +30,7 @@ type PropsInput = {
   };
 };
 export const contentContractsAndAtas = {
-  titlePage: "Contratos e Atas",
+  titlePage: "Contratos",
   description:
     "Nesta página, confira as informações sobre contratos e atas celebrados pela Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por número, modalidade, processo, valor, fornecedor, objeto, entre outros itens. ",
 };
