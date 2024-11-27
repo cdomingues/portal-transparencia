@@ -702,6 +702,19 @@ function CardHome() {
         { label: "Versão Antiga", url: "/controle-de-obras/obras-publicas" },
       ],
     },
+    
+    {
+      title: "Prestação de Contas Simplificada",
+      imageURL: promae.src,
+      description: "Descrição 3",
+      link: "/prestacao-contas",
+      backgroundColor: "green",
+      showExtraLinks: false,
+      extraLinks: [
+        { label: "Link 1", url: "http://exemplo.com/link1" },
+        { label: "Link 2", url: "http://exemplo.com/link2" },
+      ],
+    },
 
     {
       title: "PROMAE - Programa de Investimentos e Empregos",

@@ -824,7 +824,12 @@ let publicRoutes: IPublicRoute[] = [
     ],
   },
   
-
+  {
+    name: "Prestação de Contas Simplificada",
+    path: "/prestacao-contas",
+    icon: BsFileText,
+    group: undefined,
+  },
  
   {
     name: "Promae",
