@@ -27,6 +27,7 @@ function Controller({ chartYear = { datasets: [] }, chart = { datasets: [] } }: 
       cargo: role,
       matricula: enrollment,
       nome: name,
+     
     });
     setLoading(false);
     setPayroll(payroll);

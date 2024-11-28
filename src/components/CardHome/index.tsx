@@ -455,7 +455,11 @@ function CardHome() {
       backgroundColor: "blue",
       showExtraLinks: true,
       extraLinks: [
+        {label: "Governo Aberto - Início", url:"/governo-aberto/"},
+        {label: "BORALAI", url:"/governo-aberto/boralai"},
         { label: "LIGA - Laboratório de Inovação em Governo Aberto", url: "https://liga.sp.gov.br/" },
+        {label: "Prestação de Contas Simplificada", url:"/governo-aberto/prestacao-contas"},
+        {label: "Portas de Participação Cidadã", url:"/governo-aberto/participacao-cidada"},
         
       ],
     },
@@ -703,18 +707,7 @@ function CardHome() {
       ],
     },
     
-    {
-      title: "Prestação de Contas Simplificada",
-      imageURL: promae.src,
-      description: "Descrição 3",
-      link: "/prestacao-contas",
-      backgroundColor: "green",
-      showExtraLinks: false,
-      extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
-      ],
-    },
+   
 
     {
       title: "PROMAE - Programa de Investimentos e Empregos",

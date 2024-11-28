@@ -188,7 +188,7 @@ function HomeScreen({ handler }: PropsInput) {
                       title="Relação dos gestores de contratos encerrados"
                       imageURL={termo_de_fomento.src}
                       description="..."
-                      link="acordos-termos/relacao-fiscais-encerrados"
+                      link="contratos-atas/relacao-fiscais-encerrados"
                       backgroundColor="transparent"
                     />
                   </Box>
@@ -198,7 +198,7 @@ function HomeScreen({ handler }: PropsInput) {
                       title="Relação dos gestores de contratos vigentes"
                       imageURL={termo_de_fomento.src}
                       description="..."
-                      link="acordos-termos/relacao-fiscais-vigentes"
+                      link="contratos-atas/relacao-fiscais-vigentes"
                       backgroundColor="transparent"
                     />
                   </Box>
