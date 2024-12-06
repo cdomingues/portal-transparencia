@@ -251,7 +251,6 @@ function Screen({
           </Stack>
          
           <Divider width="50%" marginTop="10px" marginBottom="10px" />  
-          <Text mt="20px"  pt="20px" fontSize="medium" fontWeight="700">Dados referentes ao mês 11, aguardando processamentos da folha de pagamento</Text>
           <TableWithOutFilterComponent
             withFilter={false}
             loading={loading}
