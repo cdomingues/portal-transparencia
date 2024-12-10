@@ -696,13 +696,7 @@ let publicRoutes: IPublicRoute[] = [
       },
     ],
   },
-  {
-    defaultPath:"/liga",
-    name:"LIGA",
-    path:"/liga",
-    icon: AiOutlineProfile
-
-  },
+  
 
   {
     name: "Mapa do Site",

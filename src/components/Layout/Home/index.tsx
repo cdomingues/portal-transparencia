@@ -21,7 +21,7 @@ import {
   Image,
 } from "@chakra-ui/react";
 import CardHome from "../../CardHome";
-import VLibras from "vlibras-nextjs";
+//import VLibras from "vlibras-nextjs";
 import ModalPopup from "../../Modal";
 import Video from "../../Videos";
 
@@ -41,7 +41,7 @@ function PublicHome() {
 
   return (
     <>
-      <VLibras forceOnload />
+     
       <Head>
         <title>Início</title>
       </Head>
