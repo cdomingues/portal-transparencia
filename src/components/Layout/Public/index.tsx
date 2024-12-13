@@ -12,7 +12,7 @@ type Props = {
 function PublicLayout({ children }: Props) {
   return (
     <>
-      
+       {/* <VLibras forceOnload />  */}
       <SideBar routes={publicRoutes}>{children}</SideBar>
      
       <Footer />

@@ -237,7 +237,7 @@ const anosDisponiveis=  Array.from(new Set(concursos.map((info) => new Date(info
         
        <Flex key={item.id_concurso}   >
           <Box flex="end" p={2} marginRight={5}>
-          {moment(item.data).format('DD/MM/YYYY')}
+          {moment(item.data).utc().format('DD/MM/YYYY')}
             <br/></Box>
          
          <Box  maxWidth="100%"  p={2}>
