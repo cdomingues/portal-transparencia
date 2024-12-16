@@ -293,7 +293,7 @@ Otimização do sistema viário municipal.</Text>
               <h2>
                 <AccordionButton>
                   <Box as="span" flex='1' textAlign='left'>
-                  Janeiro à Agosto de 2024
+                  2024
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>

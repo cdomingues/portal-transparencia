@@ -16,6 +16,7 @@ import logoDark from "../../../../assets/images/Brasao_horizontal_branco.png";
 import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAccessibility";
 import seloTansparencia2022 from "../../../../assets/images/selo_ouro (1).png"
 import seloTansparencia2023 from "../../../../assets/images/selo_transparencia_ouro-2023.png"
+import seloTansparencia2024 from "../../../../assets/images/selo_transparencia_ouro-2024.png"
 import pnpc from "../../../../assets/images/logo-PNPC.png"
 //import PageViewCounter from "../../../PageView";
 
@@ -153,9 +154,10 @@ export default function LargeWithLogoCentered() {
           }}
         >
           
-          <Image alt="logo" width="160px" pr="20px" src={seloTansparencia2022.src}/>
-        <Image alt="logo" width="160px" pr="20px"  src={seloTansparencia2023.src} />
-        <Image alt="logo" width="160px" pr="20px" src={pnpc.src} />
+          <Image alt="logo" width="160px" pr="30px" src={seloTansparencia2022.src}/>
+        <Image alt="logo" width="160px" pr="30px"  src={seloTansparencia2023.src} />
+        <Image alt="logo" width="160px" pr="30px"  src={seloTansparencia2024.src} />
+        <Image alt="logo" width="160px" pr="30px" src={pnpc.src} />
         
         </Flex>
        
