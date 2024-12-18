@@ -33,7 +33,7 @@ const ModalContracts = ({ isOpen, onClose, termo }: any) => {
 
               <TabItem >Arquivos</TabItem>
 
-             
+              <TabItem >Prestação de Contas</TabItem>
             </ListTabs>
 
             <TabPanels>
@@ -46,7 +46,7 @@ const ModalContracts = ({ isOpen, onClose, termo }: any) => {
               </Panel>
 
               <Panel>
-               
+                <PrestacaoContas termo={termo}/>
               </Panel>
             </TabPanels>
           </Tabs>
