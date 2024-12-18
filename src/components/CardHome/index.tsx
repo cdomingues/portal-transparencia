@@ -285,13 +285,12 @@ function CardHome() {
       backgroundColor: "blue",
       showExtraLinks: true,
       extraLinks: [
+        {label: "Dados Abertos - CKAN", url:"https://dados.mogidascruzes.sp.gov.br/"},
         { label: "Inventário de Dados", url: "https://app.powerbi.com/view?r=eyJrIjoiYmQxYzMwZTItYjQwMy00YzcyLWJjMjctMzgxNjgyNDUxOWQ2IiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9" },
         
       ],
     },
-  
-
-    {
+      {
       title: "Execução Orçamentária",
       imageURL: Gestao_orcamentaria.src,
       description: "Descrição 3",
@@ -500,18 +499,8 @@ function CardHome() {
       ],
     },
 
-    {
-      title: "Inventário de Dados",
-      imageURL: Leis_decretos_portarias.src,
-      description: " ",
-      link: "https://app.powerbi.com/view?r=eyJrIjoiYmQxYzMwZTItYjQwMy00YzcyLWJjMjctMzgxNjgyNDUxOWQ2IiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
-      backgroundColor: "blue",
-      showExtraLinks: false,
-      extraLinks: [
-        { label: "Link 1", url: "http://exemplo.com/link1" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
-      ],
-    },
+   
+
 
     {
       title: "LAI - Lei de Acesso à Informação",

@@ -1,10 +1,10 @@
 import {  Box, useColorModeValue, Heading,Text, Link, Icon, AccordionPanel, AccordionItem, Accordion, AccordionButton, AccordionIcon, Flex, Stack } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";
-import ContainerBasic from "../../components/Container/Basic";
-import TableComponent, { TableColumns } from "../../components/Table";
-import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
-import Video from "../../components/Videos";
+import ContainerBasic from "../../../../components/Container/Basic";
+import TableComponent, { TableColumns } from "../../../../components/Table";
+import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAccessibility";
+import Video from "../../../../components/Videos";
 import { isMobile } from "react-device-detect";
 import { AiOutlineDownload } from "react-icons/ai";
 

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Screen from "./screen";
 import axios from "axios";
-import moneyFormatter from "../../utils/moneyFormatter";
-import {fundos_municipais} from '../../utils/fundos_municipais'
+import moneyFormatter from "../../../../utils/moneyFormatter";
+import {fundos_municipais} from '../../../../utils/fundos_municipais'
 
 function Controller() {
   const [loading, setLoading] = useState(false);
