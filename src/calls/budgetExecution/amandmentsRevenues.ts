@@ -9,28 +9,28 @@ import moneyFormatter from "../../utils/moneyFormatter";
 import moment from "moment";
 
 type Emendas = {
-  _id: number;
+  id: number;
   
   n_emenda: number;
   ano: number;
   trimestre: string;
-  autor: string;
-  partido: string;
-  orgao_concedente: string;
-  esfera: string;
-  modalidade: string;
-  categoria: string;
+  desc_politico: string;
+  partido_politico: string;
+  desc_orgao: string;
+  esfera_descricao: string;
+  desc_modalidade: string;
+  categoria_descricao: string;
   valor_previsto_emenda: number;
   valor_realizado: number;
   objeto: string;
-  funcao_governo: string;
+  //funcao_governo: string;
   envio_camara: string;
   deliberacao_camara: string;
-  secretaria_resp: string;
-  situacao: string;
+  secretaria: string;
+  //desc_situacao: string;
   publicacao_edital: string;
   link_acesso: string;
-  modalidade_licitacao: string;
+  desc_licitacao: string;
   decisao_autoridade: string;
   contrato_assinado: string;
   valor_finalizado: string;
@@ -53,7 +53,7 @@ export const getAmendmentRevenues = async (year?: number) => {
   try {
     const response = await axios.get(
       //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=b9f57b82-5671-4b52-9585-08470e2ed9d9",
-     "https://dadosadm.mogidascruzes.sp.gov.br/api/emendas",
+     "https://dadosadm.mogidascruzes.sp.gov.br/api/lista_emendas",
       {
         
         params: {
@@ -69,17 +69,17 @@ export const getAmendmentRevenues = async (year?: number) => {
     const mappingData: any = rows?.map((row: Emendas) => {
       return {
 
-        _id: row?.["_id"],
+       //id_emenda: row?.["id"],
        // id_emenda: row?.["id_emenda"],
         n_emenda: row?.["n_emenda"],
         ano: row?.["ano"],
         trimestre: row?.["trimestre"],
-        autor: row?.["autor"],
-        partido: row?.["partido"],
-        orgao_concedente: row?.["orgao_concedente"],
-        esfera: row?.["esfera"],
-        modalidade: row?.["modalidade"],
-        categoria: row?.["categoria"],
+        desc_politico: row?.["desc_politico"],
+        partido_politico: row?.["partido_politico"],
+        desc_orgao: row?.["desc_orgao"],
+        esfera_descricao: row?.["esfera_descricao"],
+        desc_modalidade: row?.["desc_modalidade"],
+        categoria_descricao: row?.["categoria_descricao"],
         valor_previsto_emenda: moneyFormatter(
           Number(row?.["valor_previsto_emenda"])
         ),
@@ -88,14 +88,14 @@ export const getAmendmentRevenues = async (year?: number) => {
       ),
        
         objeto: row?.["objeto"],
-        funcao_governo: row?.["funcao_governo"],
+       // funcao_governo: row?.["funcao_governo"],
         envio_camara: row?.["envio_camara"],
         deliberacao_camara: row?.["deliberacao_camara"],
-        secretaria_resp: row?.["secretaria_resp"],
-        situacao: row?.["situacao"],
+        secretaria: row?.["secretaria"],
+        //desc_situacao: row?.["desc_situacao"],
         publicacao_edital: row?.["publicacao_edital"],
         link_acesso: row?.["link_acesso"],
-        modalidade_licitacao: row?.["modalidade_licitacao"],
+        desc_licitacao: row?.["desc_licitacao"],
         decisao_autoridade: row?.["decisao_autoridade"],
         contrato_assinado: row?.["contrato_assinado"],
         valor_finalizado: row?.["valor_finalizado"],
@@ -120,7 +120,7 @@ export const getAmendmentRevenues = async (year?: number) => {
 export const getChart = async () => {
   try {
     const response = await axios.get(
-      "https://dadosadm.mogidascruzes.sp.gov.br/api/emendas",
+      "https://dadosadm.mogidascruzes.sp.gov.br/api/lista_emendas",
       
     );
 

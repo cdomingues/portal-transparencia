@@ -17,22 +17,25 @@ function Controller({ chart = { datasets: [] }, revenues = [], years }: any) {
   
 
   const columns = [
-    //{ title: "Id Emenda", field: "id_emenda" },
+    
     { title: "Número Emenda", field: "n_emenda" },
     { title: "Ano", field: "ano" },
     { title: "Trimestre", field: "trimestre" },
-    { title: "Autor", field: "autor" },
-    { title: "Partido", field: "partido" },
-    { title: "Orgão Concedente", field: "orgao_concedente" },
-    { title: "Esfera", field: "esfera" },
-    { title: "Modalidade", field: "modalidade" },
-    { title: "Categoria", field: "categoria" },
+    { title: "Autor", field: "desc_politico" },
+    { title: "Partido", field: "partido_politico" },
+    { title: "Orgão Concedente", field: "desc_orgao" },
+    { title: "Esfera", field: "esfera_descricao" },
+    { title: "Modalidade", field: "desc_modalidade" },
+    { title: "Categoria", field: "categoria_descricao" },
+    {title:"Secretaria Responsável", field:"secretaria"},
+   // {title:"Situação ", field:"desc_situacao"},
     { title: "Valor Previsto", field: "valor_previsto_emenda" },
     { title: "Valor Realizado", field: "valor_realizado" },
     { title: "Objeto", field: "objeto" },
     { title: "Empresa", field: "empresa_contratada" },
     { title: "CNPJ", field: "cnpj" },
     { title: "Informações Gerais", field: "informacoes_gerais" },
+    
     
   ];
 

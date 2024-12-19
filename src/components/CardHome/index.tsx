@@ -287,7 +287,7 @@ function CardHome() {
       extraLinks: [
         {label: "Dados Abertos - CKAN", url:"https://dados.mogidascruzes.sp.gov.br/"},
         { label: "Inventário de Dados", url: "https://app.powerbi.com/view?r=eyJrIjoiYmQxYzMwZTItYjQwMy00YzcyLWJjMjctMzgxNjgyNDUxOWQ2IiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9" },
-        
+        {label: "Política Municipal de Dados Abertos", url:"/politica-municipal-dados-abertos"},
       ],
     },
       {
@@ -341,7 +341,11 @@ function CardHome() {
         },
         {
           label: "Incentivos Fiscais",
-          url: "/gestao-orcamentaria/incentivos-fiscais",
+          url: "/gestao-orcamentaria/despesas/incentivos-fiscais",
+        },
+        {
+          label: "Fundos Municipais",
+          url: "/gestao-orcamentaria/despesas/fundos-municipais",
         },
       ],
     },
@@ -642,32 +646,19 @@ function CardHome() {
 
 
     {
-      title: "Plano Municipal de Educação",
+      title: "Planos Municipais",
       imageURL: Plano_municipal_educacao.src,
       description: "Descrição 2",
-      link: "/plano-municipal-educacao",
+      link: "/planos-municipais",
       backgroundColor: "blue",
-      showExtraLinks: false,
+      showExtraLinks: true,
       extraLinks: [
         { label: "Plano Municipal de Saúde", url: "planos-municipais/plano-municipal-saude" },
         { label: "Plano Municipal de Educação", url: "planos-municipais/plano-municipal-educacao" },
         
       ],
     },
-    {
-      title: "Plano Municipal de Saúde",
-      imageURL: Plano_municipal_educacao.src,
-      description: "Descrição 2",
-      link: "/plano-municipal-saude",
-      backgroundColor: "blue",
-      showExtraLinks: false,
-      extraLinks: [
-        { label: "Plano Municipal de Saúde", url: "planos-municipais/plano-municipal-saude" },
-        { label: "Plano Municipal de Educação", url: "planos-municipais/plano-municipal-educacao" },
-        
-      ],
-    },
-
+   
     
     {
       title: "Políticas e Programas",

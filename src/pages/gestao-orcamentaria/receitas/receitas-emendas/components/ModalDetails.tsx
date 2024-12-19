@@ -9,6 +9,7 @@ import {
 import { ListTabs, ModalContainer, Panel, RowDetails, TabItem } from "./styles";
 import Details from "./Details";
 import Info from "./info";
+import PrestacaoContas from "./prestacao_contas";
 
 const ModalDetails = ({ isOpen, onClose, data }: any) => {
   return (
@@ -25,6 +26,7 @@ const ModalDetails = ({ isOpen, onClose, data }: any) => {
             <ListTabs>
               <TabItem>Detalhes</TabItem>
               <TabItem>Informações</TabItem>
+              <TabItem>Prestação de Contas</TabItem>
             </ListTabs>
 
             <TabPanels>
@@ -35,6 +37,12 @@ const ModalDetails = ({ isOpen, onClose, data }: any) => {
               <Panel>
               <Info data={data} />
               </Panel>
+
+              <Panel>
+              <PrestacaoContas data={data} />
+              </Panel>
+
+
             </TabPanels>
           </Tabs>
         </ModalBody>

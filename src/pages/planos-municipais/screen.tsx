@@ -58,6 +58,23 @@ function Screen() {
                
               </Stack>
               
+              <Stack
+                direction={isMobile ? "column" : "row"}
+                align={isMobile ? "center" : "center"}
+                justifyContent={isMobile ? "flex-start" : "center"}
+              >
+                  <Box padding="6" bg="transparent" flexDirection="row">
+                   <CardHorizon
+                      title="Planos Municipal Diversos"
+                      imageURL={cadastro_de_fornecedores.src}
+                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
+                      link="planos-municipais/plano-municipal-diversos"
+                 backgroundColor="transparent"/>
+                                    </Box>
+                 
+                  
+               
+              </Stack>
 
                
                 

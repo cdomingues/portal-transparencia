@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/jsx-key */
 import React, { useEffect, useState } from "react";
-import ContainerBasic from "../../components/Container/Basic";
+import ContainerBasic from "../../../components/Container/Basic";
 import { Box, Icon, Select, Stack, useColorModeValue, Text } from "@chakra-ui/react";
-import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
-import useWindowDimensions from "../../utils/getWindowSize";
+import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
+import useWindowDimensions from "../../../utils/getWindowSize";
 import { isMobile } from "react-device-detect";
 //import publicacoes_educacao from '../../../data/publicacoes_educacao.json';
 import HTMLReactParser from 'html-react-parser'

@@ -356,7 +356,20 @@ let publicRoutes: IPublicRoute[] = [
     path: "/dados-abertos",
     link:"https://dados.mogidascruzes.sp.gov.br/ ",
     icon: AiOutlineAudit,
-    ...contentOtherInformations,
+    group: [
+      
+      {
+       // defaultPath: "/gestao-orcamentaria",
+        name: "Inventário de Dados",
+        path: "https://app.powerbi.com/view?r=eyJrIjoiYmQxYzMwZTItYjQwMy00YzcyLWJjMjctMzgxNjgyNDUxOWQ2IiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
+        icon: AiFillCaretRight,
+      },
+      {
+        //defaultPath: "/gestao-orcamentaria",
+        name: "Política Municipal de Dados Abertos",
+        path: "/politica-municipal-dados-abertos",
+        icon: AiFillCaretRight,
+      },]
   },
 
   {
@@ -436,15 +449,21 @@ let publicRoutes: IPublicRoute[] = [
         icon: AiFillCaretRight,
       },
       {
-        defaultPath: "/gestao-orcamentaria",
+        defaultPath: "/gestao-orcamentaria/despesas/",
         name: "Divida Ativa",
         path: "divida-ativa",
         icon: AiFillCaretRight,
       },
       {
-        defaultPath: "/gestao-orcamentaria",
+        defaultPath: "/gestao-orcamentaria/despesas/",
         name: "Incentivos Fiscais",
         path: "incentivos-fiscais",
+        icon: AiFillCaretRight,
+      },
+      {
+        defaultPath: "/gestao-orcamentaria/despesas/",
+        name: "Fundos Municipais",
+        path: "fundos-municipais",
         icon: AiFillCaretRight,
       },
     ],

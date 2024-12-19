@@ -9,13 +9,13 @@ function Controller() {
   const [data, setData] = useState([]);
  
   const columns = [
-    { title: "Área Gestora", field: "sigla_area_gestora" },
+    { title: "Sigla da área gestora", field: "sigla_area_gestora" },
     { title: "Fundo", field: "sigla_fundo" },
     { title: "Fundo Municipal", field: "fundo_municipal" },
     { title: "CNPJ", field: "cnpj" },
-    { title: "Criação - Norma Legal ", field: "criacao_norma_legal" },
-    { title: "Página web", field: "link_pagina_fundo" },
-    { title: "Página web 2", field: "link_pagina_fundo2" },
+    { title: "Criação - Norma Legal ", field: "criacao" },
+    { title: "Página web", field: "link" },
+   // { title: "Página web 2", field: "link_pagina_fundo2" },
        
     
   ];
@@ -38,7 +38,7 @@ function Controller() {
       const mappedRows: any = rows.map((item) => {
         return {
           ...item,
-          link_pagina_fundo: item?.link_pagina_fundo ,
+          link: item?.link ,
           
         };
       });

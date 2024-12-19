@@ -24,30 +24,21 @@ const PrestacaoContas = ({ termo }: { termo: Acordo }) => {
   console.log("Termo recebido:", termo);
 
   useEffect(() => {
-    const fetchAllPages = async () => {
-      let allResults: PrestacaoContasItem[] = [];
-      let nextPage = "https://dadosadm.mogidascruzes.sp.gov.br/api/prestacao_contas";
-
+    const fetchArquivosPrestacaoContas = async () => {
       try {
-        while (nextPage) {
-          const response = await fetch(nextPage);
-          if (!response.ok) {
-            throw new Error("Falha ao carregar os dados");
-          }
-
-          const pageData = await response.json();
-          allResults = [...allResults, ...pageData.results];
-          nextPage = pageData.next; // Atualiza o link para a próxima página
+        const response = await fetch(`https://dadosadm.mogidascruzes.sp.gov.br/api/prestacao_contas?acordo_id=${termo.id}`);
+        if (!response.ok) {
+          throw new Error('Falha ao carregar os dados');
         }
-
-        console.log("Dados recebidos:", allResults);
-        setData(allResults);
+        const data = await response.json();
+        console.log('Dados recebidos:', data); // Verifique os dados recebidos no console
+        setData(data.results);
       } catch (error) {
-        console.error("Erro ao carregar os dados:", error);
+        console.error('Erro ao carregar os dados:', error);
       }
     };
 
-    fetchAllPages();
+    fetchArquivosPrestacaoContas();
   }, []);
 
   // Filtrar os itens de prestação de contas com base no id do termo
@@ -55,34 +46,36 @@ const PrestacaoContas = ({ termo }: { termo: Acordo }) => {
 
   return (
     <div style={{ overflowX: "auto" }}>
-      <RowDetails>
+      
         {arquivosFiltrados.length > 0 ? (
-          <TableContainer>
-            <Table variant="striped" colorScheme="teal">
-              <Thead>
-                <Tr>
-                  <Td>ID</Td>
-                  <Td>Link para Download</Td>
-                </Tr>
-              </Thead>
-              <Tbody>
-                {arquivosFiltrados.map((arquivo) => (
-                  <Tr key={arquivo.id}>
-                    <Td>{arquivo.id}</Td>
-                    <Td>
-                      <a href={arquivo.arquivo} target="_blank" rel="noopener noreferrer">
-                        Baixar Arquivo
-                      </a>
-                    </Td>
-                  </Tr>
-                ))}
-              </Tbody>
-            </Table>
-          </TableContainer>
+          <>
+                {arquivosFiltrados.map(arquivo => (
+                  <RowDetails>
+  <div key={arquivo.id} style={{ marginBottom: '10px' }}>
+   
+    <div className="row">
+     
+      <div className="value" style={{ marginLeft: '10px' }}>
+        {arquivo.arquivo.split('/').pop()} - 
+        <a
+          href={`https://dadosadm.mogidascruzes.sp.gov.br/${arquivo.arquivo}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: '#185DA6', fontWeight: 'normal', textDecoration: 'none', marginLeft: '5px' }}
+        >
+          Download
+        </a>
+      </div>
+    </div>
+  </div></RowDetails>
+))}
+              
+              </>
+          
         ) : (
-          <p>Nenhum arquivo encontrado para este termo.</p>
+          <p>Nenhum arquivo de prestação de contas encontrado para este termo ou acordo.</p>
         )}
-      </RowDetails>
+      
     </div>
   );
 };
