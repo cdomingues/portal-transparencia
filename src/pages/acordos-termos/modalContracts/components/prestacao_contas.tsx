@@ -58,7 +58,7 @@ const PrestacaoContas = ({ termo }: { termo: Acordo }) => {
       <div className="value" style={{ marginLeft: '10px' }}>
         {arquivo.arquivo.split('/').pop()} - 
         <a
-          href={`https://dadosadm.mogidascruzes.sp.gov.br/${arquivo.arquivo}`}
+          href={arquivo.arquivo}
           target="_blank"
           rel="noopener noreferrer"
           style={{ color: '#185DA6', fontWeight: 'normal', textDecoration: 'none', marginLeft: '5px' }}

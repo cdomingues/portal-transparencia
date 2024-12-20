@@ -11,34 +11,37 @@ interface PrestacaoContasItem {
 
 const PrestacaoContas = ({ data }: any) => {
   const [data2, setData2] = useState<PrestacaoContasItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchArquivosPrestacaoContas = async () => {
       try {
         const response = await fetch(
-          `https://dadosadm.mogidascruzes.sp.gov.br/api/lista_arquivo_emenda?id_emenda=${data.n_emenda}`
+          "https://dadosadm.mogidascruzes.sp.gov.br/api/lista_arquivo_emenda"
         );
         if (!response.ok) {
           throw new Error("Falha ao carregar os dados");
         }
         const result = await response.json();
-        console.log("Dados recebidos:", result); // Verifique os dados recebidos no console
-        setData2(result.results || []);
+        console.log("Dados recebidos:", result); // Verificar os dados recebidos no console
+        setData2(result);
       } catch (error) {
         console.error("Erro ao carregar os dados:", error);
+        setError("Não foi possível carregar os dados. Tente novamente mais tarde.");
+      } finally {
+        setLoading(false);
       }
     };
 
-    if (data && data.id) {
-      fetchArquivosPrestacaoContas();
-    }
-  }, [data]);
+    fetchArquivosPrestacaoContas();
+  }, []);
 
   console.log("Dados filtrados:", data)
   // Filtrar os itens de prestação de contas com base no id do termo
   const arquivosFiltrados = data2.filter((item) => item.n_emenda === data.n_emenda);
 
-  //console.log("Dados filtrados:", arquivosFiltrados)
+  console.log("Dados filtrados:", arquivosFiltrados)
 
   return (
     <div style={{ overflowX: "auto" }}>
@@ -50,7 +53,7 @@ const PrestacaoContas = ({ data }: any) => {
                 <div className="value" style={{ marginLeft: "10px" }}>
                   {arquivo.arquivo.split("/").pop()} -{" "}
                   <a
-                    href={arquivo.arquivo}
+                    href={`http://dadosadm.mogidascruzes.sp.gov.br/${arquivo.arquivo}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
