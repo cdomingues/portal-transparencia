@@ -2,8 +2,8 @@
 import React, { useMemo, useState } from "react";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
-import ExcelJS from "exceljs";
-import { saveAs } from "file-saver";
+//import ExcelJS from "exceljs";
+//import { saveAs } from "file-saver";
 import { useTable, usePagination, useFilters, useSortBy } from "react-table";
 import {
   Table,
@@ -135,7 +135,7 @@ function TableComponent({
     usePagination
   );
 
-  const exportExcel = async (data: any[]) => {
+  /* const exportExcel = async (data: any[]) => {
     // Criar um novo workbook e uma planilha
     const workbook = new ExcelJS.Workbook();
     const worksheet = workbook.addWorksheet("Dados Abertos");
@@ -157,7 +157,7 @@ function TableComponent({
     saveAs(blob, `dados_abertos_${new Date().getTime()}.xlsx`);
   };
 
-
+ */
   const exportPdf = (data: any[]) => {
     const doc = new jsPDF("landscape");
   
