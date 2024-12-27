@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useMemo, useState } from "react";
 import jsPDF from "jspdf";
-import "jspdf-autotable";
+//import "jspdf-autotable";
 //import ExcelJS from "exceljs";
 //import { saveAs } from "file-saver";
 import { useTable, usePagination, useFilters, useSortBy } from "react-table";
@@ -158,7 +158,7 @@ function TableComponent({
   };
 
  */
-  const exportPdf = (data: any[]) => {
+  /* const exportPdf = (data: any[]) => {
     const doc = new jsPDF("landscape");
   
     // Formatar os dados
@@ -191,7 +191,7 @@ function TableComponent({
     // Salvar o arquivo PDF
     doc.save(`${new Date().getTime()}.pdf`);
   };
-  
+   */
   const exportJson = () => {
     const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
       JSON.stringify(data)
@@ -310,12 +310,8 @@ function TableComponent({
                 )}
               </CsvItem>
               <MenuItem onClick={() => exportJson()}><Text fontSize={accessibility.fonts.large}>.JSON</Text></MenuItem>
-              <MenuItem onClick={() => exportPdf(data)}>
-        <Text fontSize={accessibility.fonts.large}>.PDF</Text>
-      </MenuItem>
-      <MenuItem onClick={() => exportExcel(data)}>
-        <Text fontSize="large">.XLSX</Text>
-      </MenuItem>
+              
+     
             </MenuList>
           </Menu>
         </Box>
