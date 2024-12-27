@@ -1,5 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useMemo, useState } from "react";
+import jsPDF from "jspdf";
+import "jspdf-autotable";
+import * as XLSX from "xlsx";
 import { useTable, usePagination, useFilters, useSortBy } from "react-table";
 import {
   Table,
@@ -131,6 +134,59 @@ function TableComponent({
     usePagination
   );
 
+  const exportExcel = (data: any[]) => {
+    // Converter dados para formato adequado para o Excel
+    const headers = Object.keys(data[0]); // Cabeçalhos baseados no primeiro objeto
+    const rows = data.map((item) => headers.map((header) => item[header])); // Linhas de dados
+  
+    // Criação de uma planilha
+    const worksheetData = [headers, ...rows]; // Adicionar cabeçalhos como a primeira linha
+    const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
+    const workbook = XLSX.utils.book_new();
+  
+    // Adicionar planilha ao workbook
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Dados Abertos");
+  
+    // Salvar arquivo Excel
+    XLSX.writeFile(workbook, `dados_abertos_${new Date().getTime()}.xlsx`);
+  };
+  
+
+
+  const exportPdf = (data: any[]) => {
+    const doc = new jsPDF("landscape");
+  
+    // Formatar os dados
+    const formattedData = data.map((item) => Object.values(item));
+    const headers = [Object.keys(data[0])];
+  
+    // Adicionar título
+    doc.text("Dados Abertos", 14, 10);
+  
+    // Configurar tabela com quebras de linha e redimensionamento automático
+    doc.autoTable({
+      head: headers,
+      body: formattedData,
+      startY: 20,
+      styles: {
+        fontSize: 8, // Reduz tamanho da fonte para ajustar o conteúdo
+        cellPadding: 2, // Define espaçamento interno da célula
+      },
+      columnStyles: {
+        // Ajuste dinâmico para largura proporcional ao conteúdo
+        0: { cellWidth: 'auto' }, // Coluna 0, ajuste automático
+      },
+      bodyStyles: {
+        overflow: 'linebreak', // Permite quebra de linha no conteúdo
+      },
+      margin: { top: 20, left: 10, right: 10 }, // Define margens
+      tableWidth: 'wrap', // Ajusta a tabela ao tamanho necessário
+    });
+  
+    // Salvar o arquivo PDF
+    doc.save(`${new Date().getTime()}.pdf`);
+  };
+  
   const exportJson = () => {
     const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
       JSON.stringify(data)
@@ -249,6 +305,12 @@ function TableComponent({
                 )}
               </CsvItem>
               <MenuItem onClick={() => exportJson()}><Text fontSize={accessibility.fonts.large}>.JSON</Text></MenuItem>
+              <MenuItem onClick={() => exportPdf(data)}>
+        <Text fontSize={accessibility.fonts.large}>.PDF</Text>
+      </MenuItem>
+      <MenuItem onClick={() => exportExcel(data)}>
+        <Text fontSize="large">.XLSX</Text>
+      </MenuItem>
             </MenuList>
           </Menu>
         </Box>
