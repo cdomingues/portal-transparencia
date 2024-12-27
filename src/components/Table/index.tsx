@@ -2,7 +2,8 @@
 import React, { useMemo, useState } from "react";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
-import * as XLSX from "xlsx";
+import ExcelJS from "exceljs";
+import { saveAs } from "file-saver";
 import { useTable, usePagination, useFilters, useSortBy } from "react-table";
 import {
   Table,
@@ -134,23 +135,27 @@ function TableComponent({
     usePagination
   );
 
-  const exportExcel = (data: any[]) => {
-    // Converter dados para formato adequado para o Excel
-    const headers = Object.keys(data[0]); // Cabeçalhos baseados no primeiro objeto
-    const rows = data.map((item) => headers.map((header) => item[header])); // Linhas de dados
+  const exportExcel = async (data: any[]) => {
+    // Criar um novo workbook e uma planilha
+    const workbook = new ExcelJS.Workbook();
+    const worksheet = workbook.addWorksheet("Dados Abertos");
   
-    // Criação de uma planilha
-    const worksheetData = [headers, ...rows]; // Adicionar cabeçalhos como a primeira linha
-    const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
-    const workbook = XLSX.utils.book_new();
+    // Adicionar cabeçalhos
+    const headers = Object.keys(data[0]);
+    worksheet.addRow(headers);
   
-    // Adicionar planilha ao workbook
-    XLSX.utils.book_append_sheet(workbook, worksheet, "Dados Abertos");
+    // Adicionar dados
+    data.forEach((item) => {
+      worksheet.addRow(headers.map((header) => item[header]));
+    });
   
-    // Salvar arquivo Excel
-    XLSX.writeFile(workbook, `dados_abertos_${new Date().getTime()}.xlsx`);
+    // Gerar arquivo Excel como blob
+    const buffer = await workbook.xlsx.writeBuffer();
+    const blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+  
+    // Salvar arquivo
+    saveAs(blob, `dados_abertos_${new Date().getTime()}.xlsx`);
   };
-  
 
 
   const exportPdf = (data: any[]) => {
