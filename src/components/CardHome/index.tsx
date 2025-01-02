@@ -102,17 +102,14 @@ function CardHome() {
           url: "/agenda-aberta/",
         },
         {
-          label: "Prefeito - Caio Cunha",
-          url: "/agenda-aberta/agenda-prefeito",
+          label: "Prefeita - Mara Bertaiolli",
+          url: "/agenda-aberta/agenda-prefeita",
         },
         {
-          label: "Vice Prefeita - Priscila Yamagami",
-          url: "/agenda-aberta/agenda-coprefeita",
+          label: "Vice Prefeito - Teo Cusatis",
+          url: "/agenda-aberta/agenda-viceprefeito",
         }, 
-        {
-          label: "Chefe de Gabinete - Fabiana Camacho Bava",
-          url: "/agenda-aberta/agenda-chefe-gabinete",
-        }, 
+        
         {
           label: "Demais Autoridades",
           url: "/agenda-aberta/agenda-secretarios",

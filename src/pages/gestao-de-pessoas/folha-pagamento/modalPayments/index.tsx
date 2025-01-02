@@ -96,11 +96,11 @@ const ModalPayments = ({ isOpen, onClose, payments }: any) => {
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} size={"5xl"} >
-      <ModalContainer bg={useColorModeValue("white", "gray.800")}>
+      <ModalContainer borderColor={"gray.800"} bg={useColorModeValue("white", "gray.800")}>
         <ModalHeader bg="transparent">
           Matrícula Nº {payments?.matricula}
         </ModalHeader>
-        <ModalCloseButton style={{ color: "white" }} />
+        <ModalCloseButton style={{ color: "gray" }} />
         <ModalBody
         bg={useColorModeValue("white", "gray.800")}
           style={{ paddingLeft: 0, paddingRight: 0, paddingBottom: 0 }}

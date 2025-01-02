@@ -9,8 +9,8 @@ import balanco_anual from "../../assets/images/icones/balanco_anual.svg";
 import lei_orcamentaria from "../../assets/images/icones/lei_orcamentaria_anual.svg";
 import parecer_tribunal from "../../assets/images/icones/parecer_tribunal.svg";
 import plano_plurianual from "../../assets/images/icones/plano_plurianual.svg";
-import agenda_vice_prefeito from "../../assets/images/icones/agenda aberta__agenda caio.svg";
-import agenda_prefeita from "../../assets/images/icones/agenda aberta__agenda priscila.svg";
+import agenda_caio from "../../assets/images/icones/agenda aberta__agenda caio.svg";
+import agenda_priscila from "../../assets/images/icones/agenda aberta__agenda priscila.svg";
 import {
   Box,
   Divider,
@@ -180,20 +180,21 @@ function HomeScreen({ handler }: PropsInput) {
                 >
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Agenda Prefeita - Mara Bertaiolli"
-                      imageURL={agenda_prefeita.src}
+                      title="Agenda Prefeito - Caio Cunha"
+                      imageURL={agenda_caio.src}
                       description="Conforme previsto na Lei Municipal 7.653/2021 e no Decreto 21.006/22, todo cidadão pode ter acesso à agenda de compromissos oficiais das autoridades do Executivo de Mogi das Cruzes. Esta é mais uma medida de promoção da integridade no setor público."
-                      link="agenda-aberta/agenda-prefeita"
+                      link="agenda-aberta/agenda-prefeito"
                       backgroundColor="transparent"
                     />
                   </Box>
 
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
-                      title="Agenda Vice Prefeito - Teo Cusatis"
-                      imageURL={agenda_vice_prefeito.src}
+                      title="Agenda Vice Prefeita
+                    Priscila Yamagami"
+                      imageURL={agenda_priscila.src}
                       description="Conforme previsto na Lei Municipal nº  7.653/2021 e no Decreto nº  21.006/22, todo cidadão pode ter acesso à agenda de compromissos oficiais das autoridades do Executivo de Mogi das Cruzes. Esta é mais uma medida de promoção da integridade no setor público."
-                      link="agenda-aberta/agenda-viceprefeito"
+                      link="agenda-aberta/agenda-coprefeita"
                       backgroundColor="transparent"
                     />
                   </Box>
@@ -207,11 +208,20 @@ function HomeScreen({ handler }: PropsInput) {
 
                 
 
-                  
+                  <Box padding="6 " bg="transparent" flexDirection="row" >
+                    <CardHorizon
+                      title="Agenda Chefe de Gabinete "
+                      imageURL={agenda_caio.src}
+                      description="Conforme previsto na Lei Municipal 7.653/2021 e no Decreto 21.006/22, todo cidadão pode ter acesso à agenda de compromissos oficiais das autoridades do Executivo de Mogi das Cruzes. Esta é mais uma medida de promoção da integridade no setor público."
+                      link="agenda-aberta/agenda-chefe-gabinete"
+                      backgroundColor="transparent"
+                      
+                    />
+                  </Box>
                   <Box padding="6 " bg="transparent" flexDirection="row" >
                     <CardHorizon
                       title="Agenda Demais Autoridades "
-                      imageURL={agenda_vice_prefeito.src}
+                      imageURL={agenda_caio.src}
                       description="Conforme previsto na Lei Municipal 7.653/2021 e no Decreto 21.006/22, todo cidadão pode ter acesso à agenda de compromissos oficiais das autoridades do Executivo de Mogi das Cruzes. Esta é mais uma medida de promoção da integridade no setor público."
                       link="agenda-aberta/agenda-secretarios"
                       backgroundColor="transparent"
