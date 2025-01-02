@@ -1,5 +1,9 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useMemo, useState } from "react";
+import jsPDF from "jspdf";
+//import "jspdf-autotable";
+//import ExcelJS from "exceljs";
+//import { saveAs } from "file-saver";
 import { useTable, usePagination, useFilters, useSortBy } from "react-table";
 import {
   Table,
@@ -131,6 +135,63 @@ function TableComponent({
     usePagination
   );
 
+  /* const exportExcel = async (data: any[]) => {
+    // Criar um novo workbook e uma planilha
+    const workbook = new ExcelJS.Workbook();
+    const worksheet = workbook.addWorksheet("Dados Abertos");
+  
+    // Adicionar cabeçalhos
+    const headers = Object.keys(data[0]);
+    worksheet.addRow(headers);
+  
+    // Adicionar dados
+    data.forEach((item) => {
+      worksheet.addRow(headers.map((header) => item[header]));
+    });
+  
+    // Gerar arquivo Excel como blob
+    const buffer = await workbook.xlsx.writeBuffer();
+    const blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+  
+    // Salvar arquivo
+    saveAs(blob, `dados_abertos_${new Date().getTime()}.xlsx`);
+  };
+
+ */
+  /* const exportPdf = (data: any[]) => {
+    const doc = new jsPDF("landscape");
+  
+    // Formatar os dados
+    const formattedData = data.map((item) => Object.values(item));
+    const headers = [Object.keys(data[0])];
+  
+    // Adicionar título
+    doc.text("Dados Abertos", 14, 10);
+  
+    // Configurar tabela com quebras de linha e redimensionamento automático
+    doc.autoTable({
+      head: headers,
+      body: formattedData,
+      startY: 20,
+      styles: {
+        fontSize: 8, // Reduz tamanho da fonte para ajustar o conteúdo
+        cellPadding: 2, // Define espaçamento interno da célula
+      },
+      columnStyles: {
+        // Ajuste dinâmico para largura proporcional ao conteúdo
+        0: { cellWidth: 'auto' }, // Coluna 0, ajuste automático
+      },
+      bodyStyles: {
+        overflow: 'linebreak', // Permite quebra de linha no conteúdo
+      },
+      margin: { top: 20, left: 10, right: 10 }, // Define margens
+      tableWidth: 'wrap', // Ajusta a tabela ao tamanho necessário
+    });
+  
+    // Salvar o arquivo PDF
+    doc.save(`${new Date().getTime()}.pdf`);
+  };
+   */
   const exportJson = () => {
     const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
       JSON.stringify(data)
@@ -249,6 +310,8 @@ function TableComponent({
                 )}
               </CsvItem>
               <MenuItem onClick={() => exportJson()}><Text fontSize={accessibility.fonts.large}>.JSON</Text></MenuItem>
+              
+     
             </MenuList>
           </Menu>
         </Box>

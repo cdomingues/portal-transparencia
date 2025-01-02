@@ -120,7 +120,7 @@ function Controller() {
     const mappedRows = rows?.map((item: any) => {
       return {
         ...item,
-        ponto_radar: item?.ponto_radar.substring(7)
+      //  ponto_radar: item?.ponto_radar.substring(7)
         
       };
     });

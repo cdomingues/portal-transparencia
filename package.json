@@ -19,7 +19,7 @@
     "apexcharts": "^3.41.0",
     "axios": "^1.4.0",
     "chart.js": "^4.2.1",
-    "cheerio": "^1.0.0-rc.12",
+    "cheerio": "^1.0.0",
     "content-disposition": "^0.5.4",
     "d3": "^7.8.4",
     "date-fns": "^2.30.0",
@@ -60,6 +60,7 @@
     "styled-components": "^5.3.9",
     "swiper": "^9.2.3",
     "vlibras-nextjs": "^1.1.2",
+    "xlsx": "0.18.5",
     "yarn": "^1.22.19"
   },
   "devDependencies": {
