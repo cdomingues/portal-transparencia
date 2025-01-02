@@ -30,6 +30,7 @@ type PropsInput = {
 };
 
 interface Cargo {
+  ativo: boolean;
   cargo: string;
   nome: string;
 }
@@ -47,6 +48,7 @@ type Meeting = {
   tipo_compromisso: string;
   cargo: any;
   fim_compromisso: string;
+  ativo:string;
 };
 
 export const contentMayorAgenda = {
@@ -143,38 +145,16 @@ function Screen({ handler }: PropsInput) {
         timeWithSubtraction.format("YYYY-MM-DD") ===
         String(moment(selected).format("YYYY-MM-DD"));
       const isNotPrefeitoOrCoPrefeita =
-        item?.cargo !== "Prefeito" && item?.cargo !== "Co-Prefeita";
-      const isSameCargo =
-        selectedCargo === "" ||
-        selectedCargo === item?.nome ||
-        (selectedCargo === "Secretário Municipal de Desenvolvimento Econômico e Inovação" &&
-          item.cargo === "Chefe de Gabinete do Prefeito");
+        item?.cargo !== "Prefeito" && item?.cargo !== "Vice-Prefeita";
+     
       const isNotFutureDate = timeWithSubtraction.isSameOrBefore(moment(), "day");
 
       return (
-        isSameDate && isNotPrefeitoOrCoPrefeita && isSameCargo && isNotFutureDate
+        isSameDate && isNotPrefeitoOrCoPrefeita  && isNotFutureDate
       );
     })
-    .flatMap((item: Meeting) => {
-      // Duplicate if cargo is "Chefe de Gabinete do Prefeito"
-      if (item.cargo === "Secretário Municipal de Transparência e Dados Abertos") {
-        return [
-          item,
-          {
-            ...item,
-            cargo: "Secretário Municipal de Planejamento e Gestão Estratégica",
-          },
-        ];
-      }
-      return [item];
-    })
-    .map((item: Meeting) => {
-      if (item.cargo === "Chefe de Gabinete do Prefeito" &&
-          selectedCargo === "Secretário Municipal de Desenvolvimento Econômico e Inovação") {
-        return { ...item, cargo: "Secretário Municipal de Desenvolvimento Econômico e Inovação" };
-      }
-      return item;
-    })
+    
+    
     .sort((a: Meeting, b: Meeting) => {
       const aHours = moment(a?.data_compromisso).format("HH:mm");
       const bHours = moment(b?.data_compromisso).format("HH:mm");
@@ -233,45 +213,27 @@ function Screen({ handler }: PropsInput) {
           </Heading>
           <Text>Selecione o Cargo</Text>
           <Select
-            minW={90}
-            width="45%"
-            bg={useColorModeValue("white", "gray.800")}
-            value={selectedCargo}
-            onChange={(event) => setSelectedCargo(event.target.value)}
-          >
-            <option value="">Todos os Cargos</option>
-            <option value="Pedro Ivo">Diretor Superintendente do IPREM</option>
-            <option value="Nídia Fátima Cristóforo">Secretária Adjunta da Secretaria de Urbanismo</option>
-            <option value="Mariane Prestes da Silva Pena">Secretária Adjunta de Educação</option>
-            <option value="Jéssica Cristina da Silva">Secretária Adjunta de Planejamento e Gestão Estratégica</option>
-            <option value="Cristiane Ayres Contri">Secretária Adjunta de Transparência e Dados Abertos</option>
-            <option value="Adriana Ferreira dos Santos">Secretária Municipal de Assistência Social</option>
-            <option value="Claudinéli Moreira Ramos">Secretária Municipal de Cultura</option>
-            <option value="Marilu Felipe dos Santos Beranger">Secretária Municipal de Educação</option>
-            <option value="Ionara Amélia Fernandes">Secretária Municipal de Meio Ambiente e Proteção Animal</option>
-            <option value="Miriam Carrasco Benites da Silva">Secretária Municipal de Mobilidade Urbana</option>
-            <option value="Marcelo Silvério">Secretário Adjunto de Assuntos Jurídicos</option>
-            <option value="Claudemir de Menezes">Secretário Adjunto de Desenvolvimento Econômico e Inovação</option>
-            <option value="Paulo Cardozo de Mello Boccuzzi">Secretário Adjunto de Esportes e Lazer</option>
-            <option value="Eric Welson de Andrade">Secretário Adjunto de Gestão Pública</option>
-            <option value="Rubens Pedro">Secretário Adjunto de Governo</option>
-            <option value="Joaquim Lopes da Silva Junior">Secretário Adjunto de Infraestrutura Urbana</option>
-            <option value="Felipe Monteiro de Almeida">Secretário Municipal de Agricultura e Abastecimento</option>
-            <option value="Felipe Rocha Magalhães">Secretário Municipal de Assuntos Jurídicos</option>
-            <option value="Gabriel Bastianelli">Secretário Municipal de Desenvolvimento Economico e Inovação</option>
-            <option value="Gustavo Carvalho Nogueira">Secretário Municipal de Esportes e Lazer</option>
-            <option value="Ricardo Abílio Rossi Cardoso">Secretário Municipal de Finanças</option>
-            <option value="Jony M. R. Santos">Secretário Municipal de Gestão Pública</option>
-            <option value="Carlos Lothar Kautza">Secretário Municipal de Habitação Social e Regularização Fundiária</option>
-            <option value="Alessandro Silveira">Secretário Municipal de Infraestrutura Urbana</option>
-            <option value="Marcos Torres">Secretário Municipal de Planejamento e Gestão Estratégica</option>
-            <option value="William Harada">Secretário Municipal de Saúde</option>
-            <option value="Augusto Cesar Barbosa">Secretário Municipal de Segurança</option>
-            <option value="Marcos Torres">Secretário Municipal de Transparência e Dados Abertos</option>
-            <option value="Claudio Marcelo de Faria Rodrigues">Secretário Municipal de Urbanismo</option>
-
-
-          </Select>
+  minW={90}
+  width="45%"
+  bg={useColorModeValue("white", "gray.800")}
+  value={selectedCargo}
+  onChange={(event) => setSelectedCargo(event.target.value)}
+>
+  <option value="">Todos os Cargos</option>
+  {apiCargos
+    .filter(
+      (item) =>
+        item.ativo === true && // Filtra cargos onde ativo é true
+        !excludedList.includes(item.cargo) &&
+        item.cargo &&
+        item.cargo.trim()
+    )
+    .map((item, index) => (
+      <option key={index} value={item.cargo}>
+        {item.cargo}
+      </option>
+    ))}
+</Select>
 
           <Stack direction="row" flexWrap="wrap-reverse">
             <Stack

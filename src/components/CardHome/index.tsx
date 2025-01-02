@@ -410,7 +410,7 @@ function CardHome() {
     },  
 
     {
-      title: "Gestão Extra Orçamentária",
+      title: "Execução Extra Orçamentária",
       imageURL: Gestao_extra_orcamentaria.src,
       description: "Descrição 3",
       link: "/gestao-extra-orcamentaria",
@@ -418,7 +418,7 @@ function CardHome() {
       showExtraLinks: true,
       extraLinks: [
         {
-          label: "Gestão Extra Orçamentária - Início",
+          label: "Execução Extra Orçamentária - Início",
           url: "/gestao-extra-orcamentaria/",
         },
         {
@@ -433,17 +433,17 @@ function CardHome() {
     },
 
     {
-      title: "Gestão Orçamentária - Covid-19",
+      title: "Execução Orçamentária Covid 19",
       imageURL: Gestao_orcamentaria_covid.src,
       description: "Descrição 1",
       link: "/gestao-orcamentaria-covid",
       backgroundColor: "white",
       showExtraLinks: true,
       extraLinks: [
-        { label: "Gestão Orçamentária - Covid-19 - Início", url: "covid/" },
+        { label: "Execução Orçamentária Covid 19 - Início", url: "covid/" },
         { label: "Receitas", url: "covid/receitas" },
         { label: "Despesas", url: "covid/despesas" },
-        { label: " Compras COVID-19", url: "http://covid19.pmmc.com.br/" },
+        { label: "Compras COVID-19", url: "http://covid19.pmmc.com.br/" },
         
       ],
     },
@@ -581,10 +581,11 @@ function CardHome() {
       description: "Descrição 3",
       link: "/ouvidoria",
       backgroundColor: "green",
-      showExtraLinks: false,
+      showExtraLinks: true,
       extraLinks: [
+        { label: "Ouvidoria - Início", url: "/ouvidoria" },
         { label: "Pesquisa de Satisfação", url: "/pesquisa-de-satisfacao" },
-        { label: "Link 2", url: "http://exemplo.com/link2" },
+        //{ label: "Link 2", url: "http://exemplo.com/link2" },
       ],
     },
     
@@ -650,8 +651,11 @@ function CardHome() {
       backgroundColor: "blue",
       showExtraLinks: true,
       extraLinks: [
+        { label: "Planos Municipais - Início", url: "planos-municipais/" },
         { label: "Plano Municipal de Saúde", url: "planos-municipais/plano-municipal-saude" },
         { label: "Plano Municipal de Educação", url: "planos-municipais/plano-municipal-educacao" },
+        { label: "Planos Municipais Diversos", url: "planos-municipais/plano-municipal-diversos" },
+
         
       ],
     },
