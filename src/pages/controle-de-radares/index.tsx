@@ -11,9 +11,10 @@ function Controller() {
   const [radarInfractions, setRadarInfractions] = useState([]);
 
   const columns = [
-    { title: "Id", field: "id" },
+   // { title: "Id", field: "id" },
     //{ title: "Bairro", field: "Bairro" },
     { title: "Logradouro", field: "logradouro" },
+    {title:"Número", field: "numero"},
     { title: "Sentido", field: "sentido" },
     { title: "Tipo", field: "subtipo" },
     { title: "Faixas", field: "faixas" },
@@ -58,10 +59,9 @@ function Controller() {
 
   const getData = async () => {
     try {
-      // Supondo que `localizacao_radares` seja uma lista de objetos
-      const rows = localizacao_radares;
-  
-      // Mapeando os dados, adicionando o campo `kmh` se ele não existir
+      const response = await axios.get( "https://dadosadm.mogidascruzes.sp.gov.br/api/lista_radares",);
+      const rows = response.data;
+        
       const mappedRows: any = rows.map((item: { kmh: any; }) => {
         return {
           ...item,
@@ -81,10 +81,9 @@ function Controller() {
 
   const radarCollectionData = async () => {
     const response = await axios.get(
-      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=382c733a-95a0-49ad-ad20-4b6d41361b1d",
-      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=5b6fcdf7-e6f5-41f6-899b-ede6927daffb",
+      
   
-"https://dadosadm.mogidascruzes.sp.gov.br/api/arrecadacoes_por_ponto",    
+"https://dadosadm.mogidascruzes.sp.gov.br/api/lista_arrecadacoes_por_ponto",    
  {
         
       }
@@ -97,6 +96,7 @@ function Controller() {
         ...item,
         porcentagem: item?.porcentagem + " %",
         valor: moneyFormatter(parseFloat(item?.valor)),
+        //mes: item?.mes.toUperCase(),
       };
     });
 
@@ -109,7 +109,7 @@ function Controller() {
     const response = await axios.get(
       //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=720f32e2-c0c9-475a-bf5f-027adfd417e7",
      // "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=d9ec0eb6-cce1-4e4e-8c71-61654e9815fe",
-     "https://dadosadm.mogidascruzes.sp.gov.br/api/autuacoes_por_ponto", 
+     "https://dadosadm.mogidascruzes.sp.gov.br/api/lista_autuacoes_por_ponto", 
       {
         
       }
@@ -120,6 +120,7 @@ function Controller() {
     const mappedRows = rows?.map((item: any) => {
       return {
         ...item,
+       // mes: item?.mes.toUperCase()
       //  ponto_radar: item?.ponto_radar.substring(7)
         
       };

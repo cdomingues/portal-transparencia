@@ -119,19 +119,25 @@ function Screen({ handler }: PropsInput) {
           "https://dadosadm.mogidascruzes.sp.gov.br/api/pessoas/"
         );
         const data = response.data;
-
+  
+        
+  
+        // Mapear e filtrar cargos onde ativo === true
         const fetchedCargos =
-          data.results?.map((item: any) => ({
-            cargo: item.cargo,
-            nome: item.nome,
-          })) || [];
-
+          data.results
+            ?.filter((item: any) => item.ativo === true) // Filtrar por ativo
+            .map((item: any) => ({
+              cargo: item.cargo,
+              nome: item.nome,
+            })) ;
+  
         setApiCargos(fetchedCargos);
       } catch (error) {
         console.error("Error fetching cargos from API:", error);
-      }
+              }
+              
     };
-
+  
     fetchCargosFromApi();
   }, []);
 
@@ -221,14 +227,8 @@ function Screen({ handler }: PropsInput) {
 >
   <option value="">Todos os Cargos</option>
   {apiCargos
-    .filter(
-      (item) =>
-        item.ativo === true && // Filtra cargos onde ativo é true
-        !excludedList.includes(item.cargo) &&
-        item.cargo &&
-        item.cargo.trim()
-    )
-    .map((item, index) => (
+  .sort((a, b) => a.cargo.localeCompare(b.cargo))
+        .map((item, index) => (
       <option key={index} value={item.cargo}>
         {item.cargo}
       </option>
