@@ -120,22 +120,24 @@ function Screen({ handler }: PropsInput) {
         );
         const data = response.data;
   
-        
-  
-        // Mapear e filtrar cargos onde ativo === true
+        // Mapear e filtrar cargos onde ativo === true e não são "Prefeita" ou "Vice-Prefeito"
         const fetchedCargos =
           data.results
-            ?.filter((item: any) => item.ativo === true) // Filtrar por ativo
+            ?.filter(
+              (item: any) =>
+                item.ativo === true && 
+                item.cargo !== "Prefeita" && 
+                item.cargo !== "Vice Prefeito"
+            )
             .map((item: any) => ({
               cargo: item.cargo,
               nome: item.nome,
-            })) ;
+            }));
   
         setApiCargos(fetchedCargos);
       } catch (error) {
         console.error("Error fetching cargos from API:", error);
-              }
-              
+      }
     };
   
     fetchCargosFromApi();
@@ -151,7 +153,7 @@ function Screen({ handler }: PropsInput) {
         timeWithSubtraction.format("YYYY-MM-DD") ===
         String(moment(selected).format("YYYY-MM-DD"));
       const isNotPrefeitoOrCoPrefeita =
-        item?.cargo !== "Prefeito" && item?.cargo !== "Vice-Prefeita";
+        item?.cargo !== "Prefeita" && item?.cargo !== "Vice-Prefeito";
      
       const isNotFutureDate = timeWithSubtraction.isSameOrBefore(moment(), "day");
 
