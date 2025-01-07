@@ -43,13 +43,13 @@ function Controller({
       //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=382c733a-95a0-49ad-ad20-4b6d41361b1d",
       //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=5b6fcdf7-e6f5-41f6-899b-ede6927daffb",
   
-"https://dadosadm.mogidascruzes.sp.gov.br/api/receitas",    
+"https://dadosadm.mogidascruzes.sp.gov.br/api/lista_receitas",    
  {
         
       }
     );
 
-    const rows = response.data;
+    const rows = response.data.results;
 
     const mappedRows = rows?.map((item: any) => {
       return {
@@ -77,6 +77,7 @@ function Controller({
   useEffect(() => {
     getReceitas()
   }, []);
+  
   const handleByYear = async (year: number) => {
     setYear(year);
 

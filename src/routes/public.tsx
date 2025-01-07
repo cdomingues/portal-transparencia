@@ -38,7 +38,7 @@ import { contentMunicipalityProfile } from "../pages/perfil-do-municipio/screen"
 import { contentConstructionsControl } from "../pages/controle-de-obras/inicio";
 import { contentAboutConstructions } from "../pages/controle-de-obras/sobre-as-obras";
 import { contentRadarsControl } from "../pages/controle-de-radares/screen";
-import { contentMayorAgenda } from "../pages/agenda-aberta/agenda-prefeita/screen";
+import { contentMayorAgenda } from "../pages/agenda-aberta-off/agenda-prefeita/screen";
 import { contentContractManagement } from "../pages/convenios-transferencias/contratos-gestao/screen";
 
 // import { contentAgreementColaborator } from "../pages/acordos-termos/acordo-de-colaboracao/screen";
@@ -112,7 +112,7 @@ let publicRoutes: IPublicRoute[] = [
       
       
     ],
-  },
+  },/* 
   {
     name: "Agenda Aberta",
     path: "/agenda-aberta",
@@ -148,7 +148,7 @@ let publicRoutes: IPublicRoute[] = [
       },
       
     ],
-  },
+  }, */
   {
     name: "Ciclo Orcamentário",
     path: "/ciclo-orcamentario",
