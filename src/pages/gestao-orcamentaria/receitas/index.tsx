@@ -1,11 +1,9 @@
 import { GetStaticProps } from "next";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Screen from "./screen";
 import { getChart, getChartYears, getRevenues } from "../../../calls/revenues";
 import { revalidate } from "../../../config";
 import moment from "moment";
-import axios from "axios";
-import moneyFormatter from "../../../utils/moneyFormatter";
 
 function Controller({
   chartYear = { datasets: [] },
@@ -16,7 +14,6 @@ function Controller({
   const [year, setYear] = useState(moment().year());
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(revenues);
-  const [receitas, setReceitas] = useState([]);
 
   const columns = [
     { title: "Ano", field: "ano" },
@@ -33,51 +30,9 @@ function Controller({
     { title: "Out", field: "outubro" },
     { title: "Nov", field: "novembro" },
     { title: "Dez", field: "dezembro" },
-    { title: "Total Arrecadado", field: "total_arrecadado" },
-    {title:'Total Previsto',field:'total_previsto'}
+    { title: "Total Arrecadado", field: "totalArrecadado" },
   ];
 
-
-  const getReceitas = async () => {
-    const response = await axios.get(
-      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=382c733a-95a0-49ad-ad20-4b6d41361b1d",
-      //"https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=5b6fcdf7-e6f5-41f6-899b-ede6927daffb",
-  
-"https://dadosadm.mogidascruzes.sp.gov.br/api/lista_receitas",    
- {
-        
-      }
-    );
-
-    const rows = response.data.results;
-
-    const mappedRows = rows?.map((item: any) => {
-      return {
-        ...item,
-        janeiro: moneyFormatter(parseFloat(item?.janeiro)),
-        fevereiro: moneyFormatter(parseFloat(item?.fevereiro)),
-        marco: moneyFormatter(parseFloat(item?.marco)),
-        abril: moneyFormatter(parseFloat(item?.abril)),
-        maio: moneyFormatter(parseFloat(item?.maio)),
-        junho: moneyFormatter(parseFloat(item?.junho)),
-        julho: moneyFormatter(parseFloat(item?.julho)),
-        agosto: moneyFormatter(parseFloat(item?.agosto)),
-        setembro: moneyFormatter(parseFloat(item?.setembro)),
-        outubro: moneyFormatter(parseFloat(item?.outubro)),
-        novembro: moneyFormatter(parseFloat(item?.novembro)),
-        dezembro: moneyFormatter(parseFloat(item?.dezembro)),
-        total_arrecadado: moneyFormatter(parseFloat(item?.total_arrecadado)),
-        total_previsto: moneyFormatter(parseFloat(item?.total_previsto)),
-        
-      };
-    });
-
-    setReceitas(mappedRows);
-  };
-  useEffect(() => {
-    getReceitas()
-  }, []);
-  
   const handleByYear = async (year: number) => {
     setYear(year);
 
@@ -100,7 +55,6 @@ function Controller({
     years,
     handleByYear,
     year,
-    receitas,
   };
 
   return <Screen handler={handler} />;

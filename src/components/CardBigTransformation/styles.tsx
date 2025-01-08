@@ -1,7 +1,13 @@
 import styled from "styled-components";
 import colors from "../../styles/colors";
+import { ReactNode } from "react";
 
-export const Container: any = styled.div`
+interface ContainerProps {
+  source: string;
+  children?: ReactNode;
+}
+
+export const Container: any = styled.div<ContainerProps>`
   width: 100%;
   min-height: 560px;
   background-color: white;
@@ -26,7 +32,7 @@ export const Container: any = styled.div`
   }
 `;
 
-export const Left = styled.div`
+export const Left = styled.div<ContainerProps>`
   flex: 3;
   min-width: 880px;
   border-radius: 20px;
@@ -135,7 +141,7 @@ export const DescriptionBar = styled.div`
   }
 `;
 
-export const Right = styled.div`
+export const Right = styled.div<ContainerProps>`
   flex: 1;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
