@@ -6,7 +6,7 @@ import { parseMoney } from "../../../utils/mask";
 import colors from "../../../styles/colors";
 import Carousel from "../../../components/Swiper";
 import { Box, Img, Input, Link, Select, useColorModeValue } from "@chakra-ui/react";
-import { JSXElementConstructor, Key, ReactElement, ReactFragment, useState } from "react";
+import { JSXElementConstructor, Key, ReactElement, useState } from "react";
 import router from "next/router";
 import { formatString } from "../../../utils/stringUtils";
 import ContainerBasic from "../../../components/Container/Basic";

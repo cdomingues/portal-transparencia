@@ -43,7 +43,21 @@ const CardBigTransformation = ({
 
   return (
     <Style.Container source={backgroundImageSrc}>
-      <Style.Left>
+      <div
+       style={{
+        flex: 3,
+        minWidth: '880px',
+        borderRadius: '20px',
+        marginRight: '20px',
+        backgroundColor: 'gray',
+        backgroundImage: 'url("https://www.mogidascruzes.sp.gov.br/public/site/imagens/6/2023071817355164b6f7a743553.jpg")',
+        backgroundSize: '100% 100%',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center center',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-end'
+      }}>
         <div className="div-separator-mobile"></div>
         <Style.DescriptionBackground></Style.DescriptionBackground>
         <Style.DescriptionBar>
@@ -82,8 +96,18 @@ const CardBigTransformation = ({
             </button>
           </div>
         </Style.DescriptionBar>
-      </Style.Left>
-      <Style.Right>
+      </div>
+      <div
+  style={{
+    flex: 1,
+    borderTopRightRadius: '20px',
+    borderBottomRightRadius: '20px',
+    display: 'grid',
+    gridTemplateColumns: '1fr',
+    gap: '10px',
+    padding: '20px 10px',
+    justifyContent: 'space-between',
+  }}>
         {arrayButton?.map((item, key) => (
           <button
             style={{ backgroundColor: item.color }}
@@ -99,7 +123,7 @@ const CardBigTransformation = ({
             </Text.Heading5Medium>
           </button>
         ))}
-      </Style.Right>
+      </div>
     </Style.Container>
   );
 };

@@ -84,7 +84,7 @@ function TableWithOutFilterComponent({
 }: Props) {
   const [modelType, setModelType] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const cancelRef = React.useRef();
+  const cancelRef = React.useRef(null);
   const accessibility = useFontSizeAccessibilityContext();
 
   const newColumns = useMemo(

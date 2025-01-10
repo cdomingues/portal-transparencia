@@ -231,7 +231,7 @@ function Screen({ handler }: PropsInput) {
   {apiCargos
   .sort((a, b) => a.cargo.localeCompare(b.cargo))
         .map((item, index) => (
-      <option key={index} value={item.cargo}>
+      <option key={index} value={item.nome}>
         {item.cargo}
       </option>
     ))}
