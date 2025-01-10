@@ -3,7 +3,7 @@ import * as d3 from "d3";
 import { max } from "lodash";
 
 const Bubble = ({ buildingsData, setConstructionSelected, reference }: any) => {
-  const svgRef = useRef();
+  const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
     try {

@@ -6,7 +6,7 @@ const BubbleNeighbordhoods = ({
   setConstructionSelected,
   reference,
 }: any) => {
-  const svgRef = useRef();
+  const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
     try {

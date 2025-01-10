@@ -179,12 +179,12 @@ const CardHorizon: React.FC<CardHorizonProps> = ({
   );
 };
 
-CardHorizon.defaultProps = {
+/* CardHorizon.defaultProps = {
   title: "Default Title",
   imageURL: Diretriz_orcamentaria,
   description: "Default Description",
   link: "#",
   showExtraLinks: false,
-};
+}; */
 
 export default CardHorizon;

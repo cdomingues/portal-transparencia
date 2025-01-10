@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { JSX } from "react";
 import { IconType } from "react-icons";
 import styled from "styled-components"; 
 
