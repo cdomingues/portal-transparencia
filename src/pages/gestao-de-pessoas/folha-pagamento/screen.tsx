@@ -74,6 +74,7 @@ function Screen({
   },
 }: PropsInput) {
   const [payments, setPayments] = useState<any>(null);
+  
   const title = contentPayroll?.titlePage;
   const description = contentPayroll?.description;
   const chartConfig = {
@@ -148,39 +149,39 @@ function Screen({
                 Ano
               </Text>
               <Select
-                defaultValue={year}
-                onChange={(e) => setYear(e.target.value)}
-                bg="white"
-                variant="outline"
-                placeholder="Selecionar Ano"
-              >
-                {Array.from({ length: 5 }).map((value, index) => {
-                  const newYear = moment().subtract(index, "years").year();
-                  return (
-                    <option key={index} value={newYear}>
-                      {newYear}
-                    </option>
-                  );
-                })}
-              </Select>
+          value={year} // Define o valor selecionado com base no estado
+          onChange={(e) => setYear(e.target.value)}
+          bg="white"
+          variant="outline"
+          placeholder="Selecionar Ano"
+        >
+          {Array.from({ length: 5 }).map((_, index) => {
+            const newYear = moment().subtract(index, "years").year();
+            return (
+              <option key={index} value={newYear}>
+                {newYear}
+              </option>
+            );
+          })}
+        </Select>
             </Stack>
             <Stack minW={86} width="25%">
               <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
                 Mês
               </Text>
               <Select
-                defaultValue={month}
-                onChange={(e) => setMonth(e.target.value)}
-                bg="white"
-                variant="outline"
-                placeholder="Selecionar Mês"
-              >
-                {Array.from({ length: 12 }).map((value, index) => (
-                  <option key={index} value={index + 1}>
-                    {index + 1}
-                  </option>
-                ))}
-              </Select>
+          value={month} // Define o valor selecionado com base no estado
+          onChange={(e) => setMonth(e.target.value)}
+          bg="white"
+          variant="outline"
+          placeholder="Selecionar Mês"
+        >
+          {Array.from({ length: 12 }).map((_, index) => (
+            <option key={index} value={index + 1}>
+              {index + 1}
+            </option>
+          ))}
+        </Select>
             </Stack>
           </Stack>
 

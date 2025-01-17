@@ -263,9 +263,21 @@ fontWeight="700"
 fontSize={accessibility?.fonts?.regular}
 mt="5px"
 >
-NOV/24 - 29/11 - 14h - online (a confirmar) 
+NOV/24 - 29/11 - 14h - online 
+<br/>
+Assista em: <br/>
+<Link fontWeight="700" href='https://www.youtube.com/watch?v=D2f9XKr_Lh0&ab_channel=PrefeituradeMogidasCruzes' target="blank" style={{ color: "#db334f" }}>Parte I </Link> <br/>
+<Link fontWeight="700" href='https://www.youtube.com/watch?v=eQeGK7a9vZE&ab_channel=PrefeituradeMogidasCruzes' target="blank" style={{ color: "#db334f" }}>Parte II </Link>
+<br />
+Confira o Balanço das Entregas do 1o Plano de Ação em Governo Aberto de Mogi das Cruzes 
+<br />
+
 </Text>
 
+<Link fontWeight="700" href='https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/dec0f3c9-6599-4df7-a48a-4c798683800a/Apresentacao_Portal_CODATA.pdf' target="blank" style={{ color: "#db334f" }}>Apresentacao Portal CODATA </Link>
+<br /><Link fontWeight="700" href='https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/93676974-0604-4052-9355-76e3e21ddb6a/Balan%C3%A7o_1%C2%BAPlano_Gov.Aberto_MogidasCruzes.pdf' target="blank" style={{ color: "#db334f" }}>Balanço 1º Plano Governo Aberto Mogi das Cruzes </Link>
+<br /><Link fontWeight="700" href='https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/809616f5-e8c7-4577-8c9f-234aa19de568/VISUAS_-_Um_retrato_da_popula%C3%A7%C3%A3o_em_vulner_P3y0PSx.pdf' target="blank" style={{ color: "#db334f" }}>VISUAS - Um retrato da população em vulnerabilidade e rede de atendimento de Mogi das Cruzes </Link>
+<br /><Link fontWeight="700" href='https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/b03d1d44-0bc0-4c3f-a777-0c23d841384c/2024_Os_avan%C3%A7os_da_Transpar%C3%AAncia_do_Poder__P3Wjnd2.pdf' target="blank" style={{ color: "#db334f" }}>2024 Os avanços da Transparência do Poder Executivo Municipal </Link>
 
 
 

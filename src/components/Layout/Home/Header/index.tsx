@@ -138,6 +138,7 @@ const DesktopNav = ({
       alignItems="center" // Centraliza os filhos verticalmente
       justifyContent="center" // Centraliza os filhos horizontalmente
       margin="0 auto" // Centraliza a Stack horizontalmente na tela
+      
     >
       <Stack
         direction={"row"}
@@ -396,6 +397,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
       rounded={"md"}
       target={href ? "_blank" : undefined}
       _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+      
     >
       <Stack direction={"row"} align={"center"}>
         <Box>

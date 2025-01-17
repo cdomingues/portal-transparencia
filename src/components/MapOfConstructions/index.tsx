@@ -397,7 +397,7 @@ const MapOfConstructions = () => {
   {constructionSelected && (
     <Style.ConstructionSelected
       style={{
-        position: "fixed",
+        position: "absolute",
         top: "50%",
 
         transform: "translate(-5%, -50%)",
