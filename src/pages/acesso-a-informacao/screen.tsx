@@ -457,7 +457,7 @@ marginBottom="15px">
                 align={isMobile ? "justify" : "left"}
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}
-              >Danielle de Lima Silva. </Text>           
+              > </Text>           
 
              <Text
                 align={isMobile ? "justify" : "left"}
