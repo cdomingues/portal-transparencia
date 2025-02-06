@@ -338,7 +338,7 @@ function CardHome() {
         },
         {
           label: "Incentivos Fiscais",
-          url: "/gestao-orcamentaria/despesas/incentivos-fiscais",
+          url: "/gestao-orcamentaria/incentivos-fiscais",
         },
         {
           label: "Fundos Municipais",
