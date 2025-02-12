@@ -89,7 +89,7 @@ function CardHome() {
       ],
     },
 
-    /* {
+     {
       title: "Agenda Aberta",
       imageURL: Agenda_aberta.src,
       description: "Descrição 3",
@@ -110,12 +110,9 @@ function CardHome() {
           url: "/agenda-aberta/agenda-viceprefeito",
         }, 
         
-        {
-          label: "Demais Autoridades",
-          url: "/agenda-aberta/agenda-secretarios",
-        }, 
+      
       ],
-    }, */
+    }, 
     {
       title: "Ciclo Orçamentário",
       imageURL: Ciclo_orcamentario.src,
