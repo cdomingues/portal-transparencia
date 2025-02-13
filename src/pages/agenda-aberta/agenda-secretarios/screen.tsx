@@ -58,24 +58,7 @@ export const contentMayorAgenda = {
 };
 
 function Screen({ handler }: PropsInput) {
-  const excludedList = [
-    "MOGI DAS CRUZES",
-    "MOGI DAS CRUZES | SEPLAG",
-    "Prefeito",
-    "Prefeito",
-    "Diretor do Departamento de Defesa Civil",
-    "Co-Prefeita",
-    "AGENDA CULTURAL",
-    "AGENDA PARTICIPAÇÃO SOCIAL",
-    "Caio Cunha",
-    "Priscila Yamagami",
-    "Pedro Rodrigues Miranda Neto",
-    "Secretário Municipal de Transparência e Dados Abertos - inativo",
-    "Severino Netto",
-    "Toriel Angelo Mota Sardinha",
-    "Marcos Torres.",
-    
-  ];
+  
 
   const [selected, setSelected] = useState<Date>();
   const [schedule, setSchedule] = useState<Array<Meeting>>([]);
@@ -307,9 +290,7 @@ function Screen({ handler }: PropsInput) {
                           color="text.dark"
                           style={{ margin: 0 }}
                         >
-                            {selectedCargo === "Gabriel Bastianelli" 
-          ? "Secretário Municipal de Desenvolvimento Econômico" 
-          : item?.cargo}
+                            { item?.cargo}
                         </Text>
                         <Text
                           fontSize={accessibility?.fonts?.medium}

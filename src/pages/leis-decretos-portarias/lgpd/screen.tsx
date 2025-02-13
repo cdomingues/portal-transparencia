@@ -226,14 +226,7 @@ marginBottom="15px">
               >
               
 
-              <Text justifyContent="flex-end">Marcos Torres, ocupante do cargo de Secretário-adjunto nomeado pela Portaria nº 3.274, de 26 de janeiro de 2023.  </Text>
-
-              <Text justifyContent="flex-end">Secretaria de Transparência e Dados Abertos designada pelo Decreto nº 21.295/2022. </Text>
-
-              <Text justifyContent="flex-end"> <Link href="http://ged.pmmc.com.br/weblink7/DocView.aspx?id=683751 ">http://ged.pmmc.com.br/weblink7/DocView.aspx?id=683751 </Link> </Text>
-
-              <Text justifyContent="flex-end"> Local de Trabalho: Secretaria de Transparência e Dados Abertos, localizada Av. Vereador Narciso Yague Guimarães, 277 - 3º andar - Centro Cívico </Text>
-              
+             
                  </Text>
 
              <Text
