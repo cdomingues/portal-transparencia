@@ -46,7 +46,7 @@ import ContainerBasic from "../../components/Container/Basic";
 import Link from "next/link";
 import router from "next/router";
 import colors from "../../styles/colors";
-import Video from "../../components/Videos";
+//import Video from "../../components/Videos";
 
 
 
@@ -160,10 +160,7 @@ function HomeScreen({ handler }: PropsInput) {
 
   return (
     <ContainerBasic title={titlePage} description={description}>
-      <Text align={isMobile ? "justify" : "left"} fontWeight="700" fontSize={accessibility?.fonts?.regular}>O que é a Lei de Acesso à Informação (LAI)?</Text>
-      <Video url_video={url_video} titulo={titulo} />
-      <Text align={isMobile ? "justify" : "left"} fontWeight="700" fontSize={accessibility?.fonts?.regular}>Quem pode solicitar Acesso à Informação (LAI)?</Text>
-      <Video url_video={url_video2} titulo={titulo2} />
+      
 
   
       <Box m={0}

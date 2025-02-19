@@ -13,7 +13,7 @@ import Chart from "../../../../components/Chart";
 import ContainerBasic from "../../../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../../../components/Table";
 import ModalDetails from "./components/ModalDetails";
-import Video from "../../../../components/Videos";
+//import Video from "../../../../components/Videos";
 
 type PropsInput = {
   handler: {
@@ -64,9 +64,7 @@ function Screen({
 
   return (
     <ContainerBasic title={title} description={description}>
-      <Video url_video={url_video} titulo={titulo} />
-
-  
+    
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}

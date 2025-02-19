@@ -21,7 +21,7 @@ import { PublicPolicyData } from "../api/totalizador/politicas-publicas";
 //import News from "../components/News";
 import ContainerBasic from "../../components/Container/Basic";
 import DisplayNews from "../../components/NewsHome";
-import Video from "../../components/Videos";
+
 
 type PropsInput = {
   handler: {
@@ -115,14 +115,10 @@ function HomeScreen({ handler }: PropsInput) {
   const description = contentInitial?.description;
 
   const { height, width } = useWindowDimensions();
-  const url_video = "https://www.youtube.com/embed/K7_TUkedcGA?si=iPxaKODtZnboQT-_";
-  const titulo = "O QUE SÃO AS SEIS MEDIDAS?"; 
-   
+  
 
   return (
     <ContainerBasic title={titlePage} description={description}>
-      <Video url_video={url_video} titulo={titulo} />
-
       
       <Stack
         style={{

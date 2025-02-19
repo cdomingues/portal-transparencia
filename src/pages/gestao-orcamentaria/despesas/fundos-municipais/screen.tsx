@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import ContainerBasic from "../../../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../../../components/Table";
 import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAccessibility";
-import Video from "../../../../components/Videos";
+//import Video from "../../../../components/Videos";
 import { isMobile } from "react-device-detect";
 import { AiOutlineDownload } from "react-icons/ai";
 

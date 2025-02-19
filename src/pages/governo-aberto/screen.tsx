@@ -9,7 +9,7 @@ import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibi
 import governo_aberto from '../../assets/images/governo-aberto.png'
 import cronograma1 from '../../assets/images/cronograma1.png'
 import cronograma2 from '../../assets/images/cronograma2.png'
-import Video from "../../components/Videos";
+//import Video from "../../components/Videos";
 
 type PropsInput = {
   handler: {};
@@ -39,7 +39,7 @@ function Screen({ handler }: PropsInput) {
   
   return (
     <ContainerBasic title={title} description={description}>
-       <Video url_video={url_video} titulo={titulo} />
+
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}

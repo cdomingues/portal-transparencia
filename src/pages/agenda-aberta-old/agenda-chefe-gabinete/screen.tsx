@@ -20,7 +20,7 @@ import { ptBR } from "date-fns/locale";
 import moment from "moment";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import { isMobile } from "react-device-detect";
-import Video from "../../../components/Videos";
+//import Video from "../../../components/Videos";
 
 type PropsInput = {
   handler: any;
@@ -119,8 +119,7 @@ function Screen({ handler }: PropsInput) {
 
   return (
     <ContainerBasic title={title} description={description}>
-      <Video url_video={url_video} titulo={titulo} />
-
+     
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}

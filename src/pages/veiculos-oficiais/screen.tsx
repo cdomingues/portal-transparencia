@@ -3,7 +3,7 @@ import ContainerBasic from "../../components/Container/Basic";
 import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Flex, Icon, Link, Stack, useColorModeValue } from "@chakra-ui/react";
 import { AiOutlineDownload } from "react-icons/ai";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
-import Video from "../../components/Videos";
+//import Video from "../../components/Videos";
 import { useRouter } from "next/router";
 
 type Arquivo = {
@@ -107,7 +107,7 @@ function Screen({ handler }: PropsInput) {
 
   return (
     <ContainerBasic title={title} description={description}>
-      <Video url_video={url_video} titulo={titulo} />
+      
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}

@@ -42,7 +42,7 @@ import Plano_municipal_educacao from "../../assets/images/icones/Home_botoes_pla
 import Plano_municipal_saude from "../../assets/images/icones/Home_botoes_planosaude.svg";
 import Mapa_do_site from "../../assets/images/icones/icones_barra lateral__mapa do site.svg";
 import promae from "../../assets/images/icones/relatorio_resumido.svg"
-import Video from "../Videos";
+
 
 function CardHome() {
   const url_video = "https://www.youtube.com/embed/F4kk9FqoRHw?list=PLr6uMRVxi5CZDYEttIUVaIzsm07L7qI6a";

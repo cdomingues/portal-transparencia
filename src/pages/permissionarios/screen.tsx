@@ -3,7 +3,7 @@ import ContainerBasic from "../../components/Container/Basic";
 import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Flex, Icon, Link, Stack, useColorModeValue } from "@chakra-ui/react";
 import { AiOutlineDownload } from "react-icons/ai";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
-import Video from "../../components/Videos";
+//import Video from "../../components/Videos";
 import { useRouter } from "next/router";
 import ListaPermissionarios from "../../components/ListaPermissionarios";
 import TableComponent, { TableColumns } from "../../components/Table";

@@ -19,7 +19,7 @@ import {
 import { MultiAxisChart } from "../../../../components/MultiAxisChart";
 import TableComponent, { TableColumns } from "../../../../components/Table";
 import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAccessibility";
-import Video from "../../../../components/Videos";
+//import Video from "../../../../components/Videos";
 
 type PropsInput = {
   handler: {
@@ -69,8 +69,7 @@ function Screen({
 
   return (
     <ContainerBasic title={title} description={description}>
-      <Video url_video={url_video} titulo={titulo} />
-
+     
   
       <Box
         m={0}

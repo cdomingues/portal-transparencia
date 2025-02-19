@@ -16,7 +16,7 @@ import {
 } from "../../../components/GraphWrapper";
 import { MultiAxisChart } from "../../../components/MultiAxisChart";
 import TableComponent, { TableColumns } from "../../../components/Table";
-import Video from "../../../components/Videos";
+//import Video from "../../../components/Videos";
 
 type PropsInput = {
   handler: {
@@ -59,13 +59,11 @@ function Screen({
     marginLeft: isMobile ? "0" : "5%",
     fontSize: isMobile ? "medium" : "larger",
   };
-  const url_video = "https://www.youtube.com/embed/oxEi5mS-Mrg?list=PLr6uMRVxi5CZDYEttIUVaIzsm07L7qI6a";
-  const titulo = "O QUE SÃO GASTOS COM COVID?"; 
+  
 
   return (
     <ContainerBasic title={title} description={description}>
-      <Video url_video={url_video} titulo={titulo} />
-  
+     
       <GraphWrapper>
         <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
           Despesas últimos 5 anos

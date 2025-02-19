@@ -23,7 +23,7 @@ import {
 import CardHome from "../../CardHome";
 //import VLibras from "vlibras-nextjs";
 import ModalPopup from "../../Modal";
-import Video from "../../Videos";
+
 
 // type Props = {
 //   children?: React.ReactNode;
@@ -125,7 +125,7 @@ function PublicHome() {
                 informações de receitas e despesas da Prefeitura, com
                 detalhamento e maior facilidade de entendimento.
               </Text>
-              <Video url_video={url_video} titulo={titulo} />
+             
             </Box>
           </Stack>
 

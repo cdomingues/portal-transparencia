@@ -3,7 +3,7 @@ import React from "react";
 import Chart from "../../../components/Chart";
 import ContainerBasic from "../../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../../components/Table";
-import Video from "../../../components/Videos";
+//import Video from "../../../components/Videos";
 
 type PropsInput = {
   handler: {

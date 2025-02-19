@@ -36,7 +36,7 @@ import ContainerHome from "../components/Container/newHome";
 import { ChartComponentLine } from "../components/ChartLineApex";
 import CardHome from "../components/CardHome";
 import ModalPopup from "../components/Modal";
-import Video from "../components/Videos";
+//import Video from "../components/Videos";
 
 type PropsInput = {
   handler: {

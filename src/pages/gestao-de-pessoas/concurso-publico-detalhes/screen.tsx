@@ -8,7 +8,7 @@ import { color } from "highcharts";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import CardConcursoDetalhe from "../../../components/CardConcursosDetalhe";
 import TesteArquivos from "../../../components/ListarArquivos";
-import Video from "../../../components/Videos";
+//import Video from "../../../components/Videos";
 
 type PropsInput = {
   handler: {};
@@ -35,8 +35,7 @@ function Screen({ id }: any) {
 console.log(urlConcurso)
   return (
     <ContainerBasic title={title} description={description}>
-      <Video url_video={url_video} titulo={titulo} />
-
+    
   
       <Box
         m={0}

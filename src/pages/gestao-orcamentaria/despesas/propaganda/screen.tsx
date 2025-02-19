@@ -19,7 +19,7 @@ import {
 } from "../../../../components/GraphWrapper";
 import { MultiAxisChart } from "../../../../components/MultiAxisChart";
 import TableComponent, { TableColumns } from "../../../../components/Table";
-import Video from "../../../../components/Videos";
+//import Video from "../../../../components/Videos";
 import ModalContracts from "./modalContracts";
 import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAccessibility";
 
@@ -91,8 +91,7 @@ function Screen({
 
   return (
     <ContainerBasic title={title} description={description}>
-      <Video url_video={url_video} titulo={titulo} />
-  
+      
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}

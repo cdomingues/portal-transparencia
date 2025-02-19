@@ -8,7 +8,7 @@ import { color } from "highcharts";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import CardConcurso from "../../../components/CardConcursos";
 import TesteArquivos from "../../../components/ListarArquivos";
-import Video from "../../../components/Videos";
+//import Video from "../../../components/Videos";
 
 type PropsInput = {
   handler: {};
@@ -34,9 +34,7 @@ function Screen({ handler }: PropsInput) {
 
   return (
     <ContainerBasic title={title} description={description}>
-      <Video url_video={url_video} titulo={titulo} />
-
-  
+     
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}

@@ -23,7 +23,7 @@ import { baseUrl } from "../../../config";
 import { getScheduleMayor } from "../../../calls/agenda/agenda";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import { isMobile } from "react-device-detect";
-import Video from "../../../components/Videos";
+
 
 type PropsInput = {
   handler: any;
@@ -205,14 +205,11 @@ function Screen({ handler }: PropsInput) {
   let getDay = getDateArray?.[0]?.split(" ")?.[1];
   let getYear = getDateArray?.[1]?.split(" ")?.[1];
   const accessibility = useFontSizeAccessibilityContext();
-  const url_video =
-    "https://www.youtube.com/embed/K7_TUkedcGA?si=iPxaKODtZnboQT-_";
-  const titulo = "O QUE SÃO AS SEIS MEDIDAS?";
+  
 
   return (
     <ContainerBasic title={title} description={description}>
-      <Video url_video={url_video} titulo={titulo} />
-
+     
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
