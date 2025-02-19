@@ -14,7 +14,7 @@ import ContainerBasic from "../../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../../components/Table";
 import ModalContracts from "./modalContracts";
 import { ContainerSearch } from "../../../styles/components/contratos-atas/styles";
-import ReactPaginate from "react-paginate";
+//import ReactPaginate from "react-paginate";
 
 
 
@@ -208,18 +208,7 @@ function Screen({
             },
           }}
         >
-        <ReactPaginate
-          previousLabel={"Anterior"}
-          nextLabel={"Próximo"}
-          breakLabel={"..."}
-          pageCount={totalPages}
-          marginPagesDisplayed={1}
-          pageRangeDisplayed={1}
-          onPageChange={handlePageClick}
-         // containerClassName={"pagination"}
-          activeClassName={"active"}
-          
-        />
+      
         </Box>
         
        
