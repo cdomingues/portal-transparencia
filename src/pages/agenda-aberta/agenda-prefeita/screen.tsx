@@ -22,7 +22,7 @@ import { baseUrl } from "../../../config";
 import { getScheduleMayor } from "../../../calls/agenda/agenda";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import { isMobile } from "react-device-detect";
-import Video from "../../../components/Videos";
+
 
 type PropsInput = {
   handler: any;
@@ -91,9 +91,10 @@ function Screen({ handler }: PropsInput) {
   const filteredValues = schedule
   ?.filter((item: Meeting) => {
     // Linha modificada abaixo
+    const minDate = moment('2025-01-01', 'YYYY-MM-DD');
     const timeWithSubtraction = moment(item?.data_compromisso);
     const isSameDate = timeWithSubtraction.format("YYYY-MM-DD") === String(moment(selected).format("YYYY-MM-DD"));
-    const isNotFutureDate = timeWithSubtraction.isSameOrBefore(moment(), 'day');
+    const isNotFutureDate = timeWithSubtraction.isAfter(minDate, 'day');
     return  isSameDate && isNotFutureDate
   })
   // Uma linha depois para contexto
@@ -136,8 +137,7 @@ function Screen({ handler }: PropsInput) {
 
   return (
     <ContainerBasic title={title} description={description}>
-      <Video url_video={url_video} titulo={titulo} />
-
+    
 
       <Box
         m={0}
@@ -264,17 +264,25 @@ function Screen({ handler }: PropsInput) {
               maxH={350}
               style={{ marginBottom: 30}}
             >
+              
               <DayPicker
               
                 mode="single"
                 selected={selected}
                 onSelect={setSelected}
                 locale={ptBR}
+                fromMonth={new Date(2025, 0)}
               />
+            
             </Stack>
           </Stack>
+          
         </Stack>
       </Box>
+      <Text
+      fontWeight='bold'>
+      A rotina desta autoridade inclui tarefas administrativas e procedimentos institucionais internos que podem não estar listadas nesta divulgação
+      </Text>
     </ContainerBasic>
   );
 }

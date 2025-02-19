@@ -8,45 +8,38 @@ import {
   Box,
   useColorModeValue
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../../components/Table";
 import ModalContracts from "./modalContracts";
 import { ContainerSearch } from "../../../styles/components/contratos-atas/styles";
 
-type PropsInput = {
-  handler: {
-    columns: TableColumns;
-    data: Array<any>;
-    loading: boolean;
-    year: number;
-    years: Number[];
-    setYear: any;
-    handleByYear: any;
-    data2: Array<any>;
-    setData2: any;
-    arquivosColumns: TableColumns;
-    
-  };
-};
+
 export const contentContractsAndAtas = {
   titlePage: "Contratos",
   description:
     "Nesta página, confira as informações sobre contratos e atas celebrados pela Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por número, modalidade, processo, valor, fornecedor, objeto, entre outros itens. ",
 };
-function Screen({
-  handler: { columns, data, loading, handleByYear, setYear, year, years,data2, setData2,arquivosColumns },
-}: PropsInput) {
-  const [contract, setContract] = useState<any>(null);
+function Screen({id_contrato}: any) {
+  
   const title = contentContractsAndAtas?.titlePage;
   const description = contentContractsAndAtas?.description;
+  const [contrato, setContrato] = useState<any[]>([]);
+  const url = `https://dadosadm.mogidascruzes.sp.gov.br/api/contratos_atas?id_contrato=${id_contrato}`
 
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const handleOpenModal = (item: any) => {
-    onOpen();
-    setContract(item?.row?.values);
-  };
+  useEffect(() => {
+    if (!id_contrato) return;
+    fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.results && Array.isArray(data.results)) {
+        setContrato(data.results); // 🔹 Acessa 'results' corretamente
+      } else {
+        setContrato([]); // 🔹 Se não houver resultados, mantém um array vazio
+      }
+    })
+    .catch((error) => console.error("Erro ao buscar contratos:", error));
+}, [id_contrato])
 
   return (
     <ContainerBasic title={title} description={description}>
@@ -62,58 +55,25 @@ function Screen({
         marginBottom="15px"
       >
       <ContainerSearch direction="row">
-        <Stack minW={86} width="25%">
-          <Text fontSize="sm" fontWeight="550" paddingLeft="5px">
-            Ano
-          </Text>
-          <Select
-            defaultValue={year}
-            onChange={(e) => setYear(e.target.value)}
-            bg="white"
-            variant="outline"
-            placeholder="Selecionar Ano"
-          >
-            {years?.map((year, index) => (
-              <option key={index} value={String(year)}>
-                {String(year)}
-              </option>
-            ))}
-          </Select>
-        </Stack>
-        <Stack minW={50} justifyContent="flex-end" className="button-search">
-               <Button
-            w={'100px'}
-            h={'40px'}
-              disabled={loading}
-              onClick={() => handleByYear(year)}
-              _hover={{ bg: "gray.500", color: "white" }}
-              bg="table.primary"
-              color="white"
-              fontSize="small"
-            >
-         
-            Buscar
-          </Button>
-        </Stack>
+        
+       
       </ContainerSearch>
 
-      <Divider borderWidth="2px" mt="10" mb="10" />
-      <TableComponent
-        loading={loading}
-        columns={columns}
-        data={data}
-       openModal={handleOpenModal}
-      />
+      <Box>
+          <strong>Detalhes do Contrato</strong>
 
-      <ModalContracts isOpen={isOpen} onClose={onClose} contract={contract} />
-      {/* <TableComponent
-        loading={loading}
-        columns={arquivosColumns}
-        data={data2}
-        
-      /> */}
-     
+          <ul>
+            {contrato.length > 0 ? (
+              contrato.map((item) => (
+                <li key={item.id}>{item.id}</li> // 🔹 Usa <li> dentro de <ul>
+              ))
+            ) : (
+              <p>Nenhum contrato encontrado.</p>
+            )}
+          </ul>
+        </Box>
       </Box>
+     
     </ContainerBasic>
   );
 }
