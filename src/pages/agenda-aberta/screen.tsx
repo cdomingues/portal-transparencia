@@ -49,7 +49,7 @@ import noticias from "../../../data/noticias.json";
 //import News from "../components/News";
 import DisplayNews from "../../components/NewsHome";
 import ContainerBasic from "../../components/Container/Basic";
-import Video from "../../components/Videos";
+
 
 type PropsInput = {
   handler: {
@@ -139,9 +139,7 @@ function HomeScreen({ handler }: PropsInput) {
 
   return (
     <ContainerBasic title={titlePage} description={description}>
-      <Video url_video={url_video} titulo={titulo} />
-
-  
+      
       <Stack
         style={{
           paddingLeft: isMobile ? 0 : "0%",
@@ -208,16 +206,7 @@ function HomeScreen({ handler }: PropsInput) {
                 
 
                   
-                  <Box padding="6 " bg="transparent" flexDirection="row" >
-                    <CardHorizon
-                      title="Agenda Demais Autoridades "
-                      imageURL={agenda_vice_prefeito.src}
-                      description="Conforme previsto na Lei Municipal 7.653/2021 e no Decreto 21.006/22, todo cidadão pode ter acesso à agenda de compromissos oficiais das autoridades do Executivo de Mogi das Cruzes. Esta é mais uma medida de promoção da integridade no setor público."
-                      link="agenda-aberta/agenda-secretarios"
-                      backgroundColor="transparent"
-                      
-                    />
-                  </Box>
+                  
                   
                 </Stack>
                 

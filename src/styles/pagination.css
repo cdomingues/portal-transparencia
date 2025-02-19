@@ -1,0 +1,48 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Permite quebra de linha */
+    gap: 8px; /* Espaçamento entre os itens */
+    margin-top: 20px;
+    padding: 15px;
+    list-style: none;
+    font-weight: bold;
+    font-size: large;
+    overflow-x: auto; /* Habilita rolagem horizontal se necessário */
+    white-space: nowrap; /* Impede a quebra dos números */
+    max-width: 100%; /* Garante que não ultrapasse a tela */
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 600px) {
+    .pagination {
+        font-size: medium; /* Reduz o tamanho da fonte */
+        padding: 10px; /* Ajusta o espaçamento */
+        justify-content: flex-start; /* Alinha à esquerda para melhor navegação */
+        overflow-x: auto; /* Mantém a rolagem horizontal */
+        font-size: small;
+    }
+}
+
+  
+  .pagination a {
+    padding: 8px 15px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 5px; /* Adiciona borda arredondada */
+    background-color: #f0f0f0;
+    transition: background-color 0.3s, color 0.3s; /* Transição suave */
+  }
+  
+  .pagination a:hover {
+    background-color: #393D6F;
+    color: white;
+  }
+  
+  .pagination .active {
+    font-weight: bold;
+    background-color: #007bff;
+   
+    border-radius: 5px;
+  }
