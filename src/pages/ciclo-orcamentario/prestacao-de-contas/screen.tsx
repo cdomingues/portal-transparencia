@@ -157,6 +157,7 @@ function Screen({ handler }: PropsInput) {
                 <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/20c87c2f-0b90-4aa2-a317-a3e1a7a090db/70%C2%AA_Audi%C3%AAncia_do_3%C2%BA_Quadrimestre_23.pdf" target="blank" style={{ color: "#db334f" }} >70ª Audiência do 3º Quadrimestre 23</Link><br/>
                 <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/91ee00dd-4ac6-40c7-b08b-9ea67d9d2748/71%C2%AA_Audi%C3%AAncia_do_1%C2%BA_Quadrimestre_24.pdf" target="blank" style={{ color: "#db334f" }} >71ª Audiência do 1º Quadrimestre 24</Link><br/>
                 <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/49739d7a-df4e-4eb0-bc2e-f3e4f0102896/72%C2%AA_Audi%C3%AAncia_do_2%C2%BA_Quadrimestre_24.pdf" target="blank" style={{ color: "#db334f" }} >72ª Audiência do 2º Quadrimestre 24</Link><br/>
+                <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/03cd9d88-8425-489a-a637-7f3043d0e4b1/Audi%C3%AAncia_convoca%C3%A7%C3%A3o.pdf" target="blank" style={{ color: "#db334f" }} >73ª Audiência do 3º Quadrimestre 24</Link><br/>
                 
                  </Text>
 
