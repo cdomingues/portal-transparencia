@@ -60,7 +60,7 @@ import { contentReportExtrabudget } from "../pages/ciclo-orcamentario/relatorio-
 import { contentAnnualBalance } from "../pages/contas/balancos-anuais/screen";
 import { contentCourtOpinions } from "../pages/contas/pareceres-tribunal/screen";
 import { contentPatrimony } from "../pages/patrimonio/screen";
-import { contentOtherInformations } from "../pages/sobre-portal/ultimas-noticias/screen";
+//import { contentOtherInformations } from "../pages/sobre-portal/ultimas-noticias/screen";
 import { contentSearchConstructions } from "../pages/controle-de-obras/pesquisar-obras/screen";
 import { contentAbout } from "../pages/sobre-portal/screen";
 import { pointRadial } from "d3";
@@ -605,7 +605,7 @@ let publicRoutes: IPublicRoute[] = [
     path: "/governo-aberto",
     link:"/governo-aberto",
     icon: AiOutlineAudit,
-    ...contentOtherInformations,
+   // ...contentOtherInformations,
     group: [
       {
         name: "LIGA",
@@ -620,7 +620,7 @@ let publicRoutes: IPublicRoute[] = [
     path: "/governo-digital",
     link:"/governo-digital ",
     icon: AiOutlineAudit,
-    ...contentOtherInformations,
+   // ...contentOtherInformations,
   },
   {
     name: "Institutos e Autarquias",
@@ -646,7 +646,7 @@ let publicRoutes: IPublicRoute[] = [
     path: "/inventario-de-dados",
     link:"/governo-digital ",
     icon: AiOutlineAudit,
-    ...contentOtherInformations,
+    //...contentOtherInformations,
   },
 
  
@@ -766,13 +766,13 @@ let publicRoutes: IPublicRoute[] = [
     name: "Plano Municipal de Educação",
     path: "/plano-municipal-educacao",
     icon: AiOutlineAudit,
-    ...contentOtherInformations,
+   // ...contentOtherInformations,
   },
   {
     name: "Plano Municipal de Saúde",
     path: "/plano-municipal-saude",
     icon: AiOutlineAudit,
-    ...contentOtherInformations,
+   // ...contentOtherInformations,
   },
 
  /*  {
@@ -805,7 +805,7 @@ let publicRoutes: IPublicRoute[] = [
     name: "Políticas e Programas ",
     path: "/politicas-programas",
     icon: AiOutlineAudit,
-    ...contentOtherInformations,
+    //...contentOtherInformations,
   },
 
   {
@@ -849,7 +849,7 @@ let publicRoutes: IPublicRoute[] = [
     name: "Relatório de Gestão",
     path: "/relatorio-gestao",
     icon: AiOutlineAudit,
-    ...contentOtherInformations,
+   // ...contentOtherInformations,
   },
   
   
@@ -862,14 +862,14 @@ let publicRoutes: IPublicRoute[] = [
     name: "Veículos Oficiais",
     path: "/veiculos-oficiais",
     icon: AiOutlineAudit,
-    ...contentOtherInformations,
+    //...contentOtherInformations,
   },
   {
     name: "VISUAS – Visor do Sistema Único de Assistência Social",
     path: "/visuas",
     link:"/visuas",
     icon: AiOutlineAudit,
-    ...contentOtherInformations,
+    //...contentOtherInformations,
   },
   
   
