@@ -15,7 +15,6 @@ import TableComponent, { TableColumns } from "../../../components/Table";
 import ModalContracts from "./modalContracts";
 import { ContainerSearch } from "../../../styles/components/contratos-atas/styles";
 import PaginationComponent from "../../../components/PaginationComponent";
-import { pages } from "next/dist/build/templates/app-page";
 
 
 type PropsInput = {
