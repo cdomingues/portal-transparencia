@@ -32,6 +32,7 @@ function ContainerHome({
 
   return (
     <Stack
+    
       direction={isMobile ? "column" : "row"}
       style={{
         height: "100%",
@@ -40,6 +41,7 @@ function ContainerHome({
       }}
     >
       <Stack
+      
         flex={width > 1024 ? 2 : 2}
         style={{
           paddingLeft: isMobile ? 0 : "0%",
@@ -48,6 +50,7 @@ function ContainerHome({
         }}
       >
         <Container
+        
           style={{
             alignContent: "flex-start",
             margin: "0 auto",
@@ -63,6 +66,7 @@ function ContainerHome({
             rounded="md"
             overflow="hidden"
             marginBottom="15px"
+            
           >
             <Head>
               <title>{title} - PMMC</title>

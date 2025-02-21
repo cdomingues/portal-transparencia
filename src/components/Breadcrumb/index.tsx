@@ -16,7 +16,7 @@ function Breadcrumb() {
   if (!isClientSide || !steps.length) return null;
 
   return (
-    <Flex alignItems="center" gap="0.2rem" flexWrap="wrap" width="100%" mb={3}>
+    <Flex alignItems="center" gap="0.2rem" flexWrap="wrap" width="100%" mb={3} >
       <Link href={"/"} target={"_self"} fontSize={accessibility?.fonts?.medium}>
         Início
       </Link>

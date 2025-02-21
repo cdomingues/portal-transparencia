@@ -150,7 +150,7 @@ function PublicHome() {
         </Stack>
       </Stack>
 
-      <Stack height={20}></Stack>
+      <Stack  height={20}></Stack>
 
       <Stack>
         <CardHome />

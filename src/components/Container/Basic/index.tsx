@@ -287,11 +287,13 @@ function ContainerBasic({
       >
         <Container
           style={{
-            maxWidth,
+            width:"100%",
             alignContent: "flex-start",
             margin: "0 auto",
             ...containerStyles,
+           // backgroundColor: 'red'
           }}
+          
         >
           <Breadcrumb />
           {showFirstBox && (
@@ -331,11 +333,7 @@ function ContainerBasic({
           {children}
         </Container>
       </Stack>
-      {showAside && (
-        <Stack flex={1}>
-          <Aside />
-        </Stack>
-      )}
+     
     
     </Stack>
   );
