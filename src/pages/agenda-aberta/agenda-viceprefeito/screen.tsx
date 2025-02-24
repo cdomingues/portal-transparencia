@@ -277,7 +277,7 @@ function Screen({ handler }: PropsInput) {
       </Box>
        <Text
             fontWeight='bold'>
-            A rotina desta autoridade inclui tarefas administrativas e procedimentos institucionais internos que podem não estar listadas nesta divulgação
+           A rotina desta autoridade inclui ações administrativas, deliberações, despachos documentais e procedimentos institucionais internos que podem não estar listados nesta divulgação
             </Text>
     </ContainerBasic>
   );

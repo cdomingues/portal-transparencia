@@ -62,7 +62,8 @@ function Screen({
     return true; // Se nenhum ano for selecionado, mostra todos os contratos
   }).filter((item) =>
     item.id_contrato.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item.descricao.toLowerCase().includes(searchTerm.toLowerCase())
+    item.descricao.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    item.fornecedor.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const paginatedContratos = filteredContratos.slice(
@@ -118,7 +119,7 @@ function Screen({
             <Select
               value={selectedYear}
               onChange={(e) => setSelectedYear(Number(e.target.value))}
-              placeholder="Selecione o ano"
+              placeholder="Todos os anos"
               borderRadius="8px"
               height="40px"
               mb="10px"
@@ -145,6 +146,7 @@ function Screen({
           pr="40px" // Adiciona espaço para o ícone à direita
           width="40%"
           mb="10px"
+          
         />
 
         {sortedPaginatedContratos.map((row) => (
@@ -155,12 +157,13 @@ function Screen({
             borderRadius="12px"
             mb="10px"
             onClick={() => window.location.href = `contratos_teste_detalhes?${row.id_contrato}`}
-            
+            _hover={{ border: "3px solid red", transition: "0.3s" }}
             
             cursor='pointer'
           >
             
-            <Text fontWeight="bold">{row.id_contrato}</Text>
+            <Text fontWeight="bold" borderBottom='1px solid red'>{row.id_contrato}</Text>
+            <Text>Empresa contratada: {row.fornecedor}</Text>
             <Text>Data Início: {row.data_inicio} - Data Fim: {row.data_termino}</Text>
             <Text>Descrição: {row.descricao}</Text>
            
