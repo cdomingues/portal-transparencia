@@ -50,7 +50,7 @@ import { contentRevenue } from "../pages/gestao-orcamentaria/receitas/screen";
 //import { contentContractsAndAtas } from "../pages/gestao-orcamentaria-outros/contratos-atas/screen";
 
 import { contentAdvancesAndAccommodation } from "../pages/gestao-de-pessoas/off-adiantamento-hospedagem/screen";
-import { contentRecipesAmendments } from "../pages/gestao-orcamentaria/receitas/receitas-emendas/screen";
+//import { contentRecipesAmendments } from "../pages/gestao-orcamentaria/receitas/receitas-emendas/screen";
 import { contentGeneralCosts } from "../pages/gestao-orcamentaria/despesas/despesas-gerais-old/screen";
 import { contentExpensesRemains } from "../pages/gestao-orcamentaria/despesas/despesas-restos/screen";
 import { contentTrafficFines } from "../pages/gestao-orcamentaria/receitas/off-multa-transito/screen";
