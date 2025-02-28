@@ -23,16 +23,16 @@ const PaginationComponent: React.FC<PaginationComponentProps> = ({ currentPage, 
 
   return (
     <Box  display="flex" justifyContent="center" alignItems="center" paddingBottom="10px" width='100%'>
-      <Button border='1px solid red' width='50px' onClick={onPrevClick} disabled={currentPage === 1} variant="ghost">
-        <Icon color="red" fontSize="18" as={AiOutlineDoubleLeft} />
+      <Button border='1px solid #393D6F' width='50px' onClick={onPrevClick} disabled={currentPage === 1} variant="ghost">
+        <Icon color="#393D6F" fontSize="18" as={AiOutlineDoubleLeft} />
       </Button>
 
       <Text  bg="transparent" fontWeight="600" mx="20px">
         {currentPage} - {pages}
       </Text>
 
-      <Button border='1px solid red' onClick={onNextClick} disabled={currentPage === pages} variant="ghost">
-        <Icon color="red" fontSize="18" as={AiOutlineDoubleRight} />
+      <Button border='1px solid #393D6F' onClick={onNextClick} disabled={currentPage === pages} variant="ghost">
+        <Icon color="#393D6F" fontSize="18" as={AiOutlineDoubleRight} />
       </Button>
     </Box>
   );

@@ -6,7 +6,7 @@ export interface ArquivoContrato {
   id: number;
   arquivo: string;
   nome: string;
-  id_contrato_id: number | null;
+  id_contrato: number | null;
 }
 
 export interface ApiResponse {
@@ -18,46 +18,27 @@ export interface ApiResponse {
 
 const Files = ({ contract }: any) => {
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState<ArquivoContrato[]>([]);
-
+  const [arquivo, setArquivo] = useState<ArquivoContrato[]>([]);
+ 
   useEffect(() => {
-    fetchAllData(1);
-  }, []);
-
-  const fetchAllData = async (page: number) => {
-    setLoading(true);
-    try {
-      let currentPage = page;
-      let hasMore = true;
-
-      while (hasMore) {
-        const response = await fetch(`https://dadosadm.mogidascruzes.sp.gov.br/api/arquivos_contratos_atas?page=${currentPage}`);
-        const result: ApiResponse = await response.json();
-        setData((prevData) => [...prevData, ...result.results]);
-
-        if (result.next) {
-          currentPage++;
-        } else {
-          hasMore = false;
-        }
-      }
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
+      if (!contract.id_contrato) return;
+      fetch(`https://dadosadm.mogidascruzes.sp.gov.br/api/arquivos_contratos_atas?id_contrato_id=${contract.id_contrato}`) // ✅ Corrigida a URL para arquivos
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.results && Array.isArray(data.results)) {
+            setArquivo(data.results);
+          } else {
+            setArquivo([]);
+          }
+        })
+        .catch((error) => console.error("Erro ao buscar arquivos:", error));
+    }, [contract.id_contrato]);
  // console.log('Contract ID:', contract?.id_contrato);
   //console.log('Data:', data);
 
-  const filteredData = data.filter(file => {
+  const filteredData = arquivo.filter(file => {
     //console.log('Comparing:', file.id_contrato_id, contract?.id_contrato);
-    return file.id_contrato_id === contract?.id_contrato;
+    return file.id_contrato === contract?.id_contrato;
   });
 
   //console.log('Filtered Data:', filteredData);
