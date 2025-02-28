@@ -152,17 +152,17 @@ function Screen({
         {sortedPaginatedContratos.map((row) => (
           <Box
             key={row.id_contrato}
-            border="2px solid #393D6F"
+            border="2px solid red"
             p="10px"
             borderRadius="12px"
             mb="10px"
             onClick={() => window.location.href = `contratos_teste_detalhes?${row.id_contrato}`}
-            _hover={{ border: "3px solid #393D6F", transition: "0.3s" }}
+            _hover={{ border: "3px solid red", transition: "0.3s" }}
             
             cursor='pointer'
           >
             
-            <Text fontWeight="bold" borderBottom='1.5px solid #393D6F'>{row.id_contrato}</Text>
+            <Text fontWeight="bold" borderBottom='1.5px solid red'>{row.id_contrato}</Text>
             <Text>Empresa contratada: {row.fornecedor}</Text>
             <Text>Data Início: {row.data_inicio} - Data Fim: {row.data_termino}</Text>
             <Text>Descrição: {row.descricao}</Text>
@@ -199,7 +199,7 @@ function Screen({
               transition: "background-color 0.3s, color 0.3s",
             },
             "& li:hover": {
-              backgroundColor: "#393D6F",
+              backgroundColor: "red",
               color: "white",
               gap: '10px'
             },
