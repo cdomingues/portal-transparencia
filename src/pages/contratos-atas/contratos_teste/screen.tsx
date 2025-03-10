@@ -15,7 +15,7 @@ import TableComponent, { TableColumns } from "../../../components/Table";
 //import ModalContracts from "./modalContracts";
 import { ContainerSearch } from "../../../styles/components/contratos-atas/styles";
 import PaginationComponent from "../../../components/PaginationComponent";
-import Papa from "papaparse";
+
 import CsvDownload from "react-json-to-csv";
 
 
@@ -79,27 +79,14 @@ function Screen({
     setCurrentPage(newPage);
   };
 
-  const exportToCSV = (data: unknown[] | Papa.UnparseObject<unknown>) => {
-    const csv = Papa.unparse(data);
-    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
-    const link = document.createElement("a");
-    const url = URL.createObjectURL(blob);
   
-    link.setAttribute("href", url);
-    link.setAttribute("download", "dados_contratos.csv");
-    link.style.visibility = "hidden";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   const exportToJSON = (data: any) => {
     const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
     const link = document.createElement("a");
     const url = URL.createObjectURL(blob);
   
     link.setAttribute("href", url);
-    link.setAttribute("download", "obras_filtradas.json");
+    link.setAttribute("download", "dados_contratos.json");
     link.style.visibility = "hidden";
     document.body.appendChild(link);
     link.click();
@@ -183,7 +170,7 @@ function Screen({
   }}
 >
   <CsvDownload
-    filename={`${new Date().getTime()}.csv`}
+    filename={"dados_contratos.csv"}
     data={sortedPaginatedContratos}
     style={{
       width: "100%",
