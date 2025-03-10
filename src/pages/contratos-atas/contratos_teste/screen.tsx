@@ -15,6 +15,7 @@ import TableComponent, { TableColumns } from "../../../components/Table";
 //import ModalContracts from "./modalContracts";
 import { ContainerSearch } from "../../../styles/components/contratos-atas/styles";
 import PaginationComponent from "../../../components/PaginationComponent";
+import Papa from "papaparse";
 
 
 type PropsInput = {
@@ -77,6 +78,34 @@ function Screen({
     setCurrentPage(newPage);
   };
 
+  const exportToCSV = (data: unknown[] | Papa.UnparseObject<unknown>) => {
+    const csv = Papa.unparse(data);
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const link = document.createElement("a");
+    const url = URL.createObjectURL(blob);
+  
+    link.setAttribute("href", url);
+    link.setAttribute("download", "dados_contratos.csv");
+    link.style.visibility = "hidden";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const exportToJSON = (data: any) => {
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+    const link = document.createElement("a");
+    const url = URL.createObjectURL(blob);
+  
+    link.setAttribute("href", url);
+    link.setAttribute("download", "obras_filtradas.json");
+    link.style.visibility = "hidden";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+  
+
   const handleOpenModal = (item: any) => {
     onOpen();
     setContract(item?.row?.values);
@@ -130,6 +159,40 @@ function Screen({
                 </option>
               ))}
             </Select>
+
+            <Button 
+    width='150px'
+    border='0' cursor='pointer'  fontSize='20px'  textColor='white' 
+    bgColor='#4CAF50' 
+    _hover={{
+    bgColor: "#078d0c",  // Cor de fundo ao passar o mouse
+    
+  }}
+   height='40px' borderRadius='8px' mr='15px'  onClick={() => exportToCSV(sortedPaginatedContratos)}
+   transition='background-color 0.3s ease'
+   boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+   sx={{
+    "@media (max-width: 900px)": {
+      width: '27%'
+    },
+  }}
+   >CSV</Button>
+<Button width='150px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
+    bgColor='#F44336' 
+    _hover={{
+      bgColor: "#D32F2F",  // Cor de fundo ao passar o mouse
+    }}
+    height='40px' borderRadius='8px' mr='15px'onClick={() => exportToJSON(sortedPaginatedContratos)}
+    boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+    sx={{
+      "@media (max-width: 900px)": {
+        width: '27%'
+      },
+    }}
+    >JSON</Button>
+   
+
+
           </Stack>
           <Stack minW={50} justifyContent="flex-end" className="button-search"></Stack>
         </ContainerSearch>
