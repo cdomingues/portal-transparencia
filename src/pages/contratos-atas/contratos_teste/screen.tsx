@@ -16,6 +16,7 @@ import TableComponent, { TableColumns } from "../../../components/Table";
 import { ContainerSearch } from "../../../styles/components/contratos-atas/styles";
 import PaginationComponent from "../../../components/PaginationComponent";
 import Papa from "papaparse";
+import CsvDownload from "react-json-to-csv";
 
 
 type PropsInput = {
@@ -160,23 +161,45 @@ function Screen({
               ))}
             </Select>
 
-            <Button 
-    width='150px'
-    border='0' cursor='pointer'  fontSize='20px'  textColor='white' 
-    bgColor='#4CAF50' 
-    _hover={{
-    bgColor: "#078d0c",  // Cor de fundo ao passar o mouse
-    
-  }}
-   height='40px' borderRadius='8px' mr='15px'  onClick={() => exportToCSV(sortedPaginatedContratos)}
-   transition='background-color 0.3s ease'
-   boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
-   sx={{
+            import CsvDownload from "react-json-to-csv";
+
+<Button
+  width="150px"
+  border="0"
+  cursor="pointer"
+  fontSize="20px"
+  textColor="white"
+  bgColor="#4CAF50"
+  _hover={{ bgColor: "#078d0c" }}
+  height="40px"
+  borderRadius="8px"
+  mr="15px"
+  transition="background-color 0.3s ease"
+  boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+  sx={{
     "@media (max-width: 900px)": {
-      width: '27%'
+      width: "27%",
     },
   }}
-   >CSV</Button>
+>
+  <CsvDownload
+    filename={`${new Date().getTime()}.csv`}
+    data={sortedPaginatedContratos}
+    style={{
+      width: "100%",
+      height: "100%",
+      background: "none",
+      border: "none",
+      color: "white",
+      fontSize: "20px",
+      textAlign: "center",
+      cursor: "pointer",
+    }}
+  >
+    CSV
+  </CsvDownload>
+</Button>
+
 <Button width='150px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
     bgColor='#F44336' 
     _hover={{
