@@ -130,8 +130,14 @@ function Screen({
         borderRadius="18px"
         marginBottom="15px"
       >
-        <ContainerSearch direction="row">
-          <Stack minW={86} width="25%">
+        <ContainerSearch  >
+          <Stack minW={86} width="50%" flexDir='row'
+          sx={{
+            "@media (max-width: 900px)": {
+              flexDir:'column'
+            },
+          }}
+          >
             {/* Select para Filtrar por Ano */}
             <Select
               value={selectedYear}
@@ -140,6 +146,7 @@ function Screen({
               borderRadius="8px"
               height="40px"
               mb="10px"
+              width='180px'
             >
               {years.map((year) => (
                 <option key={year} value={year}>
@@ -148,10 +155,10 @@ function Screen({
               ))}
             </Select>
 
-            import CsvDownload from "react-json-to-csv";
+           
 
 <Button
-  width="150px"
+  width="180px"
   border="0"
   cursor="pointer"
   fontSize="20px"
@@ -163,15 +170,11 @@ function Screen({
   mr="15px"
   transition="background-color 0.3s ease"
   boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
-  sx={{
-    "@media (max-width: 900px)": {
-      width: "27%",
-    },
-  }}
+  
 >
   <CsvDownload
     filename={"dados_contratos.csv"}
-    data={sortedPaginatedContratos}
+    data={filteredContratos}
     style={{
       width: "100%",
       height: "100%",
@@ -187,18 +190,14 @@ function Screen({
   </CsvDownload>
 </Button>
 
-<Button width='150px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
+<Button width='180px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
     bgColor='#F44336' 
     _hover={{
       bgColor: "#D32F2F",  // Cor de fundo ao passar o mouse
     }}
     height='40px' borderRadius='8px' mr='15px'onClick={() => exportToJSON(sortedPaginatedContratos)}
     boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
-    sx={{
-      "@media (max-width: 900px)": {
-        width: '27%'
-      },
-    }}
+    
     >JSON</Button>
    
 

@@ -581,7 +581,7 @@ function CardHome() {
       showExtraLinks: true,
       extraLinks: [
         { label: "Ouvidoria - Início", url: "/ouvidoria" },
-        { label: "Pesquisa de Satisfação", url: "/pesquisa-de-satisfacao" },
+       
         //{ label: "Link 2", url: "http://exemplo.com/link2" },
       ],
     },

@@ -722,14 +722,7 @@ let publicRoutes: IPublicRoute[] = [
     name: "Ouvidoria",
     path: "ouvidoria",
     icon: AiOutlineAudit,
-    group: [
-      
-      {
-        name: "Pesquisação de Satisfação",
-        path: "pesquisa-de-satisfacao",
-        icon: AiOutlineProfile,
-        link: "ouvidoria/pesquisa-de-satisfacao",
-      },]
+    group: undefined,
   },
 
   {
