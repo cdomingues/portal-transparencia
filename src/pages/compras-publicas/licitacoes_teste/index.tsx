@@ -5,9 +5,9 @@ import moment from "moment";
 
 function Controller() {
   
-  const handler = {};
+  
 
-  return <Screen handler={handler} />;
+  return <Screen  />;
 }
 
 export default Controller;

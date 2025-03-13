@@ -3,6 +3,8 @@ import moment from "moment";
 import { baseUrl } from "../../config";
 import moneyFormatter from "../../utils/moneyFormatter";
 import { objetos_licitacao } from "../../utils/objetos_licitacao"; 
+import { getSituacaoText } from "../../utils/situacaoLicitacao"; 
+import { getTipoText } from "../../utils/tipoLicitacao"; 
 
 export const getLicitacoes = async (years?: number) => {
   try {

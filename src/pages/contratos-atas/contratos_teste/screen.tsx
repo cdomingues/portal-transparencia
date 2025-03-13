@@ -154,9 +154,6 @@ function Screen({
                 </option>
               ))}
             </Select>
-
-           
-
 <Button
   width="180px"
   border="0"
