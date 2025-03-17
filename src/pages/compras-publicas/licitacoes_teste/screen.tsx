@@ -27,7 +27,6 @@ export const contentContractsAndAtas = {
     "São disponibilizados no site da Prefeitura os editais de licitação...",
 };
 
-
 function Screen() {
   const title = contentContractsAndAtas.titlePage;
   const description = contentContractsAndAtas.description;
@@ -45,33 +44,38 @@ function Screen() {
   }, [selectedYear, selectedLicitacao, selectedGestora, selectedSituacao]);
 
   const fetchData = async () => {
-    try {
-      let allResults: Licitacoes[] = [];
-      let nextUrl = `${API_URL}?page=1`;
-      console.log("print: " + nextUrl)
-  
+    let allLicitacoes: Licitacoes[] = [];
+    let page = 1;
+    let hasMore = true;
+
+    while (hasMore) {
+      let url = `${API_URL}?page=${page}`;
       const params = new URLSearchParams();
+
       if (selectedYear !== "Todos") params.append("ano", selectedYear);
       if (selectedLicitacao) params.append("id_tipolicitacao", selectedLicitacao);
       if (selectedGestora) params.append("gestora", selectedGestora);
       if (selectedSituacao) params.append("situacao", selectedSituacao);
-  
-      if (params.toString()) nextUrl += `&${params.toString()}`;
-  
-      while (nextUrl) {
-        const response = await axios.get(nextUrl);
-        allResults = [...allResults, ...response.data.results];
-        nextUrl = response.data.next ? response.data.next : null; // Para o loop se `next` for null
+
+      if (params.toString()) url += `&${params.toString()}`;
+
+      try {
+        const response = await axios.get(url);
+        if (response.data.results && response.data.results.length > 0) {
+          allLicitacoes = [...allLicitacoes, ...response.data.results];
+          page++;
+        } else {
+          hasMore = false;
+        }
+      } catch (error) {
+        console.error("Erro ao buscar dados", error);
+        hasMore = false;
       }
-  
-      setLicitacoes(allResults);
-      setCurrentPage(1);
-    } catch (error) {
-      console.error("Erro ao buscar dados", error);
     }
+
+    setLicitacoes(allLicitacoes);
+    setCurrentPage(1);
   };
-  
-  
 
   const filteredLicitacoes = licitacoes.filter(item =>
     searchTerm ? String(item.numero).toLowerCase().includes(searchTerm.toLowerCase()) : true
@@ -138,7 +142,7 @@ function Screen() {
       <Text fontWeight="bold" borderBottom='1.5px solid red'>{row.numero} / {row.ano} - {row.gestora}</Text>
       <Box display='flex' flexDir='row' gap="8px"><Text fontWeight='bold'>SITUAÇÃO:</Text>  <Text> {getSituacaoText(row.situacao)}</Text></Box>
       <Box display='flex' flexDir='row' gap="8px"><Text fontWeight='bold'>TIPO:</Text>  <Text>  {getTipoText(row.id_tipolicitacao)}</Text></Box>
-      <Box display='flex' flexDir='row' gap="8px"><Text fontWeight='bold'   p='0'>DESCRIÇÃO:</Text>  <Text >   {row.descricao}</Text></Box>
+      <Box display='flex' flexDir='row' gap="8px"><Text fontWeight='bold' >DESCRIÇÃO:</Text>  <Text >   {row.descricao}</Text></Box>
       <Box display='flex' flexDir='row' gap="8px"><Text fontWeight='bold'>OBJETO:</Text>  <Text> {objetos_licitacao.find((objeto) => objeto.id_objeto === row.id_objeto)?.descricao || "Descrição não encontrada"}</Text></Box>
       
     </Box>
