@@ -40,57 +40,25 @@ export default function LargeWithLogoCentered() {
     >
       <Container
         as={Stack}
-        maxW="6xl"
-        py={10}
+        maxW="7xl"
+        py={5}
         borderTop="1px"
         borderTopColor={useColorModeValue("gray.200", "gray.700")}
         fontSize={accessibility?.fonts?.regular}
         
       >
-        <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
+        <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={10}>
           <Stack align="flex-start"></Stack>
+         
           <Stack align="flex-start">
-            <ListHeader>Prefeitura</ListHeader>
-            <Link
-              target="_blank"
-              href="https://www.mogidascruzes.sp.gov.br/servicos/todos-os-assuntos"
-            >
-              Carta de Serviços
-            </Link>
-            <Link
-              target="_blank"
-              href="https://www.mogidascruzes.sp.gov.br/noticias"
-            >
-              Arquivo de Notícias
-            </Link>
-            <Link
-              target="_blank"
-              href="https://www.mogidascruzes.sp.gov.br/unidades-e-equipamentos"
-            >
-              Mapa de Unidades
-            </Link>
-            <Link
-              target="_blank"
-              href="https://www.mogidascruzes.sp.gov.br/agenda-da-cidade/atracoes"
-            >
-              Agenda da Cidade
-            </Link>
-            <Link
-              target="_blank"
-              href="https://www.mogidascruzes.sp.gov.br/pontos-turisticos"
-            >
-              Pontos Turísticos
-            </Link>
-          </Stack>
-          <Stack align="flex-start">
-            <ListHeader>Endereços</ListHeader>
+            <ListHeader>Endereço</ListHeader>
+            <Text>  Prefeitura de Mogi das Cruzes</Text>
             <Text>
-              Prédio I - Av. Ver. Narciso Yague Guimarães, 277 - Centro Cívico -
+          
+              Av. Ver. Narciso Yague Guimarães, 277  Centro Cívico -
               08780-900
             </Text>
-            <Text>
-              Prédio II - Rua Francisco Franco, 133 - Centro - 08710-911
-            </Text>
+           
           </Stack>
           <Stack align="flex-start">
             <ListHeader>Fale Conosco</ListHeader>
@@ -101,12 +69,7 @@ export default function LargeWithLogoCentered() {
             <Text>Semae: 115</Text>
             <Text>Saúde: 160</Text>
             <Text>Guarda Municipal: 153</Text>
-            <Link
-              target="_blank"
-              href="https://radar.tce.mt.gov.br/extensions/radar-da-transparencia-publica/radar-da-transparencia-publica.html"
-            >
-              Radar da Transparência Pública
-            </Link>
+           
             
           </Stack>
         </SimpleGrid>

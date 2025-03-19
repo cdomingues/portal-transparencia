@@ -10,7 +10,7 @@
   import parecer_tribunal from "../../assets/images/icones/parecer_tribunal.svg";
   import plano_plurianual from "../../assets/images/icones/plano_plurianual.svg";
   import folha_de_pagamento from "../../assets/images/icones/folha de pagamento__cargos e salarios.svg";
-  import cargos_e_salarios from "../../assets/images/icones/folha de pagamento__folha de pagamento.svg";
+  import cargos_e_salarios from "../../assets/images/icones/folha_de_pagamento.svg";
   import adiantamentos_e_hospedagem from "../../assets/images/icones/folha de pagamento__adiantamentos e hospedagem.svg";
   import  passagens_e_locomoção from '../../assets/images/icones/folha de pagamento__passagens e locomoção.svg'
 

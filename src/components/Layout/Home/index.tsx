@@ -56,6 +56,7 @@ function PublicHome() {
         justifyContent="center" // Centraliza os filhos horizontalmente
         margin="0 auto" // Centraliza a Stack horizontalmente na tela
         paddingTop={15}
+        
       >
         <Stack
           background="transparent"
@@ -63,6 +64,7 @@ function PublicHome() {
           spacing={20}
           align="center" // Centraliza verticalmente
           justify="center" // Centraliza horizontalmente
+          
         >
           {/* Primeira coluna: Imagem */}
           <Stack
@@ -71,6 +73,7 @@ function PublicHome() {
             h={"100%"}
             align="center" // Centraliza verticalmente
             justify="center" // Centraliza horizontalmente
+           
           >
             <Box
               m={0}
@@ -93,6 +96,7 @@ function PublicHome() {
             h={"100%"}
             align="center" // Centraliza verticalmente
             justify="left" // Centraliza horizontalmente
+           
           >
             {/* Segunda coluna: Textos */}
             <Box
@@ -105,48 +109,33 @@ function PublicHome() {
               flexDirection="column"
               justifyContent="left"
               alignItems={"start"}
+             
             >
               <Text
                 textColor={"blue.500"}
                 fontFamily={"sans-serif"}
-                fontWeight={"semibold"}
+                fontWeight={"bold"}
                 textAlign={"left"}
-                fontSize={accessibility?.fonts?.large}
-                // fontSize={"2xl"}
+                fontSize={accessibility?.fonts?.ultraLarge}
+                
               >
-                SEJA BEM-VINDO AO PORTAL DE TRANSPARÊNCIA DE MOGI DAS CRUZES
+                PORTAL DE TRANSPARÊNCIA DE MOGI DAS CRUZES
               </Text>
               <Text
                 fontWeight={"light"}
                 fontSize={accessibility?.fonts?.medium}
-                justifyItems={""}
+                justifyItems={"center"}
+                fontFamily={"sans-serif"}
               >
-                O lugar onde o controle social começa! Acompanhe todas as
-                informações de receitas e despesas da Prefeitura, com
-                detalhamento e maior facilidade de entendimento.
+                O Portal da Transparência da Prefeitura de Mogi das Cruzes reúne dados e informações da administração municipal, possibilitando o controle social e acompanhamento interno e externo das ações do poder público.  
+ <br/>
+ Com o objetivo de divulgar ativamente dados de interesse coletivo ou privado, o portal atende aos critérios estabelecidos pelo artigo 5º do Decreto Municipal nº22.604/2024 e artigo 6º da Lei Municipal nº 7.986/23 que regulamenta a Lei  Federal nº 12.527/11 (Lei de Acesso à Informação).
               </Text>
              
             </Box>
           </Stack>
 
-          <Stack
-            background="transparent"
-            w={"20%"}
-            h={"100%"}
-            align="center" // Centraliza verticalmente
-            justify="left" // Centraliza horizontalmente
-          >
-            {/* Terceira coluna: Imagem */}
-            <Box
-              m={0}
-              bg={useColorModeValue("white", "gray.800")}
-              overflow="hidden"
-              maxWidth="80%"
-              marginBottom="15px"
-            >
-              <Image alt="logo" width="100px" src={lupaSrc} />
-            </Box>
-          </Stack>
+        
         </Stack>
       </Stack>
 

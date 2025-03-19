@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
-import { Box, Input, Select, Stack, Text } from "@chakra-ui/react";
+import { Box, Button, Input, Select, Stack, Text } from "@chakra-ui/react";
 import PaginationComponent from "../../../components/PaginationComponent";
 import { objetos_licitacao } from "../../../utils/objetos_licitacao";
 import { getSituacaoText } from "../../../utils/situacaoLicitacao";
 import { getTipoText } from "../../../utils/tipoLicitacao";
 import axios from "axios";
+import CsvDownload from "react-json-to-csv";
 
 export interface Licitacoes {
   id: number;
@@ -24,7 +25,7 @@ const ITEMS_PER_PAGE = 50;
 export const contentContractsAndAtas = {
   titlePage: "Licitações",
   description:
-    "São disponibilizados no site da Prefeitura os editais de licitação...",
+    "São disponibilizados no site da Prefeitura os editais de licitação de concorrência, tomada de preço e pregões para aquisição de bens e serviços, para acesso de qualquer interessado.",
 };
 
 function Screen() {
@@ -86,11 +87,25 @@ function Screen() {
     currentPage * ITEMS_PER_PAGE
   );
 
+  const exportToJSON = (data: any) => {
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+    const link = document.createElement("a");
+    const url = URL.createObjectURL(blob);
+  
+    link.setAttribute("href", url);
+    link.setAttribute("download", "dados_licitacoes.json");
+    link.style.visibility = "hidden";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+  
+
   return (
     <ContainerBasic title={title} description={description}>
       <Stack direction={{ base: "column", md: "row" }} spacing={4}>
         <Select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)}>
-          <option value="Todos">Todos os anos</option>
+          <option value="Todos">Selecione o ano</option>
           {[...Array(2025 - 2012 + 1)].map((_, i) => (
             <option key={i} value={2012 + i}>{2012 + i}</option>
           ))}
@@ -112,6 +127,47 @@ function Screen() {
           <option value="PMMC">PMMC</option>
           <option value="SEMAE">SEMAE</option>
         </Select>
+
+        <Button
+          width="180px"
+          border="0"
+          cursor="pointer"
+          fontSize="20px"
+          textColor="white"
+          bgColor="#1c3c6e"
+          _hover={{ bgColor: "#1c3c6e" }}
+          height="40px"
+          borderRadius="8px"
+          mr="15px"
+          transition="background-color 0.3s ease"
+          boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+          
+        >
+          <CsvDownload
+            filename={"dados_contratos.csv"}
+            data={licitacoes}
+            style={{
+              width: "100%",
+              height: "100%",
+              background: "none",
+              border: "none",
+              color: "white",
+              fontSize: "20px",
+              textAlign: "center",
+              cursor: "pointer",
+            }}
+          >
+            CSV
+          </CsvDownload>
+        </Button>
+        
+        <Button width='180px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
+            bgColor='#1c3c6e' 
+            _hover={{ bgColor: "#1c3c6e",    }}
+            height='40px' borderRadius='8px' mr='15px'onClick={() => exportToJSON(licitacoes)}
+            boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+            
+            >JSON</Button>
         
       </Stack>
 
@@ -122,7 +178,7 @@ function Screen() {
         onChange={(e) => setSearchTerm(e.target.value)}
         borderRadius="8px"
         height="40px"
-        width="40%"
+        width="180px"
         my="10px"
       />
 
@@ -135,7 +191,7 @@ function Screen() {
           p="10px"
           borderRadius="12px"
           mb="10px"
-          onClick={() => window.location.href = `contratos_teste_detalhes?${row.id}`}
+          onClick={() => window.location.href = `licitacoes_teste_detalhes?${row.id}`}
           _hover={{ border: "3px solid red", transition: "0.3s" }}
           cursor='pointer'
         >
