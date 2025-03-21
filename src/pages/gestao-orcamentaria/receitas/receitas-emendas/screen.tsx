@@ -160,11 +160,11 @@ useEffect(() => {
      {paginatedEmendas.map((emenda) => (
         <Box
           key={emenda.id}
-          border="2px solid #393D6F"
+          border="2px solid #c62227"
           p="10px"
           borderRadius="12px"
           mb="10px"
-          _hover={{ border: "3px solid #393D6F", transition: "0.3s" }}
+          _hover={{ border: "2px solid #c62227", transition: "0.3s" }}
           onClick={() => window.location.href = `receitas-emendas-detalhes?${emenda.id}`}
           cursor="pointer"
         >

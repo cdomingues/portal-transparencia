@@ -28,7 +28,7 @@ import CardHorizon from "../CardHorizon";
 import IconeOrcamento from "../../assets/images/icones/orcamento_home.svg";
 import IconeServidores from '../../assets/images/icones/servidores_home.svg'
 import IconeAdmMunicipal from '../../assets/images/icones/adm_municipal_home.svg'
-import IconeSocial from '../../assets/images/icones/controle social_home.svg'
+import IconeSocial from '../../assets/images/icones/lupa.svg'
 import IconePortais from '../../assets/images/icones/portais_home.svg'
 import IconePlanejamento from '../../assets/images/icones/planejamento_home.svg'
 import IconesGovernoAberto from '../../assets/images/icones/governo_aberto_home.svg'
@@ -113,7 +113,7 @@ function CardHome() {
       { label: "Balanços Anuais", url: "/ciclo-orcamentario/balancos-anuais" },
       { label: "Pareceres do Tribunal", url: "/ciclo-orcamentario/pareceres-do-tribunal" },
       { label: "Aprovação de Contas pelo Legislativo", url: "http://www.cmmc.com.br/paginas/contas_do_executivo_municipal/" },
-      { label: "Prestação de Contas à CMMC", url: "/ciclo-orcamentario/prestacao-de-contas" },
+      
       { label: "Desonerações/ Renúncia de Receita", url: "/ciclo-orcamentario/desoneracoes-renuncias" },
     ],
   };
@@ -311,7 +311,7 @@ const  menuAcordos = {
 }
 
 const menuItemLicitacoes = {
-  title: "Compras Públicas",
+  title: "Licitações",
   imageURL: Compras_publicas.src,
  // description: "Descrição 2",
   link: "/compras-publicas",
@@ -319,20 +319,11 @@ const menuItemLicitacoes = {
   showExtraLinks: true,
   extraLinks: [
     { label: "Compras Públicas - Início", url: "/compras-publicas/" },
-    { label: "Licitações", url: "/compras-publicas/licitacoes" },
-    { label: "Licitações Portal Antigo", url: "https://licitacao-mgcon.mogidascruzes.sp.gov.br/" },
-    {
-      label: "Pregão Eletrônico",
-      url: "/compras-publicas/pregao-eletronico",
-    },
-    {
-      label: "Cadastro de Fornecedor",
-      url: "/compras-publicas/cadastro-fornecedor",
-    },
-    {
-      label: "Portal Nacional de Contratações Públicas",
-      url: "https://pncp.gov.br/app/editais?q=&status=recebendo_proposta&pagina=1",
-    },
+   // { label: "Licitações", url: "/compras-publicas/licitacoes" },
+   // { label: "Licitações Portal Antigo", url: "https://licitacao-mgcon.mogidascruzes.sp.gov.br/" },
+    { label: "Pregão Eletrônico", url: "/compras-publicas/pregao-eletronico", },
+    {label: "Cadastro de Fornecedor",url: "/compras-publicas/cadastro-fornecedor", },
+    { label: "Portal Nacional de Contratações Públicas",url: "https://pncp.gov.br/app/editais?q=&status=recebendo_proposta&pagina=1", },
   ],
 }
 
@@ -573,8 +564,6 @@ const menuConselhos= {
   ],
 }
 
-
-
 const menuPortalObras= {
   title: "Portal de Obras",
   imageURL:Controle_de_obras.src,
@@ -697,9 +686,9 @@ const menuGovernoAberto = {
   showExtraLinks: false,
   extraLinks: [
     {label: "Governo Aberto - Início", url:"/governo-aberto/"},
-        {label: "BORALAI", url:"/governo-aberto/boralai"},
-        { label: "LIGA - Laboratório de Inovação em Governo Aberto", url: "https://liga.sp.gov.br/" },
-        {label: "Prestação de Contas Simplificada", url:"/governo-aberto/prestacao-contas"},
+       // {label: "BORALAI", url:"/governo-aberto/boralai"},
+       // { label: "LIGA - Laboratório de Inovação em Governo Aberto", url: "https://liga.sp.gov.br/" },
+       // {label: "Prestação de Contas Simplificada", url:"/governo-aberto/prestacao-contas"},
         {label: "Portas de Participação Cidadã", url:"/governo-aberto/participacao-cidada"},
 ],
 }
@@ -709,6 +698,27 @@ const menuGovernoDigital = {
   imageURL: IconeLeis.src,
  // description: "Descrição 2",
   link: "/governo-digital",
+  backgroundColor: "blue.500",
+  showExtraLinks: false,
+  extraLinks: [],
+}
+const menuPrestacaoContasS = {
+  title: "Prestação de contas simplificada",
+  imageURL: IconeLeis.src,
+ // description: "Descrição 2",
+  link: "/governo-aberto/prestacao-contas",
+  backgroundColor: "blue.500",
+  showExtraLinks: false,
+  extraLinks: [],
+}
+
+
+
+const menuPrestacaoCMMC = {
+  title: "Prestação de Contas à CMMC",
+  imageURL: IconeLeis.src,
+ // description: "Descrição 2",
+  link: "/ciclo-orcamentario/prestacao-de-contas",
   backgroundColor: "blue.500",
   showExtraLinks: false,
   extraLinks: [],
@@ -785,10 +795,12 @@ const menuLeisDecretos = {
   return (
    <> 
      <Accordion allowToggle>
-      <AccordionItem border="2px solid black" borderRadius="md" mx='80px' boxShadow="lg">
+      <AccordionItem border="2px solid black" borderRadius="md" mx='80px' boxShadow="lg" >
         <h2>
-          <AccordionButton  >
-          <Box flex="1" textAlign="left" fontWeight="bold" display="flex" alignItems="center" gap={8} fontSize='20px' _expanded={{ filter: "invert(1)" }}>
+          <AccordionButton  bgColor='gray.50'>
+          <Box flex="1" textAlign="left" fontWeight="bold" display="flex" alignItems="center" gap={8} fontSize='20px' 
+          
+          _expanded={{ filter: "invert(1)" }}>
            <Image  
            src={IconeOrcamento} 
            width={70} 
@@ -847,7 +859,7 @@ const menuLeisDecretos = {
 <Accordion allowToggle>
       <AccordionItem border="2px solid black" borderRadius="md" mx='80px' boxShadow="lg" >
         <h2>
-          <AccordionButton  >
+          <AccordionButton  bgColor='gray.50'>
           <Box flex="1" textAlign="left" fontWeight="bold" display="flex" alignItems="center" gap={8} fontSize='20px' _expanded={{ filter: "invert(1)" }}>
            <Image  
            src={IconeContratos} 
@@ -878,11 +890,46 @@ const menuLeisDecretos = {
     </Accordion>
 
 
-    
+     {/* ***************Acordion leis e decretos********************** */}
+<Accordion allowToggle>
+      <AccordionItem border="2px solid black" borderRadius="md" mx='80px' boxShadow="lg">
+        <h2>
+          <AccordionButton  bgColor='gray.50'>
+          <Box flex="1" textAlign="left" fontWeight="bold" display="flex" alignItems="center" gap={8} fontSize='20px' _expanded={{ filter: "invert(1)" }}>
+           <Image  
+           src={IconeLeisDecretos} 
+           width={70} 
+           alt="" 
+          
+           />    
+LEIS E DECRETOS        
+            </Box>
+            <AccordionIcon _expanded={{ color: "white" }} />
+          </AccordionButton>
+        </h2>
+        <AccordionPanel pb={4}>
+          <Grid
+            templateColumns={templateColumns}
+            gap={4}
+            width={isMobile ? "100%" : "80%"}
+            maxWidth={"1280px"}
+            margin="0 auto"
+            padding="0 15px"
+          >
+        <AccordionMenuItem {...menuLai}/>
+        <AccordionMenuItem {...menuLeisDecretos}/>
+       
+            
+          </Grid>
+       
+        </AccordionPanel>
+      </AccordionItem>
+    </Accordion>
+
 <Accordion allowToggle >
       <AccordionItem border="2px solid black" borderRadius="md" mx='80px' boxShadow="lg">
         <h2>
-          <AccordionButton  >
+          <AccordionButton  bgColor='gray.50'>
           <Box flex="1" textAlign="left" fontWeight="bold" display="flex" alignItems="center" gap={8} fontSize='20px' _expanded={{ filter: "invert(1)" }}>
            <Image  
            src={IconeServidores} 
@@ -931,7 +978,7 @@ const menuLeisDecretos = {
 <Accordion allowToggle>
       <AccordionItem border="2px solid black" borderRadius="md" mx='80px' boxShadow="lg">
         <h2>
-          <AccordionButton  >
+          <AccordionButton  bgColor='gray.50'>
           <Box flex="1" textAlign="left" fontWeight="bold" display="flex" alignItems="center" gap={8} fontSize='20px' _expanded={{ filter: "invert(1)" }}>
            <Image  
            src={IconeAdmMunicipal} 
@@ -996,7 +1043,7 @@ const menuLeisDecretos = {
 <Accordion allowToggle>
       <AccordionItem border="2px solid black" borderRadius="md" mx='80px' boxShadow="lg">
         <h2>
-          <AccordionButton  >
+          <AccordionButton  bgColor='gray.50'>
           <Box flex="1" textAlign="left" fontWeight="bold" display="flex" alignItems="center" gap={8} fontSize='20px' _expanded={{ filter: "invert(1)" }}>
            <Image  
            src={IconeSocial} 
@@ -1039,11 +1086,97 @@ const menuLeisDecretos = {
       </AccordionItem>
     </Accordion>
 
+    
+
+      {/* ***************Acordion apps e portais********************** */}
+<Accordion allowToggle>
+      <AccordionItem border="2px solid black" borderRadius="md" mx='80px'boxShadow="lg">
+        <h2>
+          <AccordionButton  bgColor='gray.50'>
+          <Box flex="1" textAlign="left" fontWeight="bold" display="flex" alignItems="center" gap={8} fontSize='20px' _expanded={{ filter: "invert(1)" }}>
+           <Image  
+           src={IconePlanejamento} 
+           width={70} 
+           alt="" 
+          
+           />   PLANEJAMENTO E PRESTAÇÃO DE CONTAS  
+            </Box>
+            <AccordionIcon _expanded={{ color: "white" }} />
+          </AccordionButton>
+        </h2>
+        <AccordionPanel pb={4}>
+          <Grid
+            templateColumns={templateColumns}
+            gap={4}
+            width={isMobile ? "100%" : "80%"}
+            maxWidth={"1280px"}
+            margin="0 auto"
+            padding="0 15px"
+          >
+          <AccordionMenuItem {...menuRelatorioGestao} />
+          <AccordionMenuItem {...menuPlanosMunicipais} />
+          <AccordionMenuItem {...menuPoliticaseProgramas} />
+          <AccordionMenuItem {...menuPrestacaoContasS} />
+          <AccordionMenuItem {...menuPrestacaoCMMC} />
+            
+          </Grid>
+        </AccordionPanel>
+      </AccordionItem>
+    </Accordion>
+
+    {/* ***************Acordion apps e portais********************** */}
+<Accordion allowToggle>
+      <AccordionItem border="2px solid black" borderRadius="md" mx='80px' boxShadow="lg">
+        <h2>
+          <AccordionButton  bgColor='gray.50'>
+          <Box flex="1" textAlign="left" fontWeight="bold" display="flex" alignItems="center" gap={8} fontSize='20px' _expanded={{ filter: "invert(1)" }}>
+           <Image  
+           src={IconesGovernoAberto} 
+           width={70} 
+           alt="" 
+          
+           />    
+INICIATIVAS DE GOVERNO ABERTO            
+            </Box>
+            <AccordionIcon _expanded={{ color: "white" }} />
+          </AccordionButton>
+        </h2>
+        <AccordionPanel pb={4}>
+          <Grid
+            templateColumns={templateColumns}
+            gap={4}
+            width={isMobile ? "100%" : "80%"}
+            maxWidth={"1280px"}
+            margin="0 auto"
+            padding="0 15px"
+          >
+        <AccordionMenuItem {...menuLGPD}/>
+        <AccordionMenuItem {...menuGovernoAberto}/>
+        <AccordionMenuItem {...menuGovernoDigital}/>
+            
+          </Grid>
+          <Grid
+            templateColumns={templateColumns}
+            gap={4}
+            width={isMobile ? "100%" : "80%"}
+            maxWidth={"1280px"}
+            margin="0 auto"
+            padding="0 15px"
+          >
+        <AccordionMenuItem {...menuDiarioOficial}/>
+        
+            
+          </Grid>
+        </AccordionPanel>
+      </AccordionItem>
+    </Accordion>
+
+    
      {/* ***************Acordion apps e portais********************** */}
 <Accordion allowToggle>
       <AccordionItem border="2px solid black" borderRadius="md" mx='80px' boxShadow="lg">
         <h2>
-          <AccordionButton  >
+          <AccordionButton  bgColor='gray.50'>
           <Box flex="1" textAlign="left" fontWeight="bold" display="flex" alignItems="center" gap={8} fontSize='20px' _expanded={{ filter: "invert(1)" }}>
            <Image  
            src={IconePortais} 
@@ -1097,123 +1230,6 @@ const menuLeisDecretos = {
             
           </Grid>
 
-        </AccordionPanel>
-      </AccordionItem>
-    </Accordion>
-
-      {/* ***************Acordion apps e portais********************** */}
-<Accordion allowToggle>
-      <AccordionItem border="2px solid black" borderRadius="md" mx='80px'boxShadow="lg">
-        <h2>
-          <AccordionButton  >
-          <Box flex="1" textAlign="left" fontWeight="bold" display="flex" alignItems="center" gap={8} fontSize='20px' _expanded={{ filter: "invert(1)" }}>
-           <Image  
-           src={IconePlanejamento} 
-           width={70} 
-           alt="" 
-          
-           />   PLANEJAMENTO E PRESTAÇÃO DE CONTAS  
-            </Box>
-            <AccordionIcon _expanded={{ color: "white" }} />
-          </AccordionButton>
-        </h2>
-        <AccordionPanel pb={4}>
-          <Grid
-            templateColumns={templateColumns}
-            gap={4}
-            width={isMobile ? "100%" : "80%"}
-            maxWidth={"1280px"}
-            margin="0 auto"
-            padding="0 15px"
-          >
-          <AccordionMenuItem {...menuRelatorioGestao} />
-          <AccordionMenuItem {...menuPlanosMunicipais} />
-          <AccordionMenuItem {...menuPoliticaseProgramas} />
-            
-          </Grid>
-        </AccordionPanel>
-      </AccordionItem>
-    </Accordion>
-
-    {/* ***************Acordion apps e portais********************** */}
-<Accordion allowToggle>
-      <AccordionItem border="2px solid black" borderRadius="md" mx='80px' boxShadow="lg">
-        <h2>
-          <AccordionButton  >
-          <Box flex="1" textAlign="left" fontWeight="bold" display="flex" alignItems="center" gap={8} fontSize='20px' _expanded={{ filter: "invert(1)" }}>
-           <Image  
-           src={IconesGovernoAberto} 
-           width={70} 
-           alt="" 
-          
-           />    
-INICIATIVAS DE GOVERNO ABERTO            
-            </Box>
-            <AccordionIcon _expanded={{ color: "white" }} />
-          </AccordionButton>
-        </h2>
-        <AccordionPanel pb={4}>
-          <Grid
-            templateColumns={templateColumns}
-            gap={4}
-            width={isMobile ? "100%" : "80%"}
-            maxWidth={"1280px"}
-            margin="0 auto"
-            padding="0 15px"
-          >
-        <AccordionMenuItem {...menuLGPD}/>
-        <AccordionMenuItem {...menuGovernoAberto}/>
-        <AccordionMenuItem {...menuGovernoDigital}/>
-            
-          </Grid>
-          <Grid
-            templateColumns={templateColumns}
-            gap={4}
-            width={isMobile ? "100%" : "80%"}
-            maxWidth={"1280px"}
-            margin="0 auto"
-            padding="0 15px"
-          >
-        <AccordionMenuItem {...menuDiarioOficial}/>
-        
-            
-          </Grid>
-        </AccordionPanel>
-      </AccordionItem>
-    </Accordion>
-
-     {/* ***************Acordion leis e decretos********************** */}
-<Accordion allowToggle>
-      <AccordionItem border="2px solid black" borderRadius="md" mx='80px' boxShadow="lg">
-        <h2>
-          <AccordionButton  >
-          <Box flex="1" textAlign="left" fontWeight="bold" display="flex" alignItems="center" gap={8} fontSize='20px' _expanded={{ filter: "invert(1)" }}>
-           <Image  
-           src={IconeLeisDecretos} 
-           width={70} 
-           alt="" 
-          
-           />    
-LEIS E DECRETOS        
-            </Box>
-            <AccordionIcon _expanded={{ color: "white" }} />
-          </AccordionButton>
-        </h2>
-        <AccordionPanel pb={4}>
-          <Grid
-            templateColumns={templateColumns}
-            gap={4}
-            width={isMobile ? "100%" : "80%"}
-            maxWidth={"1280px"}
-            margin="0 auto"
-            padding="0 15px"
-          >
-        <AccordionMenuItem {...menuLai}/>
-        <AccordionMenuItem {...menuLeisDecretos}/>
-       
-            
-          </Grid>
-       
         </AccordionPanel>
       </AccordionItem>
     </Accordion>

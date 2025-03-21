@@ -94,11 +94,11 @@ function Screen({ id_contrato }: any) {
                     <Th
                       colSpan={2}
                       textAlign="center"
-                      bg="#393D6F"
+                      bg="#c62227"
                       color="white"
                       p={4}
                       fontWeight="bold"
-                      border="1px solid #393D6F"
+                      border="1px solid #c62227"
                     >
                       DETALHES DA EMENDA
                     </Th>
@@ -133,10 +133,10 @@ function Screen({ id_contrato }: any) {
                     
                   ].map(([label, value], index) => (
                     <Tr key={index}>
-                      <Td fontWeight="bold" bg="#f2f1f1" p={3} width="30%" border="1px solid #393D6F">
+                      <Td fontWeight="bold" bg="#f2f1f1" p={3} width="30%" border="1px solid #c62227">
                         {label}
                       </Td>
-                      <Td p={3} border="1px solid #393D6F" bg="#eeeeee" width="70%">
+                      <Td p={3} border="1px solid #c62227" bg="#eeeeee" width="70%">
                         {value}
                       </Td>
                     </Tr>
@@ -153,23 +153,23 @@ function Screen({ id_contrato }: any) {
             <Table variant="simple" size="md" width="100%" overflow="hidden">
               <Thead >
                 <Tr textAlign="center"
-                    bg="#393D6F"
+                    bg="#c62227"
                     color="white"
                     p={4}
                     fontWeight="bold"
-                    border="1px solid #393D6F">
+                    border="1px solid #c62227">
                 <Th fontSize='18px' color="white" colSpan={3} textAlign='center'>ARQUIVOS DISPONÍVEIS</Th>
                     
                   
                 </Tr>
                 <Tr>
-                  <Th bg="#f2f1f1" border="1px solid #393D6F">
+                  <Th bg="#f2f1f1" border="1px solid #c62227">
                     Nome do Arquivo
                   </Th>
-                  <Th bg="#f2f1f1" border="1px solid #393D6F">
+                  <Th bg="#f2f1f1" border="1px solid #c62227">
                     Download
                   </Th>
-                  <Th bg="#f2f1f1" border="1px solid #393D6F">
+                  <Th bg="#f2f1f1" border="1px solid #c62227">
                     Data de inclusão
                   </Th>
                 </Tr>

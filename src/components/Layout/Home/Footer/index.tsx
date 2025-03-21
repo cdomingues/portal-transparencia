@@ -18,6 +18,8 @@ import seloTansparencia2022 from "../../../../assets/images/selo_ouro (1).png"
 import seloTansparencia2023 from "../../../../assets/images/selo_transparencia_ouro-2023.png"
 import seloTansparencia2024 from "../../../../assets/images/selo_transparencia_ouro-2024.png"
 import pnpc from "../../../../assets/images/logo-PNPC.png"
+import ccomon from '../../../../assets/images/creative_commons.png'
+import radar_transparencia from '../../../../assets/images/RadardaTransparnciapublica.png'
 //import PageViewCounter from "../../../PageView";
 
 function ListHeader({ children }: { children: ReactNode }) {
@@ -106,7 +108,8 @@ export default function LargeWithLogoCentered() {
             borderBottom: "1px solid",
             borderColor: useColorModeValue("white", "gray.700"),
             flexGrow: 1,
-            mr: 8,
+            mr: 10,
+            gap:"10px",
           }}
           _after={{
             content: '""',
@@ -116,7 +119,12 @@ export default function LargeWithLogoCentered() {
             ml: 8,
           }}
         >
-          
+           <Image alt="logo" width='180px' pr='30px' src={ccomon.src} border='1px solid lightgrey' p='20px' mr='10px' borderRadius='12px' bgColor='white'/>
+          <Link href="https://radardatransparencia.atricon.org.br/radar-da-transparencia-publica.html" target="blank">
+          <Image alt="logo" width='260px' pr='30px' src={radar_transparencia.src} borderRadius='12px' 
+          border='1px solid lightgrey' mr="10px"/>
+          </Link>          
+         
           <Image alt="logo" width="160px" pr="30px" src={seloTansparencia2022.src}/>
         <Image alt="logo" width="160px" pr="30px"  src={seloTansparencia2023.src} />
         <Image alt="logo" width="160px" pr="30px"  src={seloTansparencia2024.src} />

@@ -1,4 +1,5 @@
 import { Box, Icon, Select, Stack } from '@chakra-ui/react';
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { isMobile } from 'react-device-detect';
 import { AiOutlineDownload } from 'react-icons/ai';
@@ -107,25 +108,27 @@ const FilesList: React.FC<FilesListProps> = ({ tipoFiltro }) => {
         selectedYear ? arquivo.ano === selectedYear : true
       )
         .sort().map((arquivo, index) => (
-          <a href={`${apiUrl}${arquivo.file}`} download target="_blank" >
+          //<Link href={`${apiUrl}${arquivo.file}`} download target="_blank"  >
           <Stack 
           key={arquivo.pk}
           marginTop={5}
           direction="row"
-          maxW="600px"
-
-          color={ 'gray'}
-          p={2}
+          maxW="500px"
+        //  width='400px'
+          color={ 'black'}
+          p={4}
           borderRadius="md"
           //cursor="pointer"
           _hover={{ bg: 'gray.200' }}
-         
+          border='1px solid black'
+          onClick={() => window.open(`${apiUrl}${arquivo.file}`, '_blank')}
+         cursor='pointer'
           >
             <p> {arquivo.nome} - {arquivo.ano}</p>
             
             <Icon as={AiOutlineDownload} />
             
-          </Stack></a>
+          </Stack>
         ))}
       
     </Box>

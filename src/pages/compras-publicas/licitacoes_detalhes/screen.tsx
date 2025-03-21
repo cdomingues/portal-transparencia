@@ -134,11 +134,11 @@ function Screen({ id_contrato }: any) {
                     <Th
                       colSpan={2}
                       textAlign="center"
-                      bg="red"
+                      bg="#c62227"
                       color="white"
                       p={4}
                       fontWeight="bold"
-                      border="1px solid red"
+                      border="1px solid #c62227"
                     >
                       DETALHES DA LICITAÇÃO
                     </Th>
@@ -158,10 +158,10 @@ function Screen({ id_contrato }: any) {
                     
                   ].map(([label, value], index) => (
                     <Tr key={index}>
-                      <Td fontWeight="bold" bg="#f2f1f1" p={3} width="30%" border="1px solid red">
+                      <Td fontWeight="bold" bg="#f2f1f1" p={3} width="30%" border="1px solid #c62227">
                         {label}
                       </Td>
-                      <Td p={3} border="1px solid red" bg="#eeeeee" width="70%">
+                      <Td p={3} border="1px solid #c62227" bg="#eeeeee" width="70%">
                         {value}
                       </Td>
                     </Tr>
@@ -181,20 +181,20 @@ function Screen({ id_contrato }: any) {
                   <Th
                     colSpan={2}
                     textAlign="center"
-                    bg="red"
+                    bg="#c62227"
                     color="white"
                     p={4}
                     fontWeight="bold"
-                    border="1px solid red"
+                    border="1px solid #c62227"
                   >
                     ARQUIVOS DISPONÍVEIS
                   </Th>
                 </Tr>
                 <Tr>
-                  <Th bg="#f2f1f1" border="1px solid red">
+                  <Th bg="#f2f1f1" border="1px solid #c62227">
                     Nome do Arquivo
                   </Th>
-                  <Th bg="#f2f1f1" border="1px solid red">
+                  <Th bg="#f2f1f1" border="1px solid #c62227">
                     Download
                   </Th>
                 </Tr>
@@ -204,10 +204,10 @@ function Screen({ id_contrato }: any) {
                 .filter(file => file.tabela === 'LICITACAO')
                 .map((file) => (
                   <Tr key={file.id}>
-                    <Td p={3} border="1px solid red">
+                    <Td p={3} border="1px solid #c62227">
                       {file.nome}
                     </Td>
-                    <Td p={3} border="1px solid red">
+                    <Td p={3} border="1px solid #c62227">
                       <Link 
                       href={`https://licitacao-mgcon.mogidascruzes.sp.gov.br/arquivo/download?id=${file.id}`}
                       target="_blank" 
@@ -233,21 +233,21 @@ function Screen({ id_contrato }: any) {
                   <Th
                     colSpan={2}
                     textAlign="center"
-                    bg="red"
+                    bg="#c62227"
                     color="white"
                     p={4}
                     fontWeight="bold"
-                    border="1px solid red"
+                    border="1px solid #c62227"
                     
                    >
                     OCORRÊNCIAS 
                   </Th>
                 </Tr>
                 <Tr>
-                  <Th bg="#f2f1f1" border="1px solid red">
+                  <Th bg="#f2f1f1" border="1px solid #c62227">
                     Nome do Arquivo
                   </Th>
-                  <Th bg="#f2f1f1" border="1px solid red">
+                  <Th bg="#f2f1f1" border="1px solid #c62227">
                     Download
                   </Th>
                 </Tr>
@@ -256,10 +256,10 @@ function Screen({ id_contrato }: any) {
                 {ocorrencias                
                 .map((file) => (
                   <Tr key={file.id}>
-                    <Td p={3} border="1px solid red">
+                    <Td p={3} border="1px solid #c62227">
                       {file.descricao}
                     </Td>
-                    <Td p={3} border="1px solid red">
+                    <Td p={3} border="1px solid #c62227">
                       <Link 
                       href={`https://licitacao-mgcon.mogidascruzes.sp.gov.br/arquivo/download?id=${file.id}`}
                       target="_blank" 

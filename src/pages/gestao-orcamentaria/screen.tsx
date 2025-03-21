@@ -200,13 +200,7 @@ function HomeScreen({ handler }: PropsInput) {
                   justifyContent={isMobile ? "flex-start" : "center"}
                 >
                   <Box padding="6" bg="transparent" flexDirection="row">
-                    <CardHorizon
-                      title="Receitas - Multas de Trânsito e Concessões"
-                      imageURL={receitas_multas_de_transito.src}
-                      description="As receitas para o município podem vir de diferentes fontes. Uma delas são as multas de trânsito - que, por lei, essa arrecadação é destinada a fins específicos ligados à Mobilidade. Há também as concessões e outorgas, que também geram receita. Acompanhe nesta página o descritivo dos recursos provenientes de multas de trânsito e outorgas e concessões pela Prefeitura de Mogi das Cruzes."
-                      link="gestao-orcamentaria/receitas/multa-transito"
-                      backgroundColor="transparent"
-                    />
+                  
                   </Box>
                   <Box padding="6" bg="transparent" flexDirection="row">
                     <CardHorizon
