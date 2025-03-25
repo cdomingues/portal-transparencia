@@ -13,9 +13,10 @@ import {
   Tr,
   Tbody,
   Td,
-  Link
+  Link,
+  Input
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { isMobile } from "react-device-detect";
 import Chart from "../../../components/Chart";
 import ContainerBasic from "../../../components/Container/Basic";
@@ -29,6 +30,16 @@ import TableComponent, { TableColumns } from "../../../components/Table";
 import DadosAbertos from "../../../components/DadosAbertos";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import moneyFormatter from "../../../utils/moneyFormatter";
+import CsvDownload from "react-json-to-csv";
+import { ContainerSearch } from "../../../styles/components/contratos-atas/styles";
+import PaginationComponent from "../../../components/PaginationComponent";
+export interface DividaAtiva {
+  "cpf_cnpj": string,
+  "nome": string,
+  "nome_fantasia":string,
+  "valor_total":string,
+  "valor_divida_selecionada": string
+}
 
 type PropsInput = {
   handler: {
@@ -55,7 +66,55 @@ function Screen({
   const title = contentAdvertisements?.titlePage;
   const description = contentAdvertisements?.description;
   const accessibility = useFontSizeAccessibilityContext();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortColumn, setSortColumn] = useState<string | null>(null);
+  const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
 
+
+  const ITEMS_PER_PAGE = 50;
+
+  const devedoresFiltrados = data.filter((item) => {
+    return (
+      (item.cpf_cnpj && item.cpf_cnpj.toLowerCase().includes(searchTerm.toLowerCase())) ||
+      (item.nome && item.nome.toLowerCase().includes(searchTerm.toLowerCase())) ||
+      (item.nome_fantasia && item.nome_fantasia.toLowerCase().includes(searchTerm.toLowerCase()))
+    );
+  });
+  
+
+  const paginatedDevedores = devedoresFiltrados.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  )
+  const totalPages = Math.ceil(devedoresFiltrados.length / ITEMS_PER_PAGE);
+
+  const handleSort = (column: string) => {
+    if (sortColumn === column) {
+      setSortDirection(sortDirection === "asc" ? "desc" : "asc");
+    } else {
+      setSortColumn(column);
+      setSortDirection("asc");
+    }
+  };
+  
+  const sortedDevedores = [...devedoresFiltrados].sort((a, b) => {
+    if (!sortColumn) return 0; // Sem ordenação
+    const valueA = a[sortColumn];
+    const valueB = b[sortColumn];
+  
+    if (typeof valueA === "string" && typeof valueB === "string") {
+      return sortDirection === "asc"
+        ? valueA.localeCompare(valueB)
+        : valueB.localeCompare(valueA);
+    }
+    
+    if (typeof valueA === "number" && typeof valueB === "number") {
+      return sortDirection === "asc" ? valueA - valueB : valueB - valueA;
+    }
+  
+    return 0;
+  });
   const chartConfig = {
     direction: isMobile ? "column" : "row",
     width: isMobile ? "100%" : "40%",
@@ -64,6 +123,22 @@ function Screen({
     fontSize: isMobile ? "medium" : "larger",
   };
 
+  const exportToJSON = (data: any) => {
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+    const link = document.createElement("a");
+    const url = URL.createObjectURL(blob);
+  
+    link.setAttribute("href", url);
+    link.setAttribute("download", "dados_deveroes.json");
+    link.style.visibility = "hidden";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  useEffect(() => {
+        setCurrentPage(1); // Reseta a página para 1 ao mudar o ano
+      }, []);
   return (
     <ContainerBasic title={title} description={description}>
    
@@ -129,8 +204,105 @@ function Screen({
       Fonte das informações  <Link fontWeight='bold' href="https://www.listadevedores.pgfn.gov.br/" color="red" isExternal>Lista de Devedores da PGFN</Link>
                 
               </Text>
-       <TableComponent loading={loading} columns={columns} data={data} />
-    <DadosAbertos data={data} />
+       
+              <ContainerSearch  mt='20px'>
+                          <Stack minW={86} width="50%" flexDir='row'
+                          sx={{
+                            "@media (max-width: 900px)": {
+                              flexDir:'column'
+                            },
+                          }}
+                          >
+                           
+                <Button
+                  width="180px"
+                  border="0"
+                  cursor="pointer"
+                  fontSize="20px"
+                  textColor="white"
+                  bgColor="#1c3c6e"
+                  _hover={{ bgColor: "#1c3c6e" }}
+                  height="40px"
+                  borderRadius="8px"
+                  mr="15px"
+                  transition="background-color 0.3s ease"
+                  boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+                  
+                >
+                  <CsvDownload
+                    filename={"dados_devedores.csv"}
+                    data={data}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      background: "none",
+                      border: "none",
+                      color: "white",
+                      fontSize: "20px",
+                      textAlign: "center",
+                      cursor: "pointer",
+                    }}
+                  >
+                    CSV
+                  </CsvDownload>
+                </Button>
+                
+                <Button width='180px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
+                    bgColor='#1c3c6e' 
+                    _hover={{
+                      bgColor: "#1c3c6e",  // Cor de fundo ao passar o mouse
+                    }}
+                    height='40px' borderRadius='8px' mr='15px'onClick={() => exportToJSON(data)}
+                    boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+                    
+                    >JSON</Button>
+                       </Stack>
+                          <Stack minW={50} justifyContent="flex-end" className="button-search"></Stack>
+                          <Input
+                                      type="text"
+                                      placeholder="Pesquisar ..."
+                                      value={searchTerm}
+                                      onChange={(e) => setSearchTerm(e.target.value)}
+                                      borderRadius="8px"
+                                      height="40px"
+                                      pr="40px" // Adiciona espaço para o ícone à direita
+                                      width="40%"
+                                      mb="10px"
+                                      
+                                    />
+                        </ContainerSearch>
+                         <Table >
+                         <Thead>
+  <Tr bg="#c62227" color="white">
+    <Th color="white" onClick={() => handleSort("cpf_cnpj")} cursor="pointer">
+      CPF / CNPJ {sortColumn === "cpf_cnpj" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
+    </Th>
+    <Th color="white" onClick={() => handleSort("nome")} cursor="pointer">
+      Nome {sortColumn === "nome" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
+    </Th>
+    <Th color="white" onClick={() => handleSort("nome_fantasia")} cursor="pointer">
+      Nome Fantasia {sortColumn === "nome_fantasia" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
+    </Th>
+    <Th color="white" onClick={() => handleSort("valor_total")} cursor="pointer">
+      Valor {sortColumn === "valor_total" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
+    </Th>
+  </Tr>
+</Thead>
+                          <Tbody fontSize='12px'>
+                         
+                            
+                          {sortedDevedores.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE).map((row, index) => (
+  <Tr key={index}>
+    <Td>{row.cpf_cnpj}</Td>
+    <Td>{row.nome}</Td>
+    <Td>{row.nome_fantasia}</Td>
+    <Td>{row.valor_total}</Td>
+  </Tr>
+))}
+                          </Tbody>
+                        </Table>
+                        
+                              <PaginationComponent pages={totalPages} setCurrentPage={setCurrentPage} currentPage={currentPage} />
       
       </Box>
     </ContainerBasic>

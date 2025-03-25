@@ -1,4 +1,4 @@
-import {  Box, useColorModeValue, Heading,Text, Link, Icon, AccordionPanel, AccordionItem, Accordion, AccordionButton, AccordionIcon, Flex, Stack } from "@chakra-ui/react";
+import {  Box, useColorModeValue, Heading,Text, Link, Icon, AccordionPanel, AccordionItem, Accordion, AccordionButton, AccordionIcon, Flex, Stack, Button, Table, Thead, Tr, Th, Tbody, Td } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";
 import ContainerBasic from "../../../../components/Container/Basic";
@@ -7,6 +7,8 @@ import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAcc
 //import Video from "../../../../components/Videos";
 import { isMobile } from "react-device-detect";
 import { AiOutlineDownload } from "react-icons/ai";
+import { ContainerSearch } from "../../../../styles/components/contratos-atas/styles";
+import CsvDownload from "react-json-to-csv";
 
 type Arquivo = {
   ano: any;
@@ -52,15 +54,55 @@ function Screen({
   const title = contentRadarsControl?.titlePage;
   const description = contentRadarsControl?.description;
   const accessibility = useFontSizeAccessibilityContext();
-  const url_video = "https://www.youtube.com/embed/K7_TUkedcGA?si=iPxaKODtZnboQT-_";
-  const titulo = "O QUE SÃO AS SEIS MEDIDAS?";
+  const [currentPage, setCurrentPage] = useState(1);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [sortColumn, setSortColumn] = useState<string | null>(null);
+    const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
+ 
 
   const [arquivos, setArquivos] = useState<Arquivo[]>([]);
   const [nextPage, setNextPage] = useState<number | null>(1);
 
   const apiUrl = "https://dadosadm.mogidascruzes.sp.gov.br";
- 
+  const exportToJSON = (data: any) => {
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+    const link = document.createElement("a");
+    const url = URL.createObjectURL(blob);
+  
+    link.setAttribute("href", url);
+    link.setAttribute("download", "dados_fundos_municipais.json");
+    link.style.visibility = "hidden";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+  const handleSort = (column: string) => {
+    if (sortColumn === column) {
+      setSortDirection(sortDirection === "asc" ? "desc" : "asc");
+    } else {
+      setSortColumn(column);
+      setSortDirection("asc");
+    }
+  };
 
+  const sortedPlanos =data.sort((a, b) => {
+    if (!sortColumn) return 0; // Sem ordenação
+    const valueA = a[sortColumn];
+    const valueB = b[sortColumn];
+  
+    if (typeof valueA === "string" && typeof valueB === "string") {
+      return sortDirection === "asc"
+        ? valueA.localeCompare(valueB)
+        : valueB.localeCompare(valueA);
+    }
+    
+    if (typeof valueA === "number" && typeof valueB === "number") {
+      return sortDirection === "asc" ? valueA - valueB : valueB - valueA;
+    }
+  
+    return 0;
+  });
+  
  
 
 
@@ -104,7 +146,7 @@ function Screen({
         >
           Lista dos Fundos Municipais
         </Heading>
-        <TableComponent columns={columns} loading={loading} data={data} />
+       
       </Box>
 
       <Box
@@ -118,7 +160,102 @@ function Screen({
         borderRadius="18px"
         marginBottom="15px"
       >
-       
+     <ContainerSearch  mt='20px'>
+                               <Stack minW={86} width="50%" flexDir='row'
+                               sx={{
+                                 "@media (max-width: 900px)": {
+                                   flexDir:'column'
+                                 },
+                               }}
+                               >
+                                
+                     <Button
+                       width="180px"
+                       border="0"
+                       cursor="pointer"
+                       fontSize="20px"
+                       textColor="white"
+                       bgColor="#1c3c6e"
+                       _hover={{ bgColor: "#1c3c6e" }}
+                       height="40px"
+                       borderRadius="8px"
+                       mr="15px"
+                       transition="background-color 0.3s ease"
+                       boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+                       
+                     >
+                       <CsvDownload
+                         filename={"dados_fundos_municipais.csv"}
+                         data={data}
+                         style={{
+                           width: "100%",
+                           height: "100%",
+                           background: "none",
+                           border: "none",
+                           color: "white",
+                           fontSize: "20px",
+                           textAlign: "center",
+                           cursor: "pointer",
+                         }}
+                       >
+                         CSV
+                       </CsvDownload>
+                     </Button>
+                     
+                     <Button width='180px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
+                         bgColor='#1c3c6e' 
+                         _hover={{
+                           bgColor: "#1c3c6e",  // Cor de fundo ao passar o mouse
+                         }}
+                         height='40px' borderRadius='8px' mr='15px'onClick={() => exportToJSON(data)}
+                         boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+                         
+                         >JSON</Button>
+                            </Stack>
+                               <Stack minW={50} justifyContent="flex-end" className="button-search"></Stack>
+                               
+                             </ContainerSearch>
+                              <Table >
+                                                      <Thead>
+                               <Tr bg="#c62227" color="white">
+                                 <Th color="white" onClick={() => handleSort("sigla_area_gestora")} cursor="pointer">
+                                 Sigla da área gestora {sortColumn === "sigla_area_gestora" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
+                                 </Th>
+                                 <Th color="white" onClick={() => handleSort("sigla_fundo" )} cursor="pointer">
+                                 Fundo {sortColumn === "sigla_fundo"  ? (sortDirection === "asc" ? "▲" : "▼") : ""}
+                                 </Th>
+                                 <Th color="white" onClick={() => handleSort("fundo_municipal")} cursor="pointer">
+                                 Fundo Municipal {sortColumn === "fundo_municipal" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
+                                 </Th>
+                                 <Th color="white" onClick={() => handleSort("cnpj")} cursor="pointer">
+                                   CNPJ {sortColumn === "cnpj" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
+                                 </Th>
+                                 <Th color="white" onClick={() => handleSort("criacao")} cursor="pointer">
+                                 Criação{sortColumn === "criacao" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
+                                 </Th>
+
+                                 <Th color="white" onClick={() => handleSort("criacao")} cursor="pointer">
+                                 Link{sortColumn === "criacao" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
+                                 </Th>
+
+                               </Tr>
+                             </Thead>
+                                                       <Tbody fontSize='12px'>
+                                                      
+                                                         
+                                                       {data.map((row, index) => (
+                               <Tr key={index}>
+                                 <Td>{row.sigla_area_gestora}</Td>
+                                 <Td>{row.sigla_fundo}</Td>
+                                 <Td>{row.fundo_municipal}</Td>
+                                 <Td>{row.cnpj}</Td>
+                                 <Td>{row.criacao}</Td>
+                                 <Td maxWidth='200px'>{row.link}</Td>
+                               </Tr>
+
+                             ))}
+                                                       </Tbody>
+                                                     </Table>
         
       </Box>
 

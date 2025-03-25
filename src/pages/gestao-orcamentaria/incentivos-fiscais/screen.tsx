@@ -42,7 +42,7 @@ function Screen({ handler }: PropsInput) {
         borderRadius="18px"
         marginBottom="15px"
       >
-        <Divider borderWidth="2px" mt="10" mb="10" />
+       
         <Text fontSize="large" fontWeight="550" paddingLeft="5px" pb="15px">
           Incentivos Fiscais - Projetos Culturais
         </Text>

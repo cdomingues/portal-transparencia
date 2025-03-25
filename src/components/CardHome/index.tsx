@@ -170,10 +170,7 @@ function CardHome() {
         label: "Incentivos Fiscais",
         url: "/gestao-orcamentaria/incentivos-fiscais",
       },
-      {
-        label: "Fundos Municipais",
-        url: "/gestao-orcamentaria/despesas/fundos-municipais",
-      },
+    
     ],
   }
 
@@ -563,6 +560,17 @@ const menuConselhos= {
   { label: "Tutelar", url: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-tutelar/institucional" }
   ],
 }
+
+const menuFundosMunicipais ={
+  title: "Fundos Municipais",
+  imageURL:IconeOS.src,
+ // description: "Descrição 2",
+  link: "/gestao-orcamentaria/despesas/fundos-municipais",
+  backgroundColor: "blue.500",
+  showExtraLinks: true,
+  extraLinks: [ ],
+}
+
 
 const menuPortalObras= {
   title: "Portal de Obras",
@@ -1080,6 +1088,7 @@ LEIS E DECRETOS
           >
            <AccordionMenuItem {...menuOSs} />
           <AccordionMenuItem {...menuConselhos}/>
+           <AccordionMenuItem {...menuFundosMunicipais}/>
             
           </Grid>
         </AccordionPanel>
@@ -1118,6 +1127,7 @@ LEIS E DECRETOS
           <AccordionMenuItem {...menuPoliticaseProgramas} />
           <AccordionMenuItem {...menuPrestacaoContasS} />
           <AccordionMenuItem {...menuPrestacaoCMMC} />
+         
             
           </Grid>
         </AccordionPanel>

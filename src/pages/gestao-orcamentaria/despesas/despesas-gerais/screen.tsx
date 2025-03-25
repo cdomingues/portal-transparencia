@@ -49,9 +49,10 @@ export const contentContractsAndAtas = {
 function Screen({
   handler: { columns, data, loading, handleByYear, setYear, year, data2, setData2,arquivosColumns },
 }: PropsInput) {
-  const [contract, setContract] = useState<any>(null);
+  
   const title = contentContractsAndAtas?.titlePage;
   const description = contentContractsAndAtas?.description;
+  const [contract, setContract] = useState<any>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedYear, setSelectedYear] = useState<number | undefined>(2024);
@@ -63,17 +64,18 @@ function Screen({
   const despesaFiltradas = data
   .filter((item) => {
     if (selectedYear) {
-      return Number(item.exercicio_empenho) === selectedYear; // Ajuste aqui para comparar corretamente
+      return Number(item.exercicio_empenho) === selectedYear; 
     }
-    return true; // Se não houver ano selecionado, retorna todos os itens
+    return true; 
   })
   .filter((item) =>
     item.nr_empenho?.toString().toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item.descr_funcional.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item.acao.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item.descr_fornecedor.toLowerCase().includes(searchTerm.toLowerCase())||
-    item.id_empenho.toLowerCase().includes(searchTerm.toLowerCase())
-  )
+    item.descr_funcional?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    item.acao?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    item.descr_fornecedor?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    item.id_empenho?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    (item.vinculo?.toLowerCase() || '').includes(searchTerm.toLowerCase()) // Evita erro quando item.vinculo for null
+  );
 
   const paginatedContratos = despesaFiltradas.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
@@ -209,32 +211,39 @@ console.log(years)
                           mb="10px"
                           
                         />
-     {sortedPaginatedContratos.map((row) => (
-               <Box
-                 key={row.id}
-                 border="2px solid #c62227"
-                 p="10px"
-                 borderRadius="12px"
-                 mb="10px"
-                 onClick={() => {
-                  // Armazenando os dados da despesa no sessionStorage
-                  sessionStorage.setItem("selectedDespesa", JSON.stringify(row));
-                  
-                  // Redirecionando para a página de detalhes
-                  window.location.href = `despesas_gerais_detalhes?nr_empenho=${row.nr_empenho}&exercicio_empenho=${row.exercicio_empenho}`;
-                }}
-                _hover={{ border: "3px solid red", transition: "0.3s" }}
-                cursor='pointer'
-              >
-                 
-                 <Text fontWeight="bold" borderBottom='1.5px solid red'>Empenho: {row.nr_empenho} / {row.exercicio_empenho}</Text>
-                 <Text>Fornecedor: {row.descr_fornecedor}</Text>
-                 <Text>Descrição: {row.descr_funcional}</Text>
-                 <Text>Valor empenho: {row.vlr_empenho}</Text>
-                 <Text>Unidade Orçamentária: {row.unid_orcam}</Text>
-                
-               </Box>
-             ))}
+    {sortedPaginatedContratos
+  .sort((a, b) => Number(a.nr_empenho) - Number(b.nr_empenho))
+  .map((row) => (
+    <Box
+      key={row.id}
+      border="2px solid #c62227"
+      p="10px"
+      borderRadius="12px"
+      mb="10px"
+      onClick={() => {
+        // Armazenando os dados da despesa no sessionStorage
+        sessionStorage.setItem("selectedDespesa", JSON.stringify(row));
+        
+        // Redirecionando para a página de detalhes
+        window.open(
+          `detalhes`,
+          "_blank"
+        );
+      }}
+      _hover={{ border: "3px solid red", transition: "0.3s" }}
+      cursor="pointer"
+    >
+      <Text fontWeight="bold" borderBottom="1.5px solid red">
+        Empenho: {row.nr_empenho} / {row.exercicio_empenho}
+      </Text>
+      <Text>Fornecedor: {row.descr_fornecedor}</Text>
+      <Text>Descrição: {row.descr_funcional}</Text>
+      <Text>Valor empenho: {row.vlr_empenho}</Text>
+      <Text>Unidade Orçamentária: {row.unid_orcam}</Text>
+      <Text>Vinculo: {row.vinculo}</Text>
+    </Box>
+  ))}
+
 
 <Box
        

@@ -10,9 +10,7 @@ export interface Arquivo {
   desc_item: string;
   qtde: number;
   valor_unit: string;
-  
-
-}
+  }
 
 const ItensEmpenho = ({ contract }: any) => {
   const [loading, setLoading] = useState(true);
