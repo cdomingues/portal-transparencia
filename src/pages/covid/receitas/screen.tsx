@@ -198,20 +198,14 @@ function Screen({
       <Stack direction={{ base: "column", md: "row" }} spacing={4}>
         <Select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)}>
           <option value="Todos">Selecione o ano</option>
-          {[...Array(2025 - 2012 + 1)].map((_, i) => (
-    <option key={i} value={2025 - i}>
-      {2025 - i}
+          {[...Array(2022 - 2020 + 1)].map((_, i) => (
+    <option key={i} value={2022 - i}>
+      {2022 - i}
     </option>
   ))}
         </Select>
 
-        <Select placeholder="Selecione o tipo de receita" onChange={(e) => setSelectedReceita(e.target.value)}>
-          {tiposReceita.map((tipo, index) => (
-            <option key={index} value={tipo}>
-              {tipo}
-            </option>
-          ))}
-        </Select>
+       
 
         <Button
           width="180px"
