@@ -28,6 +28,7 @@ import seta from "../../assets/images/icones/Icones_Home Portal Transparencia__b
 import hBottom from "../../assets/images/Icones_Home_Portal_Transparencia__botao_circulo.svg";
 
 import Diretriz_orcamentaria from "../../assets/images/icones/diretriz_orcamentaria.svg";
+import colors from "../../styles/colors";
 
 interface Link {
   label: string;
@@ -85,7 +86,7 @@ const CardHorizon: React.FC<CardHorizonProps> = ({
           <Stack
             width={"25%"}
             height="100%"
-            backgroundColor={useColorModeValue("rgb(205, 67, 83)", "gray.800")}
+            backgroundColor={useColorModeValue(colors.primaryDefault40p, "gray.800")}
             display="flex"
             justifyContent="center"
             alignItems="center"

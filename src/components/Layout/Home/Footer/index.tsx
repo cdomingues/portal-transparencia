@@ -118,6 +118,12 @@ export default function LargeWithLogoCentered() {
             flexGrow: 1,
             ml: 8,
           }}
+          sx={{
+            display: "flex",
+            flexDirection: ["column", "row"], // 'column' em mobile, 'row' em telas maiores
+            gap: ["20px", "0px"], 
+
+          }}
         >
            <Image alt="logo" width='180px' pr='30px' src={ccomon.src} border='1px solid lightgrey' p='20px' mr='10px' borderRadius='12px' bgColor='white'/>
           <Link href="https://radardatransparencia.atricon.org.br/radar-da-transparencia-publica.html" target="blank">

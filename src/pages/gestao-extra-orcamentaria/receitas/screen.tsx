@@ -23,6 +23,7 @@ import PaginationComponent from "../../../components/PaginationComponent";
 import axios from "axios";
 import CsvDownload from "react-json-to-csv";
 import moneyFormatter from "../../../utils/moneyFormatter";
+import colors from "../../../styles/colors";
 
 
 export interface Receitas {
@@ -192,7 +193,7 @@ function Screen({
         marginBottom="15px"
       >
       <Stack direction={{ base: "column", md: "row" }} spacing={4}>
-        <Select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)}>
+        <Select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)} width='30%'>
           <option value="Todos">Selecione o ano</option>
           {[...Array(2025 - 2012 + 1)].map((_, i) => (
     <option key={i} value={2025 - i}>
@@ -201,13 +202,7 @@ function Screen({
   ))}
         </Select>
 
-        <Select placeholder="Selecione o tipo de receita" onChange={(e) => setSelectedReceita(e.target.value)}>
-          {tiposReceita.map((tipo, index) => (
-            <option key={index} value={tipo}>
-              {tipo}
-            </option>
-          ))}
-        </Select>
+       
 
         <Button
           width="180px"
@@ -215,8 +210,8 @@ function Screen({
           cursor="pointer"
           fontSize="20px"
           textColor="white"
-          bgColor="#1c3c6e"
-          _hover={{ bgColor: "#1c3c6e" }}
+          bgColor={colors.primaryDefault40p}
+          _hover={{ bgColor: colors.primaryDefault80p }}
           height="40px"
           borderRadius="8px"
           mr="15px"
@@ -247,8 +242,8 @@ function Screen({
           cursor="pointer"
           fontSize="20px"
           textColor="white"
-          bgColor="#1c3c6e"
-          _hover={{ bgColor: "#1c3c6e" }}
+          bgColor={colors.primaryDefault40p}
+          _hover={{ bgColor: colors.primaryDefault80p }}
           height="40px"
           borderRadius="8px"
           mr="15px"
@@ -266,16 +261,16 @@ function Screen({
         onChange={(e) => setSearchTerm(e.target.value)}
         borderRadius="8px"
         height="40px"
-        width="180px"
+        width="30%"
         my="10px"
       />
 <Table >
   <Thead>
-    <Tr  bg="#c62227"
+    <Tr  bg={colors.primaryDefault40p}
       color="white"
       p={4}
       fontWeight="bold"
-      border="1px solid #c62227">
+      border={`1px solid ${colors.primaryDefault40p}`}>
       <Th color="white">Ano</Th>
       <Th color="white">Receita</Th>
       <Th color="white">Janeiro</Th>
@@ -297,7 +292,10 @@ function Screen({
     
     {paginatedLicitacoes.map((row, index) => (
     
-      <Tr key={row.receita}>
+      <Tr key={row.receita}
+      bg={index % 2 === 0 ? useColorModeValue("white", "black")  : useColorModeValue("#f7f7f7", "grey.100")} 
+          _hover={{ bg: "#d1d1d1", cursor: "pointer" , color: useColorModeValue("white", "black") }}
+      >
         <Td>{row.ano} </Td> 
        <Td>{row.receita}</Td>
        <Td>{moneyFormatter(Number(row.janeiro))}</Td>

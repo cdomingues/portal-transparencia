@@ -117,9 +117,9 @@ function Screen({ handler }: PropsInput) {
         borderRadius="18px"
         marginBottom="15px"
       >
-        <Accordion allowToggle borderRadius={4}>
+        <Accordion allowToggle borderRadius={4} >
           {Object.keys(areaIdentifiers).map((section) => (
-            <AccordionItem bg={"gray.100"} pt={4} key={section}>
+            <AccordionItem  pt={4} key={section} bg={useColorModeValue("gray.100", "gray.800")}>
               <h2>
                 <AccordionButton>
                   <Box as="span" flex='1' textAlign='left'>
@@ -128,7 +128,7 @@ function Screen({ handler }: PropsInput) {
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel m={4} p={8} bg={"white"} borderRadius={4}>
+              <AccordionPanel m={4} p={8} bg={useColorModeValue("white", "gray.600")} borderRadius={4}>
                 <Flex>
                   <Box flex="end" p={2} marginRight={5}></Box>
                   <Box maxWidth="100%" p={2}>
@@ -140,10 +140,10 @@ function Screen({ handler }: PropsInput) {
                           <Stack
                             direction="row"
                             maxW="600px"
-                            color="gray"
+                            
                             p={2}
                             borderRadius="md"
-                            _hover={{ bg: 'gray.200' }}
+                             _hover={{ bg: "#d1d1d1", cursor: "pointer" , color: useColorModeValue("grey", "black") }}
                             marginTop={5}
                           >
                             <h1>{arquivo.nome} </h1>

@@ -3,7 +3,7 @@
   <defs>
     <style>
       .cls-1 {
-        fill: #FF0000; /* Alterado de #fff para #FF0000 */
+        fill: #db334f; /* Alterado de #fff para #FF0000 */
         stroke-width: 0px;
       }
     </style>

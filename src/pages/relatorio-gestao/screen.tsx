@@ -124,16 +124,27 @@ function HomeScreen({ handler }: PropsInput) {
           borderRadius="18px"
           marginBottom="15px"
         >
-          <Divider borderWidth="2px" mt="10" mb="10" />
-      {/* <TableComponent loading={loading} columns={columns} data={data} /> */}
+          
      
       <UnorderedList listStyleType="none" 
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}>
 
-                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/8802dd6e-edd2-4a81-b9ad-f314d3dbf09c/Relatorio_Circunstaciado_2022_e_Plano_de_A_hvWGNnk.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}> Relatório Circunstanciado 2022 e Plano de Atuação 2023</ListItem ></div></Link>
-                          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/41854082-18c2-4101-a51d-03dc7b079563/relatorios_circunstanciados_e_planos_de_at_dJvDFc5.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Relatório Circunstanciado e Plano de Atuação 2023-2024</ListItem ></div></Link>
-                         
+           <Box borderRadius="md"
+           mb='12px'
+           maxW="600px"
+          p={4}
+          _hover={{ bg: 'gray.200' }}
+          border='1px solid black'>  <Link 
+          href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/8802dd6e-edd2-4a81-b9ad-f314d3dbf09c/Relatorio_Circunstaciado_2022_e_Plano_de_A_hvWGNnk.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}> Relatório Circunstanciado 2022 e Plano de Atuação 2023</ListItem ></div></Link></Box>
+          <Box borderRadius="md"
+           maxW="600px"
+          p={4}
+          _hover={{ bg: 'gray.200' }}
+          border='1px solid black'>
+                        
+          <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/41854082-18c2-4101-a51d-03dc7b079563/relatorios_circunstanciados_e_planos_de_at_dJvDFc5.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Relatório Circunstanciado e Plano de Atuação 2023-2024</ListItem ></div></Link>
+          </Box>
                           
                           
                         </UnorderedList>

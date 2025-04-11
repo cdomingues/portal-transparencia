@@ -25,6 +25,7 @@ import { MultiAxisChart } from "../../../components/MultiAxisChart";
 import { TableColumns } from "../../../components/Table";
 import TableWithOutFilterComponent from "../../../components/Table/TableWithoutFilter";
 import ModalPayments from "./modalPayments";
+import colors from "../../../styles/colors";
 
 type PropsInput = {
   handler: {
@@ -107,7 +108,7 @@ function Screen({
           borderRadius="18px"
           marginBottom="15px"
         >
-          <MultipleGraphWrapper>
+        {/*   <MultipleGraphWrapper>
             <GraphWrapper>
               <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
                 Folha de pagamento Mensal Acumulado
@@ -125,7 +126,7 @@ function Screen({
                 <Chart type="bar" data={chartYear} />
               )}
             </GraphWrapper>
-          </MultipleGraphWrapper>
+          </MultipleGraphWrapper> */}
         </Box>
 
         <Divider height="3px" marginTop="10px" marginBottom="4px" />
@@ -153,7 +154,7 @@ function Screen({
           onChange={(e) => setYear(e.target.value)}
           bg="white"
           variant="outline"
-          placeholder="Selecionar Ano"
+          placeholder="Todos os anos"
         >
           {Array.from({ length: 5 }).map((_, index) => {
             const newYear = moment().subtract(index, "years").year();
@@ -174,7 +175,7 @@ function Screen({
           onChange={(e) => setMonth(e.target.value)}
           bg="white"
           variant="outline"
-          placeholder="Selecionar Mês"
+          placeholder="Todos os meses"
         >
           {Array.from({ length: 12 }).map((_, index) => (
             <option key={index} value={index + 1}>
@@ -242,7 +243,7 @@ function Screen({
                 disabled={loading}
                 onClick={() => handlePayroll()}
                 _hover={{ bg: "gray.500", color: "white" }}
-                bg="table.primary"
+                bg={colors.primaryDefault40p}
                 color="white"
                 fontSize="small"
               >

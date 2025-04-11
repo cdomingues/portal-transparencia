@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  
   Box,
   Flex,
   Text,
@@ -27,6 +28,9 @@ import {
   ModalBody,
   ModalFooter,
   useColorMode,
+  Image,
+  Menu,
+  CloseButton,
 } from "@chakra-ui/react";
 import { BiChevronRight } from "react-icons/bi";
 import navItems, { NavItem } from "./navItems";
@@ -40,16 +44,43 @@ import {
   BsSunFill,
 } from "react-icons/bs";
 import { IPublicRoute } from "../../../../types";
-import { useRouter } from "next/router";
+import router, { useRouter } from "next/router";
 import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAccessibility";
+import logo from "../../../../assets/images/Brasao_horizontal_normal.png";
+import logoDark from "../../../../assets/images/Brasao_horizontal_branco.png";
+import MenuHorizontalChakra from "../../../MenuNav";
+import { isMobile } from "react-device-detect";
 
 export default function Header() {
   const [search, setSearch] = useState("");
   const [searchs, setSearchs] = useState<Array<any>>([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <Box width="100%">
+    <Box width="100%" borderBottom='5px solid black' >
+         <Flex
+        h="20"
+        alignItems="center"
+        mx="8"
+        justifyContent="space-between"
+        flex={1}
+      >
+        <Link
+          href={"/"}
+          target={"_self"}
+          style={{ textDecoration: "none" }}
+          _focus={{ boxShadow: "none" }}
+          fontSize="13"
+        >
+          <Image
+            alt="logo"
+            src={colorMode === "dark" ? logoDark.src : logo.src}
+            style={{ width: isMobile ? "150px" : "150px" }}
+          />
+        </Link>
+       
+      
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
@@ -104,7 +135,11 @@ export default function Header() {
           </Flex>
         </Flex>
       </Flex>
+      </Flex>
+      <MenuHorizontalChakra />  
+      
     </Box>
+   
   );
 }
 
@@ -129,7 +164,7 @@ const DesktopNav = ({
   const router = useRouter();
   const accessibility = useFontSizeAccessibilityContext();
   return (
-    <Stack flex={1} direction="row">
+    <Stack flex={1} direction="row" >
       <Stack
         flex={2}
         direction="row"

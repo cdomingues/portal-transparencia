@@ -207,7 +207,8 @@ function Screen(PropsInput: any) {
       minW={90}
       width="45%"
       bg={useColorModeValue("white", "gray.800")  }     
-      onChange={ev => setPublicacao(ev.target.value  )}     
+      onChange={ev => setPublicacao(ev.target.value  )}  
+      mb={4}   
       >
         <option value="">Selecione</option>
       {publicacoes_educacao.map((info)=>(
@@ -220,7 +221,12 @@ function Screen(PropsInput: any) {
         {selectedPublication && (
 
           
-          <div>
+          <Box borderRadius="md"
+                     mb='12px'
+                     maxW="45%"
+                    p={2}
+                    _hover={{ bg: 'gray.200' }}
+                    border='1px solid black'> 
             <a href={selectedPublication.src} target="_blank">
              <Stack
              marginTop={5}
@@ -238,7 +244,7 @@ function Screen(PropsInput: any) {
           <Text fontSize={accessibility?.fonts?.medium}>{HTMLReactParser(selectedPublication.description)}</Text>
           
         </Stack></a>
-          </div>
+          </Box>
         )}
        
        </Box>

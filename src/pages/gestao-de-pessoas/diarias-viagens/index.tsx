@@ -2,11 +2,7 @@ import { GetStaticProps } from "next";
 import React, { useState , useEffect} from "react";
 import moneyFormatter from "../../../utils/moneyFormatter";
 import Screen from "./screen";
-import {
-  getChart,
-  getChartYear,
-  getdvertisings,
-} from "../../../calls/expenses/diarias";
+
 import { revalidate } from "../../../config";
 import moment from "moment";
 import axios from 'axios'
@@ -16,7 +12,7 @@ function Controller() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   //const [newChart, setNewChart] = useState(chart);
-
+console.log(data)
   const columns = [
    // { title: "_id", field: "_id" },
     { title: "Ano", field: "ano" },
@@ -45,6 +41,7 @@ function Controller() {
       motivo_deslocamento:item?.motivo_deslocamento,
       periodo_permanencia: item?.periodo_permanencia + " h" ,
       meia: item?.meia,
+      interia: item?.interia,
       
       
     }));
@@ -58,14 +55,9 @@ function Controller() {
   }, []);
 
   
-  const handler = {
-    data,
-    columns,
-    loading,
-    
-  };
+  
 
-  return <Screen handler={handler} />;
+  return <Screen  />;
 }
 
 export default Controller;

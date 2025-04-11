@@ -7,6 +7,7 @@ import React from "react";
 import { useFontSizeAccessibilityContext } from  '../../context/fontSizeAccessibility'
 
 import { isMobile } from "react-device-detect";
+import colors from "../../styles/colors";
 
 
 const statusTextMapping = new Map([
@@ -103,7 +104,7 @@ const anosDisponiveis=  Array.from(new Set(concursos.map((info) => new Date(info
       .sort((a, b) =>b.id - a.id)      
     .map((info) => (
       <AccordionItem key={info.id}
-      bg={"gray.100"}
+      bg={useColorModeValue("gray.100", "black")}
       pt={4}
       >
         <h2>
@@ -119,7 +120,7 @@ const anosDisponiveis=  Array.from(new Set(concursos.map((info) => new Date(info
      
     
       
-    <AccordionPanel m={4} p={8} bg={"white"} borderRadius={4}>
+    <AccordionPanel m={4} p={8} bg={useColorModeValue("white", "grey.200")} border= {`2px solid ${colors.primaryDefault40p}`} borderRadius={4}>
     
     
     {info.status === 1 &&  (

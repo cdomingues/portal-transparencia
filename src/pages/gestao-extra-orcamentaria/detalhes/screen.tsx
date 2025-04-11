@@ -18,6 +18,7 @@ import React, { useEffect, useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
 import moneyFormatter from "../../../utils/moneyFormatter";
 import moment from "moment";
+import colors from "../../../styles/colors";
 
 export interface Arquivo {
   nr_empenho: number;
@@ -101,7 +102,8 @@ function Screen() {
             <Table variant="simple" size="md" width="100%" overflow="hidden" mb={5}>
               <Thead>
                 <Tr>
-                  <Th colSpan={2} textAlign="center" bg="#c62227" color="white" p={4} fontWeight="bold" border="1px solid #c62227">
+                  <Th colSpan={2} textAlign="center" bg={colors.primaryDefault40p} color="white" p={4} fontWeight="bold" 
+                  border={`1px solid ${colors.primaryDefault40p}`}>
                     DETALHES DA DESPESA
                   </Th>
                 </Tr>
@@ -133,11 +135,15 @@ function Screen() {
 
                   
                 ].map(([label, value], index) => (
-                  <Tr key={index}>
-                    <Td fontWeight="bold" bg="#f2f1f1" p={3} width="30%" border="1px solid #c62227">
+                  <Tr key={index}
+                  bg={useColorModeValue("#f2f1f1", "black")}  
+                  _hover={{ bg: "#d1d1d1", cursor: "pointer" }}
+                  color={useColorModeValue("black", "white")}
+                  >
+                    <Td fontWeight="bold" bg={useColorModeValue("#f2f1f1", "black")} p={3} width="30%" border={`1px solid ${colors.primaryDefault40p}`}>
                       {label}
                     </Td>
-                    <Td p={3} bg="#eeeeee" width="70%" border="1px solid #c62227">
+                    <Td p={3}bg={useColorModeValue("#f2f1f1", "black")} width="70%" border={`1px solid ${colors.primaryDefault40p}`}>
                       {value || "N/A"}
                     </Td>
                   </Tr>

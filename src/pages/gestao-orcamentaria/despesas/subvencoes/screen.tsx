@@ -24,6 +24,7 @@ import ModalContracts from "./modalContracts";
 import CsvDownload from "react-json-to-csv";
 import PaginationComponent from "../../../../components/PaginationComponent";
 import { ContainerSearch } from "../../../../styles/components/contratos-atas/styles";
+import colors from "../../../../styles/colors";
 
 type PropsInput = {
   handler: {
@@ -188,8 +189,8 @@ function Screen({
                   cursor="pointer"
                   fontSize="20px"
                   textColor="white"
-                  bgColor="#1c3c6e"
-                  _hover={{ bgColor: "#1c3c6e" }}
+                  bgColor={colors.primaryDefault40p}
+    _hover={{ bgColor: colors.primaryDefault80p }}
                   height="40px"
                   borderRadius="8px"
                   mr="15px"
@@ -216,10 +217,8 @@ function Screen({
                 </Button>
                 
                 <Button width='180px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
-                    bgColor='#1c3c6e' 
-                    _hover={{
-                      bgColor: "#1c3c6e",  // Cor de fundo ao passar o mouse
-                    }}
+                   bgColor={colors.primaryDefault40p}
+                       _hover={{ bgColor: colors.primaryDefault80p }}
                     height='40px' borderRadius='8px' mr='15px'onClick={() => exportToJSON(data)}
                     boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
                     
@@ -248,30 +247,42 @@ function Screen({
           .map((row) => (
             <Box
               key={row.id}
-              border="2px solid #c62227"
-              p="10px"
-              borderRadius="12px"
-              mb="10px"
+              border="2px solid transparent"
+          p="12px"
+          borderRadius="16px"
+          mb="12px"
+          bg={useColorModeValue("white", "black")}
+          boxShadow="lg"
+          transition="0.3s"
+          cursor="pointer"
+          _hover={{
+            boxShadow: "xl",
+            transform: "scale(1.01)",
+            border: `2px solid ${colors.primaryDefault40p}`,
+          }}
               onClick={() => {
                 // Armazenando os dados da despesa no sessionStorage
                 sessionStorage.setItem("selectedDespesa", JSON.stringify(row));
                 
                 // Redirecionando para a página de detalhes
                 window.open(
-                  `detalhes`,
+                  `detalhes?${row.id_empenho} - ${row.exercicio_empenho}`,
                   "_blank"
                 );
               }}
-              _hover={{ border: "3px solid red", transition: "0.3s" }}
-              cursor="pointer"
-            >
-              <Text fontWeight="bold" borderBottom="1.5px solid red">
+              >
+              <Text  fontWeight="bold" 
+              fontSize="lg"
+              color={colors.primaryDefault40p}
+              borderBottom={`2px solid ${colors.primaryDefault40p}`}
+              pb="5px" 
+              mb="8px">
                 Empenho: {row.nr_empenho} / {row.exercicio_empenho}
               </Text>
-              <Text>Fornecedor: {row.descr_fornecedor}</Text>
-              <Text>Descrição: {row.descr_funcional}</Text>
-              <Text>Valor empenho: {row.vlr_empenho}</Text>
-              <Text>Unidade Orçamentária: {row.unid_orcam}</Text>
+              <Text><strong>Fornecedor:</strong> {row.descr_fornecedor}</Text>
+              <Text><strong>Descrição:</strong> {row.descr_funcional}</Text>
+              <Text><strong>Valor empenho:</strong> {row.vlr_empenho}</Text>
+              <Text><strong>Unidade Orçamentária:</strong> {row.unid_orcam}</Text>
             </Box>
           ))}
         

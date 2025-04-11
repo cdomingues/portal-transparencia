@@ -420,12 +420,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
           align={"center"}
           flex={1}
         >
-          <Icon
-            color={useColorModeValue("pink.400", "white")}
-            w={5}
-            h={5}
-            as={BiChevronRight}
-          />
+         
         </Flex>
       </Stack>
     </Link>

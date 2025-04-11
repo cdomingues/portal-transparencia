@@ -34,6 +34,7 @@ import { ContainerSearch } from "../../../../styles/components/contratos-atas/st
 import PaginationComponent from "../../../../components/PaginationComponent";
 import moneyFormatter from "../../../../utils/moneyFormatter";
 import moment from "moment";
+import colors from "../../../../styles/colors";
 
 type PropsInput = {
   handler: {
@@ -269,8 +270,8 @@ const years2 = [...new Set(data2.map((item2) => item2.ano))].sort((a, b) => b - 
                   cursor="pointer"
                   fontSize="20px"
                   textColor="white"
-                  bgColor="#1c3c6e"
-                  _hover={{ bgColor: "#1c3c6e" }}
+                  bgColor={colors.primaryDefault40p}
+                  _hover={{ bgColor: colors.primaryDefault80p }}
                   height="40px"
                   borderRadius="8px"
                   mr="15px"
@@ -297,10 +298,8 @@ const years2 = [...new Set(data2.map((item2) => item2.ano))].sort((a, b) => b - 
                 </Button>
                 
                 <Button width='180px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
-                    bgColor='#1c3c6e' 
-                    _hover={{
-                      bgColor: "#1c3c6e",  // Cor de fundo ao passar o mouse
-                    }}
+                    bgColor={colors.primaryDefault40p}
+                    _hover={{ bgColor: colors.primaryDefault80p }}
                     height='40px' borderRadius='8px' mr='15px'onClick={() => exportToJSON(data)}
                     boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
                     
@@ -311,11 +310,11 @@ const years2 = [...new Set(data2.map((item2) => item2.ano))].sort((a, b) => b - 
         
                         <Table >
   <Thead>
-    <Tr  bg="#c62227"
+    <Tr  bg={colors.primaryDefault40p}
       color="white"
       p={4}
       fontWeight="bold"
-      border="1px solid #c62227">
+      border={`1px solid ${colors.primaryDefault40p}`}	>
       <Th color="white">Ano</Th>
       <Th color="white">Mês</Th>
       <Th color="white">Campanha</Th>
@@ -335,7 +334,10 @@ const years2 = [...new Set(data2.map((item2) => item2.ano))].sort((a, b) => b - 
     
     {paginatedPublicidade.map((row, index) => (
     
-      <Tr key={row.index}>
+      <Tr key={row.index}
+       bg={index % 2 === 0 ? useColorModeValue("white", "black")  : useColorModeValue("#f7f7f7", "grey.100")} 
+          _hover={{ bg: "#d1d1d1", cursor: "pointer" , color: useColorModeValue("black", "white") }}
+      >
         <Td>{row.ano} </Td> 
        <Td>{row.competencia}</Td>
        <Td>{row.campanha}</Td>
@@ -381,8 +383,8 @@ const years2 = [...new Set(data2.map((item2) => item2.ano))].sort((a, b) => b - 
                   cursor="pointer"
                   fontSize="20px"
                   textColor="white"
-                  bgColor="#1c3c6e"
-                  _hover={{ bgColor: "#1c3c6e" }}
+                  bgColor={colors.primaryDefault40p}
+                  _hover={{ bgColor: colors.primaryDefault80p }}
                   height="40px"
                   borderRadius="8px"
                   mr="15px"
@@ -409,10 +411,8 @@ const years2 = [...new Set(data2.map((item2) => item2.ano))].sort((a, b) => b - 
                 </Button>
                 
                 <Button width='180px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
-                    bgColor='#1c3c6e' 
-                    _hover={{
-                      bgColor: "#1c3c6e",  // Cor de fundo ao passar o mouse
-                    }}
+                    bgColor={colors.primaryDefault40p}
+                    _hover={{ bgColor: colors.primaryDefault80p }}
                     height='40px' borderRadius='8px' mr='15px'onClick={() => exportToJSON(data2)}
                     boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
                     
@@ -428,30 +428,42 @@ const years2 = [...new Set(data2.map((item2) => item2.ano))].sort((a, b) => b - 
               .map((row,index) => (
                 <Box
                   key={row.id}
-                  border="2px solid #c62227"
-                  p="10px"
-                  borderRadius="12px"
-                  mb="10px"
+                  border="2px solid transparent"
+          p="12px"
+          borderRadius="16px"
+          mb="12px"
+          bg={useColorModeValue("white", "black")}
+          boxShadow="lg"
+          transition="0.3s"
+          cursor="pointer"
+          _hover={{
+            boxShadow: "xl",
+            transform: "scale(1.01)",
+            border: `2px solid ${colors.primaryDefault40p}`,
+          }}
                   onClick={() => {
                     // Armazenando os dados da despesa no sessionStorage
                     sessionStorage.setItem("selectedDespesa", JSON.stringify(row));
                     
                     // Redirecionando para a página de detalhes
                     window.open(
-                      `detalhes`,
+                      `detalhes?${row.nr_empenho}-${row.exercicio_empenho}`,
                       "_blank"
                     );
                   }}
-                  _hover={{ border: "3px solid red", transition: "0.3s" }}
-                  cursor="pointer"
-                >
-                  <Text fontWeight="bold" borderBottom="1.5px solid red">
+                                  >
+                  <Text fontWeight="bold" 
+            fontSize="lg"
+            color={colors.primaryDefault40p}
+            borderBottom={`2px solid ${colors.primaryDefault40p}`}
+            pb="5px" 
+            mb="8px">
                     Empenho: {row.nr_empenho} / {row.exercicio_empenho} 
                   </Text>
-                  <Text>Fornecedor: {row.descr_fornecedor}</Text>
-                  <Text>Descrição: {row.descr_funcional}</Text>
-                  <Text>Valor empenho: {row.vlr_empenho}</Text>
-                  <Text>Unidade Orçamentária: {row.unid_orcam}</Text>
+                  <Text><strong>Fornecedor:</strong> {row.descr_fornecedor}</Text>
+                  <Text><strong>Descrição:</strong> {row.descr_funcional}</Text>
+                  <Text><strong>Valor empenho:</strong> {row.vlr_empenho}</Text>
+                  <Text><strong>Unidade Orçamentária: </strong>{row.unid_orcam}</Text>
                 </Box>
               ))}
                     

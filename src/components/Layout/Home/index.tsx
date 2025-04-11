@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import publicRoutes from "../../../routes/public";
 import Footer from "./Footer";
-import SideBar from "./SideBar";
+//import SideBar from "./SideBar";
 import Header from "./Header";
 import Lupa from "../../../assets/images/Lupa.png";
 import CardHorizon from "../../CardHorizon";
@@ -50,7 +50,7 @@ function PublicHome() {
       {/* Menu de abertura */}
       <Stack
         backgroundColor={"transparent"}
-        width={"80%"} // Ocupa toda a largura da tela
+        width={"100%"} // Ocupa toda a largura da tela
         maxWidth={"1280px"} // Largura máxima de 1280 pixels
         alignItems="center" // Centraliza os filhos verticalmente
         justifyContent="center" // Centraliza os filhos horizontalmente

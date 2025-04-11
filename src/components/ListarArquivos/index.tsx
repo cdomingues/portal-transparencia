@@ -115,11 +115,11 @@ const FilesList: React.FC<FilesListProps> = ({ tipoFiltro }) => {
           direction="row"
           maxW="500px"
         //  width='400px'
-          color={ 'black'}
+         // color={ 'black'}
           p={4}
           borderRadius="md"
           //cursor="pointer"
-          _hover={{ bg: 'gray.200' }}
+          _hover={{ bg: 'gray.200', color: 'black' }}
           border='1px solid black'
           onClick={() => window.open(`${apiUrl}${arquivo.file}`, '_blank')}
          cursor='pointer'

@@ -96,7 +96,7 @@ const ModalPayments = ({ isOpen, onClose, payments }: any) => {
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} size={"5xl"} >
-      <ModalContainer borderColor={"gray.800"} bg={useColorModeValue("white", "gray.800")}>
+      <ModalContainer border='1px solid black' bg={useColorModeValue("white", "gray.800")}>
         <ModalHeader bg="transparent">
           Matrícula Nº {payments?.matricula}
         </ModalHeader>
@@ -104,6 +104,7 @@ const ModalPayments = ({ isOpen, onClose, payments }: any) => {
         <ModalBody
         bg={useColorModeValue("white", "gray.800")}
           style={{ paddingLeft: 0, paddingRight: 0, paddingBottom: 0 }}
+          
         >
           <Tabs bg={useColorModeValue("white", "gray.800")} style={{ padding: 0, margin: 0 }}>
             <ListTabs bg={useColorModeValue("white", "gray.800")}>

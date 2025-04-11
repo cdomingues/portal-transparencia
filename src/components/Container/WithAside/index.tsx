@@ -10,23 +10,12 @@ type PropsInput = {
 };
 
 function ContainerWithAside({ children, aSide }: PropsInput) {
-  const size: Size = useWindowSize();
-  let hasAside = true;
-  if (isMobile) {
-    hasAside = false;
-  }
 
-  if (size.width <= 768) {
-    hasAside = false;
-  }
+
+
 
   return (
-    <Container>
-      <Stack direction="row" width={hasAside ? "100%" : "100%"}>
-        <Stack flex={1}>{children}</Stack>
-        <Stack flex={1}>{aSide}</Stack>
-      </Stack>
-    </Container>
+   <h1>2</h1>
   );
 }
 

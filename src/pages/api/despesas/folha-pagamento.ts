@@ -6,12 +6,14 @@ export type Row = {
   nome: string;
   cargo: string;
   situacao: string;
+  salariobase: string;
   dataadmissao: string;
   dataexoneracao: string;
+  tipocontrato: string;
   secretaria: string;
+  localtrabalho: string;
   ano: number;
   mes: string;
-  salariobase: string;
   bruto: string;
   liquido: string;
   desconto: string;

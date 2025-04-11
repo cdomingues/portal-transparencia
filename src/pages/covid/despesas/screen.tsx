@@ -4,8 +4,14 @@ import {
   Heading,
   Select,
   Stack,
+  Table,
+  Tbody,
+  Td,
   Text,
-} from "@chakra-ui/react";
+  Th,
+  Thead,
+  Tr,
+ useColorModeValue } from "@chakra-ui/react";
 import React from "react";
 import { isMobile } from "react-device-detect";
 import  Chart  from "../../../components/Chart";
@@ -16,6 +22,8 @@ import {
 } from "../../../components/GraphWrapper";
 import { MultiAxisChart } from "../../../components/MultiAxisChart";
 import TableComponent, { TableColumns } from "../../../components/Table";
+import colors from "../../../styles/colors";
+import moneyFormatter from "../../../utils/moneyFormatter";
 //import Video from "../../../components/Videos";
 
 type PropsInput = {
@@ -64,14 +72,7 @@ function Screen({
   return (
     <ContainerBasic title={title} description={description}>
      
-      <GraphWrapper>
-        <Heading mb={5} fontSize={chartConfig.fontSize} color="text.dark">
-          Despesas últimos 5 anos
-        </Heading>
-        {chartYear?.datasets?.length > 0 && (
-          <Chart type="bar" data={chartYear}  />
-        )}
-      </GraphWrapper>
+    
       <Divider borderWidth="2px" mt="10" mb="10" />
 
       <Stack direction="row">
@@ -82,7 +83,7 @@ function Screen({
           <Select
             defaultValue={year}
             onChange={(e) => setYear(e.target.value)}
-            bg="white"
+           // bg="white"
             variant="outline"
             placeholder="Selecionar Ano"
           >
@@ -111,7 +112,51 @@ function Screen({
       </Stack>
 
       <Divider borderWidth="2px" mt="10" mb="10" />
-      <TableComponent loading={loading} columns={columns} data={data} />
+      <Table >
+        <Thead>
+          <Tr  bg={colors.primaryDefault40p}
+            color="white"
+            p={4}
+            fontWeight="bold"
+            border={`1px solid ${colors.primaryDefault40p}`}>
+            <Th color="white">Ano</Th>
+            <Th color="white">Mês</Th>
+            <Th color="white">CPF / CNPJ favorecido</Th>
+            <Th color="white">Unidade Orçamentária</Th>
+            <Th color="white">Funcional Programática</Th>
+            <Th color="white">Função</Th>
+            <Th color="white">Subfunção</Th>
+            <Th color="white">Fonte do recurso</Th>
+            <Th color="white">Valor empenhado</Th>
+            <Th color="white">Valor liquidado</Th>
+            
+          </Tr>
+        </Thead>
+        <Tbody fontSize='12px'>
+          
+          {data.map((row, index) => (
+          
+          <Tr 
+        key={row.receita} 
+            bg={index % 2 === 0 ? useColorModeValue("white", "black")  : useColorModeValue("#f7f7f7", "grey.100")} 
+            _hover={{ bg: "#d1d1d1", cursor: "pointer" , color: useColorModeValue("black", "white") }}
+            color={useColorModeValue("black", "white")}
+        >
+              <Td>{row.ano} </Td> 
+             <Td>{row.mes}</Td>
+             <Td>{row.cnpj_cpf_favorecido}</Td>
+              <Td>{row.unidadeorc}</Td>
+              <Td>{row.funcionalprogramatica}</Td>
+              <Td>{row.funcao}</Td>
+              <Td>{row.subfuncao}</Td>
+              <Td>{row.fonterecurso}</Td>
+              <Td>{row.valorempenhado !== null ? moneyFormatter(row.valorempenhado) : '-'}</Td>
+              <Td>{row.valorliquidado !== null ? moneyFormatter(row.valorliquidado) : '-'}</Td>
+              
+            </Tr>
+          ))}
+        </Tbody>
+      </Table>
     </ContainerBasic>
   );
 }

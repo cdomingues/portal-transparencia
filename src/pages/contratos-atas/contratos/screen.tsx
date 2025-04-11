@@ -15,8 +15,9 @@ import TableComponent, { TableColumns } from "../../../components/Table";
 //import ModalContracts from "./modalContracts";
 import { ContainerSearch } from "../../../styles/components/contratos-atas/styles";
 import PaginationComponent from "../../../components/PaginationComponent";
-
+import colors from "../../../styles/colors";
 import CsvDownload from "react-json-to-csv";
+import moneyFormatter from "../../../utils/moneyFormatter";
 
 
 type PropsInput = {
@@ -159,8 +160,8 @@ function Screen({
   cursor="pointer"
   fontSize="20px"
   textColor="white"
-  bgColor="#1c3c6e"
-  _hover={{ bgColor: "#1c3c6e" }}
+  bgColor={colors.primaryDefault40p}
+  _hover={{ bgColor: colors.primaryDefault80p }}
   height="40px"
   borderRadius="8px"
   mr="15px"
@@ -187,10 +188,9 @@ function Screen({
 </Button>
 
 <Button width='180px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
-    bgColor='#1c3c6e' 
-    _hover={{
-      bgColor: "#1c3c6e",  // Cor de fundo ao passar o mouse
-    }}
+    bgColor={colors.primaryDefault40p}
+    _hover={{ bgColor: colors.primaryDefault80p }}
+    
     height='40px' borderRadius='8px' mr='15px'onClick={() => exportToJSON(sortedPaginatedContratos)}
     boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
     
@@ -219,31 +219,53 @@ function Screen({
 
         {sortedPaginatedContratos.map((row) => (
           <Box
-            key={row.id_contrato}
-            border="2px solid #c62227"
-            p="10px"
-            borderRadius="12px"
-            mb="10px"
-            onClick={() => window.location.href = `contratos_detalhes?${row.id_contrato}`}
-            _hover={{ border: "3px solid red", transition: "0.3s" }}
-            
-            cursor='pointer'
+          key={row.id_contrato}
+          border="2px solid transparent"
+          p="12px"
+          borderRadius="16px"
+          mb="12px"
+          bg={useColorModeValue("white", "black")}
+          
+          boxShadow="lg"
+          transition="0.3s"
+          cursor="pointer"
+          _hover={{
+            boxShadow: "xl",
+            transform: "scale(1.01)",
+            border: `2px solid ${colors.primaryDefault40p}`,
+          }}
+          onClick={() => window.location.href = `detalhes?${row.id_contrato}`}
+        >
+          <Text 
+            fontWeight="bold" 
+            fontSize="lg"
+            color={colors.primaryDefault40p}
+            borderBottom={`2px solid ${colors.primaryDefault40p}`}
+            pb="5px" 
+            mb="8px"
           >
-            
-            <Text fontWeight="bold" borderBottom='1.5px solid red'>{row.id_contrato}</Text>
-            <Text>Empresa contratada: {row.fornecedor}</Text>
-            <Text>Data Início: {row.data_inicio} - Data Fim: {row.data_termino}</Text>
-            <Text>Descrição: {row.descricao}</Text>
-           
-          </Box>
+            {row.id_contrato}
+          </Text>
+          <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
+            <strong>Empresa contratada:</strong> {row.fornecedor}
+          </Text>
+          <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
+            <strong>Data Início:</strong> {row.data_inicio} - <strong>Data Fim:</strong> {row.data_termino}
+          </Text>
+          <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
+            <strong>Descrição:</strong> {row.descricao}
+          </Text>
+          <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
+            <strong>Valor:</strong> {row.valor_total !== null ? moneyFormatter(Number(row.valor_total)) : ""}
+          </Text>
+        </Box>
+        
         ))}
 
         <Box
-       
           as="ul" // Garante que Box se comporte como <ul>
           display="flex"
           justifyContent="space-around"
-          
           alignItems="center"
           flexWrap="wrap"
           gap="10px"

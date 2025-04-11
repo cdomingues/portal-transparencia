@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import ContainerBasic from "../../../../components/Container/Basic";
 import publicRoutes from "../../../../routes/public";
-import { Box, Img, Input, Link, Select, Stack, Text, useColorModeValue } from "@chakra-ui/react";
+import { Box, Button, Divider, Img, Input, Link, Select, Stack, Text, useColorModeValue } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { isMobile } from "react-device-detect";
 import { color } from "highcharts";
 import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAccessibility";
 import { ContainerSearch } from "../../../../styles/components/contratos-atas/styles";
 import PaginationComponent from "../../../../components/PaginationComponent";
+import colors from "../../../../styles/colors";
+import CsvDownload from "react-json-to-csv";
 
 
 type PropsInput = {
@@ -61,6 +63,19 @@ function Screen({ handler }: PropsInput) {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedYear, setSelectedYear] = useState<number | undefined>(2024)
+
+  const exportToJSON = (data: any) => {
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+    const link = document.createElement("a");
+    const url = URL.createObjectURL(blob);
+  
+    link.setAttribute("href", url);
+    link.setAttribute("download", "dados_contratos.json");
+    link.style.visibility = "hidden";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   const ITEMS_PER_PAGE = 20;
 
@@ -130,7 +145,50 @@ useEffect(() => {
                   </Select>
                 </Stack>
                 <Stack minW={50} justifyContent="flex-end" className="button-search"></Stack>
+
+                <Button
+                  width="180px"
+                  border="0"
+                  cursor="pointer"
+                  fontSize="20px"
+                  textColor="white"
+                  bgColor={colors.primaryDefault40p}
+                  _hover={{ bgColor: colors.primaryDefault80p }}
+                  height="40px"
+                  borderRadius="8px"
+                  mr="15px"
+                  transition="background-color 0.3s ease"
+                  boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+                  
+                >
+                  <CsvDownload
+                    filename={"dados_receita_emendas.csv"}
+                    data={emendas}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      background: "none",
+                      border: "none",
+                      color: "white",
+                      fontSize: "20px",
+                      textAlign: "center",
+                      cursor: "pointer",
+                    }}
+                  >
+                    CSV
+                  </CsvDownload>
+                </Button>
+                
+                <Button width='180px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
+                    bgColor={colors.primaryDefault40p}
+                    _hover={{ bgColor: colors.primaryDefault80p }}
+                    
+                    height='40px' borderRadius='8px' mr='15px'onClick={() => exportToJSON(emendas)}
+                    boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+                    
+                    >JSON</Button>
               </ContainerSearch>
+               <Divider borderWidth="2px" mt="10" mb="10" />
 
                   <Input
                         type="text"
@@ -159,21 +217,33 @@ useEffect(() => {
       >
      {paginatedEmendas.map((emenda) => (
         <Box
-          key={emenda.id}
-          border="2px solid #c62227"
-          p="10px"
-          borderRadius="12px"
-          mb="10px"
-          _hover={{ border: "2px solid #c62227", transition: "0.3s" }}
+        key={emenda.id}
+        border="2px solid transparent"
+        p="12px"
+        borderRadius="16px"
+        mb="12px"
+        bg={useColorModeValue("white", "black")}
+        boxShadow="lg"
+        transition="0.3s"
+        cursor="pointer"
+        _hover={{
+          boxShadow: "xl",
+          transform: "scale(1.01)",
+          border: `2px solid ${colors.primaryDefault40p}`,
+        }}
           onClick={() => window.location.href = `receitas-emendas-detalhes?${emenda.id}`}
-          cursor="pointer"
-        >
-          <Text fontWeight="bold" borderBottom="1px solid #393D6F">
-            Número da Emenda: {emenda.n_emenda}
+           >
+          <Text fontWeight="bold" 
+            fontSize="lg"
+            color={colors.primaryDefault40p}
+            borderBottom={`2px solid ${colors.primaryDefault40p}`}
+            pb="5px" 
+            mb="8px">
+            <strong>Número da Emenda:</strong> {emenda.n_emenda}
           </Text>
-          <Text>Autor: {emenda.desc_politico || 'Não informado'}</Text>
-          <Text>Ano: {emenda.ano}</Text>
-          <Text>Descrição: {emenda.objeto}</Text>
+          <Text><strong>Autor:</strong> {emenda.desc_politico || 'Não informado'}</Text>
+          <Text><strong>Ano:</strong> {emenda.ano}</Text>
+          <Text><strong>Descrição:</strong> {emenda.objeto}</Text>
         </Box>
       ))}
 

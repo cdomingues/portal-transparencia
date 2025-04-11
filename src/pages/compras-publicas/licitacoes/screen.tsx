@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
-import { Box, Button, Input, Select, Stack, Text } from "@chakra-ui/react";
+import { Box, Button, Input, Select, Stack, Text, useColorModeValue } from "@chakra-ui/react";
 import PaginationComponent from "../../../components/PaginationComponent";
 import { objetos_licitacao } from "../../../utils/objetos_licitacao";
 import { getSituacaoText } from "../../../utils/situacaoLicitacao";
 import { getTipoText } from "../../../utils/tipoLicitacao";
 import axios from "axios";
 import CsvDownload from "react-json-to-csv";
+import colors from "../../../styles/colors";
 
 export interface Licitacoes {
   id: number;
@@ -31,7 +32,7 @@ export const contentContractsAndAtas = {
 function Screen() {
   const title = contentContractsAndAtas.titlePage;
   const description = contentContractsAndAtas.description;
-  
+
   const [licitacoes, setLicitacoes] = useState<Licitacoes[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
@@ -49,21 +50,24 @@ function Screen() {
     let page = 1;
     let hasMore = true;
 
+    const filters: any = {};
+    if (selectedYear !== "Todos") filters.ano = selectedYear;
+    if (selectedLicitacao) filters.id_tipolicitacao = selectedLicitacao;
+    if (selectedGestora) filters.gestora = selectedGestora;
+    if (selectedSituacao) filters.situacao = selectedSituacao;
+
     while (hasMore) {
-      let url = `${API_URL}?page=${page}`;
-      const params = new URLSearchParams();
-
-      if (selectedYear !== "Todos") params.append("ano", selectedYear);
-      if (selectedLicitacao) params.append("id_tipolicitacao", selectedLicitacao);
-      if (selectedGestora) params.append("gestora", selectedGestora);
-      if (selectedSituacao) params.append("situacao", selectedSituacao);
-
-      if (params.toString()) url += `&${params.toString()}`;
-
       try {
-        const response = await axios.get(url);
-        if (response.data.results && response.data.results.length > 0) {
-          allLicitacoes = [...allLicitacoes, ...response.data.results];
+        const response = await axios.get(API_URL, {
+          params: {
+            page,
+            ...filters,
+          },
+        });
+
+        const results = response.data.results;
+        if (results && results.length > 0) {
+          allLicitacoes = [...allLicitacoes, ...results];
           page++;
         } else {
           hasMore = false;
@@ -78,8 +82,18 @@ function Screen() {
     setCurrentPage(1);
   };
 
-  const filteredLicitacoes = licitacoes.filter(item =>
-    searchTerm ? String(item.numero).toLowerCase().includes(searchTerm.toLowerCase()) : true
+  const clearFilters = () => {
+    setSelectedYear("2025");
+    setSelectedLicitacao("");
+    setSelectedGestora("");
+    setSelectedSituacao("");
+    setSearchTerm("");
+  };
+
+  const filteredLicitacoes = licitacoes.filter((item) =>
+    searchTerm
+      ? String(item.numero).toLowerCase().includes(searchTerm.toLowerCase())
+      : true
   );
 
   const paginatedLicitacoes = filteredLicitacoes.slice(
@@ -88,10 +102,12 @@ function Screen() {
   );
 
   const exportToJSON = (data: any) => {
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+    const blob = new Blob([JSON.stringify(data, null, 2)], {
+      type: "application/json",
+    });
     const link = document.createElement("a");
     const url = URL.createObjectURL(blob);
-  
+
     link.setAttribute("href", url);
     link.setAttribute("download", "dados_licitacoes.json");
     link.style.visibility = "hidden";
@@ -99,18 +115,25 @@ function Screen() {
     link.click();
     document.body.removeChild(link);
   };
-  
 
   return (
     <ContainerBasic title={title} description={description}>
-      <Stack direction={{ base: "column", md: "row" }} spacing={4}>
-        <Select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)}>
+      <Stack direction={{ base: "column", md: "row" }} spacing={4} mb={4}>
+        <Select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)}  width="200px">
           <option value="Todos">Selecione o ano</option>
           {[...Array(2025 - 2012 + 1)].map((_, i) => (
-            <option key={i} value={2012 + i}>{2012 + i}</option>
+            <option key={i} value={2012 + i}>
+              {2012 + i}
+            </option>
           ))}
         </Select>
-        <Select placeholder="Tipo Licitação" onChange={(e) => setSelectedLicitacao(e.target.value)}>
+
+        <Select
+         width="200px"
+          placeholder="Tipo Licitação"
+          value={selectedLicitacao}
+          onChange={(e) => setSelectedLicitacao(e.target.value)}
+        >
           <option value="2">Pregão Presencial</option>
           <option value="3">Tomada de Preços</option>
           <option value="4">Concorrência</option>
@@ -122,26 +145,54 @@ function Screen() {
           <option value="11">Dispensa/Inexigibilidade</option>
           <option value="17">Pregão Eletrônico</option>
         </Select>
-        <Select placeholder="Órgão" onChange={(e) => setSelectedGestora(e.target.value)}>
+
+        <Select
+          placeholder="Órgão"
+          value={selectedGestora}
+          onChange={(e) => setSelectedGestora(e.target.value)}
+           width="200px"
+        >
           <option value="IPREM">IPREM</option>
           <option value="PMMC">PMMC</option>
           <option value="SEMAE">SEMAE</option>
         </Select>
 
+        <Select
+          placeholder="Situação"
+          value={selectedSituacao}
+          onChange={(e) => setSelectedSituacao(e.target.value)}
+           width="200px"
+        >
+          <option value="Aberta">Aberta</option>
+          <option value="Encerrada">Encerrada</option>
+          <option value="Suspensa">Suspensa</option>
+        </Select>
+
         <Button
           width="180px"
-          border="0"
-          cursor="pointer"
           fontSize="20px"
           textColor="white"
-          bgColor="#1c3c6e"
-          _hover={{ bgColor: "#1c3c6e" }}
+          bgColor={colors.primaryDefault40p}
+          _hover={{ bgColor: colors.primaryDefault80p }}
           height="40px"
           borderRadius="8px"
-          mr="15px"
-          transition="background-color 0.3s ease"
           boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
-          
+          onClick={clearFilters}
+        >
+          Limpar Filtros
+        </Button>
+
+      </Stack>
+      <Stack direction={{ base: "column", md: "row" }} spacing={4} mb={4}>
+        <Button
+          width="180px"
+          fontSize="20px"
+          textColor="white"
+          bgColor={colors.primaryDefault40p}
+          _hover={{ bgColor: colors.primaryDefault80p }}
+          height="40px"
+          borderRadius="8px"
+          boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
         >
           <CsvDownload
             filename={"dados_contratos.csv"}
@@ -160,16 +211,22 @@ function Screen() {
             CSV
           </CsvDownload>
         </Button>
-        
-        <Button width='180px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
-            bgColor='#1c3c6e' 
-            _hover={{ bgColor: "#1c3c6e",    }}
-            height='40px' borderRadius='8px' mr='15px'onClick={() => exportToJSON(licitacoes)}
-            boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
-            
-            >JSON</Button>
-        
-      </Stack>
+
+        <Button
+          width="180px"
+          fontSize="20px"
+          textColor="white"
+          bgColor={colors.primaryDefault40p}
+          _hover={{ bgColor: colors.primaryDefault80p }}
+          height="40px"
+          borderRadius="8px"
+          boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+          onClick={() => exportToJSON(licitacoes)}
+        >
+          JSON
+        </Button>
+
+       </Stack>
 
       <Input
         type="text"
@@ -178,35 +235,66 @@ function Screen() {
         onChange={(e) => setSearchTerm(e.target.value)}
         borderRadius="8px"
         height="40px"
-        width="180px"
+        width="100%"
         my="10px"
       />
 
       {paginatedLicitacoes
-      .sort((a, b) => a.numero - b.numero)
-      .map((row) => (
-        <Box
-          key={row.id}
-          border="2px solid #c62227"
-          p="10px"
-          borderRadius="12px"
-          mb="10px"
-          onClick={() => window.location.href = `licitacoes_detalhes?${row.id}`}
-          _hover={{ border: "3px solid red", transition: "0.3s" }}
-          cursor='pointer'
-        >
-      <Text fontWeight="bold" borderBottom='1.5px solid red'>{row.numero} / {row.ano} - {row.gestora}</Text>
-      <Box display='flex' flexDir='row' gap="8px"><Text fontWeight='bold'>SITUAÇÃO:</Text>  <Text> {getSituacaoText(row.situacao)}</Text></Box>
-      <Box display='flex' flexDir='row' gap="8px"><Text fontWeight='bold'>TIPO:</Text>  <Text>  {getTipoText(row.id_tipolicitacao)}</Text></Box>
-      <Box display='flex' flexDir='row' gap="8px"><Text fontWeight='bold' >DESCRIÇÃO:</Text>  <Text >   {row.descricao}</Text></Box>
-      <Box display='flex' flexDir='row' gap="8px"><Text fontWeight='bold'>OBJETO:</Text>  <Text> {objetos_licitacao.find((objeto) => objeto.id_objeto === row.id_objeto)?.descricao || "Descrição não encontrada"}</Text></Box>
-      
-    </Box>
-      ))}
+        .sort((a, b) => a.numero - b.numero)
+        .map((row) => (
+          <Box
+            key={row.id}
+            border="2px solid transparent"
+            p="12px"
+            borderRadius="16px"
+            mb="12px"
+            bg={useColorModeValue("white", "black")}
+            boxShadow="lg"
+            transition="0.3s"
+            onClick={() => (window.location.href = `licitacoes_detalhes?${row.id}`)}
+            _hover={{
+              boxShadow: "xl",
+              transform: "scale(1.01)",
+              border: `2px solid ${colors.primaryDefault40p}`,
+            }}
+            cursor="pointer"
+          >
+            <Text
+              fontWeight="bold"
+              fontSize="lg"
+              color={colors.primaryDefault40p}
+              borderBottom={`2px solid ${colors.primaryDefault40p}`}
+              pb="5px"
+              mb="8px"
+            >
+              {row.numero} / {row.ano} - {row.gestora}
+            </Text>
+            <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
+              <strong>SITUAÇÃO: </strong>
+              {getSituacaoText(row.situacao)}
+            </Text>
+            <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
+              <strong>TIPO:</strong> {getTipoText(row.id_tipolicitacao)}
+            </Text>
+            <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
+              <strong>DESCRIÇÃO:</strong> {row.descricao}
+            </Text>
+            <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
+              <strong>OBJETO:</strong>{" "}
+              {objetos_licitacao.find((objeto) => objeto.id_objeto === row.id_objeto)?.descricao ||
+                "Descrição não encontrada"}
+            </Text>
+          </Box>
+        ))}
 
-      <PaginationComponent pages={Math.ceil(filteredLicitacoes.length / ITEMS_PER_PAGE)} setCurrentPage={setCurrentPage} currentPage={currentPage} />
+      <PaginationComponent
+        pages={Math.ceil(filteredLicitacoes.length / ITEMS_PER_PAGE)}
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
+      />
     </ContainerBasic>
   );
 }
 
 export default Screen;
+

@@ -4,6 +4,8 @@ import Screen from "./screen";
 import { getAtas } from "../../../calls/expenses/contractsMinutes";
 import { revalidate } from "../../../config";
 import moment from "moment";
+
+
 export interface ArquivoContrato {
   id: number;
   arquivo: string;

@@ -14,6 +14,7 @@ import ContainerBasic from "../../../../components/Container/Basic";
 import { ContainerSearch } from "../../../../styles/components/contratos-atas/styles";
 import moment from "moment";
 import moneyFormatter from "../../../../utils/moneyFormatter";
+import colors from "../../../../styles/colors";
 
 export const contentContractsAndAtas = {
   titlePage: "Receitas - Emendas Parlamentares",
@@ -94,11 +95,11 @@ function Screen({ id_contrato }: any) {
                     <Th
                       colSpan={2}
                       textAlign="center"
-                      bg="#c62227"
+                      bg={colors.primaryDefault40p}
                       color="white"
                       p={4}
                       fontWeight="bold"
-                      border="1px solid #c62227"
+                      border={` 1px solid ${colors.primaryDefault40p}` }
                     >
                       DETALHES DA EMENDA
                     </Th>
@@ -133,10 +134,10 @@ function Screen({ id_contrato }: any) {
                     
                   ].map(([label, value], index) => (
                     <Tr key={index}>
-                      <Td fontWeight="bold" bg="#f2f1f1" p={3} width="30%" border="1px solid #c62227">
+                      <Td fontWeight="bold" bg={useColorModeValue("#f2f1f1", "black")} p={3} width="30%" border={` 1px solid ${colors.primaryDefault40p}` }>
                         {label}
                       </Td>
-                      <Td p={3} border="1px solid #c62227" bg="#eeeeee" width="70%">
+                      <Td p={3} border={`1px solid ${colors.primaryDefault40p}`} bg={useColorModeValue("#f2f1f1", "black")} width="70%">
                         {value}
                       </Td>
                     </Tr>
@@ -153,23 +154,23 @@ function Screen({ id_contrato }: any) {
             <Table variant="simple" size="md" width="100%" overflow="hidden">
               <Thead >
                 <Tr textAlign="center"
-                    bg="#c62227"
+                    bg={colors.primaryDefault40p}
                     color="white"
                     p={4}
                     fontWeight="bold"
-                    border="1px solid #c62227">
+                    border={`1px solid ${colors.primaryDefault40p}`}>
                 <Th fontSize='18px' color="white" colSpan={3} textAlign='center'>ARQUIVOS DISPONÍVEIS</Th>
                     
                   
                 </Tr>
                 <Tr>
-                  <Th bg="#f2f1f1" border="1px solid #c62227">
+                  <Th bg="#f2f1f1" border={`1px solid ${colors.primaryDefault40p}`}>
                     Nome do Arquivo
                   </Th>
-                  <Th bg="#f2f1f1" border="1px solid #c62227">
+                  <Th bg="#f2f1f1" border={`1px solid ${colors.primaryDefault40p}`}>
                     Download
                   </Th>
-                  <Th bg="#f2f1f1" border="1px solid #c62227">
+                  <Th bg="#f2f1f1" border={`1px solid ${colors.primaryDefault40p}`}>
                     Data de inclusão
                   </Th>
                 </Tr>
@@ -177,10 +178,10 @@ function Screen({ id_contrato }: any) {
               <Tbody>
                 {filteredArquivos.map((file) => (
                   <Tr key={file.id}>
-                    <Td p={3} border="1px solid #393D6F">
+                    <Td p={3} border={`1px solid ${colors.primaryDefault40p}`}>
                       {file.nome}
                     </Td>
-                    <Td p={3} border="1px solid #393D6F">
+                    <Td p={3} border={`1px solid ${colors.primaryDefault40p}`}>
                       <Link 
                       href={file.arquivo} 
                       target="_blank" 
@@ -191,7 +192,7 @@ function Screen({ id_contrato }: any) {
                         Baixar
                       </Link>
                     </Td>
-                    <Td p={3} border="1px solid #393D6F">
+                    <Td p={3} border={`1px solid ${colors.primaryDefault40p}`}>
                       {moment(file.data_inclusao).format('DD/MM/YYYY')}
                     </Td>
                   </Tr>

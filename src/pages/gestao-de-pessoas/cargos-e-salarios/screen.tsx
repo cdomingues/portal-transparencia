@@ -64,8 +64,12 @@ function Screen({
         <UnorderedList listStyleType="none" color="gray.500" fontSize={accessibility?.fonts?.regular} pt={"20px"}>
           {Array.isArray(dados) && dados.length > 0 ? (
             dados.sort((a, b) => a.ano - b.ano).map((item: any) => (
-              <ListItem key={item.id}>
-                <Link href={`https://dadosadm.mogidascruzes.sp.gov.br/${item.arquivo}`} target="_blank">
+              <ListItem key={item.id} maxW="500px" p={4} mb='12px'
+              borderRadius="md" 
+              //cursor="pointer"
+              _hover={{ bg: 'gray.200' }}
+              border='1px solid black'>
+                <Link href={`https://dadosadm.mogidascruzes.sp.gov.br/${item.arquivo}`} target="_blank"  >
                 <div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>
                   <h1>{item.titulo}</h1>
                  

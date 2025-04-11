@@ -18,6 +18,7 @@ import { getTipoText } from "../../../utils/tipoLicitacao";
 import { objetos_licitacao } from "../../../utils/objetos_licitacao";
 import { getSituacaoText } from "../../../utils/situacaoLicitacao";
 import id from "date-fns/esm/locale/id/index.js";
+import colors from "../../../styles/colors";
 
 export interface ArquivoLicitacao {
   id: number;
@@ -134,11 +135,11 @@ function Screen({ id_contrato }: any) {
                     <Th
                       colSpan={2}
                       textAlign="center"
-                      bg="#c62227"
+                      bg={colors.primaryDefault40p}
                       color="white"
                       p={4}
                       fontWeight="bold"
-                      border="1px solid #c62227"
+                      border={`1px solid ${colors.primaryDefault40p}`}
                     >
                       DETALHES DA LICITAÇÃO
                     </Th>
@@ -158,10 +159,10 @@ function Screen({ id_contrato }: any) {
                     
                   ].map(([label, value], index) => (
                     <Tr key={index}>
-                      <Td fontWeight="bold" bg="#f2f1f1" p={3} width="30%" border="1px solid #c62227">
+                      <Td fontWeight="bold" bg={useColorModeValue("#f2f1f1", "black")} p={3} width="30%" border={`1px solid ${colors.primaryDefault40p}`}>
                         {label}
                       </Td>
-                      <Td p={3} border="1px solid #c62227" bg="#eeeeee" width="70%">
+                      <Td p={3} border={`1px solid ${colors.primaryDefault40p}`} bg={useColorModeValue("#f2f1f1", "black")} width="70%">
                         {value}
                       </Td>
                     </Tr>
@@ -181,20 +182,20 @@ function Screen({ id_contrato }: any) {
                   <Th
                     colSpan={2}
                     textAlign="center"
-                    bg="#c62227"
+                    bg={colors.primaryDefault40p}
                     color="white"
                     p={4}
                     fontWeight="bold"
-                    border="1px solid #c62227"
+                    border={`1px solid ${colors.primaryDefault40p}`}
                   >
                     ARQUIVOS DISPONÍVEIS
                   </Th>
                 </Tr>
                 <Tr>
-                  <Th bg="#f2f1f1" border="1px solid #c62227">
+                  <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.primaryDefault40p}`}>
                     Nome do Arquivo
                   </Th>
-                  <Th bg="#f2f1f1" border="1px solid #c62227">
+                  <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.primaryDefault40p}`}>
                     Download
                   </Th>
                 </Tr>
@@ -204,10 +205,10 @@ function Screen({ id_contrato }: any) {
                 .filter(file => file.tabela === 'LICITACAO')
                 .map((file) => (
                   <Tr key={file.id}>
-                    <Td p={3} border="1px solid #c62227">
+                    <Td p={3} border={`1px solid ${colors.primaryDefault40p}`}>
                       {file.nome}
                     </Td>
-                    <Td p={3} border="1px solid #c62227">
+                    <Td p={3} border={`1px solid ${colors.primaryDefault40p}`}>
                       <Link 
                       href={`https://licitacao-mgcon.mogidascruzes.sp.gov.br/arquivo/download?id=${file.id}`}
                       target="_blank" 
@@ -233,21 +234,21 @@ function Screen({ id_contrato }: any) {
                   <Th
                     colSpan={2}
                     textAlign="center"
-                    bg="#c62227"
+                    bg={colors.primaryDefault40p}
                     color="white"
                     p={4}
                     fontWeight="bold"
-                    border="1px solid #c62227"
+                    border={`1px solid ${colors.primaryDefault40p}`}
                     
                    >
                     OCORRÊNCIAS 
                   </Th>
                 </Tr>
                 <Tr>
-                  <Th bg="#f2f1f1" border="1px solid #c62227">
+                  <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.primaryDefault40p}`}>
                     Nome do Arquivo
                   </Th>
-                  <Th bg="#f2f1f1" border="1px solid #c62227">
+                  <Th bg={useColorModeValue("#f2f1f1", "black")}border={`1px solid ${colors.primaryDefault40p}`}>
                     Download
                   </Th>
                 </Tr>
@@ -256,10 +257,10 @@ function Screen({ id_contrato }: any) {
                 {ocorrencias                
                 .map((file) => (
                   <Tr key={file.id}>
-                    <Td p={3} border="1px solid #c62227">
+                    <Td p={3} border={`1px solid ${colors.primaryDefault40p}`}>
                       {file.descricao}
                     </Td>
-                    <Td p={3} border="1px solid #c62227">
+                    <Td p={3} border={`1px solid ${colors.primaryDefault40p}`}>
                       <Link 
                       href={`https://licitacao-mgcon.mogidascruzes.sp.gov.br/arquivo/download?id=${file.id}`}
                       target="_blank" 

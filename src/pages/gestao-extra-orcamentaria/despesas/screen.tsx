@@ -24,6 +24,7 @@ import axios from "axios";
 import CsvDownload from "react-json-to-csv";
 import moneyFormatter from "../../../utils/moneyFormatter";
 import { ContainerSearch } from "../../../styles/components/contratos-atas/styles";
+import colors from "../../../styles/colors";
 
 interface ReceitaItem {
   integra: string;
@@ -227,8 +228,8 @@ useEffect(() => {
           cursor="pointer"
           fontSize="20px"
           textColor="white"
-          bgColor="#1c3c6e"
-          _hover={{ bgColor: "#1c3c6e" }}
+          bgColor={colors.primaryDefault40p}
+          _hover={{ bgColor: colors.primaryDefault80p }}
           height="40px"
           borderRadius="8px"
           mr="15px"
@@ -255,10 +256,8 @@ useEffect(() => {
         </Button>
         
         <Button width='180px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
-            bgColor='#1c3c6e' 
-            _hover={{
-              bgColor: "#1c3c6e",  // Cor de fundo ao passar o mouse
-            }}
+            bgColor={colors.primaryDefault40p}
+            _hover={{ bgColor: colors.primaryDefault80p }}
             height='40px' borderRadius='8px' mr='15px'onClick={() => exportToJSON(despesas)}
             boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
             
@@ -269,6 +268,7 @@ useEffect(() => {
                   </Stack>
                   <Stack minW={50} justifyContent="flex-end" className="button-search"></Stack>
                 </ContainerSearch>
+                
 
                 <Input
                           type="text"
@@ -287,10 +287,19 @@ useEffect(() => {
                           .map((row) => (
                             <Box
                               key={row.integra}
-                              border="2px solid #c62227"
-                              p="10px"
-                              borderRadius="12px"
-                              mb="10px"
+                              border="2px solid transparent"
+                              p="12px"
+                              borderRadius="16px"
+                              mb="12px"
+                              bg={useColorModeValue("white", "black")}
+                              boxShadow="lg"
+                              transition="0.3s"
+                               _hover={{
+                                          boxShadow: "xl",
+                                          transform: "scale(1.01)",
+                                          border: `2px solid ${colors.primaryDefault40p}`,
+                                        }}
+                              cursor="pointer"
                               onClick={() => {
                                 // Armazenando os dados da despesa no sessionStorage
                                 sessionStorage.setItem("selectedDespesa", JSON.stringify(row));
@@ -301,14 +310,13 @@ useEffect(() => {
                                   "_blank"
                                 );
                               }}
-                              _hover={{ border: "3px solid red", transition: "0.3s" }}
-                              cursor="pointer"
+                             
                             >
-                              <Text fontWeight="bold" borderBottom="1.5px solid red">
+                              <Text fontWeight="bold" borderBottom={`2px solid ${colors.primaryDefault40p}`} fontSize="lg" color={colors.primaryDefault40p}>	
                                 Empenho: {row.numero} / {row.ano}
                               </Text>
-                              <Text>Fornecedor: {row.favorecido}</Text>
-                              <Text>Natureza: {row.naturezadespesa}</Text>
+                              <Text><strong>Fornecedor:</strong> {row.favorecido}</Text>
+                              <Text><strong>Natureza:</strong> {row.naturezadespesa}</Text>
                              
                              
                             </Box>

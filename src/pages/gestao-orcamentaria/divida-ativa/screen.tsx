@@ -33,6 +33,7 @@ import moneyFormatter from "../../../utils/moneyFormatter";
 import CsvDownload from "react-json-to-csv";
 import { ContainerSearch } from "../../../styles/components/contratos-atas/styles";
 import PaginationComponent from "../../../components/PaginationComponent";
+import colors from "../../../styles/colors";
 export interface DividaAtiva {
   "cpf_cnpj": string,
   "nome": string,
@@ -220,8 +221,8 @@ function Screen({
                   cursor="pointer"
                   fontSize="20px"
                   textColor="white"
-                  bgColor="#1c3c6e"
-                  _hover={{ bgColor: "#1c3c6e" }}
+                  bgColor={colors.primaryDefault40p}
+                  _hover={{ bgColor: colors.primaryDefault80p }}
                   height="40px"
                   borderRadius="8px"
                   mr="15px"
@@ -248,9 +249,9 @@ function Screen({
                 </Button>
                 
                 <Button width='180px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
-                    bgColor='#1c3c6e' 
+                    bgColor={colors.primaryDefault40p}
                     _hover={{
-                      bgColor: "#1c3c6e",  // Cor de fundo ao passar o mouse
+                      bgColor: colors.primaryDefault80p  // Cor de fundo ao passar o mouse
                     }}
                     height='40px' borderRadius='8px' mr='15px'onClick={() => exportToJSON(data)}
                     boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
@@ -273,7 +274,7 @@ function Screen({
                         </ContainerSearch>
                          <Table >
                          <Thead>
-  <Tr bg="#c62227" color="white">
+  <Tr bg={colors.primaryDefault40p}color="white">
     <Th color="white" onClick={() => handleSort("cpf_cnpj")} cursor="pointer">
       CPF / CNPJ {sortColumn === "cpf_cnpj" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
     </Th>
@@ -292,7 +293,10 @@ function Screen({
                          
                             
                           {sortedDevedores.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE).map((row, index) => (
-  <Tr key={index}>
+  <Tr key={index}
+  bg={index % 2 === 0 ? useColorModeValue("white", "black")  : useColorModeValue("#f7f7f7", "grey.100")} 
+      _hover={{ bg: "#d1d1d1", cursor: "pointer" , color: useColorModeValue("white", "black") }}
+  >
     <Td>{row.cpf_cnpj}</Td>
     <Td>{row.nome}</Td>
     <Td>{row.nome_fantasia}</Td>

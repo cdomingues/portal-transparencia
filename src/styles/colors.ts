@@ -8,14 +8,14 @@ const colors = {
     error: '#F63723',
     warning: '#FF7A00',
    
-
     primaryDark: '#001b3c',
     primaryDefault: '#2456c8',
     primaryLight: '#d5e3ff',
 
-    primaryDefault40p: 'rgba(36, 86, 200,0.4)',
-    primaryDefault60p: 'rgba(36, 86, 200,0.6)',
+    primaryDefault40p: '#1c3c6e',
+    primaryDefault60p: '#0094d4',
 
+    primaryDefault80p: '#194a99',
 
     grayDark: '#717171',
     grayMedium: '#E1E1E1',

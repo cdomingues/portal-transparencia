@@ -46,7 +46,7 @@ import { contentContractManagement } from "../pages/convenios-transferencias/con
 import { contentPublicWorks } from "../pages/controle-de-obras/obras-publicas/screen";
 import { contentPublicServants } from "../pages/ciclo-orcamentario/servidores-publicos-estagiarios/screen";
 //import { contentPROMAE } from "../pages/ciclo-orcamentario/promae/screen";
-import { contentRevenue } from "../pages/gestao-orcamentaria/receitas/screen";
+//import { contentRevenue } from "../pages/gestao-orcamentaria/receitas/screen";
 //import { contentContractsAndAtas } from "../pages/gestao-orcamentaria-outros/contratos-atas/screen";
 
 import { contentAdvancesAndAccommodation } from "../pages/gestao-de-pessoas/off-adiantamento-hospedagem/screen";

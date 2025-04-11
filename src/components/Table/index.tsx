@@ -192,7 +192,7 @@ function TableComponent({
     doc.save(`${new Date().getTime()}.pdf`);
   };
    */
-  const exportJson = () => {
+  const exportJson = (data: any[]) => {
     const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
       JSON.stringify(data)
     )}`;
@@ -265,55 +265,56 @@ function TableComponent({
         <Box p="4" pl={0}>
           
         </Box>
+       
         <Box p="4" pl={0}>
-          <Button
-            _hover={{ bg: "table.button.hover" }}
-            size="sm"
-            bg="table.primary"
-            color="white"
-            leftIcon={<AiOutlineFileText />}
-            onClick={() => {
-              setModelType("data");
-              onOpen();
-            }}
-            disabled={loading}
-            style={{ width: 180 }}
-          >
-            <Text fontSize={accessibility.fonts.medium} color={colors.white}>Dicionário de Dados</Text>
-          </Button>
-        </Box>
-        <Box p="4" pl={0}>
-          <Menu>
-            <MenuButton
-              _hover={{ bg: "table.button.hover" }}
-              size="sm"
-              bg="table.primary"
-              color="white"
-              variant="solid"
-              as={Button}
-              leftIcon={<AiOutlineDatabase />}
-              disabled={loading}
-              style={{ width: 180 }}
-            >
-              <Text fontSize={accessibility.fonts.medium} color={colors.white}>Dados Abertos</Text>
-            </MenuButton>
-            <MenuList color="table.primary" bg="white">
-              <CsvItem>
-                {!loading && (
-                  <CsvDownload
-                    style={{ width: "100%", textAlign: "left" }}
-                    filename={`${new Date().getTime()}.csv`}
-                    data={data}
-                  >
-                    <Text fontSize={accessibility.fonts.large}>.CSV</Text>
-                  </CsvDownload>
-                )}
-              </CsvItem>
-              <MenuItem onClick={() => exportJson()}><Text fontSize={accessibility.fonts.large}>.JSON</Text></MenuItem>
-              
-     
-            </MenuList>
-          </Menu>
+                    <Button
+                              width="180px"
+                              border="0"
+                              cursor="pointer"
+                              fontSize="20px"
+                              textColor="white"
+                              bgColor={colors.primaryDefault40p}
+                              _hover={{ bgColor: colors.primaryDefault80p }}
+                              height="40px"
+                              borderRadius="8px"
+                              mr="15px"
+                              transition="background-color 0.3s ease"
+                              boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+                            >
+                              <CsvDownload
+                                filename={"dados.csv"}
+                                data={data}
+                                style={{
+                                  width: "100%",
+                                  height: "100%",
+                                  background: "none",
+                                  border: "none",
+                                  color: "white",
+                                  fontSize: "20px",
+                                  textAlign: "center",
+                                  cursor: "pointer",
+                                }}
+                              >
+                                CSV
+                              </CsvDownload>
+                            </Button>
+                    
+                            <Button
+                              width="180px"
+                              border="0"
+                              cursor="pointer"
+                              fontSize="20px"
+                              textColor="white"
+                              bgColor={colors.primaryDefault40p}
+                               _hover={{ bgColor: colors.primaryDefault80p }}
+                              height="40px"
+                              borderRadius="8px"
+                              mr="15px"
+                              onClick={() => exportJson(data)}
+                              boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+                            >
+                              JSON
+                            </Button>
         </Box>
         <Spacer />
       </DisplayFlex>
@@ -343,7 +344,7 @@ function TableComponent({
             }}
             {...getTableProps()}
           >
-           <Thead backgroundColor={useColorModeValue('table.primary', "gray.800")}  >
+           <Thead backgroundColor={useColorModeValue('#1c3c6e', "gray.800")}  >
               {headerGroups.map((group, index) => (
                 <Tr {...group.getHeaderGroupProps()} key={index}>
                   {group.headers.map((column, index) => {

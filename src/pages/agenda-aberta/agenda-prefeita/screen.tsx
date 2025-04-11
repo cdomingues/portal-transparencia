@@ -22,6 +22,7 @@ import { baseUrl } from "../../../config";
 import { getScheduleMayor } from "../../../calls/agenda/agenda";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import { isMobile } from "react-device-detect";
+import colors from "../../../styles/colors";
 
 
 type PropsInput = {
@@ -174,12 +175,12 @@ function Screen({ handler }: PropsInput) {
               >
                 {getDay} de {getMonth} de {getYear}
               </Heading>
-              <Divider width="100%" height={"1px"} backgroundColor="red" />
+              <Divider width="100%" height={"2px"} backgroundColor={colors.primaryDefault80p} />
               {!filteredValues || filteredValues?.length == 0 ? (
                 <Heading
                   mb={2}
                   fontSize={accessibility?.fonts?.regular}
-                  color="red"
+                  color={useColorModeValue( "white", colors.primaryDefault40p)}
                 >
                   Nessa data não possui nada agendado!
                 </Heading>
@@ -198,7 +199,7 @@ function Screen({ handler }: PropsInput) {
                         <Heading
                           mb={1}
                           fontSize={accessibility?.fonts?.medium}
-                          color="red"
+                          color={useColorModeValue(colors.primaryDefault40p, colors.primaryDefault60p)}
                           marginTop={2}
                         >
                          Hora  Início: {getHours?.[0]}:{getHours?.[1]} {item?.fim_compromisso ? ` - Hora fim: ${getHours2?.[0]}:${getHours2?.[1]}` : ''}
@@ -224,7 +225,7 @@ function Screen({ handler }: PropsInput) {
           <AccordionItem>
             <h2>
               <AccordionButton>
-                <Heading mb={1} fontSize={accessibility?.fonts?.medium} color="red" marginTop={2}>
+                <Heading mb={1} fontSize={accessibility?.fonts?.medium} color={colors.primaryDefault80p} marginTop={2}>
                   Detalhes:
                 </Heading>
                 <AccordionIcon />

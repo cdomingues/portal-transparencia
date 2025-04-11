@@ -14,9 +14,10 @@ import ContainerBasic from "../../../components/Container/Basic";
 import { ContainerSearch } from "../../../styles/components/contratos-atas/styles";
 import moment from "moment";
 import moneyFormatter from "../../../utils/moneyFormatter";
+import colors from "../../../styles/colors";
 
 export const contentContractsAndAtas = {
-  titlePage: "Contratos",
+  titlePage: "Detalhamento - Contratos e ATAS",
   description:
     "Nesta página, confira as informações sobre contratos e atas celebrados pela Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por número, modalidade, processo, valor, fornecedor, objeto, entre outros itens. ",
 };
@@ -88,19 +89,19 @@ function Screen({ id_contrato }: any) {
                     <Th
                       colSpan={2}
                       textAlign="center"
-                      bg="#c62227"
+                      bg={colors.primaryDefault40p}
                       color="white"
                       p={4}
                       fontWeight="bold"
-                      border="1px solid #c62227"
+                      border={`1px solid ${colors.primaryDefault40p}`}
                     >
-                      DETALHES DO CONTRATO
+                      DETALHAMENTO
                     </Th>
                   </Tr>
                 </Thead>
                 <Tbody>
                   {[
-                    ["Contrato", item.id_contrato],
+                    ["Contrato / ATA", item.id_contrato],
                     ["Descrição", item.descricao],
                     ["Data de início", moment(item.data_inicio).format("DD/MM/YYYY")],
                     ["Data de término", moment(item.data_termino).format("DD/MM/YYYY")],
@@ -114,10 +115,10 @@ function Screen({ id_contrato }: any) {
                     ["Modalidade", item.modalidade],
                   ].map(([label, value], index) => (
                     <Tr key={index}>
-                      <Td fontWeight="bold" bg="#f2f1f1" p={3} width="30%" border="1px solid #c62227">
+                      <Td fontWeight="bold"   bg={useColorModeValue("#f2f1f1", "black")}  p={3} width="30%" border={`1px solid ${colors.primaryDefault40p}`}>
                         {label}
                       </Td>
-                      <Td p={3} border="1px solid #c62227" bg="#eeeeee" width="70%">
+                      <Td p={3} border={`1px solid ${colors.primaryDefault40p}`} bg={useColorModeValue("#f2f1f1", "black")} width="70%">
                         {value}
                       </Td>
                     </Tr>
@@ -137,20 +138,20 @@ function Screen({ id_contrato }: any) {
                   <Th
                     colSpan={2}
                     textAlign="center"
-                    bg="#c62227"
+                    bg={colors.primaryDefault40p}
                     color="white"
                     p={4}
                     fontWeight="bold"
-                    border="1px solid #c62227"
+                    border={`1px solid ${colors.primaryDefault40p}`}
                   >
                     ARQUIVOS DISPONÍVEIS
                   </Th>
                 </Tr>
                 <Tr>
-                  <Th bg="#f2f1f1" border="1px solid #c62227">
+                  <Th bg="#f2f1f1" border={`1px solid ${colors.primaryDefault40p}`}>
                     Nome do Arquivo
                   </Th>
-                  <Th bg="#f2f1f1" border="1px solid #c62227">
+                  <Th bg="#f2f1f1" border={`1px solid ${colors.primaryDefault40p}`}>
                     Download
                   </Th>
                 </Tr>
@@ -158,10 +159,10 @@ function Screen({ id_contrato }: any) {
               <Tbody>
                 {arquivo.map((file) => (
                   <Tr key={file.id}>
-                    <Td p={3} border="1px solid #c62227">
+                    <Td p={3} border={`1px solid ${colors.primaryDefault40p}`}>
                       {file.nome}
                     </Td>
-                    <Td p={3} border="1px solid #c62227">
+                    <Td p={3} border={`1px solid ${colors.primaryDefault40p}`}>
                       <Link 
                       href={file.arquivo} 
                       target="_blank" 

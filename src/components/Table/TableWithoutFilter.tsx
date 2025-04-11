@@ -51,6 +51,7 @@ import { CsvItem, TableContainer } from "./styles";
 import { BsChevronDown, BsChevronExpand, BsChevronUp } from "react-icons/bs";
 import { BiCameraMovie } from "react-icons/bi";
 import { isMobile } from "react-device-detect";
+import colors from "../../styles/colors";
 
 export type TableColumns = Array<{
   title: string;
@@ -123,7 +124,7 @@ function TableWithOutFilterComponent({
     usePagination
   );
 
-  const exportJson = () => {
+  const exportJson = (data: any[]) => {
     const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
       JSON.stringify(data)
     )}`;
@@ -193,66 +194,61 @@ function TableWithOutFilterComponent({
         </Modal>
         <Flex color="white" direction={isMobile ? "column" : "row"}>
           <Box p="4" pl={0}>
-            <Button
-              _hover={{ bg: "table.button.hover" }}
-              size="sm"
-              bg="table.primary"
-              color="white"
-              leftIcon={<BiCameraMovie />}
-              onClick={() => {
-                setModelType("movie");
-                onOpen();
-              }}
-              disabled={loading}
-            >
-              Video Explicativo
-            </Button>
+           
+          </Box>
+          <Box p="4" pl={0}>
+           
           </Box>
           <Box p="4" pl={0}>
             <Button
-              _hover={{ bg: "table.button.hover" }}
-              size="sm"
-              bg="table.primary"
-              color="white"
-              leftIcon={<AiOutlineFileText />}
-              onClick={() => {
-                setModelType("data");
-                onOpen();
-              }}
-              disabled={loading}
-            >
-              Dicionário de Dados
-            </Button>
-          </Box>
-          <Box p="4" pl={0}>
-            <Menu>
-              <MenuButton
-                _hover={{ bg: "table.button.hover" }}
-                size="sm"
-                bg="table.primary"
-                color="white"
-                variant="solid"
-                as={Button}
-                leftIcon={<AiOutlineDatabase />}
-                disabled={loading}
-              >
-                Dados Abertos
-              </MenuButton>
-              <MenuList color="table.primary" bg="white">
-                <CsvItem>
-                  {!loading && (
-                    <CsvDownload
-                      style={{ width: "100%", textAlign: "left" }}
-                      filename={`${new Date().getTime()}.csv`}
-                      data={data}
+                      width="180px"
+                      border="0"
+                      cursor="pointer"
+                      fontSize="20px"
+                      textColor="white"
+                      bgColor={colors.primaryDefault40p}
+                      _hover={{ bgColor: colors.primaryDefault80p }}
+                      height="40px"
+                      borderRadius="8px"
+                      mr="15px"
+                      transition="background-color 0.3s ease"
+                      boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
                     >
-                      .CSV
-                    </CsvDownload>
-                  )}
-                </CsvItem>
-                <MenuItem onClick={() => exportJson()}>.JSON</MenuItem>
-              </MenuList>
-            </Menu>
+                      <CsvDownload
+                        filename={"dados_folha_pagamneto.csv"}
+                        data={data}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          background: "none",
+                          border: "none",
+                          color: "white",
+                          fontSize: "20px",
+                          textAlign: "center",
+                          cursor: "pointer",
+                        }}
+                      >
+                        CSV
+                      </CsvDownload>
+                    </Button>
+            
+                    <Button
+                      width="180px"
+                      border="0"
+                      cursor="pointer"
+                      fontSize="20px"
+                      textColor="white"
+                      bgColor={colors.primaryDefault40p}
+                       _hover={{ bgColor: colors.primaryDefault80p }}
+                      height="40px"
+                      borderRadius="8px"
+                      mr="15px"
+                      onClick={() => exportJson(data)}
+                      boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+                    >
+                      JSON
+                    </Button>
+           
           </Box>
           <Spacer />
         </Flex>
@@ -262,7 +258,7 @@ function TableWithOutFilterComponent({
               <Skeleton
                 height="50px"
                 fadeDuration={4}
-                startColor="table.primary"
+                startColor="colors.primaryDefault40p"
                 endColor="table.button.hover"
               />
               <SkeletonText mt="4" noOfLines={10} spacing="4" />
@@ -275,7 +271,7 @@ function TableWithOutFilterComponent({
               }}
               {...getTableProps()}
             >
-              <Thead backgroundColor={useColorModeValue('table.primary', "gray.800")}>
+              <Thead backgroundColor={useColorModeValue('#1c3c6e', "gray.800")}>
                 {headerGroups.map((group, index) => (
                   <Tr {...group.getHeaderGroupProps()} key={index}>
                     {group.headers.map((column, index) => {
@@ -364,7 +360,7 @@ function TableWithOutFilterComponent({
                   </Tr>
                 ))}
               </Thead>
-              <Tbody {...getTableBodyProps()}>
+              <Tbody {...getTableBodyProps()} >
                 {page.map((row, index) => {
                   prepareRow(row);
                   return (

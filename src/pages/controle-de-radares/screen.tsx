@@ -286,7 +286,7 @@ Otimização do sistema viário municipal.</Text>
         </Heading>
         <Accordion allowToggle borderRadius={4}>
           {Object.keys(areaIdentifiers).map((section) => (
-            <AccordionItem bg={"gray.100"} pt={4} key={section}>
+            <AccordionItem  pt={4} key={section} bg={useColorModeValue("gray.100", "black")}>
               <h2>
                 <AccordionButton>
                   <Box as="span" flex='1' textAlign='left'>
@@ -295,7 +295,7 @@ Otimização do sistema viário municipal.</Text>
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel m={4} p={8} bg={"white"} borderRadius={4}>
+              <AccordionPanel m={4} p={8} bg={useColorModeValue("white", "black")} borderRadius={4}>
                 <Flex>
                   <Box flex="end" p={2} marginRight={5}></Box>
                   <Box maxWidth="100%" p={2}>

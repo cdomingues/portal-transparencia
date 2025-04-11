@@ -48,6 +48,7 @@ function Screen() {
           width="45%"
           bg={useColorModeValue("white", "gray.800")}
           onChange={ev => setPublicacao(ev.target.value)}
+          mb={4}
         >
           <option value="">Selecione</option>
           {publicacoes_saude.map((info) => (
@@ -60,14 +61,19 @@ function Screen() {
         {selectedPublication && (
 
           
-<div>
+<Box borderRadius="md"
+           mb='12px'
+           maxW="45%"
+          p={2}
+          _hover={{ bg: 'gray.200' }}
+          border='1px solid black'> 
 <a href={selectedPublication.src} target="_blank">
    <Stack
    marginTop={5}
 direction="row"
 
 color={ 'gray'}
-p={2}
+p={1}
 borderRadius="md"
 cursor="pointer"
 _hover={{ bg: 'gray.200' }}
@@ -78,7 +84,7 @@ _hover={{ bg: 'gray.200' }}
 
 </Stack>
 </a>
-</div>
+</Box>
 )}
 <Divider pt="30px"/>
 

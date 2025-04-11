@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
-import { Box, Button, Input, Select, Stack, Table, Tbody, Td, Text, Th, Thead, Tr } from "@chakra-ui/react";
+import { Box, Button, Input, Select, Stack, Table, Tbody, Td, Text, Th, Thead, Tr, useColorModeValue } from "@chakra-ui/react";
 import PaginationComponent from "../../../components/PaginationComponent";
 import axios from "axios";
 import CsvDownload from "react-json-to-csv";
 import moneyFormatter from "../../../utils/moneyFormatter";
+import colors from "../../../styles/colors";
 
 export interface Receitas {
   receita: string;
@@ -123,7 +124,8 @@ function Screen() {
   return (
     <ContainerBasic title={title} description={description}>
       <Stack direction={{ base: "column", md: "row" }} spacing={4}>
-        <Select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)}>
+
+        <Select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)} width='290px'>
           <option value="Todos">Selecione o ano</option>
           {[...Array(2025 - 2012 + 1)].map((_, i) => (
     <option key={i} value={2025 - i}>
@@ -132,22 +134,30 @@ function Screen() {
   ))}
         </Select>
 
-        <Select placeholder="Selecione o tipo de receita" onChange={(e) => setSelectedReceita(e.target.value)}>
-          {tiposReceita.map((tipo, index) => (
-            <option key={index} value={tipo}>
-              {tipo}
-            </option>
-          ))}
-        </Select>
+      
 
-        <Button
+       
+      </Stack>
+      <Stack direction={{ base: "column", md: "row" }} spacing={4} alignItems="center" >
+      <Input
+        type="text"
+        placeholder="Pesquisar receita..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        borderRadius="8px"
+        height="40px"
+        width="250px"
+        my="10px"
+        
+      />
+       <Button
           width="180px"
           border="0"
           cursor="pointer"
           fontSize="20px"
           textColor="white"
-          bgColor="#1c3c6e"
-          _hover={{ bgColor: "#1c3c6e" }}
+          bgColor={colors.primaryDefault40p}
+          _hover={{ bgColor: colors.primaryDefault80p }}
           height="40px"
           borderRadius="8px"
           mr="15px"
@@ -178,8 +188,8 @@ function Screen() {
           cursor="pointer"
           fontSize="20px"
           textColor="white"
-          bgColor="#1c3c6e"
-          _hover={{ bgColor: "#1c3c6e" }}
+          bgColor={colors.primaryDefault40p}
+           _hover={{ bgColor: colors.primaryDefault80p }}
           height="40px"
           borderRadius="8px"
           mr="15px"
@@ -187,27 +197,15 @@ function Screen() {
           boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
         >
           JSON
-        </Button>
-      </Stack>
-
-      <Input
-        type="text"
-        placeholder="Pesquisar receita..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        borderRadius="8px"
-        height="40px"
-        width="180px"
-        my="10px"
-      />
+        </Button></Stack>
 
 <Table >
   <Thead>
-    <Tr  bg="#c62227"
+    <Tr  bg={colors.primaryDefault40p}
       color="white"
       p={4}
       fontWeight="bold"
-      border="1px solid #c62227">
+      border={`1px solid ${colors.primaryDefault40p}`}>
       <Th color="white">Ano</Th>
       <Th color="white">Receita</Th>
       <Th color="white">Janeiro</Th>
@@ -229,7 +227,12 @@ function Screen() {
     
     {paginatedLicitacoes.map((row, index) => (
     
-      <Tr key={row.receita}>
+    <Tr 
+    key={row.receita} 
+    bg={index % 2 === 0 ? useColorModeValue("white", "black")  : useColorModeValue("#f7f7f7", "grey.100")} 
+    _hover={{ bg: "#d1d1d1", cursor: "pointer" , color: useColorModeValue("black", "white") }}
+    color={useColorModeValue("black", "white")}
+  >
         <Td>{row.ano} </Td> 
        <Td>{row.receita}</Td>
        <Td>{moneyFormatter(Number(row.janeiro))}</Td>
