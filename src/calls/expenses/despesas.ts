@@ -6,38 +6,23 @@ import { objetos_licitacao } from "../../utils/objetos_licitacao";
 
 export const getDiarias = async (years?: number) => {
   try {
-    let nextPage = "https://dadosadm.mogidascruzes.sp.gov.br/api/despesas";
-    let allResults: any[] = [];
-    let allYears: number[] = [];
+    const url = "https://dadosadm.mogidascruzes.sp.gov.br/api/despesas?exercicio_empenho=2025";
+    const response = await axios.get(url);
 
-    while (nextPage) {
-      const response = await axios.get(nextPage, {
-       
-      });
+    const { results } = response.data;
 
-      const { results, next} = response.data;
-
-      allResults = allResults.concat(results);
-      
-      nextPage = next;
-    }
-
-    const mappingRows = allResults.map((row) => {
-         
-           
-
+    const mappingRows = results.map((row: any) => {
       return {
         ...row,
-        vlr_empenho: "R$" + row.vlr_empenho  ,
-        dataAbertura: moment(row.dataAbertura).format("DD/MM/YYYY"),
-        publicacaoInicio: moment(row.publicacaoInicio).format("DD/MM/YYYY"),
-publicacaoFim: moment(row.publicacaoFim).format("DD/MM/YYYY"),
-       
-        
-        complemento: row.complemento || " não informado"};
+        vlr_empenho: row.vlr_empenho ? "R$" + row.vlr_empenho : "R$ 0,00",
+        dataAbertura: row.dataAbertura ? moment(row.dataAbertura).format("DD/MM/YYYY") : "Data não informada",
+        publicacaoInicio: row.publicacaoInicio ? moment(row.publicacaoInicio).format("DD/MM/YYYY") : "Data não informada",
+        publicacaoFim: row.publicacaoFim ? moment(row.publicacaoFim).format("DD/MM/YYYY") : "Data não informada",
+        complemento: row.complemento || "não informado"
+      };
     });
 
-    return { contracts: mappingRows }; // Remove duplicatas
+    return { contracts: mappingRows };
   } catch (error) {
     console.error("Error fetching contracts:", error);
     throw error;
