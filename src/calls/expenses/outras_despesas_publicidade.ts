@@ -7,27 +7,17 @@ import { objetos_licitacao } from "../../utils/objetos_licitacao";
 export const getDespesasPublicidade = async (years?: number) => {
   try {
     let nextPage = "https://dadosadm.mogidascruzes.sp.gov.br/api/despesas";
-    let allResults: any[] = [];
-    let allYears: number[] = [];
+    const url = "https://dadosadm.mogidascruzes.sp.gov.br/api/despesas?exercicio_empenho=2025";
+    const response = await axios.get(url);
 
-    while (nextPage) {
-      const response = await axios.get(nextPage, {
-       
-      });
-
-      const { results, next} = response.data;
-
-      allResults = allResults.concat(results);
-      
-      nextPage = next;
-    }
-    const filteredResults = allResults.filter(row => 
+    const { results } = response.data;
+    const filteredResults = results.filter((row: { subelemento: string; }) => 
       row.subelemento === "47 - SERVIÇOS DE COMUNICAÇÃO EM GERAL                  " ||
       row.subelemento === "88 - SERVIÇOS DE PUBLICIDADE E PROPAGANDA              " ||
       row.subelemento === "90 - SERVIÇOS DE PUBLICIDADE LEGAL                     "
   );
 
-    const mappingRows = filteredResults.map((row) => {
+    const mappingRows = filteredResults.map((row: any) => {
          
            
 
