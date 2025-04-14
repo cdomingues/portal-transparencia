@@ -7,23 +7,13 @@ import { objetos_licitacao } from "../../utils/objetos_licitacao";
 export const getDiarias = async (years?: number) => {
   try {
     let nextPage = "https://dadosadm.mogidascruzes.sp.gov.br/api/despesas";
-    let allResults: any[] = [];
-    let allYears: number[] = [];
+    const url = "https://dadosadm.mogidascruzes.sp.gov.br/api/despesas?exercicio_empenho=2025";
+    const response = await axios.get(url);
 
-    while (nextPage) {
-      const response = await axios.get(nextPage, {
-       
-      });
+    const { results } = response.data;
+    const filteredResults = results.filter((row: { subelemento: string; }) => row.subelemento === "80 - HOSPEDAGENS                                       ");
 
-      const { results, next} = response.data;
-
-      allResults = allResults.concat(results);
-      
-      nextPage = next;
-    }
-    const filteredResults = allResults.filter(row => row.subelemento === "80 - HOSPEDAGENS                                       ");
-
-    const mappingRows = filteredResults.map((row) => {
+    const mappingRows = filteredResults.map((row: any) => {
          
            
 
