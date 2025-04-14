@@ -7,7 +7,7 @@ if [ "$(whoami)" != "carlos" ]; then
 fi
 
 # Navegar até o diretório onde o conteúdo do site está localizado
-cd /var/www/dadosabertos/dadosabertos || { echo "Falha ao entrar no diretório do projeto. Saindo..."; exit 1; }
+cd /var/www/dadosabertos || { echo "Falha ao entrar no diretório do projeto. Saindo..."; exit 1; }
 
 /usr/local/bin/pm2 delete dadosabertos && echo "PM2 dadosabertos deletado com sucesso"
 
