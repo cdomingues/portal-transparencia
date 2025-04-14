@@ -4,7 +4,7 @@
 /usr/local/bin/pm2 save --force
 
 # Navegar até o diretório onde o conteúdo do site está localizado
-cd /var/www/dadosabertos/dadosabertos || exit 1
+cd /var/www/dadosabertos || exit 1
 
 # Seus comandos para reiniciar o portal
 start yarn --name "dadosabertos" -- start
