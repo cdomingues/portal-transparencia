@@ -7,7 +7,7 @@
 cd /var/www/dadosabertos || exit 1
 
 # Seus comandos para reiniciar o portal
-start yarn --name "dadosabertos" -- start
+start yarn --name "carlos" -- start
 
 yarn build
 
