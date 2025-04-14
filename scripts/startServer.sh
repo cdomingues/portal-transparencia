@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Verificar se o script está sendo executado como 'dadosabertos'
-if [ "$(whoami)" != "dadosabertos" ]; then
+if [ "$(whoami)" != "carlos" ]; then
   echo "Este script deve ser executado como dadosabertos"
   exit 1
 fi
@@ -17,7 +17,7 @@ cd /var/www/dadosabertos/dadosabertos || { echo "Falha ao entrar no diretório d
 /usr/local/bin/yarn build && echo "Construção bem-sucedida" || { echo "Falha na construção"; exit 1; }
 
 # Iniciar o portal
-/usr/local/bin/pm2 start /usr/local/bin/yarn --name "dadosabertos" -- start
+/usr/local/bin/pm2 start /usr/local/bin/yarn --name "carlos" -- start
 
 # Reiniciar todos os processos
 /usr/local/bin/pm2 restart all && echo "Todos os processos reiniciados com sucesso" || { echo "Falha ao reiniciar processos"; exit 1; }
