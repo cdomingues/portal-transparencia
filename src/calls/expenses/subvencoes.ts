@@ -7,25 +7,17 @@ import { objetos_licitacao } from "../../utils/objetos_licitacao";
 export const getDespesasSubvencoes = async (years?: number) => {
   try {
     let nextPage = "https://dadosadm.mogidascruzes.sp.gov.br/api/despesas";
-    let allResults: any[] = [];
-    let allYears: number[] = [];
+    const url = "https://dadosadm.mogidascruzes.sp.gov.br/api/despesas?exercicio_empenho=2025";
+    const response = await axios.get(url);
 
-    while (nextPage) {
-      const response = await axios.get(nextPage, {
-       
-      });
+    const { results } = response.data;
 
-      const { results, next} = response.data;
-
-      allResults = allResults.concat(results);
-      
-      nextPage = next;
-    }
-    const filteredResults = allResults.filter(row => 
+    
+    const filteredResults = results.filter((row: { elemento: string; }) => 
       row.elemento === "3.3.50.43.00 - SUBVENÇÕES SOCIAIS"                   
   );
 
-    const mappingRows = filteredResults.map((row) => {
+    const mappingRows = filteredResults.map((row: any) => {
          
            
 
