@@ -59,7 +59,7 @@ function CardHome() {
           hasArrow
           width='800px' 
           height='120px' 
-          fontSize={['sm', 'md']} 
+          fontSize={useAccessibility?.fonts?.regular}
           p='25px' 
           borderRadius='12px' 
           bg={useColorModeValue("black", "white")}
@@ -77,6 +77,7 @@ function CardHome() {
             boxShadow="lg"  
             bg={useColorModeValue("", "gray.800")}
             mb={4}
+            fontSize={useAccessibility?.fonts?.regular}
           >
             <h2>
               <AccordionButton bg={useColorModeValue("", "gray.800")}  borderRadius='18px'  border={`2px solid ${useColorModeValue("gray.800", "")}`}>
@@ -88,7 +89,7 @@ function CardHome() {
                   display="flex" 
                   alignItems="center" 
                   gap={8} 
-                  fontSize={'20px'}
+                  fontSize={useAccessibility?.fonts?.regular}
                   bg={useColorModeValue("", "gray.800")} 
                   _expanded={{ filter: "invert(1)" }}
                  
@@ -107,6 +108,7 @@ function CardHome() {
                 maxWidth={"1280px"}
                 margin="0 auto"
                 padding="0 15px"
+                fontSize={useAccessibility?.fonts?.regular}
               >
                 {menu.submenus.map((submenu: any) => {
   const imageSrc = submenu.imageURL || submenu.imageUrl;
@@ -135,9 +137,9 @@ function CardHome() {
                 _expanded={{ bg: 'gray.100', color: 'black' }} 
                 borderRadius="md"
               >
-                <Box fontWeight="bold" flex="1" textAlign="left" display="flex" alignItems="center" gap={3}>
+                <Box fontWeight="bold" flex="1" textAlign="left" display="flex" alignItems="center" gap={3}  fontSize={useAccessibility?.fonts?.large}>
                   <SubMenuIcon src={imageSrc} alt={title} />
-                  <Text fontSize="lg" >{title}</Text>
+                  <Text  fontSize={useAccessibility?.fonts?.regular} >{title}</Text>
                 </Box>
                 <AccordionIcon />
               </AccordionButton>
