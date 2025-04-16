@@ -60,13 +60,9 @@ function Controller({ contracts = [], years = [] }: any) {
 
   const handleByYear = async (year: number) => {
     setYear(year);
-
     setLoading(true);
-
     const { contracts } = await getDiarias(year);
-
     setLoading(false);
-
     setData(contracts);
   };
 

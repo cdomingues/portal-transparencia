@@ -1,20 +1,26 @@
 import axios from "axios";
 import moment from "moment";
-import { baseUrl } from "../../config";
 import moneyFormatter from "../../utils/moneyFormatter";
-import { objetos_licitacao } from "../../utils/objetos_licitacao"; 
 
-export const getDiarias = async (years?: number) => {
+export const getDiarias = async (year: number = 2025) => {
+  const baseApiUrl = `https://dadosadm.mogidascruzes.sp.gov.br/api/despesas?exercicio_empenho=${year}`;
+  let url = baseApiUrl;
+  let allResults: any[] = [];
+
   try {
-    const url = "https://dadosadm.mogidascruzes.sp.gov.br/api/despesas?exercicio_empenho=2025";
-    const response = await axios.get(url);
+    while (url) {
+      
+      const response = await axios.get(url);
+      const data = response.data;
 
-    const { results } = response.data;
+      allResults = allResults.concat(data.results);
+      url = data.next; // próxima página
+    }
 
-    const mappingRows = results.map((row: any) => {
+    const mappingRows = allResults.map((row: any) => {
       return {
         ...row,
-        vlr_empenho: row.vlr_empenho ? "R$" + row.vlr_empenho : "R$ 0,00",
+        vlr_empenho: row.vlr_empenho ? moneyFormatter(Number(row.vlr_empenho)) : "R$ 0,00",
         dataAbertura: row.dataAbertura ? moment(row.dataAbertura).format("DD/MM/YYYY") : "Data não informada",
         publicacaoInicio: row.publicacaoInicio ? moment(row.publicacaoInicio).format("DD/MM/YYYY") : "Data não informada",
         publicacaoFim: row.publicacaoFim ? moment(row.publicacaoFim).format("DD/MM/YYYY") : "Data não informada",
@@ -24,7 +30,8 @@ export const getDiarias = async (years?: number) => {
 
     return { contracts: mappingRows };
   } catch (error) {
-    console.error("Error fetching contracts:", error);
+    console.error("Erro ao buscar dados das despesas:", error);
     throw error;
   }
 };
+
