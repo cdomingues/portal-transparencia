@@ -191,7 +191,8 @@ function Screen({
     bgColor={colors.primaryDefault40p}
     _hover={{ bgColor: colors.primaryDefault80p }}
     
-    height='40px' borderRadius='8px' mr='15px'onClick={() => exportToJSON(sortedPaginatedContratos)}
+    height='40px' borderRadius='8px' mr='15px'
+    onClick={() => exportToJSON(sortedPaginatedContratos)}
     boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
     
     >JSON</Button>

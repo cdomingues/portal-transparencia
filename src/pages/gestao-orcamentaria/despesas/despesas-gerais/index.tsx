@@ -1,109 +1,321 @@
-import { GetStaticProps } from "next";
-import React, { useState } from "react";
-import Screen from "./screen";
-import { getDiarias } from "../../../../calls/expenses/despesas";
-import { revalidate } from "../../../../config";
-import moment from "moment";
-import { title } from "process";
-export interface ArquivoContrato {
-  id: number;
-  arquivo: string;
-  nome: string;
-  id_contrato_id: number | null;
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import {
+  Box,
+  Button,
+  Select,
+  useColorModeValue,
+  Text,
+  Stack,
+  Input,
+  Spinner,
+} from '@chakra-ui/react';
+import ContainerBasic from '../../../../components/Container/Basic';
+import colors from '../../../../styles/colors';
+import CsvDownload from 'react-json-to-csv';
+
+interface Despesa {
+  id: string;
+  created_at: string;
+  updated_at: string;
+  nr_empenho: number;
+  class_funcional: string;
+  descr_funcional: string;
+  acao: string;
+  funcao: string;
+  subfuncao: string;
+  programa: string;
+  exercicio_empenho: string;
+  data_movto: string;
+  vlr_empenho: string;
+  tipo_empenho: string;
+  evento_custo: string;
+  descr_evento_custo: string;
+  cod_fornecedor: number;
+  cnpj_fornecedor: string;
+  descr_fornecedor: string;
+  vinculo: string;
+  unid_orcam: string;
+  categoria: string;
+  elemento: string;
+  subelemento: string;
+  cod_processo: string;
+  licitacao_numero: string;
+  licitacao_modalidade: string;
+  id_empenho: string;
 }
 
-export interface ApiResponse {
-  count: number;
-  next: string | null;
-  previous: string | null;
-  results: ArquivoContrato[];
-}
+export const contentContractsAndAtas = {
+  titlePage: 'Despesas',
+  description: (
+    <>
+      As fases da despesa pública são regulamentadas pela Lei Federal nº 4.320/64. São elas:
+      <br />
+      <strong>1. Empenho:</strong> O órgão competente reserva o dinheiro para custear a despesa a ser realizada. A reserva é feita por meio da Nota de Empenho.
+      <br />
+      <strong>2. Liquidação:</strong> O órgão verifica o que recebeu e o que comprou. A liquidação é feita com base em documentos que comprovem a entrega, além da nota de empenho.
+      <br />
+      <strong>3. Pagamento:</strong> O governo municipal repassa o valor ao fornecedor do produto ou serviço.
+      <br />
+      Nesta página é possível acompanhar diariamente a execução orçamentária das despesas da Prefeitura Municipal de Mogi das Cruzes.
+      <br /><br />
+    Caso queira buscar um empenho específico  <strong> <a href="despesas-gerais/index2">clique aqui</a> </strong>
+    </>
+  ),
+};
 
-
-function Controller({ contracts = [], years = [] }: any) {
-  const [year, setYear] = useState(moment().year());
+const Despesas = () => {
+  const [despesas, setDespesas] = useState<Despesa[]>([]);
+  const [despesasFiltradas, setDespesasFiltradas] = useState<Despesa[]>([]);
+  const [todasDespesasAno, setTodasDespesasAno] = useState<Despesa[]>([]);
+  const [ano, setAno] = useState(new Date().getFullYear());
+  const [pagina, setPagina] = useState(1);
+  const [totalPaginas, setTotalPaginas] = useState(1);
+  const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState(contracts);
-  const [data2, setData2]  = useState<ArquivoContrato[]>([]);
-  
 
-  const columns = [
-    
-    {title:"Empenho",field:'nr_empenho'},
-    {title:"Exercício empenho",field:'exercicio_empenho'},
-    { title: "Fornecedor", field: "descr_fornecedor" },
-    { title: "Funcional", field: "class_funcional" },
-    { title: "Descrição Funcional", field: "descr_funcional" },
-    { title: "Ação", field: "acao" },
-    { title: "Função", field: "funcao" },
-    { title: "Subfunção", field: "subfuncao" },
-    { title: "Programa", field: "programa" },
-    { title: "Data Movimentação", field: "data_movto" },
-    { title: "Valor do Empenho", field: "vlr_empenho" },
-    { title: "Tipo de Empenho", field: "tipo_empenho" },
-    { title: "Evento Custo", field: "evento_custo" },
-    { title: "Descrição de Evento Custo", field: "descr_evento_custo" },
-    { title: "Vinculo", field: "vinculo" },
-    { title: "Unidade Orçamentária", field: "unid_orcam" },
-    { title: "Categoria", field: "categoria" },
-    { title: "Elemento", field: "elemento" },
-    { title: "Subelemento", field: "subelemento" },
-    { title: "Processo", field: "cod_processo" },
-    { title: "Licitação", field: "licitacao_numero" },
-    { title: "Tipo de Licitação", field: "licitacao_modalidade" },
-    
-    //{title:"ID",field:'id'},
+  const title = contentContractsAndAtas?.titlePage;
+  const description = contentContractsAndAtas?.description;
+
+  const fetchTodasDespesasAno = async () => {
+    try {
+      setLoading(true);
+      let allResults: Despesa[] = [];
+      let page = 1;
+      let hasMore = true;
+
+      while (hasMore) {
+        const res = await axios.get('https://dadosadm.mogidascruzes.sp.gov.br/api/despesas', {
+          params: {
+            page,
+            exercicio_empenho: ano,
+          },
+        });
+
+        const dados = res.data.results;
+        allResults = [...allResults, ...dados];
+        const totalCount = res.data.count;
+        hasMore = allResults.length < totalCount;
+        page++;
+      }
+
+      const ordenado = allResults.sort((a, b) => Number(a.id_empenho) - Number(b.id_empenho));
+      setTodasDespesasAno(ordenado);
+      setLoading(false);
+    } catch (error) {
+      console.error('Erro ao buscar todas as despesas do ano:', error);
+      setLoading(false);
+    }
+  };
+
+  const fetchDespesasPaginadas = async () => {
+    try {
+      const response = await axios.get('https://dadosadm.mogidascruzes.sp.gov.br/api/despesas', {
+        params: {
+          page: pagina,
+          exercicio_empenho: ano,
+        },
+      });
+  
+      // Ordena numericamente primeiro
+      const ordenadas = response.data.results.sort((a: Despesa, b: Despesa) => {
+        return Number(a.nr_empenho) - Number(b.nr_empenho);
+      });
+  
+      // Depois formata o nr_empenho com 4 dígitos
      
   
-
-  ];
-
-  const handleByYear = async (year: number) => {
-    setYear(year);
-    setLoading(true);
-    const { contracts } = await getDiarias(year);
-    setLoading(false);
-    setData(contracts);
+      setDespesas(ordenadas);
+      setTotalPaginas(Math.ceil(response.data.count / 50));
+    } catch (error) {
+      console.error('Erro ao buscar despesas paginadas:', error);
+    }
   };
 
-  const arquivosColumns = [
-    { title: "Id", field: "id" },
-    { title: "Arquivo", field: 'arquivo'},
-    { title: "Nome", field: "nome" },
-    { title: "Contrato", field: "mes" },
-    { title: "Localização", field: "id_contrato_id" },
-    
-  ];
+  useEffect(() => {
+    fetchDespesasPaginadas();
+    fetchTodasDespesasAno();
+  }, [pagina, ano]);
 
+  useEffect(() => {
+    const normalizar = (str: string) =>
+      str?.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim() || '';
   
+    const termo = normalizar(searchTerm);
+  
+    if (termo === '') {
+      setDespesasFiltradas([]);
+    } else {
+      const fonte = todasDespesasAno.length > 0 ? todasDespesasAno : despesas;
+  
+      const filtradas = fonte.filter((d) => {
+        const fornecedor = normalizar(d.descr_fornecedor);
+        return fornecedor.includes(termo);
+      });
+  
+      setDespesasFiltradas(filtradas);
+    }
+  }, [searchTerm, despesas, todasDespesasAno]);
 
-
-  const handler = {
-    data,
-    columns,
-    loading,
-    year,
-    years,
-    setYear,
-    handleByYear,
-    data2,
-    setData2,
-    arquivosColumns
-    
+  const handleAnoChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setAno(Number(e.target.value));
+    setPagina(1);
+    setSearchTerm('');
   };
 
-  return <Screen handler={handler} />;
-}
+  const exportToJSON = (data: Despesa[]) => {
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
 
-export default Controller;
-
-export const getStaticProps: GetStaticProps = async () => {
-  const { contracts } = await getDiarias();
-  return {
-    props: {
-      contracts: contracts || [],
-      
-    },
-    revalidate,
+    link.setAttribute('href', url);
+    link.setAttribute('download', `dados_despesas_${ano}.json`);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
+
+  const dadosParaExibir = searchTerm ? despesasFiltradas : despesas;
+
+  return (
+    <ContainerBasic title={title} description={description}>
+      <Box
+        bg={useColorModeValue('white', 'gray.800')}
+        padding="15px"
+        rounded="md"
+        overflow="hidden"
+        width="100%"
+        borderRadius="18px"
+        marginBottom="15px"
+      >
+        <Stack
+          minW={86}
+          width="100%"
+          flexDir="row"
+          flexWrap="wrap"
+          gap="10px"
+          mb="10px"
+        >
+          <Select
+            id="ano"
+            value={ano}
+            onChange={handleAnoChange}
+            borderRadius="8px"
+            height="40px"
+            width="180px"
+            placeholder="Selecione o ano"
+          >
+            {[2025, 2024, 2023, 2022, 2021].map((a) => (
+              <option key={a} value={a}>
+                {a}
+              </option>
+            ))}
+          </Select>
+
+        
+
+          <Button
+            width="180px"
+            fontSize="16px"
+            textColor="white"
+            bgColor={colors.primaryDefault40p}
+            _hover={{ bgColor: colors.primaryDefault80p }}
+            height="40px"
+            borderRadius="8px"
+            boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+          >
+            <CsvDownload
+              filename={`dados_despesas_${ano}.csv`}
+              data={todasDespesasAno}
+              style={{
+                width: '100%',
+                height: '100%',
+                background: 'none',
+                border: 'none',
+                color: 'white',
+                fontSize: '16px',
+                cursor: 'pointer',
+              }}
+            >
+              CSV
+            </CsvDownload>
+          </Button>
+
+          <Button
+            width="180px"
+            fontSize="16px"
+            textColor="white"
+            bgColor={colors.primaryDefault40p}
+            _hover={{ bgColor: colors.primaryDefault80p }}
+            height="40px"
+            borderRadius="8px"
+            onClick={() => exportToJSON(todasDespesasAno)}
+            boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+          >
+            JSON
+          </Button>
+        </Stack>
+      </Box>
+
+     
+        <ul>
+          {dadosParaExibir.map((item) => (
+            <Box
+              key={item.id}
+              border="2px solid transparent"
+              p="12px"
+              borderRadius="16px"
+              mb="12px"
+              bg={useColorModeValue('white', 'black')}
+              boxShadow="lg"
+              cursor="pointer"
+              transition="0.3s"
+              _hover={{
+                boxShadow: 'xl',
+                transform: 'scale(1.01)',
+                border: `2px solid ${colors.primaryDefault40p}`,
+              }}
+              onClick={() => {
+                sessionStorage.setItem('selectedDespesa', JSON.stringify(item));
+                window.open(`detalhes?${item.id_empenho} - ${item.exercicio_empenho}`, '_blank');
+              }}
+            >
+              <Text fontWeight="bold" fontSize="lg" color={colors.primaryDefault40p} borderBottom={`2px solid ${colors.primaryDefault40p}`} pb="5px" mb="8px">
+                Empenho: {item.nr_empenho} / {item.exercicio_empenho}
+              </Text>
+              <Text><strong>Fornecedor:</strong> {item.descr_fornecedor}</Text>
+              <Text><strong>Descrição:</strong> {item.descr_funcional}</Text>
+              <Text><strong>Valor empenho:</strong> {item.vlr_empenho}</Text>
+              <Text><strong>Unidade Orçamentária:</strong> {item.unid_orcam}</Text>
+            </Box>
+          ))}
+        </ul>
+     
+
+      {!searchTerm && (
+        <Box display="flex" justifyContent="space-around" alignItems="center" paddingBottom="10px" width="80%" mt="20px">
+          <Button
+            border="1px solid #393D6F"
+            width="150px"
+            onClick={() => setPagina((p) => Math.max(p - 1, 1))}
+            disabled={pagina === 1}
+          >
+            Anterior
+          </Button>
+          <span>Página {pagina} de {totalPaginas}</span>
+          <Button
+            border="1px solid #393D6F"
+            width="150px"
+            onClick={() => setPagina((p) => Math.min(p + 1, totalPaginas))}
+            disabled={pagina === totalPaginas}
+          >
+            Próxima
+          </Button>
+        </Box>
+      )}
+    </ContainerBasic>
+  );
 };
+
+export default Despesas;

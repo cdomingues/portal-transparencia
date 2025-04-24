@@ -205,6 +205,7 @@ function Screen({
       Fonte das informações  <Link fontWeight='bold' href="https://www.listadevedores.pgfn.gov.br/" color="red" isExternal>Lista de Devedores da PGFN</Link>
                 
               </Text>
+              <Text>Atualizado em 24/04/2025</Text>
        
               <ContainerSearch  mt='20px'>
                           <Stack minW={86} width="50%" flexDir='row'
@@ -292,17 +293,36 @@ function Screen({
                           <Tbody fontSize='12px'>
                          
                             
-                          {sortedDevedores.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE).map((row, index) => (
-  <Tr key={index}
-  bg={index % 2 === 0 ? useColorModeValue("white", "black")  : useColorModeValue("#f7f7f7", "grey.100")} 
-      _hover={{ bg: "#d1d1d1", cursor: "pointer" , color: useColorModeValue("white", "black") }}
-  >
-    <Td>{row.cpf_cnpj}</Td>
-    <Td>{row.nome}</Td>
-    <Td>{row.nome_fantasia}</Td>
-    <Td>{row.valor_total}</Td>
-  </Tr>
-))}
+                          {sortedDevedores
+    .slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE)
+    .map((row, index) => {
+      // Expressão regular para CPF (11 dígitos consecutivos)
+      const cpfRegex = /\b\d{11}\b/g;
+
+      // Substitui CPF por vazio
+      const nomeLimpo = row.nome.replace(cpfRegex, "***").trim();
+
+      return (
+        <Tr
+          key={index}
+          bg={
+            index % 2 === 0
+              ? useColorModeValue("white", "black")
+              : useColorModeValue("#f7f7f7", "grey.100")
+          }
+          _hover={{
+            bg: "#d1d1d1",
+            cursor: "pointer",
+            color: useColorModeValue("white", "black"),
+          }}
+        >
+          <Td>{row.cpf_cnpj}</Td>
+          <Td>{nomeLimpo}</Td>
+          <Td>{row.nome_fantasia}</Td>
+          <Td>{row.valor_total}</Td>
+        </Tr>
+      );
+    })}
                           </Tbody>
                         </Table>
                         

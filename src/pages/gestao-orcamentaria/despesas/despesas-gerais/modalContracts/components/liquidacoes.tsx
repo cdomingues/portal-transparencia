@@ -11,10 +11,12 @@ export interface Arquivo {
   data_mov_liquidacao: string;
   nr_liquidacao: string;
   valor_liquidacao: string;
-  descricao_vencimento: string
-  vencimento: string
-  valor_anulacao_liq: string
-  valor_atual_liquido: string
+  descricao_vencimento: string;
+  vencimento: string;
+  nr_nf: string;
+  data_emissao_nf: string;
+  valor_anulacao_liq: string;
+  valor_atual_liquido: string;
 
 
 }
@@ -56,6 +58,8 @@ const Liquidacoes = ({ contract }: any) => {
           <Th>Data da Liquidação</Th>
           <Th>Vencimento</Th>
           <Th>Descrição</Th>
+          <Th>Número Nota Fiscal</Th>
+          <Th>Data Emissão Nota Fiscal</Th>
           <Th>Valor Original</Th>
           <Th>Valor Anulado</Th>
           <Th>Valor Atual</Th>
@@ -67,6 +71,8 @@ const Liquidacoes = ({ contract }: any) => {
             <Td>{moment(file.data_mov_liquidacao).format("DD/MM/YYYY")}</Td>
             <Td>{moment(file.vencimento).format("DD/MM/YYYY")}</Td>
             <Td>{file.descricao_vencimento}</Td>
+            <Td>{file.nr_nf}</Td>
+            <Td>{moment(file.data_emissao_nf).format("DD/MM/YYYY")}</Td>
             <Td>{moneyFormatter(parseFloat(file.valor_liquidacao))}</Td>
             <Td>{moneyFormatter(parseFloat(file.valor_anulacao_liq))}</Td>
             <Td>{moneyFormatter(parseFloat(file.valor_atual_liquido))}</Td>

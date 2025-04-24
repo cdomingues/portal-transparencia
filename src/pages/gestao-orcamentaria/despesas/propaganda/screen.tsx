@@ -15,6 +15,7 @@ import {
   Tbody,
   Td,
   Input,
+  Spinner,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { isMobile } from "react-device-detect";
@@ -35,6 +36,7 @@ import PaginationComponent from "../../../../components/PaginationComponent";
 import moneyFormatter from "../../../../utils/moneyFormatter";
 import moment from "moment";
 import colors from "../../../../styles/colors";
+import axios from "axios";
 
 type PropsInput = {
   handler: {
@@ -69,6 +71,38 @@ type Publicidade = {
   data_pagamento: string; // Data no formato "YYYY-MM-DD HH:mm:ss"
   ano: number;
 };
+
+interface Despesa {
+  id: string;
+  created_at: string;
+  updated_at: string;
+  nr_empenho: number;
+  class_funcional: string;
+  descr_funcional: string;
+  acao: string;
+  funcao: string;
+  subfuncao: string;
+  programa: string;
+  exercicio_empenho: string;
+  data_movto: string;
+  vlr_empenho: string;
+  tipo_empenho: string;
+  evento_custo: string;
+  descr_evento_custo: string;
+  cod_fornecedor: number;
+  cnpj_fornecedor: string;
+  descr_fornecedor: string;
+  vinculo: string;
+  unid_orcam: string;
+  categoria: string;
+  elemento: string;
+  subelemento: string;
+  cod_processo: string;
+  licitacao_numero: string;
+  licitacao_modalidade: string;
+  id_empenho: string;
+}
+
 
 export const contentAdvertisements = {
   titlePage: "Gastos com publicidade",
@@ -106,6 +140,14 @@ function Screen({
   const [selectedYear, setSelectedYear] = useState<number | undefined>(2024);
   const [selectedYear2, setSelectedYear2] = useState<number | undefined>(2024);
   const accessibility = useFontSizeAccessibilityContext();
+  const [despesasVinculo08, setDespesasVinculo08] = useState<Despesa[]>([]);
+  const [loading2, setLoading2] = useState(false);
+  const [ano, setAno] = useState(new Date().getFullYear());
+  const [despesas, setDespesas] = useState<Despesa[]>([]);
+  const [pagina, setPagina] = useState(1);
+  const [despesasFiltradas, setDespesasFiltradas] = useState<Despesa[]>([]);
+  const [totalPaginas, setTotalPaginas] = useState(1);
+  const itemsPerPage = 50;
  
   const ITEMS_PER_PAGE = 50;
   
@@ -147,18 +189,7 @@ function Screen({
     fontSize: isMobile ? "medium" : "larger",
   };
 
-  const exportToJSON = (gastos: any) => {
-    const blob = new Blob([JSON.stringify(gastos, null, 2)], { type: "application/json" });
-    const link = document.createElement("a");
-    const url = URL.createObjectURL(blob);
-  
-    link.setAttribute("href", url);
-    link.setAttribute("download", "dados_despesas_propaganda.json");
-    link.style.visibility = "hidden";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+  // Removed duplicate exportToJSON function to avoid redeclaration error.
 
   useEffect(() => {
       setCurrentPage(1); // Reseta a página para 1 ao mudar o ano
@@ -166,52 +197,102 @@ function Screen({
     const years = [...new Set(gastos.map((item) => item.ano))].sort((a, b) => b - a);
     
 {/* Inicio do trecho para buscar os dados de gastos de publicidade  */}
+const fetchTodasDespesasAno = async () => {
+  try {
+    setLoading2(true);
+    let allResults: Despesa[] = [];
+    let page = 1;
+    let hasMore = true;
 
-{/* Inicio trecho buscar dados de gastos com publicidade */}
-console.log(data2.length)
-const outrosgastosPublicidadeFiltrados = data2
-.filter((item) => {
-  if (selectedYear) {
-    return Number(item.exercicio_empenho) === selectedYear;
+    while (hasMore) {
+      const res = await axios.get('https://dadosadm.mogidascruzes.sp.gov.br/api/despesas', {
+        params: {
+          page,
+          exercicio_empenho: ano,
+        },
+      });
+
+      const dados = res.data.results;
+      allResults = [...allResults, ...dados];
+      const totalCount = res.data.count;
+      hasMore = allResults.length < totalCount;
+      page++;
+    }
+
+    // Filter for records where vinculo starts with '08'
+    const filteredByVinculo = allResults.filter(despesa => 
+      despesa.subelemento === "47 - SERVIÇOS DE COMUNICAÇÃO EM GERAL                  " ||
+      despesa.subelemento === "88 - SERVIÇOS DE PUBLICIDADE E PROPAGANDA              " ||
+      despesa.subelemento === "90 - SERVIÇOS DE PUBLICIDADE LEGAL                     "
+    );
+
+    const ordenado = filteredByVinculo.sort((a, b) => Number(a.id_empenho) - Number(b.id_empenho));
+    setDespesasVinculo08(ordenado);
+    
+    // Set paginated data
+    const paginatedData = ordenado.slice(0, itemsPerPage);
+    setDespesas(paginatedData);
+    setTotalPaginas(Math.ceil(ordenado.length / itemsPerPage));
+    setLoading2(false);
+  } catch (error) {
+    console.error('Erro ao buscar todas as despesas do ano:', error);
+    setLoading2(false);
   }
-  return true; // Se não houver ano selecionado, retorna todos os itens
-})
-.filter((item) =>
-  item.nr_empenho?.toString().toLowerCase().includes(searchTerm.toLowerCase()) ||
-  item.descr_funcional.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  item.acao.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  item.descr_fornecedor.toLowerCase().includes(searchTerm.toLowerCase())||
-  item.id_empenho.toLowerCase().includes(searchTerm.toLowerCase())
-)
+};
 
-console.log(outrosgastosPublicidadeFiltrados)
+const handlePaginate = (page: number) => {
+  const startIndex = (page - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const paginatedData = despesasVinculo08.slice(startIndex, endIndex);
+  setDespesas(paginatedData);
+  setPagina(page);
+};
 
-const paginatedOutrosPublicidade = outrosgastosPublicidadeFiltrados.slice(
-  (currentPage2 - 1) * ITEMS_PER_PAGE,
-  currentPage2 * ITEMS_PER_PAGE
-);
+useEffect(() => {
+  fetchTodasDespesasAno();
+}, [ano]);
 
+useEffect(() => {
+  const normalizar = (str: string) =>
+    str?.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim() || '';
 
-const totalPages2 = Math.ceil(gastosPublicidadeFiltrados.length / ITEMS_PER_PAGE);
-console.log(gastosPublicidadeFiltrados.length )
+  const termo = normalizar(searchTerm);
 
-const exportToJSON2 = (data2: any) => {
-  const blob = new Blob([JSON.stringify(data2, null, 2)], { type: "application/json" });
-  const link = document.createElement("a");
+  if (termo === '') {
+    setDespesasFiltradas([]);
+  } else {
+    const filtradas = despesasVinculo08.filter((d) => {
+      const fornecedor = normalizar(d.descr_fornecedor);
+      return fornecedor.includes(termo);
+    });
+
+    setDespesasFiltradas(filtradas);
+  }
+}, [searchTerm, despesasVinculo08]);
+
+const handleAnoChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  setAno(Number(e.target.value));
+  setPagina(1);
+  setSearchTerm('');
+};
+
+const exportToJSON = (data: Despesa[]) => {
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const link = document.createElement('a');
   const url = URL.createObjectURL(blob);
 
-  link.setAttribute("href", url);
-  link.setAttribute("download", "dados_outras_despesas_propaganda.json");
-  link.style.visibility = "hidden";
+  link.setAttribute('href', url);
+  link.setAttribute('download', `dados_despesas_${ano}.json`);
+  link.style.visibility = 'hidden';
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
 };
 
-useEffect(() => {
-  setCurrentPage2(1); // Reseta a página para 1 ao mudar o ano
-}, [selectedYear]);
-const years2 = [...new Set(data2.map((item2) => item2.ano))].sort((a, b) => b - a);
+const dadosParaExibir = searchTerm ? despesasFiltradas : despesas;
+
+{/* Inicio trecho buscar dados de gastos com publicidade */}
+
   return (
     <ContainerBasic title={title} description={description}>
       
@@ -366,149 +447,144 @@ const years2 = [...new Set(data2.map((item2) => item2.ano))].sort((a, b) => b - 
           Outras Despesas com Publicidade
         </Heading>
 
+        <Box
+        bg={useColorModeValue('white', 'gray.800')}
+        padding="15px"
+        rounded="md"
+        overflow="hidden"
+        width="100%"
+        borderRadius="18px"
+        marginBottom="15px"
+      >
+        <Stack
+          minW={86}
+          width="100%"
+          flexDir="row"
+          flexWrap="wrap"
+          gap="10px"
+          mb="10px"
+        >
+          <Select
+            id="ano"
+            value={ano}
+            onChange={handleAnoChange}
+            borderRadius="8px"
+            height="40px"
+            width="180px"
+            placeholder="Selecione o ano"
+          >
+            {[2025, 2024, 2023, 2022, 2021].map((a) => (
+              <option key={a} value={a}>
+                {a}
+              </option>
+            ))}
+          </Select>
 
-        <ContainerSearch  >
-                          <Stack minW={86} width="50%" flexDir='row'
-                          sx={{
-                            "@media (max-width: 900px)": {
-                              flexDir:'column'
-                            },
-                          }}
-                          >
-                            {/* Select para Filtrar por Ano */}
-                           
-                <Button
-                  width="180px"
-                  border="0"
-                  cursor="pointer"
-                  fontSize="20px"
-                  textColor="white"
-                  bgColor={colors.primaryDefault40p}
-                  _hover={{ bgColor: colors.primaryDefault80p }}
-                  height="40px"
-                  borderRadius="8px"
-                  mr="15px"
-                  transition="background-color 0.3s ease"
-                  boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
-                  
-                >
-                  <CsvDownload
-                    filename={"dados_outros_gastos_publicidade.csv"}
-                    data={data2}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      background: "none",
-                      border: "none",
-                      color: "white",
-                      fontSize: "20px",
-                      textAlign: "center",
-                      cursor: "pointer",
-                    }}
-                  >
-                    CSV
-                  </CsvDownload>
-                </Button>
-                
-                <Button width='180px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
-                    bgColor={colors.primaryDefault40p}
-                    _hover={{ bgColor: colors.primaryDefault80p }}
-                    height='40px' borderRadius='8px' mr='15px'onClick={() => exportToJSON(data2)}
-                    boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
-                    
-                    >JSON</Button>
-                       </Stack>
-                          <Stack minW={50} justifyContent="flex-end" className="button-search"></Stack>
-                        </ContainerSearch>
-                        
-                                       
+          <Button
+            width="180px"
+            fontSize="16px"
+            textColor="white"
+            bgColor={colors.primaryDefault40p}
+            _hover={{ bgColor: colors.primaryDefault80p }}
+            height="40px"
+            borderRadius="8px"
+            boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+          >
+            <CsvDownload
+              filename={`dados_despesas_${ano}.csv`}
+              data={despesasVinculo08}
+              style={{
+                width: '100%',
+                height: '100%',
+                background: 'none',
+                border: 'none',
+                color: 'white',
+                fontSize: '16px',
+                cursor: 'pointer',
+              }}
+            >
+              CSV
+            </CsvDownload>
+          </Button>
 
-            {data2
-              .sort((a, b) => Number(a.nr_empenho) - Number(b.nr_empenho))
-              .map((row,index) => (
-                <Box
-                  key={row.id}
-                  border="2px solid transparent"
-          p="12px"
-          borderRadius="16px"
-          mb="12px"
-          bg={useColorModeValue("white", "black")}
-          boxShadow="lg"
-          transition="0.3s"
-          cursor="pointer"
-          _hover={{
-            boxShadow: "xl",
-            transform: "scale(1.01)",
-            border: `2px solid ${colors.primaryDefault40p}`,
-          }}
-                  onClick={() => {
-                    // Armazenando os dados da despesa no sessionStorage
-                    sessionStorage.setItem("selectedDespesa", JSON.stringify(row));
-                    
-                    // Redirecionando para a página de detalhes
-                    window.open(
-                      `detalhes?${row.nr_empenho}-${row.exercicio_empenho}`,
-                      "_blank"
-                    );
-                  }}
-                                  >
-                  <Text fontWeight="bold" 
-            fontSize="lg"
-            color={colors.primaryDefault40p}
-            borderBottom={`2px solid ${colors.primaryDefault40p}`}
-            pb="5px" 
-            mb="8px">
-                    Empenho: {row.nr_empenho} / {row.exercicio_empenho} 
-                  </Text>
-                  <Text><strong>Fornecedor:</strong> {row.descr_fornecedor}</Text>
-                  <Text><strong>Descrição:</strong> {row.descr_funcional}</Text>
-                  <Text><strong>Valor empenho:</strong> {row.vlr_empenho}</Text>
-                  <Text><strong>Unidade Orçamentária: </strong>{row.unid_orcam}</Text>
-                </Box>
-              ))}
-                    
-                    <Box
-       
-       as="ul" // Garante que Box se comporte como <ul>
-       display="flex"
-       justifyContent="space-around"
-       
-       alignItems="center"
-       flexWrap="wrap"
-       gap="10px"
-       mt="20px"
-       p="15px"
-       listStyleType="none"
-       fontWeight="bold"
-       fontSize="lg"
-       overflowX="auto"
-      // whiteSpace="nowrap"
-       maxW="100%"
-       sx={{
-         "& li": {
-           display: "inline-block", // Garante que os itens fiquem em linha
-           marginLeft: '10px',
-           padding: "8px 15px",
-           cursor: "pointer",
-           textDecoration: "none",
-           borderRadius: "5px",
-           backgroundColor: "#f0f0f0",
-           transition: "background-color 0.3s, color 0.3s",
-         },
-         "& li:hover": {
-           backgroundColor: "red",
-           color: "white",
-           gap: '10px'
-         },
-         "& .active": {
-           fontWeight: "bold",
-           backgroundColor: "red",
-           color: "white",
-         },
-       }}
-     >
-   
-     </Box>
+          <Button
+            width="180px"
+            fontSize="16px"
+            textColor="white"
+            bgColor={colors.primaryDefault40p}
+            _hover={{ bgColor: colors.primaryDefault80p }}
+            height="40px"
+            borderRadius="8px"
+            onClick={() => exportToJSON(despesasVinculo08)}
+            boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+          >
+            JSON
+          </Button>
+        </Stack>
+      </Box>
+
+      {loading ? (
+        <Box display="flex" justifyContent="center" alignItems="center" height="200px">
+          <Spinner size="xl" />
+        </Box>
+      ) : (
+        <ul>
+          {dadosParaExibir.map((item) => (
+            <Box
+              key={item.id}
+              border="2px solid transparent"
+              p="12px"
+              borderRadius="16px"
+              mb="12px"
+              bg={useColorModeValue('white', 'black')}
+              boxShadow="lg"
+              cursor="pointer"
+              transition="0.3s"
+              _hover={{
+                boxShadow: 'xl',
+                transform: 'scale(1.01)',
+                border: `2px solid ${colors.primaryDefault40p}`,
+              }}
+              onClick={() => {
+                sessionStorage.setItem('selectedDespesa', JSON.stringify(item));
+                window.open(`detalhes?${item.id_empenho} - ${item.exercicio_empenho}`, '_blank');
+              }}
+            >
+              <Text fontWeight="bold" fontSize="lg" color={colors.primaryDefault40p} borderBottom={`2px solid ${colors.primaryDefault40p}`} pb="5px" mb="8px">
+                Empenho: {item.nr_empenho} / {item.exercicio_empenho}
+              </Text>
+              <Text><strong>Fornecedor:</strong> {item.descr_fornecedor}</Text>
+              <Text><strong>Descrição:</strong> {item.descr_funcional}</Text>
+              <Text><strong>Valor empenho:</strong> {item.vlr_empenho}</Text>
+              <Text><strong>Unidade Orçamentária:</strong> {item.unid_orcam}</Text>
+              <Text><strong>Vínculo:</strong> {item.vinculo}</Text>
+            </Box>
+          ))}
+        </ul>
+      )}
+
+      {!searchTerm && despesasVinculo08.length > 0 && (
+        <Box display="flex" justifyContent="space-around" alignItems="center" paddingBottom="10px" width="80%" mt="20px">
+          <Button
+            border="1px solid #393D6F"
+            width="150px"
+            onClick={() => handlePaginate(Math.max(pagina - 1, 1))}
+            disabled={pagina === 1}
+          >
+            Anterior
+          </Button>
+          <span>Página {pagina} de {totalPaginas}</span>
+          <Button
+            border="1px solid #393D6F"
+            width="150px"
+            onClick={() => handlePaginate(Math.min(pagina + 1, totalPaginas))}
+            disabled={pagina === totalPaginas}
+          >
+            Próxima
+          </Button>
+        </Box>
+      )}
+           
     
         
         

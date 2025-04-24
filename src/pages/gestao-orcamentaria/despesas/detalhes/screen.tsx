@@ -34,6 +34,8 @@ export interface Liquidacao {
   vencimento: string
   valor_anulacao_liq: string
   valor_atual_liquido: string
+  nr_nf: string;
+  data_emissao_nf: string;
 }
 
 export interface Pagamento {
@@ -323,7 +325,7 @@ function Screen() {
              <Table variant="simple" size="md" width="100%" overflow="hidden" mb={5}>
               
               <Thead>
-              <Th colSpan={7} textAlign="center" bg={colors.primaryDefault40p} color="white" p={4} fontWeight="bold"  
+              <Th colSpan={8} textAlign="center" bg={colors.primaryDefault40p} color="white" p={4} fontWeight="bold"  
               border={`1px solid ${colors.primaryDefault40p}`}>
                    LIQUIDAÇÕES DO EMPENHO
                   </Th>
@@ -331,7 +333,13 @@ function Screen() {
                  
                   <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>Data da Liquidação</Th>
                   <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>Vencimento</Th>
-                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>Descrição</Th>
+                  
+
+                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>Descrição</Th> 
+                  <Th  bg={useColorModeValue("#f2f1f1", "black")}   border={`1px solid ${colors.primaryDefault40p}`}>
+                    Nº Nota Fiscal
+                  </Th>
+                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>Data Emissão Nota Fiscal</Th> 
                   <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>Valor Original</Th>
                   <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>Valor Anulado</Th>
                   <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>Valor Atual</Th>
@@ -346,13 +354,16 @@ function Screen() {
                     <Td maxWidth="350px" whiteSpace="normal" wordBreak="break-word"  border={`1px solid ${colors.primaryDefault40p}`}>
                       {file.descricao_vencimento}
                     </Td>
+                    <Td border={`1px solid ${colors.primaryDefault40p}`}>{file.nr_nf}</Td>
+                    <Td  border={`1px solid ${colors.primaryDefault40p}`}>{moment(file.data_emissao_nf).format('DD/MM/YYYY')}</Td>
+                   
                     <Td  border={`1px solid ${colors.primaryDefault40p}`}>{moneyFormatter(parseFloat(file.valor_liquidacao))}</Td>
                     <Td  border={`1px solid ${colors.primaryDefault40p}`}>{moneyFormatter(parseFloat(file.valor_anulacao_liq))}</Td>
                     <Td  border={`1px solid ${colors.primaryDefault40p}`}>{moneyFormatter(parseFloat(file.valor_atual_liquido))}</Td>
                   </Tr>
                 ))}
                 <Tr bg={useColorModeValue("#f2f1f1", "black")} fontWeight="bold">
-      <Td colSpan={3} textAlign="right" border={`1px solid ${colors.primaryDefault40p}`}>Total:</Td>
+      <Td colSpan={5} textAlign="right" border={`1px solid ${colors.primaryDefault40p}`}>Total:</Td>
       <Td border={`1px solid ${colors.primaryDefault40p}`}>
         {moneyFormatter(
           liquidacoes.reduce((acc, file) => acc + parseFloat(file.valor_liquidacao), 0)
