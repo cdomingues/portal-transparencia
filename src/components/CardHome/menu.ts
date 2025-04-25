@@ -149,7 +149,7 @@ export const menus=[
                 "extralinks": [
                     { label: "Contratos", url: "/contratos-atas/contratos"  },
                     { label: "Contratos de Gestão", url: "/contratos-atas/contratos-gestao"  },
-                    { label: "Atas",  url: "/contratos-atas/atas"   },
+                   
                     { label: "Relação dos Gestores de contratos encerrados",  url: "/contratos-atas/relacao-fiscais-encerrados"  },
                     { label: "Relação dos Gestores de contratos vigentes",  url: "/contratos-atas/relacao-fiscais-vigentes"   },
                 ]
@@ -170,9 +170,10 @@ export const menus=[
                 "url":"",
                 "extralinks": [
                     { label: "Licitações", url: "/compras-publicas/licitacoes" },
-                    { label: "Pregão Eletrônico", url: "https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/pregao-eletronico" },
+                    
                     {label: "Cadastro de Fornecedor",url: "https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/cadastro-de-fornecedor"},
                     { label: "Portal Nacional de Contratações Públicas",url: "https://pncp.gov.br/app/editais?q=&status=recebendo_proposta&pagina=1"},
+                    { label: "Atas de registro de preços",  url: "/contratos-atas/atas"   },
                 ]}
         ]
       },

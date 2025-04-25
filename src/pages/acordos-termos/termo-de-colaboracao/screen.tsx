@@ -157,7 +157,7 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
     >JSON</Button>
    <Input
              type="text"
-             placeholder="Pesquisar contratos..."
+             placeholder="Pesquisar ..."
              value={searchTerm}
              onChange={(e) => setSearchTerm(e.target.value)}
              borderRadius="8px"

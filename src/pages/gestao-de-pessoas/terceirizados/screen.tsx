@@ -116,7 +116,7 @@ function Screen({ handler }: PropsInput) {
 
    const [currentPage, setCurrentPage] = useState(1);
       const [searchTerm, setSearchTerm] = useState("");
-      const [sortColumn, setSortColumn] = useState<string | null>(null);
+      const [sortColumn, setSortColumn] = useState<keyof typeof data[0] | null>(null);
       const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
    
  
@@ -132,7 +132,7 @@ function Screen({ handler }: PropsInput) {
     link.click();
     document.body.removeChild(link);
   };
-  const handleSort = (column: string) => {
+  const handleSort = (column: keyof typeof data[0]) => {
     if (sortColumn === column) {
       setSortDirection(sortDirection === "asc" ? "desc" : "asc");
     } else {
@@ -143,8 +143,8 @@ function Screen({ handler }: PropsInput) {
 
   const sortedPlanos =data.sort((a, b) => {
     if (!sortColumn) return 0; // Sem ordenação
-    const valueA = a[sortColumn];
-    const valueB = b[sortColumn];
+    const valueA = sortColumn ? a[sortColumn] : null;
+    const valueB = sortColumn ? b[sortColumn] : null;
   
     if (typeof valueA === "string" && typeof valueB === "string") {
       return sortDirection === "asc"
@@ -245,17 +245,17 @@ function Screen({ handler }: PropsInput) {
       p={4}
       fontWeight="bold"
       border={`1px solid ${colors.primaryDefault40p}`}>
-                                        <Th color="white" onClick={() => handleSort("sigla_area_gestora")} cursor="pointer">
-                                        Nome {sortColumn === "sigla_area_gestora" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
+                                        <Th color="white" onClick={() => handleSort("nome")} cursor="pointer">
+                                        Nome {sortColumn === "nome" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
                                         </Th>
-                                        <Th color="white" onClick={() => handleSort("sigla_fundo" )} cursor="pointer">
-                                        Cargo {sortColumn === "sigla_fundo"  ? (sortDirection === "asc" ? "▲" : "▼") : ""}
+                                        <Th color="white" onClick={() => handleSort("cargo")} cursor="pointer">
+                                        Cargo {sortColumn === "cargo"  ? (sortDirection === "asc" ? "▲" : "▼") : ""}
                                         </Th>
-                                        <Th color="white" onClick={() => handleSort("fundo_municipal")} cursor="pointer">
-                                        Empresa contratada {sortColumn === "fundo_municipal" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
+                                        <Th color="white" onClick={() => handleSort("empresa_contratada")} cursor="pointer">
+                                        Empresa contratada {sortColumn === "empresa_contratada" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
                                         </Th>
-                                        <Th color="white" onClick={() => handleSort("cnpj")} cursor="pointer">
-                                          Lotação {sortColumn === "cnpj" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
+                                        <Th color="white" onClick={() => handleSort("lotacao")} cursor="pointer">
+                                          Lotação {sortColumn === "lotacao" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
                                         </Th>
                                        
        
