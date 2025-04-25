@@ -163,9 +163,13 @@ function Screen() {
           onChange={(e) => setSelectedSituacao(e.target.value)}
            width="200px"
         >
-          <option value="Aberta">Aberta</option>
-          <option value="Encerrada">Encerrada</option>
-          <option value="Suspensa">Suspensa</option>
+         
+          <option value="C">Concluida</option>
+          <option value="S">Suspensa</option>
+          <option value="P">Publicada</option>
+          <option value="U">Republicada</option>
+          <option value="E">Em andamento</option>
+          <option value="R">Revogada</option>
         </Select>
 
         <Button

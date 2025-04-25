@@ -108,9 +108,6 @@ function Screen({
 
   return (
     <ContainerBasic title={title} description={description}>
-       
-       
-      
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
@@ -121,13 +118,9 @@ function Screen({
         width="100%"
         borderRadius="18px"
         marginBottom="15px"
-      >
-        
+      >       
        
       </Box>
-
-      
-
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}

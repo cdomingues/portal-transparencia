@@ -46,7 +46,7 @@ function Screen({
   const description = contentContractsAndAtas?.description;
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedYear, setSelectedYear] = useState<number | undefined>(2024);
+  const [selectedYear, setSelectedYear] = useState<number | undefined>(2025);
 
   const ITEMS_PER_PAGE = 50;
 

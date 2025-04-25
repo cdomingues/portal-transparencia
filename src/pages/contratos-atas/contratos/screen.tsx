@@ -191,7 +191,8 @@ function Screen({
     bgColor={colors.primaryDefault40p}
     _hover={{ bgColor: colors.primaryDefault80p }}
     
-    height='40px' borderRadius='8px' mr='15px'onClick={() => exportToJSON(sortedPaginatedContratos)}
+    height='40px' borderRadius='8px' mr='15px'
+    onClick={() => exportToJSON(sortedPaginatedContratos)}
     boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
     
     >JSON</Button>
@@ -234,7 +235,8 @@ function Screen({
             transform: "scale(1.01)",
             border: `2px solid ${colors.primaryDefault40p}`,
           }}
-          onClick={() => window.location.href = `detalhes?${row.id_contrato}`}
+          onClick={() => window.open( `detalhes?${row.id_contrato}`, '_blank')}
+         
         >
           <Text 
             fontWeight="bold" 

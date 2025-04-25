@@ -49,7 +49,7 @@ export const contentGrants = {
 
 function Screen({
   handler: {
-    columns, data, loading, handleByYear, setYear, year, data2, setData2,arquivosColumns
+    columns, data, loading, handleByYear, setYear, year, data2, setData2, arquivosColumns
   },
 }: PropsInput) {
   const [contract, setContract] = useState<any>(null);
@@ -59,6 +59,7 @@ function Screen({
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedYear, setSelectedYear] = useState<number | undefined>(2024);
 
+  const availableYears = [...new Set(data.map((item) => item.exercicio_empenho))].sort((a, b) => b - a);
 
   const chartConfig = {
     direction: isMobile ? "column" : "row",
@@ -170,18 +171,22 @@ function Screen({
                             {/* Select para Filtrar por Ano */}
                             <Select
                               value={selectedYear}
-                              onChange={(e) => setSelectedYear(Number(e.target.value))}
-                              placeholder="Todos os anos"
+                              onChange={(e) => {
+                                const year = Number(e.target.value);
+                                setSelectedYear(year);
+                                handleByYear(year); // Fetch data for the selected year
+                              }}
+                              placeholder="Selecione o ano"
                               borderRadius="8px"
                               height="40px"
                               mb="10px"
                               width='180px'
                             >
-                              {years.map((year) => (
-                                <option value={year}>
-                                  {year}
-                                </option>
-                              ))}
+                               {[2025, 2024, 2023, 2022, 2021].map((a) => (
+              <option key={a} value={a}>
+                {a}
+              </option>
+            ))}
                             </Select>
                 <Button
                   width="180px"

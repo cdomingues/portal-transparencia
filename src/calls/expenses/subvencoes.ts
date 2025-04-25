@@ -1,38 +1,38 @@
 import axios from "axios";
 import moment from "moment";
-import { baseUrl } from "../../config";
-import moneyFormatter from "../../utils/moneyFormatter";
-import { objetos_licitacao } from "../../utils/objetos_licitacao"; 
 
-export const getDespesasSubvencoes = async (years?: number) => {
+export const getDespesasSubvencoes = async (year?: number) => {
   try {
-    let nextPage = "https://dadosadm.mogidascruzes.sp.gov.br/api/despesas";
-    const url = "https://dadosadm.mogidascruzes.sp.gov.br/api/despesas?exercicio_empenho=2025";
-    const response = await axios.get(url);
+    let allResults: any[] = [];
+    let nextPage = year 
+      ? `https://dadosadm.mogidascruzes.sp.gov.br/api/despesas?exercicio_empenho=${year}`
+      : `https://dadosadm.mogidascruzes.sp.gov.br/api/despesas`;
 
-    const { results } = response.data;
+    // Fetch all pages for the specific year
+    while (nextPage) {
+      const response = await axios.get(nextPage);
+      const { results, next } = response.data;
+      
+      // Filter by elemento during fetch
+      const filtered = results.filter((row: any) => 
+        row.elemento === "3.3.50.43.00 - SUBVENÇÕES SOCIAIS"
+      );
+      
+      allResults = [...allResults, ...filtered];
+      nextPage = next;
+    }
 
-    
-    const filteredResults = results.filter((row: { elemento: string; }) => 
-      row.elemento === "3.3.50.43.00 - SUBVENÇÕES SOCIAIS"                   
-  );
-
-    const mappingRows = filteredResults.map((row: any) => {
-         
-           
-
-      return {
+    // Format the results
+    return { 
+      contracts: allResults.map((row: any) => ({
         ...row,
-        vlr_empenho: "R$" + row.vlr_empenho  ,
-        dataAbertura: moment(row.dataAbertura).format("DD/MM/YYYY"),
-        publicacaoInicio: moment(row.publicacaoInicio).format("DD/MM/YYYY"),
-publicacaoFim: moment(row.publicacaoFim).format("DD/MM/YYYY"),
-       
-        
-        complemento: row.complemento || " não informado"};
-    });
-
-    return { contracts: mappingRows }; // Remove duplicatas
+        vlr_empenho: "R$" + row.vlr_empenho,
+        dataAbertura: row.dataAbertura ? moment(row.dataAbertura).format("DD/MM/YYYY") : "",
+        publicacaoInicio: row.publicacaoInicio ? moment(row.publicacaoInicio).format("DD/MM/YYYY") : "",
+        publicacaoFim: row.publicacaoFim ? moment(row.publicacaoFim).format("DD/MM/YYYY") : "",
+        complemento: row.complemento || "não informado"
+      }))
+    };
   } catch (error) {
     console.error("Error fetching contracts:", error);
     throw error;

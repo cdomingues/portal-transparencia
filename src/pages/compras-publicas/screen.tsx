@@ -179,26 +179,7 @@ marginBottom="15px"
                  backgroundColor="transparent"/>
                                     </Box>
                  
-                  <Box padding="6" bg="transparent" flexDirection="row">
-                    <CardHorizon
-                      title="Licitações - Portal Antigo"
-                      imageURL={licitacoes.src}
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="https://licitacao-mgcon.mogidascruzes.sp.gov.br/"
-                 backgroundColor="transparent"
-                
-                 />
-
-
-                  </Box>
-               
-              </Stack>
-              <Stack
-                direction={isMobile ? "column" : "row"}
-                align={isMobile ? "center" : "center"}
-                justifyContent={isMobile ? "flex-start" : "center"}
-              >
-                  <Box padding="6" bg="transparent" flexDirection="row">
+                                    <Box padding="6" bg="transparent" flexDirection="row">
                   <CardHorizon
                       title="Cadastro de Fornecedor"
                       imageURL={cadastro_de_fornecedores.src}
@@ -206,21 +187,9 @@ marginBottom="15px"
                       link="https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/cadastro-de-fornecedor"
                  backgroundColor="transparent"/>
                   </Box>
-
-                  <Box padding="6" bg="transparent" flexDirection="row">
-                    <CardHorizon
-                      title="Pregão Eletrônico"
-                      imageURL={pregao_eletronico.src}
-                      description="São disponibilizados no site da Prefeitura os editais de licitação de pregões eletrônicos para aquisição de bens e serviços, para acesso de qualquer interessado."
-                      link="https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/pregao-eletronico"
-                 backgroundColor="transparent"
-                
-                 />
-
-
-                  </Box>
-                  
-                </Stack>
+               
+              </Stack>
+              
 
                 <Stack
                 direction={isMobile ? "column" : "row"}

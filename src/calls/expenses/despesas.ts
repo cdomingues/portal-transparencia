@@ -3,35 +3,32 @@ import moment from "moment";
 import moneyFormatter from "../../utils/moneyFormatter";
 
 export const getDiarias = async (year: number = 2025) => {
-  const baseApiUrl = `https://dadosadm.mogidascruzes.sp.gov.br/api/despesas?exercicio_empenho=${year}`;
-  let url = baseApiUrl;
+  let currentPage = 1;
   let allResults: any[] = [];
+  let hasNext = true;
+
+  const baseURL =
+    typeof window === "undefined"
+      ? process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
+      : ""; // usa vazio no cliente para manter `/api/...`
 
   try {
-    while (url) {
-      
+    while (hasNext) {
+      const url = `${baseURL}/api/despesas?year=${year}&page=${currentPage}`;
       const response = await axios.get(url);
       const data = response.data;
 
       allResults = allResults.concat(data.results);
-      url = data.next; // próxima página
+      hasNext = data.next !== null;
+      currentPage++;
     }
 
-    const mappingRows = allResults.map((row: any) => {
-      return {
-        ...row,
-        vlr_empenho: row.vlr_empenho ? moneyFormatter(Number(row.vlr_empenho)) : "R$ 0,00",
-        dataAbertura: row.dataAbertura ? moment(row.dataAbertura).format("DD/MM/YYYY") : "Data não informada",
-        publicacaoInicio: row.publicacaoInicio ? moment(row.publicacaoInicio).format("DD/MM/YYYY") : "Data não informada",
-        publicacaoFim: row.publicacaoFim ? moment(row.publicacaoFim).format("DD/MM/YYYY") : "Data não informada",
-        complemento: row.complemento || "não informado"
-      };
-    });
-
-    return { contracts: mappingRows };
+    return { contracts: allResults };
   } catch (error) {
-    console.error("Erro ao buscar dados das despesas:", error);
+    console.error("Erro ao buscar despesas:", error);
     throw error;
   }
 };
+
+
 

@@ -232,7 +232,7 @@ function Screen({
             transform: "scale(1.01)",
             border: `2px solid ${colors.primaryDefault40p}`,
           }}
-          onClick={() => window.location.href = `detalhes?${row.id_contrato}`}
+          onClick={() => window.open( `detalhes?${row.id_contrato}`, '_blank')}
         >
           <Text 
             fontWeight="bold" 
