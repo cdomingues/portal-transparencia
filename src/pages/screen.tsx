@@ -61,8 +61,7 @@ export const contentInitial = {
   description:
     "O lugar onde o controle social começa! Acompanhe todas as informações de receitas e despesas da Prefeitura, com detalhamento e maior facilidade de entendimento.",
 };
-const url_video = "https://www.youtube.com/embed/F4kk9FqoRHw?list=PLr6uMRVxi5CZDYEttIUVaIzsm07L7qI6a";
-  const titulo = "O que é a Lei de Acesso à Informação (LAI)?"; 
+
 
 function formatMoney(value: number): string {
   return `R$ ${Math.floor(value).toLocaleString("pt-BR")}`;

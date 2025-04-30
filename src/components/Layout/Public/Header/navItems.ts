@@ -20,14 +20,14 @@ export default [
             href: "https://www.mogidascruzes.sp.gov.br/pagina/gabinete/institucional",
           },
           {
-            label: "Prefeito",
+            label: "Prefeita",
             subLabel: "Gabinete",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/prefeito/institucional",
+            href: "https://www.mogidascruzes.sp.gov.br/pagina/prefeita/institucional",
           },
           {
-            label: "Vice-prefeita",
+            label: "Vice-prefeito",
             subLabel: "Gabinete",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/vice-prefeita/institucional",
+            href: "https://www.mogidascruzes.sp.gov.br/pagina/vice-prefeito/institucional",
           },
         ],
       },

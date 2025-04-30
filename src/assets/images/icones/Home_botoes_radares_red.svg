@@ -3,7 +3,7 @@
   <defs>
     <style>
       .cls-1 {
-        fill: #ff0000; /* Alterado para vermelho */
+        fill: #ffffff; /* Alterado para vermelho */
         stroke-width: 0px;
       }
     </style>

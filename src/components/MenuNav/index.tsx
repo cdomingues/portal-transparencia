@@ -337,7 +337,7 @@ const MenuHorizontalChakra = () => {
   
   const renderDesktopMenu = () => (
     <Hide below="lg">
-      <Flex as="nav" align="center" width="100%"  wrap="wrap">
+      <Flex as="nav" align="center" width="100%"  wrap="wrap" >
         {menuItems.map((item, index) => (
           item.submenu ? (
             <Menu key={index} >
@@ -482,11 +482,12 @@ const MenuHorizontalChakra = () => {
                                 color="white"
                                 _hover={{ bg: 'gray.700' }}
                                 onClick={() => setMobileSubmenu(mobileSubmenu === subItem.label ? null : subItem.label)}
+                                
                               >
                                 {subItem.label}
                               </Button>
                               {mobileSubmenu === subItem.label && (
-                                <VStack pl={6} mt={2} align="stretch" spacing={2}>
+                                <VStack pl={6} mt={2} align="stretch" spacing={2} >
                                   {subItem.submenu.map((nestedItem, nestedIndex) => (
                                     <Button
                                       key={nestedIndex}
@@ -551,7 +552,7 @@ const MenuHorizontalChakra = () => {
 
   return (
     <Box bg="gray.800" px={4} py={2}>
-      <Flex align="center" justify="space-between">
+      <Flex align="center" justify="space-between"  >
         {renderMobileMenu()}
         {renderDesktopMenu()}
       </Flex>
