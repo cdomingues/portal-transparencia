@@ -43,11 +43,16 @@ import { IPublicRoute } from "../../../../types";
 import { useRouter } from "next/router";
 import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAccessibility";
 import { rgb } from "d3";
+import Brasao_PMMC_Normal from '../../../../assets/images/Brasao_horizontal_normal.png';
+import Brasao_PMMC_white from '../../../../assets/images/Brasao_horizontal_branco.png';
+import Image from 'next/image';
 
 export default function Header() {
   const [search, setSearch] = useState("");
   const [searchs, setSearchs] = useState<Array<any>>([]);
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  
 
   return (
     <Box width="100%">
@@ -129,7 +134,14 @@ const DesktopNav = ({
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
   const router = useRouter();
   const accessibility = useFontSizeAccessibilityContext();
+  const brasaoImageSrc = useColorModeValue(
+    Brasao_PMMC_Normal.src,
+    Brasao_PMMC_white.src
+  );
   return (
+    <>
+    
+    
     <Stack
       backgroundColor={"transparent"}
       width={"100%"} // Ocupa toda a largura da tela
@@ -140,6 +152,7 @@ const DesktopNav = ({
       margin="0 auto" // Centraliza a Stack horizontalmente na tela
       
     >
+     
       <Stack
         direction={"row"}
         spacing={4}
@@ -150,6 +163,8 @@ const DesktopNav = ({
         justify="center" // Centraliza horizontalmente
         backgroundColor={"transparent"}
       >
+    <Image alt="logo" width={180} height={180 }src={brasaoImageSrc} />
+   
         <Stack
           flex={1}
           direction="row"
@@ -167,16 +182,17 @@ const DesktopNav = ({
               const href = navItem.href;
               const hasHref = navItem.href ? { href } : {};
               return (
-                <Box key={navItem.label}>
+                <Box key={navItem.label} >
                   <Popover trigger={"hover"} placement={"bottom-start"}>
-                    <PopoverTrigger>
+                    <PopoverTrigger >
                       <Link
                         {...hasHref}
                         target={href ? "_blank" : undefined}
                         p={2}
-                        fontSize={accessibility.fonts.small}
-                        fontWeight={500}
+                        fontSize={accessibility.fonts.smaller}
+                        fontWeight={"bold"}
                         color={linkColor}
+                        
                         textAlign="center"
                         _hover={{
                           textDecoration: "none",
@@ -341,6 +357,7 @@ const DesktopNav = ({
         </Stack>
       </Stack>
     </Stack>
+    </>
   );
 };
 
@@ -389,6 +406,8 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   const hasHref = href ? { href } : {};
   const accessibility = useFontSizeAccessibilityContext();
   return (
+    <>
+    
     <Link
       {...hasHref}
       role={"group"}
@@ -424,5 +443,6 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
         </Flex>
       </Stack>
     </Link>
+    </>
   );
 };

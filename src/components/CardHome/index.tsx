@@ -80,19 +80,32 @@ function CardHome() {
             fontSize={useAccessibility?.fonts?.regular}
           >
             <h2>
-              <AccordionButton bg={useColorModeValue("", "gray.800")}  borderRadius='18px'  border={`2px solid ${useColorModeValue("gray.800", "")}`}>
+              <AccordionButton 
+              bg={useColorModeValue("", "gray.800")}  
+             // borderRadius='10px'  
+              border={`2px solid ${useColorModeValue("gray.800", "")}`}
+              p={0} // Remove padding interno do botão
+              m={0} // Remove margem externa
+              minHeight="unset"
+              _expanded={{
+                bg: "red.500", // fundo vermelho ao expandir
+                color: "white" // texto branco ao expandir
+              }}
+              >
                 <Box 
                   flex="1" 
                   textAlign="left" 
                   fontWeight="bold" 
-                  borderRadius='12px' 
+                  borderRadius='1px' 
                   display="flex" 
                   alignItems="center" 
                   gap={8} 
                   fontSize={useAccessibility?.fonts?.regular}
                   bg={useColorModeValue("", "gray.800")} 
                   _expanded={{ filter: "invert(1)" }}
-                 
+                  p={1}
+    m={0}
+    lineHeight="1"
                 >
                   <MenuIcon src={menu.imageURL} alt={menu.title} />
                   {menu.title}
@@ -100,7 +113,7 @@ function CardHome() {
                 <AccordionIcon _expanded={{ color: "white" }} />
               </AccordionButton>
             </h2>
-            <AccordionPanel pb={8} >
+            <AccordionPanel pb={0} >
               <Grid
                 templateColumns={templateColumns}
                 gap={6}
@@ -109,6 +122,8 @@ function CardHome() {
                 margin="0 auto"
                 padding="0 15px"
                 fontSize={useAccessibility?.fonts?.regular}
+                //border='1px solid red'
+                my='78px'
               >
                 {menu.submenus.map((submenu: any) => {
   const imageSrc = submenu.imageURL || submenu.imageUrl;

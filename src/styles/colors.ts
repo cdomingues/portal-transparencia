@@ -1,4 +1,9 @@
 const colors = {
+
+  transparenciaRed: '#db334f',
+  transparenciaBlack: '#2d2d2d',
+  transparenciaCinza: '#a8a8a8',
+
     white: '#ffff',
     black: '#272937',
     naturalBlack:'#000',
