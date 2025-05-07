@@ -60,7 +60,7 @@ export const contentContractsAndAtas = {
       <br />
       Nesta página é possível acompanhar diariamente a execução orçamentária das despesas da Prefeitura Municipal de Mogi das Cruzes.
       <br /><br />
-    Caso queira buscar um empenho específico  <Button> <a href="despesas-gerais/index2">clique aqui</a> </Button>
+    Caso queira buscar um empenho específico  <Button> <a href="despesas-gerais/procurar_despesa">clique aqui</a> </Button>
     </>
   ),
 };
