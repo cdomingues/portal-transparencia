@@ -140,7 +140,7 @@ const App = () => {
         borderRadius="18px"
         marginBottom="15px"
       >
-      <Text pl='10px' mb='10px'>Busca de Despesas por empenho, selecione o ano e busque pelo nome do fornecedor, unidade orçamentária ou número de empenho </Text>
+      <Text fontWeight='bold' pl='10px' mb='15px'>Busca de Despesas por empenho, selecione o ano e busque pelo nome do fornecedor, unidade orçamentária ou número de empenho </Text>
 
         <Stack minW={86} width="50%" flexDir='row'
                 sx={{

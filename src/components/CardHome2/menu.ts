@@ -402,8 +402,8 @@ export const menus=[
                 'imageUrl2': Agenda_aberta_branco.src,
                 "url":"",
                 "extralinks": [
-                    {label: "Prefeita - Mara Bertaiolli", url: "/agenda-prefeito",  },
-                    {label: "Vice Prefeito - Teo Cusatis",url: "/agenda-vice-prefeito",},
+                    {label: "Prefeita - Mara Bertaiolli", url: "/agenda-aberta/agenda-prefeita",  },
+                    {label: "Vice Prefeito - Teo Cusatis",url: "/agenda-aberta/agenda-vice-prefeito",},
                 ]
             },
             {   

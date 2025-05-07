@@ -46,9 +46,9 @@ interface Despesa {
 }
 
 export const contentContractsAndAtas = {
-  titlePage: "Despesas - Emendas Parlamentares",
+  titlePage: "Subvenções e Terceiro Setor",
   description:
-    "Confira nesta página as despesas empenhadas, liquidadas e pagas a partir dos recursos obtidos por meio de emendas parlamentares. ",
+    "Subvenção é quando a Prefeitura destina recursos financeiros para que entidades cubram seus custos de atividades prestadas à população. Confira aqui as despesas relacionadas a essa natureza.",
 };
 
 const Despesas = () => {

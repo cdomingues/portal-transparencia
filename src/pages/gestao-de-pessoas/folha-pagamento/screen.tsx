@@ -134,7 +134,12 @@ function Screen({
         <Box
           m={0}
           bg={useColorModeValue("white", "gray.800")}
-          
+          border={`1px solid ${colors.primaryDefault80p}`}
+              _focus={{
+                borderColor: colors.primaryDefault80p, // nova cor da borda ao focar
+                boxShadow:'none',
+                //backgroundColor: colors.primaryDefault80p // cor de fundo ao focar (exemplo)
+              }}
           paddingTop={15}
           paddingBottom={15}
           paddingLeft={15}
@@ -152,9 +157,15 @@ function Screen({
               <Select
           value={year} // Define o valor selecionado com base no estado
           onChange={(e) => setYear(e.target.value)}
-          bg="white"
+          bg={useColorModeValue("white", "gray.800")}
           variant="outline"
           placeholder="Todos os anos"
+          border={`1px solid ${colors.primaryDefault80p}`}
+                        _focus={{
+                          borderColor: colors.primaryDefault80p, // nova cor da borda ao focar
+                          boxShadow:'none',
+                          //backgroundColor: colors.primaryDefault80p // cor de fundo ao focar (exemplo)
+                        }}
         >
           {Array.from({ length: 5 }).map((_, index) => {
             const newYear = moment().subtract(index, "years").year();
@@ -173,9 +184,16 @@ function Screen({
               <Select
           value={month} // Define o valor selecionado com base no estado
           onChange={(e) => setMonth(e.target.value)}
-          bg="white"
+          
           variant="outline"
           placeholder="Todos os meses"
+          bg={useColorModeValue("white", "gray.800")}
+          border={`1px solid ${colors.primaryDefault80p}`}
+              _focus={{
+                borderColor: colors.primaryDefault80p, // nova cor da borda ao focar
+                boxShadow:'none',
+                //backgroundColor: colors.primaryDefault80p // cor de fundo ao focar (exemplo)
+              }}
         >
           {Array.from({ length: 12 }).map((_, index) => (
             <option key={index} value={index + 1}>
@@ -200,9 +218,15 @@ function Screen({
               <Input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                bg="white"
+                bg={useColorModeValue("white", "gray.800")}
                 width="100%"
                 placeholder="Nome"
+                border={`1px solid ${colors.primaryDefault80p}`}
+                              _focus={{
+                                borderColor: colors.primaryDefault80p, // nova cor da borda ao focar
+                                boxShadow:'none',
+                                //backgroundColor: colors.primaryDefault80p // cor de fundo ao focar (exemplo)
+                              }}
               />
             </Stack>
             <Stack minW={86} width="25%">
@@ -212,9 +236,15 @@ function Screen({
               <Input
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
-                bg="white"
+                bg={useColorModeValue("white", "gray.800")}
                 width="100%"
                 placeholder="Cargo"
+                border={`1px solid ${colors.primaryDefault80p}`}
+              _focus={{
+                borderColor: colors.primaryDefault80p, // nova cor da borda ao focar
+                boxShadow:'none',
+                //backgroundColor: colors.primaryDefault80p // cor de fundo ao focar (exemplo)
+              }}
               />
             </Stack>
           </Stack>
@@ -232,9 +262,15 @@ function Screen({
               <Input
                 value={enrollment}
                 onChange={(e) => setEnrollment(e.target.value)}
-                bg="white"
+                bg={useColorModeValue("white", "gray.800")}
                 width="100%"
                 placeholder="Matricula"
+                border={`1px solid ${colors.primaryDefault80p}`}
+                              _focus={{
+                                borderColor: colors.primaryDefault80p, // nova cor da borda ao focar
+                                boxShadow:'none',
+                                //backgroundColor: colors.primaryDefault80p // cor de fundo ao focar (exemplo)
+                              }}
               />
             </Stack>
             <Stack width="10%" justifyContent="flex-end">

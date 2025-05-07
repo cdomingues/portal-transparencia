@@ -1,8 +1,9 @@
-import { Box, Icon, Select, Stack } from '@chakra-ui/react';
+import { Box, Button, Icon, Menu, MenuButton, MenuItem, MenuList, Select, Stack } from '@chakra-ui/react';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { isMobile } from 'react-device-detect';
 import { AiOutlineDownload } from 'react-icons/ai';
+import colors from '../../styles/colors';
 
 type Arquivo = {
   ano: any;
@@ -85,11 +86,17 @@ const FilesList: React.FC<FilesListProps> = ({ tipoFiltro }) => {
   return (
     <Box display="flex" alignContent="center" flexDirection={isMobile ?  "column" : "column"}>
       
-       <Select
+      {/*  <Select
+       _hover={{
+        boxShadow: "xl",
+        transform: "scale(1.01)",
+        border: `2px solid ${colors.primaryDefault40p}`,
+      }}
        maxW="200px"
     id="yearSelect"
     onChange={(e) => setSelectedYear(Number(e.target.value))}
     value={selectedYear || ""}
+    
   >
     <option value="">Todos os Anos</option>
     {Array.from(
@@ -101,7 +108,27 @@ const FilesList: React.FC<FilesListProps> = ({ tipoFiltro }) => {
         {year}
       </option>
     ))}
-  </Select>
+  </Select> */}
+
+<Menu>
+  <MenuButton as={Button}  maxW="200px" bgColor={colors.transparenciaCinza}>
+    {selectedYear || "Todos os Anos"}
+  </MenuButton>
+  <MenuList>
+    <MenuItem onClick={() => setSelectedYear(null)}>Todos os Anos</MenuItem>
+    {Array.from(new Set(arquivos.map((arquivo) => arquivo.ano)))
+      .sort((a, b) => b - a)
+      .map((year) => (
+        <MenuItem 
+          key={year} 
+          onClick={() => setSelectedYear(year)}
+          _hover={{ bg: colors.grayLight }} // Estilo no hover
+        >
+          {year}
+        </MenuItem>
+      ))}
+  </MenuList>
+</Menu>
   
   {arquivos
         .filter((arquivo) =>

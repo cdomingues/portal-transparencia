@@ -38,7 +38,7 @@ type PropsInput = {
 export const contentContractsAndAtas = {
   titlePage: "Contratos",
   description:
-    "Nesta página, confira as informações sobre contratos e atas celebrados pela Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por número, modalidade, processo, valor, fornecedor, objeto, entre outros itens. ",
+    "Nesta página, confira as informações sobre contratos e atas celebrados pela Prefeitura de Mogi das Cruzes com prestadores de serviço.",
 };
 
 function Screen({
@@ -131,6 +131,7 @@ function Screen({
         marginBottom="15px"
       >
         <ContainerSearch  >
+        <Text fontWeight='bold' pl='10px' mb='15px'>Para busca de contratos  selecione o ano especificio ou a opção 'Todos os anos' e busque pelo nome do fornecedor, número ou descrição do objeto do contrato </Text>
           <Stack minW={86} width="50%" flexDir='row'
           sx={{
             "@media (max-width: 900px)": {
@@ -138,6 +139,8 @@ function Screen({
             },
           }}
           >
+            
+            
             {/* Select para Filtrar por Ano */}
             <Select
               value={selectedYear}
@@ -147,6 +150,12 @@ function Screen({
               height="40px"
               mb="10px"
               width='180px'
+              border={`1px solid ${colors.primaryDefault40p}`}
+              _focus={{
+                borderColor: colors.primaryDefault40p, // nova cor da borda ao focar
+                boxShadow:'none',
+                //backgroundColor: colors.primaryDefault40p // cor de fundo ao focar (exemplo)
+              }}
             >
               {years.map((year) => (
                 <option key={year} value={year}>
@@ -203,7 +212,7 @@ function Screen({
           <Stack minW={50} justifyContent="flex-end" className="button-search"></Stack>
         </ContainerSearch>
 
-        <Divider borderWidth="2px" mt="10" mb="10" />
+        
 
         <Input
           type="text"

@@ -118,8 +118,15 @@ function Screen() {
 
   return (
     <ContainerBasic title={title} description={description}>
+        <Text fontWeight='bold' pl='10px' mb='15px'>Para busca de licitações  selecione o ano especificio ou a opção 'Todos os anos' e selecione po tipo de licitação, o órgão ou a situação. Caso prefira escolha o ano e pesquise pelo número  ou a descrição da licitação </Text>
+               
       <Stack direction={{ base: "column", md: "row" }} spacing={4} mb={4}>
-        <Select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)}  width="200px">
+        <Select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)}  width="200px"   border={`1px solid ${colors.primaryDefault40p}`}
+                      _focus={{
+                        borderColor: colors.primaryDefault40p, // nova cor da borda ao focar
+                        boxShadow:'none',
+                        //backgroundColor: colors.primaryDefault40p // cor de fundo ao focar (exemplo)
+                      }}>
           <option value="Todos">Selecione o ano</option>
           {[...Array(2025 - 2012 + 1)].map((_, i) => (
             <option key={i} value={2012 + i}>
@@ -133,6 +140,12 @@ function Screen() {
           placeholder="Tipo Licitação"
           value={selectedLicitacao}
           onChange={(e) => setSelectedLicitacao(e.target.value)}
+            border={`1px solid ${colors.primaryDefault40p}`}
+            _focus={{
+              borderColor: colors.primaryDefault40p, // nova cor da borda ao focar
+              boxShadow:'none',
+              //backgroundColor: colors.primaryDefault40p // cor de fundo ao focar (exemplo)
+            }}
         >
           <option value="2">Pregão Presencial</option>
           <option value="3">Tomada de Preços</option>
@@ -151,6 +164,12 @@ function Screen() {
           value={selectedGestora}
           onChange={(e) => setSelectedGestora(e.target.value)}
            width="200px"
+             border={`1px solid ${colors.primaryDefault40p}`}
+            _focus={{
+            borderColor: colors.primaryDefault40p, // nova cor da borda ao focar
+            boxShadow:'none',
+            //backgroundColor: colors.primaryDefault40p // cor de fundo ao focar (exemplo)
+            }}
         >
           <option value="IPREM">IPREM</option>
           <option value="PMMC">PMMC</option>
@@ -162,6 +181,12 @@ function Screen() {
           value={selectedSituacao}
           onChange={(e) => setSelectedSituacao(e.target.value)}
            width="200px"
+           border={`1px solid ${colors.primaryDefault40p}`}
+           _focus={{
+           borderColor: colors.primaryDefault40p, // nova cor da borda ao focar
+           boxShadow:'none',
+           //backgroundColor: colors.primaryDefault40p // cor de fundo ao focar (exemplo)
+           }}
         >
          
           <option value="C">Concluida</option>
@@ -241,6 +266,12 @@ function Screen() {
         height="40px"
         width="100%"
         my="10px"
+        border={`1px solid ${colors.primaryDefault40p}`}
+        _focus={{
+        borderColor: colors.primaryDefault40p, // nova cor da borda ao focar
+        boxShadow:'none',
+        //backgroundColor: colors.primaryDefault40p // cor de fundo ao focar (exemplo)
+        }}
       />
 
       {paginatedLicitacoes

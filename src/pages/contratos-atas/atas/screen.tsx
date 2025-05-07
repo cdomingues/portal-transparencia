@@ -234,7 +234,7 @@ function Screen({
                 <Text 
                             fontWeight="bold" 
                             fontSize="lg"
-                            color={colors.primaryDefault80p}
+                            //color={colors.primaryDefault80p}
                             borderBottom={`2px solid ${colors.primaryDefault40p}`}
                             pb="5px" 
                             mb="8px"

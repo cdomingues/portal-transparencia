@@ -271,7 +271,7 @@ function TableWithOutFilterComponent({
               }}
               {...getTableProps()}
             >
-              <Thead backgroundColor={useColorModeValue('#1c3c6e', "gray.800")}>
+              <Thead backgroundColor={useColorModeValue(colors.transparenciaRed, "gray.800")}>
                 {headerGroups.map((group, index) => (
                   <Tr {...group.getHeaderGroupProps()} key={index}>
                     {group.headers.map((column, index) => {
@@ -428,36 +428,37 @@ function TableWithOutFilterComponent({
               mr={4}
             >
               <Icon
-                color="table.primary"
+                color={colors.primaryDefault40p}
                 fontSize="18"
                 _groupHover={{
-                  color: "primary",
+                  color: colors.primaryDefault40p,
                 }}
                 as={AiOutlineDoubleLeft}
               />
             </Button>
-            <Text fontWeight="600" color="table.primary">
+            <Text fontWeight="600" color={colors.primaryDefault40p}>
               {pageIndex + 1} - {pageOptions.length}
             </Text>
             <Button
               onClick={() => gotoPage(pageCount - 1)}
               disabled={!canNextPage}
               size="sm"
-              color="white"
+              color="red"
               bg="transparent"
               ml={4}
             >
               <Icon
-                color="table.primary"
+                color={colors.primaryDefault40p}
                 fontSize="18"
                 _groupHover={{
-                  color: "primary",
+                  color: colors.primaryDefault40p,
                 }}
                 as={AiOutlineDoubleRight}
               />
             </Button>
           </Center>
           <NumberInput
+          //bg={useColorModeValue("white", "gray.800")}
             ml={5}
             onChange={(value) => {
               const pageNumber = value ? Number(value) - 1 : 0;
@@ -468,18 +469,24 @@ function TableWithOutFilterComponent({
             min={1}
             max={pageOptions.length}
           >
-            <NumberInputField bg="white" />
+            <NumberInputField bg={useColorModeValue("white", "gray.800")} />
             <NumberInputStepper>
               <NumberIncrementStepper />
               <NumberDecrementStepper />
             </NumberInputStepper>
           </NumberInput>
           <Select
-            bg="white"
+            bg={useColorModeValue("white", "gray.800")}
             ml={5}
             width={130}
             value={pageSize}
             onChange={(e) => setPageSize(Number(e.target.value))}
+            border={`1px solid ${colors.primaryDefault40p}`}
+              _focus={{
+                borderColor: colors.primaryDefault40p, // nova cor da borda ao focar
+                boxShadow:'none',
+                //backgroundColor: colors.primaryDefault40p // cor de fundo ao focar (exemplo)
+              }}
           >
             {[10, 25, 50].map((size) => (
               <option key={size} value={size}>
