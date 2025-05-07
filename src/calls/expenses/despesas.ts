@@ -1,7 +1,7 @@
 import axios from "axios";
 import moment from "moment";
 import moneyFormatter from "../../utils/moneyFormatter";
-
+//ajustes
 export const getDiarias = async (year: number = 2025) => {
   let currentPage = 1;
   let allResults: any[] = [];
