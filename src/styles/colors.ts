@@ -17,10 +17,10 @@ const colors = {
     primaryDefault: '#2456c8',
     primaryLight: '#d5e3ff',
 
-    primaryDefault40p: '#1c3c6e',
+    primaryDefault40p: '#db334f',
     primaryDefault60p: '#0094d4',
 
-    primaryDefault80p: '#194a99',
+    primaryDefault80p: '#a8a8a8',
 
     grayDark: '#717171',
     grayMedium: '#E1E1E1',

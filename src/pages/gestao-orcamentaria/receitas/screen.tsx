@@ -49,54 +49,50 @@ function Screen() {
 
   useEffect(() => {
     fetchData();
-    fetchTiposReceita();
-  }, [selectedYear, selectedReceita]);
+    //fetchTiposReceita();
+  }, [selectedYear]);
 
   // Função para buscar receitas
   const fetchData = async () => {
     let allLicitacoes: Receitas[] = [];
-    let page = 1;
-    let hasMore = true;
-
-    while (hasMore) {
-      let url = `${API_URL}?page=${page}`;
-      const params = new URLSearchParams();
-
-      if (selectedYear !== "Todos") params.append("ano", selectedYear);
-      if (selectedReceita) params.append("receita", selectedReceita);
-
-      if (params.toString()) url += `&${params.toString()}`;
-
-      try {
+    let url = `${API_URL}`;
+    const params = new URLSearchParams();
+  
+    // Adiciona o parâmetro 'ano' se não for "Todos"
+    if (selectedYear !== "Todos") {
+      params.append("ano", selectedYear);
+    }
+  
+    // Adiciona os parâmetros à URL inicial
+    if (params.toString()) {
+      url += `?${params.toString()}`;
+    }
+  
+    try {
+      // Enquanto houver uma URL para a próxima página
+      while (url) {
         const response = await axios.get(url);
+        
+        // Verifica se há resultados e os adiciona ao array
         if (response.data.results && response.data.results.length > 0) {
           allLicitacoes = [...allLicitacoes, ...response.data.results];
-          page++;
-        } else {
-          hasMore = false;
         }
-      } catch (error) {
-        console.error("Erro ao buscar dados", error);
-        hasMore = false;
+  
+        // Atualiza a URL para a próxima página (ou null para encerrar)
+        url = response.data.next;
       }
+    } catch (error) {
+      console.error("Erro ao buscar dados", error);
     }
-
+  
+    // Atualiza o estado com todos os resultados encontrados
     setLicitacoes(allLicitacoes);
     setCurrentPage(1);
   };
+  
 
   // Função para buscar tipos únicos de receitas
-  const fetchTiposReceita = async () => {
-    try {
-      const response = await axios.get(API_URL);
-      if (response.data.results) {
-        const tiposUnicos: any = [...new Set(response.data.results.map((item: Receitas) => item.receita))];
-        setTiposReceita(tiposUnicos);
-      }
-    } catch (error) {
-      console.error("Erro ao buscar tipos de receita", error);
-    }
-  };
+ 
 
   const filteredLicitacoes = licitacoes.filter((item) =>
     searchTerm ? String(item.receita).toLowerCase().includes(searchTerm.toLowerCase()) : true
@@ -228,7 +224,7 @@ function Screen() {
     {paginatedLicitacoes.map((row, index) => (
     
     <Tr 
-    key={row.receita} 
+    key={index} 
     bg={index % 2 === 0 ? useColorModeValue("white", "black")  : useColorModeValue("#f7f7f7", "grey.100")} 
     _hover={{ bg: "#d1d1d1", cursor: "pointer" , color: useColorModeValue("black", "white") }}
     color={useColorModeValue("black", "white")}

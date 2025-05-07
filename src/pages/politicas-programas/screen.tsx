@@ -39,6 +39,7 @@ function Screen({ handler }: PropsInput) {
         maxWidth="100%"
         borderRadius="18px"
         marginBottom="15px"
+        padding={"15px"}
       >
          <Text
                 align={isMobile ? "justify" : "left"}

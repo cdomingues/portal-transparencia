@@ -344,7 +344,7 @@ function TableComponent({
             }}
             {...getTableProps()}
           >
-           <Thead backgroundColor={useColorModeValue('#1c3c6e', "gray.800")}  >
+           <Thead backgroundColor={useColorModeValue(colors.transparenciaRed, "gray.800")}  >
               {headerGroups.map((group, index) => (
                 <Tr {...group.getHeaderGroupProps()} key={index}>
                   {group.headers.map((column, index) => {

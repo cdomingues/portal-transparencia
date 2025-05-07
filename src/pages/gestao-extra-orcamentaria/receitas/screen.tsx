@@ -267,7 +267,8 @@ function Screen({
 <Table >
   <Thead>
     <Tr  bg={colors.primaryDefault40p}
-      color="white"
+      color={useColorModeValue("white", "black")}
+      
       p={4}
       fontWeight="bold"
       border={`1px solid ${colors.primaryDefault40p}`}>
@@ -292,7 +293,7 @@ function Screen({
     
     {paginatedLicitacoes.map((row, index) => (
     
-      <Tr key={row.receita}
+      <Tr key={index}
       bg={index % 2 === 0 ? useColorModeValue("white", "black")  : useColorModeValue("#f7f7f7", "grey.100")} 
           _hover={{ bg: "#d1d1d1", cursor: "pointer" , color: useColorModeValue("white", "black") }}
       >

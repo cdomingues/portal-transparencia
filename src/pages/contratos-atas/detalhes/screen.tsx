@@ -19,7 +19,7 @@ import colors from "../../../styles/colors";
 export const contentContractsAndAtas = {
   titlePage: "Detalhamento - Contratos e ATAS",
   description:
-    "Nesta página, confira as informações sobre contratos e atas celebrados pela Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por número, modalidade, processo, valor, fornecedor, objeto, entre outros itens. ",
+    "Nesta página, confira as informações sobre contratos e atas celebrados pela Prefeitura de Mogi das Cruzes com prestadores de serviço. ",
 };
 
 function Screen({ id_contrato }: any) {

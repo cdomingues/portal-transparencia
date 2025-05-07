@@ -43,6 +43,7 @@ import { RiGovernmentFill } from "react-icons/ri";
 import { FaLaptopCode } from "react-icons/fa";
 import { FaSitemap } from "react-icons/fa";
 import { sub } from 'date-fns';
+import colors from '../../styles/colors';
 
 const MenuHorizontalChakra = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -353,7 +354,7 @@ const MenuHorizontalChakra = () => {
               >
                 {item.label}
               </MenuButton>
-              <MenuList bg="gray.700" borderColor="gray.600">
+              <MenuList bg={colors.transparenciaBlack} borderColor="gray.600">
                 {item.submenu.map((subItem, subIndex) => (
                   subItem.submenu ? (
                     <Menu key={subIndex}>
@@ -372,11 +373,11 @@ const MenuHorizontalChakra = () => {
                         </HStack>
                       </MenuButton>
                       <MenuList 
-                        bg="gray.700" 
+                        //bg="gray.700" 
                         borderColor="gray.600" 
                         ml="100%"
                         mt={-6}
-                        
+                        bg={colors.transparenciaBlack}
                       >
                         {subItem.submenu.map((nestedItem, nestedIndex) => (
                           <MenuItem 
@@ -399,7 +400,7 @@ const MenuHorizontalChakra = () => {
                        
                       as="a" 
                       href={subItem.href} 
-                       bg= 'gray.700'
+                      bg={colors.transparenciaBlack}
                        target={isExternalLink(subItem.href) ? "_blank" : undefined}
                        rel={isExternalLink(subItem.href) ? "noopener noreferrer" : undefined}
                        fontWeight='bold'

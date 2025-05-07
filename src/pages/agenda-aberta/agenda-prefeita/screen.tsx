@@ -199,7 +199,7 @@ function Screen({ handler }: PropsInput) {
                         <Heading
                           mb={1}
                           fontSize={accessibility?.fonts?.medium}
-                          color={useColorModeValue(colors.primaryDefault40p, colors.primaryDefault60p)}
+                          color={useColorModeValue(colors.primaryDefault40p, colors.transparenciaCinza)}
                           marginTop={2}
                         >
                          Hora  Início: {getHours?.[0]}:{getHours?.[1]} {item?.fim_compromisso ? ` - Hora fim: ${getHours2?.[0]}:${getHours2?.[1]}` : ''}

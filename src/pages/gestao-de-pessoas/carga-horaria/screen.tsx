@@ -129,8 +129,8 @@ function Screen({
           cursor="pointer"
           fontSize="20px"
           textColor="white"
-          bgColor="#1c3c6e"
-          _hover={{ bgColor: "#1c3c6e" }}
+          bgColor={colors.primaryDefault40p}
+          _hover={{ bgColor: colors.primaryDefault80p }}
           height="40px"
           borderRadius="8px"
           mr="15px"
@@ -161,8 +161,8 @@ function Screen({
           cursor="pointer"
           fontSize="20px"
           textColor="white"
-          bgColor="#1c3c6e"
-          _hover={{ bgColor: "#1c3c6e" }}
+          bgColor={colors.primaryDefault40p}
+          _hover={{ bgColor: colors.primaryDefault80p }}
           height="40px"
           borderRadius="8px"
           mr="15px"

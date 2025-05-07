@@ -10,10 +10,10 @@ import {
    Tabs, TabList, Tab, TabPanels, TabPanel
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import ContainerBasic from "../../../../components/Container/Basic";
-import moneyFormatter from "../../../../utils/moneyFormatter";
+import ContainerBasic from "../../../components/Container/Basic";
+import moneyFormatter from "../../../utils/moneyFormatter";
 import moment from "moment";
-import colors from "../../../../styles/colors";
+import colors from "../../../styles/colors";
 
 export interface Arquivo {
   nr_empenho: number;

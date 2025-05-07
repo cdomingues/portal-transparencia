@@ -13,6 +13,7 @@ import {
 import ContainerBasic from '../../../../components/Container/Basic';
 import colors from '../../../../styles/colors';
 import CsvDownload from 'react-json-to-csv';
+import moneyFormatter from '../../../../utils/moneyFormatter';
 
 interface Despesa {
   id: string;
@@ -59,7 +60,7 @@ export const contentContractsAndAtas = {
       <br />
       Nesta página é possível acompanhar diariamente a execução orçamentária das despesas da Prefeitura Municipal de Mogi das Cruzes.
       <br /><br />
-    Caso queira buscar um empenho específico  <strong> <a href="despesas-gerais/index2">clique aqui</a> </strong>
+    Caso queira buscar um empenho específico  <Button> <a href="despesas-gerais/index2">clique aqui</a> </Button>
     </>
   ),
 };
@@ -286,7 +287,7 @@ const Despesas = () => {
               </Text>
               <Text><strong>Fornecedor:</strong> {item.descr_fornecedor}</Text>
               <Text><strong>Descrição:</strong> {item.descr_funcional}</Text>
-              <Text><strong>Valor empenho:</strong> {item.vlr_empenho}</Text>
+              <Text><strong>Valor empenho:</strong> {moneyFormatter(Number(item.vlr_empenho))}</Text>
               <Text><strong>Unidade Orçamentária:</strong> {item.unid_orcam}</Text>
             </Box>
           ))}
