@@ -12,7 +12,7 @@ import lupaNormal from "../../../assets/images/lupa_portal.png";
 import lupaDark from "../../../assets/images/lupa_portal_dark.png";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import receitas_multas_de_transito from "../../../assets/images/icones/receitas multas de transito.svg";
-import bg_transparencia from '../../../assets/images/icones/bg_transparencia.png'
+import bg_transparencia from '../../../assets/images/background_home.jpg'
 import {
   Box,
   Spacer,
@@ -21,7 +21,7 @@ import {
   Text,
   Image,
 } from "@chakra-ui/react";
-import CardHome2 from "../../CardHome2";
+import CardHome from "../../CardHome";
 //import VLibras from "vlibras-nextjs";
 import ModalPopup from "../../Modal";
 
@@ -47,7 +47,21 @@ function PublicHome() {
         <title>Início</title>
       </Head>
       <Header />
-      <Image src={bg_transparencia.src} alt=""width='100%' mb='78px'/>
+      <div style={{  overflow: "hidden", marginBottom: "78px" }}>
+        
+      <Image
+    src={bg_transparencia.src}
+    alt=""
+    width={1920} // ou a largura desejada
+    height={200}
+    style={{
+      objectFit: "cover",
+     
+      width: "100%",
+      
+    }}
+  />
+      </div>
 
       {/* Menu de abertura */}
       <Stack
@@ -81,7 +95,7 @@ function PublicHome() {
       </Stack>
 
      <Stack >
-        <CardHome2 />
+        <CardHome />
       </Stack>
 
       <Footer />

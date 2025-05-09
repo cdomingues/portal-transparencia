@@ -48,6 +48,7 @@ import colors from '../../styles/colors';
 const MenuHorizontalChakra = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [mobileSubmenu, setMobileSubmenu] = useState<string | null>(null);
+  const [mobileNestedSubmenu, setMobileNestedSubmenu] = useState<string | null>(null);
 
   const menuItems = [
     {
@@ -118,7 +119,7 @@ const MenuHorizontalChakra = () => {
           ]
         },
         { label: 'Consulta de Fornecedores a Pagamentos', href: 'http://consultacompras.pmmc.com.br/pagamento-fornecedor' },
-        { label: 'PROMAE - Programa Mogiano de Atração de Investimentos e Geração de Empregos', href: '/promae' }
+        { label: 'PROMAE', href: '/promae' }
       ]
     },
     {
@@ -209,7 +210,7 @@ const MenuHorizontalChakra = () => {
       submenu: [
         { label: 'Estrutura Organizacional', href: 'http://leismunicipa.is/0ji28' },
         { label: 'Perfil do município', href: '/perfil-do-municipio' },
-        { label: 'Feiras, Mercado Municipal e Mercado do ProdutoFeiras, Mercado Municipal e Mercado do Produto', href: '/permissionarios' },
+        { label: 'Feiras e Mercado Municipal ', href: '/permissionarios' },
         { label: 'Institutos e autarquias', href: '#' ,
           submenu: [
             { label: 'Transparência SEMAR', href: 'http://www.transparenciasemae.pmmc.com.br/' },
@@ -337,57 +338,65 @@ const MenuHorizontalChakra = () => {
   const isExternalLink = (href: string) => href.startsWith('http');
   
   const renderDesktopMenu = () => (
-    <Hide below="lg">
-      <Flex as="nav" align="center" width="100%"  wrap="wrap" >
+    <Hide below="lg" >
+      <Flex as="nav" align="center" width="100%" wrap="wrap" bg={colors.transparenciaBlack}>
         {menuItems.map((item, index) => (
           item.submenu ? (
-            <Menu key={index} >
-              <MenuButton 
-                as={Button} 
-                rightIcon={<Icon as={FaChevronDown} />}
+            <Menu key={index}>
+              <MenuButton
+                as={Button}
                 variant="ghost"
+                bg={colors.transparenciaBlack}
                 color="white"
-                _hover={{ bg: 'gray.700' , color: 'white'}}
-                _expanded={{ bg: 'gray.700' }}
                 mx={1}
                 leftIcon={<Icon as={item.icon} />}
+                rightIcon={<Icon as={FaChevronDown} />}
+                _hover={{ bg: 'black' }}
+                _active={{ bg: "black" }}
+                _focus={{ bg: "black", boxShadow: "none" }}
+                
               >
                 {item.label}
               </MenuButton>
-              <MenuList bg={colors.transparenciaBlack} borderColor="gray.600">
+              <MenuList bg={colors.transparenciaBlack} borderColor={colors.transparenciaBlack} maxW="200px" border={`1px solid ${colors.transparenciaBlack}`}>
                 {item.submenu.map((subItem, subIndex) => (
                   subItem.submenu ? (
-                    <Menu key={subIndex}>
-                      <MenuButton 
-                        as={Button} 
-                        variant="ghost"
-                        rightIcon={<Icon as={FaChevronDown} />}
-                        _hover={{ bg: 'gray.600', color: 'white' }}
-                        _focus={{ bg: 'gray.600' }}
+                    <Menu key={subIndex} >
+                      <MenuButton
+                        as={Button}
                         w="100%"
                         justifyContent="space-between"
-                        color={'lightgray'}
-                      >
-                        <HStack>
-                          <Text>{subItem.label}</Text>
-                        </HStack>
-                      </MenuButton>
-                      <MenuList 
-                        //bg="gray.700" 
-                        borderColor="gray.600" 
-                        ml="100%"
-                        mt={-6}
                         bg={colors.transparenciaBlack}
+                        color="white"
+                        rightIcon={<Icon as={FaChevronDown} />}
+                        _hover={{ bg: 'black' }}
+                        _focus={{ bg: "black", boxShadow: "none" }}
+  _active={{ bg: "black" }}
+  _expanded={{ bg: "black" }}
+                        whiteSpace={"normal"}
+                        textAlign={"left"}
+                        fontSize={"sm"}
                       >
+                        {subItem.label}
+
+                      </MenuButton>
+                      <MenuList bg={colors.transparenciaBlack} borderColor="black" ml="100%" mt={-6}>
                         {subItem.submenu.map((nestedItem, nestedIndex) => (
-                          <MenuItem 
+                          <MenuItem
                             key={nestedIndex}
-                            as="a" 
+                            as="a"
                             href={nestedItem.href}
                             target={isExternalLink(nestedItem.href) ? "_blank" : undefined}
                             rel={isExternalLink(nestedItem.href) ? "noopener noreferrer" : undefined}
-                            _hover={{ bg: 'gray.600', color: 'white' }}
-                            _focus={{ bg: 'gray.600' }}
+                            bg={colors.transparenciaBlack}
+                            color="white"
+                            width={"100%"}
+                            _hover={{ bg: 'black' }}
+                            _focus={{ bg: "black" }}
+                            _active={{ bg: "black" }}
+                            maxW="200px"
+                            
+  whiteSpace="normal"
                           >
                             {nestedItem.label}
                           </MenuItem>
@@ -395,18 +404,17 @@ const MenuHorizontalChakra = () => {
                       </MenuList>
                     </Menu>
                   ) : (
-                    <MenuItem 
+                    <MenuItem
                       key={subIndex}
-                       
-                      as="a" 
-                      href={subItem.href} 
+                      as="a"
+                      href={subItem.href}
+                      target={isExternalLink(subItem.href) ? "_blank" : undefined}
+                      rel={isExternalLink(subItem.href) ? "noopener noreferrer" : undefined}
                       bg={colors.transparenciaBlack}
-                       target={isExternalLink(subItem.href) ? "_blank" : undefined}
-                       rel={isExternalLink(subItem.href) ? "noopener noreferrer" : undefined}
-                       fontWeight='bold'
-                       color='lightgray'
-                      _hover={{ bg: 'gray.600' }}
-                      _focus={{ bg: 'gray.600' }}
+                      color="white"
+                      _hover={{ bg: 'black' }}
+                      maxW="200px"
+  whiteSpace="normal"
                     >
                       {subItem.label}
                     </MenuItem>
@@ -415,18 +423,18 @@ const MenuHorizontalChakra = () => {
               </MenuList>
             </Menu>
           ) : (
-            <Button 
+            <Button
               key={index}
-              as="a" 
+              as="a"
               href={item.href}
-            target={isExternalLink(item.href) ? "_blank" : undefined}
-             rel={isExternalLink(item.href) ? "noopener noreferrer" : undefined}
-              
-              variant="ghost" 
-              color="white" 
-              _hover={{ bg: 'gray.700' }}
+              target={isExternalLink(item.href) ? "_blank" : undefined}
+              rel={isExternalLink(item.href) ? "noopener noreferrer" : undefined}
+              variant="ghost"
+              bg={colors.transparenciaBlack}
+              color="white"
               mx={1}
               leftIcon={<Icon as={item.icon} />}
+              _hover={{ bg: 'black' }}
             >
               {item.label}
             </Button>
@@ -435,7 +443,7 @@ const MenuHorizontalChakra = () => {
       </Flex>
     </Hide>
   );
-
+  
   const renderMobileMenu = () => (
     <Show below="lg">
       <IconButton
@@ -445,16 +453,17 @@ const MenuHorizontalChakra = () => {
         variant="ghost"
         color="white"
         size="lg"
+        bg="black"
       />
       <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
         <DrawerOverlay />
-        <DrawerContent bg="gray.800" color="white">
+        <DrawerContent bg="black" color="white">
           <DrawerCloseButton />
           <DrawerHeader borderBottomWidth="1px" borderColor="gray.700">
             Menu
           </DrawerHeader>
           <DrawerBody>
-            <VStack align="stretch" spacing={4} mt={4}>
+            <VStack align="stretch" spacing={4} mt={4} >
               {menuItems.map((item, index) => (
                 item.submenu ? (
                   <Box key={index}>
@@ -463,15 +472,17 @@ const MenuHorizontalChakra = () => {
                       justifyContent="space-between"
                       rightIcon={<Icon as={FaChevronDown} />}
                       variant="ghost"
+                      bg={colors.transparenciaBlack}
                       color="white"
-                      _hover={{ bg: 'gray.700' }}
+                      whiteSpace={"normal"}
                       onClick={() => setMobileSubmenu(mobileSubmenu === item.label ? null : item.label)}
                       leftIcon={<Icon as={item.icon} />}
+                      _hover={{ bg: 'black' }}
                     >
                       {item.label}
                     </Button>
                     {mobileSubmenu === item.label && (
-                      <VStack pl={6} mt={2} align="stretch" spacing={2}>
+                      <VStack pl={5} mt={2} align="stretch" spacing={2}>
                         {item.submenu.map((subItem, subIndex) => (
                           subItem.submenu ? (
                             <Box key={subIndex}>
@@ -480,32 +491,40 @@ const MenuHorizontalChakra = () => {
                                 justifyContent="space-between"
                                 rightIcon={<Icon as={FaChevronDown} />}
                                 variant="ghost"
+                                bg={colors.transparenciaBlack}
                                 color="white"
-                                _hover={{ bg: 'gray.700' }}
-                                onClick={() => setMobileSubmenu(mobileSubmenu === subItem.label ? null : subItem.label)}
-                                
+                                whiteSpace={"normal"}
+                                onClick={() =>
+                                  setMobileNestedSubmenu(
+                                    mobileNestedSubmenu === subItem.label ? null : subItem.label
+                                  )
+                                }
+                                _hover={{ bg: 'black' }}
                               >
                                 {subItem.label}
                               </Button>
-                              {mobileSubmenu === subItem.label && (
-                                <VStack pl={6} mt={2} align="stretch" spacing={2} >
-                                  {subItem.submenu.map((nestedItem, nestedIndex) => (
-                                    <Button
-                                      key={nestedIndex}
-                                      as="a"
-                                      href={subItem.href}
-                                      target={isExternalLink(subItem.href) ? "_blank" : undefined}
-                                      rel={isExternalLink(subItem.href) ? "noopener noreferrer" : undefined}
-                                      variant="ghost"
-                                      color="white"
-                                      _hover={{ bg: 'gray.700' }}
-                                      justifyContent="flex-start"
-                                      onClick={onClose}
-                                    >
-                                      {nestedItem.label}
-                                    </Button>
-                                  ))}
-                                </VStack>
+                              {mobileNestedSubmenu === subItem.label && (
+                <VStack pl={6} mt={2} align="stretch" spacing={2}>
+                  {subItem.submenu.map((nestedItem, nestedIndex) => (
+                    <Button
+                      key={nestedIndex}
+                      as="a"
+                      href={nestedItem.href}
+                      target={isExternalLink(nestedItem.href) ? "_blank" : undefined}
+                      rel={isExternalLink(nestedItem.href) ? "noopener noreferrer" : undefined}
+                      variant="ghost"
+                      bg={colors.transparenciaBlack}
+                      color="white"
+                      justifyContent="flex-start"
+                      whiteSpace={"normal"}
+                      onClick={onClose}
+                      fontSize={"sm"}
+                      _hover={{ bg: 'black' }}
+                    >
+                      {nestedItem.label}
+                    </Button>
+                  ))}
+                </VStack>
                               )}
                             </Box>
                           ) : (
@@ -514,10 +533,12 @@ const MenuHorizontalChakra = () => {
                               as="a"
                               href={subItem.href}
                               variant="ghost"
+                              bg={colors.transparenciaBlack}
                               color="white"
-                              _hover={{ bg: 'gray.700' }}
                               justifyContent="flex-start"
                               onClick={onClose}
+                              _hover={{ bg: 'black' }}
+                              whiteSpace='normal'
                             >
                               {subItem.label}
                             </Button>
@@ -534,11 +555,14 @@ const MenuHorizontalChakra = () => {
                     target={isExternalLink(item.href) ? "_blank" : undefined}
                     rel={isExternalLink(item.href) ? "noopener noreferrer" : undefined}
                     variant="ghost"
+                    bg="black"
                     color="white"
-                    _hover={{ bg: 'gray.700' }}
+                    fontSize='10px'
                     justifyContent="flex-start"
                     leftIcon={<Icon as={item.icon} />}
                     onClick={onClose}
+                    _hover={{ bg: 'black' }}
+                    
                   >
                     {item.label}
                   </Button>
@@ -552,7 +576,7 @@ const MenuHorizontalChakra = () => {
   );
 
   return (
-    <Box bg="gray.800" px={4} py={2}>
+    <Box bg={colors.transparenciaBlack} px={4} py={2}>
       <Flex align="center" justify="space-between"  >
         {renderMobileMenu()}
         {renderDesktopMenu()}

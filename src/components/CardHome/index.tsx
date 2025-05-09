@@ -1,222 +1,197 @@
 import {
-  Flex,  Box,  useColorModeValue,  Text,   Accordion,  AccordionItem,  AccordionPanel,  AccordionButton,  AccordionIcon,  VStack, Tooltip,
+  Box,
+  Flex,
+  Text,
+  Grid,
+  VStack,
+  useColorModeValue,
+  Accordion,
+  AccordionItem,
+  AccordionPanel,
+  AccordionButton,
+  AccordionIcon,
 } from "@chakra-ui/react";
-import { Grid } from "@chakra-ui/react";
-import { isMobile } from "react-device-detect";
 import Image from "next/image";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
-
-import {menus} from './menu'
+import { menus } from "./menu";
+import colors from "../../styles/colors";
 import { useState } from "react";
 
-function CardHome() {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const titulo = "O que é a Lei de Acesso à Informação (LAI)?"; 
+function CardHomeTabs() {
   const useAccessibility = useFontSizeAccessibilityContext();
-  const columnLayout = () => {
-    if (window.innerWidth <= 480) {
-      return "1fr";
-    } else if (window.innerWidth <= 768) {
-      return "1fr 1fr";
-    } else {
-      return "repeat(3, 1fr)";
-    }
-  };
+  const [openAcordionId, setOpenAcordionId] = useState<number | null>(null);
 
-  const templateColumns = columnLayout();
-
-  const MenuIcon = ({ src, alt }: { src: string; alt: string }) => (
-    <Image 
-      src={src} 
-      width={70} 
-      height={70}
-      alt={alt}
-      objectFit="contain"
-    />
-  );
-
-  const SubMenuIcon = ({ src, alt }: { src?: string; alt: string }) => (
+  const SubMenuIcon = ({ src, alt }: { src?: string; alt: string }) =>
     src ? (
-      <Image 
-        src={src} 
-        width={50} 
-        height={50}
-        alt={alt}
-        objectFit="contain"
-      />
-    ) : null
-  );
+      <Image src={src} width={30} height={30} alt={alt} objectFit="contain" />
+    ) : null;
 
-
+    const handleToggle = (id: number)=>{
+      setOpenAcordionId((prevId) => (prevId === id ? null : id));
+    }
   return (
-   <> 
-     <Accordion allowToggle bg={useColorModeValue("white", "gray.800")}>
-      {menus.map((menu) => (
-        <Tooltip 
-          key={menu.id}
-          label={menu.description} 
-          placement="auto" 
-          hasArrow
-          width='800px' 
-          height='120px' 
-          fontSize={useAccessibility?.fonts?.regular}
-          p='25px' 
-          borderRadius='12px' 
-          bg={useColorModeValue("black", "white")}
-          color={useColorModeValue("white", "black")}
-          border='1px solid lightgrey' 
-          boxShadow="lg"
-          transition="0.3s"
-          openDelay={400}
-      closeDelay={100}
+    <Box bg={useColorModeValue("white", "gray.800")} p={4} borderRadius="md">
+      
+        <Grid
+          templateColumns={{
+            base: "1fr",
+            sm: "repeat(2, 1fr)",
+            md: "repeat(3, 1fr)",
+          }}
+          gap={6}
+          px={{ base: 4, md: 8 }}
         >
-          <AccordionItem 
-            border={`2px solid ${useColorModeValue("", "gray.800")}`}
-            borderRadius="md" 
-            mx={{ base: '20px', md: '80px' }}
-            boxShadow="lg"  
-            bg={useColorModeValue("", "gray.800")}
-            mb={4}
-            fontSize={useAccessibility?.fonts?.regular}
-          >
-            <h2>
-              <AccordionButton 
-              bg={useColorModeValue("", "gray.800")}  
-             // borderRadius='10px'  
-              border={`2px solid ${useColorModeValue("gray.800", "")}`}
-              p={0} // Remove padding interno do botão
-              m={0} // Remove margem externa
-              minHeight="unset"
-              _expanded={{
-                bg: "red.500", // fundo vermelho ao expandir
-                color: "white" // texto branco ao expandir
-              }}
+          {menus.map((menu) => (
+            <Accordion key={menu.id} allowToggle  index={openAcordionId === menu.id ? 0 : -1}
+            onChange={() =>
+              setOpenAcordionId((prev) => (prev === menu.id ? null : Number(menu.id)))
+            }>
+            <AccordionItem
+              key={menu.id}
+              //border="1px solid black"
+              borderRadius="md"
+              overflow="hidden"
+              bg={useColorModeValue('white', "gray.700")}
+              boxShadow="md"
+              
               >
-                <Box 
-                  flex="1" 
-                  textAlign="left" 
-                  fontWeight="bold" 
-                  borderRadius='1px' 
-                  display="flex" 
-                  alignItems="center" 
-                  gap={8} 
-                  fontSize={useAccessibility?.fonts?.regular}
-                  bg={useColorModeValue("", "gray.800")} 
-                  _expanded={{ filter: "invert(1)" }}
-                  p={1}
-    m={0}
-    lineHeight="1"
-                >
-                  <MenuIcon src={menu.imageURL} alt={menu.title} />
-                  {menu.title}
-                </Box>
-                <AccordionIcon _expanded={{ color: "white" }} />
-              </AccordionButton>
-            </h2>
-            <AccordionPanel pb={0} >
-              <Grid
-                templateColumns={templateColumns}
-                gap={6}
-                width={isMobile ? "100%" : "80%"}
-                maxWidth={"1280px"}
-                margin="0 auto"
-                padding="0 15px"
-                fontSize={useAccessibility?.fonts?.regular}
-                //border='1px solid red'
-                my='78px'
-              >
-                {menu.submenus.map((submenu: any) => {
-  const imageSrc = submenu.imageURL || submenu.imageUrl;
-  const title = submenu.title || submenu.label;
-  const url = submenu.url || submenu.link;
-  const hasExtraLinks = submenu.extralinks?.length > 0;
+              
+              <AccordionButton
+                px={4}
+                py={4}
+               // _hover={{ bg: "red", color: "black" }}
+                _expanded={{ 
+                  bg: colors.transparenciaRed,
+                  color: "white",
+                  borderBottomLeftRadius: "0",
+                  borderBottomRightRadius: "0",
+                  }}
 
-  const isExternal = url?.startsWith('http');
-
-  return (
-    <Box 
-      key={submenu.id_submenu} 
-      p={4} 
-      borderWidth="1px" 
-      borderRadius="lg"
-      boxShadow="md"
-      _hover={{ transform: 'scale(1.02)', transition: 'transform 0.2s' }}
-    >
-      {hasExtraLinks ? (
-        <Accordion allowToggle>
-          <AccordionItem border="none">
-            <h2>
-              <AccordionButton 
-                px={0}
-                _hover={{ bg: 'gray.100' , color: 'black'}} 
-                _expanded={{ bg: 'gray.100', color: 'black' }} 
-                borderRadius="md"
               >
-                <Box fontWeight="bold" flex="1" textAlign="left" display="flex" alignItems="center" gap={3}  fontSize={useAccessibility?.fonts?.large}>
-                  <SubMenuIcon src={imageSrc} alt={title} />
-                  <Text  fontSize={useAccessibility?.fonts?.regular} >{title}</Text>
-                </Box>
+                <Flex align="center" gap={4} flex="1" textAlign="left">
+                  <Image src={menu.imageURL} alt={menu.title} width={70} height={70} />
+                  <Text
+                    fontWeight="bold"
+                    fontSize={useAccessibility?.fonts?.large}
+                    fontFamily="Open Sans"
+                  >
+                    {menu.title}
+                  </Text>
+                </Flex>
                 <AccordionIcon />
               </AccordionButton>
-            </h2>
-            <AccordionPanel px={1} pb={4}>
-              <VStack align="start" spacing={2} pl={imageSrc ? 7 : 0}>
-                {submenu.extralinks.map((link: any, index: number) => {
-                  const isExternalLink = link.url?.startsWith("http");
 
-                  return (
-                    <Flex 
-                      key={index} 
-                      p={2}
+              <AccordionPanel px={4} pb={4} position="absolute"
+                      left="0"
+                      width="94.2vw" // ou um valor maior que o container
+                      bg="white"
+                      zIndex={10}
+                      boxShadow="xl"
+                      border="2px solid"
+                      borderColor={colors.transparenciaRed}
+                      ml="48px"
                       borderRadius="md"
-                      _hover={{ bg: 'gray.100', color:'black' }}
-                      width="100%"
-                      align="center"
-                    >
-                      <a 
-                        href={link.url} 
-                        target={isExternalLink ? "_blank" : "_self"} 
-                        rel={isExternalLink ? "noopener noreferrer" : undefined}
-                        style={{ display: 'block', width: '100%' }}
+                      mt='-2'
                       >
-                        <Text fontSize="sm"  fontWeight='bold'>{link.label}</Text>
-                      </a>
-                    </Flex>
-                  );
-                })}
-              </VStack>
-            </AccordionPanel>
-          </AccordionItem>
-        </Accordion>
-      ) : (
-        url && (
-          <Flex 
-            align="center" 
-            gap={3} 
-            as="a" 
-            href={url} 
-            target={isExternal ? "_blank" : "_self"} 
-            rel={isExternal ? "noopener noreferrer" : undefined}
-            _hover={{ textDecoration: "underline", color: "gray.700" }}
-          >
-            <SubMenuIcon src={imageSrc} alt={title} />
-            <Text fontSize="lg" fontWeight="bold" >{title}</Text>
-          </Flex>
-        )
-      )}
-    </Box>
-  );
-})}
+                <VStack spacing={3} align="stretch">
+                <Grid
+                templateColumns={{
+                  base: "1fr",     // 1 item por linha em telas muito pequenas
+                  sm: "repeat(2, 1fr)",  // 2 por linha em telas pequenas
+                  md: "repeat(3, 1fr)",  // 3 por linha em telas médias e maiores
+                }}
+                gap={3}
+              >
+                  {menu.submenus.map((submenu: any) => {
+                    const imageSrc = submenu.imageURL || submenu.imageUrl;
+                    const imageSrc2 = submenu.imageURL2 || submenu.imageUrl2;
+                    const title = submenu.title || submenu.label;
+                    const url = submenu.url || submenu.link;
+                    const isExternal = url?.startsWith("http");
+                    const hasExtraLinks = submenu.extralinks?.length > 0;
 
-              </Grid>
-            </AccordionPanel>
-          </AccordionItem>
-        </Tooltip>
-      ))}
-    </Accordion>
-    
-    </>
+                    return (
+                      <Box
+                        key={submenu.id_submenu}
+                        p={3}
+                        borderRadius="lg"
+                        _hover={{ bg: "gray.100" }}
+                      >
+                        {hasExtraLinks ? (
+                          <Accordion allowToggle>
+                            <AccordionItem border="none">
+                              <h2>
+                                <AccordionButton
+                                  px={0}
+                                  _hover={{ bg: "gray.100", color: "black" }}
+                                  _expanded={{ bg: "gray.100", color: "black" }}
+                                  borderRadius="md"
+                                >
+                                  <Box
+                                    fontWeight="bold"
+                                    flex="1"
+                                    textAlign="left"
+                                    display="flex"
+                                    alignItems="center"
+                                    gap={3}
+                                    fontSize={useAccessibility?.fonts?.large}
+                                   
+                                  >
+                                    <SubMenuIcon src={useColorModeValue(imageSrc, imageSrc2)} alt={title} />
+                                    <Text fontSize={useAccessibility?.fonts?.regular}>{title}</Text>
+                                  </Box>
+                                  <AccordionIcon />
+                                </AccordionButton>
+                              </h2>
+                              <AccordionPanel px={2} pb={4} border='1px soli red' mt='20px'>
+                                <VStack align="start" spacing={2} pl={imageSrc ? 7 : 0}>
+                                  {submenu.extralinks.map((link: any, index: number) => {
+                                    const isExternalLink = link.url?.startsWith("http");
+                                    return (
+                                      <a
+                                        key={index}
+                                        href={link.url}
+                                        target={isExternalLink ? "_blank" : "_self"}
+                                        rel={isExternalLink ? "noopener noreferrer" : undefined}
+                                        style={{ width: "100%" }}
+                                      >
+                                        <Text fontSize="sm" fontWeight="bold">
+                                          {link.label}
+                                        </Text>
+                                      </a>
+                                    );
+                                  })}
+                                </VStack>
+                              </AccordionPanel>
+                            </AccordionItem>
+                          </Accordion>
+                        ) : (
+                          url && (
+                            <a
+                              href={url}
+                              target={isExternal ? "_blank" : "_self"}
+                              rel={isExternal ? "noopener noreferrer" : undefined}
+                              style={{ display: "flex", alignItems: "center", gap: "10px" }}
+                            >
+                              <SubMenuIcon src={useColorModeValue(imageSrc, imageSrc2)} alt={title} />
+                              <Text fontSize="lg" fontWeight="bold">
+                                {title}
+                              </Text>
+                            </a>
+                          )
+                        )}
+                      </Box>
+                    );
+                  })} </Grid>
+                </VStack>
+              </AccordionPanel>
+            </AccordionItem>
+            </Accordion>
+          ))}
+        </Grid>
+     
+    </Box>
   );
 }
 
-export default CardHome;
+export default CardHomeTabs;
