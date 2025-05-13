@@ -228,7 +228,7 @@ useEffect(() => {
           cursor="pointer"
           fontSize="20px"
           textColor="white"
-          bgColor={colors.primaryDefault40p}
+          bgColor={colors.transparenciaBlack}
           _hover={{ bgColor: colors.primaryDefault80p }}
           height="40px"
           borderRadius="8px"
@@ -256,7 +256,7 @@ useEffect(() => {
         </Button>
         
         <Button width='180px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
-            bgColor={colors.primaryDefault40p}
+            bgColor={colors.transparenciaBlack}
             _hover={{ bgColor: colors.primaryDefault80p }}
             height='40px' borderRadius='8px' mr='15px'onClick={() => exportToJSON(despesas)}
             boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
@@ -297,7 +297,7 @@ useEffect(() => {
                                _hover={{
                                           boxShadow: "xl",
                                           transform: "scale(1.01)",
-                                          border: `2px solid ${colors.primaryDefault40p}`,
+                                          border: `2px solid ${colors.transparenciaBlack}`,
                                         }}
                               cursor="pointer"
                               onClick={() => {
@@ -312,7 +312,7 @@ useEffect(() => {
                               }}
                              
                             >
-                              <Text fontWeight="bold" borderBottom={`2px solid ${colors.primaryDefault40p}`} fontSize="lg" color={colors.primaryDefault40p}>	
+                              <Text fontWeight="bold" borderBottom={`2px solid ${colors.transparenciaBlack}`} fontSize="lg" color={colors.transparenciaBlack}>	
                                 Empenho: {row.numero} / {row.ano}
                               </Text>
                               <Text><strong>Fornecedor:</strong> {row.favorecido}</Text>

@@ -102,8 +102,8 @@ function Screen() {
             <Table variant="simple" size="md" width="100%" overflow="hidden" mb={5}>
               <Thead>
                 <Tr>
-                  <Th colSpan={2} textAlign="center" bg={colors.primaryDefault40p} color="white" p={4} fontWeight="bold" 
-                  border={`1px solid ${colors.primaryDefault40p}`}>
+                  <Th colSpan={2} textAlign="center" bg={colors.transparenciaBlack} color="white" p={4} fontWeight="bold" 
+                  border={`1px solid ${colors.transparenciaBlack}`}>
                     DETALHES DA DESPESA
                   </Th>
                 </Tr>
@@ -140,10 +140,10 @@ function Screen() {
                   _hover={{ bg: "#d1d1d1", cursor: "pointer" }}
                   color={useColorModeValue("black", "white")}
                   >
-                    <Td fontWeight="bold" bg={useColorModeValue("#f2f1f1", "black")} p={3} width="30%" border={`1px solid ${colors.primaryDefault40p}`}>
+                    <Td fontWeight="bold" bg={useColorModeValue("#f2f1f1", "black")} p={3} width="30%" border={`1px solid ${colors.transparenciaBlack}`}>
                       {label}
                     </Td>
-                    <Td p={3}bg={useColorModeValue("#f2f1f1", "black")} width="70%" border={`1px solid ${colors.primaryDefault40p}`}>
+                    <Td p={3}bg={useColorModeValue("#f2f1f1", "black")} width="70%" border={`1px solid ${colors.transparenciaBlack}`}>
                       {value || "N/A"}
                     </Td>
                   </Tr>

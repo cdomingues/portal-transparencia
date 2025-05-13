@@ -222,7 +222,7 @@ function Screen({
                   cursor="pointer"
                   fontSize="20px"
                   textColor="white"
-                  bgColor={colors.primaryDefault40p}
+                  bgColor={colors.transparenciaBlack}
                   _hover={{ bgColor: colors.primaryDefault80p }}
                   height="40px"
                   borderRadius="8px"
@@ -250,7 +250,7 @@ function Screen({
                 </Button>
                 
                 <Button width='180px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
-                    bgColor={colors.primaryDefault40p}
+                    bgColor={colors.transparenciaBlack}
                     _hover={{
                       bgColor: colors.primaryDefault80p  // Cor de fundo ao passar o mouse
                     }}
@@ -275,7 +275,7 @@ function Screen({
                         </ContainerSearch>
                          <Table >
                          <Thead>
-  <Tr bg={colors.primaryDefault40p}color="white">
+  <Tr bg={colors.transparenciaBlack}color="white">
     <Th color="white" onClick={() => handleSort("cpf_cnpj")} cursor="pointer">
       CPF / CNPJ {sortColumn === "cpf_cnpj" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
     </Th>

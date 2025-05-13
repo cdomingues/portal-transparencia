@@ -25,8 +25,8 @@ const PaginationComponent: React.FC<PaginationComponentProps> = ({ currentPage, 
   return (
     <Box  display="flex" justifyContent="center" alignItems="center" paddingBottom="10px" width='100%'>
       <Button border="1px solid"
-borderColor={colors.transparenciaRed} width='50px' onClick={onPrevClick} disabled={currentPage === 1} variant="ghost">
-        <Icon color={colors.transparenciaRed} fontSize="18" as={AiOutlineDoubleLeft} />
+borderColor={colors.transparenciaBlack} width='50px' onClick={onPrevClick} disabled={currentPage === 1} variant="ghost">
+        <Icon color={colors.transparenciaBlack} fontSize="18" as={AiOutlineDoubleLeft} />
       </Button>
 
       <Text  bg="transparent" fontWeight="600" mx="20px">
@@ -34,8 +34,8 @@ borderColor={colors.transparenciaRed} width='50px' onClick={onPrevClick} disable
       </Text>
 
       <Button border="1px solid"
-borderColor={colors.transparenciaRed} onClick={onNextClick} disabled={currentPage === pages} variant="ghost">
-        <Icon color={colors.transparenciaRed} fontSize="18" as={AiOutlineDoubleRight} />
+borderColor={colors.transparenciaBlack} onClick={onNextClick} disabled={currentPage === pages} variant="ghost">
+        <Icon color={colors.transparenciaBlack} fontSize="18" as={AiOutlineDoubleRight} />
       </Button>
     </Box>
   );

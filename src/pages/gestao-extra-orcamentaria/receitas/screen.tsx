@@ -210,7 +210,7 @@ function Screen({
           cursor="pointer"
           fontSize="20px"
           textColor="white"
-          bgColor={colors.primaryDefault40p}
+          bgColor={colors.transparenciaBlack}
           _hover={{ bgColor: colors.primaryDefault80p }}
           height="40px"
           borderRadius="8px"
@@ -242,7 +242,7 @@ function Screen({
           cursor="pointer"
           fontSize="20px"
           textColor="white"
-          bgColor={colors.primaryDefault40p}
+          bgColor={colors.transparenciaBlack}
           _hover={{ bgColor: colors.primaryDefault80p }}
           height="40px"
           borderRadius="8px"
@@ -266,12 +266,12 @@ function Screen({
       />
 <Table >
   <Thead>
-    <Tr  bg={colors.primaryDefault40p}
+    <Tr  bg={colors.transparenciaBlack}
       color={useColorModeValue("white", "black")}
       
       p={4}
       fontWeight="bold"
-      border={`1px solid ${colors.primaryDefault40p}`}>
+      border={`1px solid ${colors.transparenciaBlack}`}>
       <Th color="white">Ano</Th>
       <Th color="white">Receita</Th>
       <Th color="white">Janeiro</Th>

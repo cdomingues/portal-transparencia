@@ -53,8 +53,9 @@ function Screen({ handler }: PropsInput) {
       minW={90}
       width="45%"
       bg={useColorModeValue("white", "gray.800")  }     
-      onChange={ev => setPublicacao(ev.target.value  )}     
-      >
+      onChange={ev => setPublicacao(ev.target.value  )}    
+      border={`2px solid ${useColorModeValue("gray.200", "gray.600")}`} 
+      _focus={`2px solid ${useColorModeValue("gray.200", "gray.600")}`}      >
       {publicacoes_saude.map((info)=>(
         <option key={info.id}  value={info.volume}>{info.volume}</option>
       ))}

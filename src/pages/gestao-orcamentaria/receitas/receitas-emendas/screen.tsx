@@ -152,7 +152,7 @@ useEffect(() => {
                   cursor="pointer"
                   fontSize="20px"
                   textColor="white"
-                  bgColor={colors.primaryDefault40p}
+                  bgColor={colors.transparenciaBlack}
                   _hover={{ bgColor: colors.primaryDefault80p }}
                   height="40px"
                   borderRadius="8px"
@@ -180,7 +180,7 @@ useEffect(() => {
                 </Button>
                 
                 <Button width='180px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
-                    bgColor={colors.primaryDefault40p}
+                    bgColor={colors.transparenciaBlack}
                     _hover={{ bgColor: colors.primaryDefault80p }}
                     
                     height='40px' borderRadius='8px' mr='15px'onClick={() => exportToJSON(emendas)}
@@ -229,14 +229,14 @@ useEffect(() => {
         _hover={{
           boxShadow: "xl",
           transform: "scale(1.01)",
-          border: `2px solid ${colors.primaryDefault40p}`,
+          border: `2px solid ${colors.transparenciaBlack}`,
         }}
           onClick={() => window.location.href = `receitas-emendas-detalhes?${emenda.id}`}
            >
           <Text fontWeight="bold" 
             fontSize="lg"
-            color={colors.primaryDefault40p}
-            borderBottom={`2px solid ${colors.primaryDefault40p}`}
+            color={colors.transparenciaBlack}
+            borderBottom={`2px solid ${colors.transparenciaBlack}`}
             pb="5px" 
             mb="8px">
             <strong>Número da Emenda:</strong> {emenda.n_emenda}

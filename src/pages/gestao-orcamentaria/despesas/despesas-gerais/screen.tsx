@@ -118,7 +118,7 @@ function Screen({
               width="180px"
               fontSize="20px"
               textColor="white"
-              bgColor={colors.primaryDefault40p}
+              bgColor={colors.transparenciaBlack}
               _hover={{ bgColor: colors.primaryDefault80p }}
               height="40px"
               borderRadius="8px"

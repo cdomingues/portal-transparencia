@@ -144,18 +144,18 @@ function Screen() {
           <Tabs> 
 
 <TabList>
-  <Tab>
+ <Tab _selected={{ color: colors.transparenciaCinza }}>
   <Text
   //align={isMobile ? "justify" : "left"}
   fontWeight="700"
   //fontSize={accessibility?.fonts?.regular}
 >Detalhes</Text></Tab>
-  <Tab> <Text
+  <Tab _selected={{ color: colors.transparenciaCinza }}> <Text
 //  align={isMobile ? "justify" : "left"}
   fontWeight="700"
 //  fontSize={accessibility?.fonts?.regular}
 >Arquivos</Text></Tab>
-<Tab> <Text
+<Tab _selected={{ color: colors.transparenciaCinza }}> <Text
 //  align={isMobile ? "justify" : "left"}
   fontWeight="700"
 //  fontSize={accessibility?.fonts?.regular}
@@ -170,8 +170,8 @@ function Screen() {
             <Table variant="simple" size="md" width="100%" overflow="hidden" mb={5}>
               <Thead>
                 <Tr>
-                  <Th colSpan={2} textAlign="center" bg={colors.primaryDefault40p} color="white" p={4} fontWeight="bold"  
-                  border={`1px solid ${colors.primaryDefault40p}`}>
+                  <Th colSpan={2} textAlign="center" bg={colors.transparenciaBlack} color="white" p={4} fontWeight="bold"  
+                  border={`1px solid ${colors.transparenciaBlack}`}>
                     DETALHES DO TERMO / ACORDO
                   </Th>
                 </Tr>
@@ -196,10 +196,10 @@ function Screen() {
                  
                 ].map(([label, value], index) => (
                   <Tr key={index}>
-                    <Td fontWeight="bold" bg={useColorModeValue("#f2f1f1", "black")} p={3} width="30%"  border={`1px solid ${colors.primaryDefault40p}`}>
+                    <Td fontWeight="bold" bg={useColorModeValue("#f2f1f1", "black")} p={3} width="30%"  border={`1px solid ${colors.transparenciaBlack}`}>
                       {label}
                     </Td>
-                    <Td p={3} bg={useColorModeValue("#f2f1f1", "black")} width="70%"  border={`1px solid ${colors.primaryDefault40p}`}>
+                    <Td p={3} bg={useColorModeValue("#f2f1f1", "black")} width="70%"  border={`1px solid ${colors.transparenciaBlack}`}>
                       {value}
                     </Td>
                   </Tr>
@@ -213,23 +213,23 @@ function Screen() {
             <Table variant="simple" size="md" width="100%" overflow="hidden" mb={5}>
               
               <Thead>
-              <Th colSpan={4} textAlign="center" bg={colors.primaryDefault40p} color="white" p={4} fontWeight="bold"  border={`1px solid ${colors.primaryDefault80p}`}>
+              <Th colSpan={4} textAlign="center" bg={colors.transparenciaBlack} color="white" p={4} fontWeight="bold"  border={`1px solid ${colors.primaryDefault80p}`}>
                    ARQUIVOS
                   </Th>
-                <Tr  border={`1px solid ${colors.primaryDefault40p}`}>
-                  <Th maxWidth="350px" bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>Descrição</Th>
-                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>Arquivo</Th>
+                <Tr  border={`1px solid ${colors.transparenciaBlack}`}>
+                  <Th maxWidth="350px" bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.transparenciaBlack}`}>Descrição</Th>
+                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.transparenciaBlack}`}>Arquivo</Th>
                   
                   
                 </Tr>
               </Thead>
-              <Tbody bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.primaryDefault40p}`}>
+              <Tbody bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>
                 {data.map((file) => (
                   <Tr key={file.id}>
-                    <Td maxWidth="350px" whiteSpace="normal" wordBreak="break-word"  border={`1px solid ${colors.primaryDefault40p}`}>
+                    <Td maxWidth="350px" whiteSpace="normal" wordBreak="break-word"  border={`1px solid ${colors.transparenciaBlack}`}>
                       {(file.arquivo).split('/')[6]}
                     </Td>
-                    <Td  border={`1px solid ${colors.primaryDefault40p}`}><a href={file.arquivo} download target="_blank" rel="noopener noreferrer">
+                    <Td  border={`1px solid ${colors.transparenciaBlack}`}><a href={file.arquivo} download target="_blank" rel="noopener noreferrer">
     Baixar Arquivo
   </a></Td>
                     
@@ -246,16 +246,16 @@ function Screen() {
              <Table variant="simple" size="md" width="100%" overflow="hidden" mb={5}>
               
               <Thead>
-              <Th colSpan={7} textAlign="center" bg={colors.primaryDefault40p} color="white" p={4} fontWeight="bold"  border={`1px solid ${colors.primaryDefault40p}`}>
+              <Th colSpan={7} textAlign="center" bg={colors.transparenciaBlack} color="white" p={4} fontWeight="bold"  border={`1px solid ${colors.transparenciaBlack}`}>
                    PRESTAÇÃO DE CONTAS
                   </Th>
-                <Tr  border={`1px solid ${colors.primaryDefault40p}`}>
+                <Tr  border={`1px solid ${colors.transparenciaBlack}`}>
                  
-                <Th maxWidth="350px" bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>Descrição</Th>
+                <Th maxWidth="350px" bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.transparenciaBlack}`}>Descrição</Th>
                 <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault80p}`}>Arquivo</Th>
                 </Tr>
               </Thead>
-              <Tbody bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>
+              <Tbody bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.transparenciaBlack}`}>
                 {liquidacoes.map((file) => (
                   <Tr key={file.id}>
                    

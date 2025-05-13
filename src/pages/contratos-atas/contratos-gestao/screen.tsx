@@ -160,7 +160,7 @@ function Screen({
   cursor="pointer"
   fontSize="20px"
   textColor="white"
-  bgColor={colors.primaryDefault40p}
+  bgColor={colors.transparenciaBlack}
   _hover={{ bgColor: colors.primaryDefault80p }}
   height="40px"
   borderRadius="8px"
@@ -188,7 +188,7 @@ function Screen({
 </Button>
 
 <Button width='180px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
-     bgColor={colors.primaryDefault40p}
+     bgColor={colors.transparenciaBlack}
      _hover={{ bgColor: colors.primaryDefault80p }}
     height='40px' borderRadius='8px' mr='15px'onClick={() => exportToJSON(sortedPaginatedContratos)}
     boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
@@ -230,15 +230,15 @@ function Screen({
           _hover={{
             boxShadow: "xl",
             transform: "scale(1.01)",
-            border: `2px solid ${colors.primaryDefault40p}`,
+            border: `2px solid ${colors.transparenciaBlack}`,
           }}
           onClick={() => window.open( `detalhes?${row.id_contrato}`, '_blank')}
         >
           <Text 
             fontWeight="bold" 
             fontSize="lg"
-            color={colors.primaryDefault40p}
-            borderBottom={`2px solid ${colors.primaryDefault40p}`}
+            color={colors.transparenciaBlack}
+            borderBottom={`2px solid ${colors.transparenciaBlack}`}
             pb="5px" 
             mb="8px"
           >

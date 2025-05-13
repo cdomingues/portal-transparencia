@@ -175,7 +175,7 @@ const App = () => {
 
         <Button
         width='180px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
-        bgColor={colors.primaryDefault40p}
+        bgColor={colors.transparenciaBlack}
         _hover={{ bgColor: colors.primaryDefault80p }}
          height='40px' borderRadius='8px' mr='15px'
          boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
@@ -218,14 +218,14 @@ const App = () => {
                          _hover={{
                            boxShadow: 'xl',
                            transform: 'scale(1.01)',
-                           border: `2px solid ${colors.primaryDefault40p}`,
+                           border: `2px solid ${colors.transparenciaBlack}`,
                          }}
                          onClick={() => {
                            sessionStorage.setItem('selectedDespesa', JSON.stringify(item));
                            window.open(`../detalhes?${item.id_empenho} - ${item.exercicio_empenho}`, '_blank');
                          }}
                        >
-                         <Text fontWeight="bold" fontSize="lg" color={colors.primaryDefault40p} borderBottom={`2px solid ${colors.primaryDefault40p}`} pb="5px" mb="8px">
+                         <Text fontWeight="bold" fontSize="lg" color={colors.transparenciaBlack} borderBottom={`2px solid ${colors.transparenciaBlack}`} pb="5px" mb="8px">
                            Empenho: {item.nr_empenho} / {item.exercicio_empenho}
                          </Text>
                          <Text><strong>Fornecedor:</strong> {item.descr_fornecedor}</Text>
