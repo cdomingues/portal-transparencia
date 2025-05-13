@@ -96,13 +96,13 @@ const anosDisponiveis=  Array.from(new Set(concursos.map((info) => new Date(info
 <Tabs> 
 
   <TabList>
-    <Tab _selected={{color:  colors.primaryDefault40p}} _focus={{ boxShadow: 'none' }}>
+    <Tab _selected={{color:  colors.transparenciaCinza}} _focus={{ boxShadow: 'none' }}>
     <Text
     align={isMobile ? "justify" : "left"}
     fontWeight="700"
     fontSize={accessibility?.fonts?.regular}
   >Concursos</Text></Tab>
-    <Tab _selected={{color:  colors.primaryDefault40p}} _focus={{ boxShadow: 'none' }}> <Text
+    <Tab _selected={{color:  colors.transparenciaCinza}} _focus={{ boxShadow: 'none' }}> <Text
     align={isMobile ? "justify" : "left"}
     fontWeight="700"
     fontSize={accessibility?.fonts?.regular}

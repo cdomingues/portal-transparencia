@@ -106,7 +106,7 @@ function Screen({
   cursor="pointer"
   fontSize="20px"
   textColor="white"
-  bgColor={colors.primaryDefault40p}
+  bgColor={colors.transparenciaBlack}
   _hover={{ bgColor: colors.primaryDefault80p }}
   height="40px"
   borderRadius="8px"
@@ -134,7 +134,7 @@ function Screen({
 </Button>
 
 <Button width='180px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
-    bgColor={colors.primaryDefault40p}
+    bgColor={colors.transparenciaBlack}
     _hover={{
       bgColor: colors.primaryDefault80p,  // Cor de fundo ao passar o mouse
     }}
@@ -164,14 +164,14 @@ function Screen({
                   _hover={{
                     boxShadow: "xl",
                     transform: "scale(1.01)",
-                    border: `2px solid ${colors.primaryDefault40p}`,
+                    border: `2px solid ${colors.transparenciaBlack}`,
                   }}
                   cursor="pointer"
                   onClick={() => window.location.href = `detalhes?${row.id_contrato}`}
                       
                       >
                  
-                 <Text fontWeight="bold" borderBottom={`1.5px solid ${colors.primaryDefault40p} `}>{row.id_contrato}</Text>
+                 <Text fontWeight="bold" borderBottom={`2px solid ${colors.transparenciaBlack} `}>{row.id_contrato}</Text>
                  <Text>Empresa contratada: {row.fornecedor}</Text>
                  <Text>Data Início: {row.data_inicio} - Data Fim: {row.data_termino}</Text>
                  <Text>Descrição: {row.descricao}</Text>

@@ -78,206 +78,219 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
   
   return (
     <ContainerBasic title={title} description={description}>
-            <Box
-        m={0}
-        bg={useColorModeValue("white", "gray.800")}
-        
-        padding={"15px"}
-        rounded="md"
-        overflow="hidden"
-        width="100%"
-        borderRadius="18px"
-        marginBottom="15px"
-      >
-       <ContainerSearch  >
-          <Stack minW={86} width="50%" flexDir='row'
-          sx={{
-            "@media (max-width: 900px)": {
-              flexDir:'column'
-            },
-          }}
-          >
-            {/* Select para Filtrar por Ano */}
-            <Select
-              value={selectedYear}
-              onChange={(e) => setSelectedYear(Number(e.target.value))}
-              placeholder="Todos os anos"
-              borderRadius="8px"
-              height="40px"
-              mb="10px"
-              width='180px'
-            >
-              {years.map((year) => (
-                <option key={year} value={year}>
-                  {year}
-                </option>
-              ))}
-            </Select>
-<Button
-  width="180px"
-  border="0"
-  cursor="pointer"
-  fontSize="20px"
-  textColor="white"
-  bgColor={colors.primaryDefault40p}
-  _hover={{ bgColor: colors.primaryDefault80p }}
-  height="40px"
-  borderRadius="8px"
-  mr="15px"
-  transition="background-color 0.3s ease"
-  boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
-  
->
-  <CsvDownload
-    filename={"dados_acordos_cooperacao.csv"}
-    data={data}
-    style={{
-      width: "100%",
-      height: "100%",
-      background: "none",
-      border: "none",
-      color: "white",
-      fontSize: "20px",
-      textAlign: "center",
-      cursor: "pointer",
-    }}
-  >
-    CSV
-  </CsvDownload>
-</Button>
-
-<Button width='180px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
-    bgColor={colors.primaryDefault40p} 
-    _hover={{
-      bgColor: colors.primaryDefault80p,  // Cor de fundo ao passar o mouse
-    }}
-    height='40px' borderRadius='8px' mr='15px'onClick={() => exportToJSON(data)}
-    boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
-    
-    >JSON</Button>
-   <Input
-             type="text"
-             placeholder="Pesquisar ..."
-             value={searchTerm}
-             onChange={(e) => setSearchTerm(e.target.value)}
-             borderRadius="8px"
-             height="40px"
-             pr="40px" // Adiciona espaço para o ícone à direita
-             width="40%"
-             mb="10px"
-             
-           />
-
-
-          </Stack>
-          <Stack minW={50} justifyContent="flex-end" className="button-search"></Stack>
-        </ContainerSearch>
-        {paginatedContratos
-       .sort((a, b) => {
-        const aValue = Number(a.tc.split('/')[0]) || 0;
-        const bValue = Number(b.tc.split('/')[0]) || 0;
-        return aValue - bValue;
-      })
-        .map((row) => (
-          <Box
-          key={row.id}
-          border="2px solid transparent"
-          p="12px"
-          borderRadius="16px"
-          mb="12px"
-          bg={useColorModeValue("white", "black")}
-          boxShadow="lg"
-          transition="0.3s"
-          cursor="pointer"
-          _hover={{
-            boxShadow: "xl",
-            transform: "scale(1.01)",
-            border: `2px solid ${colors.primaryDefault40p}`,
-          }}
-          onClick={() => {
-            // Armazenando os dados da despesa no sessionStorage
-            sessionStorage.setItem("selectedDespesa", JSON.stringify(row));
+                <Box
+            m={0}
+            bg={useColorModeValue("white", "gray.800")}
             
-            // Redirecionando para a página de detalhes
-            window.open(
-              `detalhes?termo-de-colaboracao=${row.tc}`,
-              "_blank"
-            );
-          }}
-         // onClick={() => window.location.href = `detalhes?${row.id_contrato}`}
-        >
-          <Text 
-            fontWeight="bold" 
-            fontSize="lg"
-            color={colors.primaryDefault40p}
-            borderBottom={`2px solid ${colors.primaryDefault40p}`}
-            pb="5px" 
-            mb="8px"
+            padding={"15px"}
+            rounded="md"
+            overflow="hidden"
+            width="100%"
+            borderRadius="18px"
+            marginBottom="15px"
           >
-          TERMO  {row.tc}
-          </Text>
-          <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
-            <strong>Empresa contratada:</strong> {row.interessado}
-          </Text>
-          <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
-            <strong>Data Início:</strong> {row.data_inicio} - <strong>Data Fim:</strong> {row.data_fim}
-          </Text>
-          <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
-            <strong>Descrição:</strong> {row.assunto}
-          </Text>
-        </Box>
-        
-        ))}
-
-        <Box
-       
-          as="ul" // Garante que Box se comporte como <ul>
-          display="flex"
-          justifyContent="space-around"
-          
-          alignItems="center"
-          flexWrap="wrap"
-          gap="10px"
-          mt="20px"
-          p="15px"
-          listStyleType="none"
-          fontWeight="bold"
-          fontSize="lg"
-          overflowX="auto"
-         // whiteSpace="nowrap"
-          maxW="100%"
-          sx={{
-            "& li": {
-              display: "inline-block", // Garante que os itens fiquem em linha
-              marginLeft: '10px',
-              padding: "8px 15px",
-              cursor: "pointer",
-              textDecoration: "none",
-              borderRadius: "5px",
-              backgroundColor: "#f0f0f0",
-              transition: "background-color 0.3s, color 0.3s",
-            },
-            "& li:hover": {
-              backgroundColor: "red",
-              color: "white",
-              gap: '10px'
-            },
-            "& .active": {
-              fontWeight: "bold",
-              backgroundColor: "red",
-              color: "white",
-            },
-          }}
-        >
+           <ContainerSearch  >
+              <Stack minW={86} width="50%" flexDir='row'
+              sx={{
+                "@media (max-width: 900px)": {
+                  flexDir:'column'
+                },
+              }}
+              >
+                {/* Select para Filtrar por Ano */}
+                <Select
+                border={`1px solid ${colors.transparenciaBlack}`}
+                          _focus={{
+                            borderColor: colors.transparenciaBlack, // nova cor da borda ao focar
+                            boxShadow:'none',
+                            //backgroundColor: colors.primaryDefault40p // cor de fundo ao focar (exemplo)
+                          }}
+                  value={selectedYear}
+                  onChange={(e) => setSelectedYear(Number(e.target.value))}
+                  placeholder="Todos os anos"
+                  borderRadius="8px"
+                  height="40px"
+                  mb="10px"
+                  width='180px'
+                >
+                  {years.map((year) => (
+                    <option key={year} value={year}>
+                      {year}
+                    </option>
+                  ))}
+                </Select>
+    <Button
+      width="180px"
+      border="0"
+      cursor="pointer"
+      fontSize="20px"
+      textColor="white"
+      bgColor={colors.transparenciaBlack}
+      _hover={{ bgColor: colors.primaryDefault80p }}
+      height="40px"
+      borderRadius="8px"
+      mr="15px"
+      transition="background-color 0.3s ease"
+      boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
       
-        </Box>
-        <PaginationComponent 
-        pages={totalPages} 
-        setCurrentPage={setCurrentPage} 
-        currentPage={currentPage} 
-        />
-      </Box>
-    </ContainerBasic>
+    >
+      <CsvDownload
+        filename={"dados_acordos_cooperacao.csv"}
+        data={data}
+        style={{
+          width: "100%",
+          height: "100%",
+          background: "none",
+          border: "none",
+          color: "white",
+          fontSize: "20px",
+          textAlign: "center",
+          cursor: "pointer",
+        }}
+      >
+        CSV
+      </CsvDownload>
+    </Button>
+    
+    <Button width='180px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
+        bgColor={colors.transparenciaBlack} 
+        _hover={{
+          bgColor: colors.primaryDefault80p,  // Cor de fundo ao passar o mouse
+        }}
+        height='40px' borderRadius='8px' mr='15px'onClick={() => exportToJSON(data)}
+        boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+        
+        >JSON</Button>
+      
+    
+    
+              </Stack>
+               <Input
+               border={`1px solid ${colors.transparenciaBlack}`}
+                                     _focus={{
+                                       borderColor: colors.transparenciaBlack, // nova cor da borda ao focar
+                                       boxShadow:'none',
+                                       //backgroundColor: colors.primaryDefault40p // cor de fundo ao focar (exemplo)
+                                     }}
+                 type="text"
+                 placeholder="Pesquisar ..."
+                 value={searchTerm}
+                 onChange={(e) => setSearchTerm(e.target.value)}
+                 borderRadius="8px"
+                 height="40px"
+                 pr="40px" // Adiciona espaço para o ícone à direita
+                 width="40%"
+                 mb="10px"
+                 
+               />
+              <Stack minW={50} justifyContent="flex-end" className="button-search"></Stack>
+            </ContainerSearch>
+            {paginatedContratos
+           .sort((a, b) => {
+            const aValue = Number(a.tc.split('/')[0]) || 0;
+            const bValue = Number(b.tc.split('/')[0]) || 0;
+            return aValue - bValue;
+          })
+            .map((row) => (
+              <Box
+              key={row.id}
+              border="2px solid transparent"
+              p="12px"
+              borderRadius="16px"
+              mb="12px"
+              bg={useColorModeValue("white", "black")}
+              boxShadow="lg"
+              transition="0.3s"
+              cursor="pointer"
+              _hover={{
+                boxShadow: "xl",
+                transform: "scale(1.01)",
+                border: `2px solid ${colors.transparenciaBlack}`,
+              }}
+              onClick={() => {
+                // Armazenando os dados da despesa no sessionStorage
+                sessionStorage.setItem("selectedDespesa", JSON.stringify(row));
+                
+                // Redirecionando para a página de detalhes
+                window.open(
+                  `detalhes?acordo-de-cooperacao=${row.tc}`,
+                  "_blank"
+                );
+              }}
+             // onClick={() => window.location.href = `detalhes?${row.id_contrato}`}
+            >
+              <Text 
+                fontWeight="bold" 
+                fontSize="lg"
+                color={colors.transparenciaBlack}
+                borderBottom={`2px solid ${colors.transparenciaBlack}` }
+                pb="5px" 
+                mb="8px"
+              >
+                {row.tc}
+              </Text>
+              <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
+                <strong>Empresa contratada:</strong> {row.interessado}
+              </Text>
+              <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
+                <strong>Data Início:</strong> {row.data_inicio} - <strong>Data Fim:</strong> {row.data_fim}
+              </Text>
+              <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
+                <strong>Descrição:</strong> {row.assunto}
+              </Text>
+            </Box>
+            
+            ))}
+    
+            <Box
+           
+              as="ul" // Garante que Box se comporte como <ul>
+              display="flex"
+              justifyContent="space-around"
+              
+              alignItems="center"
+              flexWrap="wrap"
+              gap="10px"
+              mt="20px"
+              p="15px"
+              listStyleType="none"
+              fontWeight="bold"
+              fontSize="lg"
+              overflowX="auto"
+             // whiteSpace="nowrap"
+              maxW="100%"
+              sx={{
+                "& li": {
+                  display: "inline-block", // Garante que os itens fiquem em linha
+                  marginLeft: '10px',
+                  padding: "8px 15px",
+                  cursor: "pointer",
+                  textDecoration: "none",
+                  borderRadius: "5px",
+                  backgroundColor: "#f0f0f0",
+                  transition: "background-color 0.3s, color 0.3s",
+                },
+                "& li:hover": {
+                  backgroundColor: "red",
+                  color: "white",
+                  gap: '10px'
+                },
+                "& .active": {
+                  fontWeight: "bold",
+                  backgroundColor: "red",
+                  color: "white",
+                },
+              }}
+            >
+          
+            </Box>
+            <PaginationComponent 
+            pages={totalPages} 
+            setCurrentPage={setCurrentPage} 
+            currentPage={currentPage} 
+            />
+          </Box>
+        </ContainerBasic>
   );
 }
 

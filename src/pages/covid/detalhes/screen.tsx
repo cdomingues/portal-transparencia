@@ -205,28 +205,28 @@ function Screen() {
           <Tabs variant='unstyled'> 
 
 <TabList>
-  <Tab _selected={{ color: colors.primaryDefault40p }}> 
+  <Tab _selected={{ color: colors.transparenciaBlack }}> 
   <Text
    
   fontWeight="700"
   //fontSize={accessibility?.fonts?.regular}
 >Detalhes</Text></Tab>
-  <Tab _selected={{ color: colors.primaryDefault40p }}> <Text
+  <Tab _selected={{ color: colors.transparenciaBlack }}> <Text
  _selected={{ color: "white", bg: "blue.500" }}
   fontWeight="700"
 //  fontSize={accessibility?.fonts?.regular}
 >Itens do Empenho</Text></Tab>
-<Tab _selected={{ color: colors.primaryDefault40p }}> <Text
+<Tab _selected={{ color: colors.transparenciaBlack }}> <Text
  _selected={{ color: "white", bg: "blue.500" }}
   fontWeight="700"
 //  fontSize={accessibility?.fonts?.regular}
 >Liquidações</Text></Tab>
-<Tab _selected={{ color: colors.primaryDefault40p }}> <Text
+<Tab _selected={{ color: colors.transparenciaBlack }}> <Text
  _selected={{ color: "white", bg: "blue.500" }}
   fontWeight="700"
 //  fontSize={accessibility?.fonts?.regular}
 >Pagamentos</Text></Tab>
-<Tab _selected={{ color: colors.primaryDefault40p }}> <Text
+<Tab _selected={{ color: colors.transparenciaBlack }}> <Text
  _selected={{ color: "white", bg: "blue.500" }}
   fontWeight="700"
 //  fontSize={accessibility?.fonts?.regular}
@@ -240,8 +240,8 @@ function Screen() {
             <Table variant="simple" size="md" width="100%" overflow="hidden" mb={5}>
               <Thead>
                 <Tr>
-                  <Th colSpan={2} textAlign="center" bg={colors.primaryDefault40p} color="white" p={4} fontWeight="bold"  
-                  border={`1px solid ${colors.primaryDefault40p}`}
+                  <Th colSpan={2} textAlign="center" bg={colors.transparenciaBlack} color="white" p={4} fontWeight="bold"  
+                  border={`1px solid ${colors.transparenciaBlack}`}
                   >
                     DETALHES DO EMPENHO
                   </Th>
@@ -275,10 +275,10 @@ function Screen() {
                    ["Modalidade da Licitação", despesa.licitacao_modalidade],
                 ].map(([label, value], index) => (
                   <Tr key={index}>
-                    <Td fontWeight="bold" bg={useColorModeValue("#f2f1f1", "black")} p={3} width="30%"  border={`1px solid ${colors.primaryDefault40p}`}>
+                    <Td fontWeight="bold" bg={useColorModeValue("#f2f1f1", "black")} p={3} width="30%"  border={`1px solid ${colors.transparenciaBlack}`}>
                       {label}
                     </Td>
-                    <Td p={3} bg={useColorModeValue("#f2f1f1", "black")} width="70%"  border={`1px solid ${colors.primaryDefault40p}`}>
+                    <Td p={3} bg={useColorModeValue("#f2f1f1", "black")} width="70%"  border={`1px solid ${colors.transparenciaBlack}`}>
                       {value}
                     </Td>
                   </Tr>
@@ -292,26 +292,26 @@ function Screen() {
             <Table variant="simple" size="md" width="100%" overflow="hidden" mb={5}>
               
               <Thead>
-              <Th colSpan={4} textAlign="center" bg={colors.primaryDefault40p} color="white" p={4} fontWeight="bold" border={`1px solid ${colors.primaryDefault40p}`}>
+              <Th colSpan={4} textAlign="center" bg={colors.transparenciaBlack} color="white" p={4} fontWeight="bold" border={`1px solid ${colors.transparenciaBlack}`}>
                    ITENS DO EMPENHO
                   </Th>
-                <Tr  border={`1px solid ${colors.primaryDefault40p}`}>
-                  <Th maxWidth="350px" bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>Descrição</Th>
-                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>Quantidade</Th>
-                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>Valor Unitário</Th>
-                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>Valor Total</Th>
+                <Tr  border={`1px solid ${colors.transparenciaBlack}`}>
+                  <Th maxWidth="350px" bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.transparenciaBlack}`}>Descrição</Th>
+                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.transparenciaBlack}`}>Quantidade</Th>
+                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.transparenciaBlack}`}>Valor Unitário</Th>
+                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.transparenciaBlack}`}>Valor Total</Th>
                   
                 </Tr>
               </Thead>
-              <Tbody bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.primaryDefault40p}`}>
+              <Tbody bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>
                 {data.map((file) => (
                   <Tr key={file.nr_empenho}>
-                    <Td maxWidth="350px" whiteSpace="normal" wordBreak="break-word"  border={`1px solid ${colors.primaryDefault40p}`}>
+                    <Td maxWidth="350px" whiteSpace="normal" wordBreak="break-word"  border={`1px solid ${colors.transparenciaBlack}`}>
                       {file.desc_item}
                     </Td>
-                    <Td  border={`1px solid ${colors.primaryDefault40p}`}>{file.qtde}</Td>
-                    <Td  border={`1px solid ${colors.primaryDefault40p}`}>{moneyFormatter(parseFloat(file.valor_unit))}</Td>
-                    <Td  border={`1px solid ${colors.primaryDefault40p}`}>{moneyFormatter(file.qtde * parseFloat(file.valor_unit))}</Td>
+                    <Td  border={`1px solid ${colors.transparenciaBlack}`}>{file.qtde}</Td>
+                    <Td  border={`1px solid ${colors.transparenciaBlack}`}>{moneyFormatter(parseFloat(file.valor_unit))}</Td>
+                    <Td  border={`1px solid ${colors.transparenciaBlack}`}>{moneyFormatter(file.qtde * parseFloat(file.valor_unit))}</Td>
                   </Tr>
                 ))}
               </Tbody>
@@ -325,56 +325,56 @@ function Screen() {
              <Table variant="simple" size="md" width="100%" overflow="hidden" mb={5}>
               
               <Thead>
-              <Th colSpan={8} textAlign="center" bg={colors.primaryDefault40p} color="white" p={4} fontWeight="bold"  
-              border={`1px solid ${colors.primaryDefault40p}`}>
+              <Th colSpan={8} textAlign="center" bg={colors.transparenciaBlack} color="white" p={4} fontWeight="bold"  
+              border={`1px solid ${colors.transparenciaBlack}`}>
                    LIQUIDAÇÕES DO EMPENHO
                   </Th>
                 <Tr  >
                  
-                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>Data da Liquidação</Th>
-                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>Vencimento</Th>
+                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.transparenciaBlack}`}>Data da Liquidação</Th>
+                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.transparenciaBlack}`}>Vencimento</Th>
                   
 
-                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>Descrição</Th> 
-                  <Th  bg={useColorModeValue("#f2f1f1", "black")}   border={`1px solid ${colors.primaryDefault40p}`}>
+                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.transparenciaBlack}`}>Descrição</Th> 
+                  <Th  bg={useColorModeValue("#f2f1f1", "black")}   border={`1px solid ${colors.transparenciaBlack}`}>
                     Nº Nota Fiscal
                   </Th>
-                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>Data Emissão Nota Fiscal</Th> 
-                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>Valor Original</Th>
-                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>Valor Anulado</Th>
-                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>Valor Atual</Th>
+                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.transparenciaBlack}`}>Data Emissão Nota Fiscal</Th> 
+                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.transparenciaBlack}`}>Valor Original</Th>
+                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.transparenciaBlack}`}>Valor Anulado</Th>
+                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.transparenciaBlack}`}>Valor Atual</Th>
                 </Tr>
               </Thead>
-              <Tbody bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>
+              <Tbody bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.transparenciaBlack}`}>
                 {liquidacoes.map((file) => (
                   <Tr key={file.nr_empenho}>
                    
-                    <Td  border={`1px solid ${colors.primaryDefault40p}`}>{moment(file.data_mov_liquidacao).format('DD/MM/YYYY')}</Td>
-                    <Td  border={`1px solid ${colors.primaryDefault40p}`}>{moment(file.vencimento).format('DD/MM/YYYY')}</Td>
-                    <Td maxWidth="350px" whiteSpace="normal" wordBreak="break-word"  border={`1px solid ${colors.primaryDefault40p}`}>
+                    <Td  border={`1px solid ${colors.transparenciaBlack}`}>{moment(file.data_mov_liquidacao).format('DD/MM/YYYY')}</Td>
+                    <Td  border={`1px solid ${colors.transparenciaBlack}`}>{moment(file.vencimento).format('DD/MM/YYYY')}</Td>
+                    <Td maxWidth="350px" whiteSpace="normal" wordBreak="break-word"  border={`1px solid ${colors.transparenciaBlack}`}>
                       {file.descricao_vencimento}
                     </Td>
-                    <Td border={`1px solid ${colors.primaryDefault40p}`}>{file.nr_nf}</Td>
-                    <Td  border={`1px solid ${colors.primaryDefault40p}`}>{moment(file.data_emissao_nf).format('DD/MM/YYYY')}</Td>
+                    <Td border={`1px solid ${colors.transparenciaBlack}`}>{file.nr_nf}</Td>
+                    <Td  border={`1px solid ${colors.transparenciaBlack}`}>{moment(file.data_emissao_nf).format('DD/MM/YYYY')}</Td>
                    
-                    <Td  border={`1px solid ${colors.primaryDefault40p}`}>{moneyFormatter(parseFloat(file.valor_liquidacao))}</Td>
-                    <Td  border={`1px solid ${colors.primaryDefault40p}`}>{moneyFormatter(parseFloat(file.valor_anulacao_liq))}</Td>
-                    <Td  border={`1px solid ${colors.primaryDefault40p}`}>{moneyFormatter(parseFloat(file.valor_atual_liquido))}</Td>
+                    <Td  border={`1px solid ${colors.transparenciaBlack}`}>{moneyFormatter(parseFloat(file.valor_liquidacao))}</Td>
+                    <Td  border={`1px solid ${colors.transparenciaBlack}`}>{moneyFormatter(parseFloat(file.valor_anulacao_liq))}</Td>
+                    <Td  border={`1px solid ${colors.transparenciaBlack}`}>{moneyFormatter(parseFloat(file.valor_atual_liquido))}</Td>
                   </Tr>
                 ))}
                 <Tr bg={useColorModeValue("#f2f1f1", "black")} fontWeight="bold">
-      <Td colSpan={5} textAlign="right" border={`1px solid ${colors.primaryDefault40p}`}>Total:</Td>
-      <Td border={`1px solid ${colors.primaryDefault40p}`}>
+      <Td colSpan={5} textAlign="right" border={`1px solid ${colors.transparenciaBlack}`}>Total:</Td>
+      <Td border={`1px solid ${colors.transparenciaBlack}`}>
         {moneyFormatter(
           liquidacoes.reduce((acc, file) => acc + parseFloat(file.valor_liquidacao), 0)
         )}
       </Td>
-      <Td border={`1px solid ${colors.primaryDefault40p}`}>
+      <Td border={`1px solid ${colors.transparenciaBlack}`}>
         {moneyFormatter(
           liquidacoes.reduce((acc, file) => acc + parseFloat(file.valor_anulacao_liq), 0)
         )}
       </Td>
-      <Td border={`1px solid ${colors.primaryDefault40p}`}>
+      <Td border={`1px solid ${colors.transparenciaBlack}`}>
         {moneyFormatter(
           liquidacoes.reduce((acc, file) => acc + parseFloat(file.valor_atual_liquido), 0)
         )}
@@ -390,39 +390,39 @@ function Screen() {
             <Table variant="simple" size="md" width="100%" overflow="hidden" mb={5}>
               
               <Thead>
-              <Th colSpan={4} textAlign="center" bg={colors.primaryDefault40p} color="white" p={4} fontWeight="bold" 
-               border={`1px solid ${colors.primaryDefault40p}`}>
+              <Th colSpan={4} textAlign="center" bg={colors.transparenciaBlack} color="white" p={4} fontWeight="bold" 
+               border={`1px solid ${colors.transparenciaBlack}`}>
                    PAGAMENTOS DO EMPENHO
                   </Th>
-                <Tr  border={`1px solid ${colors.primaryDefault40p}`}>
+                <Tr  border={`1px solid ${colors.transparenciaBlack}`}>
                  
-                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>Artigo Caixa</Th>
-                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>Data movimentação do pagamento</Th>
-                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>Valor do Pagamento</Th>
-                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>Valor Atualizado do pagamento</Th>
+                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.transparenciaBlack}`}>Artigo Caixa</Th>
+                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.transparenciaBlack}`}>Data movimentação do pagamento</Th>
+                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.transparenciaBlack}`}>Valor do Pagamento</Th>
+                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.transparenciaBlack}`}>Valor Atualizado do pagamento</Th>
                   
                 </Tr>
               </Thead>
-              <Tbody bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`} >
+              <Tbody bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.transparenciaBlack}`} >
                 {pagamentos.map((pag) => (
                   <Tr key={pag.nr_empenho}>
                   
-                  <Td  border={`1px solid ${colors.primaryDefault40p}`}>{pag.artigo_caixa}</Td>
-                  <Td  border={`1px solid ${colors.primaryDefault40p}`}>{moment(pag.data_mov_pgto).format('DD/MM/yyyy') } </Td>
+                  <Td  border={`1px solid ${colors.transparenciaBlack}`}>{pag.artigo_caixa}</Td>
+                  <Td  border={`1px solid ${colors.transparenciaBlack}`}>{moment(pag.data_mov_pgto).format('DD/MM/yyyy') } </Td>
                 
-                  <Td  border={`1px solid ${colors.primaryDefault40p}`}>{moneyFormatter(parseFloat(pag.valor_pgto))}</Td>
-                  <Td  border={`1px solid ${colors.primaryDefault40p}`}>{moneyFormatter(parseFloat(pag.valor_atual_pgto))}</Td>
+                  <Td  border={`1px solid ${colors.transparenciaBlack}`}>{moneyFormatter(parseFloat(pag.valor_pgto))}</Td>
+                  <Td  border={`1px solid ${colors.transparenciaBlack}`}>{moneyFormatter(parseFloat(pag.valor_atual_pgto))}</Td>
                     
                   </Tr>
                 ))}
                 <Tr bg={useColorModeValue("#f2f1f1", "black")} fontWeight="bold">
-      <Td colSpan={2} textAlign="right" border={`1px solid ${colors.primaryDefault40p}`}>Total:</Td>
-      <Td border={`1px solid ${colors.primaryDefault40p}`}>
+      <Td colSpan={2} textAlign="right" border={`1px solid ${colors.transparenciaBlack}`}>Total:</Td>
+      <Td border={`1px solid ${colors.transparenciaBlack}`}>
         {moneyFormatter(
           pagamentos.reduce((acc, pag) => acc + parseFloat(pag.valor_pgto), 0)
         )}
       </Td>
-      <Td border={`1px solid ${colors.primaryDefault40p}`}>
+      <Td border={`1px solid ${colors.transparenciaBlack}`}>
         {moneyFormatter(
           pagamentos.reduce((acc, pag) => acc + parseFloat(pag.valor_atual_pgto), 0)
         )}
@@ -438,23 +438,23 @@ function Screen() {
             <Table variant="simple" size="md" width="100%" overflow="hidden" mb={5}>
               
               <Thead>
-              <Th colSpan={4} textAlign="center" bg={colors.primaryDefault40p}color="white" p={4} fontWeight="bold"  border={`1px solid ${colors.primaryDefault40p}`}>
+              <Th colSpan={4} textAlign="center" bg={colors.transparenciaBlack}color="white" p={4} fontWeight="bold"  border={`1px solid ${colors.transparenciaBlack}`}>
                    ARQUIVOS DE PRESTAÇÃO DE CONTAS DO EMPENHO
                   </Th>
-                <Tr border={`1px solid ${colors.primaryDefault40p}`}>
+                <Tr border={`1px solid ${colors.transparenciaBlack}`}>
                  
-                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>Nome</Th>
-                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`}>Arquivo</Th>
+                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.transparenciaBlack}`}>Nome</Th>
+                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.transparenciaBlack}`}>Arquivo</Th>
                  
                   
                 </Tr>
               </Thead>
-              <Tbody bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.primaryDefault40p}`} >
+              <Tbody bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.transparenciaBlack}`} >
                 {adiantamentos.map((ad) => (
                   <Tr key={ad.id}>
                   
-                  <Td  border={`1px solid ${colors.primaryDefault40p}`}>{ad.descricao}</Td>
-                  <Td  border={`1px solid ${colors.primaryDefault40p}`}>  <a href={ad.arquivo} download target="blank" rel="noopener noreferrer"  style={{ color: colors.primaryDefault40p, fontWeight: 'normal', textDecoration: 'none' }}>
+                  <Td  border={`1px solid ${colors.transparenciaBlack}`}>{ad.descricao}</Td>
+                  <Td  border={`1px solid ${colors.transparenciaBlack}`}>  <a href={ad.arquivo} download target="blank" rel="noopener noreferrer"  style={{ color: colors.transparenciaBlack, fontWeight: 'normal', textDecoration: 'none' }}>
                   Download
                 </a> </Td>
                 

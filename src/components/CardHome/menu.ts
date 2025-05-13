@@ -127,10 +127,15 @@ export const menus=[
             "extralinks": [ ]
         }   ,
         {"id_submenu": 7, 
-            "title": "PROMAE", 
+            "title": "Benefícios Fiscais", 
             'imageURL': Compras_publicas.src,
-            "link":"/promae",
-            "extralinks": []}
+            "link":"",
+            "extralinks": [
+               // { label: "Benefícios Fiscais", url: "/beneficios-fiscais" },
+                { label: "Desonerações e Renúncias", url: "/beneficios-fiscais/desoneracoes-renuncias" },
+                { label: "PROMAE", url: "/beneficios-fiscais/promae" },
+                { label: "Lic e Lide", url: "/beneficios-fiscais/lic_lide" },
+            ]}
         ]
       },
 
@@ -143,7 +148,7 @@ export const menus=[
         "submenus": [
             {
                 "id_submenu": 1, 
-                "title": "Contratos e Atas", 
+                "title": "Contratos", 
                 "imageUrl":promae.src,
                 "url":"",
                 "extralinks": [
@@ -227,14 +232,14 @@ export const menus=[
                 "id_submenu": 2, 
                 "label": "Cargos e Salários", 
                 "imageUrl":CargosSalarios.src,
-                "url":"/gestao-de-pessoas/cargos-salarios",
+                "url":"/gestao-de-pessoas/cargos-e-salarios",
                 "extralinks": [ ]
             },
             {
                 "id_submenu": 3, 
                 "label": "Carga Horária", 
                 "imageUrl":CargosSalarios.src,
-                "url":"/gestao-de-pessoas/cargos-salarios",
+                "url":"/gestao-de-pessoas/carga-horaria",
                 "extralinks": [ ]
             },
             {

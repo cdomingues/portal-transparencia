@@ -206,7 +206,7 @@ function TableWithOutFilterComponent({
                       cursor="pointer"
                       fontSize="20px"
                       textColor="white"
-                      bgColor={colors.primaryDefault40p}
+                      bgColor={colors.transparenciaBlack}
                       _hover={{ bgColor: colors.primaryDefault80p }}
                       height="40px"
                       borderRadius="8px"
@@ -238,7 +238,7 @@ function TableWithOutFilterComponent({
                       cursor="pointer"
                       fontSize="20px"
                       textColor="white"
-                      bgColor={colors.primaryDefault40p}
+                      bgColor={colors.transparenciaBlack}
                        _hover={{ bgColor: colors.primaryDefault80p }}
                       height="40px"
                       borderRadius="8px"
@@ -271,7 +271,7 @@ function TableWithOutFilterComponent({
               }}
               {...getTableProps()}
             >
-              <Thead backgroundColor={useColorModeValue(colors.transparenciaRed, "gray.800")}>
+              <Thead backgroundColor={useColorModeValue(colors.transparenciaBlack, "gray.800")}>
                 {headerGroups.map((group, index) => (
                   <Tr {...group.getHeaderGroupProps()} key={index}>
                     {group.headers.map((column, index) => {
@@ -428,15 +428,16 @@ function TableWithOutFilterComponent({
               mr={4}
             >
               <Icon
-                color={colors.primaryDefault40p}
+                //color={colors.transparenciaBlack}
+                color={useColorModeValue(colors.transparenciaBlack, "gray.800")}
                 fontSize="18"
                 _groupHover={{
-                  color: colors.primaryDefault40p,
+                  color: colors.transparenciaBlack,
                 }}
                 as={AiOutlineDoubleLeft}
               />
             </Button>
-            <Text fontWeight="600" color={colors.primaryDefault40p}>
+            <Text fontWeight="600" >
               {pageIndex + 1} - {pageOptions.length}
             </Text>
             <Button
@@ -448,10 +449,10 @@ function TableWithOutFilterComponent({
               ml={4}
             >
               <Icon
-                color={colors.primaryDefault40p}
+                color={useColorModeValue(colors.transparenciaBlack, "gray.800")}
                 fontSize="18"
                 _groupHover={{
-                  color: colors.primaryDefault40p,
+                  color: colors.transparenciaBlack,
                 }}
                 as={AiOutlineDoubleRight}
               />
@@ -460,6 +461,12 @@ function TableWithOutFilterComponent({
           <NumberInput
           //bg={useColorModeValue("white", "gray.800")}
             ml={5}
+            border={`1px solid ${colors.transparenciaBlack}`}
+              _focus={{
+                borderColor: colors.transparenciaBlack, // nova cor da borda ao focar
+                boxShadow:'none',
+                //backgroundColor: colors.primaryDefault40p // cor de fundo ao focar (exemplo)
+              }}
             onChange={(value) => {
               const pageNumber = value ? Number(value) - 1 : 0;
               gotoPage(pageNumber);
@@ -481,9 +488,9 @@ function TableWithOutFilterComponent({
             width={130}
             value={pageSize}
             onChange={(e) => setPageSize(Number(e.target.value))}
-            border={`1px solid ${colors.primaryDefault40p}`}
+            border={`1px solid ${colors.transparenciaBlack}`}
               _focus={{
-                borderColor: colors.primaryDefault40p, // nova cor da borda ao focar
+                borderColor: colors.transparenciaBlack, // nova cor da borda ao focar
                 boxShadow:'none',
                 //backgroundColor: colors.primaryDefault40p // cor de fundo ao focar (exemplo)
               }}

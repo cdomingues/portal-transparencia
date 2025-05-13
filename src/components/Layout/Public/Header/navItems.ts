@@ -37,39 +37,31 @@ export default [
         href: "",
         children: [
           {
-            label: "Agricultura e Abastecimento",
+            label: "Agricultura e Segurança Alimentar",
             subLabel: "",
-            href:"https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-agricultura-e-abastecimento/institucional",
+            href:"https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-agricultura-e-seguranca-alimentar/institucional",
           },
           {
             label: "Assistência Social",
             subLabel: "",
             href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-assistencia-social/institucional",
           },
+          
           {
-            label: "Assuntos Assuntos da Pessoa com Deficiência",
+            label: "Assuntos Juridicos e Relações Institucionais",
             subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-para-assuntos-da-pessoa-com-deficiencia/institucional",
+            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-assuntos-juridicos-e-relacoes-institucionais/institucional",
           },
-          {
-            label: "Assuntos Juridicos",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-assuntos-juridicos/institucional",
-          },
-          {
-            label: "Comunicação",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/coordenadoria-de-comunicacao/institucional",
-          },
+         
           {
             label: "Cultura",
             subLabel: "",
             href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-cultura/institucional",
           },
           {
-            label: "Desenvolvimento Econômico e Inovação",
+            label: "Desenvolvimento Econômico e Trabalho",
             subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-desenvolvimento-economico-e-inovacao/institucional",
+            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-desenvolvimento-economico-e-trabalho/institucional",
           },
           {
             label: "Educação",
@@ -87,24 +79,29 @@ export default [
             href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-financas/institucional",
           },
           {
-            label: "Gestão Pública",
+            label: "Gestão e Contratações Públicas",
             subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-gestao-publica/institucional",
+            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-gestao-e-contratacoes-publicas/institucional",
           },
           {
-            label: "Governo",
+            label: "Governo e Transparência",
             subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-governo/institucional",
+            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-governo-e-transparencia/institucional",
           },
           {
-            label: "Habitação Social e Regularização Fundiária",
+            label: "Habitação Social",
             subLabel: "",
             href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-habitacao-social-e-regularizacao-fundiaria/institucional",
           },
           {
-            label: "Infraestrutura Urbana",
+            label: "Longevidade",
             subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-infraestrutura-urbana/institucional",
+            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-da-longevidade/institucional",
+          },
+          {
+            label: "Mulher",
+            subLabel: "",
+            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-da-mulher/institucional",
           },
           {
             label: "Meio Ambiente e Proteção Animal",
@@ -112,24 +109,26 @@ export default [
             href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-meio-ambiente-e-protecao-animal/institucional",
           },
           {
-            label: "Mobilidade Urbana",
+            label: "Mobilidade e Trânsito",
             subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-mobilidade-urbana/institucional",
+            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-mobilidade-e-transito/institucional",
           },
           {
-            label: "Planejamento e Gestão Estratégica",
+            label: "Obras e Infraestrutura",
             subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-planejamento-e-gestao-estrategica/institucional",
+            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-obras-e-infraestrutura/institucional",
           },
+        
           {
-            label: "Urbanismo",
+            label: "Planejamento e Urbanismo",
             subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-urbanismo/institucional",
+            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-planejamento-e-urbanismo/institucional",
           },
+         
           {
-            label: "Saúde",
+            label: "Saúde e Bem-Estar", 
             subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-saude/institucional",
+            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-saude-e-bem-estar/institucional",
           },
           {
             label: "Segurança",
@@ -137,45 +136,14 @@ export default [
             href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-seguranca/institucional",
           },
           {
-            label: "Transparência e Dados Abertos",
+            label: "Serviços Urbanos e Zeladoria",
             subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-transparencia-e-dados-abertos/institucional",
+            href: "https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-servicos-urbanos-e-zeladoria/institucional",
           },
           
         ],
       },
-      {
-        label: "Coordenadoria",
-        subLabel: "",
-        href: "",
-        children: [
-          {
-            label:"Análises e Gestão de Dados",
-            subLabel:"",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/coordenadoria-de-analises-e-gestao-de-dados/institucional",
-          },
-          {
-            label: "Habitação",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/coordenadoria-de-habitacao/institucional",
-          },
-          {
-            label: "Idoso",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/coordenadoria-do-idoso/institucional",
-          },
-          {
-            label: "Pessoa com Deficiência",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/coordenadoria-da-pessoa-com-deficiencia/institucional",
-          },
-          {
-            label: "Turismo",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/coordenadoria-de-turismo/institucional",
-          },
-        ],
-      },
+      
       {
         label: "Autarquia",
         subLabel: "",

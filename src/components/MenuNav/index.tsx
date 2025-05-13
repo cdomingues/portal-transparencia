@@ -119,7 +119,14 @@ const MenuHorizontalChakra = () => {
           ]
         },
         { label: 'Consulta de Fornecedores a Pagamentos', href: 'http://consultacompras.pmmc.com.br/pagamento-fornecedor' },
-        { label: 'PROMAE', href: '/promae' }
+        { label: 'Benefícios Fiscais', 
+          href: '#',
+          submenu:[
+              { label: "Desonerações e Renúncias", href: "/beneficios-fiscais/desoneracoes_renuncias" },
+                { label: "PROMAE", href: "/beneficios-fiscais/promae" },
+                { label: "Lic e Lide", href: "/beneficios-fiscais/lic_lide" },
+          ]
+         },
       ]
     },
     {

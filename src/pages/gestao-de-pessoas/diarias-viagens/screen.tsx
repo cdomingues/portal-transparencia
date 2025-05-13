@@ -98,7 +98,10 @@ function Screen() {
   return (
     <Box>
       <Stack direction={{ base: "column", md: "row" }} spacing={4}>
-      <Select value={selectedYear} onChange={(e) => setSelectedYear(Number(e.target.value))} maxWidth='200px'>
+      <Select 
+      border={`1px solid ${colors.transparenciaCinza}`}
+      _focus={{ border: `1px solid ${colors.transparenciaCinza}` }}  
+      value={selectedYear} onChange={(e) => setSelectedYear(Number(e.target.value))} maxWidth='200px'>
         <option value="">Todos os anos</option>
         {[...new Set(data.map((item) => item.ano))].sort((a, b) => b - a).map((year) => (
           <option key={year} value={year}>{year}</option>
@@ -110,7 +113,7 @@ function Screen() {
                 cursor="pointer"
                 fontSize="20px"
                 textColor="white"
-                bgColor={colors.primaryDefault40p}
+                bgColor={colors.transparenciaBlack}
                 _hover={{ bgColor: colors.primaryDefault80p }}
                 height="40px"
                 borderRadius="8px"
@@ -142,7 +145,7 @@ function Screen() {
                 cursor="pointer"
                 fontSize="20px"
                 textColor="white"
-                bgColor={colors.primaryDefault40p}
+                bgColor={colors.transparenciaBlack}
                  _hover={{ bgColor: colors.primaryDefault80p }}
                 height="40px"
                 borderRadius="8px"
@@ -155,7 +158,7 @@ function Screen() {
               </Stack>
       <Table mt="12px">
         <Thead>
-          <Tr bg={colors.primaryDefault40p} color="white">
+          <Tr bg={colors.transparenciaBlack} color="white">
             {[
               { key: "ano", label: "Ano" },
               { key: "mes", label: "Mês" },

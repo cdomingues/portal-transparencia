@@ -50,6 +50,7 @@ import logo from "../../../../assets/images/Brasao_horizontal_normal.png";
 import logoDark from "../../../../assets/images/Brasao_horizontal_branco.png";
 import MenuHorizontalChakra from "../../../MenuNav";
 import { isMobile } from "react-device-detect";
+import colors from "../../../../styles/colors";
 
 export default function Header() {
   const [search, setSearch] = useState("");
@@ -188,7 +189,7 @@ const DesktopNav = ({
                     textAlign="center"
                     _hover={{
                       textDecoration: "none",
-                      color: linkHoverColor,
+                      color: 'black',
                     }}
                   >
                     {navItem.label}
@@ -240,6 +241,7 @@ const DesktopNav = ({
                                     <Text
                                       fontSize={accessibility?.fonts?.small}
                                       fontWeight="500"
+                                      
                                     >
                                       {item.label}
                                     </Text>
@@ -392,13 +394,13 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
       p={2}
       rounded={"md"}
       target={href ? "_blank" : undefined}
-      _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+      _hover={{ bg: useColorModeValue(colors.transparenciaCinza, "gray.900") }}
     >
       <Stack direction={"row"} align={"center"}>
         <Box>
           <Text
             transition={"all .3s ease"}
-            _groupHover={{ color: useColorModeValue("pink.400", "white") }}
+            _groupHover={{ color: useColorModeValue(colors.transparenciaBlack, "white") }}
             fontWeight={500}
             fontSize={accessibility?.fonts?.small}
           >

@@ -273,7 +273,7 @@ function TableComponent({
                               cursor="pointer"
                               fontSize="20px"
                               textColor="white"
-                              bgColor={colors.primaryDefault40p}
+                              bgColor={colors.transparenciaBlack}
                               _hover={{ bgColor: colors.primaryDefault80p }}
                               height="40px"
                               borderRadius="8px"
@@ -305,7 +305,7 @@ function TableComponent({
                               cursor="pointer"
                               fontSize="20px"
                               textColor="white"
-                              bgColor={colors.primaryDefault40p}
+                              bgColor={colors.transparenciaBlack}
                                _hover={{ bgColor: colors.primaryDefault80p }}
                               height="40px"
                               borderRadius="8px"
@@ -344,7 +344,7 @@ function TableComponent({
             }}
             {...getTableProps()}
           >
-           <Thead backgroundColor={useColorModeValue(colors.transparenciaRed, "gray.800")}  >
+           <Thead backgroundColor={useColorModeValue(colors.transparenciaBlack, "gray.800")}  >
               {headerGroups.map((group, index) => (
                 <Tr {...group.getHeaderGroupProps()} key={index}>
                   {group.headers.map((column, index) => {
@@ -502,7 +502,7 @@ function TableComponent({
             mr={4}
           >
             <Icon
-              color="table.primary"
+              color={useColorModeValue(colors.transparenciaBlack, "white")}
               fontSize={accessibility?.fonts?.small}
               _groupHover={{
                 color: "primary",
@@ -510,19 +510,19 @@ function TableComponent({
               as={AiOutlineDoubleLeft}
             />
           </Button>
-          <Text fontWeight="600" color="table.primary">
+          <Text fontWeight="600" color={useColorModeValue(colors.transparenciaBlack, "white")}>
             {pageIndex + 1} - {pageOptions.length}
           </Text>
           <Button
             onClick={() => gotoPage(pageCount - 1)}
             disabled={!canNextPage}
             size="sm"
-            color="white"
+            color={useColorModeValue(colors.transparenciaBlack, "white")}
             bg="transparent"
             ml={4}
           >
             <Icon
-              color="table.primary"
+              color={useColorModeValue(colors.transparenciaBlack, "white")}
               fontSize="18"
               _groupHover={{
                 color: "primary",
@@ -532,6 +532,7 @@ function TableComponent({
           </Button>
         </Center>
         <NumberInput
+        
           ml={5}
           mb={5}
           onChange={(value) => {
@@ -544,20 +545,21 @@ function TableComponent({
           min={1}
           max={pageOptions.length}
         >
-          <NumberInputField bg="white" />
+          <NumberInputField bg={useColorModeValue("white", "gray.800")} />
           <NumberInputStepper>
             <NumberIncrementStepper />
             <NumberDecrementStepper />
           </NumberInputStepper>
         </NumberInput>
         <Select
-          bg="white"
+          bg={useColorModeValue("white", "gray.800")}
           ml={5}
           mb={5}
           minWidth={130}
           width={130}
           value={pageSize}
           onChange={(e) => setPageSize(Number(e.target.value))}
+          _focus={{ borderColor: "primary" }}
         >
           {[10, 25, 50].map((size) => (
             <option key={size} value={size}>

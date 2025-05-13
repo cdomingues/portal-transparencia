@@ -135,6 +135,12 @@ function Screen({
               >
                 {/* Select para Filtrar por Ano */}
                 <Select
+                border={`1px solid ${colors.transparenciaBlack}`}
+                                      _focus={{
+                                        borderColor: colors.transparenciaBlack, // nova cor da borda ao focar
+                                        boxShadow:'none',
+                                        //backgroundColor: colors.primaryDefault40p // cor de fundo ao focar (exemplo)
+                                      }}
                   value={selectedYear}
                   onChange={(e) => setSelectedYear(Number(e.target.value))}
                   placeholder="Todos os anos"
@@ -155,7 +161,7 @@ function Screen({
       cursor="pointer"
       fontSize="20px"
       textColor="white"
-      bgColor={colors.primaryDefault40p}
+      bgColor={colors.transparenciaBlack}
   _hover={{ bgColor: colors.primaryDefault80p }}
       height="40px"
       borderRadius="8px"
@@ -183,7 +189,8 @@ function Screen({
     </Button>
     
     <Button width='180px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
-        bgColor={colors.primaryDefault40p}
+    
+        bgColor={colors.transparenciaBlack}
         _hover={{ bgColor: colors.primaryDefault80p }} // Cor de fundo ao passar o mouse
         
         height='40px' borderRadius='8px' mr='15px'onClick={() => exportToJSON(sortedPaginatedContratos)}
@@ -209,7 +216,12 @@ function Screen({
               pr="40px" // Adiciona espaço para o ícone à direita
               width="40%"
               mb="10px"
-              
+              border={`1px solid ${colors.transparenciaBlack}`}
+                      _focus={{
+                        borderColor: colors.transparenciaBlack, // nova cor da borda ao focar
+                        boxShadow:'none',
+                        //backgroundColor: colors.primaryDefault40p // cor de fundo ao focar (exemplo)
+                      }}
             />
     
             {sortedPaginatedContratos.map((row) => (
@@ -226,7 +238,7 @@ function Screen({
                        _hover={{
                          boxShadow: "xl",
                          transform: "scale(1.01)",
-                         border: `2px solid ${colors.primaryDefault40p}`,
+                         border: `2px solid ${colors.transparenciaBlack}`,
                        }}
                        onClick={() => window.open( `detalhes?${row.id_contrato}`, '_blank')}
                      >
@@ -235,7 +247,7 @@ function Screen({
                             fontWeight="bold" 
                             fontSize="lg"
                             //color={colors.primaryDefault80p}
-                            borderBottom={`2px solid ${colors.primaryDefault40p}`}
+                            borderBottom={`2px solid ${colors.transparenciaBlack}`}
                             pb="5px" 
                             mb="8px"
                           >

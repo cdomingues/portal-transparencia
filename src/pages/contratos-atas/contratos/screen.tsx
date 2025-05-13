@@ -18,6 +18,8 @@ import PaginationComponent from "../../../components/PaginationComponent";
 import colors from "../../../styles/colors";
 import CsvDownload from "react-json-to-csv";
 import moneyFormatter from "../../../utils/moneyFormatter";
+import moment from "moment";
+
 
 
 type PropsInput = {
@@ -55,6 +57,7 @@ function Screen({
 
   const ITEMS_PER_PAGE = 50;
   
+  
 
   // Filtra os contratos com base no ano selecionado
   const filteredContratos = data.filter((item) => {
@@ -67,6 +70,11 @@ function Screen({
     item.descricao.toLowerCase().includes(searchTerm.toLowerCase()) ||
     item.fornecedor.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const formatDate = (isoString: any) => {
+  const [year, month, day] = isoString.split("T")[0].split("-");
+  return `${day}/${month}/${year}`;
+};
 
   const paginatedContratos = filteredContratos.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
@@ -150,7 +158,7 @@ function Screen({
               height="40px"
               mb="10px"
               width='180px'
-              border={`1px solid ${colors.primaryDefault40p}`}
+              border={`1px solid ${colors.transparenciaBlack}`}
               _focus={{
                 borderColor: colors.primaryDefault40p, // nova cor da borda ao focar
                 boxShadow:'none',
@@ -169,7 +177,7 @@ function Screen({
   cursor="pointer"
   fontSize="20px"
   textColor="white"
-  bgColor={colors.primaryDefault40p}
+  bgColor={colors.transparenciaBlack}
   _hover={{ bgColor: colors.primaryDefault80p }}
   height="40px"
   borderRadius="8px"
@@ -197,7 +205,7 @@ function Screen({
 </Button>
 
 <Button width='180px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
-    bgColor={colors.primaryDefault40p}
+    bgColor={colors.transparenciaBlack}
     _hover={{ bgColor: colors.primaryDefault80p }}
     
     height='40px' borderRadius='8px' mr='15px'
@@ -242,7 +250,7 @@ function Screen({
           _hover={{
             boxShadow: "xl",
             transform: "scale(1.01)",
-            border: `2px solid ${colors.primaryDefault40p}`,
+            border: `2px solid ${colors.transparenciaBlack}`,
           }}
           onClick={() => window.open( `detalhes?${row.id_contrato}`, '_blank')}
          
@@ -250,8 +258,8 @@ function Screen({
           <Text 
             fontWeight="bold" 
             fontSize="lg"
-            color={colors.primaryDefault40p}
-            borderBottom={`2px solid ${colors.primaryDefault40p}`}
+            color={colors.transparenciaBlack}
+            borderBottom={`2px solid ${colors.transparenciaBlack}`}
             pb="5px" 
             mb="8px"
           >
@@ -261,7 +269,9 @@ function Screen({
             <strong>Empresa contratada:</strong> {row.fornecedor}
           </Text>
           <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
-            <strong>Data Início:</strong> {row.data_inicio} - <strong>Data Fim:</strong> {row.data_termino}
+            <strong>Data Início:</strong> {row.data_inicio}  {console.log("Tipo de data_inicio:", typeof row.data_inicio, row.data_inicio) }
+            
+            <strong> Data Fim:</strong>    {row.data_termino}
           </Text>
           <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
             <strong>Descrição:</strong> {row.descricao}

@@ -220,7 +220,7 @@ const Despesas = () => {
             width="180px"
             fontSize="16px"
             textColor="white"
-            bgColor={colors.primaryDefault40p}
+            bgColor={colors.transparenciaBlack}
             _hover={{ bgColor: colors.primaryDefault80p }}
             height="40px"
             borderRadius="8px"
@@ -247,7 +247,7 @@ const Despesas = () => {
             width="180px"
             fontSize="16px"
             textColor="white"
-            bgColor={colors.primaryDefault40p}
+            bgColor={colors.transparenciaBlack}
             _hover={{ bgColor: colors.primaryDefault80p }}
             height="40px"
             borderRadius="8px"
@@ -275,14 +275,14 @@ const Despesas = () => {
               _hover={{
                 boxShadow: 'xl',
                 transform: 'scale(1.01)',
-                border: `2px solid ${colors.primaryDefault40p}`,
+                border: `2px solid ${colors.transparenciaBlack}`,
               }}
               onClick={() => {
                 sessionStorage.setItem('selectedDespesa', JSON.stringify(item));
                 window.open(`detalhes?${item.id_empenho} - ${item.exercicio_empenho}`, '_blank');
               }}
             >
-              <Text fontWeight="bold" fontSize="lg" color={colors.primaryDefault40p} borderBottom={`2px solid ${colors.primaryDefault40p}`} pb="5px" mb="8px">
+              <Text fontWeight="bold" fontSize="lg" color={colors.transparenciaBlack} borderBottom={`2px solid ${colors.transparenciaBlack}`} pb="5px" mb="8px">
                 Empenho: {item.nr_empenho} / {item.exercicio_empenho}
               </Text>
               <Text><strong>Fornecedor:</strong> {item.descr_fornecedor}</Text>
@@ -297,7 +297,7 @@ const Despesas = () => {
       {!searchTerm && (
         <Box display="flex" justifyContent="space-around" alignItems="center" paddingBottom="10px" width="80%" mt="20px">
           <Button
-            border="1px solid #393D6F"
+            border={`1px solid ${colors.transparenciaBlack}`}
             width="150px"
             onClick={() => setPagina((p) => Math.max(p - 1, 1))}
             disabled={pagina === 1}
@@ -306,7 +306,7 @@ const Despesas = () => {
           </Button>
           <span>Página {pagina} de {totalPaginas}</span>
           <Button
-            border="1px solid #393D6F"
+             border={`1px solid ${colors.transparenciaBlack}`}
             width="150px"
             onClick={() => setPagina((p) => Math.min(p + 1, totalPaginas))}
             disabled={pagina === totalPaginas}

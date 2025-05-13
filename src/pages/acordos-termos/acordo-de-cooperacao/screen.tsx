@@ -99,6 +99,12 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
           >
             {/* Select para Filtrar por Ano */}
             <Select
+            border={`1px solid ${colors.transparenciaBlack}`}
+                      _focus={{
+                        borderColor: colors.transparenciaBlack, // nova cor da borda ao focar
+                        boxShadow:'none',
+                        //backgroundColor: colors.primaryDefault40p // cor de fundo ao focar (exemplo)
+                      }}
               value={selectedYear}
               onChange={(e) => setSelectedYear(Number(e.target.value))}
               placeholder="Todos os anos"
@@ -119,7 +125,7 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
   cursor="pointer"
   fontSize="20px"
   textColor="white"
-  bgColor={colors.primaryDefault40p}
+  bgColor={colors.transparenciaBlack}
   _hover={{ bgColor: colors.primaryDefault80p }}
   height="40px"
   borderRadius="8px"
@@ -147,7 +153,7 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
 </Button>
 
 <Button width='180px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
-    bgColor={colors.primaryDefault40p} 
+    bgColor={colors.transparenciaBlack} 
     _hover={{
       bgColor: colors.primaryDefault80p,  // Cor de fundo ao passar o mouse
     }}
@@ -155,7 +161,17 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
     boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
     
     >JSON</Button>
-   <Input
+  
+
+
+          </Stack>
+           <Input
+           border={`1px solid ${colors.transparenciaBlack}`}
+                                 _focus={{
+                                   borderColor: colors.transparenciaBlack, // nova cor da borda ao focar
+                                   boxShadow:'none',
+                                   //backgroundColor: colors.primaryDefault40p // cor de fundo ao focar (exemplo)
+                                 }}
              type="text"
              placeholder="Pesquisar ..."
              value={searchTerm}
@@ -167,9 +183,6 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
              mb="10px"
              
            />
-
-
-          </Stack>
           <Stack minW={50} justifyContent="flex-end" className="button-search"></Stack>
         </ContainerSearch>
         {paginatedContratos
@@ -192,7 +205,7 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
           _hover={{
             boxShadow: "xl",
             transform: "scale(1.01)",
-            border: `2px solid ${colors.primaryDefault40p}`,
+            border: `2px solid ${colors.transparenciaBlack}`,
           }}
           onClick={() => {
             // Armazenando os dados da despesa no sessionStorage
@@ -209,8 +222,8 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
           <Text 
             fontWeight="bold" 
             fontSize="lg"
-            color={colors.primaryDefault40p}
-            borderBottom={`2px solid ${colors.primaryDefault80p}` }
+            color={colors.transparenciaBlack}
+            borderBottom={`2px solid ${colors.transparenciaBlack}` }
             pb="5px" 
             mb="8px"
           >

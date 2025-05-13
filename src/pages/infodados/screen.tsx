@@ -51,8 +51,8 @@ function Screen({ handler }: PropsInput) {
         <AccordionIcon />
       </AccordionButton>
     </h2>
-    <AccordionPanel m={4} p={8} bg={"white"} borderRadius={4}>
-      <Accordion allowToggle>
+    <AccordionPanel m={4} p={8} borderRadius={4}>
+      <Accordion allowToggle  borderRadius={4}>
         {[
           {
             title: "Censo demográfico 2022 - Indicadores populacionais",
@@ -74,7 +74,7 @@ function Screen({ handler }: PropsInput) {
           <AccordionItem key={index}>
             <h2>
               <AccordionButton>
-                <Box as="span" flex='1' textAlign='left' fontWeight='bold'>
+                <Box as="span" flex='1' textAlign='left' fontWeight='bold'  fontSize={accessibility?.fonts?.regular}>
                   {item.title}
                 </Box>
                 <AccordionIcon />

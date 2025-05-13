@@ -83,15 +83,20 @@ function CardHomeTabs() {
 
               <AccordionPanel px={4} pb={4} position="absolute"
                       left="0"
-                      width="94.2vw" // ou um valor maior que o container
-                      bg="white"
+                      width="95%" // ou um valor maior que o container
+                      bg={useColorModeValue('white', "gray.700")}
                       zIndex={10}
                       boxShadow="xl"
                       border="2px solid"
                       borderColor={colors.transparenciaRed}
                       ml="48px"
+                      
                       borderRadius="md"
                       mt='-2'
+                      sx={{
+  ml: { base: '29px', md: '48px' },      // 29px no mobile, 48px no md+ 
+  width: { base: '85.5%', md: '95%' }    // 85.5% no mobile, 95% no md+
+}}
                       >
                 <VStack spacing={3} align="stretch">
                 <Grid
@@ -115,7 +120,7 @@ function CardHomeTabs() {
                         key={submenu.id_submenu}
                         p={3}
                         borderRadius="lg"
-                        _hover={{ bg: "gray.100" }}
+                      //  _hover={{ bg: "yellow" }}
                       >
                         {hasExtraLinks ? (
                           <Accordion allowToggle>
@@ -124,7 +129,7 @@ function CardHomeTabs() {
                                 <AccordionButton
                                   px={0}
                                   _hover={{ bg: "gray.100", color: "black" }}
-                                  _expanded={{ bg: "gray.100", color: "black" }}
+                                  _expanded={{ bg: "gray.100", color:  "black" }}
                                   borderRadius="md"
                                 >
                                   <Box
@@ -154,6 +159,7 @@ function CardHomeTabs() {
                                         target={isExternalLink ? "_blank" : "_self"}
                                         rel={isExternalLink ? "noopener noreferrer" : undefined}
                                         style={{ width: "100%" }}
+                                        color="yellow"
                                       >
                                         <Text fontSize="sm" fontWeight="bold">
                                           {link.label}

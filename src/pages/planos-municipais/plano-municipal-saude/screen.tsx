@@ -7,6 +7,7 @@ import { isMobile } from "react-device-detect";
 import { AiOutlineDownload } from "react-icons/ai";
 import HTMLReactParser from "html-react-parser";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
+import colors from "../../../styles/colors";
 
 
 
@@ -49,6 +50,8 @@ function Screen() {
           bg={useColorModeValue("white", "gray.800")}
           onChange={ev => setPublicacao(ev.target.value)}
           mb={4}
+          border={`1px solid ${useColorModeValue(colors.transparenciaBlack, "gray.600")}`}
+          _focus={`1px solid ${useColorModeValue(colors.transparenciaBlack, "gray.600")}`}
         >
           <option value="">Selecione</option>
           {publicacoes_saude.map((info) => (

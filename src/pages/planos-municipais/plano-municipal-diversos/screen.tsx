@@ -219,8 +219,8 @@ function Screen({
                     cursor="pointer"
                     fontSize="20px"
                     textColor="white"
-                    bgColor="#1c3c6e"
-                    _hover={{ bgColor: "#1c3c6e" }}
+                    bgColor={colors.transparenciaBlack}
+                    _hover={{ bgColor: colors.primaryDefault80p }}
                     height="40px"
                     borderRadius="8px"
                     mr="15px"
@@ -251,8 +251,8 @@ function Screen({
                     cursor="pointer"
                     fontSize="20px"
                     textColor="white"
-                    bgColor="#1c3c6e"
-                    _hover={{ bgColor: "#1c3c6e" }}
+                     bgColor={colors.transparenciaBlack}
+                    _hover={{ bgColor: colors.primaryDefault80p }}
                     height="40px"
                     borderRadius="8px"
                     mr="15px"
@@ -264,11 +264,11 @@ function Screen({
 
                   <Table mt='10px'>
   <Thead >
-    <Tr  bg={colors.primaryDefault40p}
+    <Tr  bg={colors.transparenciaBlack}
       color="white"
       p={4}
       fontWeight="bold"
-      border={`1px solid ${colors.primaryDefault40p}`}>
+      border={`1px solid ${colors.transparenciaBlack}`}>
       <Th color="white">Sigla da área gestora</Th>
       <Th color="white">Plano Municipal</Th>
       <Th color="white">Link</Th>

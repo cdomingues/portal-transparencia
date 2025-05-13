@@ -279,7 +279,7 @@ function Screen({
                 disabled={loading}
                 onClick={() => handlePayroll()}
                 _hover={{ bg: "gray.500", color: "white" }}
-                bg={colors.primaryDefault40p}
+                bg={colors.transparenciaBlack}
                 color="white"
                 fontSize="small"
               >

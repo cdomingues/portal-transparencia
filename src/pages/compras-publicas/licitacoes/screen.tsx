@@ -121,9 +121,9 @@ function Screen() {
         <Text fontWeight='bold' pl='10px' mb='15px'>Para busca de licitações  selecione o ano especificio ou a opção 'Todos os anos' e selecione po tipo de licitação, o órgão ou a situação. Caso prefira escolha o ano e pesquise pelo número  ou a descrição da licitação </Text>
                
       <Stack direction={{ base: "column", md: "row" }} spacing={4} mb={4}>
-        <Select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)}  width="200px"   border={`1px solid ${colors.primaryDefault40p}`}
+        <Select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)}  width="200px"   border={`1px solid ${colors.transparenciaBlack}`}
                       _focus={{
-                        borderColor: colors.primaryDefault40p, // nova cor da borda ao focar
+                        borderColor: colors.transparenciaBlack, // nova cor da borda ao focar
                         boxShadow:'none',
                         //backgroundColor: colors.primaryDefault40p // cor de fundo ao focar (exemplo)
                       }}>
@@ -140,9 +140,9 @@ function Screen() {
           placeholder="Tipo Licitação"
           value={selectedLicitacao}
           onChange={(e) => setSelectedLicitacao(e.target.value)}
-            border={`1px solid ${colors.primaryDefault40p}`}
+            border={`1px solid ${colors.transparenciaBlack}`}
             _focus={{
-              borderColor: colors.primaryDefault40p, // nova cor da borda ao focar
+              borderColor: colors.transparenciaBlack, // nova cor da borda ao focar
               boxShadow:'none',
               //backgroundColor: colors.primaryDefault40p // cor de fundo ao focar (exemplo)
             }}
@@ -164,9 +164,9 @@ function Screen() {
           value={selectedGestora}
           onChange={(e) => setSelectedGestora(e.target.value)}
            width="200px"
-             border={`1px solid ${colors.primaryDefault40p}`}
+             border={`1px solid ${colors.transparenciaBlack}`}
             _focus={{
-            borderColor: colors.primaryDefault40p, // nova cor da borda ao focar
+            borderColor: colors.transparenciaBlack, // nova cor da borda ao focar
             boxShadow:'none',
             //backgroundColor: colors.primaryDefault40p // cor de fundo ao focar (exemplo)
             }}
@@ -181,9 +181,9 @@ function Screen() {
           value={selectedSituacao}
           onChange={(e) => setSelectedSituacao(e.target.value)}
            width="200px"
-           border={`1px solid ${colors.primaryDefault40p}`}
+           border={`1px solid ${colors.transparenciaBlack}`}
            _focus={{
-           borderColor: colors.primaryDefault40p, // nova cor da borda ao focar
+           borderColor: colors.transparenciaBlack, // nova cor da borda ao focar
            boxShadow:'none',
            //backgroundColor: colors.primaryDefault40p // cor de fundo ao focar (exemplo)
            }}
@@ -201,7 +201,7 @@ function Screen() {
           width="180px"
           fontSize="20px"
           textColor="white"
-          bgColor={colors.primaryDefault40p}
+          bgColor={colors.transparenciaBlack}
           _hover={{ bgColor: colors.primaryDefault80p }}
           height="40px"
           borderRadius="8px"
@@ -217,7 +217,7 @@ function Screen() {
           width="180px"
           fontSize="20px"
           textColor="white"
-          bgColor={colors.primaryDefault40p}
+          bgColor={colors.transparenciaBlack}
           _hover={{ bgColor: colors.primaryDefault80p }}
           height="40px"
           borderRadius="8px"
@@ -245,7 +245,7 @@ function Screen() {
           width="180px"
           fontSize="20px"
           textColor="white"
-          bgColor={colors.primaryDefault40p}
+          bgColor={colors.transparenciaBlack}
           _hover={{ bgColor: colors.primaryDefault80p }}
           height="40px"
           borderRadius="8px"
@@ -266,9 +266,9 @@ function Screen() {
         height="40px"
         width="100%"
         my="10px"
-        border={`1px solid ${colors.primaryDefault40p}`}
+        border={`1px solid ${colors.transparenciaBlack}`}
         _focus={{
-        borderColor: colors.primaryDefault40p, // nova cor da borda ao focar
+        borderColor: colors.transparenciaBlack, // nova cor da borda ao focar
         boxShadow:'none',
         //backgroundColor: colors.primaryDefault40p // cor de fundo ao focar (exemplo)
         }}
@@ -290,15 +290,15 @@ function Screen() {
             _hover={{
               boxShadow: "xl",
               transform: "scale(1.01)",
-              border: `2px solid ${colors.primaryDefault40p}`,
+              border: `2px solid ${colors.transparenciaBlack}`,
             }}
             cursor="pointer"
           >
             <Text
               fontWeight="bold"
               fontSize="lg"
-              color={colors.primaryDefault40p}
-              borderBottom={`2px solid ${colors.primaryDefault40p}`}
+              color={colors.transparenciaBlack}
+              borderBottom={`2px solid ${colors.transparenciaBlack}`}
               pb="5px"
               mb="8px"
             >

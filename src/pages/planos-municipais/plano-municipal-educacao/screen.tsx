@@ -10,6 +10,7 @@ import { isMobile } from "react-device-detect";
 import HTMLReactParser from 'html-react-parser'
 import { select } from "d3";
 import { AiOutlineDownload } from "react-icons/ai";
+import colors from "../../../styles/colors";
 
 
 const publicacoes_educacao = [  
@@ -209,6 +210,8 @@ function Screen(PropsInput: any) {
       bg={useColorModeValue("white", "gray.800")  }     
       onChange={ev => setPublicacao(ev.target.value  )}  
       mb={4}   
+      border={`1px solid ${useColorModeValue(colors.transparenciaBlack, "gray.600")}`}
+          _focus={`1px solid ${useColorModeValue(colors.transparenciaBlack, "gray.600")}`}
       >
         <option value="">Selecione</option>
       {publicacoes_educacao.map((info)=>(

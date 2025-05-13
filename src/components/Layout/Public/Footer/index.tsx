@@ -10,11 +10,19 @@ import {
   useColorModeValue,
   Image,
   useColorMode,
+  Divider,
 } from "@chakra-ui/react";
 import logo from "../../../../assets/images/Brasao_horizontal_normal.png";
 import logoDark from "../../../../assets/images/Brasao_horizontal_branco.png";
-
 import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAccessibility";
+import seloTansparencia2022 from "../../../../assets/images/selo_ouro (1).png"
+import seloTansparencia2023 from "../../../../assets/images/selo_transparencia_ouro-2023.png"
+import seloTansparencia2024 from "../../../../assets/images/selo_transparencia_ouro-2024.png"
+import pnpc from "../../../../assets/images/logo-PNPC.png"
+import ccomon from '../../../../assets/images/creative_commons.png'
+import radar_transparencia from '../../../../assets/images/RadardaTransparnciapublica.png'
+import colors from "../../../../styles/colors";
+//import PageViewCounter from "../../../PageView";
 
 function ListHeader({ children }: { children: ReactNode }) {
   const accessibility = useFontSizeAccessibilityContext();
@@ -36,57 +44,98 @@ export default function LargeWithLogoCentered() {
     >
       <Container
         as={Stack}
-        maxW="6xl"
-        py={10}
+        maxW="7xl"
+        py={5}
         borderTop="1px"
         borderTopColor={useColorModeValue("gray.200", "gray.700")}
         fontSize={accessibility?.fonts?.regular}
         
       >
-        <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
-          <Stack align="flex-start"></Stack>
+         <Flex
+          align="center"
+          mt="20px"
+          height='250px'
+          _before={{
+            content: '""',
+            borderBottom: "1px solid",
+            borderColor: useColorModeValue("white", "gray.700"),
+            flexGrow: 1,
+            mr: 10,
+            gap:"10px",
+          }}
+          _after={{
+            content: '""',
+            borderBottom: "1px solid",
+            borderColor: useColorModeValue("white", "gray.700"),
+            flexGrow: 1,
+            ml: 8,
+          }}
+          sx={{
+            display: "flex",
+            flexDirection: ["column", "row"], // 'column' em mobile, 'row' em telas maiores
+            gap: ["20px", "0px"], 
+
+          }}
+        >
+           <Image alt="logo" width='180px' pr='30px' src={ccomon.src} border='1px solid lightgrey' p='20px' mr='10px' borderRadius='12px' bgColor='white'/>
+          <Link href="https://radardatransparencia.atricon.org.br/radar-da-transparencia-publica.html" target="blank">
+          <Image alt="logo" width='260px' pr='30px' src={radar_transparencia.src} borderRadius='12px' 
+          border='1px solid lightgrey' mr="10px"/>
+          </Link>          
+         
+          <Image alt="logo" width="160px" pr="30px" src={seloTansparencia2022.src}/>
+        <Image alt="logo" width="160px" pr="30px"  src={seloTansparencia2023.src} />
+        <Image alt="logo" width="160px" pr="30px"  src={seloTansparencia2024.src} />
+        <Image alt="logo" width="160px" pr="30px" src={pnpc.src} />
+        
+        </Flex>
+        <Divider />
+        
+      </Container>
+      <Box py={10} bgColor={colors.transparenciaBlack} color={colors.white}>
+      <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={10} mx='50px'>
+        <Stack align="flex-start" > 
+          <ListHeader>Canais Oficiais</ListHeader>
+          <p>Siga-nos nas redes sociais</p>
+          <Box display='flex' flexDirection='row' gap={2}>
+             
+                <a href="https://www.facebook.com/prefeituramogi" target="_blank">
+                  <img src="https://www.mogidascruzes.sp.gov.br/public/site/img/rod-face.png" alt="Facebook"/>
+                </a>
+              
+
+              
+                <a href="https://www.instagram.com/prefeituramogi/" target="_blank">
+                  <img src="https://www.mogidascruzes.sp.gov.br/public/site/img/icone_instagram_26.png" alt="Instagram"/>
+                </a>
+             
+
+             
+                <a href="https://twitter.com/PrefeituraMogi" target="_blank">
+                  <img src="https://www.mogidascruzes.sp.gov.br/public/site/img/rod-twitter.png" alt="Twitter"/>
+                </a>
+              
+
+             
+                <a href="https://www.youtube.com/user/PrefeituraMogi" target="_blank">
+                  <img src="https://www.mogidascruzes.sp.gov.br/public/site/img/rod-youtube.png" alt="YouTube"/>
+                </a>
+                </Box>
+
+
+        </Stack>
+
+        
+         
           <Stack align="flex-start">
-            <ListHeader>Prefeitura</ListHeader>
-            <Link
-              target="_blank"
-              href="https://www.mogidascruzes.sp.gov.br/servicos/todos-os-assuntos"
-            >
-              Carta de Serviços
-            </Link>
-            <Link
-              target="_blank"
-              href="https://www.mogidascruzes.sp.gov.br/noticias"
-            >
-              Arquivo de Notícias
-            </Link>
-            <Link
-              target="_blank"
-              href="https://www.mogidascruzes.sp.gov.br/unidades-e-equipamentos"
-            >
-              Mapa de Unidades
-            </Link>
-            <Link
-              target="_blank"
-              href="https://www.mogidascruzes.sp.gov.br/agenda-da-cidade/atracoes"
-            >
-              Agenda da Cidade
-            </Link>
-            <Link
-              target="_blank"
-              href="https://www.mogidascruzes.sp.gov.br/pontos-turisticos"
-            >
-              Pontos Turísticos
-            </Link>
-          </Stack>
-          <Stack align="flex-start">
-            <ListHeader>Endereços</ListHeader>
+            <ListHeader>Endereço</ListHeader>
+            <Text>  Prefeitura de Mogi das Cruzes</Text>
             <Text>
-              Prédio I - Av. Ver. Narciso Yague Guimarães, 277 - Centro Cívico -
+          
+              Av. Ver. Narciso Yague Guimarães, 277  Centro Cívico -
               08780-900
             </Text>
-            <Text>
-              Prédio II - Rua Francisco Franco, 133 - Centro - 08710-911
-            </Text>
+           
           </Stack>
           <Stack align="flex-start">
             <ListHeader>Fale Conosco</ListHeader>
@@ -97,41 +146,16 @@ export default function LargeWithLogoCentered() {
             <Text>Semae: 115</Text>
             <Text>Saúde: 160</Text>
             <Text>Guarda Municipal: 153</Text>
-            <Link
-              target="_blank"
-              href="https://radar.tce.mt.gov.br/extensions/radar-da-transparencia-publica/radar-da-transparencia-publica.html"
-            >
-              Radar da Transparência Pública
-            </Link>
+           
             
           </Stack>
         </SimpleGrid>
-      </Container>
-      <Box py={10}>
-        <Flex
-          align="center"
-          _before={{
-            content: '""',
-            borderBottom: "1px solid",
-            borderColor: useColorModeValue("gray.200", "gray.700"),
-            flexGrow: 1,
-            mr: 8,
-          }}
-          _after={{
-            content: '""',
-            borderBottom: "1px solid",
-            borderColor: useColorModeValue("gray.200", "gray.700"),
-            flexGrow: 1,
-            ml: 8,
-          }}
-        >
 
-
-          <Image alt="logo" width="250px"  src={colorMode === "dark" ? logoDark.src : logo.src} />
-        </Flex>
         <Text pt={6} fontSize="sm" textAlign="center">
           © {new Date().getFullYear()} PMMC. Todos os direitos reservados
-        </Text>
+        </Text> 
+       
+       
       </Box>
     </Box>
   );

@@ -46,6 +46,7 @@ import { rgb } from "d3";
 import Brasao_PMMC_Normal from '../../../../assets/images/Brasao_horizontal_normal.png';
 import Brasao_PMMC_white from '../../../../assets/images/Brasao_horizontal_branco.png';
 import Image from 'next/image';
+import colors from "../../../../styles/colors";
 
 export default function Header() {
   const [search, setSearch] = useState("");
@@ -405,44 +406,45 @@ const findPages = (searchString: string): IPublicRoute[] => {
 const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   const hasHref = href ? { href } : {};
   const accessibility = useFontSizeAccessibilityContext();
-  return (
-    <>
-    
-    <Link
-      {...hasHref}
-      role={"group"}
-      display={"block"}
-      p={2}
-      rounded={"md"}
-      target={href ? "_blank" : undefined}
-      _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
-      
-    >
-      <Stack direction={"row"} align={"center"}>
-        <Box>
-          <Text
+  return(
+      <Link
+        {...hasHref}
+        role={"group"}
+        display={"block"}
+        p={2}
+        rounded={"md"}
+        target={href ? "_blank" : undefined}
+        _hover={{ bg: useColorModeValue(colors.transparenciaCinza, "gray.900") }}
+      >
+        <Stack direction={"row"} align={"center"}>
+          <Box>
+            <Text
+              transition={"all .3s ease"}
+              _groupHover={{ color: useColorModeValue(colors.transparenciaBlack, "white") }}
+              fontWeight={500}
+              fontSize={accessibility?.fonts?.small}
+            >
+              {label}
+            </Text>
+            <Text fontSize={accessibility?.fonts?.small}>{subLabel}</Text>
+          </Box>
+          <Flex
             transition={"all .3s ease"}
-            _groupHover={{ color: useColorModeValue("pink.400", "white") }}
-            fontWeight={500}
-            fontSize={accessibility?.fonts?.small}
+            transform={"translateX(-10px)"}
+            opacity={0}
+            _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
+            justify={"flex-end"}
+            align={"center"}
+            flex={1}
           >
-            {label}
-          </Text>
-          <Text fontSize={accessibility?.fonts?.small}>{subLabel}</Text>
-        </Box>
-        <Flex
-          transition={"all .3s ease"}
-          transform={"translateX(-10px)"}
-          opacity={0}
-          _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
-          justify={"flex-end"}
-          align={"center"}
-          flex={1}
-        >
-         
-        </Flex>
-      </Stack>
-    </Link>
-    </>
-  );
+            <Icon
+              color={useColorModeValue("pink.400", "white")}
+              w={5}
+              h={5}
+              as={BiChevronRight}
+            />
+          </Flex>
+        </Stack>
+      </Link>
+    );
 };
