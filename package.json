@@ -73,7 +73,7 @@
     "@types/mime-types": "^2.1.1",
     "@types/node": "22.10.5",
     "@types/react": "19.0.4",
-    "@types/react-dom": "18.0.6",
+    "@types/react-dom": "^19.0.0",
     "@types/react-gtm-module": "^2.0.1",
     "@types/react-json-to-csv": "^1.2.4",
     "@types/react-table": "^7.7.12",
