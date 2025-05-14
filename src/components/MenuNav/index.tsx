@@ -138,7 +138,7 @@ const MenuHorizontalChakra = () => {
           submenu: [
             { label: "Contratos",href: "/contratos-atas/contratos", },
             {label: "Contratos de gestão",href: "/contratos-atas/contratos-gestao", },
-           
+           { label: "Atas de registro de preços",  href: "/contratos-atas/atas"   },
             {label: "Relação dos Gestores de contratos encerrados",href: "/contratos-atas/relacao-fiscais-encerrados", },
             {label: "Relação dos Gestores de contratos vigentes",href: "/contratos-atas/relacao-fiscais-vigentes", },
            
@@ -147,7 +147,7 @@ const MenuHorizontalChakra = () => {
             submenu: [
               { label: "Licitações", href: "/compras-publicas/licitacoes" }, 
                {label: "Cadastro de Fornecedor",href: "https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/cadastro-de-fornecedor", },
-               { label: "Portal Nacional de Contratações Públicas",href: "https://pncp.gov.br/app/editais?q=&status=recebendo_proposta&pagina=1", }, {label: "Atas de registro de preços",href: "/contratos-atas/atas", },
+               { label: "Portal Nacional de Contratações Públicas",href: "https://pncp.gov.br/app/editais?q=&status=recebendo_proposta&pagina=1", }, 
              
             ] },
             { label: 'Acordos e termos', href: '#',
