@@ -7,7 +7,7 @@ import IconeSocial from '../../assets/images/icones/lupa.svg'
 import IconePortais from '../../assets/images/icones/portais_home.svg'
 import IconePlanejamento from '../../assets/images/icones/planejamento_home.svg'
 import IconesGovernoAberto from '../../assets/images/icones/governo_aberto_home.svg'
-import IconeContratos from '../../assets/images/icones/3925398-budget-money-stocks-icon_111548.svg'
+import IconeContratos from '../../assets/images/icones/icone_home_contratos.svg'
 import FolhaPagamento from '../../assets/images/icones/folha_de_pagamento.svg'
 import CargosSalarios from '../../assets/images/icones/folha de pagamento__cargos e salarios.svg'
 import Diarias from '../../assets/images/icones/folha de pagamento__adiantamentos e hospedagem.svg'
@@ -132,7 +132,7 @@ export const menus=[
             "link":"",
             "extralinks": [
                // { label: "Benefícios Fiscais", url: "/beneficios-fiscais" },
-                { label: "Desonerações e Renúncias", url: "/beneficios-fiscais/desoneracoes-renuncias" },
+                { label: "Desonerações e Renúncias", url: "/beneficios-fiscais/desoneracoes_renuncias" },
                 { label: "PROMAE", url: "/beneficios-fiscais/promae" },
                 { label: "Lic e Lide", url: "/beneficios-fiscais/lic_lide" },
             ]}
@@ -154,7 +154,7 @@ export const menus=[
                 "extralinks": [
                     { label: "Contratos", url: "/contratos-atas/contratos"  },
                     { label: "Contratos de Gestão", url: "/contratos-atas/contratos-gestao"  },
-                   
+                   { label: "Atas de registro de preços",  url: "/contratos-atas/atas"   },
                     { label: "Relação dos Gestores de contratos encerrados",  url: "/contratos-atas/relacao-fiscais-encerrados"  },
                     { label: "Relação dos Gestores de contratos vigentes",  url: "/contratos-atas/relacao-fiscais-vigentes"   },
                 ]
@@ -178,7 +178,7 @@ export const menus=[
                     
                     {label: "Cadastro de Fornecedor",url: "https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/cadastro-de-fornecedor"},
                     { label: "Portal Nacional de Contratações Públicas",url: "https://pncp.gov.br/app/editais?q=&status=recebendo_proposta&pagina=1"},
-                    { label: "Atas de registro de preços",  url: "/contratos-atas/atas"   },
+                    
                 ]}
         ]
       },
@@ -190,7 +190,7 @@ export const menus=[
         "submenus": [
           {
             "id_submenu": 1, 
-            "label": "Pessoal", 
+            "label": "Lei de Acesso à informação", 
             "imageUrl":IconeLeis.src,
             "url":"",
             "extralinks": [
@@ -347,8 +347,8 @@ export const menus=[
                 'imageUrl': Agenda_aberta.src,
                 "url":"",
                 "extralinks": [
-                    {label: "Prefeita - Mara Bertaiolli", url: "/agenda-prefeito",  },
-                    {label: "Vice Prefeito - Teo Cusatis",url: "/agenda-vice-prefeito",},
+                    {label: "Prefeita - Mara Bertaiolli", url: "agenda-aberta/agenda-prefeita",  },
+                    {label: "Vice Prefeito - Teo Cusatis",url: "agenda-aberta/agenda-viceprefeito",},
                 ]
             },
             {   
