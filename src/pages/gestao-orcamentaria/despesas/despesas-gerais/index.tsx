@@ -8,12 +8,14 @@ import {
   Text,
   Stack,
   Input,
-  Spinner,
+  Spinner,Table,
+  Thead, Tr, Th,Td, Tbody
 } from '@chakra-ui/react';
 import ContainerBasic from '../../../../components/Container/Basic';
 import colors from '../../../../styles/colors';
 import CsvDownload from 'react-json-to-csv';
 import moneyFormatter from '../../../../utils/moneyFormatter';
+import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAccessibility";
 
 interface Despesa {
   id: string;
@@ -74,9 +76,13 @@ const Despesas = () => {
   const [totalPaginas, setTotalPaginas] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(false);
-
+  const [registro, setRegistro] = useState<Despesa | null>(null)
   const title = contentContractsAndAtas?.titlePage;
   const description = contentContractsAndAtas?.description;
+   const accessibility = useFontSizeAccessibilityContext();
+
+
+  
 
   const fetchTodasDespesasAno = async () => {
     try {
@@ -179,6 +185,14 @@ const Despesas = () => {
 
   const dadosParaExibir = searchTerm ? despesasFiltradas : despesas;
 
+  const dataMaisAtual = dadosParaExibir.reduce((maisRecente, item) => {
+  const dataItem = new Date(item.updated_at);
+  const dataAtualMaisRecente = new Date(maisRecente.updated_at);
+  return dataItem > dataAtualMaisRecente ? item : maisRecente;
+}, dadosParaExibir[0]);
+
+const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.updated_at).toLocaleDateString('pt-BR') : '';
+
   return (
     <ContainerBasic title={title} description={description}>
       <Box
@@ -190,6 +204,7 @@ const Despesas = () => {
         borderRadius="18px"
         marginBottom="15px"
       >
+         
         <Stack
           minW={86}
           width="100%"
@@ -259,39 +274,49 @@ const Despesas = () => {
         </Stack>
       </Box>
 
-     
-        <ul>
-          {dadosParaExibir.map((item) => (
-            <Box
-              key={item.id}
-              border="2px solid transparent"
-              p="12px"
-              borderRadius="16px"
-              mb="12px"
-              bg={useColorModeValue('white', 'black')}
-              boxShadow="lg"
-              cursor="pointer"
-              transition="0.3s"
-              _hover={{
-                boxShadow: 'xl',
-                transform: 'scale(1.01)',
-                border: `2px solid ${colors.transparenciaBlack}`,
+    
+  <Text fontSize={accessibility?.fonts?.regular}  mb="10px">
+  Última atualização: <strong>{ultimaAtualizacao}</strong>
+</Text>
+          <Table fontSize={accessibility?.fonts?.regular}  >
+                    <Thead> 
+                      <Tr  bg={colors.transparenciaBlack}
+                        color="white"
+                        p={4}
+                        fontWeight="bold"
+                        border={`1px solid ${colors.grayLighter}`}>
+                        <Th color="white">Empenho</Th>
+                        <Th color="white">Fornecedor</Th>
+                        <Th color="white">Valor empenho</Th>
+                        <Th color="white">Unidade Orçamentária</Th>
+                       
+                      </Tr>
+                    </Thead>
+                    <Tbody fontSize='12px'>
+                      
+                      {dadosParaExibir.map((row, index) => (
+                      
+                      <Tr 
+                      key={index} 
+                      bg={index % 2 === 0 ? useColorModeValue("white", "black")  : useColorModeValue("#f7f7f7", "grey.100")} 
+                      _hover={{ bg: "#d1d1d1", cursor: "pointer" , color: useColorModeValue("black", "white") }}
+                      color={useColorModeValue("black", "white")}
+                       onClick={() => {
+                sessionStorage.setItem('selectedDespesa', JSON.stringify(row));
+                window.open(`detalhes?${row.id_empenho}`, '_blank');
               }}
-              onClick={() => {
-                sessionStorage.setItem('selectedDespesa', JSON.stringify(item));
-                window.open(`detalhes?${item.id_empenho} - ${item.exercicio_empenho}`, '_blank');
-              }}
-            >
-              <Text fontWeight="bold" fontSize="lg" color={colors.transparenciaBlack} borderBottom={`2px solid ${colors.transparenciaBlack}`} pb="5px" mb="8px">
-                Empenho: {item.nr_empenho} / {item.exercicio_empenho}
-              </Text>
-              <Text><strong>Fornecedor:</strong> {item.descr_fornecedor}</Text>
-              <Text><strong>Descrição:</strong> {item.descr_funcional}</Text>
-              <Text><strong>Valor empenho:</strong> {moneyFormatter(Number(item.vlr_empenho))}</Text>
-              <Text><strong>Unidade Orçamentária:</strong> {item.unid_orcam}</Text>
-            </Box>
-          ))}
-        </ul>
+                    >
+                          <Td>{row.id_empenho} </Td> 
+                         <Td>{row.descr_fornecedor}</Td>
+                         <Td>{moneyFormatter(Number(row.vlr_empenho))}</Td>
+                          <Td>{row.unid_orcam}</Td>
+                          
+                         
+                          
+                        </Tr>
+                      ))}
+                    </Tbody>
+                  </Table>
      
 
       {!searchTerm && (

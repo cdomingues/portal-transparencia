@@ -1,11 +1,14 @@
 import React from "react";
 import ContainerBasic from "../../../components/Container/Basic";
 import publicRoutes from "../../../routes/public";
-import { Box, Link, Stack, Text, useColorModeValue } from "@chakra-ui/react";
+import { Box, Link, Stack, Text, useColorModeValue,Table, Tbody, Td, Th, Thead, Tr, Button } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { isMobile } from "react-device-detect";
 import { color } from "highcharts";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
+import dados from './secretarios.json'
+import colors from "../../../styles/colors";
+import CsvDownload from "react-json-to-csv";
 
 type PropsInput = {
   handler: {};
@@ -14,19 +17,25 @@ type PropsInput = {
 export const contentMapSite = {
   titlePage: "Estrutura Organizacional",
   description:
-    "Redirecionando para o site http://leismunicipa.is/0ji28 ",
+   <>
+  Para consultar informações detalhadas sobre a estrutura adminstrativa,bem como atribuições funcionais e diretrizes gerais obrigatórias, consulte a <Link href="http://leismunicipa.is/0ji28" ><strong>Lei complementar nº 174 de 6 de janeiro de 2023</strong></Link> .
+   </> ,
 };
 
-function redirecionarParaLinkExterno() {
-  setTimeout(function () {
-    window.location.href = 'http://leismunicipa.is/0ji28'; // Substitua pelo seu link externo
-  }, 50); // 1000 milissegundos = 1 segundo
-}
-
-// Chame a função para iniciar o redirecionamento
-redirecionarParaLinkExterno();
 
 
+const exportToJSON = (data: any) => {
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+    const link = document.createElement("a");
+    const url = URL.createObjectURL(blob);
+
+    link.setAttribute("href", url);
+    link.setAttribute("download", "dados_receitas.json");
+    link.style.visibility = "hidden";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
 function Screen({ handler }: PropsInput) {
   const accessibility = useFontSizeAccessibilityContext();
@@ -48,7 +57,93 @@ function Screen({ handler }: PropsInput) {
         borderRadius="18px"
         marginBottom="15px"
       >
+        <Stack direction={{ base: "column", md: "row" }} spacing={4} alignItems="center" mb='20px'>
+         <Button
+                  width="180px"
+                  border="0"
+                  cursor="pointer"
+                  fontSize="20px"
+                  textColor="white"
+                  bgColor={colors.transparenciaBlack}
+                  _hover={{ bgColor: colors.primaryDefault80p }}
+                  height="40px"
+                  borderRadius="8px"
+                  mr="15px"
+                  transition="background-color 0.3s ease"
+                  boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+                >
+                  <CsvDownload
+                    filename={"dados_secreatarias.csv"}
+                    data={dados}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      background: "none",
+                      border: "none",
+                      color: "white",
+                      fontSize: "20px",
+                      textAlign: "center",
+                      cursor: "pointer",
+                    }}
+                  >
+                    CSV
+                  </CsvDownload>
+                </Button>
         
+                <Button
+                  width="180px"
+                  border="0"
+                  cursor="pointer"
+                  fontSize="20px"
+                  textColor="white"
+                  bgColor={colors.transparenciaBlack}
+                   _hover={{ bgColor: colors.primaryDefault80p }}
+                  height="40px"
+                  borderRadius="8px"
+                  mr="15px"
+                  onClick={() => exportToJSON(dados)}
+                  boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+                >
+                  JSON
+                </Button></Stack>
+        
+        <Table >
+          <Thead>
+            <Tr  bg={colors.transparenciaBlack}
+              color="white"
+              p={4}
+              fontWeight="bold"
+              border={`1px solid ${colors.grayLighter}`}>
+              <Th color="white">Secretaria</Th>
+              <Th color="white">Secretário</Th>
+              <Th color="white">Missão da Secretaria</Th>
+              <Th color="white">Currículo do secretário</Th>
+              <Th color="white">Secreatario Adjunto</Th>
+              <Th color="white">Currículo do secretário adjunto</Th>
+            
+            </Tr>
+          </Thead>
+          <Tbody fontSize='12px'>
+            
+            {dados.map((row, index) => (
+            
+            <Tr 
+            key={index} 
+            bg={index % 2 === 0 ? useColorModeValue("white", "black")  : useColorModeValue("#f7f7f7", "grey.100")} 
+            _hover={{ bg: "#d1d1d1", cursor: "pointer" , color: useColorModeValue("black", "white") }}
+            color={useColorModeValue("black", "white")}
+          >
+              <Td>{row.secretaria} </Td> 
+              <Td>{row.secretario}</Td>
+              <Td>{row.missao_secretaria}</Td>
+              <Td>{row.curriculo_secretario}</Td>
+              <Td>{row.secretario_adjunto}</Td>
+              <Td>{row.curriculo_secretario_adjunto}</Td>
+               
+              </Tr>
+            ))}
+          </Tbody>
+        </Table>
 
 
       </Box>

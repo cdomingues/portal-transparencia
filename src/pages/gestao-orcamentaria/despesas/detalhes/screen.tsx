@@ -407,11 +407,11 @@ function Screen() {
                 {pagamentos.map((pag) => (
                   <Tr key={pag.nr_empenho}>
                   
-                  <Td  border={`1px solid ${colors.primaryDefault40p}`}>{pag.artigo_caixa}</Td>
-                  <Td  border={`1px solid ${colors.primaryDefault40p}`}>{moment(pag.data_mov_pgto).format('DD/MM/yyyy') } </Td>
+                  <Td  border={`1px solid ${colors.transparenciaBlack}`}>{pag.artigo_caixa}</Td>
+                  <Td  border={`1px solid ${colors.transparenciaBlack}`}>{moment(pag.data_mov_pgto).format('DD/MM/yyyy') } </Td>
                 
-                  <Td  border={`1px solid ${colors.primaryDefault40p}`}>{moneyFormatter(parseFloat(pag.valor_pgto))}</Td>
-                  <Td  border={`1px solid ${colors.primaryDefault40p}`}>{moneyFormatter(parseFloat(pag.valor_atual_pgto))}</Td>
+                  <Td  border={`1px solid ${colors.transparenciaBlack}`}>{moneyFormatter(parseFloat(pag.valor_pgto))}</Td>
+                  <Td  border={`1px solid ${colors.transparenciaBlack}`}>{moneyFormatter(parseFloat(pag.valor_atual_pgto))}</Td>
                     
                   </Tr>
                 ))}

@@ -17,10 +17,6 @@ export const contentMapSite = {
     <> Este formato de apresentação de prestação de contas de fácil compreensão, se utiliza de linguagem simples e objetiva e tem como objetivo o entendimento por parte do cidadão de informações da Secretaria de Educação, Secretaria de Saúde e da Secretaria de Assistência Social.<br/>Fruto da Ação nº 2 do Compromisso nº 3 do 1º Plano de Ação em Governo Aberto de Mogi das Cruzes.</>
 };
 
-
-
-
-
 function Screen({ handler }: PropsInput) {
   const accessibility = useFontSizeAccessibilityContext();
   const title = contentMapSite?.titlePage;
