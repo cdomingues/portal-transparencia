@@ -200,20 +200,7 @@ export const menus=[
         'imageURL': IconeLeisDecretos.src, 
         'description': "Leis, decretos e portarias",
         "submenus": [
-          {
-            "id_submenu": 1, 
-            "label": "Lei de Acesso à informação", 
-            "imageUrl":IconeLeis.src,
-            "url":"",
-            "extralinks": [
-                {label: "Solicitar Acesso à Informação",url: "https://mogidascruzes.1doc.com.br/b.php?pg=wp/detalhes&itd=3", },
-                {label: "Relatório de Demandas LAI",url: "https://mogidascruzes.1doc.com.br/b.php?pg=o/transparencia",},
-                { label: "Acompanhe os dados genéricos dos pedidos",url: "https://mogidascruzes.1doc.com.br/b.php?pg=wp/wp&itd=3&ss=5", },
-                {label: "Painel de Acompanhamento da LAI 2023",
-                  },
-                { label: "Painel de Acompanhamento da LAI2024", url: "https://app.powerbi.com/view?r=eyJrIjoiY2RiMWYxZWQtN2NlOS00NTNjLTkyMGEtZmNiOWVhMmYzNTJiIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
-                  },
-            ]},
+         
           {
             "id_submenu": 2, 
             "title": "Leis, Decretos e Portarias", 
