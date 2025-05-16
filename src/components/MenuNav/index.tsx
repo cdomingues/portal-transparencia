@@ -156,6 +156,8 @@ const MenuHorizontalChakra = () => {
                 {label: "Termo de Colaboração",href: "/acordos-termos/termo-de-colaboracao", },
                 { label: "Termo de Fomento", href: "/acordos-termos/termo-de-fomento" },
             ] },
+            {label:'Plano de contratações anual', href:'/compras-publicas/plano-contratacoes-anual',},
+            { label: "Empresas sancionadas administrativamente",href:"/compras-publicas/empresas-sancionadas",},
          ]
     },
    
@@ -166,34 +168,7 @@ const MenuHorizontalChakra = () => {
       submenu: [
         { label: 'Leis e Decretos Municipais', href: 'https://leismunicipais.com.br/prefeitura/sp/mogi-das-cruzes' },
         { label: 'Portarias', href: 'https://ged.mogidascruzes.sp.gov.br/weblink7/Browse.aspx' },
-        { label: 'LAI - Lei de Acesso à Informação', href: '#',
-          submenu: [  
-            {
-              label: "LAI - Lei de Acesso à Informação - Início",
-              href: "/acesso-a-informacao/",
-            },
-            {
-              label: "Solicitar Acesso à Informação",
-              href: "https://mogidascruzes.1doc.com.br/b.php?pg=wp/detalhes&itd=3",
-            },
-            {
-              label: "Relatório de Demandas LAI",
-              href: "https://mogidascruzes.1doc.com.br/b.php?pg=o/transparencia",
-            },
-            {
-              label: "Acompanhe os dados genéricos dos pedidos",
-              href: "https://mogidascruzes.1doc.com.br/b.php?pg=wp/wp&itd=3&ss=5",
-            },
-            {
-              label: "Painel de Acompanhamento da LAI 2023",
-              href: "https://app.powerbi.com/view?r=eyJrIjoiY2ZmODAzZDUtMDE2YS00ZWYzLWJhZGQtMWE4Nzc3OWQyMDgxIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
-            },
-            {
-              label: "Painel de Acompanhamento da LAI2024",
-              href: "https://app.powerbi.com/view?r=eyJrIjoiY2RiMWYxZWQtN2NlOS00NTNjLTkyMGEtZmNiOWVhMmYzNTJiIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
-            },
-          ]
-         }
+        
       ]
     },
     {
@@ -215,7 +190,7 @@ const MenuHorizontalChakra = () => {
       icon: FaBuildingColumns ,
       href: '#',
       submenu: [
-        { label: 'Estrutura Organizacional', href: 'http://leismunicipa.is/0ji28' },
+        { label: 'Estrutura Organizacional', href: '/gestao-de-pessoas/estrutura-organizacional' },
         { label: 'Perfil do município', href: '/perfil-do-municipio' },
         { label: 'Feiras e Mercado Municipal ', href: '/permissionarios' },
         { label: 'Institutos e autarquias', href: '#' ,
@@ -302,7 +277,7 @@ const MenuHorizontalChakra = () => {
       icon: RiGovernmentFill,
       href: '#',
       submenu: [
-        { label: 'LGPD', href: '/leis-decretos-portarias/lgpd' },
+        
         { label: 'Governo aberto', href: '#',
           submenu: [
             { label: 'Governo aberto - Início', href: '/governo-aberto/' },      
@@ -332,6 +307,30 @@ const MenuHorizontalChakra = () => {
         { label: 'Ouvidoria - Colab', href: 'https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab' }, 
         { label: 'Agenda da cidade', href: 'https://www.mogidascruzes.sp.gov.br/agenda-da-cidade/atracoes' }, 
         { label: 'Pontos turísticos', href: 'https://www.mogidascruzes.sp.gov.br/pontos-turisticos/todos-os-assuntos' },
+      ]
+    },
+    {
+      label: 'Lei de acesso à informação',
+      icon: FaLaptopCode,
+      href: '#',
+      submenu: [
+        { label: 'Solicitar Acesso à Informação', href: 'https://mogidascruzes.1doc.com.br/b.php?pg=wp/detalhes&itd=3' },
+        { label: 'Relatório de Demandas LAI', href: 'https://mogidascruzes.1doc.com.br/b.php?pg=o/transparencia' },
+        { label: 'Acompanhe os dados genéricos dos pedidos', href: '"https://mogidascruzes.1doc.com.br/b.php?pg=wp/wp&itd=3&ss=5' },
+        { label: 'Painel de Acompanhamento da LAI 2023', href: 'https://app.powerbi.com/view?r=eyJrIjoiY2ZmODAzZDUtMDE2YS00ZWYzLWJhZGQtMWE4Nzc3OWQyMDgxIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9' },
+        { label: 'Painel de Acompanhamento da LAI 2024', href: 'https://app.powerbi.com/view?r=eyJrIjoiY2RiMWYxZWQtN2NlOS00NTNjLTkyMGEtZmNiOWVhMmYzNTJiIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9' },
+       
+      ]
+    },
+    {
+      label: 'LGPD',
+      icon: FaLaptopCode,
+      href: '#',
+      submenu: [
+        { label: 'LGPD', href: '/leis-decretos-portarias/lgpd' },
+        { label: 'Direitos do titular', href: '/leis-decretos-portarias/direitos_titular' },
+        { label: 'Glossário de Termos Técnicos da LGPD', href: '/leis-decretos-portarias/glossario-lgpd' },
+       
       ]
     },
     {

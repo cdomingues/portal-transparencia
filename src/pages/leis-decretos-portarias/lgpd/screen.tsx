@@ -60,32 +60,7 @@ borderRadius="18px"
 marginBottom="15px"
 >
 
-      <div style={{padding: "10px"}}>
-        <Text
-        fontWeight="500"
-        color={"gray.500"}
-        >Últimas Notícias</Text>
-      </div>
-      {
-            noticias.slice(0,2).map((info)=>{
-             return( 
-             
-              <DisplayNews 
-                 key={info.descricao}
-                 data_noticia={info.data_noticia}
-                 descricao={info.descricao}
-                 foto={info.foto} 
-                 titulo={info.titulo} 
-                 link={info.link}   
-                 
-                
-            />
-             )
-            })
-          }
-          <div style={{ padding: "0px", width:"100%"}} >
-
-</div>
+    
 </Box>
 
     </div>
@@ -116,54 +91,85 @@ overflow="hidden"
 maxWidth="100%"
 borderRadius="18px"
 marginBottom="15px">
+     
       <Text
-                align={isMobile ? "justify" : "left"}
-                fontWeight="700"
-                fontSize={accessibility?.fonts?.regular}
-                paddingTop="5px"
-                
-              >
-                
-                O QUE SÃO DADOS PESSOAIS?:
-                
-                
-              </Text>
-        <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              >De acordo com a Lei Geral de Proteção de Dados (art. 5º, I, LGPD), dados pessoais são definidos como informações que estejam relacionadas a uma pessoa física identificada ou que possa ser identificada. </Text>
+        align={isMobile ? "justify" : "left"}
+        color="gray.500"
+        fontSize={accessibility?.fonts?.regular}
+        >
+        <strong>Controlador:</strong> Prefeitura Municipal de Mogi das Cruzes 
+     </Text>
+     <Text
+        align={isMobile ? "justify" : "left"}
+        color="gray.500"
+        fontSize={accessibility?.fonts?.regular}
+        >
+        <strong>Encarregado de Proteção de Dados Pessoais:</strong> Jamile Santana
+     </Text>
 
-<Text
+      <Text
+        align={isMobile ? "justify" : "left"}
+        color="gray.500"
+        fontSize={accessibility?.fonts?.regular}
+        >
+        <strong>Email:</strong> lgpd@mogidascruzes.sp.gov.br
+     </Text>
+
+      <Text
+        align={isMobile ? "justify" : "left"}
+        color="gray.500"
+        fontSize={accessibility?.fonts?.regular}
+        >
+        <strong>Telefone:</strong> (11) 4798-5159
+     </Text>
+
+      <Text
+        align={isMobile ? "justify" : "left"}
+        color="gray.500"
+        fontSize={accessibility?.fonts?.regular}
+        >
+        <strong>Endereço:</strong> Avenida Narciso Yague Guimarães, 277, Centro Cívico - Mogi das Cruzes 
+Sede da Prefeitura de Mogi das Cruzes - 3º andar 
+
+     </Text>
+
+      <Text
+        align={isMobile ? "justify" : "left"}
+        color="gray.500"
+        fontSize={accessibility?.fonts?.regular}
+        >
+        <strong>Lotação:</strong> Secretaria de Governo e Transparência
+     </Text>
+
+     <Text
+        align={isMobile ? "justify" : "left"}
+        color="gray.500"
+        fontSize={accessibility?.fonts?.regular}
+        >
+        <strong>Ato de designação:</strong> Portaria
+     </Text>
+
+    <Text
                 align={isMobile ? "justify" : "left"}
                 fontWeight="700"
                 fontSize={accessibility?.fonts?.regular}
                 paddingTop="5px"
               >
-                QUEM SÃO OS ENVOLVIDOS COM A LGPD?
-                
-                
+                LEGISLAÇÃO                                                                                          
               </Text>
               <Text
                 align={isMobile ? "justify" : "left"}
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}
               >
-                
-                
+              <Text justifyContent="flex-end">Lei Geral de Proteção de Dados Pessoais (LGPD) <Link href='https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/L13709compilado.htm'><strong>Lei Federal nº 13.709/2018</strong></Link></Text>
+              
+              <Text justifyContent="flex-end">Regulamentação no município de Mogi das Cruzes <Link href='https://www.mogidascruzes.sp.gov.br/public/site/doc/202311171202366557727c94fed.pdf'><strong>Decreto nº 21.295/2022</strong></Link></Text>
 
-                <Text justifyContent="flex-end">Titular: pessoa natural a quem se referem os dados pessoais que são objeto de tratamento </Text>
+               <Text justifyContent="flex-end">Política Municipal e Privacidade e Proteção de Dados Pessoais <Link href='https://leismunicipais.com.br/a/sp/m/mogi-das-cruzes/decreto/2024/2316/23153/decreto-n-23153-2024-institui-a-politica-municipal-de-privacidade-e-protecao-de-dados-pessoais-do-poder-executivo-municipal-em-consonancia-com-o-disposto-na-lei-federal-n-13709-de-14-de-agosto-de-2018-e-da-outras-providencias'><strong> Decreto nº 23.153/2024</strong></Link></Text>
 
-                <Text justifyContent="flex-end">Controlador: no âmbito da administração direta e indireta, a pessoa jurídica de direito público ou privado</Text>
-
-                <Text justifyContent="flex-end"> Operador: pessoa natural ou jurídica, de direito público ou privado, que realiza o tratamento de dados pessoais em nome do controlador </Text>
-
-                <Text justifyContent="flex-end"> Encarregado: pessoa indicada pelo controlador e operador como canal de comunicação entre o controlador, os titulares dos dados e a Autoridade Nacional de Proteção de Dados (ANPD); </Text>
-                <Text justifyContent="flex-end">Agentes de tratamento: o controlador e o operador;  </Text>
-                <Text justifyContent="flex-end">ANPD: Conforme definido pelo art. 5º, XIX, da LGPD, a Autoridade Nacional é o órgão da Administração Pública, responsável por zelar, implementar e fiscalizar o cumprimento da LGPD em todo o território nacional.  </Text>
-                
-                
-                
+               <Text justifyContent="flex-end">Regulamentação das Nomas de Utilização dos Recursos de Informática, Tecnologia e Práticas de Segurança da Informação <Link href='https://leismunicipais.com.br/a/sp/m/mogi-das-cruzes/decreto/2021/2027/20268/decreto-n-20268-2021-dispoe-sobre-normas-para-utilizacao-de-recursos-de-informatica-e-tecnologia-no-ambito-interno-da-administracao-municipal-e-da-outras-providencias?q=20268%2F2021'><strong> Decreto nº 20.268/2021</strong></Link></Text>
+               
               </Text>
               <Text
                 align={isMobile ? "justify" : "left"}
@@ -171,43 +177,39 @@ marginBottom="15px">
                 fontSize={accessibility?.fonts?.regular}
                 paddingTop="5px"
               >
-                REGULAMENTAÇÃO DO MUNICÍPIO  
-                
-                
-              </Text>
+               CANAIS DE ATENDIMENTO   </Text>
                       <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              > Decreto nº 21.295/2022  </Text>
-            
-            <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              > <Link href="http://ged.pmmc.com.br/weblink7/DocView.aspx?id=683751" target="_blank">http://ged.pmmc.com.br/weblink7/DocView.aspx?id=683751 </Link>  </Text>
+        align={isMobile ? "justify" : "left"}
+        color="gray.500"
+        fontSize={accessibility?.fonts?.regular}
+        >
+        Fale com o Encarregado de Proteção de Dados: <strong>lgpd@mogidascruzes.sp.gov.br</strong>
+     </Text>
 
+      <Text
+        align={isMobile ? "justify" : "left"}
+        color="gray.500"
+        fontSize={accessibility?.fonts?.regular}
+        >
+        Canal de atendimento para solicitações e reclamações: <Link href='https://www.mogidascruzes.sp.gov.br/servico/procon-sac-e-ouvidoria/atendimento-ao-cidadao-ouvidoria'><strong>Ouvidoria</strong></Link>
+     </Text>
+            
+            
               <Text
                 align={isMobile ? "justify" : "left"}
                 fontWeight="700"
                 fontSize={accessibility?.fonts?.regular}
                 paddingTop="5px"
               >
-                COMITÊ GESTOR DE PROTEÇÃO DE DADOS PESSOAIS
-                
-                
+              BASES DE TRATAMENTO DE DADOS PESSOAIS               
               </Text>
               <Text
                 align={isMobile ? "justify" : "left"}
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}
-              >Decreto nº 20775/2022   </Text>
+              >Os tratamentos de dados realizados pela Prefeitura de Mogi das Cruzes se dão de acordo com os arts. 7°, incisos II, III, IV, VI e IX, e 11., inciso II, alíneas “a”, “b” e “c”, bem como os artigos 23 e 26, todos da Lei Geral de Proteção de Dados Pessoais (LGPD), Lei n° 13.709/2018, e se limitam ao cumprimento de obrigações legais e regulatórias, execução de políticas públicas, execução de contrato e realização de estudos de pesquisa. O tratamento de dados pessoais de crianças e de adolescentes realizado  é feito no melhor interesse daqueles, nos termos da legislação pertinente.   </Text>
             
-            <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              > <Link href="http://ged.pmmc.com.br/weblink7/DocView.aspx?id=676914" target="_blank">http://ged.pmmc.com.br/weblink7/DocView.aspx?id=676914  </Link>  </Text>
+          
         
               <Text
                 align={isMobile ? "justify" : "left"}
@@ -215,19 +217,12 @@ marginBottom="15px">
                 fontSize={accessibility?.fonts?.regular}
                 paddingTop="5px"
               >
-                ENCARREGADO DA PROTEÇÃO DE DADOS  
-                
-                
-              </Text>
+              INSTRUÇÕES NORMATIVAS</Text>
         <Text
                 align={isMobile ? "justify" : "left"}
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}
-              >
-              
-
-             
-                 </Text>
+              >Em breve</Text>
 
              <Text
                 align={isMobile ? "justify" : "left"}
@@ -235,17 +230,11 @@ marginBottom="15px">
                 fontSize={accessibility?.fonts?.regular}
                 paddingTop="5px"
               >
-                POLÍTICA MUNICIPAL DE PRIVACIDADE E PROTEÇÃO DE DADOS PESSOAIS DO PODER EXECUTIVO MUNICIPAL
-                
-                
-              </Text>
-                      <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              > Decreto nº 23.153/2024  </Text>    
-               <Text  color="gray.500"
-                fontSize={accessibility?.fonts?.regular} justifyContent="flex-end"> <Link href="http://leismunicipa.is/1qj9e">http://leismunicipa.is/1qj9e </Link> </Text>
+               CAPACITAÇÃO E CONSCIENTIZAÇÃO_
+            </Text>
+      <Text justifyContent="flex-end" color='gray.500'><Link href='/leis-decretos-portarias/glossario-lgpd'><strong>Glossário de Termos Técnicos LGPD</strong></Link></Text>
+      <Text justifyContent="flex-end" color='gray.500'><Link href='/leis-decretos-portarias/direitos_titular'><strong>Direitos do Titular</strong></Link></Text>   
+              
 
 
 

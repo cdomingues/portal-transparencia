@@ -169,6 +169,7 @@ export const menus=[
                     {label: "Termo de Colaboração",url: "/acordos-termos/termo-de-colaboracao", },
                     { label: "Termo de Fomento", url: "/acordos-termos/termo-de-fomento" },
                 ]},
+
             {"id_submenu": 3, 
                 "title": "Licitações", 
                 "imageUrl":Compras_publicas.src,
@@ -179,7 +180,18 @@ export const menus=[
                     {label: "Cadastro de Fornecedor",url: "https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/cadastro-de-fornecedor"},
                     { label: "Portal Nacional de Contratações Públicas",url: "https://pncp.gov.br/app/editais?q=&status=recebendo_proposta&pagina=1"},
                     
-                ]}
+                ]},
+                {"id_submenu": 4, 
+                "title": "Plano de Contratações Anual", 
+                "imageUrl":Compras_publicas.src,
+                "url":"/compras-publicas/plano-contratacoes-anual",
+                "extralinks": [  ]},
+
+                 {"id_submenu": 5, 
+                "title": "Empresas sancionadas administrativamente", 
+                "imageUrl":Compras_publicas.src,
+                "url":"/compras-publicas/empresas-sancionadas",
+                "extralinks": [  ]},
         ]
       },
       {
@@ -322,7 +334,14 @@ export const menus=[
                 "id_submenu": 8, 
                 "label": "Relaçao de Unidades e Equipamentos", 
                 'imageUrl': Patrimonio.src,
-                "url":"/patrimonio",
+                "url":"https://www.mogidascruzes.sp.gov.br/unidades-e-equipamentos/todos-os-assuntos",
+                "extralinks": []
+            },
+             {
+                "id_submenu": 9, 
+                "label": "Estrutura Organizacional", 
+                'imageUrl': Patrimonio.src,
+                "url":"/gestao-de-pessoas/estrutura-organizacional",
                 "extralinks": []
             },
           
@@ -468,15 +487,9 @@ export const menus=[
         'imageURL': IconesGovernoAberto.src, 
         'description': "Veja aqui as principais iniciativas de governo aberto",
         "submenus": [
+           
             {
-                "id_submenu": 1,
-                "label":"LGPD",
-                "imageUrl": IconeLeis.src,
-                'url':"/leis-decretos-portarias/lgpd",
-                "extralinks": [ ]
-            },
-            {
-                'id_submenu': 2,
+                'id_submenu': 1,
                 "label":"Governo aberto",
                 'imageUrl': IconeLeis.src,
                 'url':"/governo-aberto",
@@ -486,21 +499,21 @@ export const menus=[
                  ]
             },
             {
-                "id_submenu": 3,
+                "id_submenu": 2,
                 "label":"Governo Digital",
                 "imageUrl": IconeLeis.src,
                 'url':"/governo-digital",
                 "extralinks": [ ]
             },
             {
-                "id_submenu": 4,
+                "id_submenu": 3,
                 "label":"Diário Oficial",
                 "imageUrl": IconeLeis.src,
                 'url':"#",
                 "extralinks": [ ]
             },
             {
-                "id_submenu": 5,
+                "id_submenu": 4,
                 "label":"InfoDados",
                 "imageUrl": IconeLeis.src,
                 'url':"/infodados",
@@ -509,7 +522,7 @@ export const menus=[
         ]
       },
       {
-        "id": "9",
+        "id": 9,
         "title": "APLICATIVOS E PORTAIS",
         'imageURL': IconePortais.src, 
         'description': "Acesso aos demais portais e aplicativos da prefeitura",
@@ -575,5 +588,95 @@ export const menus=[
             }
         ]
       },
+      {
+        "id": 10,
+        "title": "LEI DE ACESSO À INFORMAÇÃO",
+        'imageURL': IconesGovernoAberto.src, 
+        'description': "Veja aqui as principais iniciativas de governo aberto",
+        "submenus": [
+            {
+                "id_submenu": 1,
+                "label":"Solicitar Acesso à Informação",
+                "imageUrl": IconeLeis.src,
+                'url':"https://mogidascruzes.1doc.com.br/b.php?pg=wp/detalhes&itd=3",
+                "extralinks": [ ]
+            },
+            {
+                'id_submenu': 2,
+                "label":"Relatório de Demandas LAI",
+                'imageUrl': IconeLeis.src,
+                'url':"https://mogidascruzes.1doc.com.br/b.php?pg=o/transparencia",
+                "extralinks": [ ]
+            },
+            {
+                "id_submenu": 3,
+                "label":"Acompanhe os dados genéricos dos pedidos",
+                "imageUrl": IconeLeis.src,
+                'url':"https://mogidascruzes.1doc.com.br/b.php?pg=wp/wp&itd=3&ss=5",
+                "extralinks": [ ]
+            },
+            {
+                "id_submenu": 4,
+                "label":"Painel de Acompanhamento da LAI 2023",
+                "imageUrl": IconeLeis.src,
+                'url':"https://app.powerbi.com/view?r=eyJrIjoiY2ZmODAzZDUtMDE2YS00ZWYzLWJhZGQtMWE4Nzc3OWQyMDgxIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
+                "extralinks": [ ]
+            },
+            {
+                "id_submenu": 5,
+                "label":"Painel de Acompanhamento da LAI 2024",
+                "imageUrl": IconeLeis.src,
+                'url':"https://app.powerbi.com/view?r=eyJrIjoiY2RiMWYxZWQtN2NlOS00NTNjLTkyMGEtZmNiOWVhMmYzNTJiIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
+                "extralinks": [ ]
+            }
+        ]
+      },
+       {
+        "id": 11,
+        "title": "LGPD",
+        'imageURL': IconesGovernoAberto.src, 
+        'description': "Veja aqui as principais iniciativas de governo aberto",
+        "submenus": [
+             {
+                "id_submenu": 1,
+                "label":"LGPD",
+                "imageUrl": IconeLeis.src,
+                'url':"/leis-decretos-portarias/lgpd",
+                "extralinks": [ ]
+            },
+
+            {
+                "id_submenu": 2,
+                "label":"Direitos do titular",
+                "imageUrl": IconeLeis.src,
+                'url':"/leis-decretos-portarias/direitos_titular",
+                "extralinks": [ ]
+            },
+            {
+                "id_submenu": 3,
+                "label":"Glossário de Termos Técnicos LGPD",
+                "imageUrl": IconeLeis.src,
+                'url':"/leis-decretos-portarias/glossario-lgpd",
+                "extralinks": [ ]
+            },
+        ]
+       },
+       {
+        "id": 12,
+        "title": "InfoMogi",
+        'imageURL': IconesGovernoAberto.src, 
+        'description': "InfoMogi",
+        "submenus": [
+             {
+                "id_submenu": 1,
+                "label":"InfoMogi",
+                "imageUrl": IconeLeis.src,
+                'url':"/infodados",
+                "extralinks": [ ]
+            },
+        ]
+       }
+      
+     
      
     ]
