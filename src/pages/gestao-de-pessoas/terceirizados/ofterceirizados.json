@@ -1,0 +1,6288 @@
+[
+  {
+    "funcionario":"ANA JULIA MORAIS DE ALMEIDA",
+    "funcao_atividade":"MONITOR",
+    "empresa":"AUTO VIAÇÃO CONDOR LTDA",
+    "cnpj":"09.151.461\/0002-10",
+    "contrato":"05\/2023"
+  },
+  {
+    "funcionario":"ANDREA ANDRESSA SILVA DE ARAUJO",
+    "funcao_atividade":"MONITOR",
+    "empresa":"AUTO VIAÇÃO CONDOR LTDA",
+    "cnpj":"09.151.461\/0002-10",
+    "contrato":"05\/2023"
+  },
+  {
+    "funcionario":"ANGELICA RODRIGUES DE LIMA CAMARGO",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"AUTO VIAÇÃO CONDOR LTDA",
+    "cnpj":"09.151.461\/0002-10",
+    "contrato":"05\/2023"
+  },
+  {
+    "funcionario":"APARECIDA DA SILVA",
+    "funcao_atividade":"MONITOR",
+    "empresa":"AUTO VIAÇÃO CONDOR LTDA",
+    "cnpj":"09.151.461\/0002-10",
+    "contrato":"05\/2023"
+  },
+  {
+    "funcionario":"AUGUSTINHO BARBOZA DA SILVA",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"AUTO VIAÇÃO CONDOR LTDA",
+    "cnpj":"09.151.461\/0002-10",
+    "contrato":"05\/2023"
+  },
+  {
+    "funcionario":"DANIELE CRISTINA ALVES BARBOSA",
+    "funcao_atividade":"MONITOR",
+    "empresa":"AUTO VIAÇÃO CONDOR LTDA",
+    "cnpj":"09.151.461\/0002-10",
+    "contrato":"05\/2023"
+  },
+  {
+    "funcionario":"DORIVAL DE LIMA MARTINS ",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"AUTO VIAÇÃO CONDOR LTDA",
+    "cnpj":"09.151.461\/0002-10",
+    "contrato":"05\/2023"
+  },
+  {
+    "funcionario":"ELIAS ALEIXO DE MACEDO ",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"AUTO VIAÇÃO CONDOR LTDA",
+    "cnpj":"09.151.461\/0002-10",
+    "contrato":"05\/2023"
+  },
+  {
+    "funcionario":"FERNANDA CRISTINA DE MELO SANTANA",
+    "funcao_atividade":"MONITOR",
+    "empresa":"AUTO VIAÇÃO CONDOR LTDA",
+    "cnpj":"09.151.461\/0002-10",
+    "contrato":"05\/2023"
+  },
+  {
+    "funcionario":"JHEIMELY STHEFANIE MARTINS DE SOUZA ",
+    "funcao_atividade":"MONITOR",
+    "empresa":"AUTO VIAÇÃO CONDOR LTDA",
+    "cnpj":"09.151.461\/0002-10",
+    "contrato":"05\/2023"
+  },
+  {
+    "funcionario":"LOURIVALDO JOSE DE OLIVEIRA ",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"AUTO VIAÇÃO CONDOR LTDA",
+    "cnpj":"09.151.461\/0002-10",
+    "contrato":"05\/2023"
+  },
+  {
+    "funcionario":"LUCINARIA PETINGA LIMA DIAS DA SILVA",
+    "funcao_atividade":"MONITOR",
+    "empresa":"AUTO VIAÇÃO CONDOR LTDA",
+    "cnpj":"09.151.461\/0002-10",
+    "contrato":"05\/2023"
+  },
+  {
+    "funcionario":"MARCIO ROGÉRIO LUDGERO",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"AUTO VIAÇÃO CONDOR LTDA",
+    "cnpj":"09.151.461\/0002-10",
+    "contrato":"05\/2023"
+  },
+  {
+    "funcionario":"MARCOS RAIMUNDO",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"AUTO VIAÇÃO CONDOR LTDA",
+    "cnpj":"09.151.461\/0002-10",
+    "contrato":"05\/2023"
+  },
+  {
+    "funcionario":"MARIA DA GRAÇA DE BRITO",
+    "funcao_atividade":"MONITOR",
+    "empresa":"AUTO VIAÇÃO CONDOR LTDA",
+    "cnpj":"09.151.461\/0002-10",
+    "contrato":"05\/2023"
+  },
+  {
+    "funcionario":"MAURO HITIRO NISIYAMA",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"AUTO VIAÇÃO CONDOR LTDA",
+    "cnpj":"09.151.461\/0002-10",
+    "contrato":"05\/2023"
+  },
+  {
+    "funcionario":"MIGUEL DONISETE  APARECIDO DE OLIVEIRA",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"AUTO VIAÇÃO CONDOR LTDA",
+    "cnpj":"09.151.461\/0002-10",
+    "contrato":"05\/2023"
+  },
+  {
+    "funcionario":"RENATA  APARECIDA DE SIQUEIRA",
+    "funcao_atividade":"MONITOR",
+    "empresa":"AUTO VIAÇÃO CONDOR LTDA",
+    "cnpj":"09.151.461\/0002-10",
+    "contrato":"05\/2023"
+  },
+  {
+    "funcionario":"RODRIGO FREIRE DA SILVA ",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"AUTO VIAÇÃO CONDOR LTDA",
+    "cnpj":"09.151.461\/0002-10",
+    "contrato":"05\/2023"
+  },
+  {
+    "funcionario":"ROSANA LIMA DO AMARAL",
+    "funcao_atividade":"MONITOR",
+    "empresa":"AUTO VIAÇÃO CONDOR LTDA",
+    "cnpj":"09.151.461\/0002-10",
+    "contrato":"05\/2023"
+  },
+  {
+    "funcionario":"SILVANA DIAS DE MORAES AMORIM",
+    "funcao_atividade":"MONITOR",
+    "empresa":"AUTO VIAÇÃO CONDOR LTDA",
+    "cnpj":"09.151.461\/0002-10",
+    "contrato":"05\/2023"
+  },
+  {
+    "funcionario":"TIAGO RODRIGUES DOMINGUES",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"AUTO VIAÇÃO CONDOR LTDA",
+    "cnpj":"09.151.461\/0002-10",
+    "contrato":"05\/2023"
+  },
+  {
+    "funcionario":"ADENILTON GALDINO DOS SANTOS",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"ADERALDO DO ESPIRITO SANTO COSTA ",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"ALESSANDRA PISELLI DA SILVA SOUZA",
+    "funcao_atividade":"MONITOR",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"ALINE ROSA ARARUNA MACEDO",
+    "funcao_atividade":"MONITOR",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"ANA MARA DE MORAES BENTO ALVES",
+    "funcao_atividade":"MONITOR",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"ANDREA APARECIDA DOS SANTOS NISIYAMA",
+    "funcao_atividade":"MONITOR",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"ANDREZA AUGUSTO FRANCO",
+    "funcao_atividade":"MONITOR",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"ANDRIELE RIBEIRO DA SILVA SOUZA",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"ANGELY MARIA  APARECIDA SIQUEIRA DE ARAUJO",
+    "funcao_atividade":"MONITOR",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"ANNA MARIA PUSCEDDU",
+    "funcao_atividade":"MONITOR",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"ANTONIO VIANA SILVA",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"APARECIDO JOSÉ FLORIANO ",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"BEATRIZ DIAS DE OLIVEIRA",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"BIANCA APARECIDA DE OLIVEIRA MORAES",
+    "funcao_atividade":"MONITOR",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"CAROLINE TERTULIANO SILVA NEVES",
+    "funcao_atividade":"MONITOR",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"CATIA CARDOSO DE OLIVEIRA",
+    "funcao_atividade":"MONITOR",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"CLAUDIO INACIO DE SIQUEIRA",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"EDISON DA LAPA",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"ELENICE DE QUEIROZ DANTAS",
+    "funcao_atividade":"MONITOR",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"ELIANA APARECIDA DA SILVA SANTOS",
+    "funcao_atividade":"MONITOR",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"ELSA TOSHIE KIMURA HAYASHIDA",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"FABIANA APARECIDA RODRIGUES ",
+    "funcao_atividade":"MONITOR",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"GABRIELE TAINA APARECIDA SANTOS SIQUEIRA",
+    "funcao_atividade":"MONITOR",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"IVETE RODRIGUES SANTANA",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"JACQUELINE DE SOUZA LIMA",
+    "funcao_atividade":"MONITOR",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"JACY MENDONÇA",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"JEAN PAULO DOS SANTOS",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"JOAO LUCAS FELIX DA SILVA",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"JOÃO PAULO APARECIDO DE SOUZA PACHECO ",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"JOSE EDSON DE ASSIS",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"JULIANA AP DE MIRANDA DA SILVA",
+    "funcao_atividade":"MONITOR",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"KATIA CRISTINA CARDOSO PRIMO",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"LARISSA MONIK DE SOUZA SANTANA",
+    "funcao_atividade":"MONITOR",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"LAURINDA DE OLIVEIRA",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"LEANDRO DONIZETI TAVARES",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"LEANDRO LUIZ CARBHIAKI",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"LUCIANA MENDES DE JACINTO",
+    "funcao_atividade":"MONITOR",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"LUIZ CARLOS GONÇALVES DOS SANTOS",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"MARCIO MALDONADO DE OLIVEIRA",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"MICHELE DA SILVA OLIVEIRA",
+    "funcao_atividade":"MONITOR",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"PATRICIA DE MORAIS PAIS PINHAL",
+    "funcao_atividade":"MONITOR",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"REGIANE LEITE FERREIRA CECCO",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"ROGÉRIO BORGES",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"RUTH RODRIGUES CARVALHO",
+    "funcao_atividade":"MONITOR",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"SANDRA APARECIDA DE SOUZA",
+    "funcao_atividade":"MONITOR",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"SEBASTIAO CANDIDO DE OLIVEIRA",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"TATIANE LEMES DA SILVA",
+    "funcao_atividade":"MONITOR",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"VANIA APARECIDA DE SOUZA",
+    "funcao_atividade":"MONITOR",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"VANIA MARIA DE ALMEIDA",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"VITORIA RADULOV FERREIRA",
+    "funcao_atividade":"MONITOR",
+    "empresa":"CONDOR TUR TRANSPORTE E TURISMO LTDA",
+    "cnpj":"58.909.417\/0002-32",
+    "contrato":"07\/2020"
+  },
+  {
+    "funcionario":"Cristriane Silva de Faria",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"AGALOG LOGÍSITRCA E TRANSPORTES LTDA",
+    "cnpj":"20.118.795\/0001-44",
+    "contrato":"56\/2021"
+  },
+  {
+    "funcionario":"Tatiani Rodrigues Prado dos Santos",
+    "funcao_atividade":"MONITORA",
+    "empresa":"AGALOG LOGÍSITRCA E TRANSPORTES LTDA",
+    "cnpj":"20.118.795\/0001-44",
+    "contrato":"56\/2021"
+  },
+  {
+    "funcionario":"Claudney José da Silva",
+    "funcao_atividade":"MOTORISTA",
+    "empresa":"AGALOG LOGÍSITRCA E TRANSPORTES LTDA",
+    "cnpj":"20.118.795\/0001-44",
+    "contrato":"56\/2021"
+  },
+  {
+    "funcionario":"Silvana Franco Carrasco",
+    "funcao_atividade":"MONITORA",
+    "empresa":"AGALOG LOGÍSITRCA E TRANSPORTES LTDA",
+    "cnpj":"20.118.795\/0001-44",
+    "contrato":"56\/2021"
+  },
+  {
+    "funcionario":"Carlos Eduardo Guerreiro De Amorim",
+    "funcao_atividade":"Técnico de informática",
+    "empresa":"ALLTI Service",
+    "cnpj":"31.937.091\/0001-10",
+    "contrato":"81\/2021"
+  },
+  {
+    "funcionario":"Carolina Fernanda Da Silva E Silva",
+    "funcao_atividade":"Auxiliar administrativo",
+    "empresa":"ALLTI Service",
+    "cnpj":"31.937.091\/0001-10",
+    "contrato":"81\/2021"
+  },
+  {
+    "funcionario":"Diogo Augusto De Jesus Terra",
+    "funcao_atividade":"Estagiário",
+    "empresa":"ALLTI Service",
+    "cnpj":"31.937.091\/0001-10",
+    "contrato":"81\/2021"
+  },
+  {
+    "funcionario":"Eladinis Rodrigues  Oliveira",
+    "funcao_atividade":"Técnico de informática",
+    "empresa":"ALLTI Service",
+    "cnpj":"31.937.091\/0001-10",
+    "contrato":"81\/2021"
+  },
+  {
+    "funcionario":"Ingrid Lis Cardoso Dos Reis",
+    "funcao_atividade":"Técnico de informática",
+    "empresa":"ALLTI Service",
+    "cnpj":"31.937.091\/0001-10",
+    "contrato":"81\/2021"
+  },
+  {
+    "funcionario":"Luigi Felipe Marque Bili",
+    "funcao_atividade":"Técnico de informática",
+    "empresa":"ALLTI Service",
+    "cnpj":"31.937.091\/0001-10",
+    "contrato":"81\/2021"
+  },
+  {
+    "funcionario":"Pablo Assunção Cruz",
+    "funcao_atividade":"Técnico de help desk",
+    "empresa":"ALLTI Service",
+    "cnpj":"31.937.091\/0001-10",
+    "contrato":"81\/2021"
+  },
+  {
+    "funcionario":"Uadson Roberto Leitao Da Mota",
+    "funcao_atividade":"Gestor de T.I",
+    "empresa":"ALLTI Service",
+    "cnpj":"31.937.091\/0001-10",
+    "contrato":"81\/2021"
+  },
+  {
+    "funcionario":"Vinicius Pereira Soares",
+    "funcao_atividade":null,
+    "empresa":"ALLTI Service",
+    "cnpj":"31.937.091\/0001-10",
+    "contrato":"81\/2021"
+  },
+  {
+    "funcionario":"Anderson Roque Moreira dos Santos",
+    "funcao_atividade":"Mecânico de Refrigeração",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Andre Lucas da Silva Souza",
+    "funcao_atividade":"Auxiliar de Manutenção",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Arthur Carlos Nogueira Peres",
+    "funcao_atividade":"Mecânico de Refrigeração",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Caique Luiz de Souza Chaves",
+    "funcao_atividade":"Auxiliar de Manutenção",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Darcio Johnatnan da Silva",
+    "funcao_atividade":"Auxiliar de Manutenção",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Elder Henrique Watanabe Ponce",
+    "funcao_atividade":"Mecânico de Refrigeração",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Eloi Lopes Campolino",
+    "funcao_atividade":"Eletricista ",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Fabricio Oliveira Silva",
+    "funcao_atividade":"Mecânico de Refrigeração",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Felipe Cassio de Araujo Franco",
+    "funcao_atividade":"Mecânico de Refrigeração",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Filipe Campanha Castro",
+    "funcao_atividade":"Auxiliar de Manutenção",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Gustavo Valerio da Silva Moraes",
+    "funcao_atividade":"Auxiliar de Manutenção",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Igor Santos Soares",
+    "funcao_atividade":"Mecânico de Refrigeração",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Jamilton Almeida Silva",
+    "funcao_atividade":"Mecânico de Refrigeração",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Jean Carlos Almeida",
+    "funcao_atividade":"Mecânico de Refrigeração",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Jhonatan Aparecido Silva Lopes",
+    "funcao_atividade":"Mecânico de Refrigeração",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Jonatas Gomes da Silva",
+    "funcao_atividade":"Mecânico de Refrigeração",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Kauê Vieira",
+    "funcao_atividade":"Auxiliar de Manutenção",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Lucas Alves Pereira",
+    "funcao_atividade":"Auxiliar de Manutenção",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Luis Fernando Valencio Miotto",
+    "funcao_atividade":"Mecânico de Refrigeração",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Mateus Henrique Ferreira Eisenhut",
+    "funcao_atividade":"Auxiliar de Manutenção",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Paulo Fabiano de Moraes",
+    "funcao_atividade":"Auxiiar de Manutenção",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Paulo Henrique Ferriera Estevão",
+    "funcao_atividade":"Auxiliar de Manutenção",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Paulo Ricardo Miotto",
+    "funcao_atividade":"Mecânico de Refrigeração",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Pedro Henrique Caselati Bento",
+    "funcao_atividade":"Auxiliar de Manutenção",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Reginaldo Lopes da Silva ",
+    "funcao_atividade":"Mecânico de Refrigeração",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Ricardo Rodrigues Lima",
+    "funcao_atividade":"Mecânico de Refrigeração",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Thalles Bruno Ribeiro",
+    "funcao_atividade":"Mecânico de Refrigeração",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Vitor de Oliveira Januario",
+    "funcao_atividade":"Auxiliar de Manutenção",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Wellington de Alcantara Bello",
+    "funcao_atividade":"Mecânico de Refrigeração",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"Welligton Ernani de Oliveira",
+    "funcao_atividade":"Mecânico de Refrigeração",
+    "empresa":"Brisamax Comercio Instalação e Manutenção de Ar Condicionado Eireli",
+    "cnpj":"15.504.692\/0001-82",
+    "contrato":"127\/2022"
+  },
+  {
+    "funcionario":"ADEMIR RODRIGUES DE OLIVEIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ADRIANA ALVES DE SOUZA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ADRIANA ANTUNES DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ADRIANA APARECIDA ALVES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ADRIANA APARECIDA DA SILVA CARVALHO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ADRIANA DA SILVA FADA SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ADRIANA DE SANTANA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ADRIANA DE SOUZA BRITO DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ADRIANA DO NASCIMENTO ROCHA",
+    "funcao_atividade":"AUXILIAR ADMINISTRATIVO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ADRIANA FERNANDES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ADRIANA FRANCO TEIXEIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ADRIANA GOMES VENCESLAU",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"AGENOR BENEDITO DE MORAES",
+    "funcao_atividade":"SUPERVISOR (A) DE SERVIÇOS",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"AGRISSIA DE SOUZA SILVA FERNANDES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"AGUINALDO ISRAEL PEDRO",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"AIDA FRANKLIN DA COSTA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"AILTON FRANCO DE SOUZA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ALAN SOUZA PEREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ALANA GABRIELLA DA SILVA BATISTA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ALBA PEREIRA DA SILVA MARCONDES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ALCIDES APARECIDO DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ALDENA DA SILVA ALVARES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ALESSANDRA ALVES DE SOUZA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ALESSANDRA APARECIDA DOS SANTOS MARQUES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ALESSANDRA DOS SANTOS",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ALESSANDRA SALES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ALETEIA VANESSA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ALEXANDRE LUIZ ALVES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ALFREDO DAS NEVES LEITE",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ALINE DO CARMO SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ALINE GABRIELA NASCIMENTO DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ALINE MOURA DA SILVA NOVAIS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ALINE VIVIANE DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ALTERINA LEITE MONTEIRO FERREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"AMADEU RODRIGUES DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"AMANDA CRISTINA MARCIANO LIBERATO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"AMANDA GONCALVES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"AMANDA RODRIGUES DE ANDRADE",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"AMARILDO GOMES MOTA",
+    "funcao_atividade":"AUXILIAR ADMINISTRATIVO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"AMELIA MARIA MIRANDA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANA CARLA VIANNA DA CRUZ",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANA CLAUDIA MARTINS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANA CLAUDIA SALES DE SOUZA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANA CLESIA SANTOS DIAS NAZARETH",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANA LIVIA BECHELLI DE CAMPOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANA LUCIA DE FREITAS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANA LUCIA MACHADO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANA MARIA DA GRACA SOARES",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANA MARIA EPIFANIO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANA MARIA PAULINO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANA PAULA CARDOSO JULIO ALBINO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANA PAULA COSTA BANDO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANA PAULA DE MORAES CIPRIANO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANA PAULA ESCOBAR BELO MOREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANA PAULA FERNANDES GALACIO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANDERSON MONTEIRO BARBOSA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANDREA RIBEIRO PROTAZIO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANDREIA APARECIDA FERNANDES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANDREIA CANDIDO MACEDO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANDREIA CRISTINA DE OLIVEIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANDREIA DE OLIVEIRA MARTINS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANDREIA DE SOUZA COSTA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANDREIA GOMES DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANDREIA GONCALVES DE SOUZA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANDREIA JULIANA SANTOS DA CONCEICAO",
+    "funcao_atividade":"LIDER DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANDREZA FLAUZINA DA SILVA DOS SANTOS",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANGELA CRISTINA RODRIGUES MARTINS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANGELA FAGUNDES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANGELA GOMES DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANGELA MARIA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANGELA MARIA DELFIM FERREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANGELA REGINA DO NASCIMENTO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANGELA TEIXEIRA ERVILHA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANGELICA LIMA AMORIM",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ANTONIA LOPES PARENTE",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"APARECIDA DE FATIMA MOTTA GONZAGA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ARETUZA GOMES DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ARIANE FERREIRA GERMANO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ARLETE NATALIA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"AUGUSTE ELISE RODRIGUES FREIRE",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"AURO DIAS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"BEATRIZ ALVES DA SILVA SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"BEATRIZ DA COSTA MOURA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"BEATRIZ RAISSA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"BEATRIZ SATURNINO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"BIANCA APARECIDA PEREIRA DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"BIANCA CRISTAL ARMOND",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"BRAZ TORQUATO VICCO",
+    "funcao_atividade":"SUPERVISOR (A) DE SERVIÇOS",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"BRUNA APARECIDA BARBOSA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"BRUNA APARECIDA CONCEICAO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"BRUNA BRANCO DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"BRUNA CAMARGO DE OLIVEIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"BRUNA DE PAULA BATISTA OLIVEIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"BRUNA FERNANDA RICARDO DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"BRUNA LARISSA MOREIRA DA COSTA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"BRUNA SANTOS DE ANDRADE",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"BRUNA STEFANI YAMASAKI OLIVEIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"BRUNA STHEFANY LOPES DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CAIO VINICIUS DE ARAUJO SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CALUANA DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CAMILA CRISTINA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CAMILA FRANCISCA OLIVEIRA CORDEIRO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CARINA APARECIDA RODRIGUES DE PAULO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CARLA ALVARENGA SANTANA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CARLA BISPO DE ALMEIDA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CARLA DE SOUZA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CARLOS EDUARDO BORGES DOS SANTOS",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CARLOS HENRIQUE DE SOUZA TEIXEIRA",
+    "funcao_atividade":"SUPERVISOR (A) DE SERVIÇOS",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CARLOS ROBERTO FERREIRA MIRANDA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CARMELITA PINHEIRO DE ALMEIDA ALEIXO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CAROLINA APARECIDA RIBEIRO DO AMARAL",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CAROLINE CARDOZO DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CAROLINE DA PAIXAO DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CAROLINE GERMANO DA SILVA ANACLETO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CELIA DOS SANTOS",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CELIA INACIO DE FREITAS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CELIA REGINA GONCALVES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CHRISTIAN LOPES DE OLIVEIRA",
+    "funcao_atividade":"SUPERVISOR (A) DE SERVIÇOS",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CICERA ADRIANA DAMIAO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CINEIR NUNES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CINTHIA CRISTINA DA SILVA RIBEIRO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CINTIA LUANA DO NASCIMENTO LAURINDO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CLARICE APARECIDA DE OLIVEIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CLAUDIA DA SILVA SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CLAUDIA DE CASSIA DOS ANJOS FERREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CLAUDIA MARA DOS SANTOS",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CLAUDIA SOUZA DOS SANTOS",
+    "funcao_atividade":"LIDER DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CLAUDINEIA APARECIDA SANTOS FRANCISCO",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CLAUDIO DOMINGUES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CLAUDIO ONORIO DE JESUS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CLEICIANE ROCHA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CLEIDE APARECIDA DE CAMPOS MARIANO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CLEIDE ROSANA DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CLEIDIANE DE OLIVEIRA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CLEONICE MARIA DE JESUS SANTANA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CONCEICAO APARECIDA DE SOUZA CARDOSO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CRISLAINE EVELIN DE MAGGIO",
+    "funcao_atividade":"SUPERVISOR (A) DE SERVIÇOS",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CRISTIANA DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CRISTIANE DE SOUZA CLARO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CRISTIANE FERREIRA RODRIGUES FRANCO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CRISTIANE MARIA DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CRISTIANE PATRICIA MORAES DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CRISTIANE PIRES DE FRANCA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CRISTINA ANTUNES FELICIO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CRISTINA APARECIDA GALOCHA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CRISTINA APARECIDA MOREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CRISTINA CARMO DE SIQUEIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CRISTINA DE SOUZA EVARISTO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CRISTINA LIMA DE FRANCA DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CRISTINA SATIL ALVES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"CYNTHIA PALMEIRA ROCHA SOUZA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DAIANA SANTOS DE ANDRADE LIMA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DAIANA SOUZA JESUS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DAIANA VITORIA DUARTE LOBO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DAIANE APARECIDA RODRIGUES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DAIANE MARIA GOMES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DAILANA SOUZA BRITO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DALMO AMPARO AMADO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DALVA HELENA DE OLIVEIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DALVA LUCINDA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DANDARA OLIVEIRA DE SIQUEIRA NOVAIS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DANIEL PEREIRA DA SILVA PINTO DE MORAIS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DANIEL REIS DE SOUZA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DANIELA APARECIDA DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DANIELA DE FATIMA VIEIRA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DANIELA DE LIMA SOUZA MOREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DANIELA DOS SANTOS ALMEIDA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DANIELA EFIGENIA LOURENCA CARDOSO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DANIELA XAVIER DA ROCHA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DANIELE APARECIDA CAETANO DE ASSIS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DANIELE APARECIDA DE CAMPOS",
+    "funcao_atividade":"LIDER DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DANIELE CAMARGO DE SANTANA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DANIELE FERNANDA RODRIGUES DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DANIELE GOMES DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DANIELE QUEIROZ BUENO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DANIELI MACEDO ALVES MOREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DANIELLE DOS SANTOS DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DANIELLY CLARO DIAS FERNANDES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DARCY HENRIQUE PEREIRA DE SOUZA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DARIANE TAGLIAMENTO DE SOUZA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DAVID BOGUCHESKY DA SILVA COSTA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DAYANE APARECIDA DOS SANTOS FARIA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DAYANE CRISTINA SALES DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DEBORA CRISTINA DE SOUZA SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DEBORA DE MORAIS MARTINS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DEBORA SANTOS BARROS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DEISE APARECIDA RIBEIRO DE SOUZA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DEJANIRA FERREIRA MEDINA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DELMA ARANTES PEREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DENIS DA SILVA ALVES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DENISE APARECIDA DE ANDRADE DOS SANTOS LEI",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DEYSIANE MATOS DA SILVA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DHEFANNE DHESSICA CARVALHO RIBEIRO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DIRCE APARECIDA DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DIRLENE APARECIDA DE MORAES",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DIVANEI MONTEIRO",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DONAVAN DA SILVA COSTA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"DUCILENE BRUNO DE ALMEIDA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"EDILAINE CRISTINA PRADO DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"EDILENE BARROS SERAFIM GUEDES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"EDILENE DE FATIMA PEIXOTO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"EDILEUSA BISPO VALADARES CABRAL",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"EDILSON PEREIRA DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"EDINALVA ARAUJO FARIAS SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"EDNA APOLONIO SANTANA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"EDNA GOMES TAVARES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"EDNA MARIA DE FREITAS CUBA SOUZA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"EDSON DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"EFIGENIA DE SOUZA SESMA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELAINE APARECIDA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELAINE APARECIDA NOGUEIRA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELAINE CRISTINA APARECIDA CRISPIM SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELAINE CRISTINA DA SILVA VIEIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELAINE CRISTINA RODRIGUES MOREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELAINE DOS SANTOS FEITOSA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELAINE FARIA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELENILZA SILVA DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELIANA CAMPOS DE ALMEIDA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELIANA DE SOUZA DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELIANA FLORINDA DANIEL",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELIANA GOMES DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELIANE DE LIMA INACIO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELICA FERNANDES DE SIQUEIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELIDIO RODRIGUES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELIETE FLORINDA DANIEL",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELISA DE ALMEIDA GOMES",
+    "funcao_atividade":"AUXILIAR ADMINISTRATIVO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELISABETE CLARO DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELISABETE SABINO GERMANO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELISABETH DO CARMO ARAUJO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELISANDRA HELENA CANDIDO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELISANGELA APARECIDA GONCALVES DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELISANGELA CARDOSO MONTEIRO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELISANGELA DO CARMO FERREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELISANGELA MENEZES DA SILVA TORRES CORREA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELISETE DE FATIMA VIEIRA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELITON APARECIDO DE SOUZA MANOEL",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELIVANCLI PEREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELIVANDA APARECIDA DINIZ FERREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELIZABETE APARECIDA PRIMO",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELIZABETH APARECIDA DE SIQUEIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELIZABETH DELFIM MIGUEL",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELIZANGELA BARBOSA RANGEL",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ELZA SOUZA SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"EMERSON LUIZ SALES",
+    "funcao_atividade":"SUPERVISOR (A) DE SERVIÇOS",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"EMILY LAUREN DE ALMEIDA MOREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ERICA DARC DINIZ LEITE",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ERIKA CRISTINA DE CARVALHO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ERIKA VELOSO DOS SANTOS",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ERNESTINA CORREA BARBARA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ESDRAS LIMA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ESDRAS MONTEIRO MIRANDA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ESTER SANTOS DE APOLONIO CAMARGO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ETTIENE CRISTINA MAXIMO DA COSTA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"EVA APARECIDA FRICIANO DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"EVANIR SAMPAIO SILVERIO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"FABIANA ARAUJO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"FABIANA DA CRUZ SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"FABIANA DE MORAES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"FABIANA DE SOUZA MELO",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"FABIO CARLOS EMILIO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"FABIO FEITOSA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"FABIO GUILHERME DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"FABRICIA APARECIDA LEITE DE CARVALHO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"FABRICIA CARDOSO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"FATIMA DA CONCEICAO DOS REIS",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"FELIPE MOLINA DE CARVALHO SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"FERNANDA APARECIDA BORTOLO SANTANA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"FERNANDA APARECIDA FERRAZ",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"FERNANDA GOMES PACCA COUTINHO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"FERNANDA LAURA DE OLIVEIRA SILVA DA CRUZ",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"FERNANDO DE MARIA",
+    "funcao_atividade":"LIDER DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"FLAVIA REGINA ALVES DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"FLAVIANA FERNANDA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"FRANCINE RODRIGUES PEREIRA",
+    "funcao_atividade":"LIDER DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"FRANCISCA DA SILVA PEREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"FRANCISCA FABRICIO DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"FRANCISCO CARLOS DE CASTRO MOURA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"FRANCISLAINE APARECIDA BATISTA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"FRANCISMAR SIDNEY DA SILVA COSTA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"GABRIEL GONCALVES DE OLIVEIRA BRANCO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"GABRIELA CAMARGO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"GABRIELA DOS SANTOS CIRILO TATTERO",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"GABRIELA PEREIRA GONCALVES",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"GABRIELA SALTES RODRIGUES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"GABRIELE PEREIRA GONCALVES SOARES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"GENIVALDO CARLOS DE ANDRADE",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"GERALDO LUIZ DO NASCIMENTO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"GERSON PEREIRA DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"GILCIMARA SHIRLEI MOREIRA DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"GISELE DAVID RAMOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"GISELE GONCALVES DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"GISLAINE VICENTINA LAZARO MACHADO ANANIAS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"GISLENE ESCOBAR BELO ANJO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"GISLENE GABRIELLA DE ALMEIDA RAFAEL MENEZE",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"GISLENE MARQUES DE SOUZA SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"GISLENE REGINA RODRIGUES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"GLEDSON FERNANDO DE CAMPOS PINTO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"GRACIELE FABIANA DOS SANTOS SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"GRAZIELA TEREZA RODRIGUES GOMES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"GRAZIELE REGINA MANCORES DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"GRAZIELE REGO ALMEIDA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"HELEN HELENA DOS SANTOS SELERGES DE MELO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"HELEN ROSE TEIXEIRA LOURENCO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"HELENA CANDIDA REINALDO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"HELIA VIEIRA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"HENRIQUE MASSAO TOMAS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"HOSANA RAMOS RIBEIRO DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"IARA SOARES PAIVA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"IDAEL GUEVARA TAMARIT",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ILDA TEIXEIRA TORRES",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"INACIO SOBRAL DE LIMA FILHO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"INES DO ESPIRITO SANTO SOUZA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"IRACIRA GUIMARAES DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"IRANI MATILDE DA COSTA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"IRINEIA FERNANDES DA SILVA HOLANDA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ISAIAS SIMAO DA COSTA VILELA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"IVANETE ALVES DE OLIVEIRA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"IVANI MARIA SILVA DE SOUZA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"IVANILDA APARECIDA DE ANDRADE MEVES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"IZADORA ELOY REGUERO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JACQUELINE ALMEIDA DE OLIVEIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JAINE APARECIDA HILARIO DE PAULA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JAKSON PAULO FERNANDES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JANAINA APARECIDA CARDOSO DE MORAIS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JANAINA APARECIDA DE MORAES VAZ",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JANAINA SILVESTRE FERNANDES SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JANE ALVES DO NASCIMENTO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JANE DE SOUSA PONTES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JANERLETE LIMA VELOSO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JANETE MENDES DOS SANTOS SILVA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JAQUELINE RODRIGUES DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JENNIFFER DE CARVALHO MARQUES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JESSICA CANDIDO DE PAULA GONCALVES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JESSICA CAVALCANTI FURLAN",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JOAO CARLOS DE MELO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JOAO PAULO GOMES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JOAO VITOR DA SILVA COSTA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JOAO VITOR OLIVEIRA BASTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JOELMA LOPES DE SIQUEIRA DIAS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JOSE ALVES DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JOSE ANTONIO DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JOSE TAVARES DE OLIVEIRA FILHO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JOSEFA LEDESMA DAS GRACAS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JOSEFA MARIA DA SILVA NUNES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JOSIANE COSTA SIQUEIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JOSIANE DA SILVA SANTOS",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JOSIANE DE OLIVEIRA SILVA ROSINDO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JOSIAS DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JOSIEL VICENTE",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JOSILAINE APARECIDA SILVA FRANCO DOS SANTO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JOSIMARA XAVIER LEME DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JOSUE DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JOYCE DANIELE MOREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JUCILENE APARECIDA SIQUEIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JUCILENE DE SOUZA PEREIRA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JUDINALVA CONCEICAO RODRIGUES DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JULHYA ROBERTS DE OLIVEIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JULIANA ALVARENGA MARTINS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JULIANA APARECIDA RODRIGUES DO ESPIRITO SA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JULIANA CARLA FERREIRA DA PAZ",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JULIANA DA SILVA MARIANO",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JULIANA MARIANO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"JULIANA SAMANTHA GEORGIA QUINTINO PEREIRA",
+    "funcao_atividade":"AUXILIAR ADMINISTRATIVO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"KAREN DE PAULA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"KARINA APARECIDA DE CAMPOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"KARINA APARECIDA RAFAEL DOS SANTOS FOSSE",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"KARINA LUCIA SATURNINO",
+    "funcao_atividade":"ENCARREGADO (A)",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"KARINA RITA FERREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"KARINE DA SILVA BRANCO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"KARINY RODRIGUES ALVES DE ANDRADE",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"KATE DOMINGOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"KATHELYN MARIA DE SOUZA GUEDES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"KATIA ANDRADE DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"KATIA APARECIDA FROES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"KATIA CILENE DE SIQUEIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"KATIA CILENE GOMES ALVES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"KATIA RIBEIRO DE MORAIS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"KATIA SOARES BRAGA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"KELLY CRISTINA DOS SANTOS GURUNGA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"KELLY MARGARETE RIBEIRO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"KELY CRISTINA DE JESUS BARBOSA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"KETLYN DE OLIVEIRA FRANCISCO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"KEVIN KENEDY GABRIEL MOREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"KHADIJA HELLEN SOUZA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LARISSA CORDEIRO MARTINS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LAUREN APARECIDA COSTA CHIAO",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LEDA DAYANE LEOBINO DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LEIA PRISCILA FERNANDES DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LEIDILENE SILVA QUEIROZ",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LEILA SILVA SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LENILZA MARIA DO NASCIMENTO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LEONARDO GONCALVES FIUZA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LEONARDO MARTINS DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LEONARDO SILVA COSTA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LETICIA DE CASSIA FERREIRA DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LETICIA DE LIMA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LICIA RODRIGUES CARDOSO SOUZA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LIGIA ANA APAREIDA DE SOUZA AMORIM",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LILIAN DE SOUZA MELO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LILIAN WANESSA APARECIDA DIOGENES WERNEC",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LORENA HELENA DIAS DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LUANA BISPO DOS SANTOS",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LUANA CONCEICAO DA LAPA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LUANA NEIRE DE LIMA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LUANA REIS DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LUCIANA APARECIDA XAVIER",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LUCIANA DE ALMEIDA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LUCIANA DE ALVARENGA COSTA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LUCIANA DE FREITAS MONTEIRO",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LUCIANA DO CARMO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LUCIANA DOS SANTOS CUBA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LUCIANA DUTRA AMARAL",
+    "funcao_atividade":"LIDER DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LUCIANA MENEZES DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LUCIANA MIGUEL DA SILVA MORAIS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LUCIANA PINTO DE ALMEIDA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LUCIANA RIBEIRO DE SOUSA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LUCIANA TEIXEIRA DE CASTRO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LUCIANO ANDRADE SANTANA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LUCIDALVA LEITE SOUZA NIEMIETZ",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LUCIENE AVELINO LEITE DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LUCILENE MIGUEL DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LUCIMARA CASEMIRO DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LUCIMARA DE SIQUEIRA NUNES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"LUIZ FERNANDO SANCHES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MADALENA SANTOS DE OLIVEIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MAGALI APARECIDA DA SILVA SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARCIA CONCEICAO DE OLIVEIRA SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARCIA CRISTINA DE LIMA ALMEIDA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARCIA MARIA CAETANO DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARCIA MARIA DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARCIA PEREIRA DA SILVA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARCIA REGINA APARECIDA DA SILVA NASCIMENT",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARCIA REGINA PRETEL AGIO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARCIO LUIZ FIGUEIREDO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARCO AURELIO DE LIMA MARQUESI",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARCOS AMARAL SOARES",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARCOS ROBERTO DA SILVA DONIZETI",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARGARETE GONCALVES",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARGARETH CANESCHI",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA ADENICE SANTOS DO NASCIMENTO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA APARECIDA ALVIM DOS SANTOS",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA APARECIDA CANDIDO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA APARECIDA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA APARECIDA DE FATIMA RAMOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA APARECIDA DE OLIVEIRA PRADO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA APARECIDA DE SOUZA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA APARECIDA FLAUZINO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA AUXILIADORA DOS REIS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA BERNADETI SAMPAIO DE ANDRADE DA SILV",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA CICERA BELARMINO FERREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA CRISTINA DA CONCEICAO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA CRISTINA DE ASSIS GOMES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA CRISTINA MORAES VAZ",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA DA LUZ DE FRANCA SOUZA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA DAS DORES DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA DAS DORES SOUSA DE ALMEIDA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA DAS GRACAS PERUCIO SILVA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA DE FATIMA DA SILVA OLIVEIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA DE FATIMA DE SOUZA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA DE LOURDES SANTANA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA DE SOUSA PALMEIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA DO CARMO RIBEIRO",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA DO SOCORRO COSTA LEITE",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA DO SOCORRO DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA DO SOCORRO MORAIS LOPES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA DO SOCORRO SOUSA MOTA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA DOS REMEDIOS SANTOS SOUSA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA ELISETE DA SILVA FLORIANO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA FRANCISCA DE JESUS",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA GORETI FERNANDES OLIVEIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA HELENA SIMASCHI DE MIRANDA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA ISABEL ANTUNES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA LUCIA DE CAMPOS LIMA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA LUIZA DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA REGILENE DE CARVALHO DIAS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA VALENTINA CARDOSO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA XAVIER DE TORRES CAMPOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIA ZACARIAS LIMA DE OLIVEIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIANA APARECIDA DOS SANTOS MATSUO SOUZA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIANE APARECIDA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARILANDIA MIRANDA DA PAIXAO BORGES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARILEINE GOMES FERREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARILENE DE JESUS SOUSA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARILENE MARIA DE FRANCA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARILIA CRISTINA PINHEIRO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARILIA GABRIELA DE CARVALHO",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARILIA ROSANA DO PATROCINIO",
+    "funcao_atividade":"LIDER DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARILUCIA COSTA DA SILVA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARILZA SILVA OLIVEIRA TEIXEIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARINALVA FERREIRA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARINALVA MARIA DA CRUZ DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARISA APARECIDA DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARISA CRISTINA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARISMENIA DOS SANTOS BRETAS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIZA BATISTA RESENDE",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARIZA SIMAO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARLENE DA SILVA ALBINO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARLENE FERNANDES DE ALMEIDA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARLENE SOARES DE SOUZA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARLI DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MARLI MORAIS DE MENDONCA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MATHEUS JOSE DO PRADO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MAYARA TIFANY FROES DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MEIGLE RAMOS BENIZ",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MELINA EISENHOWER DO PRADO SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MELISSA BORGES ROCHA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MICHELE FERREIRA DE MORAES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MICHELE ROBERTA PEREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MICHELI SANTANA DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MICHELLE APARECIDA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MIRIAM APARECIDA DE PAULA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MIRIAM CAETANO RODRIGUES",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MIRIAM PEREIRA MACIEL TAVARES",
+    "funcao_atividade":"AUXILIAR ADMINISTRATIVO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MIRIAM RIBEIRO DA SILVA BRITO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MIRIAN GONCALVES DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MIRLENE FERNANDA DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"MOISES BARBOSA MENDES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"NADJANE SABINO DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"NAILZA FERREIRA DO NASCIMENTO SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"NAIR APARECIDA REGUERO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"NANCI DE FREITAS RAMOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"NATALIA APARECIDA DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"NATALLI VELOSO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"NEEMIAS FRANKILIN DE SOUZA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"NEIDE APARECIDA COSTA DE LIMA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"NEIDE GUEDES DE SOUZA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"NELSON LUIZ GOMES SABINO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"NERE ALVES DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"NEUSA GOMES DA CRUZ",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"NEWTON PRADO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"NIDIA LICIA SILVA ANTUNES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"NILDA PEREIRA DE FARIA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"NILZETE APARECIDA DOS SANTOS CONCEICAO",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"PALOMA BENEDITO LOPES DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"PALOMA DA SILVA SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"PALOMA MOREIRA GUEDES DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"PAMBELA EDUARDA BARBOSA RANGEL",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"PAMELA CRISTINA DIAS DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"PATRICIA APARECIDA DOS SANTOS VILAS BOAS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"PATRICIA CANDIDA DE PAULA SILVA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"PATRICIA PAULINO DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"PATRICIA SALES GUIMARAES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"PAULA CARDOSO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"PAULA SAMANTHA DE SOUSA GODINHO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"PAULO LUIZ DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"PAULO PEREIRA MACIEL",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"PAULO ROBERTO ROSA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"PAULO ROGERIO VAZ JUNIOR",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"PAULO SERGIO VIEIRA DE OLIVEIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"PEDRO GABRIEL MELO DE SOUZA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"PENHA APARECIDA DE JESUS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"PENHA SUSY MELO DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"PRISCILA APARECIDA DOS SANTOS MATSUO COELH",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"PRISCILA APARECIDA RIBEIRO DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"PRISCILA DE FATIMA RODRIGUES PINTO FAGUNDE",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"PRISCILA DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"PRISCILA GOMES DA SILVA LIMA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"PRISCILA RODRIGUES DE PAULO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"PRISCILA RODRIGUES DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"PRISLA OLIVEIRA DE ANDRADE",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"RAIMUNDA DE SOUSA LOPES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"RAIMUNDA DEUZIENE CIDRONE DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"RAIMUNDA NONATA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"RAQUEL APARECIDA DOS SANTOS BATISTA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"RAQUEL DA CONCEICAO NASCIMENTO MANDU",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"RAQUEL RIBEIRO DE FARIA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"REGIANE APARECIDA PEREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"REGIANE CIPRIANO MACHADO",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"REGIANE CRISTINA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"REGIANE LEMES DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"REGIANE RODRIGUES DA SILVA CARLOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"REGINA AMARO DOS SANTOS",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"REGINA BARROS PEREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"REGINA CLAUDIA DOS ANJOS VALENSUELO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"REGINA CONCEICAO PROCOPIO COSTA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"REGINEIDE DA CONCEICAO SILVA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"RENAN LUIZ DA ROCHA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"RENATA APARECIDA DA CONCEICAO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"RENATA DA SILVA MORAIS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"RENATA MUNIZ DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"RENATA PAULA BEZERRA DE SOUZA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"RENATA SILVA SALTES RODRIGUES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"RICHARD SEARLES PEREIRA ROCHA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"RITA DE CASSIA CAETANO PEREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"RITA DE CASSIA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"RITA DE CASSIA DE JESUS",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"RITA DE CASSIA DOS SANTOS",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"RITA DE CASSIA MIRANDA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"RITA MOTA DA SILVA ROSA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"RIVONIA CARVALHO DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ROBERTA DA SILVA ARNOLPHA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ROBSON CAVALCANTE RODRIGUES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ROCHELLE ARMOND DA SILVA BRAGA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ROSANA APARECIDA DE ANDRADE",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ROSANA BARBOSA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ROSEANE DOS SANTOS SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ROSELI ANGELO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ROSELI APARECIDA DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ROSELI DE SOUZA VIEIRA LIMA",
+    "funcao_atividade":"ENCARREGADO (A)",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ROSELI MARTINS DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ROSELI SOARES RODRIGUES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ROSEMAR LOPES DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ROSEMEIRE APARECIDA PEREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ROSEMEIRE DE OLIVEIRA MARTINS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ROSEMEIRE DE SOUZA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ROSENI FATIMA DE OLIVEIRA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ROSICLEIA BATISTA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ROSILENE ALMEIDA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ROSILENE VIEIRA DO NASCIMENTO SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ROSIMEIRE NASCIMENTO DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ROSIMEIRE TEIXEIRA DOS SANTOS",
+    "funcao_atividade":"ENCARREGADO (A)",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SAMARA PEREIRA SANTANA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SANDRA APARECIDA BAPTISTA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SANDRA APARECIDA DE OLIVEIRA RAFAEL",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SANDRA APARECIDA DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SANDRA CLEDJA GONCALVES DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SANDRA CRISTINA DE JESUS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SANDRA FERNANDES DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SANDRA MARIA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SANDRA REGINA BERNARDES DO NASCIMENTO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SANTA APARECIDA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SARA MARIA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SELMA DE MELO DAS NEVES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SERGIO ADRIANI SOARES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SERGIO ALVES BATISTA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SEVERINA MARIA DOS SANTOS GOMES",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SHEILA CLEMENTE DOS SANTOS FERREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SHEILA MARIA DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SHEILA SANTOS SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SHIRLEI APARECIDA DE ALMEIDA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SHIRLEINE RIBEIRO DE MORAIS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SHIRLEY CRISTINA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SHIRLEY DE OLIVEIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SIBELI SILVA FIORESI BOTELHO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SIDIHLEI DA SILVA FERNANDES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SILAS BASILIO SOARES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SILMA ALMEIDA CANDIDO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SILVANA APARECIDA LEITE COSTA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SILVANA CONCEICAO DA ROCHA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SILVANA DE MORAES",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SILVANA DE OLIVEIRA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SILVANA GOMES DA CRUZ",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SILVANA MENDES DA CRUZ",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SILVANIR ROCHA LOURENCO",
+    "funcao_atividade":"SUPERVISOR (A) DE SERVIÇOS",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SILVIA JOSELMA DE LIMA REGO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SILVIANA DE CASTRO SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SIMONE APARECIDA DE OLIVEIRA VALE",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SIMONE APARECIDA FERNANDES ROCHA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SIMONE DE MORAIS SANTANA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SIMONE REGINA MANCORES DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SIMONE TIARGA TEIXEIRA",
+    "funcao_atividade":"LIDER DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SOLANGE APARECIDA DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SOLANGE REGINA MANCORES DE SOUZA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SONIA REGINA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SONIA REGINA GARCIA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SORAIA OLIVEIRA ARAUJO DOS SANTOS",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SORAIA PEREIRA DIOGO DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"STEFANI SANTOS DE SOUZA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"STHEFANI SILVA DE AQUINO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SUELI APARECIDA ALVES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SUELI APARECIDA DE MELO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SUELI BAPTISTA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SUELI BIZERRA DA COSTA RODRIGUES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SUELI DE FATIMA ARAUJO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"SUELI GREGORIO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"TABATA DOS SANTOS RODRIGUES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"TAIS ARAUJO FARIAS DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"TAIS DE MORAES PEREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"TAMI FREIRE DE CARVALHO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"TAMIRES REGINA DUTRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"TAMIRIS PEREIRA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"TANCI RODRIGUES DE MACEDO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"TATHIANE APARECIDA ALVES SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"TATIANA CRISTINA DE SOUZA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"TATIANA DE LIMA PEREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"TATIANE ALVES DOS SANTOS ALEIXO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"TATIANE APARECIDA DE ALMEIDA MOREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"TATIANE AUGUSTO PEDRO MARCIANO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"TATIANE DA SILVA SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"TATIANE DE FATIMA COSTA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"TATIANE DE SOUZA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"TATIANE MARCIA MOREIRA DA SILVA ARAUJO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"TATIANE RAMOS DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"TAYNA MOREIRA DA SILVA",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"TELMA CARDOSO DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"TEREZA MARIA DO NASCIMENTO SOUSA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"THABATA GONCALVES VILELA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"THAIRINI GOMES DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"THAIS DUTRA DE SOUZA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"THIAGO DA SILVA RODRIGUES",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"THIAGO FELIPE DA SILVA TAKEDA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VALDENEIA MARCIA DE OLIVEIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VALDIRENE FELISBINO GERALDO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VALDIRENE GONCALVES SANTANA LEME",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VALERIA APARECIDA DA SILVA LIMA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VALMIRA EUGENIA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VANDA FERREIRA DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VANDERLEI JOSE DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VANESSA BARBOSA CARVALHO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VANESSA CAROLINE RIBEIRO DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VANESSA DE AGUIAR DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VANESSA PEREIRA DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VANIA CONCEICAO DE ARAUJO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VANIA JULIANA BATISTA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VANILDA DOS SANTOS VIEIRA BRAGA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VANUZA FAUSTINA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VANYLLA APARECIDA PEREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VERA LIGIA DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VERA LUCIA CORREA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VERA LUCIA IZIDORO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VERA MARIA DE JESUS SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VERA MARIA DIAS DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VERONICA CASSIA DE SOUSA SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VERONICA MICHELE BILA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VERONICA PEDRINA DA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VILMA CARVALHO DOS SANTOS PEREIRA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VIVIAN DE SOUZA RAYMUNDO",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VIVIANE BATISTA ROSA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VIVIANE CAUTELES BORTOLO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"VIVIANE FERREIRA DOS SANTOS",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"WAGNER DOS SANTOS TEODORO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"WANDA LUCIA DE OLIVEIRA SILVA",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"WASHINGTON CAIQUE DOS SANTOS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"WENDY GOMES JARDIM",
+    "funcao_atividade":"AGENTE DE HIGIENIZAÇÃO",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"WILLIAN MESQUITA DIAS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ZILDA DO ESPIRITO SANTO",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"ZILDA GONCALVES DE ASSIS",
+    "funcao_atividade":"AJUDANTE DE LIMPEZA",
+    "empresa":"DEMAX SERVIÇOS E COMÉRCIO LTDA",
+    "cnpj":"48.096.044\/0001-93",
+    "contrato":"14\/2025"
+  },
+  {
+    "funcionario":"Vera Aparecida dos S. Morimoto Oda",
+    "funcao_atividade":"Motorista",
+    "empresa":"MK Transportes e Locações Ltda.",
+    "cnpj":"10.974.320\/0001-04",
+    "contrato":"70\/2023"
+  },
+  {
+    "funcionario":"Lucas Cecílio",
+    "funcao_atividade":"Motorista",
+    "empresa":"MK Transportes e Locações Ltda.",
+    "cnpj":"10.974.320\/0001-04",
+    "contrato":"70\/2023"
+  },
+  {
+    "funcionario":"Genília Cascardo",
+    "funcao_atividade":"Motorista",
+    "empresa":"MK Transportes e Locações Ltda.",
+    "cnpj":"10.974.320\/0001-04",
+    "contrato":"70\/2023"
+  },
+  {
+    "funcionario":"Marisa Ribeiro dos Santos",
+    "funcao_atividade":"Motorista",
+    "empresa":"MK Transportes e Locações Ltda.",
+    "cnpj":"10.974.320\/0001-04",
+    "contrato":"70\/2023"
+  },
+  {
+    "funcionario":"Marcos da Silva",
+    "funcao_atividade":"Motorista",
+    "empresa":"MK Transportes e Locações Ltda.",
+    "cnpj":"10.974.320\/0001-04",
+    "contrato":"70\/2023"
+  },
+  {
+    "funcionario":"Antônio Correia Coutinho",
+    "funcao_atividade":"Motorista",
+    "empresa":"MK Transportes e Locações Ltda.",
+    "cnpj":"10.974.320\/0001-04",
+    "contrato":"70\/2023"
+  },
+  {
+    "funcionario":"Donizeth Henrique da Silva",
+    "funcao_atividade":"Motorista",
+    "empresa":"MK Transportes e Locações Ltda.",
+    "cnpj":"10.974.320\/0001-04",
+    "contrato":"70\/2023"
+  },
+  {
+    "funcionario":"Marcelo Sampaio Pereira",
+    "funcao_atividade":"Motorista",
+    "empresa":"MK Transportes e Locações Ltda.",
+    "cnpj":"10.974.320\/0001-04",
+    "contrato":"70\/2023"
+  },
+  {
+    "funcionario":"Sheila Rocha Franco Pereira",
+    "funcao_atividade":"Motorista",
+    "empresa":"MK Transportes e Locações Ltda.",
+    "cnpj":"10.974.320\/0001-04",
+    "contrato":"70\/2023"
+  },
+  {
+    "funcionario":"Rodrigo Matsuki da Silva",
+    "funcao_atividade":"Motorista",
+    "empresa":"MK Transportes e Locações Ltda.",
+    "cnpj":"10.974.320\/0001-04",
+    "contrato":"70\/2023"
+  },
+  {
+    "funcionario":"Clóvis Baptista de Siqueira",
+    "funcao_atividade":"Motorista",
+    "empresa":"MK Transportes e Locações Ltda.",
+    "cnpj":"10.974.320\/0001-04",
+    "contrato":"70\/2023"
+  },
+  {
+    "funcionario":"Débora Ryuko Morimoto Oda",
+    "funcao_atividade":"Monitora",
+    "empresa":"MK Transportes e Locações Ltda.",
+    "cnpj":"10.974.320\/0001-04",
+    "contrato":"70\/2023"
+  },
+  {
+    "funcionario":"Maria José Teodoro",
+    "funcao_atividade":"Monitora",
+    "empresa":"MK Transportes e Locações Ltda.",
+    "cnpj":"10.974.320\/0001-04",
+    "contrato":"70\/2023"
+  },
+  {
+    "funcionario":"Josieli dos Anjos Basílio",
+    "funcao_atividade":"Monitora",
+    "empresa":"MK Transportes e Locações Ltda.",
+    "cnpj":"10.974.320\/0001-04",
+    "contrato":"70\/2023"
+  },
+  {
+    "funcionario":"Josilena dos Santos Pereira",
+    "funcao_atividade":"Monitora",
+    "empresa":"MK Transportes e Locações Ltda.",
+    "cnpj":"10.974.320\/0001-04",
+    "contrato":"70\/2023"
+  },
+  {
+    "funcionario":"Josiane Rezende dos Santos Viana",
+    "funcao_atividade":"Monitora",
+    "empresa":"MK Transportes e Locações Ltda.",
+    "cnpj":"10.974.320\/0001-04",
+    "contrato":"70\/2023"
+  },
+  {
+    "funcionario":"Fernanda Ribeiro dos Santos",
+    "funcao_atividade":"Monitora",
+    "empresa":"MK Transportes e Locações Ltda.",
+    "cnpj":"10.974.320\/0001-04",
+    "contrato":"70\/2023"
+  },
+  {
+    "funcionario":"Marlene dos Santos Cardoso",
+    "funcao_atividade":"Monitora",
+    "empresa":"MK Transportes e Locações Ltda.",
+    "cnpj":"10.974.320\/0001-04",
+    "contrato":"70\/2023"
+  },
+  {
+    "funcionario":"Yara Sampaio Silva Tanabe",
+    "funcao_atividade":"Monitora",
+    "empresa":"MK Transportes e Locações Ltda.",
+    "cnpj":"10.974.320\/0001-04",
+    "contrato":"70\/2023"
+  },
+  {
+    "funcionario":"Virginia da Silva Sampaio",
+    "funcao_atividade":"Monitora",
+    "empresa":"MK Transportes e Locações Ltda.",
+    "cnpj":"10.974.320\/0001-04",
+    "contrato":"70\/2023"
+  },
+  {
+    "funcionario":"Helena Rosa Queiroz Sá",
+    "funcao_atividade":"Monitora",
+    "empresa":"MK Transportes e Locações Ltda.",
+    "cnpj":"10.974.320\/0001-04",
+    "contrato":"70\/2023"
+  },
+  {
+    "funcionario":"Márcia Gomes de Campos",
+    "funcao_atividade":"Monitora",
+    "empresa":"MK Transportes e Locações Ltda.",
+    "cnpj":"10.974.320\/0001-04",
+    "contrato":"70\/2023"
+  },
+  {
+    "funcionario":"FABIANO DOS SANTOS NOBRE",
+    "funcao_atividade":"TÉCNICO",
+    "empresa":"ECMEDIX MANUTENCAO DE EQUIPAMENTOS ME",
+    "cnpj":"20.903.212\/0001-96",
+    "contrato":"131\/2023"
+  },
+  {
+    "funcionario":"MARIA LUCIA DE SOUZA BARROS",
+    "funcao_atividade":"GESTORA ",
+    "empresa":"ECMEDIX MANUTENCAO DE EQUIPAMENTOS ME",
+    "cnpj":"20.903.212\/0001-96",
+    "contrato":"131\/2023"
+  },
+  {
+    "funcionario":" LUCELIA MORENO MACHADO DE MORAES",
+    "funcao_atividade":"MONITORA ESCOLAR",
+    "empresa":"EDUARDO RODRIGUES DE LIMA TRANSPORTE LTDA ",
+    "cnpj":"11.025.312\/0001-76",
+    "contrato":"06\/2024"
+  },
+  {
+    "funcionario":"RUTH HARUMI KITAJATO",
+    "funcao_atividade":"MOTORISTA ESCOLAR",
+    "empresa":"EDUARDO RODRIGUES DE LIMA TRANSPORTE LTDA ",
+    "cnpj":"11.025.312\/0001-76",
+    "contrato":"06\/2024"
+  },
+  {
+    "funcionario":"NANCY YONE UENA MOREIRA",
+    "funcao_atividade":"MONITORA ESCOLAR",
+    "empresa":"EDUARDO RODRIGUES DE LIMA TRANSPORTE LTDA ",
+    "cnpj":"11.025.312\/0001-76",
+    "contrato":"06\/2024"
+  },
+  {
+    "funcionario":"LUIZ EDUARDO DA COSTA",
+    "funcao_atividade":"MOTORISTA ESCOLAR",
+    "empresa":"EDUARDO RODRIGUES DE LIMA TRANSPORTE LTDA ",
+    "cnpj":"11.025.312\/0001-76",
+    "contrato":"06\/2024"
+  },
+  {
+    "funcionario":"Bruno Cesar dos Santos Hirayama ",
+    "funcao_atividade":"Pedreiro",
+    "empresa":"TRÓPICO CONSTRUTORA E INC. LTDA ",
+    "cnpj":"49.049.695\/0001-95",
+    "contrato":"59\/2023"
+  },
+  {
+    "funcionario":"Felipe Augusto Gonçalves Camargo ",
+    "funcao_atividade":"Engenheiro Civil",
+    "empresa":"TRÓPICO CONSTRUTORA E INC. LTDA ",
+    "cnpj":"49.049.695\/0001-95",
+    "contrato":"59\/2023"
+  },
+  {
+    "funcionario":"Gerlindo Marques da Silva ",
+    "funcao_atividade":"Encarregado ",
+    "empresa":"TRÓPICO CONSTRUTORA E INC. LTDA ",
+    "cnpj":"49.049.695\/0001-95",
+    "contrato":"59\/2023"
+  },
+  {
+    "funcionario":"João Carvalho de Brito ",
+    "funcao_atividade":"Engenheiro Civil",
+    "empresa":"TRÓPICO CONSTRUTORA E INC. LTDA ",
+    "cnpj":"49.049.695\/0001-95",
+    "contrato":"59\/2023"
+  },
+  {
+    "funcionario":"João Paulo Santana Fagundes Bezerra ",
+    "funcao_atividade":"Engenheiro Civil",
+    "empresa":"TRÓPICO CONSTRUTORA E INC. LTDA ",
+    "cnpj":"49.049.695\/0001-95",
+    "contrato":"59\/2023"
+  },
+  {
+    "funcionario":"Lazaro Tadeu dos Santos ",
+    "funcao_atividade":"Ajudante",
+    "empresa":"TRÓPICO CONSTRUTORA E INC. LTDA ",
+    "cnpj":"49.049.695\/0001-95",
+    "contrato":"59\/2023"
+  },
+  {
+    "funcionario":"Leandro Batista dos Santos ",
+    "funcao_atividade":"Ajudante",
+    "empresa":"TRÓPICO CONSTRUTORA E INC. LTDA ",
+    "cnpj":"49.049.695\/0001-95",
+    "contrato":"59\/2023"
+  },
+  {
+    "funcionario":"Luis Henrique Silva Santos ",
+    "funcao_atividade":"Ajudante",
+    "empresa":"TRÓPICO CONSTRUTORA E INC. LTDA ",
+    "cnpj":"49.049.695\/0001-95",
+    "contrato":"59\/2023"
+  },
+  {
+    "funcionario":"Marco Antonio da Silva ",
+    "funcao_atividade":"Pedreiro ",
+    "empresa":"TRÓPICO CONSTRUTORA E INC. LTDA ",
+    "cnpj":"49.049.695\/0001-95",
+    "contrato":"59\/2023"
+  },
+  {
+    "funcionario":"Rosene da Cruz Rodrigues ",
+    "funcao_atividade":"Pedreiro ",
+    "empresa":"TRÓPICO CONSTRUTORA E INC. LTDA ",
+    "cnpj":"49.049.695\/0001-95",
+    "contrato":"59\/2023"
+  },
+  {
+    "funcionario":null,
+    "funcao_atividade":null,
+    "empresa":null,
+    "cnpj":null,
+    "contrato":null
+  },
+  {
+    "funcionario":"Ewerton Sousa Dias Pereira ",
+    "funcao_atividade":"Ajudante",
+    "empresa":"TRÓPICO CONSTRUTORA E INC. LTDA ",
+    "cnpj":"49.049.695\/0001-95",
+    "contrato":"130\/2023"
+  },
+  {
+    "funcionario":"Nilson Assunção ",
+    "funcao_atividade":"Ajudante",
+    "empresa":"TRÓPICO CONSTRUTORA E INC. LTDA ",
+    "cnpj":"49.049.695\/0001-95",
+    "contrato":"130\/2023"
+  },
+  {
+    "funcionario":null,
+    "funcao_atividade":null,
+    "empresa":null,
+    "cnpj":null,
+    "contrato":null
+  },
+  {
+    "funcionario":"- ",
+    "funcao_atividade":"- ",
+    "empresa":"- ",
+    "cnpj":"- ",
+    "contrato":"136\/2023"
+  },
+  {
+    "funcionario":"Brasilino dos Santos",
+    "funcao_atividade":"Controlador de Acesso",
+    "empresa":"CLEAN4 SERVIÇOS GERAIS E ADMINISTRATIVOS EIRELI",
+    "cnpj":null,
+    "contrato":null
+  },
+  {
+    "funcionario":"André Souza Barros",
+    "funcao_atividade":"Controlador de Acesso",
+    "empresa":"CLEAN4 SERVIÇOS GERAIS E ADMINISTRATIVOS EIRELI",
+    "cnpj":null,
+    "contrato":null
+  },
+  {
+    "funcionario":"Vilma de Fatima Riibeiro",
+    "funcao_atividade":"Controlador de Acesso",
+    "empresa":"CLEAN4 SERVIÇOS GERAIS E ADMINISTRATIVOS EIRELI",
+    "cnpj":null,
+    "contrato":null
+  },
+  {
+    "funcionario":"Mizael Genesio da Silva",
+    "funcao_atividade":"Controlador de Acesso",
+    "empresa":"CLEAN4 SERVIÇOS GERAIS E ADMINISTRATIVOS EIRELI",
+    "cnpj":null,
+    "contrato":null
+  },
+  {
+    "funcionario":"Brian Felipe de A. Rafael",
+    "funcao_atividade":"Zelador",
+    "empresa":"CLEAN4 SERVIÇOS GERAIS E ADMINISTRATIVOS EIRELI",
+    "cnpj":null,
+    "contrato":null
+  },
+  {
+    "funcionario":"Thais Galdina Miranda",
+    "funcao_atividade":"Analista de Atendimento",
+    "empresa":"HAPVIDA NOTREDAME INTERMÉDICA",
+    "cnpj":null,
+    "contrato":null
+  },
+  {
+    "funcionario":"Anthony Henrique Costa da Rocha",
+    "funcao_atividade":"Assistente Administrativo",
+    "empresa":"HAPVIDA NOTREDAME INTERMÉDICA",
+    "cnpj":null,
+    "contrato":null
+  },
+  {
+    "funcionario":"Ricléia Queiroz de Oliveira",
+    "funcao_atividade":"Analista de Suporte Junior",
+    "empresa":"SMARAPD INFORMÁTICA LTDA",
+    "cnpj":null,
+    "contrato":null
+  },
+  {
+    "funcionario":"Lucas Luan Rosa de Sousa",
+    "funcao_atividade":"Auxiliar Técnico de Informática",
+    "empresa":"MR COMPUTER ",
+    "cnpj":null,
+    "contrato":null
+  },
+  {
+    "funcionario":"Kaique Oliveira da Costa",
+    "funcao_atividade":"Auxiliar Técnico de Informática",
+    "empresa":"MR COMPUTER ",
+    "cnpj":null,
+    "contrato":null
+  },
+  {
+    "funcionario":"Willian Santana Queiroz Araujo",
+    "funcao_atividade":"Coordenador de Customer Care",
+    "empresa":"MR COMPUTER ",
+    "cnpj":null,
+    "contrato":null
+  },
+  {
+    "funcionario":"Gabriel Teixeira Pedroso",
+    "funcao_atividade":"Assistente de Customer Care Pleno III",
+    "empresa":"MR COMPUTER ",
+    "cnpj":null,
+    "contrato":null
+  },
+  {
+    "funcionario":"Simone Aparecida Felismino Napolitano",
+    "funcao_atividade":"Assistente De Vendas Junior",
+    "empresa":"MOGIPASSES COMERCIO DE BILHETES ELETRONICOS",
+    "cnpj":null,
+    "contrato":null
+  }
+]

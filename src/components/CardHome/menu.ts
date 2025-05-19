@@ -496,7 +496,7 @@ export const menus=[
                 "id_submenu": 3,
                 "label":"Diário Oficial",
                 "imageUrl": IconeLeis.src,
-                'url':"#",
+                'url':"https://diario-oficial.mogidascruzes.sp.gov.br/diarios/publicacoes/",
                 "extralinks": [ ]
             },
             {
