@@ -286,10 +286,14 @@ const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.updated_at).toL
                         fontWeight="bold"
                         border={`1px solid ${colors.grayLighter}`}>
                         <Th color="white">Empenho</Th>
-                        <Th color="white">Fornecedor</Th>
                         <Th color="white">Valor empenho</Th>
+                        <Th color="white">Fornecedor</Th>
+                        <Th color="white">CNPJ fornecedor</Th>
                         <Th color="white">Unidade Orçamentária</Th>
-                       
+                        <Th color="white">Classificação funcional</Th>
+                        <Th color="white">Descrição funcional</Th>
+                        <Th color="white">Subelemento</Th>
+                                              
                       </Tr>
                     </Thead>
                     <Tbody fontSize='12px'>
@@ -307,9 +311,13 @@ const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.updated_at).toL
               }}
                     >
                           <Td>{row.id_empenho} </Td> 
+                          <Td>{moneyFormatter(Number(row.vlr_empenho))}</Td>
                          <Td>{row.descr_fornecedor}</Td>
-                         <Td>{moneyFormatter(Number(row.vlr_empenho))}</Td>
+                          <Td>{row.cnpj_fornecedor}</Td>
                           <Td>{row.unid_orcam}</Td>
+                           <Td>{row.class_funcional}</Td>
+                            <Td>{row.descr_funcional}</Td>
+                            <Td>{row.subelemento}</Td> 
                           
                          
                           

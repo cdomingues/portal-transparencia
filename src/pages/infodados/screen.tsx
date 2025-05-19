@@ -68,7 +68,7 @@ function Screen({ handler }: PropsInput) {
           },
           {
             title: "Análise CADÚNICO",
-            src: "https://app.powerbi.com/view?r=eyJrIjoiYzczMjhkODYtYjc3Yi00NzYyLWEzZmQtZWQ5NjA3YWFlMmM0IiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
+            src: "https://app.powerbi.com/view?r=eyJrIjoiYWE4NzlkZmEtYzRhYy00ZDdlLTg2ZTgtNGE1YjJhOGVmMjY2IiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
           },
         ].map((item, index) => (
           <AccordionItem key={index}>
@@ -81,8 +81,8 @@ function Screen({ handler }: PropsInput) {
               </AccordionButton>
             </h2>
             <AccordionPanel>
-              <Box maxWidth="100%" p={2} my={2}>
-                <iframe title={item.title} width="1200px" height="800" src={item.src}></iframe>
+              <Box maxWidth="100%" p={2} >
+                <iframe title={item.title} width="98%" height="800" src={item.src}></iframe>
               </Box>
               <Box textAlign="center" mt={2}>
                 <Button 
@@ -121,7 +121,7 @@ function Screen({ handler }: PropsInput) {
                 <Flex>
                   <Box flex="end" p={2} marginRight={5}></Box>
                   <Box maxWidth="100%" p={2}>
-                  <iframe title="PRESTAÇÃO DE CONTAS - SUBVENCIONADAS DE ASSISTÊNCIA SOCIAL" width="1400" height="700" src="https://app.powerbi.com/view?r=eyJrIjoiZDM0ZjY5ZGYtNWU1Yi00YTYxLWJlYTQtN2EwZDI4MGYwMmIyIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9" ></iframe>
+                  <iframe title="PRESTAÇÃO DE CONTAS - SUBVENCIONADAS DE ASSISTÊNCIA SOCIAL" width="1400" height="800" src="https://app.powerbi.com/view?r=eyJrIjoiZDM0ZjY5ZGYtNWU1Yi00YTYxLWJlYTQtN2EwZDI4MGYwMmIyIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9" ></iframe>
                   </Box>
                 </Flex>
               </AccordionPanel>
