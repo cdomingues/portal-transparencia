@@ -255,6 +255,15 @@ export const menus=[
                 "url":"/gestao-de-pessoas/concurso-publico",
                 "extralinks": []
             },
+            {
+                "id_submenu": 6, 
+                "label": "Servidores Terceirizados",  
+                "imageUrl":FolhaPagamento.src,
+                "url":"/gestao-de-pessoas/terceirizados",
+                "extralinks": []
+            },
+           
+           
            
         ]
       },
@@ -615,7 +624,13 @@ export const menus=[
                 "imageUrl": IconeLeis.src,
                 'url':"https://app.powerbi.com/view?r=eyJrIjoiY2RiMWYxZWQtN2NlOS00NTNjLTkyMGEtZmNiOWVhMmYzNTJiIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
                 "extralinks": [ ]
-            }
+            },  {
+                'id_submenu': 6,
+                "label":"Ouvidoria - COLAB",
+                'imageUrl': Ouvidoria.src,
+                'url':"https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab",
+                'extralinks': [ ]
+            },
         ]
       },
        {

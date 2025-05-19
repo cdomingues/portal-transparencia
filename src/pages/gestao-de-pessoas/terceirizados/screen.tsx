@@ -223,10 +223,11 @@ function Screen({
           <Tbody fontSize="12px">
             {paginated.map((row, index) => (
               <Tr
-                key={index}
-                bg={index % 2 === 0 ? useColorModeValue("white", "black") : useColorModeValue("#f7f7f7", "gray.100")}
-                _hover={{ bg: "#d1d1d1", cursor: "pointer", color: useColorModeValue("white", "black") }}
-              >
+                key={index} 
+                bg={index % 2 === 0 ? useColorModeValue("white", "black")  : useColorModeValue("#f7f7f7", "grey.100")} 
+                _hover={{ bg: "#d1d1d1", cursor: "pointer" , color: useColorModeValue("black", "white") }}
+                color={useColorModeValue("black", "white")}
+  >
                 <Td>{row.funcionario}</Td>
                 <Td>{row.funcao_atividade}</Td>
                 <Td>{row.empresa}</Td>

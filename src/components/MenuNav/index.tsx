@@ -181,6 +181,7 @@ const MenuHorizontalChakra = () => {
         { label: 'Cargos e Salários', href: '/gestao-de-pessoas/cargos-e-salarios' },
         { label: 'Carga Horária', href: '/gestao-de-pessoas/carga-horaria' },
         { label: 'Diárias', href: '/gestao-de-pessoas/diarias-viagens' },
+         { label: 'Servidores Terceirizados', href: '/gestao-de-pessoas/terceirizados' },
        
         
       ]
@@ -319,6 +320,7 @@ const MenuHorizontalChakra = () => {
         { label: 'Acompanhe os dados genéricos dos pedidos', href: '"https://mogidascruzes.1doc.com.br/b.php?pg=wp/wp&itd=3&ss=5' },
         { label: 'Painel de Acompanhamento da LAI 2023', href: 'https://app.powerbi.com/view?r=eyJrIjoiY2ZmODAzZDUtMDE2YS00ZWYzLWJhZGQtMWE4Nzc3OWQyMDgxIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9' },
         { label: 'Painel de Acompanhamento da LAI 2024', href: 'https://app.powerbi.com/view?r=eyJrIjoiY2RiMWYxZWQtN2NlOS00NTNjLTkyMGEtZmNiOWVhMmYzNTJiIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9' },
+          {label:"Ouvidoria - COLAB",href:"https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab" },
        
       ]
     },
