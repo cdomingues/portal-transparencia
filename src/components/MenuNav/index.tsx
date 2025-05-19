@@ -285,7 +285,7 @@ const MenuHorizontalChakra = () => {
             ]
          },
         { label: 'Governo digital', href: '/governo-digital' },
-        { label: 'Diário oficial', href: '#' },
+        { label: 'Diário oficial', href: 'https://diario-oficial.mogidascruzes.sp.gov.br/diarios/publicacoes/' },
         { label: 'InfoDados', href: '/infodados' },
       ]
     },

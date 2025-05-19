@@ -1,283 +1,247 @@
-import React, { useState } from "react";
-import ContainerBasic from "../../../components/Container/Basic";
-import publicRoutes from "../../../routes/public";
-import { Box, Button, Link, Stack, Table, Tbody, Td, Text, Th, Thead, Tr, useColorModeValue } from "@chakra-ui/react";
-import { useRouter } from "next/router";
+import {
+  Button,
+  Divider,
+  Heading,
+  Select,
+  Stack,
+  Text,
+  Box,
+  useColorModeValue,
+  Table,
+  Thead,
+  Tr,
+  Th,
+  Tbody,
+  Td,
+} from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
 import { isMobile } from "react-device-detect";
-import { color } from "highcharts";
+import ChartColumn from "../../../components/Antdesign/ChartPlots/ChartColumn";
+import ChartColumnLineWithPartner from "../../../components/Antdesign/ChartPlots/ColumnLineWithPartner";
+import Chart from "../../../components/Chart";
+import ContainerBasic from "../../../components/Container/Basic";
+import {
+  GraphWrapper,
+  MultipleGraphWrapper,
+} from "../../../components/GraphWrapper";
+import { MultiAxisChart } from "../../../components/MultiAxisChart";
+import TableComponent, { TableColumns } from "../../../components/Table";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
-import { ContainerSearch } from "../../../styles/components/contratos-atas/styles";
+import carga_horaria from '../../../../data/carga_horaria.json'
+import DadosAbertos from "../../../components/DadosAbertos";
+import PaginationComponent from "../../../components/PaginationComponent";
+import axios from "axios";
 import CsvDownload from "react-json-to-csv";
+import moneyFormatter from "../../../utils/moneyFormatter";
 import colors from "../../../styles/colors";
+import terceirizados from "./terceirizados.json";
 
-const  data= [
-  {
-    "nome": "Brasilino dos Santos",
-    "cargo": "Controlador de Acesso",
-    "empresa_contratada": "CLEAN4 SERVIÇOS GERAIS E ADMINISTRATIVOS EIRELI",
-    "lotacao": "Casem"
-  },
-  {
-    "nome": "André Souza Barros",
-    "cargo": "Controlador de Acesso",
-    "empresa_contratada": "CLEAN4 SERVIÇOS GERAIS E ADMINISTRATIVOS EIRELI",
-    "lotacao": "Casem"
-  },
-  {
-    "nome": "Vilma de Fatima Riibeiro",
-    "cargo": "Controlador de Acesso",
-    "empresa_contratada": "CLEAN4 SERVIÇOS GERAIS E ADMINISTRATIVOS EIRELI",
-    "lotacao": "Casem"
-  },
-  {
-    "nome": "Mizael Genesio da Silva",
-    "cargo": "Controlador de Acesso",
-    "empresa_contratada": "CLEAN4 SERVIÇOS GERAIS E ADMINISTRATIVOS EIRELI",
-    "lotacao": "Casem"
-  },
-  {
-    "nome": "Brian Felipe de A. Rafael",
-    "cargo": "Zelador",
-    "empresa_contratada": "CLEAN4 SERVIÇOS GERAIS E ADMINISTRATIVOS EIRELI",
-    "lotacao": "Casem"
-  },
-  {
-    "nome": "Thais Galdina Miranda",
-    "cargo": "Analista de Atendimento",
-    "empresa_contratada": "HAPVIDA NOTREDAME INTERMÉDICA",
-    "lotacao": "Sede"
-  },
-  {
-    "nome": "Anthony Henrique Costa da Rocha",
-    "cargo": "Assistente Administrativo",
-    "empresa_contratada": "HAPVIDA NOTREDAME INTERMÉDICA",
-    "lotacao": ""
-  },
-  {
-    "nome": "Ricléia Queiroz de Oliveira",
-    "cargo": "Analista de Suporte Junior",
-    "empresa_contratada": "SMARAPD INFORMÁTICA LTDA",
-    "lotacao": ""
-  },
-  {
-    "nome": "Lucas Luan Rosa de Sousa",
-    "cargo": "Auxiliar Técnico de Informática",
-    "empresa_contratada": "MR COMPUTER",
-    "lotacao": ""
-  },
-  {
-    "nome": "Kaique Oliveira da Costa",
-    "cargo": "Auxiliar Técnico de Informática",
-    "empresa_contratada": "MR COMPUTER",
-    "lotacao": ""
-  },
-  {
-    "nome": "Willian Santana Queiroz Araujo",
-    "cargo": "Coordenador de Customer Care",
-    "empresa_contratada": "MR COMPUTER",
-    "lotacao": ""
-  },
-  {
-    "nome": "Gabriel Teixeira Pedroso",
-    "cargo": "Assistente de Customer Care Pleno III",
-    "empresa_contratada": "MR COMPUTER",
-    "lotacao": ""
-  },
-  {
-    "nome": "Simone Aparecida Felismino Napolitano",
-    "cargo": "Assistente De Vendas Junior",
-    "empresa_contratada": "MOGIPASSES COMERCIO DE BILHETES ELETRONICOS",
-    "lotacao": "Sede"
-  }
-]
-
-
-type PropsInput = {
-  handler: {};
-};
-
-export const contentMapSite = {
-  titlePage: "Lista de terceirizados",
-  description:
-    " ...   ",
-};
-
-function capitalizeFirstLetter(str: string) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
+export interface Cargos {
+  descricao: string;
+  horas_semanais: string;
 }
 
-
-
-function Screen({ handler }: PropsInput) {
-  const accessibility = useFontSizeAccessibilityContext();
-  const title = contentMapSite?.titlePage;
-  const description = contentMapSite?.description;
-  const router = useRouter();
-
-   const [currentPage, setCurrentPage] = useState(1);
-      const [searchTerm, setSearchTerm] = useState("");
-      const [sortColumn, setSortColumn] = useState<keyof typeof data[0] | null>(null);
-      const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
-   
- 
-  const exportToJSON = (data: any) => {
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
-    const link = document.createElement("a");
-    const url = URL.createObjectURL(blob);
-  
-    link.setAttribute("href", url);
-    link.setAttribute("download", "dados_fundos_municipais.json");
-    link.style.visibility = "hidden";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+type PropsInput = {
+  handler: {
+    columns: TableColumns;
+    data: Array<any>;
+    loading: boolean;
+    chart: any;
+    chartYear: any;
+    years: Number[];
+    setYear: any;
+    year: number;
+    handleByYear: any;
   };
-  const handleSort = (column: keyof typeof data[0]) => {
+};
+
+const ITEMS_PER_PAGE = 50;
+
+
+
+export const contentTransportationTickets = {
+  titlePage: "Terceirizados",
+  description:
+    "Listagem dos funcionários terceirizados da Prefeitura Municipal de Mogi das Cruzes.",
+};
+
+function Screen({
+  handler: {
+    columns,
+    data,
+    loading,
+    chart,
+    chartYear,
+    setYear,
+    year,
+    years,
+    handleByYear,
+  },
+}: PropsInput) {
+  const title = contentTransportationTickets?.titlePage;
+  const description = contentTransportationTickets?.description;
+  const [currentPage, setCurrentPage] = useState(1);
+  const [sortColumn, setSortColumn] = useState<keyof typeof terceirizados[0] | null>(null);
+  const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
+  const [sortedData, setSortedData] = useState([...terceirizados]);
+
+  const accessibility = useFontSizeAccessibilityContext();
+
+  const ITEMS_PER_PAGE = 50;
+
+  useEffect(() => {
+    if (!sortColumn) {
+      setSortedData([...terceirizados]);
+      return;
+    }
+
+    const sorted = [...terceirizados].sort((a, b) => {
+      const valueA = a[sortColumn];
+      const valueB = b[sortColumn];
+
+      if (typeof valueA === "string" && typeof valueB === "string") {
+        return sortDirection === "asc"
+          ? valueA.localeCompare(valueB)
+          : valueB.localeCompare(valueA);
+      }
+
+      if (typeof valueA === "number" && typeof valueB === "number") {
+        return sortDirection === "asc" ? valueA - valueB : valueB - valueA;
+      }
+
+      return 0;
+    });
+
+    setSortedData(sorted);
+  }, [sortColumn, sortDirection]);
+
+  const handleSort = (column: keyof typeof terceirizados[0]) => {
     if (sortColumn === column) {
-      setSortDirection(sortDirection === "asc" ? "desc" : "asc");
+      setSortDirection((prev) => (prev === "asc" ? "desc" : "asc"));
     } else {
       setSortColumn(column);
       setSortDirection("asc");
     }
   };
 
-  const sortedPlanos =data.sort((a, b) => {
-    if (!sortColumn) return 0; // Sem ordenação
-    const valueA = sortColumn ? a[sortColumn] : null;
-    const valueB = sortColumn ? b[sortColumn] : null;
-  
-    if (typeof valueA === "string" && typeof valueB === "string") {
-      return sortDirection === "asc"
-        ? valueA.localeCompare(valueB)
-        : valueB.localeCompare(valueA);
-    }
-    
-    if (typeof valueA === "number" && typeof valueB === "number") {
-      return sortDirection === "asc" ? valueA - valueB : valueB - valueA;
-    }
-  
-    return 0;
-  });
+  const paginated = sortedData.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
+
+  const exportToJSON = (terceirizados: any) => {
+    const blob = new Blob([JSON.stringify(terceirizados, null, 2)], { type: "application/json" });
+    const link = document.createElement("a");
+    const url = URL.createObjectURL(blob);
+    link.setAttribute("href", url);
+    link.setAttribute("download", "dados_cargas_horaria.json");
+    link.style.visibility = "hidden";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <ContainerBasic title={title} description={description}>
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
-        
         padding={"15px"}
         rounded="md"
         overflow="hidden"
-        maxWidth="100%"        
+        width="100%"
         borderRadius="18px"
         marginBottom="15px"
       >
-       <Box
-               m={0}
-               bg={useColorModeValue("white", "gray.800")}
-               
-               padding={"15px"}
-               rounded="md"
-               overflow="hidden"
-               width="100%"
-               borderRadius="18px"
-               marginBottom="15px"
-             >
-            <ContainerSearch  mt='20px'>
-                                      <Stack minW={86} width="50%" flexDir='row'
-                                      sx={{
-                                        "@media (max-width: 900px)": {
-                                          flexDir:'column'
-                                        },
-                                      }}
-                                      >
-                                       
-                            <Button
-                              width="180px"
-                              border="0"
-                              cursor="pointer"
-                              fontSize="20px"
-                              textColor="white"
-                              bgColor="#1c3c6e"
-                              _hover={{ bgColor: "#1c3c6e" }}
-                              height="40px"
-                              borderRadius="8px"
-                              mr="15px"
-                              transition="background-color 0.3s ease"
-                              boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
-                              
-                            >
-                              <CsvDownload
-                                filename={"dados_fundos_municipais.csv"}
-                                data={data}
-                                style={{
-                                  width: "100%",
-                                  height: "100%",
-                                  background: "none",
-                                  border: "none",
-                                  color: "white",
-                                  fontSize: "20px",
-                                  textAlign: "center",
-                                  cursor: "pointer",
-                                }}
-                              >
-                                CSV
-                              </CsvDownload>
-                            </Button>
-                            
-                            <Button width='180px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
-                                bgColor='#1c3c6e' 
-                                _hover={{
-                                  bgColor: "#1c3c6e",  // Cor de fundo ao passar o mouse
-                                }}
-                                height='40px' borderRadius='8px' mr='15px'onClick={() => exportToJSON(data)}
-                                boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
-                                
-                                >JSON</Button>
-                                   </Stack>
-                                      <Stack minW={50} justifyContent="flex-end" className="button-search"></Stack>
-                                      
-                                    </ContainerSearch>
-                                     <Table >
-                                                             <Thead>
-                                                             <Tr  bg={colors.primaryDefault40p}
-      color="white"
-      p={4}
-      fontWeight="bold"
-      border={`1px solid ${colors.primaryDefault40p}`}>
-                                        <Th color="white" onClick={() => handleSort("nome")} cursor="pointer">
-                                        Nome {sortColumn === "nome" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
-                                        </Th>
-                                        <Th color="white" onClick={() => handleSort("cargo")} cursor="pointer">
-                                        Cargo {sortColumn === "cargo"  ? (sortDirection === "asc" ? "▲" : "▼") : ""}
-                                        </Th>
-                                        <Th color="white" onClick={() => handleSort("empresa_contratada")} cursor="pointer">
-                                        Empresa contratada {sortColumn === "empresa_contratada" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
-                                        </Th>
-                                        <Th color="white" onClick={() => handleSort("lotacao")} cursor="pointer">
-                                          Lotação {sortColumn === "lotacao" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
-                                        </Th>
-                                       
-       
-                                      </Tr>
-                                    </Thead>
-                                                              <Tbody fontSize='12px'>
-                                                             
-                                                                
-                                                              {data.map((row, index) => (
-                                      <Tr key={index}>
-                                        <Td>{row.nome}</Td>
-                                        <Td>{row.cargo}</Td>
-                                        <Td>{row.empresa_contratada}</Td>
-                                        <Td>{row.lotacao}</Td>
-                                       
-                                      </Tr>
-       
-                                    ))}
-                                                              </Tbody>
-                                                            </Table>
-               
-             </Box>
+        <Button
+          width="180px"
+          fontSize="20px"
+          textColor="white"
+          bgColor={colors.transparenciaBlack}
+          _hover={{ bgColor: colors.primaryDefault80p }}
+          height="40px"
+          borderRadius="8px"
+          mr="15px"
+          boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+        >
+          <CsvDownload
+            filename={"dados_terceirizados.csv"}
+            data={terceirizados}
+            style={{
+              width: "100%",
+              height: "100%",
+              background: "none",
+              border: "none",
+              color: "white",
+              fontSize: "20px",
+              textAlign: "center",
+              cursor: "pointer",
+            }}
+          >
+            CSV
+          </CsvDownload>
+        </Button>
+
+        <Button
+          width="180px"
+          fontSize="20px"
+          textColor="white"
+          bgColor={colors.transparenciaBlack}
+          _hover={{ bgColor: colors.primaryDefault80p }}
+          height="40px"
+          borderRadius="8px"
+          mr="15px"
+          onClick={() => exportToJSON(terceirizados)}
+          boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+        >
+          JSON
+        </Button>
+
+        <Table mt="12px">
+          <Thead>
+            <Tr bg={colors.transparenciaBlack} color="white" p={4} fontWeight="bold">
+              <Th color="white" onClick={() => handleSort("funcionario")} cursor="pointer">
+                Funcionário {sortColumn === "funcionario" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
+              </Th>
+               <Th color="white" onClick={() => handleSort("funcao_atividade")} cursor="pointer">
+                Função / Atividade {sortColumn === "funcao_atividade" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
+              </Th>
+              <Th color="white" onClick={() => handleSort("empresa")} cursor="pointer">
+                Empresa {sortColumn === "empresa" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
+              </Th>
+              
+              <Th color="white" onClick={() => handleSort("cnpj")} cursor="pointer">
+               CNPJ {sortColumn === "cnpj" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
+              </Th>
+              
+              <Th color="white" onClick={() => handleSort("contrato")} cursor="pointer">
+               Contrato {sortColumn === "contrato" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
+              </Th>
+              </Tr>
+             
+          </Thead>
+          <Tbody fontSize="12px">
+            {paginated.map((row, index) => (
+              <Tr
+                key={index}
+                bg={index % 2 === 0 ? useColorModeValue("white", "black") : useColorModeValue("#f7f7f7", "gray.100")}
+                _hover={{ bg: "#d1d1d1", cursor: "pointer", color: useColorModeValue("white", "black") }}
+              >
+                <Td>{row.funcionario}</Td>
+                <Td>{row.funcao_atividade}</Td>
+                <Td>{row.empresa}</Td>
+                <Td>{row.cnpj}</Td>
+                <Td onClick={() => window.open(`https://dadosabertos.mogidascruzes.sp.gov.br/contratos-atas/detalhes?C${row?.contrato}`, '_blank')}>{row.contrato}</Td>
+              </Tr>
+            ))}
+          </Tbody>
+        </Table>
+
+        <PaginationComponent
+          pages={Math.ceil(sortedData.length / ITEMS_PER_PAGE)}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+        />
       </Box>
     </ContainerBasic>
   );
