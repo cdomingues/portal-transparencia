@@ -66,6 +66,9 @@ function Screen({
         borderRadius="18px"
         marginBottom="15px"
       >
+         <Text fontSize="md" mb="10px">
+                                              Última atualização: <strong>01/11/2024</strong>
+                                            </Text>
          
           <UnorderedList listStyleType="none" 
                 color="gray.500"

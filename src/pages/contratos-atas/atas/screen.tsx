@@ -17,6 +17,7 @@ import { ContainerSearch } from "../../../styles/components/contratos-atas/style
 import PaginationComponent from "../../../components/PaginationComponent";
 import CsvDownload from "react-json-to-csv";
 import colors from "../../../styles/colors";
+import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 
 type PropsInput = {
   handler: {
@@ -47,6 +48,7 @@ function Screen({
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedYear, setSelectedYear] = useState<number | undefined>(2025);
+  const accessibility = useFontSizeAccessibilityContext();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -112,6 +114,16 @@ function Screen({
       // Ordena de forma decrescente com base no ano
       return   aAno - bAno;
     });
+
+    const dataMaisAtual = data.reduce((maisRecente, item) => {
+    const dataItem = new Date(item.updated_at);
+    const dataAtualMaisRecente = new Date(maisRecente.updated_at);
+    return dataItem > dataAtualMaisRecente ? item : maisRecente;
+  }, data[0]);
+
+  const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.updated_at).toLocaleDateString('pt-BR') : '';
+
+    
 
   return (
     <ContainerBasic title={title} description={description}>

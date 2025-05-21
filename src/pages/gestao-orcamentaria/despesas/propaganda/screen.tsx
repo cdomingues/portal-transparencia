@@ -292,7 +292,13 @@ const exportToJSON = (data: Despesa[]) => {
 const dadosParaExibir = searchTerm ? despesasFiltradas : despesas;
 
 {/* Inicio trecho buscar dados de gastos com publicidade */}
+const dataMaisAtual = dadosParaExibir.reduce((maisRecente, item) => {
+    const dataItem = new Date(item.updated_at);
+    const dataAtualMaisRecente = new Date(maisRecente.updated_at);
+    return dataItem > dataAtualMaisRecente ? item : maisRecente;
+  }, dadosParaExibir[0]);
 
+  const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.updated_at).toLocaleDateString('pt-BR') : '';
   return (
     <ContainerBasic title={title} description={description}>
       
@@ -328,7 +334,8 @@ const dadosParaExibir = searchTerm ? despesasFiltradas : despesas;
                               flexDir:'column'
                             },
                           }}
-                          >
+                          > 
+                          
                             {/* Select para Filtrar por Ano */}
                             <Select
                               value={selectedYear}
@@ -386,6 +393,9 @@ const dadosParaExibir = searchTerm ? despesasFiltradas : despesas;
                     
                     >JSON</Button>
                        </Stack>
+                       <Text fontSize={accessibility?.fonts?.regular} mb="10px">
+                                  Última atualização: <strong>01/10/2024</strong>
+                                </Text>
                           <Stack minW={50} justifyContent="flex-end" className="button-search"></Stack>
                         </ContainerSearch>
         
@@ -521,6 +531,9 @@ const dadosParaExibir = searchTerm ? despesasFiltradas : despesas;
             JSON
           </Button>
         </Stack>
+        <Text fontSize={accessibility?.fonts?.regular} mb="10px">
+                Última atualização: <strong>{ultimaAtualizacao}</strong>
+              </Text>
       </Box>
 
       {loading ? (

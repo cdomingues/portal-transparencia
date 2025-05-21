@@ -73,8 +73,7 @@ export const menus=[
             { label: "Relatório de Gestão Fiscal", url: "/ciclo-orcamentario/relatorio-gestao-fiscal" },
             { label: "Relatório Resumido", url: "/ciclo-orcamentario/relatorio-resumido" },
             { label: "Balanços Anuais", url: "/ciclo-orcamentario/balancos-anuais" },
-            { label: "Pareceres do Tribunal", url: "/ciclo-orcamentario/pareceres-do-tribunal" },
-            { label: "Aprovação de Contas pelo Legislativo", url: "http://www.cmmc.com.br/paginas/contas_do_executivo_municipal_e_pareceres_do_tcesp/" },
+           
             { label: "Desonerações/ Renúncia de Receita", url: "/ciclo-orcamentario/desoneracoes-renuncias" },
           ]},
         {"id_submenu": 2, 
@@ -101,6 +100,14 @@ export const menus=[
             "extralinks": [
                 { label: "Receitas Extra Orçamentárias",url: "/gestao-extra-orcamentaria/receitas", },
                 {label: "Despesas Extra Orçamentárias",url: "/gestao-extra-orcamentaria/despesas", },
+            ]},
+               {"id_submenu": 3, 
+            "title": "Fiscalização Orçamentária", 
+            'imageURL': Gestao_extra_orcamentaria.src,
+            "link":"",
+            "extralinks": [
+                 { label: "Pareceres do Tribunal", url: "/ciclo-orcamentario/pareceres-do-tribunal" },
+            { label: "Aprovação de Contas pelo Legislativo", url: "http://www.cmmc.com.br/paginas/contas_do_executivo_municipal_e_pareceres_do_tcesp/" },
             ]},
             {"id_submenu": 4, 
                 "title": "Convênios e Transferências", 
@@ -155,8 +162,8 @@ export const menus=[
                     { label: "Contratos", url: "/contratos-atas/contratos"  },
                     { label: "Contratos de Gestão", url: "/contratos-atas/contratos-gestao"  },
                    { label: "Atas de registro de preços",  url: "/contratos-atas/atas"   },
-                    { label: "Relação dos Gestores de contratos encerrados",  url: "/contratos-atas/relacao-fiscais-encerrados"  },
-                    { label: "Relação dos Gestores de contratos vigentes",  url: "/contratos-atas/relacao-fiscais-vigentes"   },
+                    { label: "Relação dos Gestores de contratos",  url: "/contratos-atas/gestores-contratos"  },
+                    
                 ]
             },
             {
@@ -177,7 +184,7 @@ export const menus=[
                 "extralinks": [
                     { label: "Licitações", url: "/compras-publicas/licitacoes" },
                     
-                    {label: "Cadastro de Fornecedor",url: "https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/cadastro-de-fornecedor"},
+                  
                     { label: "Portal Nacional de Contratações Públicas",url: "https://pncp.gov.br/app/editais?q=&status=recebendo_proposta&pagina=1"},
                     
                 ]},
@@ -210,7 +217,16 @@ export const menus=[
                 {label: "Leis, Decretos e Portarias - Início", url: "/leis-decretos-portarias/",  },
                 { label: "Leis e Decretos Municipais", url: "/leis-decretos-portarias/protocolo-geral",},
                 { label: "Portarias", url: "https://ged.mogidascruzes.sp.gov.br/weblink7/Browse.aspx", },
+                
             ]},
+            {
+                "id_submenu": 3,
+                "label":"Diário Oficial",
+                "imageUrl": IconeLeis.src,
+                'url':"https://diario-oficial.mogidascruzes.sp.gov.br/diarios/publicacoes/",
+                "extralinks": [ ]
+            },
+              
           
         ]
       },
@@ -273,13 +289,7 @@ export const menus=[
         'imageURL': IconeAdmMunicipal.src, 
         'description': "Informações sobre a administração municipal",
         "submenus": [
-            {   
-                "id_submenu": 1,
-                "label": "Estrutura Organizacional",   
-                'imageUrl': FolhaPagamento.src,
-                "url":"http://leismunicipa.is/0ji28",
-                "extralinks": []
-            },
+            
             {
                 "id_submenu": 2, 
                 "label": "Perfil do Município", 
@@ -501,13 +511,7 @@ export const menus=[
                 'url':"/governo-digital",
                 "extralinks": [ ]
             },
-            {
-                "id_submenu": 3,
-                "label":"Diário Oficial",
-                "imageUrl": IconeLeis.src,
-                'url':"https://diario-oficial.mogidascruzes.sp.gov.br/diarios/publicacoes/",
-                "extralinks": [ ]
-            },
+          
             {
                 "id_submenu": 4,
                 "label":"InfoDados",
@@ -665,13 +669,13 @@ export const menus=[
        },
        {
         "id": 12,
-        "title": "InfoMogi",
+        "title": "InfoDados",
         'imageURL': IconesGovernoAberto.src, 
-        'description': "InfoMogi",
+        'description': "InfoDados",
         "submenus": [
              {
                 "id_submenu": 1,
-                "label":"InfoMogi",
+                "label":"InfoDados",
                 "imageUrl": IconeLeis.src,
                 'url':"/infodados",
                 "extralinks": [ ]

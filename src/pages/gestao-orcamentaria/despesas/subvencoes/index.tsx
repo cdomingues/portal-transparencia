@@ -157,6 +157,14 @@ const Despesas = () => {
 
   const dadosParaExibir = searchTerm ? despesasFiltradas : despesas;
 
+  const dataMaisAtual = dadosParaExibir.reduce((maisRecente, item) => {
+    const dataItem = new Date(item.updated_at);
+    const dataAtualMaisRecente = new Date(maisRecente.updated_at);
+    return dataItem > dataAtualMaisRecente ? item : maisRecente;
+  }, dadosParaExibir[0]);
+
+  const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.updated_at).toLocaleDateString('pt-BR') : '';
+
   return (
     <ContainerBasic title={title} description={description}>
       <Box
@@ -233,6 +241,9 @@ const Despesas = () => {
             JSON
           </Button>
         </Stack>
+        <Text fontSize="md" mb="10px">
+                Última atualização: <strong>{ultimaAtualizacao}</strong>
+              </Text>
       </Box>
 
       {loading ? (

@@ -8,6 +8,7 @@ import { getTipoText } from "../../../utils/tipoLicitacao";
 import axios from "axios";
 import CsvDownload from "react-json-to-csv";
 import colors from "../../../styles/colors";
+import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 
 export interface Licitacoes {
   id: number;
@@ -18,6 +19,10 @@ export interface Licitacoes {
   descricao: string;
   gestora: string;
   situacao: string;
+  publicacaoFim: string;
+  dataAbertura: string;
+  complemento: string;
+
 }
 
 const API_URL = "https://dadosadm.mogidascruzes.sp.gov.br/api/licitacoes/";
@@ -40,6 +45,8 @@ function Screen() {
   const [selectedLicitacao, setSelectedLicitacao] = useState("");
   const [selectedGestora, setSelectedGestora] = useState("");
   const [selectedSituacao, setSelectedSituacao] = useState("");
+
+  const accessibility = useFontSizeAccessibilityContext();
 
   useEffect(() => {
     fetchData();
@@ -90,11 +97,20 @@ function Screen() {
     setSearchTerm("");
   };
 
-  const filteredLicitacoes = licitacoes.filter((item) =>
-    searchTerm
-      ? String(item.numero).toLowerCase().includes(searchTerm.toLowerCase())
-      : true
+  const filteredLicitacoes = licitacoes.filter((item) => {
+  if (!searchTerm) return true;
+
+  const lowerSearchTerm = searchTerm.toLowerCase();
+
+  return (
+    String(item.numero).toLowerCase().includes(lowerSearchTerm) ||
+    String(item.descricao).toLowerCase().includes(lowerSearchTerm) ||
+    String(item.dataAbertura).toLowerCase().includes(lowerSearchTerm) ||
+    String(item.publicacaoFim).toLowerCase().includes(lowerSearchTerm) ||
+    String(item.complemento).toLowerCase().includes(lowerSearchTerm) 
+   
   );
+});
 
   const paginatedLicitacoes = filteredLicitacoes.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
@@ -115,6 +131,15 @@ function Screen() {
     link.click();
     document.body.removeChild(link);
   };
+
+  const dataMaisAtual = licitacoes.reduce((maisRecente, item) => {
+    const dataItem = new Date(item.dataAbertura);
+    const dataAtualMaisRecente = new Date(maisRecente.dataAbertura);
+    return dataItem > dataAtualMaisRecente ? item : maisRecente;
+  }, licitacoes[0]);
+
+  const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.dataAbertura).toLocaleDateString('pt-BR') : '';
+
 
   return (
     <ContainerBasic title={title} description={description}>
@@ -274,6 +299,10 @@ function Screen() {
         }}
       />
 
+       <Text fontSize={accessibility?.fonts?.regular} mb="10px" ml='5px'>
+              Última atualização: <strong>{ultimaAtualizacao}</strong>
+            </Text>
+
       {paginatedLicitacoes
         .sort((a, b) => a.numero - b.numero)
         .map((row) => (
@@ -286,7 +315,7 @@ function Screen() {
             bg={useColorModeValue("white", "black")}
             boxShadow="lg"
             transition="0.3s"
-            onClick={() => (window.location.href = `licitacoes_detalhes?${row.id}`)}
+            onClick={() => (window.location.href = `licitacoes_detalhes?${row.id}`, '_blank')}
             _hover={{
               boxShadow: "xl",
               transform: "scale(1.01)",

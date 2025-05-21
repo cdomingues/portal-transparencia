@@ -24,6 +24,8 @@ import axios from "axios";
 import CsvDownload from "react-json-to-csv";
 import moneyFormatter from "../../../utils/moneyFormatter";
 import colors from "../../../styles/colors";
+import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
+
 
 
 export interface Receitas {
@@ -93,6 +95,7 @@ function Screen({
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedYear, setSelectedYear] = useState("");
   const [selectedReceita, setSelectedReceita] = useState("");
+  const accessibility = useFontSizeAccessibilityContext();
   const chartConfig = {
     direction: isMobile ? "column" : "row",
     width: isMobile ? "100%" : "40%",
@@ -268,6 +271,9 @@ function Screen({
         width="30%"
         my="10px"
       />
+      <Text fontSize={accessibility?.fonts?.regular} ml='5px' mb="10px">
+              Última atualização: <strong>01/11/2022</strong>
+            </Text>
 <Table >
   <Thead>
     <Tr  bg={colors.transparenciaBlack}

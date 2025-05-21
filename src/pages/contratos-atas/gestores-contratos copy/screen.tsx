@@ -12,6 +12,7 @@ import DadosAbertos from "../../../components/DadosAbertos";
 import TableComponent, { TableColumns } from "../../../components/Table";
 
 
+
 type PropsInput = {
   handler: {
     columns: TableColumns;
@@ -41,6 +42,18 @@ function Screen({  handler: {
   const description = contentMapSite?.description;
   const router = useRouter();
   
+  const exportToJSON = (data: any) => {
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+    const link = document.createElement("a");
+    const url = URL.createObjectURL(blob);
+
+    link.setAttribute("href", url);
+    link.setAttribute("download", "dados_screatarios.json");
+    link.style.visibility = "hidden";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
 
   return (

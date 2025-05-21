@@ -18,7 +18,7 @@ import PaginationComponent from "../../../components/PaginationComponent";
 
 import CsvDownload from "react-json-to-csv";
 import colors from "../../../styles/colors";
-
+import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 
 type PropsInput = {
   handler: {
@@ -52,6 +52,8 @@ function Screen({
   const [selectedYear, setSelectedYear] = useState<number | undefined>(2024); // Estado para o ano selecionado
 
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const accessibility = useFontSizeAccessibilityContext();
+  
 
   const ITEMS_PER_PAGE = 50;
   
@@ -116,7 +118,13 @@ function Screen({
     return   aAno - bAno;
   });
 
-  
+  const dataMaisAtual = data.reduce((maisRecente, item) => {
+    const dataItem = new Date(item.updated_at);
+    const dataAtualMaisRecente = new Date(maisRecente.updated_at);
+    return dataItem > dataAtualMaisRecente ? item : maisRecente;
+  }, data[0]);
+
+  const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.updated_at).toLocaleDateString('pt-BR') : '';
 
   return (
     <ContainerBasic title={title} description={description}>
@@ -215,6 +223,10 @@ function Screen({
           mb="10px"
           
         />
+
+        <Text fontSize={accessibility?.fonts?.regular} mb="10px">
+                        Última atualização: <strong>{ultimaAtualizacao}</strong>
+                      </Text>
 
         {sortedPaginatedContratos.map((row) => (
           <Box
