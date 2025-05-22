@@ -208,7 +208,8 @@ const MenuHorizontalChakra = () => {
             { label: 'Transparência IPREM', href: 'https://iprem.mogidascruzes.sp.gov.br/?page_id=1542' },]
         },
         { label: 'Patrimonio', href: '/patrimonio' },
-        { label: 'Perguntas frequentes', href: '/perguntas-frequentes' },
+        { label: 'Perguntas frequentes', href: 'https://www.mogidascruzes.sp.gov.br/pagina/gabinete/perguntas-frequentes-faq' },
+        { label: 'Empresas Reclamadas no Procon', href: 'https://www.mogidascruzes.sp.gov.br/public/site/doc/20250509150621681e441d1b768.pdf' },
         { label: 'Equipamentos e unidades', href: 'https://www.mogidascruzes.sp.gov.br/unidades-e-equipamentos/todos-os-assuntos' },
         
       ]
@@ -262,7 +263,7 @@ const MenuHorizontalChakra = () => {
          },
        
       ]
-    },
+    }, 
     {
       label: 'Planejamento e prestação de contas',
       icon: FaCalculator,
@@ -279,6 +280,7 @@ const MenuHorizontalChakra = () => {
         { label: 'Políticas e programas', href: '/politicas-programas' },
         { label: 'Prestação de contas simplificada', href: '/governo-aberto/prestacao-contas' },
         { label: 'Prestação à CMMC', href: '/ciclo-orcamentario/prestacao-de-contas' },
+        { label: '"Pareceres do Tribunal', href: '/ciclo-orcamentario/pareceres-do-tribunal' },
       ]
     },
     {
@@ -329,6 +331,7 @@ const MenuHorizontalChakra = () => {
         { label: 'Painel de Acompanhamento da LAI 2023', href: 'https://app.powerbi.com/view?r=eyJrIjoiY2ZmODAzZDUtMDE2YS00ZWYzLWJhZGQtMWE4Nzc3OWQyMDgxIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9' },
         { label: 'Painel de Acompanhamento da LAI 2024', href: 'https://app.powerbi.com/view?r=eyJrIjoiY2RiMWYxZWQtN2NlOS00NTNjLTkyMGEtZmNiOWVhMmYzNTJiIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9' },
           {label:"Ouvidoria - COLAB",href:"https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab" },
+           {label:"Portal de Dados abertos - COLAB",href:"https://dados.mogidascruzes.sp.gov.br/" },
        
       ]
     },

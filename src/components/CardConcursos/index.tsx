@@ -54,6 +54,7 @@ interface ArquivoConcurso {
   status:number;
   arquivo: string;
   id_tipo_arquivo: number;
+  updated_at: string;
 }
 
 interface InformacoesGerais{
@@ -89,10 +90,19 @@ useEffect(() => {
 
 const anosDisponiveis=  Array.from(new Set(concursos.map((info) => new Date(info.data).getFullYear())));
   let contador = 0
+const dataMaisAtual = arquivosConcursos.reduce((maisRecente, item) => {
+    const dataItem = new Date(item.updated_at);
+    const dataAtualMaisRecente = new Date(maisRecente.updated_at);
+    return dataItem > dataAtualMaisRecente ? item : maisRecente;
+  }, arquivosConcursos[0]);
 
+  const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.updated_at).toLocaleDateString('pt-BR') : '';
   return (
     
 <>
+<Text fontSize={accessibility?.fonts?.regular} mb="10px" ml='15px'>
+        Última atualização: <strong>{ultimaAtualizacao}</strong>
+      </Text>
 <Tabs> 
 
   <TabList>

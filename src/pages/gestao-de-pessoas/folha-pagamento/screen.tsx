@@ -26,6 +26,7 @@ import { TableColumns } from "../../../components/Table";
 import TableWithOutFilterComponent from "../../../components/Table/TableWithoutFilter";
 import ModalPayments from "./modalPayments";
 import colors from "../../../styles/colors";
+import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 
 type PropsInput = {
   handler: {
@@ -85,7 +86,7 @@ function Screen({
     marginLeft: isMobile ? "0" : "5%",
     fontSize: isMobile ? "medium" : "larger",
   };
-
+const accessibility = useFontSizeAccessibilityContext()
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleOpenModal = (item: any) => {
@@ -130,7 +131,9 @@ function Screen({
         </Box>
 
         <Divider height="3px" marginTop="10px" marginBottom="4px" />
-
+  <Text fontSize={accessibility?.fonts?.regular} mb="10px">
+                                  Última atualização: <strong>05/05/2025</strong>
+                                </Text>
         <Box
           m={0}
           bg={useColorModeValue("white", "gray.800")}

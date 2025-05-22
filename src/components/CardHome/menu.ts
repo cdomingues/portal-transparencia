@@ -333,7 +333,7 @@ export const menus=[
                 "id_submenu": 7, 
                 "label": "Perguntas Frequentes", 
                 'imageUrl': Perguntas_frequentes.src,
-                "url":"/perguntas-frequentes",
+                "url":"https://www.mogidascruzes.sp.gov.br/pagina/gabinete/perguntas-frequentes-faq",
                 "extralinks": []
             },
             {
@@ -436,7 +436,15 @@ export const menus=[
                 'imageUrl': IconeOS.src,
                 "url":"https://sge.sme-mogidascruzes.sp.gov.br/grid_classificacao_unidade/",
                 "extralinks": [ ]
+            },
+            {
+                "id_submenu":8,
+                "label": "Empresas reclamadas no PROCON",
+                'imageUrl': IconeOS.src,
+                'url': 'https://www.mogidascruzes.sp.gov.br/public/site/doc/20250509150621681e441d1b768.pdf',
+                'extralinks': []
             }
+            
         ]
       },
       {
@@ -484,6 +492,13 @@ export const menus=[
                 'url':"/ciclo-orcamentario/prestacao-de-contas",
                 "extralinks": [ ]
             },
+              {
+                "id_submenu": 6,
+                "label":"Pareceres do Tribunal",
+                "imageUrl": IconeLeis.src,
+                'url':"/ciclo-orcamentario/pareceres-do-tribunal",
+                "extralinks": [ ]
+            },  
            
         ]
       },
@@ -633,6 +648,13 @@ export const menus=[
                 "label":"Ouvidoria - COLAB",
                 'imageUrl': Ouvidoria.src,
                 'url':"https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab",
+                'extralinks': [ ]
+            },
+            {
+                'id_submenu': 7,
+                "label":"Portal de Dados Abertos ",
+                'imageUrl': IconeLeis.src,
+                'url':"https://dados.mogidascruzes.sp.gov.br/",
                 'extralinks': [ ]
             },
         ]

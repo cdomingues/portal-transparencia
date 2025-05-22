@@ -85,7 +85,7 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
   
   return (
     <ContainerBasic title={title} description={description}>
-            <Box
+      <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
         
@@ -191,7 +191,7 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
              
            />
            <Text fontSize={accessibility?.fonts?.regular} mb="10px">
-                   Última atualização: <strong>01/02/2024</strong>
+                   Última atualização: <strong>01/02/2025</strong>
                  </Text>
           <Stack minW={50} justifyContent="flex-end" className="button-search"></Stack>
         </ContainerSearch>
@@ -220,8 +220,7 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
           onClick={() => {
             // Armazenando os dados da despesa no sessionStorage
             sessionStorage.setItem("selectedDespesa", JSON.stringify(row));
-            
-            // Redirecionando para a página de detalhes
+                        // Redirecionando para a página de detalhes
             window.open(
               `detalhes?acordo-de-cooperacao=${row.tc}`,
               "_blank"
