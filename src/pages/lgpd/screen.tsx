@@ -26,12 +26,10 @@ import {
 import { isMobile } from "react-device-detect";
 
 
-import useWindowDimensions from "../../../utils/getWindowSize";
-import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
-import noticias from '../../../../data/noticias.json'
+import useWindowDimensions from "../../utils/getWindowSize";
+import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
 
-import DisplayNews from "../../../components/NewsHome";
-import ContainerBasic from "../../../components/Container/Basic";
+import ContainerBasic from "../../components/Container/Basic";
 
 export const contentInitial = {
   titlePage: "LGPD",
@@ -228,8 +226,8 @@ Sede da Prefeitura de Mogi das Cruzes - 3º andar
               >
                CAPACITAÇÃO E CONSCIENTIZAÇÃO_
             </Text>
-      <Text justifyContent="flex-end" color='gray.500'><Link href='/leis-decretos-portarias/glossario-lgpd'><strong>Glossário de Termos Técnicos LGPD</strong></Link></Text>
-      <Text justifyContent="flex-end" color='gray.500'><Link href='/leis-decretos-portarias/direitos_titular'><strong>Direitos do Titular</strong></Link></Text>   
+      <Text justifyContent="flex-end" color='gray.500'><Link href='/lgpd/glossario-lgpd'><strong>Glossário de Termos Técnicos LGPD</strong></Link></Text>
+      <Text justifyContent="flex-end" color='gray.500'><Link href='/lgpd/direitos_titular'><strong>Direitos do Titular</strong></Link></Text>   
               
 
 
