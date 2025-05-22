@@ -1,18 +1,20 @@
 // components/VLibras.js
 "use client";
 
-import { useEffect } from "react";
+import Script from "next/script";
 
 export default function VLibras() {
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://vlibras.gov.br/app/vlibras-plugin.js";
-    script.async = true;
-    script.onload = () => {
-      new window.VLibras.Widget("https://vlibras.gov.br/app");
-    };
-    document.body.appendChild(script);
-  }, []);
-
-  return null;
+  return (
+    <>
+      <Script
+        src="https://vlibras.gov.br/app/vlibras-plugin.js"
+        strategy="afterInteractive"
+        onLoad={() => {
+          if (window.VLibras) {
+            new window.VLibras.Widget("https://vlibras.gov.br/app");
+          }
+        }}
+      />
+    </>
+  );
 }

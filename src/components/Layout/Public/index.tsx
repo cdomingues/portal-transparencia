@@ -17,8 +17,8 @@ function PublicLayout({ children }: Props) {
   
   return (
     <>
-      {/*  <VLibras forceOnload={true} />  */}
-       <VLibrasScript />
+        <VLibras forceOnload={true} />  
+      {/* <VLibrasScript />*/}
        <Header />
       <SideBar routes={publicRoutes}>{children}</SideBar>
      
