@@ -669,7 +669,7 @@ export const menus=[
                 "id_submenu": 1,
                 "label":"LGPD",
                 "imageUrl": IconeLeis.src,
-                'url':"/leis-decretos-portarias/lgpd",
+                'url':"/lgpd",
                 "extralinks": [ ]
             },
 
@@ -677,14 +677,14 @@ export const menus=[
                 "id_submenu": 2,
                 "label":"Direitos do titular",
                 "imageUrl": IconeLeis.src,
-                'url':"/leis-decretos-portarias/direitos_titular",
+                'url':"/lgpd/direitos_titular",
                 "extralinks": [ ]
             },
             {
                 "id_submenu": 3,
                 "label":"Glossário de Termos Técnicos LGPD",
                 "imageUrl": IconeLeis.src,
-                'url':"/leis-decretos-portarias/glossario-lgpd",
+                'url':"/lgpd/glossario-lgpd",
                 "extralinks": [ ]
             },
         ]

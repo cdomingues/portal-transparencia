@@ -340,9 +340,9 @@ const MenuHorizontalChakra = () => {
       icon: MdMenuBook,
       href: '#',
       submenu: [
-        { label: 'LGPD', href: '/leis-decretos-portarias/lgpd' },
-        { label: 'Direitos do titular', href: '/leis-decretos-portarias/direitos_titular' },
-        { label: 'Glossário de Termos Técnicos da LGPD', href: '/leis-decretos-portarias/glossario-lgpd' },
+        { label: 'LGPD', href: '/lgpd' },
+        { label: 'Direitos do titular', href: '/lgpd/direitos_titular' },
+        { label: 'Glossário de Termos Técnicos da LGPD', href: '/lgpd/glossario-lgpd' },
        
       ]
     },
