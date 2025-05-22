@@ -168,7 +168,7 @@ function Screen() {
         <Box mb="10px">
           <input
             type="text"
-            placeholder="Buscar por funcionário, função ou empresa..."
+            placeholder="Buscar por funcionário, função e empresa..."
             value={searchTerm}
             onChange={(e) => {
               setSearchTerm(e.target.value);
