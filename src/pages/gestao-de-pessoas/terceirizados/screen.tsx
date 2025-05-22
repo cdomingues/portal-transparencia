@@ -1,9 +1,5 @@
 import {
   Button,
-  Divider,
-  Heading,
-  Select,
-  Stack,
   Text,
   Box,
   useColorModeValue,
@@ -15,49 +11,19 @@ import {
   Td,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import { isMobile } from "react-device-detect";
-import ChartColumn from "../../../components/Antdesign/ChartPlots/ChartColumn";
-import ChartColumnLineWithPartner from "../../../components/Antdesign/ChartPlots/ColumnLineWithPartner";
-import Chart from "../../../components/Chart";
-import ContainerBasic from "../../../components/Container/Basic";
-import {
-  GraphWrapper,
-  MultipleGraphWrapper,
-} from "../../../components/GraphWrapper";
-import { MultiAxisChart } from "../../../components/MultiAxisChart";
-import TableComponent, { TableColumns } from "../../../components/Table";
-import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
-import carga_horaria from '../../../../data/carga_horaria.json'
-import DadosAbertos from "../../../components/DadosAbertos";
-import PaginationComponent from "../../../components/PaginationComponent";
-import axios from "axios";
 import CsvDownload from "react-json-to-csv";
-import moneyFormatter from "../../../utils/moneyFormatter";
-import colors from "../../../styles/colors";
+import ContainerBasic from "../../../components/Container/Basic";
+import PaginationComponent from "../../../components/PaginationComponent";
 import terceirizados from "./terceirizados.json";
+import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
+import colors from "../../../styles/colors";
 
 export interface Cargos {
   descricao: string;
   horas_semanais: string;
 }
 
-type PropsInput = {
-  handler: {
-    columns: TableColumns;
-    data: Array<any>;
-    loading: boolean;
-    chart: any;
-    chartYear: any;
-    years: Number[];
-    setYear: any;
-    year: number;
-    handleByYear: any;
-  };
-};
-
 const ITEMS_PER_PAGE = 50;
-
-
 
 export const contentTransportationTickets = {
   titlePage: "Terceirizados",
@@ -65,29 +31,17 @@ export const contentTransportationTickets = {
     "Listagem dos funcionários terceirizados da Prefeitura Municipal de Mogi das Cruzes.",
 };
 
-function Screen({
-  handler: {
-    columns,
-    data,
-    loading,
-    chart,
-    chartYear,
-    setYear,
-    year,
-    years,
-    handleByYear,
-  },
-}: PropsInput) {
+function Screen() {
   const title = contentTransportationTickets?.titlePage;
   const description = contentTransportationTickets?.description;
+
   const [currentPage, setCurrentPage] = useState(1);
   const [sortColumn, setSortColumn] = useState<keyof typeof terceirizados[0] | null>(null);
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
   const [sortedData, setSortedData] = useState([...terceirizados]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const accessibility = useFontSizeAccessibilityContext();
-
-  const ITEMS_PER_PAGE = 50;
 
   useEffect(() => {
     if (!sortColumn) {
@@ -124,7 +78,16 @@ function Screen({
     }
   };
 
-  const paginated = sortedData.slice(
+  const filteredData = sortedData.filter((item) => {
+    const term = searchTerm.toLowerCase();
+    return (
+      (item.funcionario ?? "").toLowerCase().includes(term) ||
+      (item.funcao_atividade ?? "").toLowerCase().includes(term) ||
+      (item.empresa ?? "").toLowerCase().includes(term)
+    );
+  });
+
+  const paginated = filteredData.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
     currentPage * ITEMS_PER_PAGE
   );
@@ -197,49 +160,76 @@ function Screen({
           JSON
         </Button>
 
+        <Text fontSize={accessibility?.fonts?.regular} my="10px" ml="15px">
+          Última atualização: <strong>10/05/2025</strong>
+        </Text>
+
+        {/* Campo de busca */}
+        <Box mb="10px">
+          <input
+            type="text"
+            placeholder="Buscar por funcionário, função ou empresa..."
+            value={searchTerm}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+              setCurrentPage(1);
+            }}
+            style={{
+              width: "30%",
+              padding: "8px 12px",
+              borderRadius: "8px",
+              border: "1px solid #ccc",
+              fontSize: "16px"
+            }}
+          />
+        </Box>
+
         <Table mt="12px">
           <Thead>
             <Tr bg={colors.transparenciaBlack} color="white" p={4} fontWeight="bold">
               <Th color="white" onClick={() => handleSort("funcionario")} cursor="pointer">
                 Funcionário {sortColumn === "funcionario" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
               </Th>
-               <Th color="white" onClick={() => handleSort("funcao_atividade")} cursor="pointer">
+              <Th color="white" onClick={() => handleSort("funcao_atividade")} cursor="pointer">
                 Função / Atividade {sortColumn === "funcao_atividade" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
               </Th>
               <Th color="white" onClick={() => handleSort("empresa")} cursor="pointer">
                 Empresa {sortColumn === "empresa" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
               </Th>
-              
               <Th color="white" onClick={() => handleSort("cnpj")} cursor="pointer">
-               CNPJ {sortColumn === "cnpj" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
+                CNPJ {sortColumn === "cnpj" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
               </Th>
-              
               <Th color="white" onClick={() => handleSort("contrato")} cursor="pointer">
-               Contrato {sortColumn === "contrato" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
+                Contrato {sortColumn === "contrato" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
               </Th>
-              </Tr>
-             
+            </Tr>
           </Thead>
           <Tbody fontSize="12px">
             {paginated.map((row, index) => (
               <Tr
-                key={index} 
-                bg={index % 2 === 0 ? useColorModeValue("white", "black")  : useColorModeValue("#f7f7f7", "grey.100")} 
-                _hover={{ bg: "#d1d1d1", cursor: "pointer" , color: useColorModeValue("black", "white") }}
+                key={index}
+                bg={index % 2 === 0 ? useColorModeValue("white", "black") : useColorModeValue("#f7f7f7", "grey.100")}
+                _hover={{ bg: "#d1d1d1", cursor: "pointer", color: useColorModeValue("black", "white") }}
                 color={useColorModeValue("black", "white")}
-  >
+              >
                 <Td>{row.funcionario}</Td>
                 <Td>{row.funcao_atividade}</Td>
                 <Td>{row.empresa}</Td>
                 <Td>{row.cnpj}</Td>
-                <Td onClick={() => window.open(`https://dadosabertos.mogidascruzes.sp.gov.br/contratos-atas/detalhes?C${row?.contrato}`, '_blank')}>{row.contrato}</Td>
+                <Td
+                  onClick={() =>
+                    window.open(`https://dadosabertos.mogidascruzes.sp.gov.br/contratos-atas/detalhes?C${row?.contrato}`, '_blank')
+                  }
+                >
+                  {row.contrato}
+                </Td>
               </Tr>
             ))}
           </Tbody>
         </Table>
 
         <PaginationComponent
-          pages={Math.ceil(sortedData.length / ITEMS_PER_PAGE)}
+          pages={Math.ceil(filteredData.length / ITEMS_PER_PAGE)}
           setCurrentPage={setCurrentPage}
           currentPage={currentPage}
         />

@@ -205,7 +205,7 @@ function Screen({
       Fonte das informações  <Link fontWeight='bold' href="https://www.listadevedores.pgfn.gov.br/" color="red" isExternal>Lista de Devedores da PGFN</Link>
                 
               </Text>
-              <Text>Atualizado em 24/04/2025</Text>
+              <Text>Última atualização em <strong>24/04/2025</strong></Text>
        
               <ContainerSearch  mt='20px'>
                           <Stack minW={86} width="50%" flexDir='row'

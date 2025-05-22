@@ -254,6 +254,7 @@ function Screen({
         </Button>
       </Stack>
 
+
       <Input
         type="text"
         placeholder="Pesquisar receita..."
@@ -264,6 +265,7 @@ function Screen({
         width="30%"
         my="10px"
       />
+       <Text my='10px'>Última atualização em <strong>01/05/2025</strong></Text>
 <Table >
   <Thead>
     <Tr  bg={colors.transparenciaBlack}

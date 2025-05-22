@@ -101,6 +101,15 @@ function Screen({
       return a.nr_empenho - b.nr_empenho; // Crescente (menor para maior)
   });
 
+  const dataMaisAtual = data.reduce((maisRecente, item) => {
+    const dataItem = new Date(item.updated_at);
+    const dataAtualMaisRecente = new Date(maisRecente.updated_at);
+    return dataItem > dataAtualMaisRecente ? item : maisRecente;
+  }, data[0]);
+
+  const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.updated_at).toLocaleDateString('pt-BR') : '';
+
+
   return (
     <ContainerBasic title={title} description={description}>
             <Box
@@ -185,7 +194,7 @@ function Screen({
       
                       <Input
                                 type="text"
-                                placeholder="Pesquisar contratos..."
+                                placeholder="Pesquisar ..."
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
                                 borderRadius="8px"
@@ -194,9 +203,12 @@ function Screen({
                                 width="40%"
                                 mb="10px"
                                 
-                              />
+                              /><br/>
+                              <Text fontSize="md" mb="10px">
+                                      Última atualização: <strong>{ultimaAtualizacao}</strong>
+                                    </Text>
 
-      <Divider borderWidth="2px" mt="10" mb="10" />
+    
       {sortedPaginatedContratos
        .sort((a, b) => Number(a.nr_empenho) - Number(b.nr_empenho))
        .map((row) => (

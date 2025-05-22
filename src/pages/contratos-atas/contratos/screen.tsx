@@ -19,6 +19,7 @@ import colors from "../../../styles/colors";
 import CsvDownload from "react-json-to-csv";
 import moneyFormatter from "../../../utils/moneyFormatter";
 import moment from "moment";
+import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 
 
 
@@ -52,6 +53,7 @@ function Screen({
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedYear, setSelectedYear] = useState<number | undefined>(2025); // Estado para o ano selecionado
+  const accessibility = useFontSizeAccessibilityContext();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -125,7 +127,13 @@ function Screen({
   });
 
   
+const dataMaisAtual = data.reduce((maisRecente, item) => {
+    const dataItem = new Date(item.updated_at);
+    const dataAtualMaisRecente = new Date(maisRecente.updated_at);
+    return dataItem > dataAtualMaisRecente ? item : maisRecente;
+  }, data[0]);
 
+  const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.updated_at).toLocaleDateString('pt-BR') : '';
   return (
     <ContainerBasic title={title} description={description}>
       <Box
@@ -234,6 +242,9 @@ function Screen({
           mb="10px"
           
         />
+         <Text fontSize={accessibility?.fonts?.regular} mb="10px">
+                Última atualização: <strong>{ultimaAtualizacao}</strong>
+              </Text>
 
         {sortedPaginatedContratos.map((row) => (
           <Box

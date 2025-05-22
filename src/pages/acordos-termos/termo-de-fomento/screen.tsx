@@ -5,6 +5,7 @@ import PaginationComponent from "../../../components/PaginationComponent";
 import CsvDownload from "react-json-to-csv";
 import { ContainerSearch } from "../../../styles/components/contratos-atas/styles";
 import colors from "../../../styles/colors";
+import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 
 type PropsInput = {
   handler: {
@@ -22,6 +23,7 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
     const [currentPage, setCurrentPage] = useState(1);
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedYear, setSelectedYear] = useState<number | undefined>(2025); // Estado para o ano selecionado
+     const accessibility = useFontSizeAccessibilityContext();
 
     const ITEMS_PER_PAGE = 50;
 
@@ -183,6 +185,9 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
                  mb="10px"
                  
                />
+                 <Text fontSize={accessibility?.fonts?.regular} mb="10px">
+                                                 Última atualização: <strong>01/02/2025</strong>
+                                               </Text>
               <Stack minW={50} justifyContent="flex-end" className="button-search"></Stack>
             </ContainerSearch>
             {paginatedContratos

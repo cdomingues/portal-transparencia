@@ -14,6 +14,7 @@ import ContainerBasic from '../../../components/Container/Basic';
 import colors from '../../../styles/colors';
 import CsvDownload from 'react-json-to-csv';
 import { startsWith } from 'lodash';
+import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 
 interface Despesa {
   id: string;
@@ -65,6 +66,8 @@ const Despesas = () => {
 
   const title = contentContractsAndAtas?.titlePage;
   const description = contentContractsAndAtas?.description;
+
+  const accessibility = useFontSizeAccessibilityContext();
 
   const fetchTodasDespesasAno = async () => {
     try {
@@ -171,6 +174,15 @@ console.log('Filtered Despesas:', filteredByVinculo); // Debugging line
 
   const dadosParaExibir = searchTerm ? despesasFiltradas : despesas;
 
+   const dataMaisAtual = dadosParaExibir.reduce((maisRecente, item) => {
+    const dataItem = new Date(item.updated_at);
+    const dataAtualMaisRecente = new Date(maisRecente.updated_at);
+    return dataItem > dataAtualMaisRecente ? item : maisRecente;
+  }, dadosParaExibir[0]);
+
+  const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.updated_at).toLocaleDateString('pt-BR') : '';
+
+
   return (
     <ContainerBasic title={title} description={description}>
       <Box
@@ -247,6 +259,9 @@ console.log('Filtered Despesas:', filteredByVinculo); // Debugging line
             JSON
           </Button>
         </Stack>
+        <Text fontSize={accessibility?.fonts?.regular} mb="10px">
+                Última atualização: <strong>{ultimaAtualizacao}</strong>
+              </Text>
       </Box>
 
       {loading ? (

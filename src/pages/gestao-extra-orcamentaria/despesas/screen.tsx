@@ -185,6 +185,14 @@ useEffect(() => {
     fontSize: isMobile ? "medium" : "larger",
   };
 
+  const dataMaisAtual = despesas.reduce((maisRecente, item) => {
+    const dataItem = new Date(item.data);
+    const dataAtualMaisRecente = new Date(maisRecente.data);
+    return dataItem > dataAtualMaisRecente ? item : maisRecente;
+  }, despesas[0]);
+
+  const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.data).toLocaleDateString('pt-BR') : '';
+
   return (
     <ContainerBasic title={title} description={description}>
             <Box
@@ -282,6 +290,9 @@ useEffect(() => {
                           mb="10px"
                           
                         />
+                        <Text fontSize="md" mb="10px">
+                                Última atualização: <strong>{ultimaAtualizacao}</strong>
+                              </Text>
                         {paginatedDespesas
                           .sort((a, b) => Number(a.numero) - Number(b.numero))
                           .map((row) => (

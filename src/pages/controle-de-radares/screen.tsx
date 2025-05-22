@@ -255,17 +255,9 @@ Implementação de programas de segurança de trânsito;
 Melhorias do sistema municipal de transporte coletivo;  
 Otimização do sistema viário municipal.</Text>
 
-<Text
-                align={isMobile ? "justify" : "left"}
-                fontWeight="700"
-                fontSize={accessibility?.fonts?.regular}
-                mt="20px"
-              >
-                 Por onde acompanhar a aplicação dos recursos arrecadados?
-                
-                
-              </Text>
-        <br/>
+   <Text fontSize={accessibility?.fonts?.regular} my="10px" ml="15px">
+          Última atualização: <strong>10/05/2025</strong>
+        </Text>
 <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}

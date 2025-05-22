@@ -42,6 +42,7 @@ import { FaCalculator } from "react-icons/fa";
 import { RiGovernmentFill } from "react-icons/ri";
 import { FaLaptopCode } from "react-icons/fa";
 import { FaSitemap } from "react-icons/fa";
+import { MdDataThresholding } from "react-icons/md";
 import { sub } from 'date-fns';
 import colors from '../../styles/colors';
 
@@ -70,8 +71,7 @@ const MenuHorizontalChakra = () => {
             { label: "Relatório de Gestão Fiscal", href: "/ciclo-orcamentario/relatorio-gestao-fiscal" },
             { label: "Relatório Resumido", href: "/ciclo-orcamentario/relatorio-resumido" },
             { label: "Balanços Anuais", href: "/ciclo-orcamentario/balancos-anuais" },
-            { label: "Pareceres do Tribunal", href: "/ciclo-orcamentario/pareceres-do-tribunal" },
-            { label: "Aprovação de Contas pelo Legislativo", href: "http://www.cmmc.com.br/paginas/contas_do_executivo_municipal_e_pareceres_do_tcesp/" }
+            
           ]
          },
         
@@ -90,6 +90,14 @@ const MenuHorizontalChakra = () => {
             {label: "Ordem Cronológica de Pagamentos",href: "/gestao-orcamentaria/despesas/pagamentos",},            
             {label: "Divida ativa", href: "/gestao-orcamentaria/divida-ativa", },
             {label: "Incentivos Fiscais", href: "/gestao-orcamentaria/incentivos-fiscais",},
+          ]
+        },
+        {
+          label: 'Fiscalização orçamentária',
+          href:'#',
+          submenu: [
+             { label: "Pareceres do Tribunal", href: "/ciclo-orcamentario/pareceres-do-tribunal" },
+            { label: "Aprovação de Contas pelo Legislativo", href: "http://www.cmmc.com.br/paginas/contas_do_executivo_municipal_e_pareceres_do_tcesp/" },
           ]
         },
         { 
@@ -139,14 +147,14 @@ const MenuHorizontalChakra = () => {
             { label: "Contratos",href: "/contratos-atas/contratos", },
             {label: "Contratos de gestão",href: "/contratos-atas/contratos-gestao", },
            { label: "Atas de registro de preços",  href: "/contratos-atas/atas"   },
-            {label: "Relação dos Gestores de contratos encerrados",href: "/contratos-atas/relacao-fiscais-encerrados", },
-            {label: "Relação dos Gestores de contratos vigentes",href: "/contratos-atas/relacao-fiscais-vigentes", },
+            {label: "Relação dos Gestores de contratos",href: "/contratos-atas/gestores-contratos", },
+           
            
           ] },
           { label: 'Licitações', href: '#',
             submenu: [
               { label: "Licitações", href: "/compras-publicas/licitacoes" }, 
-               {label: "Cadastro de Fornecedor",href: "https://www.mogidascruzes.sp.gov.br/servico/alvara-certidoes-e-licencas/cadastro-de-fornecedor", },
+              
                { label: "Portal Nacional de Contratações Públicas",href: "https://pncp.gov.br/app/editais?q=&status=recebendo_proposta&pagina=1", }, 
              
             ] },
@@ -168,8 +176,8 @@ const MenuHorizontalChakra = () => {
       submenu: [
         { label: 'Leis e Decretos Municipais', href: 'https://leismunicipais.com.br/prefeitura/sp/mogi-das-cruzes' },
         { label: 'Portarias', href: 'https://ged.mogidascruzes.sp.gov.br/weblink7/Browse.aspx' },
-        
-      ]
+        { label: 'Diário oficial', href: 'https://diario-oficial.mogidascruzes.sp.gov.br/diarios/publicacoes/' },
+          ]
     },
     {
       label: 'Servidores',
@@ -200,7 +208,8 @@ const MenuHorizontalChakra = () => {
             { label: 'Transparência IPREM', href: 'https://iprem.mogidascruzes.sp.gov.br/?page_id=1542' },]
         },
         { label: 'Patrimonio', href: '/patrimonio' },
-        { label: 'Perguntas frequentes', href: '/perguntas-frequentes' },
+        { label: 'Perguntas frequentes', href: 'https://www.mogidascruzes.sp.gov.br/pagina/gabinete/perguntas-frequentes-faq' },
+        { label: 'Empresas Reclamadas no Procon', href: 'https://www.mogidascruzes.sp.gov.br/public/site/doc/20250509150621681e441d1b768.pdf' },
         { label: 'Equipamentos e unidades', href: 'https://www.mogidascruzes.sp.gov.br/unidades-e-equipamentos/todos-os-assuntos' },
         
       ]
@@ -254,7 +263,7 @@ const MenuHorizontalChakra = () => {
          },
        
       ]
-    },
+    }, 
     {
       label: 'Planejamento e prestação de contas',
       icon: FaCalculator,
@@ -271,6 +280,7 @@ const MenuHorizontalChakra = () => {
         { label: 'Políticas e programas', href: '/politicas-programas' },
         { label: 'Prestação de contas simplificada', href: '/governo-aberto/prestacao-contas' },
         { label: 'Prestação à CMMC', href: '/ciclo-orcamentario/prestacao-de-contas' },
+        { label: '"Pareceres do Tribunal', href: '/ciclo-orcamentario/pareceres-do-tribunal' },
       ]
     },
     {
@@ -286,7 +296,7 @@ const MenuHorizontalChakra = () => {
             ]
          },
         { label: 'Governo digital', href: '/governo-digital' },
-        { label: 'Diário oficial', href: 'https://diario-oficial.mogidascruzes.sp.gov.br/diarios/publicacoes/' },
+        
         { label: 'InfoDados', href: '/infodados' },
       ]
     },
@@ -312,7 +322,7 @@ const MenuHorizontalChakra = () => {
     },
     {
       label: 'Lei de acesso à informação',
-      icon: FaLaptopCode,
+      icon: MdMenuBook,
       href: '#',
       submenu: [
         { label: 'Solicitar Acesso à Informação', href: 'https://mogidascruzes.1doc.com.br/b.php?pg=wp/detalhes&itd=3' },
@@ -321,12 +331,13 @@ const MenuHorizontalChakra = () => {
         { label: 'Painel de Acompanhamento da LAI 2023', href: 'https://app.powerbi.com/view?r=eyJrIjoiY2ZmODAzZDUtMDE2YS00ZWYzLWJhZGQtMWE4Nzc3OWQyMDgxIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9' },
         { label: 'Painel de Acompanhamento da LAI 2024', href: 'https://app.powerbi.com/view?r=eyJrIjoiY2RiMWYxZWQtN2NlOS00NTNjLTkyMGEtZmNiOWVhMmYzNTJiIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9' },
           {label:"Ouvidoria - COLAB",href:"https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab" },
+           {label:"Portal de Dados abertos - COLAB",href:"https://dados.mogidascruzes.sp.gov.br/" },
        
       ]
     },
     {
       label: 'LGPD',
-      icon: FaLaptopCode,
+      icon: MdMenuBook,
       href: '#',
       submenu: [
         { label: 'LGPD', href: '/leis-decretos-portarias/lgpd' },
@@ -334,6 +345,12 @@ const MenuHorizontalChakra = () => {
         { label: 'Glossário de Termos Técnicos da LGPD', href: '/leis-decretos-portarias/glossario-lgpd' },
        
       ]
+    },
+     {
+      label: 'InfoDados',
+      icon: MdDataThresholding,
+      href: '/infodados',
+      submenu: null
     },
     {
       label: 'Mapa do site',

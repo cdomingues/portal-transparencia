@@ -16,6 +16,7 @@ import {
   InputGroup,
   InputLeftElement,
   Link,
+  Text,
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import PaginationComponent from "../../../components/PaginationComponent";
@@ -25,6 +26,7 @@ import moneyFormatter from "../../../utils/moneyFormatter";
 import moment from "moment";
 import { format } from "path";
 import ContainerBasic from "../../../components/Container/Basic";
+import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 
 const API_URL = "https://dadosadm.mogidascruzes.sp.gov.br/api/diaria_atualizada";
 const ITEMS_PER_PAGE = 50;
@@ -75,6 +77,7 @@ function Screen() {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortConfig, setSortConfig] = useState<{ key: keyof Diarias; direction: "asc" | "desc" } | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const acc = useFontSizeAccessibilityContext()
 
   useEffect(() => {
     fetchData();
@@ -226,6 +229,9 @@ const formatHoras = (tempo: string | number) => {
           JSON
         </Button>
       </Stack>
+      <Text fontSize={acc?.fonts?.regular} mb="10px" ml='15px'>
+              Última atualização: <strong>10/05/2025</strong>
+            </Text>
 
       {isLoading ? (
         <Box textAlign="center" py={10}>Carregando dados...</Box>

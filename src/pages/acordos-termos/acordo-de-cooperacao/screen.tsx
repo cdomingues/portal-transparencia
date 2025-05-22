@@ -5,6 +5,8 @@ import PaginationComponent from "../../../components/PaginationComponent";
 import CsvDownload from "react-json-to-csv";
 import { ContainerSearch } from "../../../styles/components/contratos-atas/styles";
 import colors from "../../../styles/colors";
+import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
+
 
 type PropsInput = {
   handler: {
@@ -22,6 +24,7 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
     const [currentPage, setCurrentPage] = useState(1);
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedYear, setSelectedYear] = useState<number | undefined>(2025); // Estado para o ano selecionado
+    const accessibility = useFontSizeAccessibilityContext();
 
     const ITEMS_PER_PAGE = 50;
 
@@ -72,13 +75,17 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
     // Obtém os anos únicos dos dados e ordena de forma decrescente
     const years = [...new Set(data.map((item) => (item.tc).split('/')[1]))].sort((a, b) => b - a);
   
-    
-    
-    console.log(paginatedContratos)
+ const dataMaisAtual = data.reduce((maisRecente, item) => {
+    const dataItem = new Date(item.data_inicio);
+    const dataAtualMaisRecente = new Date(maisRecente.data_inicio);
+    return dataItem > dataAtualMaisRecente ? item : maisRecente;
+  }, data[0]);
+
+  const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.data_inicio).toLocaleDateString('pt-BR') : '';
   
   return (
     <ContainerBasic title={title} description={description}>
-            <Box
+      <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
         
@@ -183,6 +190,9 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
              mb="10px"
              
            />
+           <Text fontSize={accessibility?.fonts?.regular} mb="10px">
+                   Última atualização: <strong>01/02/2025</strong>
+                 </Text>
           <Stack minW={50} justifyContent="flex-end" className="button-search"></Stack>
         </ContainerSearch>
         {paginatedContratos
@@ -210,8 +220,7 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
           onClick={() => {
             // Armazenando os dados da despesa no sessionStorage
             sessionStorage.setItem("selectedDespesa", JSON.stringify(row));
-            
-            // Redirecionando para a página de detalhes
+                        // Redirecionando para a página de detalhes
             window.open(
               `detalhes?acordo-de-cooperacao=${row.tc}`,
               "_blank"

@@ -1,12 +1,13 @@
 import React from "react";
 import ContainerBasic from "../../../components/Container/Basic";
 import publicRoutes from "../../../routes/public";
-import { Box, Link, Stack, Text, useColorModeValue,Table, Tbody, Td, Th, Thead, Tr, Button } from "@chakra-ui/react";
+import { Box, Link, Stack, Text, useColorModeValue,Table, Tbody, Td, Th, Thead, Tr, Button, Accordion, AccordionItem, AccordionButton, AccordionIcon, AccordionPanel, Flex } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { isMobile } from "react-device-detect";
 import { color } from "highcharts";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import dados from './secretarios.json'
+import conselhos from './conselhos.json'
 import colors from "../../../styles/colors";
 import CsvDownload from "react-json-to-csv";
 
@@ -30,7 +31,7 @@ const exportToJSON = (data: any) => {
     const url = URL.createObjectURL(blob);
 
     link.setAttribute("href", url);
-    link.setAttribute("download", "dados_receitas.json");
+    link.setAttribute("download", "dados_screatarios.json");
     link.style.visibility = "hidden";
     document.body.appendChild(link);
     link.click();
@@ -57,7 +58,21 @@ function Screen({ handler }: PropsInput) {
         borderRadius="18px"
         marginBottom="15px"
       >
-        <Stack direction={{ base: "column", md: "row" }} spacing={4} alignItems="center" mb='20px'>
+        <Accordion allowToggle borderRadius={4} mt='15px'>
+                  
+                    <AccordionItem  pt={4} borderRadius='15px' border='1px solid '>
+                      <h2>
+                        <AccordionButton>
+                          <Box as="span" flex='1' textAlign='center' fontWeight='bold' fontSize='xl'>
+                            SECRETARIOS
+                          </Box>
+                          <AccordionIcon />
+                        </AccordionButton>
+                      </h2>
+                      <AccordionPanel m={4} p={8} bg={"white"} borderRadius={4}>
+                        <Flex>
+                          <Box flex="end" p={2} marginRight={5}>
+                            <Stack direction={{ base: "column", md: "row" }} spacing={4} alignItems="center" mb='20px'>
          <Button
                   width="180px"
                   border="0"
@@ -144,6 +159,72 @@ function Screen({ handler }: PropsInput) {
             ))}
           </Tbody>
         </Table>
+                          </Box>
+                        
+                        </Flex>
+                      </AccordionPanel>
+                    </AccordionItem>
+                 
+                </Accordion>
+                <Accordion allowToggle borderRadius={4}>
+                  
+                  <AccordionItem  pt={4} borderRadius='15px' mt='15px' border='1px solid'>
+                    <h2>
+                      <AccordionButton>
+                        <Box as="span" flex='1' textAlign='center' fontWeight='bold' fontSize='xl'>
+                        CONSELHOS
+                        </Box>
+                        <AccordionIcon />
+                      </AccordionButton>
+                    </h2>
+                    <AccordionPanel m={4} p={8} bg={"white"} borderRadius={4}>
+                      <Flex>
+                        <Box flex="end" p={2} marginRight={5}>
+                            <Table >
+          <Thead>
+            <Tr  bg={colors.transparenciaBlack}
+              color="white"
+              p={4}
+              fontWeight="bold"
+              border={`1px solid ${colors.grayLighter}`}>
+              <Th color="white">Conselho</Th>
+              <Th color="white">Presidente</Th>
+              <Th color="white">Vice-presidente</Th>
+              <Th color="white">Atuação</Th>
+              <Th color="white">Informações</Th>
+              <Th color="white">Link</Th>
+            
+            </Tr>
+          </Thead>
+          <Tbody fontSize='12px'>
+            
+            {conselhos.map((row, index) => (
+            
+            <Tr 
+            key={index} 
+            bg={index % 2 === 0 ? useColorModeValue("white", "black")  : useColorModeValue("#f7f7f7", "grey.100")} 
+            _hover={{ bg: "#d1d1d1",  color: useColorModeValue("black", "white") }}
+            color={useColorModeValue("black", "white")}
+          >
+              <Td>{row.conselho} </Td> 
+              <Td>{row.presidente}</Td>
+              <Td>{row["vice-presidente"]}</Td>
+              <Td>{row.atuacao}</Td>
+              <Td>{row.informacoes}</Td>
+              <Td><Link href={row.link_pagina} target="blank">{row.link_pagina}</Link></Td>
+               
+              </Tr>
+            ))}
+          </Tbody>
+        </Table>
+                        </Box>
+                     
+                      </Flex>
+                    </AccordionPanel>
+                  </AccordionItem>
+               
+              </Accordion>
+        
 
 
       </Box>

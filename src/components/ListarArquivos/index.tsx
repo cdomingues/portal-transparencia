@@ -1,4 +1,4 @@
-import { Box, Button, Icon, Menu, MenuButton, MenuItem, MenuList, Select, Stack } from '@chakra-ui/react';
+import { Box, Button, Icon, Menu, MenuButton, MenuItem, MenuList, Select, Stack, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { isMobile } from 'react-device-detect';
@@ -14,6 +14,7 @@ type Arquivo = {
   file: string;
   created_at: string;
   tipo: number;
+  cadastro: string;
 };
 
 type ApiResponse = {
@@ -52,7 +53,7 @@ const FilesList: React.FC<FilesListProps> = ({ tipoFiltro }) => {
         }
   
         const data = await response.json();
-  
+  console.log(data)
         // Filtrar os resultados conforme o ano selecionado
         const filteredResults = data.results.filter((arquivo: { ano: number }) =>
           selectedYear ? arquivo.ano === selectedYear : true
@@ -82,6 +83,12 @@ const FilesList: React.FC<FilesListProps> = ({ tipoFiltro }) => {
     }
   }, [nextPage, tipoFiltro]);
   
+  const dataMaisAtual = arquivos.reduce((maisRecente, item) => {
+    const dataItem = new Date(item.cadastro);
+    const dataAtualMaisRecente = new Date(maisRecente.cadastro);
+    return dataItem > dataAtualMaisRecente ? item : maisRecente;
+  }, arquivos[0]);
+const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.cadastro).toLocaleDateString('pt-BR') : '';
 
   return (
     <Box display="flex" alignContent="center" flexDirection={isMobile ?  "column" : "column"}>
@@ -109,7 +116,9 @@ const FilesList: React.FC<FilesListProps> = ({ tipoFiltro }) => {
       </option>
     ))}
   </Select> */}
-
+<Text fontSize="md" mb="10px">
+        Última atualização: <strong>{ultimaAtualizacao}</strong>
+      </Text>
 <Menu>
   <MenuButton as={Button}  maxW="200px" bgColor={colors.transparenciaCinza}>
     {selectedYear || "Todos os Anos"}

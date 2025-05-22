@@ -194,6 +194,9 @@ function Screen() {
         >
           JSON
         </Button></Stack>
+        <Text fontSize="md" mb="10px">
+                Última atualização: <strong>01/05/2025</strong>
+              </Text>
 
 <Table >
   <Thead>

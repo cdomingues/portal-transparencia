@@ -8,9 +8,17 @@ import {
   Text,
   Stack,
   Input,
-  Spinner,Table,
-  Thead, Tr, Th,Td, Tbody
+  Spinner,
+  Table,
+  Thead,
+  Tr,
+  Th,
+  Td,
+  Tbody,
+  InputGroup,
+  InputLeftElement
 } from '@chakra-ui/react';
+import { SearchIcon } from '@chakra-ui/icons';
 import ContainerBasic from '../../../../components/Container/Basic';
 import colors from '../../../../styles/colors';
 import CsvDownload from 'react-json-to-csv';
@@ -62,8 +70,7 @@ export const contentContractsAndAtas = {
       <br />
       Nesta página é possível acompanhar diariamente a execução orçamentária das despesas da Prefeitura Municipal de Mogi das Cruzes.
       <br /><br />
-    Caso queira buscar um empenho específico  <Button> <a href="despesas-gerais/procurar_despesa">clique aqui</a> </Button>
-    </>
+     </>
   ),
 };
 
@@ -76,13 +83,10 @@ const Despesas = () => {
   const [totalPaginas, setTotalPaginas] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(false);
-  const [registro, setRegistro] = useState<Despesa | null>(null)
+  const [registro, setRegistro] = useState<Despesa | null>(null);
   const title = contentContractsAndAtas?.titlePage;
   const description = contentContractsAndAtas?.description;
-   const accessibility = useFontSizeAccessibilityContext();
-
-
-  
+  const accessibility = useFontSizeAccessibilityContext();
 
   const fetchTodasDespesasAno = async () => {
     try {
@@ -123,15 +127,11 @@ const Despesas = () => {
           exercicio_empenho: ano,
         },
       });
-  
-      // Ordena numericamente primeiro
+
       const ordenadas = response.data.results.sort((a: Despesa, b: Despesa) => {
         return Number(a.nr_empenho) - Number(b.nr_empenho);
       });
-  
-      // Depois formata o nr_empenho com 4 dígitos
-     
-  
+
       setDespesas(ordenadas);
       setTotalPaginas(Math.ceil(response.data.count / 50));
     } catch (error) {
@@ -147,27 +147,37 @@ const Despesas = () => {
   useEffect(() => {
     const normalizar = (str: string) =>
       str?.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim() || '';
-  
+
     const termo = normalizar(searchTerm);
-  
+
     if (termo === '') {
       setDespesasFiltradas([]);
     } else {
-      const fonte = todasDespesasAno.length > 0 ? todasDespesasAno : despesas;
-  
-      const filtradas = fonte.filter((d) => {
-        const fornecedor = normalizar(d.descr_fornecedor);
-        return fornecedor.includes(termo);
+      const resultados = todasDespesasAno.filter((d) => {
+        return (
+          normalizar(d.descr_fornecedor).includes(termo) ||
+          normalizar(d.id_empenho).includes(termo) ||
+          normalizar(d.vlr_empenho).includes(termo) ||
+          normalizar(d.cnpj_fornecedor).includes(termo) ||
+          normalizar(d.unid_orcam).includes(termo) ||
+          normalizar(d.class_funcional).includes(termo) ||
+          normalizar(d.descr_funcional).includes(termo) ||
+          normalizar(d.subelemento).includes(termo)
+        );
       });
-  
-      setDespesasFiltradas(filtradas);
+
+      setDespesasFiltradas(resultados);
     }
-  }, [searchTerm, despesas, todasDespesasAno]);
+  }, [searchTerm, todasDespesasAno]);
 
   const handleAnoChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setAno(Number(e.target.value));
     setPagina(1);
     setSearchTerm('');
+  };
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
   };
 
   const exportToJSON = (data: Despesa[]) => {
@@ -186,12 +196,12 @@ const Despesas = () => {
   const dadosParaExibir = searchTerm ? despesasFiltradas : despesas;
 
   const dataMaisAtual = dadosParaExibir.reduce((maisRecente, item) => {
-  const dataItem = new Date(item.updated_at);
-  const dataAtualMaisRecente = new Date(maisRecente.updated_at);
-  return dataItem > dataAtualMaisRecente ? item : maisRecente;
-}, dadosParaExibir[0]);
+    const dataItem = new Date(item.updated_at);
+    const dataAtualMaisRecente = new Date(maisRecente.updated_at);
+    return dataItem > dataAtualMaisRecente ? item : maisRecente;
+  }, dadosParaExibir[0]);
 
-const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.updated_at).toLocaleDateString('pt-BR') : '';
+  const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.updated_at).toLocaleDateString('pt-BR') : '';
 
   return (
     <ContainerBasic title={title} description={description}>
@@ -204,7 +214,6 @@ const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.updated_at).toL
         borderRadius="18px"
         marginBottom="15px"
       >
-         
         <Stack
           minW={86}
           width="100%"
@@ -229,7 +238,19 @@ const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.updated_at).toL
             ))}
           </Select>
 
-        
+          <InputGroup width="300px">
+            <InputLeftElement pointerEvents="none">
+              <SearchIcon color="gray.300" />
+            </InputLeftElement>
+            <Input
+              type="text"
+              placeholder="Buscar empenho..."
+              value={searchTerm}
+              onChange={handleSearchChange}
+              borderRadius="8px"
+              height="40px"
+            />
+          </InputGroup>
 
           <Button
             width="180px"
@@ -274,79 +295,80 @@ const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.updated_at).toL
         </Stack>
       </Box>
 
-    
-  <Text fontSize={accessibility?.fonts?.regular}  mb="10px">
-  Última atualização: <strong>{ultimaAtualizacao}</strong>
-</Text>
-          <Table fontSize={accessibility?.fonts?.regular}  >
-                    <Thead> 
-                      <Tr  bg={colors.transparenciaBlack}
-                        color="white"
-                        p={4}
-                        fontWeight="bold"
-                        border={`1px solid ${colors.grayLighter}`}>
-                        <Th color="white">Empenho</Th>
-                        <Th color="white">Valor empenho</Th>
-                        <Th color="white">Fornecedor</Th>
-                        <Th color="white">CNPJ fornecedor</Th>
-                        <Th color="white">Unidade Orçamentária</Th>
-                        <Th color="white">Classificação funcional</Th>
-                        <Th color="white">Descrição funcional</Th>
-                        <Th color="white">Subelemento</Th>
-                                              
-                      </Tr>
-                    </Thead>
-                    <Tbody fontSize='12px'>
-                      
-                      {dadosParaExibir.map((row, index) => (
-                      
-                      <Tr 
-                      key={index} 
-                      bg={index % 2 === 0 ? useColorModeValue("white", "black")  : useColorModeValue("#f7f7f7", "grey.100")} 
-                      _hover={{ bg: "#d1d1d1", cursor: "pointer" , color: useColorModeValue("black", "white") }}
-                      color={useColorModeValue("black", "white")}
-                       onClick={() => {
-                sessionStorage.setItem('selectedDespesa', JSON.stringify(row));
-                window.open(`detalhes?${row.id_empenho}`, '_blank');
-              }}
-                    >
-                          <Td>{row.id_empenho} </Td> 
-                          <Td>{moneyFormatter(Number(row.vlr_empenho))}</Td>
-                         <Td>{row.descr_fornecedor}</Td>
-                          <Td>{row.cnpj_fornecedor}</Td>
-                          <Td>{row.unid_orcam}</Td>
-                           <Td>{row.class_funcional}</Td>
-                            <Td>{row.descr_funcional}</Td>
-                            <Td>{row.subelemento}</Td> 
-                          
-                         
-                          
-                        </Tr>
-                      ))}
-                    </Tbody>
-                  </Table>
-     
+      <Text fontSize={accessibility?.fonts?.regular} mb="10px">
+        Última atualização: <strong>{ultimaAtualizacao}</strong>
+      </Text>
 
-      {!searchTerm && (
-        <Box display="flex" justifyContent="space-around" alignItems="center" paddingBottom="10px" width="80%" mt="20px">
-          <Button
-            border={`1px solid ${colors.transparenciaBlack}`}
-            width="150px"
-            onClick={() => setPagina((p) => Math.max(p - 1, 1))}
-            disabled={pagina === 1}
-          >
-            Anterior
-          </Button>
-          <span>Página {pagina} de {totalPaginas}</span>
-          <Button
-             border={`1px solid ${colors.transparenciaBlack}`}
-            width="150px"
-            onClick={() => setPagina((p) => Math.min(p + 1, totalPaginas))}
-            disabled={pagina === totalPaginas}
-          >
-            Próxima
-          </Button>
-        </Box>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <>
+          <Table fontSize={accessibility?.fonts?.regular}>
+            <Thead>
+              <Tr
+                bg={colors.transparenciaBlack}
+                color="white"
+                p={4}
+                fontWeight="bold"
+                border={`1px solid ${colors.grayLighter}`}
+              >
+                <Th color="white">Empenho</Th>
+                <Th color="white">Valor empenho</Th>
+                <Th color="white">Fornecedor</Th>
+                <Th color="white">CNPJ fornecedor</Th>
+                <Th color="white">Unidade Orçamentária</Th>
+                <Th color="white">Classificação funcional</Th>
+                <Th color="white">Descrição funcional</Th>
+                <Th color="white">Subelemento</Th>
+              </Tr>
+            </Thead>
+            <Tbody fontSize='12px'>
+              {dadosParaExibir.map((row, index) => (
+                <Tr
+                  key={index}
+                  bg={index % 2 === 0 ? useColorModeValue("white", "black") : useColorModeValue("#f7f7f7", "grey.100")}
+                  _hover={{ bg: "#d1d1d1", cursor: "pointer", color: useColorModeValue("black", "white") }}
+                  color={useColorModeValue("black", "white")}
+                  onClick={() => {
+                    sessionStorage.setItem('selectedDespesa', JSON.stringify(row));
+                    window.open(`detalhes?${row.id_empenho}`, '_blank');
+                  }}
+                >
+                  <Td>{row.id_empenho}</Td>
+                  <Td>{moneyFormatter(Number(row.vlr_empenho))}</Td>
+                  <Td>{row.descr_fornecedor}</Td>
+                  <Td>{row.cnpj_fornecedor}</Td>
+                  <Td>{row.unid_orcam}</Td>
+                  <Td>{row.class_funcional}</Td>
+                  <Td>{row.descr_funcional}</Td>
+                  <Td>{row.subelemento}</Td>
+                </Tr>
+              ))}
+            </Tbody>
+          </Table>
+
+          {!searchTerm && (
+            <Box display="flex" justifyContent="space-around" alignItems="center" paddingBottom="10px" width="80%" mt="20px">
+              <Button
+                border={`1px solid ${colors.transparenciaBlack}`}
+                width="150px"
+                onClick={() => setPagina((p) => Math.max(p - 1, 1))}
+                disabled={pagina === 1}
+              >
+                Anterior
+              </Button>
+              <span>Página {pagina} de {totalPaginas}</span>
+              <Button
+                border={`1px solid ${colors.transparenciaBlack}`}
+                width="150px"
+                onClick={() => setPagina((p) => Math.min(p + 1, totalPaginas))}
+                disabled={pagina === totalPaginas}
+              >
+                Próxima
+              </Button>
+            </Box>
+          )}
+        </>
       )}
     </ContainerBasic>
   );
