@@ -84,6 +84,7 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
   const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.data_inicio).toLocaleDateString('pt-BR') : '';
   
   return (
+    
     <ContainerBasic title={title} description={description}>
       <Box
         m={0}

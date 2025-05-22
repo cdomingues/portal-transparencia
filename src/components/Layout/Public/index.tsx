@@ -7,6 +7,8 @@ import ModalPopup from "../../Modal";
 import {useEffect} from 'react'
 import Header from "./Header";
 
+import VLibrasScript from "../../VLibrasScript";
+
 type Props = {
   children?: React.ReactNode;
 };
@@ -15,7 +17,8 @@ function PublicLayout({ children }: Props) {
   
   return (
     <>
-       <VLibras forceOnload={true} /> 
+      {/*  <VLibras forceOnload={true} />  */}
+       <VLibrasScript />
        <Header />
       <SideBar routes={publicRoutes}>{children}</SideBar>
      
