@@ -11,6 +11,9 @@ import parecer_tribunal from "../../assets/images/icones/parecer_tribunal.svg"
 import acesso_a_informacao from "../../assets/images/icones/LAI__acesso a informação.svg"
 import protocolo_geral from "../../assets/images/icones/LAI__protocolo geral.svg"
 import relatorio_de_demandas from "../../assets/images/icones/LAI__relatorio de demandas lai.svg"
+import fluxo_lai from '../../assets/images/fluxo_lai.png'
+
+
 import {
   Box,
   Divider,
@@ -37,6 +40,7 @@ import {
   UnorderedList,
   ListItem,
   VStack,
+  Img,
 } from "@chakra-ui/react";
 import moneyFormatter from "../../utils/moneyFormatter";
 import moment from "moment";
@@ -149,7 +153,7 @@ marginBottom="15px">
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel m={4} p={8} bg={"white"} borderRadius={4}>
+              <AccordionPanel m={4} p={8}  borderRadius={4}>
                 <Flex flexDirection='column'>
                  
               <Text >
@@ -175,7 +179,7 @@ marginBottom="15px">
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel m={4} p={8} bg={"white"} borderRadius={4}>
+              <AccordionPanel m={4} p={8}  borderRadius={4}>
                 <Flex flexDirection='column'>
                  
              <Text>
@@ -221,7 +225,7 @@ Guichês: 18 e 20.
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel m={4} p={8} bg={"white"} borderRadius={4}>
+              <AccordionPanel m={4} p={8}  borderRadius={4}>
                 <Flex flexDirection='column'>
                  
              <Text>
@@ -259,11 +263,11 @@ Verônica Souza
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel m={4} p={8} bg={"white"} borderRadius={4}>
+              <AccordionPanel m={4} p={8}  borderRadius={4}>
                 <Flex flexDirection='column'>
                  
              <Text>
-            Pedido inicial
+            <Img src={fluxo_lai.src}></Img>
             </Text>
 
  
@@ -280,7 +284,7 @@ Verônica Souza
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel m={4} p={8} bg={"white"} borderRadius={4}>
+              <AccordionPanel m={4} p={8}  borderRadius={4}>
                 <Flex flexDirection='column'>
                  
              <Text>
@@ -363,7 +367,7 @@ Se a informação for negada ou você não ficar satisfeito com a resposta, é p
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel m={4} p={8} bg={"white"} borderRadius={4}>
+              <AccordionPanel m={4} p={8}  borderRadius={4}>
                 <Flex flexDirection='column'>
                  
              <Text>
@@ -413,7 +417,7 @@ Se a informação for negada ou você não ficar satisfeito com a resposta, é p
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel m={4} p={8} bg={"white"} borderRadius={4}>
+              <AccordionPanel m={4} p={8}  borderRadius={4}>
                 <Flex flexDirection='column'>
                  
              <Text>
@@ -451,7 +455,7 @@ Se a informação for negada ou você não ficar satisfeito com a resposta, é p
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel m={4} p={8} bg={"white"} borderRadius={4}>
+              <AccordionPanel m={4} p={8}  borderRadius={4}>
                 <Flex flexDirection='column'>
                  
              <Text>
@@ -487,7 +491,7 @@ Se a informação for negada ou você não ficar satisfeito com a resposta, é p
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel m={4} p={8} bg={"white"} borderRadius={4}>
+              <AccordionPanel m={4} p={8}  borderRadius={4}>
                 <Flex flexDirection='column'>
                  
              <Text>
@@ -523,7 +527,7 @@ Se a informação for negada ou você não ficar satisfeito com a resposta, é p
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel m={4} p={8} bg={"white"} borderRadius={4}>
+              <AccordionPanel m={4} p={8}  borderRadius={4}>
                 <Flex flexDirection='column'>
                  
              <Text>
