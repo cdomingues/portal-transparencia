@@ -266,8 +266,8 @@ Verônica Souza
               <AccordionPanel m={4} p={8}  borderRadius={4}>
                 <Flex flexDirection='column'>
                  
-             <Text>
-            <Img src={fluxo_lai.src}></Img>
+             <Text> <a href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/567189d7-01d9-4735-b60d-5505bd662f9f/fluxo_lai.png" target="_blank">
+            <Img src={fluxo_lai.src}></Img></a>
             </Text>
 
  
@@ -467,6 +467,14 @@ Se a informação for negada ou você não ficar satisfeito com a resposta, é p
 
   <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/5c16c6ef-f19c-4539-9b9f-2867617f7d37/Relat%C3%B3rio_2023_-_Transpar%C3%AAncia_LAI.pdf" isExternal textDecoration="underline" >
     <strong>Relatório 2023 - Transparência LAI</strong>
+  </Link>
+
+  <Link href="https://app.powerbi.com/view?r=eyJrIjoiY2ZmODAzZDUtMDE2YS00ZWYzLWJhZGQtMWE4Nzc3OWQyMDgxIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9" isExternal textDecoration="underline" >
+    <strong>Painel de acompanhamento da LAI 2023</strong>
+  </Link>
+
+  <Link href="https://app.powerbi.com/view?r=eyJrIjoiY2RiMWYxZWQtN2NlOS00NTNjLTkyMGEtZmNiOWVhMmYzNTJiIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9" isExternal textDecoration="underline" >
+    <strong>Painel de acompanhamento da LAI 2024</strong>
   </Link>
 
   

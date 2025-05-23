@@ -327,12 +327,9 @@ const MenuHorizontalChakra = () => {
       submenu: [
         {label:'Lei de acesso à informação', href:'/acesso-a-informacao'},
         { label: 'Solicitar Acesso à Informação', href: 'https://mogidascruzes.1doc.com.br/b.php?pg=wp/detalhes&itd=3' },
-        { label: 'Relatório de Demandas LAI', href: 'https://mogidascruzes.1doc.com.br/b.php?pg=o/transparencia' },
-        { label: 'Acompanhe os dados genéricos dos pedidos', href: '"https://mogidascruzes.1doc.com.br/b.php?pg=wp/wp&itd=3&ss=5' },
-        { label: 'Painel de Acompanhamento da LAI 2023', href: 'https://app.powerbi.com/view?r=eyJrIjoiY2ZmODAzZDUtMDE2YS00ZWYzLWJhZGQtMWE4Nzc3OWQyMDgxIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9' },
-        { label: 'Painel de Acompanhamento da LAI 2024', href: 'https://app.powerbi.com/view?r=eyJrIjoiY2RiMWYxZWQtN2NlOS00NTNjLTkyMGEtZmNiOWVhMmYzNTJiIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9' },
+       
           {label:"Ouvidoria - COLAB",href:"https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab" },
-           {label:"Portal de Dados abertos - COLAB",href:"https://dados.mogidascruzes.sp.gov.br/" },
+           {label:"Portal de Dados abertos",href:"https://dados.mogidascruzes.sp.gov.br/" },
        
       ]
     },
