@@ -74,8 +74,8 @@ function Screen() {
         const response = await axios.get(url);
         
         // Verifica se há resultados e os adiciona ao array
-        if (response.data.results && response.data.results.length > 0) {
-          allLicitacoes = [...allLicitacoes, ...response.data.results];
+        if (response.data && response.data.length > 0) {
+          allLicitacoes = [...allLicitacoes, ...response.data];
         }
   
         // Atualiza a URL para a próxima página (ou null para encerrar)
@@ -198,15 +198,18 @@ function Screen() {
                 Última atualização: <strong>01/05/2025</strong>
               </Text>
 
-<Table >
-  <Thead>
+<Table overflowX='auto' width='100%' >
+  <Thead >
     <Tr  bg={colors.transparenciaBlack}
       color="white"
       p={4}
       fontWeight="bold"
-      border={`1px solid ${colors.grayLighter}`}>
-      <Th color="white">Ano</Th>
+      border={`1px solid ${colors.grayLighter}`}
+       
+       >
+      <Th color="white" >Ano</Th>
       <Th color="white">Receita</Th>
+      <Th color="white">Vinculo</Th>
       <Th color="white">Janeiro</Th>
       <Th color="white">Fevereiro</Th>
       <Th color="white">Março</Th>
@@ -233,7 +236,8 @@ function Screen() {
     color={useColorModeValue("black", "white")}
   >
         <Td>{row.ano} </Td> 
-       <Td>{row.receita}</Td>
+       <Td>{row.receita} </Td> 
+       <Td> {(row.vinculo.split('-')[1])}</Td>
        <Td>{moneyFormatter(Number(row.janeiro))}</Td>
         <Td>{moneyFormatter(Number(row.fevereiro))}</Td>
         <Td>{moneyFormatter(Number(row.marco))}</Td>
@@ -251,6 +255,7 @@ function Screen() {
     ))}
   </Tbody>
 </Table>
+
 
       <PaginationComponent pages={Math.ceil(filteredLicitacoes.length / ITEMS_PER_PAGE)} setCurrentPage={setCurrentPage} currentPage={currentPage} />
     </ContainerBasic>

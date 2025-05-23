@@ -325,6 +325,7 @@ const MenuHorizontalChakra = () => {
       icon: MdMenuBook,
       href: '#',
       submenu: [
+        {label:'Lei de acesso à informação', href:'/acesso-a-informacao'},
         { label: 'Solicitar Acesso à Informação', href: 'https://mogidascruzes.1doc.com.br/b.php?pg=wp/detalhes&itd=3' },
         { label: 'Relatório de Demandas LAI', href: 'https://mogidascruzes.1doc.com.br/b.php?pg=o/transparencia' },
         { label: 'Acompanhe os dados genéricos dos pedidos', href: '"https://mogidascruzes.1doc.com.br/b.php?pg=wp/wp&itd=3&ss=5' },

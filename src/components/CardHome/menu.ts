@@ -609,6 +609,13 @@ export const menus=[
         'imageURL': IconesGovernoAberto.src, 
         'description': "Veja aqui as principais iniciativas de governo aberto",
         "submenus": [
+             {
+                "id_submenu": 0,
+                "label":"Lei de acesso à informação",
+                "imageUrl": IconeLeis.src,
+                'url':"/acesso-a-informacao",
+                "extralinks": [ ]
+            },
             {
                 "id_submenu": 1,
                 "label":"Solicitar Acesso à Informação",
@@ -616,34 +623,8 @@ export const menus=[
                 'url':"https://mogidascruzes.1doc.com.br/b.php?pg=wp/detalhes&itd=3",
                 "extralinks": [ ]
             },
-            {
-                'id_submenu': 2,
-                "label":"Relatório de Demandas LAI",
-                'imageUrl': IconeLeis.src,
-                'url':"https://mogidascruzes.1doc.com.br/b.php?pg=o/transparencia",
-                "extralinks": [ ]
-            },
-            {
-                "id_submenu": 3,
-                "label":"Acompanhe os dados genéricos dos pedidos",
-                "imageUrl": IconeLeis.src,
-                'url':"https://mogidascruzes.1doc.com.br/b.php?pg=wp/wp&itd=3&ss=5",
-                "extralinks": [ ]
-            },
-            {
-                "id_submenu": 4,
-                "label":"Painel de Acompanhamento da LAI 2023",
-                "imageUrl": IconeLeis.src,
-                'url':"https://app.powerbi.com/view?r=eyJrIjoiY2ZmODAzZDUtMDE2YS00ZWYzLWJhZGQtMWE4Nzc3OWQyMDgxIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
-                "extralinks": [ ]
-            },
-            {
-                "id_submenu": 5,
-                "label":"Painel de Acompanhamento da LAI 2024",
-                "imageUrl": IconeLeis.src,
-                'url':"https://app.powerbi.com/view?r=eyJrIjoiY2RiMWYxZWQtN2NlOS00NTNjLTkyMGEtZmNiOWVhMmYzNTJiIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
-                "extralinks": [ ]
-            },  {
+           
+              {
                 'id_submenu': 6,
                 "label":"Ouvidoria - COLAB",
                 'imageUrl': Ouvidoria.src,
