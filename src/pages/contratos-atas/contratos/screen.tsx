@@ -68,9 +68,10 @@ function Screen({
     }
     return true; // Se nenhum ano for selecionado, mostra todos os contratos
   }).filter((item) =>
-    item.id_contrato.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item.descricao.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item.fornecedor.toLowerCase().includes(searchTerm.toLowerCase())
+    item.id_contrato && item.id_contrato.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  item.descricao && item.descricao.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  item.fornecedor && item.fornecedor.toLowerCase().includes(searchTerm.toLowerCase())
+
   );
 
   const formatDate = (isoString: any) => {

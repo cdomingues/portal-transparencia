@@ -7,7 +7,7 @@ URL="https://dadosabertos.mogidascruzes.sp.gov.br/"
 SCRIPT_REINICIO="/var/www/dadosabertos/dadosabertos/scripts/startServer.sh"
 
 # E-mail para receber notificações
-EMAIL="marcostorres@mogidascruzes.sp.gov.br"
+EMAIL="carlosdomingues@mogidascruzes.sp.gov.br"
 
 # Fazer uma requisição HTTP e capturar o código de status
 STATUS=$(curl -o /dev/null -s -w "%{http_code}\n" -k $URL)
