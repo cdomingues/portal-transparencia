@@ -299,9 +299,8 @@ const Despesas = () => {
         Última atualização: <strong>{ultimaAtualizacao}</strong>
       </Text>
 
-      {loading ? (
-        <Spinner />
-      ) : (
+ 
+       
         <>
           <Table fontSize={accessibility?.fonts?.regular}>
             <Thead>
@@ -369,7 +368,7 @@ const Despesas = () => {
             </Box>
           )}
         </>
-      )}
+     
     </ContainerBasic>
   );
 };

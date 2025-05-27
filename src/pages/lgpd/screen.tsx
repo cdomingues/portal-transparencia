@@ -140,7 +140,11 @@ Sede da Prefeitura de Mogi das Cruzes - 3º andar
         color="gray.500"
         fontSize={accessibility?.fonts?.regular}
         >
-        <strong>Ato de designação:</strong><Link target="blank" variant='plain' href='https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/1b639690-a3cb-4181-aa00-4799d135e7aa/PORTARIA_N_401_DE_4_DE_ABRIL_DE_2025.pdf'> Portaria</Link>  
+        <strong>Ato de designação: </strong><Link textDecoration='underline' target="blank" variant='plain' href='https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/242f12fa-142c-452c-b1fe-319afb237de5/0591_2025.pdf' 
+        _hover={{
+          fontWeight: 'semibold'
+        }}
+        > Portaria</Link>  
      </Text>
 
     <Text
