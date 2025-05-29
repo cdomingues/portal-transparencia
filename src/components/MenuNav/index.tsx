@@ -80,7 +80,7 @@ const MenuHorizontalChakra = () => {
           href: '#',
           submenu: [
             { label: "Receitas Gerais", href: "/gestao-orcamentaria/receitas" },
-            {label: "Emendas Parlamentares", href: "/gestao-orcamentaria/receitas/receitas-emendas",},
+           // {label: "Emendas Parlamentares", href: "/gestao-orcamentaria/receitas/receitas-emendas",},
             {label: "Despesas Gerais", href: "/gestao-orcamentaria/despesas/despesas-gerais",},
             {label: "Emendas Parlamentares", href: "/gestao-orcamentaria/despesas/despesas-emendas", },
             {label: "Propaganda e Publicidade", href: "/gestao-orcamentaria/despesas/propaganda", },
@@ -121,9 +121,8 @@ const MenuHorizontalChakra = () => {
           label: 'Convênios e Transferências', 
           href: '#',
           submenu: [
-            { label: "Convênios",href: "/convenios-transferencias/convenios", },
-            {label: "Recebidos",href: "/convenios-transferencias/recebidos", },
-           
+                 { label: "Convênios - Recebidos", href: "/convenios-transferencias/convenios-recebidos" },
+                    { label: "Convênios - Repasse", href: "/convenios-transferencias/convenios-repasse" },          
           ]
         },
         { label: 'Consulta de Fornecedores a Pagamentos', href: 'http://consultacompras.pmmc.com.br/pagamento-fornecedor' },
@@ -133,6 +132,14 @@ const MenuHorizontalChakra = () => {
               { label: "Desonerações e Renúncias", href: "/beneficios-fiscais/desoneracoes_renuncias" },
                 { label: "PROMAE", href: "/beneficios-fiscais/promae" },
                 { label: "Lic e Lide", href: "/beneficios-fiscais/lic_lide" },
+          ]
+         },
+           { label: 'Emendas parlamentares', 
+          href: '#',
+          submenu:[
+              { label: "Emendas parlamentares - Receitas", href: "/emendas-parlamentares/receitas-emendas" },
+              { label: "Emendas parlamentares - Despesas", href: "/emendas-parlamentares/despesas-emendas" },
+               
           ]
          },
       ]

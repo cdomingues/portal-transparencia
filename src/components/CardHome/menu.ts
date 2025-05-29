@@ -114,8 +114,8 @@ export const menus=[
                 'imageURL': Convenios_transferencias.src,
                 "link":"",
                 "extralinks": [
-                    { label: "Convênios", url: "/convenios-transferencias/convenios" },
-                    { label: "Recebidos", url: "/convenios-transferencias/recebidos" },
+                    { label: "Convênios - Recebidos", url: "/convenios-transferencias/convenios-recebidos" },
+                    { label: "Convênios - Repasse", url: "/convenios-transferencias/convenios-repasse" },
                 ]},
         {"id_submenu": 5, 
             "title": "Execução Orçamentária Covid 19", 
@@ -143,7 +143,7 @@ export const menus=[
                 { label: "PROMAE", url: "/beneficios-fiscais/promae" },
                 { label: "Lic e Lide", url: "/beneficios-fiscais/lic_lide" },
             ]},
-            /*  {"id_submenu": 8, 
+              {"id_submenu": 8, 
             "title": "Emendas parlamentares", 
             'imageURL': Compras_publicas.src,
             "link":"",
@@ -152,7 +152,7 @@ export const menus=[
                { label: "Emendas - receitas", url: "emendas-parlamentares/receitas-emendas" },
                 { label: "Emendas - despesas", url: "emendas-parlamentares/despesas-emendas" },
                 
-                 ]}, */
+                 ]}, 
 
         ]
       },

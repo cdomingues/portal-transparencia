@@ -44,9 +44,9 @@ const API_URL = "https://dadosadm.mogidascruzes.sp.gov.br/api/convenios";
 const ITEMS_PER_PAGE = 50;
 
 export const receitasDesc = {
-  titlePage: "Receitas",
+  titlePage: "Convênios - recebidos",
   description:
-    "De modo acessível e de fácil compreensão, acompanhe os valores e fontes de arrecadação do município, comparando a evolução entre os últimos anos e também a variação entre receita prevista e efetivamente arrecadada.",
+    "A divulgação da lista de Convênios e Transferências repasses realizados pela Prefeitura de Mogi das Cruzes é uma medida fundamental cujo propósito é reforçar a transparência das finanças municipais e promover a responsabilidade fiscal. ",
 };
 
 function Screen() {
@@ -243,7 +243,7 @@ function Screen() {
             pb="5px" 
             mb="8px"
           >
-            {row.id_convenio}
+            CONVÊNIO - {row.id_convenio}
           </Text>
           <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
             <strong>Recurso:</strong> {row.tipo_recurso}

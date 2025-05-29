@@ -34,7 +34,7 @@ type PropsInput = {
   };
 };
 export const contentContractsAndAtas = {
-  titlePage: "Convênios",
+  titlePage: "Convênios - repasse",
   description:
     "A divulgação da lista de Convênios e Transferências repasses realizados pela Prefeitura de Mogi das Cruzes é uma medida fundamental cujo propósito é reforçar a transparência das finanças municipais e promover a responsabilidade fiscal. ",
 };
