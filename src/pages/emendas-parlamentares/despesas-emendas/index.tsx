@@ -10,8 +10,8 @@ import {
   Input,
   Spinner,
 } from '@chakra-ui/react';
-import ContainerBasic from '../../../../components/Container/Basic';
-import colors from '../../../../styles/colors';
+import ContainerBasic from '../../../components/Container/Basic';
+import colors from '../../../styles/colors';
 import CsvDownload from 'react-json-to-csv';
 
 interface Despesa {
@@ -271,7 +271,7 @@ const Despesas = () => {
               }}
               onClick={() => {
                 sessionStorage.setItem('selectedDespesa', JSON.stringify(item));
-                window.open(`detalhes?${item.id_empenho} - ${item.exercicio_empenho}`, '_blank');
+                window.open(`despesas-detalhes?${item.id_empenho} - ${item.exercicio_empenho}`, '_blank');
               }}
             >
               <Text fontWeight="bold" fontSize="lg" color={colors.transparenciaBlack} borderBottom={`2px solid ${colors.transparenciaBlack}`} pb="5px" mb="8px">

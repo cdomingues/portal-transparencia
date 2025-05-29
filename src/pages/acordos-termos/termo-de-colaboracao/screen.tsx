@@ -34,9 +34,9 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
       }
       return true; // Se nenhum ano for selecionado, mostra todos os contratos
     }).filter((item) =>
-      item.tc.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.interessado.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.contratada.toLowerCase().includes(searchTerm.toLowerCase())
+      (item.tc || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
+(item.interessado || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
+(item.contratada || "").toLowerCase().includes(searchTerm.toLowerCase())
     );
     console.log(filteredContratos.length )
     const paginatedContratos = filteredContratos.slice(

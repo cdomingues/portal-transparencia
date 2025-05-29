@@ -1,184 +1,269 @@
-import {
-  Button,
-  Divider,
-  Select,
-  Stack,
-  Text,
-  useDisclosure,
-  Box,
-  useColorModeValue
-} from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
-import TableComponent, { TableColumns } from "../../../components/Table";
-import ModalContracts from "./modalContracts";
-import { ContainerSearch } from "../../../styles/components/contratos-atas/styles";
+import { Box, Button, Input, Select, Stack, Table, Tbody, Td, Text, Th, Thead, Tr, useColorModeValue } from "@chakra-ui/react";
 import PaginationComponent from "../../../components/PaginationComponent";
-
+import axios from "axios";
 import CsvDownload from "react-json-to-csv";
+import moneyFormatter from "../../../utils/moneyFormatter";
 import colors from "../../../styles/colors";
 
-type PropsInput = {
-  handler: {
-    columns: TableColumns;
-    data: Array<any>;
-    loading: boolean;
-    year: number;
-    years: Number[];
-    setYear: any;
-    handleByYear: any;
-    data2: Array<any>;
-    setData2: any;
-    arquivosColumns: TableColumns;
-    
-  };
-};
-export const contentContractsAndAtas = {
-  titlePage: "Convênios",
+type Convenio = {
+  id: string;
+  classificacao_prioridade: string;
+  tipo_recurso: string;
+  nivel_demanda: string;
+  modalidade: string;
+  aplicacao: string;
+  orgao: string;
+  instituicao_financeira: string;
+  politico: string;
+  secretaria: string;
+  status_convenio: string;
+  created_at: string; // ISO datetime string
+  updated_at: string; // ISO datetime string
+  id_convenio: string;
+  ano: number;
+  formalizado: boolean;
+  data_formalizado: string; // ISO date string
+  demanda: string;
+  termo: string;
+  processo_administrativo: string;
+  cod_objeto: string;
+  objeto: string;
+  finalidade_objeto: string;
+  abertura_conta: boolean;
+  conta: string;
+  valor_repasse: string; // pode ser string ou number, dependendo do uso
+  contrapartida: string; // idem
+  data_inicio: string; // ISO date string
+  vigencia_suspensiva: string | null; // pode ser null
+  data_fim: string; // ISO date string
+  numero_empenho: string | null;
+}
+const API_URL = "https://dadosadm.mogidascruzes.sp.gov.br/api/convenios";
+const ITEMS_PER_PAGE = 50;
+
+export const receitasDesc = {
+  titlePage: "Receitas",
   description:
-    "A divulgação da lista de Convênios e Transferências repasses realizados pela Prefeitura de Mogi das Cruzes é uma medida fundamental cujo propósito é reforçar a transparência das finanças municipais e promover a responsabilidade fiscal. ",
+    "De modo acessível e de fácil compreensão, acompanhe os valores e fontes de arrecadação do município, comparando a evolução entre os últimos anos e também a variação entre receita prevista e efetivamente arrecadada.",
 };
-function Screen({
-  handler: { columns, data, loading, handleByYear, setYear, year, years,data2, setData2,arquivosColumns },
-}: PropsInput) {
-  const [contract, setContract] = useState<any>(null);
-  const title = contentContractsAndAtas?.titlePage;
-  const description = contentContractsAndAtas?.description;
+
+function Screen() {
+  const title = receitasDesc.titlePage;
+  const description = receitasDesc.description;
+
+  const [licitacoes, setLicitacoes] = useState<Convenio[]>([]);
+  const [tiposReceita, setTiposReceita] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedYear, setSelectedYear] = useState("2025");
+  const [selectedReceita, setSelectedReceita] = useState("");
+  let count = 1
 
-  const filteredConvenios = data.filter((item)=>
-    item.id_contrato.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  item.descricao.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  item.fornecedor.toLowerCase().includes(searchTerm.toLowerCase())
-)
+  useEffect(() => {
+    fetchData();
+    //fetchTiposReceita();
+  }, [selectedYear]);
 
-
-
+  // Função para buscar receitas
+  const fetchData = async () => {
+    let allLicitacoes: Convenio[] = [];
+    let url = `${API_URL}`;
+    const params = new URLSearchParams();
   
+    // Adiciona o parâmetro 'ano' se não for "Todos"
+    if (selectedYear !== "Todos") {
+      params.append("ano", selectedYear);
+    }
+  
+    // Adiciona os parâmetros à URL inicial
+    if (params.toString()) {
+      url += `?${params.toString()}`;
+    }
+  
+    try {
+      // Enquanto houver uma URL para a próxima página
+      while (url) {
+        const response = await axios.get(url);
+        
+        // Verifica se há resultados e os adiciona ao array
+        if (response.data && response.data.length > 0) {
+          allLicitacoes = [...allLicitacoes, ...response.data];
+        }
+  
+        // Atualiza a URL para a próxima página (ou null para encerrar)
+        url = response.data.next;
+      }
+    } catch (error) {
+      console.error("Erro ao buscar dados", error);
+    }
+  
+    // Atualiza o estado com todos os resultados encontrados
+    setLicitacoes(allLicitacoes);
+    setCurrentPage(1);
+  };
+  
+
+  // Função para buscar tipos únicos de receitas
+ 
+
+  const filteredLicitacoes = licitacoes.filter((item) =>
+    searchTerm ? String(item.objeto).toLowerCase().includes(searchTerm.toLowerCase()) : true
+  );
+
+  const paginatedLicitacoes = filteredLicitacoes.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
+  
+
   const exportToJSON = (data: any) => {
     const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
     const link = document.createElement("a");
     const url = URL.createObjectURL(blob);
-  
+
     link.setAttribute("href", url);
-    link.setAttribute("download", "dados_contratos.json");
+    link.setAttribute("download", "dados_receitas.json");
     link.style.visibility = "hidden";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
-
-
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const handleOpenModal = (item: any) => {
-    onOpen();
-    setContract(item?.row?.values);
-  };
-
   return (
     <ContainerBasic title={title} description={description}>
-            <Box
-        m={0}
-        bg={useColorModeValue("white", "gray.800")}
-        
-        padding={"15px"}
-        rounded="md"
-        overflow="hidden"
-        width="100%"
-        borderRadius="18px"
-        marginBottom="15px"
-      >
-       <ContainerSearch  >
-          <Stack minW={86} width="50%" flexDir='row'
-          sx={{
-            "@media (max-width: 900px)": {
-              flexDir:'column'
-            },
-          }}
-          >
-           
-<Button
-  width="180px"
-  border="0"
-  cursor="pointer"
-  fontSize="20px"
-  textColor="white"
-  bgColor={colors.transparenciaBlack}
-  _hover={{ bgColor: colors.primaryDefault80p }}
-  height="40px"
-  borderRadius="8px"
-  mr="15px"
-  transition="background-color 0.3s ease"
-  boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
-  
->
-  <CsvDownload
-    filename={"dados_convenios.csv"}
-    data={filteredConvenios}
-    style={{
-      width: "100%",
-      height: "100%",
-      background: "none",
-      border: "none",
-      color: "white",
-      fontSize: "20px",
-      textAlign: "center",
-      cursor: "pointer",
-    }}
-  >
-    CSV
-  </CsvDownload>
-</Button>
+      <Stack direction={{ base: "column", md: "row" }} spacing={4}>
 
-<Button width='180px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
-    bgColor={colors.transparenciaBlack}
-    _hover={{
-      bgColor: colors.primaryDefault80p,  // Cor de fundo ao passar o mouse
-    }}
-    height='40px' borderRadius='8px' mr='15px'onClick={() => exportToJSON(filteredConvenios)}
-    boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
-    
-    >JSON</Button>
-   
+        <Select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)} width='290px'>
+          <option value="Todos">Selecione o ano</option>
+          {[...Array(2025 - 2012 + 1)].map((_, i) => (
+    <option key={i} value={2025 - i}>
+      {2025 - i}
+    </option>
+  ))}
+        </Select>
 
-
-          </Stack>
-          <Stack minW={50} justifyContent="flex-end" className="button-search"></Stack>
-        </ContainerSearch>
-
-      <Divider borderWidth="2px" mt="10" mb="10" />
       
-      {filteredConvenios.map((row) => (
-               <Box
-                 key={row.id_contrato}
-                 border="2px solid transparent"
-                  p="12px"
-                  borderRadius="16px"
-                  mb="12px"
-                  bg={useColorModeValue("white", "black")}
-                  boxShadow="lg"
-                  transition="0.3s"
-                  _hover={{
-                    boxShadow: "xl",
-                    transform: "scale(1.01)",
-                    border: `2px solid ${colors.transparenciaBlack}`,
-                  }}
-                  cursor="pointer"
-                  onClick={() => window.location.href = `detalhes?${row.id_contrato}`}
-                      
-                      >
-                 
-                 <Text fontWeight="bold" borderBottom={`2px solid ${colors.transparenciaBlack} `}>{row.id_contrato}</Text>
-                 <Text>Empresa contratada: {row.fornecedor}</Text>
-                 <Text>Data Início: {row.data_inicio} - Data Fim: {row.data_termino}</Text>
-                 <Text>Descrição: {row.descricao}</Text>
-                
-               </Box>
-             ))}
-      </Box>
+
+       
+      </Stack>
+      <Stack direction={{ base: "column", md: "row" }} spacing={4} alignItems="center" >
+      <Input
+        type="text"
+        placeholder="Pesquisar receita..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        borderRadius="8px"
+        height="40px"
+        width="250px"
+        my="10px"
+        
+      />
+       <Button
+          width="180px"
+          border="0"
+          cursor="pointer"
+          fontSize="20px"
+          textColor="white"
+          bgColor={colors.transparenciaBlack}
+          _hover={{ bgColor: colors.primaryDefault80p }}
+          height="40px"
+          borderRadius="8px"
+          mr="15px"
+          transition="background-color 0.3s ease"
+          boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+        >
+          <CsvDownload
+            filename={"dados_receitas.csv"}
+            data={licitacoes}
+            style={{
+              width: "100%",
+              height: "100%",
+              background: "none",
+              border: "none",
+              color: "white",
+              fontSize: "20px",
+              textAlign: "center",
+              cursor: "pointer",
+            }}
+          >
+            CSV
+          </CsvDownload>
+        </Button>
+
+        <Button
+          width="180px"
+          border="0"
+          cursor="pointer"
+          fontSize="20px"
+          textColor="white"
+          bgColor={colors.transparenciaBlack}
+           _hover={{ bgColor: colors.primaryDefault80p }}
+          height="40px"
+          borderRadius="8px"
+          mr="15px"
+          onClick={() => exportToJSON(licitacoes)}
+          boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+        >
+          JSON
+        </Button></Stack>
+        <Text fontSize="md" mb="10px">
+                Última atualização: <strong>01/05/2025</strong>
+              </Text>
+
+
+{paginatedLicitacoes.map((row) => (
+          <Box
+          key={row.id_convenio}
+          border="2px solid transparent"
+          p="12px"
+          borderRadius="16px"
+          mb="12px"
+          bg={useColorModeValue("white", "black")}
+          
+          boxShadow="lg"
+          transition="0.3s"
+          cursor="pointer"
+          _hover={{
+            boxShadow: "xl",
+            transform: "scale(1.01)",
+            border: `2px solid ${colors.transparenciaBlack}`,
+          }}
+          onClick={() => {
+            sessionStorage.setItem('selectedConvenio', JSON.stringify(row));
+            window.open( `detalhes?${row.id_convenio}`, '_blank')}}
+         
+        >
+          <Text 
+            fontWeight="bold" 
+            fontSize="lg"
+            color={colors.transparenciaBlack}
+            borderBottom={`2px solid ${colors.transparenciaBlack}`}
+            pb="5px" 
+            mb="8px"
+          >
+            {row.id_convenio}
+          </Text>
+          <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
+            <strong>Recurso:</strong> {row.tipo_recurso}
+          </Text>
+          <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
+            <strong>Orgão:</strong> {row.orgao}  
+            
+            
+          </Text>
+          <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
+          <strong> Secretaria:</strong>    {row.secretaria}
+          </Text>
+          <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
+            <strong>Valor repasse:</strong> {row.valor_repasse !== null ? moneyFormatter(Number(row.valor_repasse)) : ""}
+          </Text>
+        </Box>
+        
+        ))}
+
+      <PaginationComponent pages={Math.ceil(filteredLicitacoes.length / ITEMS_PER_PAGE)} setCurrentPage={setCurrentPage} currentPage={currentPage} />
     </ContainerBasic>
   );
 }

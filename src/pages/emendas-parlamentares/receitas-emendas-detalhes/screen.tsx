@@ -10,11 +10,11 @@ import {
   Link,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import ContainerBasic from "../../../../components/Container/Basic";
-import { ContainerSearch } from "../../../../styles/components/contratos-atas/styles";
+import ContainerBasic from "../../../components/Container/Basic";
+import { ContainerSearch } from "../../../styles/components/contratos-atas/styles";
 import moment from "moment";
-import moneyFormatter from "../../../../utils/moneyFormatter";
-import colors from "../../../../styles/colors";
+import moneyFormatter from "../../../utils/moneyFormatter";
+import colors from "../../../styles/colors";
 
 export const contentContractsAndAtas = {
   titlePage: "Receitas - Emendas Parlamentares",

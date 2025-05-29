@@ -10,12 +10,12 @@ import {
   Input
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import ContainerBasic from "../../../../components/Container/Basic";
-import TableComponent, { TableColumns } from "../../../../components/Table";
-import ModalContracts from "./modalContracts";
-import { ContainerSearch } from "../../../../styles/components/contratos-atas/styles";
+import ContainerBasic from "../../../components/Container/Basic";
+import TableComponent, { TableColumns } from "../../../components/Table";
+//import ModalContracts from "./modalContracts";
+import { ContainerSearch } from "../../../styles/components/contratos-atas/styles";
 import CsvDownload from "react-json-to-csv";
-import PaginationComponent from "../../../../components/PaginationComponent";
+import PaginationComponent from "../../../components/PaginationComponent";
 
 type PropsInput = {
   handler: {

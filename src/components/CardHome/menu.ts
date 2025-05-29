@@ -142,7 +142,18 @@ export const menus=[
                 { label: "Desonerações e Renúncias", url: "/beneficios-fiscais/desoneracoes_renuncias" },
                 { label: "PROMAE", url: "/beneficios-fiscais/promae" },
                 { label: "Lic e Lide", url: "/beneficios-fiscais/lic_lide" },
-            ]}
+            ]},
+            /*  {"id_submenu": 8, 
+            "title": "Emendas parlamentares", 
+            'imageURL': Compras_publicas.src,
+            "link":"",
+            "extralinks": [
+               // { label: "Benefícios Fiscais", url: "/beneficios-fiscais" },
+               { label: "Emendas - receitas", url: "emendas-parlamentares/receitas-emendas" },
+                { label: "Emendas - despesas", url: "emendas-parlamentares/despesas-emendas" },
+                
+                 ]}, */
+
         ]
       },
 
