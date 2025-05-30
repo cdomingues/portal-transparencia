@@ -2,7 +2,7 @@ import React from "react";
 import publicRoutes from "../../../routes/public";
 import Footer from "./Footer";
 import SideBar from "./SideBar";
-import VLibras from "@djpfs/react-vlibras";
+import VLibras from '@moreiraste/react-vlibras'
 import ModalPopup from "../../Modal";
 import {useEffect} from 'react'
 import Header from "./Header";

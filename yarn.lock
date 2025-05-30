@@ -2379,6 +2379,13 @@
     rw "^1.3.3"
     sort-object "^3.0.3"
 
+"@moreiraste/react-vlibras@^2.4.5":
+  version "2.4.5"
+  resolved "https://registry.yarnpkg.com/@moreiraste/react-vlibras/-/react-vlibras-2.4.5.tgz#d46674f2fca0444fb7f2850d543562deed8bcabd"
+  integrity sha512-JwFLu0kNE5j8BhuaWJqceAaSdleKFc4mADn4DIdAzmB5O0nal1gEFx4czPcB+5MP+ARoUy9N6L3fhzuPXhUsUA==
+  dependencies:
+    helmet "^6.1.5"
+
 "@motionone/animation@^10.12.0":
   version "10.18.0"
   resolved "https://registry.npmjs.org/@motionone/animation/-/animation-10.18.0.tgz"
@@ -5594,6 +5601,11 @@ hasown@^2.0.0, hasown@^2.0.2:
   integrity sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==
   dependencies:
     function-bind "^1.1.2"
+
+helmet@^6.1.5:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/helmet/-/helmet-6.2.0.tgz#c29d62014be4c70b8ef092c9c5e54c8c26b8e16e"
+  integrity sha512-DWlwuXLLqbrIOltR6tFQXShj/+7Cyp0gLi6uAb8qMdFh/YBBFbKSgQ6nbXmScYd8emMctuthmgIa7tUfo9Rtyg==
 
 hey-listen@^1.0.8:
   version "1.0.8"
