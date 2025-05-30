@@ -18,7 +18,7 @@ type PropsInput = {
 
 function Screen({ handler: {  data, loading } }: PropsInput) {
   const title = "Acordos de Cooperação";
-  const description = "Divulgação da lista de Acordos de Cooperação, que não envolvam recursos financeiros, realizados pela Prefeitura de Mogi das Cruzes é uma medida fundamental cujo propósito é reforçar a transparência das finanças municipais e promover a responsabilidade fiscal.";
+  const description = <>Divulgação da lista de Acordos de Cooperação, que não envolvam recursos financeiros, realizados pela Prefeitura de Mogi das Cruzes é uma medida fundamental cujo propósito é reforçar a transparência das finanças municipais e promover a responsabilidade fiscal.<br/>A prestação de contas das organizações sociais no formato digital está em processo de implementação, ajuste e teste e deve ser concluído em 2026. Para consultar os processos físicos de prestação de contas, solicite a informação via SIC, indicando o número do termo/acordo. </>;
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [termo,setTermo] = useState<any>(null);
     const [currentPage, setCurrentPage] = useState(1);

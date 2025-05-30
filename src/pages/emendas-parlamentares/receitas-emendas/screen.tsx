@@ -28,6 +28,8 @@ import TableComponent, { TableColumns } from "../../../components/Table";
 import { ContainerSearch } from "../../../styles/components/contratos-atas/styles";
 import colors from "../../../styles/colors";
 import CsvDownload from "react-json-to-csv";
+import moment from "moment";
+import moneyFormatter from "../../../utils/moneyFormatter";
 
 type PropsInput = {
   handler: {
@@ -265,7 +267,9 @@ useEffect(() => {
                color="white"
                p={4}
                fontWeight="bold"
-               border={`1px solid ${colors.grayLighter}`}>
+               border={`1px solid ${colors.grayLighter}`}
+              
+             >
                <Th color="white" onClick={() => handleSort("ano")} cursor="pointer">
         Ano {sortColumn === "ano" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
       </Th>
@@ -290,6 +294,9 @@ useEffect(() => {
       <Th color="white" onClick={() => handleSort("objeto")} cursor="pointer">
         Objeto {sortColumn === "objeto" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
       </Th>
+      <Th color="white" onClick={() => handleSort("valor_repasse")} cursor="pointer">
+        Valor repasse {sortColumn === "valor_repasse" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
+      </Th>
       <Th color="white" onClick={() => handleSort("data_inicio")} cursor="pointer">
         Data início {sortColumn === "data_inicio" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
       </Th>
@@ -308,6 +315,9 @@ useEffect(() => {
              bg={index % 2 === 0 ? useColorModeValue("white", "black")  : useColorModeValue("#f7f7f7", "grey.100")} 
              _hover={{ bg: "#d1d1d1", cursor: "pointer" , color: useColorModeValue("black", "white") }}
              color={useColorModeValue("black", "white")}
+              onClick={() => {
+            sessionStorage.setItem('selectedConvenio', JSON.stringify(row));
+            window.open( `receitas-emendas-detalhes?id_convenio=${row.id_convenio}`, '_blank')}}
            >
                  <Td>{row.ano} </Td> 
                 <Td>{row.tipo_recurso}</Td>
@@ -317,8 +327,9 @@ useEffect(() => {
                     <Td>{row.secretaria}</Td>
                      <Td>{row.politico}</Td>
                       <Td>{row.objeto}</Td>
-                      <Td>{row.data_inicio}</Td>
-                      <Td>{row.data_fim}</Td>
+                      <Td>{moneyFormatter(Number(row.valor_repasse))}</Td>
+                      <Td>{moment(row.data_inicio).format('DD/MM/YYY')}</Td>
+                      <Td>{moment(row.data_fim).format('DD/MM/YYY')}</Td>
                </Tr>
              ))}
            </Tbody>

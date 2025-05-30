@@ -17,7 +17,8 @@ type PropsInput = {
 
 function Screen({ handler: {  data, loading } }: PropsInput) {
   const title = "Termo de Colaboração";
-  const description = "Esse termo é regido pela Lei nº 13.019/2014, conhecida como a Lei do Marco Regulatório das Organizações da Sociedade Civil (MROSC). O termo de parceria é uma modalidade específica de contrato administrativo que tem como objetivo estabelecer os termos, condições, obrigações e responsabilidades das partes envolvidas em uma parceria para a execução de atividades ou projetos de interesse público. Esse tipo de instrumento é mais comumente utilizado em áreas como assistência social, saúde, educação, cultura, esporte e meio ambiente, onde a atuação conjunta entre o poder público e organizações da sociedade civil é relevante";
+  const description = <>Esse termo é regido pela Lei nº 13.019/2014, conhecida como a Lei do Marco Regulatório das Organizações da Sociedade Civil (MROSC). O termo de parceria é uma modalidade específica de contrato administrativo que tem como objetivo estabelecer os termos, condições, obrigações e responsabilidades das partes envolvidas em uma parceria para a execução de atividades ou projetos de interesse público. Esse tipo de instrumento é mais comumente utilizado em áreas como assistência social, saúde, educação, cultura, esporte e meio ambiente, onde a atuação conjunta entre o poder público e organizações da sociedade civil é relevante"
+  <br/>A prestação de contas das organizações sociais no formato digital está em processo de implementação, ajuste e teste e deve ser concluído em 2026. Para consultar os processos físicos de prestação de contas, solicite a informação via SIC, indicando o número do termo/acordo. </>;
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [termo,setTermo] = useState<any>(null);
     const [currentPage, setCurrentPage] = useState(1);

@@ -28,9 +28,9 @@ function Screen({ id_contrato }: any) {
   const [emenda, setEmenda] = useState<any[]>([]);
   const [arquivo, setArquivo] = useState<any[]>([]);
   
-  const url = "https://dadosadm.mogidascruzes.sp.gov.br/api/lista_emendas";
+  const url = `https://dadosadm.mogidascruzes.sp.gov.br/api/convenios?${id_contrato}`;
   const url_files = `https://dadosadm.mogidascruzes.sp.gov.br/api/lista_arquivo_emenda`;
-
+console.log(url)
   useEffect(() => {
     if (!id_contrato) return;
     fetch(url)
@@ -44,6 +44,7 @@ function Screen({ id_contrato }: any) {
       })
       .catch((error) => console.error("Erro ao buscar contratos:", error));
   }, [id_contrato]);
+  //console.log('conteudo emenda'+ emenda)
 
   useEffect(() => {
     if (!id_contrato) return;
@@ -58,10 +59,12 @@ function Screen({ id_contrato }: any) {
       })
       .catch((error) => console.error("Erro ao buscar arquivos:", error));
   }, [id_contrato]);
-  console.log(id_contrato)
+  console.log('Id do convenio: ' + id_contrato)
   
 
-  const filteredEmendas = emenda.filter (emenda=>emenda.id === id_contrato)
+  const filteredEmendas = emenda.filter (emenda=>emenda.id_convenio === id_contrato )
+  
+  console.log(filteredEmendas)
   const filteredArquivos = arquivo.filter( file=>file.id_emenda === id_contrato)
   
 
@@ -107,30 +110,18 @@ function Screen({ id_contrato }: any) {
                 </Thead>
                 <Tbody>
                   {[
-                    ["Número da Emenda", item.n_emenda],
+                    ["Número da Emenda", item.cod_objeto],
                     ["Ano", item.ano],
-                    ["Trimestre", item.trimestre],
-                    ["Esfera",item.esfera_descricao],
-                    ["Categoria",item.categoria_descricao],
-                    ["Valor Previsto",moneyFormatter(Number(item.valor_previsto_emenda))],
-                    ["Objeto", item.objeto],
-                    ["Envio Câmara", item.envio_camara],
-                    ["Deliberação Câmara", item.deliberacao_camara],
-                    ["Publicação Edital", item.publicacao_edital],
-                    ["Link de Acesso", item.link_acesso],
-                    ["Decisão da Autoridade", item.decisao_autoridade],
-                    ["Contrato Assinado", item.contrato_assinado],
-                    ["Data do Contrato Assinado", item.data_contrato_assinado],
-                    ["Valor Finalizado", item.valor_finalizado],
-                    ["CNPJ", item.cnpj],
-                    ["Empresa Contratada", item.empresa_contratada],                    
-                    ["Descrição do Político", item.desc_politico],
-                    ["Partido Político", item.partido_politico],
-                    ["Órgão Responsável", item.desc_orgao],
-                    ["Descrição da Modalidade", item.desc_modalidade],
+                    ["Nível demanda", item.nivel_demanda],
+                    ["Autor",item.politico],
+                    ["Orgão",item.orgao],
                     ["Secretaria", item.secretaria],
-                    ["Descrição da Licitação", item.desc_licitacao],
-                    ["Informações Gerais", item.informacoes_gerais],
+                    ["Objeto", item.objeto],
+                    ["Valor repasse", moneyFormatter(Number(item.valor_repasse))],
+                     ["Valor contrapartida", moneyFormatter(Number(item.contrapartida))],
+                    ["Data início", moment(item.data_inicio).format('DD/MM/YYYY')],
+                    ["Data fim", moment(item.data_fim).format('DD/MM/YYYY')],
+                    
                     
                   ].map(([label, value], index) => (
                     <Tr key={index}>

@@ -258,6 +258,10 @@ function Screen() {
 
 
       <PaginationComponent pages={Math.ceil(filteredLicitacoes.length / ITEMS_PER_PAGE)} setCurrentPage={setCurrentPage} currentPage={currentPage} />
+
+      <Box mt='15px' border='1px solid lightgrey' p='5' borderRadius='15px' boxShadow='2xl'>
+      <iframe title="RECEITA" width="90%" height="700" src="https://app.powerbi.com/view?r=eyJrIjoiZDQxMjQwYzgtNjlhZi00YmE4LWI5NGYtNTY3MjQyZTY4ZWNmIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9"  ></iframe>
+      </Box>
     </ContainerBasic>
   );
 }

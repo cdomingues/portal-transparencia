@@ -64,59 +64,49 @@ function Screen() {
   useEffect(() => {
     fetchData();
     //fetchTiposReceita();
-  }, [selectedYear]);
+  }, []);
 
   // Função para buscar receitas
   const fetchData = async () => {
-    let allLicitacoes: Convenio[] = [];
-    let url = `${API_URL}`;
-    const params = new URLSearchParams();
-  
-    // Adiciona o parâmetro 'ano' se não for "Todos"
-    if (selectedYear !== "Todos") {
-      params.append("ano", selectedYear);
-    }
-  
-    // Adiciona os parâmetros à URL inicial
-    if (params.toString()) {
-      url += `?${params.toString()}`;
-    }
-  
-    try {
-      // Enquanto houver uma URL para a próxima página
-      while (url) {
-        const response = await axios.get(url);
-        
-        // Verifica se há resultados e os adiciona ao array
-        if (response.data && response.data.length > 0) {
-          allLicitacoes = [...allLicitacoes, ...response.data];
-        }
-  
-        // Atualiza a URL para a próxima página (ou null para encerrar)
-        url = response.data.next;
+  let allLicitacoes: Convenio[] = [];
+  let url = `${API_URL}`; // sem adicionar ano aqui
+
+  try {
+    while (url) {
+      const response = await axios.get(url);
+
+      if (response.data && response.data.length > 0) {
+        allLicitacoes = [...allLicitacoes, ...response.data];
       }
-    } catch (error) {
-      console.error("Erro ao buscar dados", error);
+
+      url = response.data.next;
     }
-  
-    // Atualiza o estado com todos os resultados encontrados
-    setLicitacoes(allLicitacoes);
-    setCurrentPage(1);
-  };
+  } catch (error) {
+    console.error("Erro ao buscar dados", error);
+  }
+
+  setLicitacoes(allLicitacoes);
+  setCurrentPage(1);
+};
   
 
   // Função para buscar tipos únicos de receitas
  
 
-  const filteredLicitacoes = licitacoes.filter((item) =>
-    searchTerm ? String(item.objeto).toLowerCase().includes(searchTerm.toLowerCase()) : true
-  );
+  const filteredLicitacoes = licitacoes.filter((item) => {
+  const matchSearch = searchTerm ? String(item.objeto).toLowerCase().includes(searchTerm.toLowerCase()) : true;
+  const matchYear = selectedYear !== "Todos" ? String(item.ano) === selectedYear : true;
+  return matchSearch && matchYear;
+});
 
   const paginatedLicitacoes = filteredLicitacoes.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
     currentPage * ITEMS_PER_PAGE
   );
-  
+  useEffect(() => {
+  const anosUnicos = Array.from(new Set(licitacoes.map((item) => item.ano))).sort((a, b) => b - a);
+  setTiposReceita(anosUnicos.map(String));
+}, [licitacoes]);
 
   const exportToJSON = (data: any) => {
     const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
@@ -264,6 +254,10 @@ function Screen() {
         ))}
 
       <PaginationComponent pages={Math.ceil(filteredLicitacoes.length / ITEMS_PER_PAGE)} setCurrentPage={setCurrentPage} currentPage={currentPage} />
+
+       <Box mt='15px' border='1px solid lightgrey' p='5' borderRadius='15px' boxShadow='2xl'>
+           <iframe title="CONVÊNIOS - PORTAL TRANSPARÊNCIA" width="100%" height="700" src="https://app.powerbi.com/view?r=eyJrIjoiNGQ4MjE2YTUtMTc2Zi00ZTA1LWJmNmUtOGVjYjc2NjE3OGM5IiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9" ></iframe>
+       </Box>
     </ContainerBasic>
   );
 }
