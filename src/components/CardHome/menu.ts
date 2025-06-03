@@ -454,6 +454,13 @@ export const menus=[
                 'imageUrl': IconeOS.src,
                 'url': 'https://www.mogidascruzes.sp.gov.br/public/site/doc/20250509150621681e441d1b768.pdf',
                 'extralinks': []
+            },
+             {
+                "id_submenu":9,
+                "label": "Estoque de medicamentos",
+                'imageUrl': IconeOS.src,
+                'url': '/medicamentos',
+                'extralinks': []
             }
             
         ]
