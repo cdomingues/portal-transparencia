@@ -167,7 +167,9 @@ function Screen({
                     border: `2px solid ${colors.transparenciaBlack}`,
                   }}
                   cursor="pointer"
-                  onClick={() => window.location.href = `detalhes?${row.id_contrato}`}
+                  onClick={() => {
+                    sessionStorage.setItem('selectedConvenio', JSON.stringify(row));
+                    window.open  (`detalhes_convenio_repasse?${row.id_contrato}`,'_blank')}}
                       
                       >
                  

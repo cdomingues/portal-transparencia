@@ -117,24 +117,19 @@ function Screen({ id_contrato }: any) {
                   </Thead>
                   <Tbody>
                 {[
-                   ["Convênio", despesa.id_convenio],
-                   ["Tipo recurso", despesa.tipo_recurso],
-                   ["Demanda", despesa.nivel_demanda],
-                   ["Modalidade ", despesa.modalidade],
-                   ["Aplicação", despesa.aplicacao],
-                   ["Orgão ", despesa.orgao],
-                   ["Autor", despesa.politico],
-                   ["Secretaria ", despesa.secretaria],
-                   ["Status", despesa.status_convenio],
+                   ["Convênio", despesa.id_contrato],
                    ["Ano", despesa.ano],
+                   ["Data início", moment(despesa.data_inicio).format("DD/MM/YYYY")],
+                   ["Data fim ", moment(despesa.data_termino).format("DD/MM/YYYY")],
+                   ["Descrição", despesa.descricao],
+                   ["Grupo", despesa.grupo],
+                   ["Processo ", despesa.processo],
+                   ["Valor", moneyFormatter(Number(despesa.valor))],
+                   ["Secretaria ", despesa.secretaria_responsavel],
+                   ["Fornecedor", despesa.fornecedor],
+                   ["CNPJ", despesa.cnpj],
+                   
                  
-                   ["Data formalziado", despesa.data_formalizado],
-                   ["Processo administrativo", despesa.processo_administrativo] ,
-                   ["Objeto", despesa.objeto],
-                   ["Valor repasse",moneyFormatter(Number(despesa.valor_repasse))],
-                   ["Valor contrapartida",moneyFormatter(Number(despesa.contrapartida))],
-                   ["Data inicio", moment(despesa.data_inicio).format("DD/MM/YYYY")],
-                   ["Data fim", moment(despesa.data_fim).format("DD/MM/YYYY")],
                   
                 ].map(([label, value], index) => (
                   <Tr key={index}>

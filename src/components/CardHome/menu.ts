@@ -22,7 +22,9 @@ import IconeOS from '../../assets/images/icones/icones_barra lateral__patrimonio
 import IconeLeis from '../../assets/images/icones/LAI__protocolo geral.svg'
 import IconeLeisDecretos from '../../assets/images/icones/leis_e_decretos.svg'
 import IconeLixeira from '../../assets/images/icones/trash_styled.svg'
-
+import IconeDiario from '../../assets/images/icones/diario.svg'
+import IconePortal from '../../assets/images/icones/portal_dados_abertos.svg';
+import IconeLai from '../../assets/images/icones/lai.svg';
 
 import Perfil_municipio from "../../assets/images/icones/icones_barra lateral__perfil do municipio.svg";
 import Ciclo_orcamentario from "../../assets/images/icones/icones_barra lateral__ciclo orcamentario.svg";
@@ -230,15 +232,7 @@ export const menus=[
                 { label: "Portarias", url: "https://ged.mogidascruzes.sp.gov.br/weblink7/Browse.aspx", },
                 
             ]},
-            {
-                "id_submenu": 3,
-                "label":"Diário Oficial",
-                "imageUrl": IconeLeis.src,
-                'url':"https://diario-oficial.mogidascruzes.sp.gov.br/diarios/publicacoes/",
-                "extralinks": [ ]
-            },
-              
-          
+                     
         ]
       },
       {
@@ -596,7 +590,8 @@ export const menus=[
                 "label":"Ouvidoria - COLAB",
                 'imageUrl': Ouvidoria.src,
                 'url':"https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab",
-                'extralinks': [ ]
+                'extralinks': [ 
+                   { label: "Pesquisa de satisfação", url: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-tutelar/institucional" } ]
             },
             {
                 'id_submenu': 6,
@@ -624,7 +619,7 @@ export const menus=[
       {
         "id": 10,
         "title": "LEI DE ACESSO À INFORMAÇÃO",
-        'imageURL': IconesGovernoAberto.src, 
+        'imageURL': IconeLai.src, 
         'description': "Veja aqui as principais iniciativas de governo aberto",
         "submenus": [
              {
@@ -647,7 +642,9 @@ export const menus=[
                 "label":"Ouvidoria - COLAB",
                 'imageUrl': Ouvidoria.src,
                 'url':"https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab",
-                'extralinks': [ ]
+                'extralinks': [ 
+                    { label: "Pesquisa de satisfação", url: "https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/publicacoes" }
+                ]
             },
             {
                 'id_submenu': 7,
@@ -661,7 +658,7 @@ export const menus=[
        {
         "id": 11,
         "title": "LGPD",
-        'imageURL': IconesGovernoAberto.src, 
+        'imageURL': IconeLeisDecretos.src, 
         'description': "Veja aqui as principais iniciativas de governo aberto",
         "submenus": [
              {
@@ -702,7 +699,53 @@ export const menus=[
                 "extralinks": [ ]
             },
         ]
-       }
+       },
+         {
+        "id": 13,
+        "title": "Diário Oficial",
+        'imageURL': IconeDiario.src, 
+        'description': "Diário oficial",
+        "submenus": [
+             {
+                "id_submenu": 1,
+                "label":"Diário oficial",
+                "imageUrl": IconeLeis.src,
+                'url':"https://diario-oficial.mogidascruzes.sp.gov.br/diarios/publicacoes/",
+                "extralinks": [ ]
+            },
+        ]
+       },
+        {
+        "id": 14,
+        "title": "Plano Municicipal de Integridade",
+        'imageURL': IconesGovernoAberto.src, 
+        'description': "Plano Municicipal de Integridade",
+        "submenus": [
+             {
+                "id_submenu": 1,
+                "label":"Plano municipal de integridade",
+                "imageUrl": IconeLeis.src,
+                'url':"#",
+                "extralinks": [ ]
+            },
+        ]
+       },
+        {
+        "id": 15,
+        "title": "Portal de dados abertos",
+        'imageURL': IconePortal.src, 
+        'description': "Portal de dados abertos",
+        "submenus": [
+             {
+                "id_submenu": 1,
+                "label":"InfoDados",
+                "imageUrl": IconeLeis.src,
+                'url':"https://dados.mogidascruzes.sp.gov.br/",
+                "extralinks": [ ]
+            },
+        ]
+       },
+
       
      
      

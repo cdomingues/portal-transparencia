@@ -153,11 +153,14 @@ function Screen() {
                         //backgroundColor: colors.primaryDefault40p // cor de fundo ao focar (exemplo)
                       }}>
           <option value="Todos">Selecione o ano</option>
-          {[...Array(2025 - 2012 + 1)].map((_, i) => (
-            <option key={i} value={2012 + i}>
-              {2012 + i}
-            </option>
-          ))}
+            {[...Array(2025 - 2012 + 1)].map((_, i) => {
+              const year = 2025 - i;
+              return (
+                <option key={year} value={year}>
+                  {year}
+                </option>
+              );
+            })}
         </Select>
 
         <Select

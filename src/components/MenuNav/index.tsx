@@ -237,7 +237,11 @@ const MenuHorizontalChakra = () => {
          { label: 'Controle de radares', href: '/controle-de-radares' },
         { label: 'Veículos oficiais', href: '/veiculos-oficiais' },
         { label: 'Organizações sociais', href: 'https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-saude-e-bem-estar/organizacoes-sociais' },
-        { label: 'Ouvidoria', href: 'https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab' },
+        { label: 'Ouvidoria', href: 'https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab',
+          submenu:[
+            { label: "Pesquisa de satisfação", href: "https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/publicacoes" }
+          ]
+         },
         { label: 'Conselhos municipais', href: '#',
           submenu:[
             { label: "Abastecimento", href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-abastecimento-de-alimentos-e-bens-de-consumo/institucional" },
@@ -339,7 +343,11 @@ const MenuHorizontalChakra = () => {
         {label:'Lei de acesso à informação', href:'/acesso-a-informacao'},
         { label: 'Solicitar Acesso à Informação', href: 'https://mogidascruzes.1doc.com.br/b.php?pg=wp/detalhes&itd=3' },
        
-          {label:"Ouvidoria - COLAB",href:"https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab" },
+          {label:"Ouvidoria - COLAB",href:"https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab",
+            submenu:[
+              { label: "Pesquisa de satisfação", href: "https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/publicacoes" }
+             ]
+           },
            {label:"Portal de Dados abertos",href:"https://dados.mogidascruzes.sp.gov.br/" },
        
       ]
