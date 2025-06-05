@@ -738,7 +738,7 @@ export const menus=[
         "submenus": [
              {
                 "id_submenu": 1,
-                "label":"InfoDados",
+                "label":"Portal de dados abertos",
                 "imageUrl": IconeLeis.src,
                 'url':"https://dados.mogidascruzes.sp.gov.br/",
                 "extralinks": [ ]
