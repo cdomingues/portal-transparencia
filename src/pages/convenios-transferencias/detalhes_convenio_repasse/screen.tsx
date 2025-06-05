@@ -17,6 +17,12 @@ import moment from "moment";
 import colors from "../../../styles/colors";
 import { ContainerSearch } from "../../../styles/components/contratos-atas/styles";
 
+
+  
+  
+  
+
+
 export interface Arquivo {
   nr_empenho: number;
   exercicio_empenho: string;
@@ -75,13 +81,30 @@ function Screen({ id_contrato }: any) {
   const [pagamentos, setPagamentos] = useState<Pagamento[]>([]);
   const [adiantamentos, setAdiantamentos] = useState<ArquivoAdiantamento[]>([]);
 
-  useEffect(() => {
+   useEffect(() => {
   const convenioData = sessionStorage.getItem("selectedConvenio");
   if (convenioData) {
     setDespesa(JSON.parse(convenioData));
   }
 }, []);
-  //if (!despesa) return null;
+
+ useEffect(() => {
+  if (!despesa || !despesa.id_contrato) return;
+
+  const url_files = `https://dadosadm.mogidascruzes.sp.gov.br/api/arquivos_contratos_atas?id_contrato_id=${despesa.id_contrato}`;
+  console.log("URL dos arquivos:", url_files);
+
+  fetch(url_files)
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.results && Array.isArray(data.results)) {
+        setArquivo(data.results);
+      } else {
+        setArquivo([]);
+      }
+    })
+    .catch((error) => console.error("Erro ao buscar arquivos:", error));
+}, [despesa]);
     
   return (
     
@@ -146,6 +169,48 @@ function Screen({ id_contrato }: any) {
    
   </Box>
 )} <Box>
+  {arquivo.length > 0 && (
+              <Table variant="simple" size="md" width="100%" overflow="hidden">
+                <Thead>
+                  <Tr>
+                    <Th
+                      colSpan={2}
+                      textAlign="center"
+                      bg={colors.transparenciaBlack}
+                      color="white"
+                      p={4}
+                      fontWeight="bold"
+                      border={`1px solid ${colors.transparenciaBlack}`}
+                    >
+                      ARQUIVOS DISPONÍVEIS
+                    </Th>
+                  </Tr>
+                  <Tr>
+                  
+                  </Tr>
+                </Thead>
+                <Tbody>
+                  {arquivo.map((file) => (
+                    <Tr key={file.id}>
+                      <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
+                        {file.nome}
+                      </Td>
+                      <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
+                        <Link 
+                        href={file.arquivo} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        
+                        _hover={{ fontWeight: 'bold' }} 
+                        >
+                          Baixar
+                        </Link>
+                      </Td>
+                    </Tr>
+                  ))}
+                </Tbody>
+              </Table>
+            )}
              
               </Box>
             </Box>

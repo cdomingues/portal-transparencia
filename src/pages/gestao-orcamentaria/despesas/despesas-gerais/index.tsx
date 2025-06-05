@@ -54,6 +54,7 @@ interface Despesa {
   licitacao_numero: string;
   licitacao_modalidade: string;
   id_empenho: string;
+  item_empenho: string;
 }
 
 export const contentContractsAndAtas = {
@@ -162,7 +163,8 @@ const Despesas = () => {
           normalizar(d.unid_orcam).includes(termo) ||
           normalizar(d.class_funcional).includes(termo) ||
           normalizar(d.descr_funcional).includes(termo) ||
-          normalizar(d.subelemento).includes(termo)
+          normalizar(d.subelemento).includes(termo) ||
+          normalizar(d.item_empenho).includes(termo)
         );
       });
 
@@ -312,6 +314,7 @@ const Despesas = () => {
                 border={`1px solid ${colors.grayLighter}`}
               >
                 <Th color="white">Empenho</Th>
+                 <Th color="white">Item Empenho</Th>
                 <Th color="white">Valor empenho</Th>
                 <Th color="white">Fornecedor</Th>
                 <Th color="white">CNPJ fornecedor</Th>
@@ -334,6 +337,7 @@ const Despesas = () => {
                   }}
                 >
                   <Td>{row.id_empenho}</Td>
+                  <Td>{row.item_empenho}</Td>
                   <Td>{moneyFormatter(Number(row.vlr_empenho))}</Td>
                   <Td>{row.descr_fornecedor}</Td>
                   <Td>{row.cnpj_fornecedor}</Td>

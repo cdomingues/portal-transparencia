@@ -8,6 +8,11 @@ import {
   Td,
   useColorModeValue,
   Link,
+  Tab,
+  TabList,Text,
+  Tabs,
+  TabPanel,
+  TabPanels
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
@@ -27,27 +32,43 @@ function Screen({ id_contrato }: any) {
   const description = contentContractsAndAtas?.description;
   const [contrato, setContrato] = useState<any[]>([]);
   const [arquivo, setArquivo] = useState<any[]>([]);
-  
+  const [empenho, setEmpenho] = useState<any[]>([]);
+
   const url = `https://dadosadm.mogidascruzes.sp.gov.br/api/contratos_atas?id_contrato=${id_contrato}`;
   const url_files = `https://dadosadm.mogidascruzes.sp.gov.br/api/arquivos_contratos_atas?id_contrato_id=${id_contrato}`;
 
   useEffect(() => {
     if (!id_contrato) return;
+
+    // Busca os dados do contrato
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        if (data.results && Array.isArray(data.results)) {
+        if (data.results && Array.isArray(data.results) && data.results.length > 0) {
           setContrato(data.results);
+          
+          // Extrai o id_tabela_contrato do primeiro item do contrato
+          const id_tabela = data.results[0]?.id_tabela_contrato;
+          
+          if (id_tabela) {
+            // Busca os empenhos usando o id_tabela_contrato
+            fetch(`https://dadosadm.mogidascruzes.sp.gov.br/api/empenhos_contratos_atas?id_tabela=${id_tabela}`)
+              .then(response => response.json())
+              .then(empenhoData => {
+                if (empenhoData.results && Array.isArray(empenhoData.results)) {
+                  setEmpenho(empenhoData.results);
+                }
+              })
+              .catch(error => console.error("Erro ao buscar empenhos:", error));
+          }
         } else {
           setContrato([]);
         }
       })
       .catch((error) => console.error("Erro ao buscar contratos:", error));
-  }, [id_contrato]);
 
-  useEffect(() => {
-    if (!id_contrato) return;
-    fetch(url_files) // ✅ Corrigida a URL para arquivos
+    // Busca os arquivos
+    fetch(url_files)
       .then((response) => response.json())
       .then((data) => {
         if (data.results && Array.isArray(data.results)) {
@@ -62,7 +83,6 @@ function Screen({ id_contrato }: any) {
   return (
     <ContainerBasic title={title} description={description}>
       <Box
-        m={0}
         bg={useColorModeValue("white", "gray.800")}
         padding={"15px"}
         rounded="md"
@@ -71,9 +91,33 @@ function Screen({ id_contrato }: any) {
         borderRadius="18px"
         marginBottom="15px"
       >
-        <ContainerSearch direction="row"></ContainerSearch>
+        <ContainerSearch direction="row" />
 
         <Box>
+           <Tabs variant='unstyled'> 
+          <TabList>
+  <Tab _selected={{ color: colors.transparenciaCinza }}> 
+  <Text
+   
+  fontWeight="700"
+  //fontSize={accessibility?.fonts?.regular}
+>Detalhes</Text></Tab>
+<Tab _selected={{ color: colors.transparenciaCinza }}> <Text
+ _selected={{ color: "white", bg: "blue.500" }}
+  fontWeight="700"
+//  fontSize={accessibility?.fonts?.regular}
+>Arquivos</Text></Tab>
+  <Tab _selected={{ color: colors.transparenciaCinza }}> <Text
+ _selected={{ color: "white", bg: "blue.500" }}
+  fontWeight="700"
+//  fontSize={accessibility?.fonts?.regular}
+>Itens do Empenho</Text></Tab>
+
+</TabList>
+<TabPanels>
+ <TabPanel>
+          
+          {/* CONTRATO */}
           {contrato.length > 0 ? (
             contrato.map((item) => (
               <Table
@@ -81,7 +125,6 @@ function Screen({ id_contrato }: any) {
                 variant="simple"
                 size="md"
                 width="100%"
-                overflow="hidden"
                 mb={5}
               >
                 <Thead>
@@ -113,12 +156,24 @@ function Screen({ id_contrato }: any) {
                     ["Fornecedor", item.fornecedor],
                     ["Situação", item.situacao],
                     ["Modalidade", item.modalidade],
+                    ["ID Tabela Contrato", item.id_tabela_contrato], // Adicionei esta linha para debug
                   ].map(([label, value], index) => (
                     <Tr key={index}>
-                      <Td fontWeight="bold"   bg={useColorModeValue("#f2f1f1", "black")}  p={3} width="30%" border={`1px solid ${colors.transparenciaBlack}`}>
+                      <Td
+                        fontWeight="bold"
+                        bg={useColorModeValue("#f2f1f1", "black")}
+                        p={3}
+                        width="30%"
+                        border={`1px solid ${colors.transparenciaBlack}`}
+                      >
                         {label}
                       </Td>
-                      <Td p={3} border={`1px solid ${colors.transparenciaBlack}`} bg={useColorModeValue("#f2f1f1", "black")} width="70%">
+                      <Td
+                        p={3}
+                        border={`1px solid ${colors.transparenciaBlack}`}
+                        bg={useColorModeValue("#f2f1f1", "black")}
+                        width="70%"
+                      >
                         {value}
                       </Td>
                     </Tr>
@@ -129,10 +184,11 @@ function Screen({ id_contrato }: any) {
           ) : (
             <p>Nenhum contrato encontrado.</p>
           )}
-
-          {/* TABELA DE ARQUIVOS */}
+</TabPanel>
+          <TabPanel>
+          {/* ARQUIVOS */}
           {arquivo.length > 0 && (
-            <Table variant="simple" size="md" width="100%" overflow="hidden">
+            <Table variant="simple" size="md" width="100%">
               <Thead>
                 <Tr>
                   <Th
@@ -147,9 +203,6 @@ function Screen({ id_contrato }: any) {
                     ARQUIVOS DISPONÍVEIS
                   </Th>
                 </Tr>
-                <Tr>
-                
-                </Tr>
               </Thead>
               <Tbody>
                 {arquivo.map((file) => (
@@ -158,12 +211,11 @@ function Screen({ id_contrato }: any) {
                       {file.nome}
                     </Td>
                     <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
-                      <Link 
-                      href={file.arquivo} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      
-                      _hover={{ fontWeight: 'bold' }} 
+                      <Link
+                        href={file.arquivo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        _hover={{ fontWeight: "bold" }}
                       >
                         Baixar
                       </Link>
@@ -173,7 +225,69 @@ function Screen({ id_contrato }: any) {
               </Tbody>
             </Table>
           )}
+</TabPanel>
+          <TabPanel>
+          {/* EMPENHOS */}
+          {empenho.length > 0 && (
+            <Table variant="simple" size="md" width="100%" mt={5}>
+              <Thead>
+                <Tr>
+                  <Th
+                    colSpan={7}
+                    textAlign="center"
+                    bg={colors.transparenciaBlack}
+                    color="white"
+                    p={4}
+                    fontWeight="bold"
+                    border={`1px solid ${colors.transparenciaBlack}`}
+                  >
+                    EMPENHOS
+                  </Th>
+                </Tr>
+                <Tr>
+                  <Th border={`1px solid ${colors.transparenciaBlack}`}>Número empenho</Th>
+                  <Th border={`1px solid ${colors.transparenciaBlack}`}>Data</Th>
+                  <Th border={`1px solid ${colors.transparenciaBlack}`}>Valor Empenhado</Th>
+                  <Th border={`1px solid ${colors.transparenciaBlack}`}>Nº Liquidação</Th>
+                  <Th border={`1px solid ${colors.transparenciaBlack}`}>Data Liquidação</Th>
+                  <Th border={`1px solid ${colors.transparenciaBlack}`}>Valor Liquidado</Th>
+                  <Th border={`1px solid ${colors.transparenciaBlack}`}>Valor Total Pago</Th>
+                </Tr>
+              </Thead>
+              <Tbody>
+                {empenho.map((item) => (
+                  <Tr key={item.id}>
+                    <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
+                      {item.numero_empenho?.trim()}
+                    </Td>
+                    <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
+                      {moment(item.data_empenho).format("DD/MM/YYYY")}
+                    </Td>
+                    <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
+                      {moneyFormatter(Number(item.valor_empenhado))}
+                    </Td>
+                    <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
+                      {item.numero_liquidacao}
+                    </Td>
+                    <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
+                      {item.data_liquidacao ? moment(item.data_liquidacao).format("DD/MM/YYYY") : '-'}
+                    </Td>
+                    <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
+                      {moneyFormatter(Number(item.valor_liquidado))}
+                    </Td>
+                    <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
+                      {moneyFormatter(Number(item.valor_total_pago))}
+                    </Td>
+                  </Tr>
+                ))}
+              </Tbody>
+            </Table>
+          )}
+          </TabPanel>
+          </TabPanels>
+          </Tabs>
         </Box>
+        
       </Box>
     </ContainerBasic>
   );
