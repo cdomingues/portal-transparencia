@@ -717,7 +717,7 @@ export const menus=[
        },
         {
         "id": 14,
-        "title": "Plano Municicipal de Integridade",
+        "title": "Plano Municipal de Integridade",
         'imageURL': IconesGovernoAberto.src, 
         'description': "Plano Municicipal de Integridade",
         "submenus": [
