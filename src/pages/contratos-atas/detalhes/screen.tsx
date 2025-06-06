@@ -147,7 +147,7 @@ function Screen({ id_contrato }: any) {
                     ["Contrato / ATA", item.id_contrato],
                     ["Descrição", item.descricao],
                     ["Data de início", moment(item.data_inicio).format("DD/MM/YYYY")],
-                    ["Data de término", moment(item.data_termino).format("DD/MM/YYYY")],
+                    ["Data de término", moment(item.data_aditivo_final ? item.data_aditivo_final : item.data_termino).format("DD/MM/YYYY")],
                     ["Objeto", item.objeto],
                     ["Grupo", item.grupo],
                     ["Processo", item.processo],

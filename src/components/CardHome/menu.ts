@@ -368,7 +368,7 @@ export const menus=[
                 "id_submenu": 1,
                 "label": "Controle de Radares",   
                 'imageUrl': IconeRadar.src,
-                "url":"http://leismunicipa.is/0ji28",
+                "url":"/controle-de-radares",
                 "extralinks": []
             },
             {
@@ -454,6 +454,13 @@ export const menus=[
                 "label": "Estoque de medicamentos",
                 'imageUrl': IconeOS.src,
                 'url': '/medicamentos',
+                'extralinks': []
+            },
+             {
+                "id_submenu":10,
+                "label": "Lista de espera de consultas e exames",
+                'imageUrl': IconeOS.src,
+                'url': '/fila_de_espera',
                 'extralinks': []
             }
             

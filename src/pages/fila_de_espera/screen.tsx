@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { isMobile } from "react-device-detect";
 import { color } from "highcharts";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
-import dados from './medicamentos.json'
+import dados from './fila_de_espera.json'
 import colors from "../../styles/colors";
 import CsvDownload from "react-json-to-csv";
 import PaginationComponent from "../../components/PaginationComponent";
@@ -16,9 +16,9 @@ type PropsInput = {
 };
 
 export const contentMapSite = {
-  titlePage: "Estoque de Medicamentos",
+  titlePage: "Lista de espera de consultas e exames na rede municipal de saúde",
   description:
-   "Em atendimento a Lei Federal nº 8.080/1990 (atualizada pela Lei nº 14.715/2023), e recomendação do Programa Nacional de Transparência Pública (PNTP) da Atricon, o município de Mogi das Cruzes passa a publicar a lista de medicamentos enviados as farmácias públicas municipais, de forma mensal." ,
+   "Em atendimento ao item 18.3 do Programa Nacional de Transparência Pública (PNTP) da Atricon, ano referência de 2025, a Secretaria de Saúde de Mogi das Cruzes divulga a lista de espera e regulação para acesso às consultas, exames e serviços médicos da rede municipal de saúde." ,
 };
 
 
@@ -29,7 +29,7 @@ const exportToJSON = (data: any) => {
     const url = URL.createObjectURL(blob);
 
     link.setAttribute("href", url);
-    link.setAttribute("download", "dados_screatarios.json");
+    link.setAttribute("download", "dados_fila_de_espera.json");
     link.style.visibility = "hidden";
     document.body.appendChild(link);
     link.click();
@@ -47,7 +47,7 @@ function Screen({ handler }: PropsInput) {
   const router = useRouter();
   
   const filteredMedicamentos = dados.filter((item)=>
-  searchTerm ? String(item.PRODUTO).toLowerCase().includes(searchTerm.toLowerCase()) : true)
+  searchTerm ? String(item.Especialidade).toLowerCase().includes(searchTerm.toLowerCase()) : true)
   
   useEffect(() => {
   setCurrentPage(1);
@@ -72,6 +72,12 @@ function Screen({ handler }: PropsInput) {
         borderRadius="18px"
         marginBottom="15px"
       >
+        <Text>
+          Os encaminhamentos para as especialidades médicas ocorrem com base na Classificação Internacional de Doenças (CID) atribuída pelo profissional médico, respeitando os critérios clínicos, a complexidade do caso e a urgência do atendimento.
+Nos casos em que o município não dispõe da especialidade ou estrutura necessária, os pacientes são devidamente regulados para unidades fora do município, inclusive para serviços na capital São Paulo, mediante avaliação e indicação médica especializada.
+ <br/>
+A lista abaixo comtempla pacientes que estão aguardando consultas e exames de 2024 à 31/05. 
+        </Text>
        
                         <Flex>
                           <Box flex="end" p={2} marginRight={5}>
@@ -91,7 +97,7 @@ function Screen({ handler }: PropsInput) {
                   boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
                 >
                   <CsvDownload
-                    filename={"dados_secreatarias.csv"}
+                    filename={"dados_fila_de_espera.csv"}
                     data={dados}
                     style={{
                       width: "100%",
@@ -126,7 +132,7 @@ function Screen({ handler }: PropsInput) {
                 </Button></Stack>
                 <Input
                         type="text"
-                        placeholder="Pesquisar medicamento..."
+                        placeholder="Pesquisar ..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                         borderRadius="8px"
@@ -143,14 +149,10 @@ function Screen({ handler }: PropsInput) {
               p={4}
               fontWeight="bold"
               border={`1px solid ${colors.grayLighter}`}>
-              <Th color="white">Estoque</Th>
-              <Th color="white">Produto</Th>
-              <Th color="white">Código</Th>
-              <Th color="white">Lote</Th>
-              <Th color="white">Quantidade</Th>
-              <Th color="white">Marca</Th>
-              <Th color="white">Validade</Th>
-              <Th color="white">Grupo</Th>
+              <Th color="white">Tipo</Th>
+              <Th color="white">Especialidade</Th>
+              <Th color="white">Número de pacientes</Th>
+            
             
             </Tr>
           </Thead>
@@ -164,14 +166,10 @@ function Screen({ handler }: PropsInput) {
             _hover={{ bg: "#d1d1d1", cursor: "pointer" , color: useColorModeValue("black", "white") }}
             color={useColorModeValue("black", "white")}
           >
-              <Td>{row["ESTOQUE"]} </Td> 
-              <Td>{row["PRODUTO"]}</Td>
-              <Td>{row["CODIGO"]}</Td>
-              <Td>{row["LOTE"]}</Td>
-              <Td>{row["QTDE"]}</Td>
-              <Td>{row["MARCA"]}</Td>
-              <Td>{row["VALIDADE"]}</Td>
-              <Td>{row["GRUPO"]}</Td>
+              <Td>{row["Tipo"]} </Td> 
+              <Td>{row["Especialidade"]}</Td>
+              <Td>{row["Nº de pacientes na fila"]}</Td>
+              
                
               </Tr>
             ))}
