@@ -84,9 +84,9 @@ export const menus=[
             "link":"", 
             "extralinks": [
             { label: "Receitas Gerais", url: "/gestao-orcamentaria/receitas" },
-            {label: "Emendas Parlamentares",url: "/gestao-orcamentaria/receitas/receitas-emendas",},
+           // {label: "Emendas Parlamentares",url: "/gestao-orcamentaria/receitas/receitas-emendas",},
             {label: "Despesas Gerais", url: "/gestao-orcamentaria/despesas/despesas-gerais",},
-            {label: "Emendas Parlamentares",url: "/gestao-orcamentaria/despesas/despesas-emendas",},
+          //  {label: "Emendas Parlamentares",url: "/gestao-orcamentaria/despesas/despesas-emendas",},
             {label: "Propaganda e Publicidade",url: "/gestao-orcamentaria/despesas/propaganda", },
             {label: "Subvenções e Terceiro Setor", url: "/gestao-orcamentaria/despesas/subvencoes",},
             {label: "Adiantamentos",url: "/gestao-orcamentaria/despesas/adiantamentos",},
