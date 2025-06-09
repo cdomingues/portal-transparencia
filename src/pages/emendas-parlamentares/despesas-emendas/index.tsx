@@ -247,8 +247,8 @@ const Despesas = () => {
             </Text>
       
 
-      {loading ? (
-        <Box display="flex" justifyContent="center" alignItems="center" height="200px">
+     
+      {loading ? (   <Box display="flex" justifyContent="center" alignItems="center" height="200px">
           <Spinner size="xl" />
         </Box>
       ) : (

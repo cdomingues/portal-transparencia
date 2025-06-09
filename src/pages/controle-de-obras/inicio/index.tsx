@@ -21,7 +21,7 @@ import obras_saude from "../../../assets/images/icones/Portal de Obras_TOPO_saud
 //import wall from "../../../assets/images/logoportal_simbolo_portalobras.png";
 import wallNegative from "../../../assets/images/logoportal_simbolo_portalobras_negativo.png";
 import ContainerBasic from "../../../components/Container/Basic";
-import MapOfConstructions from "../../../components/MapOfConstructions";
+//import MapOfConstructions from "../../../components/MapOfConstructions";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 
 type PropsInput = {
@@ -713,7 +713,7 @@ function Screen({ handler }: PropsInput) {
         maxWidth="100%"
         marginBottom="15px"
       >
-        <MapOfConstructions />
+        
       </Box>
       {/* <Box
         m={0}

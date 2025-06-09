@@ -3,9 +3,7 @@ import Screen from "./screen";
 
 function Controller() {
  
-
-  return <Screen />;
+  return <Screen   />;
 }
 
 export default Controller;
-  

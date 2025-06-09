@@ -63,6 +63,7 @@ function Screen() {
       setDespesa(JSON.parse(despesaData));
     }
   }, []);
+  console.log(despesa)
 
   // Busca os arquivos do termo somente se  existir
   useEffect(() => {
