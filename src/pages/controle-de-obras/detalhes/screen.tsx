@@ -116,7 +116,17 @@ function Screen() {
                     <Tbody>
                       {[
                         
-                         ["Contrato", despesa.id_contrato],
+                         ["Contrato", (
+  <a
+    href={`https://dadosabertos.mogidascruzes.sp.gov.br/contratos-atas/detalhes?${despesa.id_contrato}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    title="Clique para ver os detalhes do contrato"
+    style={{ color: "#3182ce", textDecoration: "underline" }}
+  >
+    {despesa.id_contrato}
+  </a>
+)],
                          ["Nome da obra", despesa.nome_da_obra],
                          ["Descrição", despesa.descricao_da_obra],
                          ["Status ", despesa.status?.split("-")[1]],
