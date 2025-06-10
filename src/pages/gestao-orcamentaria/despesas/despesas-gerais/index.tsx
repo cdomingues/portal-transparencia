@@ -333,7 +333,7 @@ const Despesas = () => {
                   color={useColorModeValue("black", "white")}
                   onClick={() => {
                     sessionStorage.setItem('selectedDespesa', JSON.stringify(row));
-                    window.open(`detalhes?${row.id_empenho}`, '_blank');
+                    window.open(`detalhes?Exercicio_Empenho=${row.id_empenho.split('/')[1]}&nr_empenho=${row.id_empenho.split('/')[0]}`, '_blank');
                   }}
                 >
                   <Td>{row.id_empenho}</Td>

@@ -257,8 +257,15 @@ function Screen({ id_contrato }: any) {
               <Tbody>
                 {empenho.map((item) => (
                   <Tr key={item.id}>
-                    <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
-                      {item.numero_empenho?.trim()}
+                    <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}
+                    
+                    title="Clique para ver detalhes do empenho"
+                    _hover={{cursor: 'pointer', textDecoration: 'underline'}}
+                    onClick={()=>{
+                      window.open(`/gestao-orcamentaria/despesas/detalhes?Exercicio_Empenho=${item.data_empenho.split('-')[0]}&nr_empenho=${item.numero_empenho}`, '_blank');
+                    }}
+                    >
+                     <strong> {item.numero_empenho?.trim()}</strong>
                     </Td>
                     <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
                       {moment(item.data_empenho).format("DD/MM/YYYY")}

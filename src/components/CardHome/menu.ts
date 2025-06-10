@@ -227,9 +227,9 @@ export const menus=[
             "imageUrl":IconeLeis.src,
             "url":"",
             "extralinks": [
-                {label: "Leis, Decretos e Portarias - Início", url: "/leis-decretos-portarias/",  },
-                { label: "Leis e Decretos Municipais", url: "/leis-decretos-portarias/protocolo-geral",},
-                { label: "Portarias", url: "https://ged.mogidascruzes.sp.gov.br/weblink7/Browse.aspx", },
+               
+                { label: " Legislação Municipal", url: "https://leismunicipais.com.br/prefeitura/sp/mogi-das-cruzes",},
+                { label: "Repositório Laserfiche ", url: "https://ged.mogidascruzes.sp.gov.br/weblink7/Browse.aspx", },
                 
             ]},
                      
@@ -598,7 +598,7 @@ export const menus=[
                 'imageUrl': Ouvidoria.src,
                 'url':"https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab",
                 'extralinks': [ 
-                   { label: "Pesquisa de satisfação", url: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-tutelar/institucional" } ]
+                   { label: "Pesquisa de satisfação", url: "https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/publicacoes" } ]
             },
             {
                 'id_submenu': 6,

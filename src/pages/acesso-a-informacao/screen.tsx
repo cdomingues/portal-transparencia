@@ -163,7 +163,7 @@ marginBottom="15px">
               <Link _hover={{ textDecoration: "underline" }} href='https://leismunicipais.com.br/a/sp/m/mogi-das-cruzes/lei-ordinaria/2023/799/7986/lei-ordinaria-n-7986-2023-regulamenta-a-lei-federal-n-12527-de-18-de-novembro-de-2011-para-dispor-sobre-o-acesso-a-informacoes-no-ambito-do-poder-executivo-do-municipio-de-mogi-das-cruzes?q=7986' isExternal> <strong>Lei Municipal nº 7.986/23 </strong> </Link>  - Regulamentação da LAI</Text>
 
                 <Text >
-              <Link _hover={{ textDecoration: "underline" }} href='https://leismunicipais.com.br/a/sp/m/mogi-das-cruzes/decreto/2024/2261/22604/decreto-n-22604-2024-regulamenta-a-lei-n-7986-de-28-de-setembro-de-2023-que-trata-do-acesso-a-informacao-no-ambito-do-poder-executivo-do-municipio-de-mogi-das-cruzes-estabelecendo-procedimentos-e-providencias-correlatas?q=22.604' isExternal> <strong>Decreto Municipal nº 22.604/24 </strong> </Link>  - Regulamentação da LAI</Text>
+              <Link _hover={{ textDecoration: "underline" }} href='https://leismunicipais.com.br/a/sp/m/mogi-das-cruzes/decreto/2025/2360/23595/decreto-n-23595-2025-regulamenta-a-lei-n-7986-de-28-de-setembro-de-2023-que-trata-do-acesso-a-informacao-no-ambito-do-poder-executivo-do-municipio-de-mogi-das-cruzes-revoga-o-decreto-22604-de-13-de-marco-de-2024-e-da-outras-providencias?q=23595' isExternal> <strong>Decreto Municipal nº  23.595/2025 </strong> </Link>  - Regulamentação da LAI</Text>
 
  
                 </Flex>

@@ -181,9 +181,9 @@ const MenuHorizontalChakra = () => {
       icon: MdMenuBook ,
       href: '#',
       submenu: [
-        { label: 'Leis e Decretos Municipais', href: 'https://leismunicipais.com.br/prefeitura/sp/mogi-das-cruzes' },
-        { label: 'Portarias', href: 'https://ged.mogidascruzes.sp.gov.br/weblink7/Browse.aspx' },
-        { label: 'Diário oficial', href: 'https://diario-oficial.mogidascruzes.sp.gov.br/diarios/publicacoes/' },
+         { label: " Legislação Municipal", href: "https://leismunicipais.com.br/prefeitura/sp/mogi-das-cruzes",},
+        { label: "Repositório Laserfiche ", href: "https://ged.mogidascruzes.sp.gov.br/weblink7/Browse.aspx", },
+                
           ]
     },
     {
@@ -331,7 +331,11 @@ const MenuHorizontalChakra = () => {
          { label: 'VISUAS', href: 'https://visuas.mogidascruzes.sp.gov.br/' },
         { label: 'GeoMogi', href: 'https://geomogi.mogidascruzes.sp.gov.br/' },
         { label: 'Ônibus municipais', href: 'https://geomogi.mogidascruzes.sp.gov.br/' },
-        { label: 'Ouvidoria - Colab', href: 'https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab' }, 
+        { label: 'Ouvidoria - Colab', href: 'https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab' , 
+          submenu: [
+            { label: "Pesquisa de satisfação", href: "https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/publicacoes" }
+          ]
+        }, 
         { label: 'Agenda da cidade', href: 'https://www.mogidascruzes.sp.gov.br/agenda-da-cidade/atracoes' }, 
         { label: 'Pontos turísticos', href: 'https://www.mogidascruzes.sp.gov.br/pontos-turisticos/todos-os-assuntos' },
       ]

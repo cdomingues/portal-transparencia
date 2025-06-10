@@ -18,7 +18,9 @@ type PropsInput = {
 export const contentMapSite = {
   titlePage: "Estoque de Medicamentos",
   description:
-   "Em atendimento a Lei Federal nº 8.080/1990 (atualizada pela Lei nº 14.715/2023), e recomendação do Programa Nacional de Transparência Pública (PNTP) da Atricon, o município de Mogi das Cruzes passa a publicar a lista de medicamentos enviados as farmácias públicas municipais, de forma mensal." ,
+   <>
+   Em atendimento a Lei Federal nº 8.080/1990 (atualizada pela Lei nº 14.715/2023), e recomendação do Programa Nacional de Transparência Pública (PNTP) da Atricon, o município de Mogi das Cruzes passa a publicar a lista de medicamentos enviados as farmácias públicas municipais, de forma mensal. Para acessar a lista de medicamentos fornecidos pelo SUS e regras para obtenção,  <Link href="https://dadosabertos.mogidascruzes.sp.gov.br/planos-municipais/plano-municipal-saude"><strong>clique aqui</strong></Link>. 
+   </>,
 };
 
 

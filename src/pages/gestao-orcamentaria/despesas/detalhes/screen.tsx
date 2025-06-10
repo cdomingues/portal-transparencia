@@ -15,6 +15,38 @@ import moneyFormatter from "../../../../utils/moneyFormatter";
 import moment from "moment";
 import colors from "../../../../styles/colors";
 
+export interface Detalhes {
+  id: string;
+  created_at: string; // Pode ser tipado como Date se você converter
+  updated_at: string; // Pode ser tipado como Date se você converter
+  nr_empenho: number;
+  class_funcional: string;
+  descr_funcional: string;
+  acao: string;
+  funcao: string;
+  subfuncao: string;
+  programa: string;
+  exercicio_empenho: string; // Ano como string
+  data_movto: string; // Pode ser tipado como Date se você converter
+  vlr_empenho: string; // String para preservar casas decimais
+  tipo_empenho: string;
+  evento_custo: string;
+  descr_evento_custo: string;
+  cod_fornecedor: number;
+  cnpj_fornecedor: string;
+  descr_fornecedor: string;
+  vinculo: string | null;
+  unid_orcam: string;
+  categoria: string;
+  elemento: string;
+  subelemento: string | null;
+  cod_processo: string | null;
+  licitacao_numero: string | null;
+  licitacao_modalidade: string | null;
+  item_empenho: string | null;
+  id_empenho: string;
+}
+
 export interface Arquivo {
   nr_empenho: number;
   exercicio_empenho: string;
@@ -63,23 +95,48 @@ export const contentContractsAndAtas = {
     "Para que a cidade possa continuar se desenvolvendo e os serviços possam permanecer funcionando e melhorando, a Prefeitura precisa realizar despesas das mais diversas, assim como investimentos. Aqui você pode conferir as informações das despesas públicas gerais empenhadas, liquidadas e pagas, entendendo os valores direcionados para cada programa.",
 };
 
-function Screen() {
+interface ScreenProps {
+  exercicio_empenho: any;
+  nr_empenho: any;
+}
+
+function Screen({exercicio_empenho, nr_empenho}: ScreenProps) {
   const title = contentContractsAndAtas.titlePage;
   const description = contentContractsAndAtas.description;
   const [despesa, setDespesa] = useState<any>(null);
+  const [detalhes, setDetalhes] = useState<Detalhes[]>([]);
   const [data, setData] = useState<Arquivo[]>([]);
   const [loading, setLoading] = useState(true);
   const [liquidacoes, setLiquidacoes] = useState<Liquidacao[]>([]);
   const [pagamentos, setPagamentos] = useState<Pagamento[]>([]);
   const [adiantamentos, setAdiantamentos] = useState<ArquivoAdiantamento[]>([]);
 
+  const url = `https://dadosadm.mogidascruzes.sp.gov.br/api/despesas?exercicio_empenho=${exercicio_empenho}&nr_empenho=${nr_empenho}`;
+console.log('url:', url)
+
   // Recupera a despesa do sessionStorage
   useEffect(() => {
-    const despesaData = sessionStorage.getItem("selectedDespesa");
-    if (despesaData) {
-      setDespesa(JSON.parse(despesaData));
+  if (!exercicio_empenho || !nr_empenho) return;
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch(url);
+console.log("Buscando dados da URL:", url);
+      if (!response.ok) {
+        throw new Error("Falha ao carregar os dados");
+      }
+
+      const jsonData = await response.json();
+      setDespesa(jsonData.results[0]);
+    } catch (error) {
+      console.error("Erro ao carregar os dados:", error);
+    } finally {
+      setLoading(false);
     }
-  }, []);
+  };
+
+  fetchData();
+}, [exercicio_empenho, nr_empenho]); // Todas as dependências relevantes
 
   // Busca os itens do empenho somente se despesa existir
   useEffect(() => {
@@ -88,7 +145,7 @@ function Screen() {
 
       try {
         const response = await fetch(
-          `https://dadosadm.mogidascruzes.sp.gov.br/api/itens_empenho_despesas/?nr_empenho=${despesa.nr_empenho}&exercicio_empenho=${despesa.exercicio_empenho}`
+          `https://dadosadm.mogidascruzes.sp.gov.br/api/itens_empenho_despesas/?nr_empenho=${nr_empenho}&exercicio_empenho=${exercicio_empenho}`
         );
 
         if (!response.ok) {
@@ -97,6 +154,7 @@ function Screen() {
 
         const jsonData = await response.json();
         setData(jsonData.results);
+        console.log("Itens do empenho carregados:", jsonData.results);
       } catch (error) {
         console.error("Erro ao carregar os dados:", error);
       } finally {
@@ -115,7 +173,7 @@ function Screen() {
 
       try {
         const response = await fetch(
-         `https://dadosadm.mogidascruzes.sp.gov.br/api/liquidacao_despesas/?nr_empenho=${despesa.nr_empenho}&exercicio_empenho=${despesa.exercicio_empenho}` 
+         `https://dadosadm.mogidascruzes.sp.gov.br/api/liquidacao_despesas/?nr_empenho=${nr_empenho}&exercicio_empenho=${exercicio_empenho}` 
         );
 
         if (!response.ok) {
@@ -141,7 +199,7 @@ function Screen() {
 
       try {
         const response = await fetch(
-         `https://dadosadm.mogidascruzes.sp.gov.br/api/pagamentos_despesas/?nr_empenho=${despesa.nr_empenho}&exercicio_empenho=${despesa.exercicio_empenho}` 
+         `https://dadosadm.mogidascruzes.sp.gov.br/api/pagamentos_despesas/?nr_empenho=${nr_empenho}&exercicio_empenho=${exercicio_empenho}` 
         );
 
         if (!response.ok) {
@@ -237,6 +295,7 @@ function Screen() {
 <TabPanels>
           <TabPanel>
             {/* Detalhes do Empenho */}
+            
             <Table variant="simple" size="md" width="100%" overflow="hidden" mb={5}>
               <Thead>
                 <Tr>
@@ -249,7 +308,7 @@ function Screen() {
               </Thead>
               <Tbody>
                 {[
-                   ["Empenho", despesa.nr_empenho + "/" + despesa.exercicio_empenho],
+                   ["Empenho", nr_empenho + "/" + exercicio_empenho],
                    ["Classificação Funcional", despesa.class_funcional],
                    ["Descrição Funcional", despesa.descr_funcional],
                    ["Ação ", despesa.acao],
