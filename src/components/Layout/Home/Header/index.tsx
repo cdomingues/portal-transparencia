@@ -164,7 +164,11 @@ const DesktopNav = ({
         justify="center" // Centraliza horizontalmente
         backgroundColor={"transparent"}
       >
-    <Image alt="logo" width={180} height={180 }src={brasaoImageSrc} />
+        <a href='https://www.mogidascruzes.sp.gov.br/' target="_blank">
+        <Image alt="logo" width={180} height={180 }src={brasaoImageSrc} />
+        </a>
+
+    
    
         <Stack
           flex={1}

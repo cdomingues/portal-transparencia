@@ -1,4 +1,4 @@
-import { useColorModeValue, Box, Button, Stack, Table, Thead, Tr, Th, Tbody, Td, Input } from "@chakra-ui/react";
+import { useColorModeValue, Box, Button, Stack, Table, Thead, Tr, Th, Tbody, Td, Input , Link} from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Laws } from ".";
 import ContainerBasic from "../../../components/Container/Basic";
@@ -7,6 +7,7 @@ import dados from './Desoneracoes_PNTP_2025.json';
 import colors from "../../../styles/colors";
 import CsvDownload from "react-json-to-csv";
 import PaginationComponent from "../../../components/PaginationComponent";
+import moneyFormatter from "../../../utils/moneyFormatter";
 
 type BeneficioFiscal = {
   objeto: string;
@@ -44,7 +45,11 @@ type PropsInput = {
 export const contentPROMAE = {
   titlePage: "Desonerações, Renúncias e Benefícios Fiscais",
   description:
-    "Planilha com desonerações, renúncias e benefícios fiscais concedidos pela admistração municipal.",
+    <>
+    Planilha com desonerações, renúncias e benefícios fiscais concedidos pela admistração municipal.
+   <Link href='regras-beneficios-fiscais'> <strong>Clique aqui</strong></Link> para consultas as regras de concessão de benefícios fiscais. 
+    </>
+    ,
 };
 
 function Screen({ handler }: PropsInput) {
@@ -214,7 +219,7 @@ function Screen({ handler }: PropsInput) {
              <Td>{row.valor_total_estimado}</Td>
              <Td>{row.ano}</Td>
              <Td>{row.certificado_desoneracao}</Td>
-             <Td>{row.valor_realizado_periodo}</Td>
+             <Td>{moneyFormatter(Number(row.valor_realizado_periodo))}</Td>
              <Td>{row.status_doacao_area}</Td>
              <Td>{row.bairro}</Td>
              <Td>{row.metragem}</Td>

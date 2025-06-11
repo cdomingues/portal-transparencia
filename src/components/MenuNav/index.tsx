@@ -80,7 +80,7 @@ const MenuHorizontalChakra = () => {
           href: '#',
           submenu: [
             { label: "Receitas Gerais", href: "/gestao-orcamentaria/receitas" },
-            {label: "Emendas Parlamentares", href: "/gestao-orcamentaria/receitas/receitas-emendas",},
+           // {label: "Emendas Parlamentares", href: "/gestao-orcamentaria/receitas/receitas-emendas",},
             {label: "Despesas Gerais", href: "/gestao-orcamentaria/despesas/despesas-gerais",},
             {label: "Emendas Parlamentares", href: "/gestao-orcamentaria/despesas/despesas-emendas", },
             {label: "Propaganda e Publicidade", href: "/gestao-orcamentaria/despesas/propaganda", },
@@ -121,9 +121,8 @@ const MenuHorizontalChakra = () => {
           label: 'Convênios e Transferências', 
           href: '#',
           submenu: [
-            { label: "Convênios",href: "/convenios-transferencias/convenios", },
-            {label: "Recebidos",href: "/convenios-transferencias/recebidos", },
-           
+                 { label: "Convênios - Recebidos", href: "/convenios-transferencias/convenios-recebidos" },
+                    { label: "Convênios - Repasse", href: "/convenios-transferencias/convenios-repasse" },          
           ]
         },
         { label: 'Consulta de Fornecedores a Pagamentos', href: 'http://consultacompras.pmmc.com.br/pagamento-fornecedor' },
@@ -133,6 +132,14 @@ const MenuHorizontalChakra = () => {
               { label: "Desonerações e Renúncias", href: "/beneficios-fiscais/desoneracoes_renuncias" },
                 { label: "PROMAE", href: "/beneficios-fiscais/promae" },
                 { label: "Lic e Lide", href: "/beneficios-fiscais/lic_lide" },
+          ]
+         },
+           { label: 'Emendas parlamentares', 
+          href: '#',
+          submenu:[
+              { label: "Emendas parlamentares - Receitas", href: "/emendas-parlamentares/receitas-emendas" },
+              { label: "Emendas parlamentares - Despesas", href: "/emendas-parlamentares/despesas-emendas" },
+               
           ]
          },
       ]
@@ -174,9 +181,9 @@ const MenuHorizontalChakra = () => {
       icon: MdMenuBook ,
       href: '#',
       submenu: [
-        { label: 'Leis e Decretos Municipais', href: 'https://leismunicipais.com.br/prefeitura/sp/mogi-das-cruzes' },
-        { label: 'Portarias', href: 'https://ged.mogidascruzes.sp.gov.br/weblink7/Browse.aspx' },
-        { label: 'Diário oficial', href: 'https://diario-oficial.mogidascruzes.sp.gov.br/diarios/publicacoes/' },
+         { label: " Legislação Municipal", href: "https://leismunicipais.com.br/prefeitura/sp/mogi-das-cruzes",},
+        { label: "Repositório Laserfiche ", href: "https://ged.mogidascruzes.sp.gov.br/weblink7/Browse.aspx", },
+                
           ]
     },
     {
@@ -230,7 +237,11 @@ const MenuHorizontalChakra = () => {
          { label: 'Controle de radares', href: '/controle-de-radares' },
         { label: 'Veículos oficiais', href: '/veiculos-oficiais' },
         { label: 'Organizações sociais', href: 'https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-saude-e-bem-estar/organizacoes-sociais' },
-        { label: 'Ouvidoria', href: 'https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab' },
+        { label: 'Ouvidoria', href: 'https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab',
+          submenu:[
+            { label: "Pesquisa de satisfação", href: "https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/publicacoes" }
+          ]
+         },
         { label: 'Conselhos municipais', href: '#',
           submenu:[
             { label: "Abastecimento", href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-abastecimento-de-alimentos-e-bens-de-consumo/institucional" },
@@ -261,6 +272,11 @@ const MenuHorizontalChakra = () => {
           ]
           
          },
+          { label: 'Fundos Municipais', href: '/gestao-orcamentaria/despesas/fundos-municipais' },
+           { label: 'Fila de Espera Creches Públicas', href: 'https://sge.sme-mogidascruzes.sp.gov.br/grid_classificacao_unidade/' },
+           {label:'Empresas reclamadas no PROCON',href:'https://www.mogidascruzes.sp.gov.br/public/site/doc/20250509150621681e441d1b768.pdf'},
+           {label:'Estoque de medicamentos', href:'/medicamentos'},
+            {label:'Lista de espera de consultas e exames"', href:'/fila_de_espera'}
        
       ]
     }, 
@@ -315,7 +331,11 @@ const MenuHorizontalChakra = () => {
          { label: 'VISUAS', href: 'https://visuas.mogidascruzes.sp.gov.br/' },
         { label: 'GeoMogi', href: 'https://geomogi.mogidascruzes.sp.gov.br/' },
         { label: 'Ônibus municipais', href: 'https://geomogi.mogidascruzes.sp.gov.br/' },
-        { label: 'Ouvidoria - Colab', href: 'https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab' }, 
+        { label: 'Ouvidoria - Colab', href: 'https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab' , 
+          submenu: [
+            { label: "Pesquisa de satisfação", href: "https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/publicacoes" }
+          ]
+        }, 
         { label: 'Agenda da cidade', href: 'https://www.mogidascruzes.sp.gov.br/agenda-da-cidade/atracoes' }, 
         { label: 'Pontos turísticos', href: 'https://www.mogidascruzes.sp.gov.br/pontos-turisticos/todos-os-assuntos' },
       ]
@@ -327,12 +347,13 @@ const MenuHorizontalChakra = () => {
       submenu: [
         {label:'Lei de acesso à informação', href:'/acesso-a-informacao'},
         { label: 'Solicitar Acesso à Informação', href: 'https://mogidascruzes.1doc.com.br/b.php?pg=wp/detalhes&itd=3' },
-        { label: 'Relatório de Demandas LAI', href: 'https://mogidascruzes.1doc.com.br/b.php?pg=o/transparencia' },
-        { label: 'Acompanhe os dados genéricos dos pedidos', href: '"https://mogidascruzes.1doc.com.br/b.php?pg=wp/wp&itd=3&ss=5' },
-        { label: 'Painel de Acompanhamento da LAI 2023', href: 'https://app.powerbi.com/view?r=eyJrIjoiY2ZmODAzZDUtMDE2YS00ZWYzLWJhZGQtMWE4Nzc3OWQyMDgxIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9' },
-        { label: 'Painel de Acompanhamento da LAI 2024', href: 'https://app.powerbi.com/view?r=eyJrIjoiY2RiMWYxZWQtN2NlOS00NTNjLTkyMGEtZmNiOWVhMmYzNTJiIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9' },
-          {label:"Ouvidoria - COLAB",href:"https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab" },
-           {label:"Portal de Dados abertos - COLAB",href:"https://dados.mogidascruzes.sp.gov.br/" },
+       
+          {label:"Ouvidoria - COLAB",href:"https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab",
+            submenu:[
+              { label: "Pesquisa de satisfação", href: "https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/publicacoes" }
+             ]
+           },
+           {label:"Portal de Dados abertos",href:"https://dados.mogidascruzes.sp.gov.br/" },
        
       ]
     },

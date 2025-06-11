@@ -18,6 +18,7 @@ type LicLide = {
     proc_adm: string;
     competencia: string;
     vl_beneficio_reais: number;
+    tipo: string;
 };
 
 const ITEMS_PER_PAGE = 50;
@@ -173,6 +174,8 @@ function Screen({ handler }: PropsInput) {
             <Th color="white">Processo administrativo </Th>
             <Th color="white">Competencia</Th>
             <Th color="white">Valor benefício</Th>
+            <Th color="white">Tipo</Th>
+            
             
           </Tr>
         </Thead>
@@ -194,6 +197,7 @@ function Screen({ handler }: PropsInput) {
              <Td>{row.proc_adm}</Td>
              <Td>{row.competencia}</Td>
              <Td>{row.vl_beneficio_reais != null && typeof row.vl_beneficio_reais === 'number' ? moneyFormatter(row.vl_beneficio_reais) : 'Não se aplica'}</Td>
+              <Td>{row.tipo}</Td>
             
             
             </Tr>

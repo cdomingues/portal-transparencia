@@ -1,34 +1,22 @@
 import React from "react";
-
-//import { PublicPolicyData } from "../../api/totalizador/politicas-publicas";
-
 import {
   Box,
-  Divider,
   Flex,
-  Heading,
-  Icon,
-  Skeleton,
-  Stack,
-  Stat,
-  StatGroup,
-  StatHelpText,
-  StatLabel,
-  StatNumber,
-  Button,
   Text,
   useColorModeValue,
-  UnorderedList,
   Link,
+  AccordionItem,
+  Accordion,
+  AccordionPanel,
+  AccordionButton,
+  AccordionIcon,
 
 } from "@chakra-ui/react";
 
 import { isMobile } from "react-device-detect";
 
-
 import useWindowDimensions from "../../utils/getWindowSize";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
-
 import ContainerBasic from "../../components/Container/Basic";
 
 export const contentInitial = {
@@ -140,10 +128,28 @@ Sede da Prefeitura de Mogi das Cruzes - 3º andar
         color="gray.500"
         fontSize={accessibility?.fonts?.regular}
         >
-        <strong>Ato de designação:</strong><Link target="blank" variant='plain' href='https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/1b639690-a3cb-4181-aa00-4799d135e7aa/PORTARIA_N_401_DE_4_DE_ABRIL_DE_2025.pdf'> Portaria</Link>  
+        <strong>Ato de designação: </strong><Link textDecoration='underline' target="blank" variant='plain' href='https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/242f12fa-142c-452c-b1fe-319afb237de5/0591_2025.pdf' 
+        _hover={{
+          fontWeight: 'semibold'
+        }}
+        > Portaria</Link>  
      </Text>
 
-    <Text
+<Accordion allowToggle borderRadius={4} mt='15px'>
+          
+            <AccordionItem  pt={4} borderRadius='15px' border='1px solid ' mb='15px'>
+              <h2>
+                <AccordionButton>
+                  <Box as="span" flex='1' textAlign='center' fontWeight='bold' fontSize='l'>
+                    LEGISLAÇÃO      
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel m={4} p={8}  borderRadius={4}>
+                <Flex flexDirection='column'>
+                 
+            <Text
                 align={isMobile ? "justify" : "left"}
                 fontWeight="700"
                 fontSize={accessibility?.fonts?.regular}
@@ -165,14 +171,25 @@ Sede da Prefeitura de Mogi das Cruzes - 3º andar
                <Text justifyContent="flex-end">Regulamentação das Nomas de Utilização dos Recursos de Informática, Tecnologia e Práticas de Segurança da Informação <Link href='https://leismunicipais.com.br/a/sp/m/mogi-das-cruzes/decreto/2021/2027/20268/decreto-n-20268-2021-dispoe-sobre-normas-para-utilizacao-de-recursos-de-informatica-e-tecnologia-no-ambito-interno-da-administracao-municipal-e-da-outras-providencias?q=20268%2F2021'><strong> Decreto nº 20.268/2021</strong></Link></Text>
                
               </Text>
-              <Text
-                align={isMobile ? "justify" : "left"}
-                fontWeight="700"
-                fontSize={accessibility?.fonts?.regular}
-                paddingTop="5px"
-              >
-               CANAIS DE ATENDIMENTO   </Text>
-                      <Text
+
+ 
+                </Flex>
+              </AccordionPanel>
+            </AccordionItem>
+            
+             <AccordionItem  pt={4} borderRadius='15px' border='1px solid ' mb='15px'>
+              <h2>
+                <AccordionButton>
+                  <Box as="span" flex='1' textAlign='center' fontWeight='bold' fontSize='l'>
+                    CANAIS DE ATENDIMENTO
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel m={4} p={8}  borderRadius={4}>
+                <Flex flexDirection='column'>
+                 
+             <Text
         align={isMobile ? "justify" : "left"}
         color="gray.500"
         fontSize={accessibility?.fonts?.regular}
@@ -187,52 +204,74 @@ Sede da Prefeitura de Mogi das Cruzes - 3º andar
         >
         Canal de atendimento para solicitações e reclamações: <Link href='https://www.mogidascruzes.sp.gov.br/servico/procon-sac-e-ouvidoria/atendimento-ao-cidadao-ouvidoria'><strong>Ouvidoria</strong></Link>
      </Text>
+ 
+                </Flex>
+              </AccordionPanel>
+            </AccordionItem>
             
-            
-              <Text
-                align={isMobile ? "justify" : "left"}
-                fontWeight="700"
-                fontSize={accessibility?.fonts?.regular}
-                paddingTop="5px"
-              >
-              BASES DE TRATAMENTO DE DADOS PESSOAIS               
-              </Text>
-              <Text
+            <AccordionItem  pt={4} borderRadius='15px' border='1px solid ' mb='15px'>
+              <h2>
+                <AccordionButton>
+                  <Box as="span" flex='1' textAlign='center' fontWeight='bold' fontSize='l'>
+                    BASES DE TRATAMENTO DE DADOS PESSOAIS
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel m={4} p={8}  borderRadius={4}>
+                <Flex flexDirection='column'>
+                 
+             <Text
                 align={isMobile ? "justify" : "left"}
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}
               >Os tratamentos de dados realizados pela Prefeitura de Mogi das Cruzes se dão de acordo com os arts. 7°, incisos II, III, IV, VI e IX, e 11., inciso II, alíneas “a”, “b” e “c”, bem como os artigos 23 e 26, todos da Lei Geral de Proteção de Dados Pessoais (LGPD), Lei n° 13.709/2018, e se limitam ao cumprimento de obrigações legais e regulatórias, execução de políticas públicas, execução de contrato e realização de estudos de pesquisa. O tratamento de dados pessoais de crianças e de adolescentes realizado  é feito no melhor interesse daqueles, nos termos da legislação pertinente.   </Text>
+ 
+                </Flex>
+              </AccordionPanel>
+            </AccordionItem>
             
-          
-        
-              <Text
-                align={isMobile ? "justify" : "left"}
-                fontWeight="700"
-                fontSize={accessibility?.fonts?.regular}
-                paddingTop="5px"
-              >
-              INSTRUÇÕES NORMATIVAS</Text>
-        <Text
+            <AccordionItem  pt={4} borderRadius='15px' border='1px solid ' mb='15px'>
+              <h2>
+                <AccordionButton>
+                  <Box as="span" flex='1' textAlign='center' fontWeight='bold' fontSize='l'>
+                    INSTRUÇÕES NORMATIVAS
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel m={4} p={8}  borderRadius={4}>
+                <Flex flexDirection='column'>
+                 
+             <Text
                 align={isMobile ? "justify" : "left"}
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}
-              >Em breve</Text>
-
-             <Text
-                align={isMobile ? "justify" : "left"}
-                fontWeight="700"
-                fontSize={accessibility?.fonts?.regular}
-                paddingTop="5px"
-              >
-               CAPACITAÇÃO E CONSCIENTIZAÇÃO_
-            </Text>
-      <Text justifyContent="flex-end" color='gray.500'><Link href='/lgpd/glossario-lgpd'><strong>Glossário de Termos Técnicos LGPD</strong></Link></Text>
+              >Em breve   </Text>
+ 
+                </Flex>
+              </AccordionPanel>
+            </AccordionItem>
+              <AccordionItem  pt={4} borderRadius='15px' border='1px solid ' mb='15px'>
+              <h2>
+                <AccordionButton>
+                  <Box as="span" flex='1' textAlign='center' fontWeight='bold' fontSize='l'>
+                    CAPACITAÇÃO E CONSCIENTIZAÇÃO
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel m={4} p={8}  borderRadius={4}>
+                <Flex flexDirection='column'>
+                 
+              <Text justifyContent="flex-end" color='gray.500'><Link href='/lgpd/glossario-lgpd'><strong>Glossário de Termos Técnicos LGPD</strong></Link></Text>
       <Text justifyContent="flex-end" color='gray.500'><Link href='/lgpd/direitos_titular'><strong>Direitos do Titular</strong></Link></Text>   
-              
-
-
-
-      </Box>
+ 
+                </Flex>
+              </AccordionPanel>
+            </AccordionItem>
+             </Accordion>
+               </Box>
     
         </ContainerBasic>
 

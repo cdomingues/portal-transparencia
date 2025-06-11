@@ -4,6 +4,7 @@ import Screen from "./screen";
 import { getContracts } from "../../../calls/expenses/contractsMinutes";
 import { revalidate } from "../../../config";
 import moment from "moment";
+import { filter } from "lodash";
 
 export interface ArquivoContrato {
   id: number;
@@ -51,14 +52,14 @@ function Controller({ contracts = [], years = [] }: any) {
     setData(contracts);
   };
 
-  useEffect(() => {
-    // Filtrar os contratos onde o grupo é igual a "Contrato de gestão"
-    const filteredData = contracts.filter(
-      (contract: any) => contract.grupo === "Contrato de gestão"
-    );
-    setData(filteredData);
-  }, [contracts]);
-
+useEffect(() => {
+  // Filtrar os contratos onde o grupo é igual a "Contrato de gestão"
+  const filteredData = contracts.filter((contract: any) => 
+    contract.grupo?.toLowerCase().trim() === "contrato de gestao".toLowerCase()
+  );
+  console.log(filteredData);
+  setData(filteredData);
+}, [contracts]);
   const arquivosColumns = [
     { title: "Id", field: "id" },
     { title: "Arquivo", field: "arquivo" },

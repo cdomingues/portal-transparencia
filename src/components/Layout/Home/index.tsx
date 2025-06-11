@@ -13,6 +13,7 @@ import lupaDark from "../../../assets/images/lupa_portal_dark.png";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import receitas_multas_de_transito from "../../../assets/images/icones/receitas multas de transito.svg";
 import bg_transparencia from '../../../assets/images/background_home.jpg'
+import bg_transparencia_mobile from '../../../assets/images/background_home_mobile.jpg'
 import {
   Box,
   Spacer,
@@ -20,11 +21,14 @@ import {
   useColorModeValue,
   Text,
   Image,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import CardHome from "../../CardHome";
 //import VLibras from "vlibras-nextjs";
 import ModalPopup from "../../Modal";
-
+import { useWindowSize } from "../../../hooks/useWindowSize";
+//import VLibras from '@moreiraste/react-vlibras';
+import VLibras from  '@djpfs/react-vlibras'
 
 // type Props = {
 //   children?: React.ReactNode;
@@ -39,10 +43,12 @@ function PublicHome() {
     Brasao_PMMC_white.src
   );
   const lupaSrc = useColorModeValue(lupaNormal.src, lupaDark.src);
+  const { width } = useWindowSize();
+  const isMobile = width <= 768;
 
   return (
     <>
-     
+      <VLibras  />  
       <Head>
         <title>Início</title>
       </Head>
@@ -50,17 +56,13 @@ function PublicHome() {
       <div style={{  overflow: "hidden", marginBottom: "78px" }}>
         
       <Image
-    src={bg_transparencia.src}
+     src={isMobile ? bg_transparencia_mobile.src : bg_transparencia.src}
     alt=""
-    width={1920} // ou a largura desejada
-    height={200}
+    //width={1920} // ou a largura desejada
+   // height={200}
     style={{
-      objectFit: "cover",
-     
-      width: "100%",
-      
-    }}
-  />
+      objectFit: "cover", width: "100%",}}
+    />
       </div>
 
       {/* Menu de abertura */}

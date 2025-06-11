@@ -11,6 +11,9 @@ import parecer_tribunal from "../../assets/images/icones/parecer_tribunal.svg"
 import acesso_a_informacao from "../../assets/images/icones/LAI__acesso a informação.svg"
 import protocolo_geral from "../../assets/images/icones/LAI__protocolo geral.svg"
 import relatorio_de_demandas from "../../assets/images/icones/LAI__relatorio de demandas lai.svg"
+import fluxo_lai from '../../assets/images/fluxo_lai.png'
+
+
 import {
   Box,
   Divider,
@@ -37,6 +40,7 @@ import {
   UnorderedList,
   ListItem,
   VStack,
+  Img,
 } from "@chakra-ui/react";
 import moneyFormatter from "../../utils/moneyFormatter";
 import moment from "moment";
@@ -149,7 +153,7 @@ marginBottom="15px">
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel m={4} p={8} bg={"white"} borderRadius={4}>
+              <AccordionPanel m={4} p={8}  borderRadius={4}>
                 <Flex flexDirection='column'>
                  
               <Text >
@@ -159,7 +163,7 @@ marginBottom="15px">
               <Link _hover={{ textDecoration: "underline" }} href='https://leismunicipais.com.br/a/sp/m/mogi-das-cruzes/lei-ordinaria/2023/799/7986/lei-ordinaria-n-7986-2023-regulamenta-a-lei-federal-n-12527-de-18-de-novembro-de-2011-para-dispor-sobre-o-acesso-a-informacoes-no-ambito-do-poder-executivo-do-municipio-de-mogi-das-cruzes?q=7986' isExternal> <strong>Lei Municipal nº 7.986/23 </strong> </Link>  - Regulamentação da LAI</Text>
 
                 <Text >
-              <Link _hover={{ textDecoration: "underline" }} href='https://leismunicipais.com.br/a/sp/m/mogi-das-cruzes/decreto/2024/2261/22604/decreto-n-22604-2024-regulamenta-a-lei-n-7986-de-28-de-setembro-de-2023-que-trata-do-acesso-a-informacao-no-ambito-do-poder-executivo-do-municipio-de-mogi-das-cruzes-estabelecendo-procedimentos-e-providencias-correlatas?q=22.604' isExternal> <strong>Decreto Municipal nº 22.604/24 </strong> </Link>  - Regulamentação da LAI</Text>
+              <Link _hover={{ textDecoration: "underline" }} href='https://leismunicipais.com.br/a/sp/m/mogi-das-cruzes/decreto/2025/2360/23595/decreto-n-23595-2025-regulamenta-a-lei-n-7986-de-28-de-setembro-de-2023-que-trata-do-acesso-a-informacao-no-ambito-do-poder-executivo-do-municipio-de-mogi-das-cruzes-revoga-o-decreto-22604-de-13-de-marco-de-2024-e-da-outras-providencias?q=23595' isExternal> <strong>Decreto Municipal nº  23.595/2025 </strong> </Link>  - Regulamentação da LAI</Text>
 
  
                 </Flex>
@@ -175,7 +179,7 @@ marginBottom="15px">
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel m={4} p={8} bg={"white"} borderRadius={4}>
+              <AccordionPanel m={4} p={8}  borderRadius={4}>
                 <Flex flexDirection='column'>
                  
              <Text>
@@ -221,7 +225,7 @@ Guichês: 18 e 20.
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel m={4} p={8} bg={"white"} borderRadius={4}>
+              <AccordionPanel m={4} p={8}  borderRadius={4}>
                 <Flex flexDirection='column'>
                  
              <Text>
@@ -259,11 +263,11 @@ Verônica Souza
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel m={4} p={8} bg={"white"} borderRadius={4}>
+              <AccordionPanel m={4} p={8}  borderRadius={4}>
                 <Flex flexDirection='column'>
                  
-             <Text>
-            Pedido inicial
+             <Text> <a href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/567189d7-01d9-4735-b60d-5505bd662f9f/fluxo_lai.png" target="_blank">
+            <Img src={fluxo_lai.src}></Img></a>
             </Text>
 
  
@@ -280,7 +284,7 @@ Verônica Souza
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel m={4} p={8} bg={"white"} borderRadius={4}>
+              <AccordionPanel m={4} p={8}  borderRadius={4}>
                 <Flex flexDirection='column'>
                  
              <Text>
@@ -363,7 +367,7 @@ Se a informação for negada ou você não ficar satisfeito com a resposta, é p
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel m={4} p={8} bg={"white"} borderRadius={4}>
+              <AccordionPanel m={4} p={8}  borderRadius={4}>
                 <Flex flexDirection='column'>
                  
              <Text>
@@ -413,7 +417,7 @@ Se a informação for negada ou você não ficar satisfeito com a resposta, é p
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel m={4} p={8} bg={"white"} borderRadius={4}>
+              <AccordionPanel m={4} p={8}  borderRadius={4}>
                 <Flex flexDirection='column'>
                  
              <Text>
@@ -451,7 +455,7 @@ Se a informação for negada ou você não ficar satisfeito com a resposta, é p
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel m={4} p={8} bg={"white"} borderRadius={4}>
+              <AccordionPanel m={4} p={8}  borderRadius={4}>
                 <Flex flexDirection='column'>
                  
              <Text>
@@ -463,6 +467,14 @@ Se a informação for negada ou você não ficar satisfeito com a resposta, é p
 
   <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/5c16c6ef-f19c-4539-9b9f-2867617f7d37/Relat%C3%B3rio_2023_-_Transpar%C3%AAncia_LAI.pdf" isExternal textDecoration="underline" >
     <strong>Relatório 2023 - Transparência LAI</strong>
+  </Link>
+
+  <Link href="https://app.powerbi.com/view?r=eyJrIjoiY2ZmODAzZDUtMDE2YS00ZWYzLWJhZGQtMWE4Nzc3OWQyMDgxIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9" isExternal textDecoration="underline" >
+    <strong>Painel de acompanhamento da LAI 2023</strong>
+  </Link>
+
+  <Link href="https://app.powerbi.com/view?r=eyJrIjoiY2RiMWYxZWQtN2NlOS00NTNjLTkyMGEtZmNiOWVhMmYzNTJiIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9" isExternal textDecoration="underline" >
+    <strong>Painel de acompanhamento da LAI 2024</strong>
   </Link>
 
   
@@ -487,7 +499,7 @@ Se a informação for negada ou você não ficar satisfeito com a resposta, é p
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel m={4} p={8} bg={"white"} borderRadius={4}>
+              <AccordionPanel m={4} p={8}  borderRadius={4}>
                 <Flex flexDirection='column'>
                  
              <Text>
@@ -523,7 +535,7 @@ Se a informação for negada ou você não ficar satisfeito com a resposta, é p
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel m={4} p={8} bg={"white"} borderRadius={4}>
+              <AccordionPanel m={4} p={8}  borderRadius={4}>
                 <Flex flexDirection='column'>
                  
              <Text>

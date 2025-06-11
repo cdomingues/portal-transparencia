@@ -22,7 +22,9 @@ import IconeOS from '../../assets/images/icones/icones_barra lateral__patrimonio
 import IconeLeis from '../../assets/images/icones/LAI__protocolo geral.svg'
 import IconeLeisDecretos from '../../assets/images/icones/leis_e_decretos.svg'
 import IconeLixeira from '../../assets/images/icones/trash_styled.svg'
-
+import IconeDiario from '../../assets/images/icones/diario.svg'
+import IconePortal from '../../assets/images/icones/portal_dados_abertos.svg';
+import IconeLai from '../../assets/images/icones/lai.svg';
 
 import Perfil_municipio from "../../assets/images/icones/icones_barra lateral__perfil do municipio.svg";
 import Ciclo_orcamentario from "../../assets/images/icones/icones_barra lateral__ciclo orcamentario.svg";
@@ -82,9 +84,9 @@ export const menus=[
             "link":"", 
             "extralinks": [
             { label: "Receitas Gerais", url: "/gestao-orcamentaria/receitas" },
-            {label: "Emendas Parlamentares",url: "/gestao-orcamentaria/receitas/receitas-emendas",},
+           // {label: "Emendas Parlamentares",url: "/gestao-orcamentaria/receitas/receitas-emendas",},
             {label: "Despesas Gerais", url: "/gestao-orcamentaria/despesas/despesas-gerais",},
-            {label: "Emendas Parlamentares",url: "/gestao-orcamentaria/despesas/despesas-emendas",},
+          //  {label: "Emendas Parlamentares",url: "/gestao-orcamentaria/despesas/despesas-emendas",},
             {label: "Propaganda e Publicidade",url: "/gestao-orcamentaria/despesas/propaganda", },
             {label: "Subvenções e Terceiro Setor", url: "/gestao-orcamentaria/despesas/subvencoes",},
             {label: "Adiantamentos",url: "/gestao-orcamentaria/despesas/adiantamentos",},
@@ -114,8 +116,8 @@ export const menus=[
                 'imageURL': Convenios_transferencias.src,
                 "link":"",
                 "extralinks": [
-                    { label: "Convênios", url: "/convenios-transferencias/convenios" },
-                    { label: "Recebidos", url: "/convenios-transferencias/recebidos" },
+                    { label: "Convênios - Recebidos", url: "/convenios-transferencias/convenios-recebidos" },
+                    { label: "Convênios - Repasse", url: "/convenios-transferencias/convenios-repasse" },
                 ]},
         {"id_submenu": 5, 
             "title": "Execução Orçamentária Covid 19", 
@@ -142,7 +144,18 @@ export const menus=[
                 { label: "Desonerações e Renúncias", url: "/beneficios-fiscais/desoneracoes_renuncias" },
                 { label: "PROMAE", url: "/beneficios-fiscais/promae" },
                 { label: "Lic e Lide", url: "/beneficios-fiscais/lic_lide" },
-            ]}
+            ]},
+              {"id_submenu": 8, 
+            "title": "Emendas parlamentares", 
+            'imageURL': Compras_publicas.src,
+            "link":"",
+            "extralinks": [
+               // { label: "Benefícios Fiscais", url: "/beneficios-fiscais" },
+               { label: "Emendas - receitas", url: "emendas-parlamentares/receitas-emendas" },
+                { label: "Emendas - despesas", url: "emendas-parlamentares/despesas-emendas" },
+                
+                 ]}, 
+
         ]
       },
 
@@ -214,20 +227,12 @@ export const menus=[
             "imageUrl":IconeLeis.src,
             "url":"",
             "extralinks": [
-                {label: "Leis, Decretos e Portarias - Início", url: "/leis-decretos-portarias/",  },
-                { label: "Leis e Decretos Municipais", url: "/leis-decretos-portarias/protocolo-geral",},
-                { label: "Portarias", url: "https://ged.mogidascruzes.sp.gov.br/weblink7/Browse.aspx", },
+               
+                { label: " Legislação Municipal", url: "https://leismunicipais.com.br/prefeitura/sp/mogi-das-cruzes",},
+                { label: "Repositório Laserfiche ", url: "https://ged.mogidascruzes.sp.gov.br/weblink7/Browse.aspx", },
                 
             ]},
-            {
-                "id_submenu": 3,
-                "label":"Diário Oficial",
-                "imageUrl": IconeLeis.src,
-                'url':"https://diario-oficial.mogidascruzes.sp.gov.br/diarios/publicacoes/",
-                "extralinks": [ ]
-            },
-              
-          
+                     
         ]
       },
       {
@@ -363,7 +368,7 @@ export const menus=[
                 "id_submenu": 1,
                 "label": "Controle de Radares",   
                 'imageUrl': IconeRadar.src,
-                "url":"http://leismunicipa.is/0ji28",
+                "url":"/controle-de-radares",
                 "extralinks": []
             },
             {
@@ -442,6 +447,20 @@ export const menus=[
                 "label": "Empresas reclamadas no PROCON",
                 'imageUrl': IconeOS.src,
                 'url': 'https://www.mogidascruzes.sp.gov.br/public/site/doc/20250509150621681e441d1b768.pdf',
+                'extralinks': []
+            },
+             {
+                "id_submenu":9,
+                "label": "Estoque de medicamentos",
+                'imageUrl': IconeOS.src,
+                'url': '/medicamentos',
+                'extralinks': []
+            },
+             {
+                "id_submenu":10,
+                "label": "Lista de espera de consultas e exames",
+                'imageUrl': IconeOS.src,
+                'url': '/fila_de_espera',
                 'extralinks': []
             }
             
@@ -578,7 +597,8 @@ export const menus=[
                 "label":"Ouvidoria - COLAB",
                 'imageUrl': Ouvidoria.src,
                 'url':"https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab",
-                'extralinks': [ ]
+                'extralinks': [ 
+                   { label: "Pesquisa de satisfação", url: "https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/publicacoes" } ]
             },
             {
                 'id_submenu': 6,
@@ -606,7 +626,7 @@ export const menus=[
       {
         "id": 10,
         "title": "LEI DE ACESSO À INFORMAÇÃO",
-        'imageURL': IconesGovernoAberto.src, 
+        'imageURL': IconeLai.src, 
         'description': "Veja aqui as principais iniciativas de governo aberto",
         "submenus": [
              {
@@ -629,7 +649,9 @@ export const menus=[
                 "label":"Ouvidoria - COLAB",
                 'imageUrl': Ouvidoria.src,
                 'url':"https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab",
-                'extralinks': [ ]
+                'extralinks': [ 
+                    { label: "Pesquisa de satisfação", url: "https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/publicacoes" }
+                ]
             },
             {
                 'id_submenu': 7,
@@ -643,7 +665,7 @@ export const menus=[
        {
         "id": 11,
         "title": "LGPD",
-        'imageURL': IconesGovernoAberto.src, 
+        'imageURL': IconeLeisDecretos.src, 
         'description': "Veja aqui as principais iniciativas de governo aberto",
         "submenus": [
              {
@@ -684,7 +706,53 @@ export const menus=[
                 "extralinks": [ ]
             },
         ]
-       }
+       },
+         {
+        "id": 13,
+        "title": "Diário Oficial",
+        'imageURL': IconeDiario.src, 
+        'description': "Diário oficial",
+        "submenus": [
+             {
+                "id_submenu": 1,
+                "label":"Diário oficial",
+                "imageUrl": IconeLeis.src,
+                'url':"https://diario-oficial.mogidascruzes.sp.gov.br/diarios/publicacoes/",
+                "extralinks": [ ]
+            },
+        ]
+       },
+        {
+        "id": 14,
+        "title": "Plano Municipal de Integridade",
+        'imageURL': IconesGovernoAberto.src, 
+        'description': "Plano Municicipal de Integridade",
+        "submenus": [
+             {
+                "id_submenu": 1,
+                "label":"Plano municipal de integridade",
+                "imageUrl": IconeLeis.src,
+                'url':"#",
+                "extralinks": [ ]
+            },
+        ]
+       },
+        {
+        "id": 15,
+        "title": "Portal de dados abertos",
+        'imageURL': IconePortal.src, 
+        'description': "Portal de dados abertos",
+        "submenus": [
+             {
+                "id_submenu": 1,
+                "label":"Portal de dados abertos",
+                "imageUrl": IconeLeis.src,
+                'url':"https://dados.mogidascruzes.sp.gov.br/",
+                "extralinks": [ ]
+            },
+        ]
+       },
+
       
      
      

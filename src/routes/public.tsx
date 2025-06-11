@@ -36,7 +36,7 @@ import { IPublicRoute } from "../types";
 import { contentInitial } from "../pages/screen";
 import { contentMunicipalityProfile } from "../pages/perfil-do-municipio/screen";
 import { contentConstructionsControl } from "../pages/controle-de-obras/inicio";
-import { contentAboutConstructions } from "../pages/controle-de-obras/sobre-as-obras";
+//import { contentAboutConstructions } from "../pages/controle-de-obras/sobre-as-obras";
 import { contentRadarsControl } from "../pages/controle-de-radares/screen";
 import { contentMayorAgenda } from "../pages/agenda-aberta/agenda-prefeita/screen";
 import { contentContractManagement } from "../pages/convenios-transferencias/contratos-gestao/screen";
@@ -61,7 +61,7 @@ import { contentAnnualBalance } from "../pages/contas/balancos-anuais/screen";
 import { contentCourtOpinions } from "../pages/contas/pareceres-tribunal/screen";
 import { contentPatrimony } from "../pages/patrimonio/screen";
 //import { contentOtherInformations } from "../pages/sobre-portal/ultimas-noticias/screen";
-import { contentSearchConstructions } from "../pages/controle-de-obras/pesquisar-obras/screen";
+//import { contentSearchConstructions } from "../pages/controle-de-obras/pesquisar-obras/screen";
 import { contentAbout } from "../pages/sobre-portal/screen";
 import { pointRadial } from "d3";
 import perfil_municipio from '../assets/images/icones/icones_barra lateral__perfil do municipio.svg'
@@ -819,7 +819,7 @@ let publicRoutes: IPublicRoute[] = [
         path: "pesquisar-obras",
         defaultPath: "/controle-de-obras",
         icon: AiOutlineSearch,
-        ...contentSearchConstructions,
+        //...contentSearchConstructions,
       },
     ],
   },

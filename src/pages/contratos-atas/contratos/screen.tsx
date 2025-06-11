@@ -68,9 +68,10 @@ function Screen({
     }
     return true; // Se nenhum ano for selecionado, mostra todos os contratos
   }).filter((item) =>
-    item.id_contrato.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item.descricao.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item.fornecedor.toLowerCase().includes(searchTerm.toLowerCase())
+    item.id_contrato && item.id_contrato.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  item.objeto && item.objeto.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  item.fornecedor && item.fornecedor.toLowerCase().includes(searchTerm.toLowerCase())
+
   );
 
   const formatDate = (isoString: any) => {
@@ -280,12 +281,12 @@ const dataMaisAtual = data.reduce((maisRecente, item) => {
             <strong>Empresa contratada:</strong> {row.fornecedor}
           </Text>
           <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
-            <strong>Data Início:</strong> {row.data_inicio}  {console.log("Tipo de data_inicio:", typeof row.data_inicio, row.data_inicio) }
+            <strong>Data Início:</strong> {row.data_inicio}  
             
-            <strong> Data Fim:</strong>    {row.data_termino}
+            <strong> Data Fim:</strong>    {row.data_aditivo_final ? row.data_aditivo_final : row.data_termino}
           </Text>
           <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
-            <strong>Descrição:</strong> {row.descricao}
+            <strong>Objeto:</strong> {row.objeto}
           </Text>
           <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
             <strong>Valor:</strong> {row.valor_total !== null ? moneyFormatter(Number(row.valor_total)) : ""}

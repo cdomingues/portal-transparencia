@@ -54,6 +54,7 @@ interface Despesa {
   licitacao_numero: string;
   licitacao_modalidade: string;
   id_empenho: string;
+  item_empenho: string;
 }
 
 export const contentContractsAndAtas = {
@@ -162,7 +163,8 @@ const Despesas = () => {
           normalizar(d.unid_orcam).includes(termo) ||
           normalizar(d.class_funcional).includes(termo) ||
           normalizar(d.descr_funcional).includes(termo) ||
-          normalizar(d.subelemento).includes(termo)
+          normalizar(d.subelemento).includes(termo) ||
+          normalizar(d.item_empenho).includes(termo)
         );
       });
 
@@ -299,9 +301,8 @@ const Despesas = () => {
         Última atualização: <strong>{ultimaAtualizacao}</strong>
       </Text>
 
-      {loading ? (
-        <Spinner />
-      ) : (
+ 
+       
         <>
           <Table fontSize={accessibility?.fonts?.regular}>
             <Thead>
@@ -313,6 +314,7 @@ const Despesas = () => {
                 border={`1px solid ${colors.grayLighter}`}
               >
                 <Th color="white">Empenho</Th>
+                 <Th color="white">Item Empenho</Th>
                 <Th color="white">Valor empenho</Th>
                 <Th color="white">Fornecedor</Th>
                 <Th color="white">CNPJ fornecedor</Th>
@@ -331,10 +333,11 @@ const Despesas = () => {
                   color={useColorModeValue("black", "white")}
                   onClick={() => {
                     sessionStorage.setItem('selectedDespesa', JSON.stringify(row));
-                    window.open(`detalhes?${row.id_empenho}`, '_blank');
+                    window.open(`detalhes?Exercicio_Empenho=${row.id_empenho.split('/')[1]}&nr_empenho=${row.id_empenho.split('/')[0]}`, '_blank');
                   }}
                 >
                   <Td>{row.id_empenho}</Td>
+                  <Td>{row.item_empenho}</Td>
                   <Td>{moneyFormatter(Number(row.vlr_empenho))}</Td>
                   <Td>{row.descr_fornecedor}</Td>
                   <Td>{row.cnpj_fornecedor}</Td>
@@ -369,7 +372,7 @@ const Despesas = () => {
             </Box>
           )}
         </>
-      )}
+     
     </ContainerBasic>
   );
 };

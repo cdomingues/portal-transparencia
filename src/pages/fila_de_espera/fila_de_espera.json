@@ -1,0 +1,332 @@
+[
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Oftalmologista",
+    "Nº de pacientes na fila":12619
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Ortopedista",
+    "Nº de pacientes na fila":7812
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Dermatologista",
+    "Nº de pacientes na fila":6098
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Otorrinolaringologista",
+    "Nº de pacientes na fila":5232
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Cirurgia Vascular",
+    "Nº de pacientes na fila":4825
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Neurologista",
+    "Nº de pacientes na fila":4212
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Nutricionista",
+    "Nº de pacientes na fila":3603
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Cirurgia Ginecológica",
+    "Nº de pacientes na fila":2048
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Urologista",
+    "Nº de pacientes na fila":1328
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Coloproctologista",
+    "Nº de pacientes na fila":1455
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Cardiologista",
+    "Nº de pacientes na fila":1172
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Fonoaudiologista",
+    "Nº de pacientes na fila":1282
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Cirurgia Geral",
+    "Nº de pacientes na fila":1142
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Pequenas Cirurgias ",
+    "Nº de pacientes na fila":1069
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Endocrinologista",
+    "Nº de pacientes na fila":1142
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Pneumologista",
+    "Nº de pacientes na fila":795
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Gastroenterologista",
+    "Nº de pacientes na fila":1029
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Reumatologista",
+    "Nº de pacientes na fila":966
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Nefrologista",
+    "Nº de pacientes na fila":756
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Cirurgia Vascular - Hospitalar",
+    "Nº de pacientes na fila":620
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Cirurgia Pediatrica",
+    "Nº de pacientes na fila":533
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Hematologista",
+    "Nº de pacientes na fila":546
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Cirurgia Plastica",
+    "Nº de pacientes na fila":437
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Mastologista",
+    "Nº de pacientes na fila":324
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Neuro cirurgia",
+    "Nº de pacientes na fila":164
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Cirurgia cabeça e pescoço",
+    "Nº de pacientes na fila":253
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Alergista",
+    "Nº de pacientes na fila":259
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Hepatologista",
+    "Nº de pacientes na fila":233
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Urologista cirurgico",
+    "Nº de pacientes na fila":106
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Cirurgia toracica",
+    "Nº de pacientes na fila":35
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Hepatologista - Infectologia",
+    "Nº de pacientes na fila":36
+  },
+  {
+    "Tipo":"Consulta",
+    "Especialidade":"Médico infectologista",
+    "Nº de pacientes na fila":3
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Ultrassonografia",
+    "Nº de pacientes na fila":11300
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Ecocardiograma transtoracia",
+    "Nº de pacientes na fila":1886
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Esofagogastroduodenoscopia",
+    "Nº de pacientes na fila":1628
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Mamografia Bilateral p\/ Rastreamento",
+    "Nº de pacientes na fila":1866
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Eletroencefalografia em Vigilia C\/ ou S\/ Foto Estimulo",
+    "Nº de pacientes na fila":1269
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Eletrocardiograma com Laudo",
+    "Nº de pacientes na fila":1988
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Espirometria ou Prova De Função Pulmonar Completa com Broncodilatador",
+    "Nº de pacientes na fila":1071
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Avaliação Urodinamica Completa",
+    "Nº de pacientes na fila":730
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Colonoscopia",
+    "Nº de pacientes na fila":627
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Eletroneuromiograma ENMG ",
+    "Nº de pacientes na fila":1587
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Monitorização Ambulatorial de Pressão Arterial M.A.P.A",
+    "Nº de pacientes na fila":372
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Teste de Esforço \/ Teste Ergometrico",
+    "Nº de pacientes na fila":294
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Monitoramento pelo Sistema Holter 24 H (3 canais)",
+    "Nº de pacientes na fila":258
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Nasofibrolaringoscopia ",
+    "Nº de pacientes na fila":302
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Histeroscopia (Diagnostica)",
+    "Nº de pacientes na fila":179
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Ressonancia ",
+    "Nº de pacientes na fila":557
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Tomografia Computadorizada ",
+    "Nº de pacientes na fila":625
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Densitometria Ossea Duo-Energetica de Coluna (vertebras lombares e\/ou Femur)",
+    "Nº de pacientes na fila":377
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Eletroencefalograma em sono induzido C\/ ou S\/ medicamento (EEG)",
+    "Nº de pacientes na fila":107
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Biopsia de Tireoide ou Paratireoide PAAF",
+    "Nº de pacientes na fila":80
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Audiometria Tonal Limiar ",
+    "Nº de pacientes na fila":89
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Cintilografia ",
+    "Nº de pacientes na fila":116
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Imitanciometria",
+    "Nº de pacientes na fila":48
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Punção de Mama Por Agulha Grossa",
+    "Nº de pacientes na fila":22
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Retossigmoidoscopia",
+    "Nº de pacientes na fila":20
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Logoaudiometria (LDV-IRF-LRF)",
+    "Nº de pacientes na fila":36
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Campimetria Computadorizada ou Manual Com Grafica",
+    "Nº de pacientes na fila":10
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Uretrocistografia ",
+    "Nº de pacientes na fila":11
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Punção Aspirativa de Mama por Agulha Fina",
+    "Nº de pacientes na fila":6
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Prova de função Pulmonar Simples",
+    "Nº de pacientes na fila":5
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Escanometria",
+    "Nº de pacientes na fila":2
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Urografia Venosa ",
+    "Nº de pacientes na fila":3
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Biopsia de pele e partes moles",
+    "Nº de pacientes na fila":2
+  },
+  {
+    "Tipo":"Exame",
+    "Especialidade":"Biopsia de prostata via transretal",
+    "Nº de pacientes na fila":1
+  }
+]

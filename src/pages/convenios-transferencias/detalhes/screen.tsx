@@ -75,38 +75,16 @@ function Screen({ id_contrato }: any) {
   const [pagamentos, setPagamentos] = useState<Pagamento[]>([]);
   const [adiantamentos, setAdiantamentos] = useState<ArquivoAdiantamento[]>([]);
 
-  
-    const url = `https://dadosadm.mogidascruzes.sp.gov.br/api/contratos_atas?id_contrato=${id_contrato}`;
-    const url_files = `https://dadosadm.mogidascruzes.sp.gov.br/api/arquivos_contratos_atas?id_contrato_id=${id_contrato}`;
-  
-    useEffect(() => {
-      if (!id_contrato) return;
-      fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.results && Array.isArray(data.results)) {
-            setContrato(data.results);
-          } else {
-            setContrato([]);
-          }
-        })
-        .catch((error) => console.error("Erro ao buscar contratos:", error));
-    }, [id_contrato]);
-  
-    useEffect(() => {
-      if (!id_contrato) return;
-      fetch(url_files) // ✅ Corrigida a URL para arquivos
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.results && Array.isArray(data.results)) {
-            setArquivo(data.results);
-          } else {
-            setArquivo([]);
-          }
-        })
-        .catch((error) => console.error("Erro ao buscar arquivos:", error));
-    }, [id_contrato]);
+  useEffect(() => {
+  const convenioData = sessionStorage.getItem("selectedConvenio");
+  if (convenioData) {
+    setDespesa(JSON.parse(convenioData));
+  }
+}, []);
+  //if (!despesa) return null;
+    
   return (
+    
     <ContainerBasic title={title} description={description}>
        <Box
               m={0}
@@ -118,113 +96,62 @@ function Screen({ id_contrato }: any) {
               borderRadius="18px"
               marginBottom="15px"
             >
-              <ContainerSearch direction="row"></ContainerSearch>
-      
-              <Box>
-                {contrato.length > 0 ? (
-                  contrato.map((item) => (
-                    <Table
-                      key={item.id_contrato}
-                      variant="simple"
-                      size="md"
-                      width="100%"
-                      overflow="hidden"
-                      mb={5}
-                    >
-                      <Thead>
-                        <Tr>
-                          <Th
-                            colSpan={2}
-                            textAlign="center"
-                            bg={colors.transparenciaBlack}
-                            color="white"
-                            p={4}
-                            fontWeight="bold"
-                            border={`1px solid ${colors.transparenciaBlack}`}
-                          >
-                            DETALHAMENTO
-                          </Th>
-                        </Tr>
-                      </Thead>
-                      <Tbody>
-                        {[
-                          ["Contrato / ATA", item.id_contrato],
-                          ["Descrição", item.descricao],
-                          ["Data de início", moment(item.data_inicio).format("DD/MM/YYYY")],
-                          ["Data de término", moment(item.data_termino).format("DD/MM/YYYY")],
-                          ["Objeto", item.objeto],
-                          ["Grupo", item.grupo],
-                          ["Processo", item.processo],
-                          ["Valor total", moneyFormatter(Number(item.valor_total))],
-                          ["Licitação", item.licitacao],
-                          ["Fornecedor", item.fornecedor],
-                          ["Situação", item.situacao],
-                          ["Modalidade", item.modalidade],
-                        ].map(([label, value], index) => (
-                          <Tr key={index}>
-                            <Td fontWeight="bold" bg={useColorModeValue("#f2f1f1", "black")} p={3} width="30%" border={`1px solid ${colors.transparenciaBlack}`}>
-                              {label}
-                            </Td>
-                            <Td p={3} border={`1px solid ${colors.transparenciaBlack}`} bg={useColorModeValue("#f2f1f1", "black")} width="70%">
-                              {value}
-                            </Td>
-                          </Tr>
-                        ))}
-                      </Tbody>
-                    </Table>
-                  ))
-                ) : (
-                  <p>Nenhum contrato encontrado.</p>
-                )}
-      
-                {/* TABELA DE ARQUIVOS */}
-                {arquivo.length > 0 && (
-                  <Table variant="simple" size="md" width="100%" overflow="hidden">
-                    <Thead>
-                      <Tr>
-                        <Th
-                          colSpan={2}
-                          textAlign="center"
-                          bg={colors.transparenciaBlack}
-                          color="white"
-                          p={4}
-                          fontWeight="bold"
-                          border={`1px solid ${colors.transparenciaBlack}`}
-                        >
-                          ARQUIVOS DISPONÍVEIS
-                        </Th>
-                      </Tr>
-                      <Tr>
-                        <Th bg="#f2f1f1" border={`1px solid ${colors.transparenciaBlack}`}>
-                          Nome do Arquivo
-                        </Th>
-                        <Th bg="#f2f1f1" border={`1px solid ${colors.transparenciaBlack}`}>
-                          Download
-                        </Th>
-                      </Tr>
-                    </Thead>
-                    <Tbody>
-                      {arquivo.map((file) => (
-                        <Tr key={file.id}>
-                          <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
-                            {file.nome}
-                          </Td>
-                          <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
-                            <Link 
-                            href={file.arquivo} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            
-                            _hover={{ fontWeight: 'bold' }} 
-                            >
-                              Baixar
-                            </Link>
-                          </Td>
-                        </Tr>
-                      ))}
-                    </Tbody>
-                  </Table>
-                )}
+              {despesa && (
+  <Box
+    border="2px solid transparent"
+    p="12px"
+    borderRadius="16px"
+    mb="12px"
+    bg={useColorModeValue("white", "black")}
+    boxShadow="lg"
+  >
+     <Table variant="simple" size="md" width="100%" overflow="hidden" mb={5}>
+                  <Thead>
+                    <Tr>
+                      <Th colSpan={2} textAlign="center" bg={colors.transparenciaBlack} color="white" p={4} fontWeight="bold"  
+                      border={`1px solid ${colors.transparenciaBlack}`}
+                      >
+                        DETALHES DO CONVÊNIO
+                      </Th>
+                    </Tr>
+                  </Thead>
+                  <Tbody>
+                {[
+                   ["Convênio", despesa.id_convenio],
+                   ["Tipo recurso", despesa.tipo_recurso],
+                   ["Demanda", despesa.nivel_demanda],
+                   ["Modalidade ", despesa.modalidade],
+                   ["Aplicação", despesa.aplicacao],
+                   ["Orgão ", despesa.orgao],
+                   ["Autor", despesa.politico],
+                   ["Secretaria ", despesa.secretaria],
+                   ["Status", despesa.status_convenio],
+                   ["Ano", despesa.ano],
+                 
+                   ["Data formalziado", despesa.data_formalizado],
+                   ["Processo administrativo", despesa.processo_administrativo] ,
+                   ["Objeto", despesa.objeto],
+                   ["Valor repasse",moneyFormatter(Number(despesa.valor_repasse))],
+                   ["Valor contrapartida",moneyFormatter(Number(despesa.contrapartida))],
+                   ["Data inicio", moment(despesa.data_inicio).format("DD/MM/YYYY")],
+                   ["Data fim", moment(despesa.data_fim).format("DD/MM/YYYY")],
+                  
+                ].map(([label, value], index) => (
+                  <Tr key={index}>
+                    <Td fontWeight="bold" bg={useColorModeValue("#f2f1f1", "black")} p={3} width="30%"  border={`1px solid ${colors.transparenciaBlack}`}>
+                      {label}
+                    </Td>
+                    <Td p={3} bg={useColorModeValue("#f2f1f1", "black")} width="70%"  border={`1px solid ${colors.transparenciaBlack}`}>
+                      {value}
+                    </Td>
+                  </Tr>
+                ))}
+              </Tbody>
+     </Table>
+   
+  </Box>
+)} <Box>
+             
               </Box>
             </Box>
     </ContainerBasic>
