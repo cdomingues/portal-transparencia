@@ -27,7 +27,8 @@ import CardHome from "../../CardHome";
 //import VLibras from "vlibras-nextjs";
 import ModalPopup from "../../Modal";
 import { useWindowSize } from "../../../hooks/useWindowSize";
-
+import VLibras from '@moreiraste/react-vlibras';
+import VLibrasScript from "../../VLibrasScript";
 
 // type Props = {
 //   children?: React.ReactNode;
@@ -47,7 +48,7 @@ function PublicHome() {
 
   return (
     <>
-     
+      <VLibrasScript  />  
       <Head>
         <title>Início</title>
       </Head>
