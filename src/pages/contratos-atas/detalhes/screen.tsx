@@ -144,19 +144,23 @@ function Screen({ id_contrato }: any) {
                 </Thead>
                 <Tbody>
                   {[
-                    ["Contrato / ATA", item.id_contrato],
-                    ["Descrição", item.descricao],
+                    ["Contrato", item.id_contrato],
                     ["Data de início", moment(item.data_inicio).format("DD/MM/YYYY")],
                     ["Data de término", moment(item.data_aditivo_final ? item.data_aditivo_final : item.data_termino).format("DD/MM/YYYY")],
+                    //["Secretaria responsável", item.secretaria_responsavel.split('-')[1]],
+                    ["Gestor do contrato", item.gestor_contrato],
                     ["Objeto", item.objeto],
                     ["Grupo", item.grupo],
+                    ["Tipo",item.tipo_contrato],
                     ["Processo", item.processo],
+                    ["Valor", moneyFormatter(Number(item.valor))],
+                    ["Valor aditado", moneyFormatter(Number(item.valor_aditado))],
                     ["Valor total", moneyFormatter(Number(item.valor_total))],
                     ["Licitação", item.licitacao],
                     ["Fornecedor", item.fornecedor],
                     ["Situação", item.situacao],
                     ["Modalidade", item.modalidade],
-                    ["ID Tabela Contrato", item.id_tabela_contrato], // Adicionei esta linha para debug
+                    
                   ].map(([label, value], index) => (
                     <Tr key={index}>
                       <Td

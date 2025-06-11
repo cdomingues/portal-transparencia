@@ -35,8 +35,7 @@ import VLibras from  '@djpfs/react-vlibras'
 // };
 
 function PublicHome() {
-  const url_video = "https://www.youtube.com/embed/GmqSBItXyN4?list=PLr6uMRVxi5CZDYEttIUVaIzsm07L7qI6a";
-  const titulo = "O que é o portal da transparência?"; 
+  
   const accessibility = useFontSizeAccessibilityContext();
   const brasaoImageSrc = useColorModeValue(
     Brasao_PMMC_Normal.src,
@@ -44,7 +43,7 @@ function PublicHome() {
   );
   const lupaSrc = useColorModeValue(lupaNormal.src, lupaDark.src);
   const { width } = useWindowSize();
-  const isMobile = width <= 768;
+  const isMobile = width <= 480;
 
   return (
     <>

@@ -1,13 +1,31 @@
 import Diretriz_orcamentaria from "../../assets/images/icones/diretriz_orcamentaria.svg";
 import CardHorizon from "../CardHorizon";
 import IconeOrcamento from "../../assets/images/icones/orcamento_home.svg";
-import IconeServidores from '../../assets/images/icones/servidores_home.svg'
-import IconeAdmMunicipal from '../../assets/images/icones/adm_municipal_home.svg'
-import IconeSocial from '../../assets/images/icones/lupa.svg'
-import IconePortais from '../../assets/images/icones/portais_home.svg'
-import IconePlanejamento from '../../assets/images/icones/planejamento_home.svg'
-import IconesGovernoAberto from '../../assets/images/icones/governo_aberto_home.svg'
+import IconeOrcamentoBranco from "../../assets/images/icones/orcamento_home_branco.svg";
 import IconeContratos from '../../assets/images/icones/icone_home_contratos.svg'
+import IconeContratosBranco from '../../assets/images/icones/icone_home_contratos_branco.svg'
+import IconeLeisDecretos from '../../assets/images/icones/leis_e_decretos.svg'
+import IconeLeisDecretosBranco from '../../assets/images/icones/leis_e_decretos_branco.svg'
+import IconeServidores from '../../assets/images/icones/servidores_home.svg'
+import IconeServidoresBranco from '../../assets/images/icones/servidores_home_branco.svg'
+import IconeAdmMunicipal from '../../assets/images/icones/adm_municipal_home.svg'
+import IconeAdmMunicipalBranco from '../../assets/images/icones/adm_municipal_home_branco.svg'
+import IconeSocial from '../../assets/images/icones/lupa.svg'
+import IconeSocialBranco from '../../assets/images/icones/lupa branco.svg'
+import IconePortais from '../../assets/images/icones/portais_home.svg'
+import IconePortaisBranco from '../../assets/images/icones/portais_home_branco.svg'
+import IconePlanejamento from '../../assets/images/icones/planejamento_home.svg'
+import IconePlanejamentoBranco from '../../assets/images/icones/planejamento_home_branco.svg'
+import IconesGovernoAberto from '../../assets/images/icones/governo_aberto_home.svg'
+import IconesGovernoAbertoBranco from '../../assets/images/icones/governo_aberto_home_branco.svg'
+import IconeLai from '../../assets/images/icones/lai.svg';
+import IconeLaiBranco from '../../assets/images/icones/lai_branco.svg';
+import IconeDiario from '../../assets/images/icones/diario.svg'
+import IconePortal from '../../assets/images/icones/portal_dados_abertos.svg';
+import IconeDiarioBranco from '../../assets/images/icones/diario_branco.svg'
+import IconePortalBranco from '../../assets/images/icones/portal_dados_abertos_branco.svg';
+
+
 import FolhaPagamento from '../../assets/images/icones/folha_de_pagamento.svg'
 import CargosSalarios from '../../assets/images/icones/folha de pagamento__cargos e salarios.svg'
 import Diarias from '../../assets/images/icones/folha de pagamento__adiantamentos e hospedagem.svg'
@@ -20,11 +38,10 @@ import IconeMap from '../../assets/images/icones/icone_map_red2.svg'
 import IconeSsocial from '../../assets/images/icones/icones_ssocial_red2.svg'
 import IconeOS from '../../assets/images/icones/icones_barra lateral__patrimonio.svg'
 import IconeLeis from '../../assets/images/icones/LAI__protocolo geral.svg'
-import IconeLeisDecretos from '../../assets/images/icones/leis_e_decretos.svg'
+
 import IconeLixeira from '../../assets/images/icones/trash_styled.svg'
-import IconeDiario from '../../assets/images/icones/diario.svg'
-import IconePortal from '../../assets/images/icones/portal_dados_abertos.svg';
-import IconeLai from '../../assets/images/icones/lai.svg';
+
+
 
 import Perfil_municipio from "../../assets/images/icones/icones_barra lateral__perfil do municipio.svg";
 import Ciclo_orcamentario from "../../assets/images/icones/icones_barra lateral__ciclo orcamentario.svg";
@@ -62,22 +79,10 @@ export const menus=[
         "id": 1,
         "title": "ORÇAMENTO",
         'imageURL': IconeOrcamento.src, 
+        'imageURL2': IconeOrcamentoBranco.src, 
         'description': 'Informações sobre ciclo orçamentário, despesa, receitas',
         "submenus": [
-          {"id_submenu": 1, 
-            "label": "Ciclo Orçamentário", 
-            "link":"",
-            "imageURL":Ciclo_orcamentario.src,
-            "extralinks": [
-            { label: "Plano Plurianual", url: "/ciclo-orcamentario/plurianual" },
-            { label: "Diretrizes Orçamentárias", url: "/ciclo-orcamentario/diretrizes-orcamentarias" },
-            { label: "Lei Orcamentária Anual", url: "/ciclo-orcamentario/lei-orcamentaria-anual" },
-            { label: "Relatório de Gestão Fiscal", url: "/ciclo-orcamentario/relatorio-gestao-fiscal" },
-            { label: "Relatório Resumido", url: "/ciclo-orcamentario/relatorio-resumido" },
-            { label: "Balanços Anuais", url: "/ciclo-orcamentario/balancos-anuais" },
-           
-            { label: "Desonerações/ Renúncia de Receita", url: "/ciclo-orcamentario/desoneracoes-renuncias" },
-          ]},
+        
         {"id_submenu": 2, 
             "title": "Execução Orçamentária",
             'imageURL': Gestao_orcamentaria.src,
@@ -164,6 +169,7 @@ export const menus=[
         "id": 2,
         "title": "CONTRATOS E LICITAÇÕES",
         'imageURL': IconeContratos.src, 
+        'imageURL2': IconeContratosBranco.src, 
         'description': 'Informações sobre contratos, atas, licitações, acordos e termos de cooperação',
         "submenus": [
             {
@@ -173,7 +179,7 @@ export const menus=[
                 "url":"",
                 "extralinks": [
                     { label: "Contratos", url: "/contratos-atas/contratos"  },
-                    { label: "Contratos de Gestão", url: "/contratos-atas/contratos-gestao"  },
+                    //{ label: "Contratos de Gestão", url: "/contratos-atas/contratos-gestao"  },
                    { label: "Atas de registro de preços",  url: "/contratos-atas/atas"   },
                     { label: "Relação dos Gestores de contratos",  url: "/contratos-atas/gestores-contratos"  },
                     
@@ -218,6 +224,7 @@ export const menus=[
         "id": 3,
         "title": "LEIS E DECRETOS",
         'imageURL': IconeLeisDecretos.src, 
+         'imageURL2': IconeLeisDecretosBranco.src, 
         'description': "Leis, decretos e portarias",
         "submenus": [
          
@@ -239,6 +246,7 @@ export const menus=[
         "id": 4,
         "title": "SERVIDORES",
         'imageURL': IconeServidores.src, 
+        'imageURL2': IconeServidoresBranco.src,
         'description': "Informações sobre concursos públicos, processos seletivos, folha de pagamento",
         "submenus": [
             {
@@ -291,7 +299,8 @@ export const menus=[
       {
         "id": 5,
         "title": "ADMINISTRAÇÃO MUNICIPAL",
-        'imageURL': IconeAdmMunicipal.src, 
+        'imageURL': IconeAdmMunicipal.src,
+        'imageURL2': IconeAdmMunicipalBranco.src, 
         'description': "Informações sobre a administração municipal",
         "submenus": [
             
@@ -362,6 +371,7 @@ export const menus=[
         "id": 6,
         "title": "CONTROLE SOCIAL",
         'imageURL': IconeSocial.src, 
+        'imageURL2': IconeSocialBranco.src, 
         'description': "Informações sobre agenda da autoridades, controle de radares, conselhos municipais e uso de carros oficiais, etc .",
         "submenus": [
             {   
@@ -470,6 +480,7 @@ export const menus=[
         "id": 7,
         "title": "PLANEJAMENTO E PRESTAÇÃO DE CONTAS",
         'imageURL': IconePlanejamento.src, 
+        'imageURL2': IconePlanejamentoBranco.src, 
         'description': "Informações sobre planejamento e prestação de contas",
         "submenus": [
             {
@@ -518,6 +529,26 @@ export const menus=[
                 'url':"/ciclo-orcamentario/pareceres-do-tribunal",
                 "extralinks": [ ]
             },  
+            {
+                'id_submenu': 7,
+                "label": "Plano de Governo",
+                "imageUrl": IconeLeis.src,
+                "url": "https://mogisp.sharepoint.com/sites/SMTDA-DTPI/Documentos%20Compartilhados/Forms/AllItems.aspx?id=%2Fsites%2FSMTDA%2DDTPI%2FDocumentos%20Compartilhados%2F01%2E%20Transpar%C3%AAncia%2F05%2E%20Portal%20da%20Transpar%C3%AAncia%2FPortal%20da%20Transpar%C3%AAncia%5F2025%2FPublica%C3%A7%C3%B5es%20do%20Portal%20da%20Transpar%C3%AAncia%2FPlano%20de%20Governo%5FMara%20Bertaiolli%5F2025%2D2029%2Epdf&parent=%2Fsites%2FSMTDA%2DDTPI%2FDocumentos%20Compartilhados%2F01%2E%20Transpar%C3%AAncia%2F05%2E%20Portal%20da%20Transpar%C3%AAncia%2FPortal%20da%20Transpar%C3%AAncia%5F2025%2FPublica%C3%A7%C3%B5es%20do%20Portal%20da%20Transpar%C3%AAncia&p=true&ga=1"
+            },
+              {"id_submenu": 8, 
+            "label": "Ciclo Orçamentário", 
+            "link":"",
+            "imageURL":Ciclo_orcamentario.src,
+            "extralinks": [
+            { label: "Plano Plurianual", url: "/ciclo-orcamentario/plurianual" },
+            { label: "Diretrizes Orçamentárias", url: "/ciclo-orcamentario/diretrizes-orcamentarias" },
+            { label: "Lei Orcamentária Anual", url: "/ciclo-orcamentario/lei-orcamentaria-anual" },
+            { label: "Relatório de Gestão Fiscal", url: "/ciclo-orcamentario/relatorio-gestao-fiscal" },
+            { label: "Relatório Resumido", url: "/ciclo-orcamentario/relatorio-resumido" },
+            { label: "Balanços Anuais", url: "/ciclo-orcamentario/balancos-anuais" },
+           
+            { label: "Desonerações/ Renúncia de Receita", url: "/ciclo-orcamentario/desoneracoes-renuncias" },
+          ]},
            
         ]
       },
@@ -525,6 +556,7 @@ export const menus=[
         "id": 8,
         "title": "INICIATIVAS DE GOVERNO ABERTO",
         'imageURL': IconesGovernoAberto.src, 
+        'imageURL2': IconesGovernoAbertoBranco.src, 
         'description': "Veja aqui as principais iniciativas de governo aberto",
         "submenus": [
            
@@ -559,6 +591,7 @@ export const menus=[
         "id": 9,
         "title": "APLICATIVOS E PORTAIS",
         'imageURL': IconePortais.src, 
+        'imageURL2': IconePortaisBranco.src, 
         'description': "Acesso aos demais portais e aplicativos da prefeitura",
         "submenus": [
             {
@@ -627,6 +660,7 @@ export const menus=[
         "id": 10,
         "title": "LEI DE ACESSO À INFORMAÇÃO",
         'imageURL': IconeLai.src, 
+        'imageURL2': IconeLaiBranco.src, 
         'description': "Veja aqui as principais iniciativas de governo aberto",
         "submenus": [
              {
@@ -666,6 +700,7 @@ export const menus=[
         "id": 11,
         "title": "LGPD",
         'imageURL': IconeLeisDecretos.src, 
+        'imageURL2': IconeLeisDecretosBranco.src, 
         'description': "Veja aqui as principais iniciativas de governo aberto",
         "submenus": [
              {
@@ -695,7 +730,8 @@ export const menus=[
        {
         "id": 12,
         "title": "InfoDados",
-        'imageURL': IconesGovernoAberto.src, 
+        'imageURL': IconesGovernoAberto.src,
+        'imageURL2': IconesGovernoAbertoBranco.src, 
         'description': "InfoDados",
         "submenus": [
              {
@@ -711,6 +747,7 @@ export const menus=[
         "id": 13,
         "title": "Diário Oficial",
         'imageURL': IconeDiario.src, 
+        'imageURL2': IconeDiarioBranco.src, 
         'description': "Diário oficial",
         "submenus": [
              {
@@ -725,7 +762,8 @@ export const menus=[
         {
         "id": 14,
         "title": "Plano Municipal de Integridade",
-        'imageURL': IconesGovernoAberto.src, 
+        'imageURL': IconesGovernoAberto.src,
+        'imageURL2': IconesGovernoAbertoBranco.src, 
         'description': "Plano Municicipal de Integridade",
         "submenus": [
              {
@@ -741,6 +779,7 @@ export const menus=[
         "id": 15,
         "title": "Portal de dados abertos",
         'imageURL': IconePortal.src, 
+        'imageURL2': IconePortalBranco.src, 
         'description': "Portal de dados abertos",
         "submenus": [
              {

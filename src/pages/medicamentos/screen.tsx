@@ -137,7 +137,9 @@ function Screen({ handler }: PropsInput) {
                         my="10px"
                         
                       />
-        
+        <Text fontSize={accessibility?.fonts?.regular} mb="10px">
+                        Última atualização: <strong>30/05/2025</strong>
+                      </Text>
         <Table >
           <Thead>
             <Tr  bg={colors.transparenciaBlack}

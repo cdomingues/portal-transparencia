@@ -69,7 +69,9 @@ function CardHomeTabs() {
 
               >
                 <Flex align="center" gap={4} flex="1" textAlign="left">
-                  <Image src={menu.imageURL} alt={menu.title} width={70} height={70} />
+                  <Image 
+                    
+                  src={useColorModeValue(menu.imageURL,menu.imageURL2)} alt={menu.title} width={70} height={70} />
                   <Text
                     fontWeight="bold"
                     fontSize={useAccessibility?.fonts?.large}

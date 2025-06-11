@@ -63,17 +63,7 @@ const MenuHorizontalChakra = () => {
       icon: TbZoomMoney,
       href: '#',
       submenu: [
-        { label: 'Ciclo orçamentário', href: '#',
-          submenu: [
-            { label: "Plano Plurianual", href: "/ciclo-orcamentario/plurianual" },
-            { label: "Diretrizes Orçamentárias", href: "/ciclo-orcamentario/diretrizes-orcamentarias" },
-            { label: "Lei Orcamentária Anual", href: "/ciclo-orcamentario/lei-orcamentaria-anual" },
-            { label: "Relatório de Gestão Fiscal", href: "/ciclo-orcamentario/relatorio-gestao-fiscal" },
-            { label: "Relatório Resumido", href: "/ciclo-orcamentario/relatorio-resumido" },
-            { label: "Balanços Anuais", href: "/ciclo-orcamentario/balancos-anuais" },
-            
-          ]
-         },
+       
         
         { 
           label: 'Execução Orçamentária', 
@@ -152,7 +142,7 @@ const MenuHorizontalChakra = () => {
         { label: 'Contratos  ', href: '#',
           submenu: [
             { label: "Contratos",href: "/contratos-atas/contratos", },
-            {label: "Contratos de gestão",href: "/contratos-atas/contratos-gestao", },
+           // {label: "Contratos de gestão",href: "/contratos-atas/contratos-gestao", },
            { label: "Atas de registro de preços",  href: "/contratos-atas/atas"   },
             {label: "Relação dos Gestores de contratos",href: "/contratos-atas/gestores-contratos", },
            
@@ -296,7 +286,19 @@ const MenuHorizontalChakra = () => {
         { label: 'Políticas e programas', href: '/politicas-programas' },
         { label: 'Prestação de contas simplificada', href: '/governo-aberto/prestacao-contas' },
         { label: 'Prestação à CMMC', href: '/ciclo-orcamentario/prestacao-de-contas' },
-        { label: '"Pareceres do Tribunal', href: '/ciclo-orcamentario/pareceres-do-tribunal' },
+        { label: 'Pareceres do Tribunal', href: '/ciclo-orcamentario/pareceres-do-tribunal' },
+        {label: 'Plano de governo', href:'https://mogisp.sharepoint.com/sites/SMTDA-DTPI/Documentos%20Compartilhados/Forms/AllItems.aspx?id=%2Fsites%2FSMTDA%2DDTPI%2FDocumentos%20Compartilhados%2F01%2E%20Transpar%C3%AAncia%2F05%2E%20Portal%20da%20Transpar%C3%AAncia%2FPortal%20da%20Transpar%C3%AAncia%5F2025%2FPublica%C3%A7%C3%B5es%20do%20Portal%20da%20Transpar%C3%AAncia%2FPlano%20de%20Governo%5FMara%20Bertaiolli%5F2025%2D2029%2Epdf&parent=%2Fsites%2FSMTDA%2DDTPI%2FDocumentos%20Compartilhados%2F01%2E%20Transpar%C3%AAncia%2F05%2E%20Portal%20da%20Transpar%C3%AAncia%2FPortal%20da%20Transpar%C3%AAncia%5F2025%2FPublica%C3%A7%C3%B5es%20do%20Portal%20da%20Transpar%C3%AAncia&p=true&ga=1'},
+         { label: 'Ciclo orçamentário', href: '#',
+          submenu: [
+            { label: "Plano Plurianual", href: "/ciclo-orcamentario/plurianual" },
+            { label: "Diretrizes Orçamentárias", href: "/ciclo-orcamentario/diretrizes-orcamentarias" },
+            { label: "Lei Orcamentária Anual", href: "/ciclo-orcamentario/lei-orcamentaria-anual" },
+            { label: "Relatório de Gestão Fiscal", href: "/ciclo-orcamentario/relatorio-gestao-fiscal" },
+            { label: "Relatório Resumido", href: "/ciclo-orcamentario/relatorio-resumido" },
+            { label: "Balanços Anuais", href: "/ciclo-orcamentario/balancos-anuais" },
+            
+          ]
+         },
       ]
     },
     {
