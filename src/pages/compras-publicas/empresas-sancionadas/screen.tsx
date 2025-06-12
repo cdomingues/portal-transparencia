@@ -43,7 +43,7 @@ function Screen({ handler }: PropsInput) {
         marginBottom="15px"
       >
         <Button
-          
+          width='500px'
           mb="20px"
          
           fontWeight="700"
@@ -54,6 +54,20 @@ function Screen({ handler }: PropsInput) {
                 window.open("https://portaldatransparencia.gov.br/sancoes/consulta?cadastro=1&ordenarPor=nomeSancionado&direcao=asc", '_blank');
               }}
        >Cadastro Cadastro Nacional de Empresas Idôneas e Suspensas </Link>
+       </Button>
+<br/>
+       <Button
+           width='500px'
+          mb="20px"
+         
+          fontWeight="700"
+          fontSize={accessibility?.fonts?.regular}
+        > <Link 
+         onClick={() => {
+                
+                window.open("https://www.tce.sp.gov.br/pesquisa-relacao-apenados", '_blank');
+              }}
+       >Relação de Apenados do TCESP   </Link>
        </Button>
 
       </Box>

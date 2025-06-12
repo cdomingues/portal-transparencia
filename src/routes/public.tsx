@@ -39,29 +39,7 @@ import { contentConstructionsControl } from "../pages/controle-de-obras/inicio";
 //import { contentAboutConstructions } from "../pages/controle-de-obras/sobre-as-obras";
 import { contentRadarsControl } from "../pages/controle-de-radares/screen";
 import { contentMayorAgenda } from "../pages/agenda-aberta/agenda-prefeita/screen";
-import { contentContractManagement } from "../pages/convenios-transferencias/contratos-gestao/screen";
 
-// import { contentAgreementColaborator } from "../pages/acordos-termos/acordo-de-colaboracao/screen";
-
-import { contentPublicWorks } from "../pages/controle-de-obras/obras-publicas/screen";
-import { contentPublicServants } from "../pages/ciclo-orcamentario/servidores-publicos-estagiarios/screen";
-//import { contentPROMAE } from "../pages/ciclo-orcamentario/promae/screen";
-//import { contentRevenue } from "../pages/gestao-orcamentaria/receitas/screen";
-//import { contentContractsAndAtas } from "../pages/gestao-orcamentaria-outros/contratos-atas/screen";
-
-import { contentAdvancesAndAccommodation } from "../pages/gestao-de-pessoas/off-adiantamento-hospedagem/screen";
-//import { contentRecipesAmendments } from "../pages/gestao-orcamentaria/receitas/receitas-emendas/screen";
-import { contentGeneralCosts } from "../pages/gestao-orcamentaria/despesas/despesas-gerais-old/screen";
-import { contentExpensesRemains } from "../pages/gestao-orcamentaria/despesas/despesas-restos/screen";
-import { contentTrafficFines } from "../pages/gestao-orcamentaria/receitas/off-multa-transito/screen";
-import { contentExpensesParliamentaryAmendments } from "../pages/gestao-orcamentaria/despesas/despesas-emendas-old/screen";
-
-import { contentReportExtrabudget } from "../pages/ciclo-orcamentario/relatorio-resumido/screen";
-import { contentAnnualBalance } from "../pages/contas/balancos-anuais/screen";
-import { contentCourtOpinions } from "../pages/contas/pareceres-tribunal/screen";
-import { contentPatrimony } from "../pages/patrimonio/screen";
-//import { contentOtherInformations } from "../pages/sobre-portal/ultimas-noticias/screen";
-//import { contentSearchConstructions } from "../pages/controle-de-obras/pesquisar-obras/screen";
 import { contentAbout } from "../pages/sobre-portal/screen";
 import { pointRadial } from "d3";
 import perfil_municipio from '../assets/images/icones/icones_barra lateral__perfil do municipio.svg'
@@ -133,13 +111,7 @@ let publicRoutes: IPublicRoute[] = [
         ...contentMayorAgenda,
       },
       
-      /* {
-        defaultPath: "/agenda-aberta",
-        name: "Demais Autoridades",
-        path: "agenda-secretarios",
-        icon: AiOutlineProfile,
-        ...contentMayorAgenda,
-      }, */
+     
       
     ],
   }, 

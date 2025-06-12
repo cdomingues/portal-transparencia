@@ -456,7 +456,7 @@ export const menus=[
                 "id_submenu":8,
                 "label": "Empresas reclamadas no PROCON",
                 'imageUrl': IconeOS.src,
-                'url': 'https://www.mogidascruzes.sp.gov.br/public/site/doc/20250509150621681e441d1b768.pdf',
+                'url': 'empresas-reclamadas-procon',
                 'extralinks': []
             },
              {
