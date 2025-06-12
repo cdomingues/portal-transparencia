@@ -52,43 +52,36 @@ export default function LargeWithLogoCentered() {
         
       >
          <Flex
-          align="center"
-          mt="20px"
-          height='250px'
-          _before={{
-            content: '""',
-            borderBottom: "1px solid",
-            borderColor: useColorModeValue("white", "gray.700"),
-            flexGrow: 1,
-            mr: 10,
-            gap:"10px",
-          }}
-          _after={{
-            content: '""',
-            borderBottom: "1px solid",
-            borderColor: useColorModeValue("white", "gray.700"),
-            flexGrow: 1,
-            ml: 8,
-          }}
-          sx={{
-            display: "flex",
-            flexDirection: ["column", "row"], // 'column' em mobile, 'row' em telas maiores
-            gap: ["20px", "0px"], 
-
-          }}
-        >
-           <Image alt="logo" width='180px' pr='30px' src={ccomon.src} border='1px solid lightgrey' p='20px' mr='10px' borderRadius='12px' bgColor='white'/>
-          <Link href="https://radardatransparencia.atricon.org.br/radar-da-transparencia-publica.html" target="blank">
-          <Image alt="logo" width='260px' pr='30px' src={radar_transparencia.src} borderRadius='12px' 
-          border='1px solid lightgrey' mr="10px"/>
-          </Link>          
-         
-          <Image alt="logo" width="160px" pr="30px" src={seloTansparencia2022.src}/>
-        <Image alt="logo" width="160px" pr="30px"  src={seloTansparencia2023.src} />
-        <Image alt="logo" width="160px" pr="30px"  src={seloTansparencia2024.src} />
-        <Image alt="logo" width="160px" pr="30px" src={pnpc.src} />
-        
-        </Flex>
+  wrap="wrap"
+  justify="center"
+  align="center"
+  mt={10}
+  gap={6}
+  px={[4, 8]}
+>
+  <Image
+    alt="Creative Commons"
+    src={ccomon.src}
+    width={["120px", "160px", "180px"]}
+    border="1px solid lightgrey"
+    p={4}
+    borderRadius="12px"
+    bg="white"
+  />
+  <Link href="https://radardatransparencia.atricon.org.br/radar-da-transparencia-publica.html" target="_blank">
+    <Image
+      alt="Radar da Transparência"
+      src={radar_transparencia.src}
+      width={["180px", "220px", "260px"]}
+      border="1px solid lightgrey"
+      borderRadius="12px"
+    />
+  </Link>
+  <Image alt="Selo 2022" src={seloTansparencia2022.src} width={["120px", "140px", "160px"]} />
+  <Image alt="Selo 2023" src={seloTansparencia2023.src} width={["120px", "140px", "160px"]} />
+  <Image alt="Selo 2024" src={seloTansparencia2024.src} width={["120px", "140px", "160px"]} />
+  <Image alt="PNPC" src={pnpc.src} width={["120px", "140px", "160px"]} />
+</Flex>
         <Divider />
         
       </Container>

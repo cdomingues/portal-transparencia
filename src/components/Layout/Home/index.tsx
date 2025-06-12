@@ -43,7 +43,7 @@ function PublicHome() {
   );
   const lupaSrc = useColorModeValue(lupaNormal.src, lupaDark.src);
   const { width } = useWindowSize();
-  const isMobile = width <= 480;
+  const isMobile = width <= 700;
 
   return (
     <>
