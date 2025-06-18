@@ -237,7 +237,7 @@ function Screen() {
   >
         <Td>{row.ano} </Td> 
        <Td>{row.receita} </Td> 
-       <Td> {(row.vinculo.split('-')[1])}</Td>
+       <Td> {row.vinculo}</Td>
        <Td>{moneyFormatter(Number(row.janeiro))}</Td>
         <Td>{moneyFormatter(Number(row.fevereiro))}</Td>
         <Td>{moneyFormatter(Number(row.marco))}</Td>

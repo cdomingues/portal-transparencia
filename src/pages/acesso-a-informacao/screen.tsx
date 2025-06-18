@@ -183,7 +183,7 @@ marginBottom="15px">
                 <Flex flexDirection='column'>
                  
              <Text>
-  <b>O Serviço de Informação ao Cidadão (SIC)</b> é a unidade subordinada à Secretaria Municipal de Governo e Transparência responsável por atender os pedidos de acesso à informação, com base na Lei Federal nº 12.527/11, a Lei de Acesso à Informação. <br/>
+  <Link textDecoration='underline' href='https://mogidascruzes.1doc.com.br/b.php?pg=wp/wp&s=mogidascruzes&itd=3&is=24880' _hover={{color: 'blue.500'}} target='_blank'><b>O Serviço de Informação ao Cidadão (SIC)</b></Link> é a unidade subordinada à Secretaria Municipal de Governo e Transparência responsável por atender os pedidos de acesso à informação, com base na Lei Federal nº 12.527/11, a Lei de Acesso à Informação. <br/>
   Qualquer interessado, pessoa física ou jurídica, pode fazer um pedido de informação.
 <br/>
 • Não é necessário justificar a motivação do pedido;<br/>

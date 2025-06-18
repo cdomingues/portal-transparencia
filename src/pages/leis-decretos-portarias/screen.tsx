@@ -219,12 +219,7 @@ marginBottom="15px"
                 justifyContent={isMobile ? "flex-start" : "center"}
               >
                   <Box padding="6" bg="transparent" flexDirection="row">
-                   <CardHorizon
-                      title="LGPD"
-                      imageURL={protocolo_geral.src}
-                      description="Lei Geral de Proteção de Dados."
-                      link="leis-decretos-portarias/lgpd  "
-                 backgroundColor="transparent"/>
+                  
                                     </Box>
                  
                   

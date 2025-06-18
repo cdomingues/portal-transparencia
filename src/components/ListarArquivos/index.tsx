@@ -143,7 +143,7 @@ const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.cadastro).toLoc
         .filter((arquivo) =>
         selectedYear ? arquivo.ano === selectedYear : true
       )
-        .sort().map((arquivo, index) => (
+        .sort((a, b) => new Date(a.cadastro).getTime() - new Date(b.cadastro).getTime()).map((arquivo, index) => (
           //<Link href={`${apiUrl}${arquivo.file}`} download target="_blank"  >
           <Stack 
           key={arquivo.pk}

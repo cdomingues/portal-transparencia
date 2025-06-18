@@ -21,6 +21,7 @@ import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccess
 import colors from "../../../styles/colors";
 import CsvDownload from "react-json-to-csv";
 import PaginationComponent from "../../../components/PaginationComponent";
+import moneyFormatter from "../../../utils/moneyFormatter";
 
 const API_URL = "https://dadosadm.mogidascruzes.sp.gov.br/api/listaobras/";
 const ITEMS_PER_PAGE = 50;
@@ -273,12 +274,7 @@ function Screen() {
                 <Text><strong>Bairro: </strong>{obra.bairro}</Text>
                 <Text>{obra.categoria?.replace("Categoria:", "")}</Text>
                 <Text><strong>Status: </strong>{(obra.status).split('-')[1]}</Text>
-                <Text>
-                  {calcularValorTotal(obra).toLocaleString("pt-BR", {
-                    style: "currency",
-                    currency: "BRL",
-                  })}
-                </Text>
+                <Text> <strong>Valor da obra: </strong>{moneyFormatter(obra.valor_total_aditamento_reajuste_contrato)}  </Text>
               </Box>
             ))}
         

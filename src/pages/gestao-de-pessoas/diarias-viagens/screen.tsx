@@ -27,6 +27,7 @@ import moment from "moment";
 import { format } from "path";
 import ContainerBasic from "../../../components/Container/Basic";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
+import DetalheDiaria from "../../../components/DetalheDiaria";
 
 const API_URL = "https://dadosadm.mogidascruzes.sp.gov.br/api/diaria_atualizada";
 const ITEMS_PER_PAGE = 50;
@@ -253,6 +254,10 @@ const formatHoras = (tempo: string | number) => {
                   { key: "valor_diaria", label: "Valor diária" },
                   { key: "destino", label: "Destino" },
                   { key: "justificativa", label: "Justificativa" },
+                  { key: "detalhes", label: "Cargo" },
+                  { key: "secretaria", label: "Secretaria" },
+                   { key: "lotacao", label: "Lotação" },
+                  
                 ].map(({ key, label }) => (
                   <Th
                     key={key}
@@ -285,6 +290,13 @@ const formatHoras = (tempo: string | number) => {
                   <Td>{moneyFormatter(Number(row.valor_diaria))}</Td>
                   <Td>{row.destino}</Td>
                   <Td>{row.justificativa}</Td>
+                  
+      <DetalheDiaria
+        rgf={row.rgf}
+        ano={row.ano}
+        mes={row.mes}
+      />
+   
                 </Tr>
               ))}
             </Tbody>

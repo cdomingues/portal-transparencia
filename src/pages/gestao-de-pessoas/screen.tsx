@@ -172,7 +172,7 @@
                         title="Estrutura Organizacional"
                         imageURL={cargos_e_salarios.src}
                         description="Adiantamentos são recursos financeiros conferidos a um servidor público, a fim de que possa realizar despesas que não possam aguardar o ciclo normal de compras."
-                        link="http://leismunicipa.is/0ji28"
+                        link="/gestao-de-pessoas/estrutura-organizacional"
                         backgroundColor="transparent"
                       />
                     </Box>
