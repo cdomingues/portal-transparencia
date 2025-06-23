@@ -40,8 +40,7 @@ function Controller() {
 
   const columns = [
     { title: "Nome", field: "nome" },
-    { title: "Telefone", field: "telefone" },
-    { title: "E-mail", field: "email" },
+ 
     { title: "Localização", field: "localizacao" },
     { title: "Local", field: "local" },
     { title: "Endereço", field: "endereco" },

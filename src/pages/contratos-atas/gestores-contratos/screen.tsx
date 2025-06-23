@@ -1,19 +1,31 @@
-import React, { useEffect, useState } from "react";
+import {
+  Button,
+  Divider,
+  Select,
+  Stack,
+  Text,
+  useDisclosure,
+  Box,
+  useColorModeValue,
+  Input,
+  Table,
+  Thead,
+  Tr,
+  Th,
+  Tbody,
+  Td
+} from "@chakra-ui/react";
+import React, { useState, useEffect } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
-import publicRoutes from "../../../routes/public";
-import { Box, Button, Divider, Link, ListItem, Stack, Table, Tbody, Td, Text, Th, Thead, Tr, UnorderedList, useColorModeValue } from "@chakra-ui/react";
-import { useRouter } from "next/router";
-import { isMobile } from "react-device-detect";
-import { color } from "highcharts";
-import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
-import { FaDownload } from "react-icons/fa";
-
-import DadosAbertos from "../../../components/DadosAbertos";
 import TableComponent, { TableColumns } from "../../../components/Table";
+//import ModalContracts from "./modalContracts";
+import { ContainerSearch } from "../../../styles/components/contratos-atas/styles";
+import PaginationComponent from "../../../components/PaginationComponent";
 import colors from "../../../styles/colors";
 import CsvDownload from "react-json-to-csv";
-import PaginationComponent from "../../../components/PaginationComponent";
+import moneyFormatter from "../../../utils/moneyFormatter";
 import moment from "moment";
+import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 
 
 
@@ -22,193 +34,316 @@ type PropsInput = {
     columns: TableColumns;
     data: Array<any>;
     loading: boolean;
+    year: number;
+    years: Number[];
+    setYear: any;
+    handleByYear: any;
+    data2: Array<any>;
+    setData2: any;
+    arquivosColumns: TableColumns;
   };
 };
 
-export const contentMapSite = {
-  titlePage: "Relação dos gestores de contratos vigentes ",
+export const contentContractsAndAtas = {
+  titlePage: "Relação dos gestores de contratos.",
   description:
-    "   ",
+    "",
 };
 
 function Screen({
-  handler: { columns, data, loading },
+  handler: { columns, data },
 }: PropsInput) {
-  const accessibility = useFontSizeAccessibilityContext();
-  const title = contentMapSite?.titlePage;
-  const description = contentMapSite?.description;
-  const router = useRouter();
-  const ITEMS_PER_PAGE = 50;
-
+  const [contract, setContract] = useState<any>(null);
+  const title = contentContractsAndAtas?.titlePage;
+  const description = contentContractsAndAtas?.description;
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
-  const [sortConfig, setSortConfig] = useState<{ key: string; direction: "asc" | "desc" } | null>(null);
+  const [selectedYear, setSelectedYear] = useState<number | undefined>(2025); // Estado para o ano selecionado
+  const accessibility = useFontSizeAccessibilityContext();
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value.toLowerCase());
-    setCurrentPage(1); // Volta para página 1 ao buscar
-  };
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const requestSort = (key: string) => {
-    let direction: "asc" | "desc" = "asc";
-    if (sortConfig?.key === key && sortConfig.direction === "asc") {
-      direction = "desc";
+  const ITEMS_PER_PAGE = 50;
+  
+  
+
+  // Filtra os contratos com base no ano selecionado
+  const filteredContratos = data.filter((item) => {
+    if (selectedYear) {
+      return item.ano === selectedYear; // Filtra pelo campo "ano"
     }
-    setSortConfig({ key, direction });
-  };
+    return true; // Se nenhum ano for selecionado, mostra todos os contratos
+  }).filter((item) =>
+    item.id_contrato && item.id_contrato.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  item.objeto && item.objeto.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  item.fornecedor && item.fornecedor.toLowerCase().includes(searchTerm.toLowerCase())||
+  item.grupo && item.grupo.toLowerCase().includes(searchTerm.toLowerCase())||
+  item.tipo_contrato && item.tipo_contrato.toLowerCase().includes(searchTerm.toLowerCase())
 
-  const filteredData = data.filter(
-    (item) =>
-      item?.n_contrato?.toLowerCase().includes(searchTerm) ||
-      item?.gestor?.toLowerCase().includes(searchTerm)
   );
 
-  const sortedData = [...filteredData].sort((a, b) => {
-    if (!sortConfig) return 0;
-    const { key, direction } = sortConfig;
-    const aValue = a[key]?.toString().toLowerCase() ?? "";
-    const bValue = b[key]?.toString().toLowerCase() ?? "";
+  const formatDate = (isoString: any) => {
+  const [year, month, day] = isoString.split("T")[0].split("-");
+  return `${day}/${month}/${year}`;
+};
 
-    if (aValue < bValue) return direction === "asc" ? -1 : 1;
-    if (aValue > bValue) return direction === "asc" ? 1 : -1;
-    return 0;
-  });
-
-  const paginatedData = sortedData.slice(
+  const paginatedContratos = filteredContratos.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
     currentPage * ITEMS_PER_PAGE
   );
+  const totalPages = Math.ceil(filteredContratos.length / ITEMS_PER_PAGE);
+  console.log(filteredContratos.length )
+  const handlePageClick = (data: { selected: number }) => {
+    const newPage = Math.max(1, Math.min(data.selected + 1, totalPages));
+    setCurrentPage(newPage);
+  };
 
+  
   const exportToJSON = (data: any) => {
     const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
     const link = document.createElement("a");
     const url = URL.createObjectURL(blob);
+  
     link.setAttribute("href", url);
-    link.setAttribute("download", "dados_gestores_contratos.json");
+    link.setAttribute("download", "dados_contratos.json");
+    link.style.visibility = "hidden";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
+  
 
+  const handleOpenModal = (item: any) => {
+    onOpen();
+    setContract(item?.row?.values);
+  };
+
+  useEffect(() => {
+    setCurrentPage(1); // Reseta a página para 1 ao mudar o ano
+  }, [selectedYear]);
+
+  // Obtém os anos únicos dos dados e ordena de forma decrescente
+  const years = [...new Set(data.map((item) => item.ano))].sort((a, b) => b - a);
+
+  // Ordena os contratos de forma decrescente pelo ano extraído de "numero"
+  const sortedPaginatedContratos = [...paginatedContratos].sort((a, b) => {
+    // Extrai o ano de "numero" (formato 000044/2024)
+    const aAno = parseInt(a.numero.split('/')[0], 10);
+    const bAno = parseInt(b.numero.split('/')[0], 10);
+
+    // Ordena de forma decrescente com base no ano
+    return   aAno - bAno;
+  });
+
+  
+const dataMaisAtual = data.reduce((maisRecente, item) => {
+    const dataItem = new Date(item.updated_at);
+    const dataAtualMaisRecente = new Date(maisRecente.updated_at);
+    return dataItem > dataAtualMaisRecente ? item : maisRecente;
+  }, data[0]);
+
+  const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.updated_at).toLocaleDateString('pt-BR') : '';
   return (
     <ContainerBasic title={title} description={description}>
       <Box
+        m={0}
         bg={useColorModeValue("white", "gray.800")}
-        p="15px"
+        padding={"15px"}
         rounded="md"
-        maxWidth="100%"
+        overflow="hidden"
+        width="100%"
         borderRadius="18px"
-        mb="15px"
+        marginBottom="15px"
       >
-        <Stack direction={{ base: "column", md: "row" }} spacing={4} alignItems="center" mb={4}>
-          <Button
-            width="180px"
-            fontSize="20px"
-            textColor="white"
-            bgColor={colors.transparenciaBlack}
-            _hover={{ bgColor: colors.primaryDefault80p }}
-            height="40px"
-            borderRadius="8px"
-            boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+        <ContainerSearch  >
+        <Text fontWeight='bold' pl='10px' mb='15px'>Para busca de contratos  selecione o ano especificio ou a opção 'Todos os anos' e busque pelo nome do fornecedor, número ou descrição do objeto do contrato </Text>
+          <Stack minW={86} width="50%" flexDir='row'
+          sx={{
+            "@media (max-width: 900px)": {
+              flexDir:'column'
+            },
+          }}
           >
-            <CsvDownload
-              filename={"dados_gestores_contratos.csv"}
-              data={data}
-              style={{
-                width: "100%",
-                height: "100%",
-                background: "none",
-                border: "none",
-                color: "white",
-                fontSize: "20px",
-                textAlign: "center",
-                cursor: "pointer",
+            
+            
+            {/* Select para Filtrar por Ano */}
+            <Select
+              value={selectedYear}
+              onChange={(e) => setSelectedYear(Number(e.target.value))}
+              placeholder="Todos os anos"
+              borderRadius="8px"
+              height="40px"
+              mb="10px"
+              width='180px'
+              border={`1px solid ${colors.transparenciaBlack}`}
+              _focus={{
+                borderColor: colors.primaryDefault40p, // nova cor da borda ao focar
+                boxShadow:'none',
+                //backgroundColor: colors.primaryDefault40p // cor de fundo ao focar (exemplo)
               }}
             >
-              CSV
-            </CsvDownload>
-          </Button>
-
-          <Button
-            width="180px"
-            fontSize="20px"
-            textColor="white"
-            bgColor={colors.transparenciaBlack}
-            _hover={{ bgColor: colors.primaryDefault80p }}
-            height="40px"
-            borderRadius="8px"
-            onClick={() => exportToJSON(data)}
-            boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
-          >
-            JSON
-          </Button>
-
-          <input
-            type="text"
-            placeholder="Buscar por contrato ou gestor..."
-            value={searchTerm}
-            onChange={handleSearch}
-            style={{
-              padding: "8px",
-              fontSize: "16px",
-              borderRadius: "6px",
-              border: "1px solid #ccc",
-              width: "100%",
-              maxWidth: "300px",
-            }}
-          />
-        </Stack>
-<Text fontSize={accessibility?.fonts?.regular} mb="10px">
-                Última atualização: <strong>01/05/2025</strong>
-              </Text>
-        <Table my="20px">
-          <Thead>
-            <Tr bg={colors.transparenciaBlack} color="white">
-              {["secretaria", "n_contrato", "contratada", "objeto", "data_inicio", "data_fim", "status", "gestor", "cargo"].map((col) => (
-                <Th
-                  key={col}
-                  color="white"
-                  onClick={() => requestSort(col)}
-                  cursor="pointer"
-                  _hover={{ textDecoration: "underline" }}
-                >
-                  {col.replace("_", " ").toUpperCase()}
-                </Th>
+              {years.map((year) => (
+                <option key={year} value={year}>
+                  {year}
+                </option>
               ))}
-            </Tr>
-          </Thead>
-          <Tbody fontSize="12px">
-            {paginatedData.map((row, index) => (
-              <Tr
-                key={index}
-                bg={index % 2 === 0 ? useColorModeValue("white", "black") : useColorModeValue("#f7f7f7", "gray.700")}
-                _hover={{ bg: "#d1d1d1", color: useColorModeValue("black", "white") }}
-              >
-                <Td>{row.secretaria}</Td>
-                <Td cursor="pointer" onClick={() => window.open(`https://dadosabertos.mogidascruzes.sp.gov.br/contratos-atas/detalhes?${row?.n_contrato}`, '_blank')}>{row.n_contrato}</Td>
-                <Td>{row.contratada}</Td>
-                <Td>{row.objeto}</Td>
-                <Td>{row.data_inicio}</Td>
-                <Td>{row.data_fim}</Td>
-                <Td>{moment(row.data_fim, "DD/MM/YYYY").isAfter(moment(), "day") ? "Vigente" : "Encerrado"}</Td>
-                <Td>{row.gestor}</Td>
-                <Td>{row.cargo}</Td>
-              </Tr>
-            ))}
-          </Tbody>
-        </Table>
+            </Select>
+<Button
+  width="180px"
+  border="0"
+  cursor="pointer"
+  fontSize="20px"
+  textColor="white"
+  bgColor={colors.transparenciaBlack}
+  _hover={{ bgColor: colors.primaryDefault80p }}
+  height="40px"
+  borderRadius="8px"
+  mr="15px"
+  transition="background-color 0.3s ease"
+  boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+  
+>
+  <CsvDownload
+    filename={"dados_contratos.csv"}
+    data={filteredContratos}
+    style={{
+      width: "100%",
+      height: "100%",
+      background: "none",
+      border: "none",
+      color: "white",
+      fontSize: "20px",
+      textAlign: "center",
+      cursor: "pointer",
+    }}
+  >
+    CSV
+  </CsvDownload>
+</Button>
 
-        <PaginationComponent
-          pages={Math.ceil(filteredData.length / ITEMS_PER_PAGE)}
-          setCurrentPage={setCurrentPage}
-          currentPage={currentPage}
+<Button width='180px' border='0' cursor='pointer' fontSize='20px' textColor='white' 
+    bgColor={colors.transparenciaBlack}
+    _hover={{ bgColor: colors.primaryDefault80p }}
+    
+    height='40px' borderRadius='8px' mr='15px'
+    onClick={() => exportToJSON(sortedPaginatedContratos)}
+    boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+    
+    >JSON</Button>
+   
+
+
+          </Stack>
+          <Stack minW={50} justifyContent="flex-end" className="button-search"></Stack>
+        </ContainerSearch>
+
+        
+
+        <Input
+          type="text"
+          placeholder="Pesquisar contratos..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          borderRadius="8px"
+          height="40px"
+          pr="40px" // Adiciona espaço para o ícone à direita
+          width="40%"
+          mb="10px"
+          
         />
+         <Text fontSize={accessibility?.fonts?.regular} mb="10px">
+                Última atualização: <strong>{ultimaAtualizacao}</strong>
+              </Text>
+
+         <Table my="20px">
+                  <Thead>
+                    <Tr bg={colors.transparenciaBlack} color="white">
+                      {["secretaria", "n_contrato", "contratada", "objeto", "data_inicio", "data_fim", "status", "gestor", ].map((col) => (
+                        <Th
+                          key={col}
+                          color="white"
+                          //onClick={() => requestSort(col)}
+                          cursor="pointer"
+                          _hover={{ textDecoration: "underline" }}
+                        >
+                          {col.replace("_", " ").toUpperCase()}
+                        </Th>
+                      ))}
+                    </Tr>
+                  </Thead>
+                  <Tbody fontSize="12px">
+                    {sortedPaginatedContratos.map((row, index) => (
+                      <Tr
+                        key={index}
+                        bg={index % 2 === 0 ? useColorModeValue("white", "black") : useColorModeValue("#f7f7f7", "gray.700")}
+                        _hover={{ bg: "#d1d1d1", color: useColorModeValue("black", "white") }}
+                      >
+                        <Td>  {row.secretaria_responsavel && row.secretaria_responsavel.includes('-')
+    ? row.secretaria_responsavel.split('-')[1].trim()
+    : ''}</Td>
+                        <Td cursor="pointer" onClick={() => window.open(`https://dadosabertos.mogidascruzes.sp.gov.br/contratos-atas/detalhes?C${row?.numero}`, '_blank')}>{row.numero}</Td>
+                        <Td>{row.fornecedor}</Td>
+                        <Td>{row.objeto}</Td>
+                        <Td>{row.data_inicio}</Td>
+                        <Td> {row.data_aditivo_final ? (row.data_aditivo_final) : row.data_termino}</Td>
+                        <Td>{row.situacao}</Td>
+                        <Td>{row.gestor_contrato}</Td>
+                       
+                      </Tr>
+                    ))}
+                  </Tbody>
+                </Table>
+
+        <Box
+          as="ul" // Garante que Box se comporte como <ul>
+          display="flex"
+          justifyContent="space-around"
+          alignItems="center"
+          flexWrap="wrap"
+          gap="10px"
+          mt="20px"
+          p="15px"
+          listStyleType="none"
+          fontWeight="bold"
+          fontSize="lg"
+          overflowX="auto"
+         // whiteSpace="nowrap"
+          maxW="100%"
+          sx={{
+            "& li": {
+              display: "inline-block", // Garante que os itens fiquem em linha
+              marginLeft: '10px',
+              padding: "8px 15px",
+              cursor: "pointer",
+              textDecoration: "none",
+              borderRadius: "5px",
+              backgroundColor: "#f0f0f0",
+              transition: "background-color 0.3s, color 0.3s",
+            },
+            "& li:hover": {
+              backgroundColor: "red",
+              color: "white",
+              gap: '10px'
+            },
+            "& .active": {
+              fontWeight: "bold",
+              backgroundColor: "red",
+              color: "white",
+            },
+          }}
+        >
+      
+        </Box>
+        <PaginationComponent 
+        pages={totalPages} 
+        setCurrentPage={setCurrentPage} 
+        currentPage={currentPage} 
+        />
+      
+              
       </Box>
     </ContainerBasic>
   );
 }
-
-
-
 
 export default Screen;

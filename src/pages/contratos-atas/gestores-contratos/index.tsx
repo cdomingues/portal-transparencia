@@ -1,93 +1,127 @@
-import React, { useEffect, useState } from "react";
-import { getFile } from "../../../services/cloudStorage";
+import { GetStaticProps } from "next";
+import React, { useState } from "react";
 import Screen from "./screen";
-import axios from "axios";
-import moneyFormatter from "../../../utils/moneyFormatter";
+import { getContracts } from "../../../calls/expenses/contractsMinutes";
+import { revalidate } from "../../../config";
 import moment from "moment";
+export interface ArquivoContrato {
+  id: number;
+  arquivo: string;
+  nome: string;
+  id_contrato_id: number | null;
+}
 
-function Controller() {
+export interface ApiResponse {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: ArquivoContrato[];
+}
+
+
+function Controller({ contracts = [], years = [] }: any) {
+  const [year, setYear] = useState(moment().year());
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState([]);
-   const formatarContrato = (contrato: string) => {
-    if (!contrato) return "";
-    
-    const [numero, ano] = contrato.split("/");
-    const numeroFormatado = numero.padStart(6, "0");
-    return `C${numeroFormatado}/${ano}`;
-  };
+  const [data, setData] = useState(contracts);
+  const [data2, setData2]  = useState<ArquivoContrato[]>([]);
 
   const columns = [
-    
-    { title: "Secretaria", field: "secretaria" },
-   {
-      title: "Contrato",
-      field: "n_contrato",
-      render: (row: any) => {
-        const contratoFormatado = formatarContrato(row.n_contrato);
-        return (
-          <span
-            style={{ color: "#1976d2", cursor: "pointer", textDecoration: "underline" }}
-            onClick={() => window.open(`/detalhes?contrato=${row.n_contrato}`, "_blank")}
-          >
-            {contratoFormatado}
-          </span>
-        );
-      },
-    },
-    { title: "Contratada", field: "contratada" },
+    { title: "Tipo", field: "tipo" },
+    { title: "Ano", field: "ano" },
+    { title: "Número", field: "numero" },
+    { title: "Situação", field: "situacao" },
+    { title: "Licitação", field: "licitacao" },
+    { title: "Modalidade", field: "modalidade" },
+    { title: "Processo", field: "processo" },
+    { title: "Data Início", field: "data_inicio" },
+    { title: "Data Término", field: "data_termino" },
+    { title: "Valor", field: "valor" },
+    { title: "Valor Aditado", field: "valorAditado" },
+    { title: "Qntd Aditivos", field: "quantidadeAdivitos" },
+    { title: "Fornecedor", field: "fornecedor" },
+    { title: "Grupo", field: "grupo" },
     { title: "Objeto", field: "objeto" },
-    { title: "Data Ínicio", field: "data_inicio" },
-    { title: "Data Fim", field: "data_fim" },
-   { title: "Status", field: "status" },
-    { title: "Gestor", field: "gestor" },
-    { title: "Cargo", field: "cargo" },
+    { title: "Id Contrato", field: "id_contrato" },
    
+
+
+  ];
+
+  const handleByYear = async (year: number) => {
+    setYear(year);
+
+    setLoading(true);
+
+    const { contracts } = await getContracts(year);
+
+    setLoading(false);
+
+    setData(contracts);
+  };
+
+  const arquivosColumns = [
+    { title: "Id", field: "id" },
+    { title: "Arquivo", field: 'arquivo'},
+    { title: "Nome", field: "nome" },
+    { title: "Contrato", field: "mes" },
+    { title: "Localização", field: "id_contrato_id" },
     
   ];
 
-  const getData = async () => {
-    const response = await axios.get("https://dadosadm.mogidascruzes.sp.gov.br/api/gestores_fiscais_vigentes")
-    const rows = response.data;
-        
-     const mappedRows = rows.map((item: any) => {
-      const dataFim = moment(item?.data_fim);
-      const status = dataFim.isAfter(moment(), 'day') ? "Vigente" : "Encerrado";
+  const fetchArquivos = async (page: number) => {
+    setLoading(true);
+    try {
+        let currentPage = page;
+        let hasMore = true;
 
-       let n_contrato_formatado = "";
-  if (item?.n_contrato) {
-    const [numero, ano] = item.n_contrato.split("/");
-    const numero_formatado = numero.padStart(6, "0");
-    n_contrato_formatado = `C${numero_formatado}/${ano}`;
-  }
+        while (hasMore) {
+            const response = await fetch(`https://dadosadm.mogidascruzes.sp.gov.br/api/arquivos_contratos_atas?page=${currentPage}`);
+            const result: ApiResponse = await response.json();
+            setData2((prevData: any) => [...prevData, ...result.results]);
 
-      return {
-        secretaria: item?.secretaria,
-        n_contrato: n_contrato_formatado,
-        contratada: item?.contratada,
-        objeto: item?.objeto,
-        data_inicio: moment(item?.data_inicio).format("DD/MM/YYYY"),
-        data_fim: dataFim.format("DD/MM/YYYY"),
-        gestor: item?.gestor,
-        cargo: item?.cargo,
-        status: status,
-      };
-    });
-    setData(mappedRows);
-   
+            if (result.next) {
+                currentPage++;
+            } else {
+                hasMore = false;
+            }
+        }
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    } finally {
+        setLoading(false);
+    }
+
     
-  };
+    
+};
 
-  useEffect(() => {
-    getData();
-  }, []);
 
   const handler = {
     data,
     columns,
     loading,
+    year,
+    years,
+    setYear,
+    handleByYear,
+    data2,
+    setData2,
+    arquivosColumns
+    
   };
 
   return <Screen handler={handler} />;
 }
 
 export default Controller;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const { contracts, years } = await getContracts();
+  return {
+    props: {
+      contracts: contracts || [],
+      years: years || [],
+    },
+    revalidate,
+  };
+};
