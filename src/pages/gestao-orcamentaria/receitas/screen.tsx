@@ -24,9 +24,10 @@ export interface Receitas {
   dezembro: string;
   totalArrecadado: string;
   ano: number;
+  previsto: string
 }
 
-const API_URL = "https://dadosadm.mogidascruzes.sp.gov.br/api/lista_receitas";
+const API_URL = "https://dadosadm.mogidascruzes.sp.gov.br/api/lista_receitas2";
 const ITEMS_PER_PAGE = 50;
 
 export const receitasDesc = {
@@ -209,7 +210,7 @@ function Screen() {
        >
       <Th color="white" >Ano</Th>
       <Th color="white">Receita</Th>
-      <Th color="white">Vinculo</Th>
+     
       <Th color="white">Janeiro</Th>
       <Th color="white">Fevereiro</Th>
       <Th color="white">Março</Th>
@@ -222,6 +223,7 @@ function Screen() {
       <Th color="white">Outubro</Th>
       <Th color="white">Novembro</Th>
       <Th color="white">Dezembro</Th>
+      <Th color="white">Total Previsto</Th>
       <Th color="white">Total Arrecadado</Th>
     </Tr>
   </Thead>
@@ -237,7 +239,7 @@ function Screen() {
   >
         <Td>{row.ano} </Td> 
        <Td>{row.receita} </Td> 
-       <Td> {row.vinculo}</Td>
+      
        <Td>{moneyFormatter(Number(row.janeiro))}</Td>
         <Td>{moneyFormatter(Number(row.fevereiro))}</Td>
         <Td>{moneyFormatter(Number(row.marco))}</Td>
@@ -250,6 +252,7 @@ function Screen() {
         <Td>{moneyFormatter(Number(row.outubro))}</Td>
         <Td>{moneyFormatter(Number(row.novembro))}</Td>
         <Td>{moneyFormatter(Number(row.dezembro))}</Td>
+        <Td>{moneyFormatter(Number(row.previsto))}</Td>
         <Td>{moneyFormatter(Number(row.totalArrecadado))}</Td>
       </Tr>
     ))}

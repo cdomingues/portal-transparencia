@@ -34,6 +34,7 @@ function Screen() {
   const [arquivo, setArquivo] = useState<any[]>([]);
   const [empenho, setEmpenho] = useState<any[]>([]);
   const [despesa, setDespesa] = useState<any>(null);
+   const [percentualExecutado,setPercentualExecutado] = useState<number | undefined>();
 
 
 
@@ -65,7 +66,30 @@ function Screen() {
     .catch((error) => console.error("Erro ao buscar arquivos:", error));
 }, [despesa]);
 
-  
+      useEffect(() => {
+
+     
+      const calculatePercentualExecutado = async () => {
+        try {
+          const valorTotalMedicao = parseFloat(despesa?.valor_total_medicao) || 0;
+          console.log(valorTotalMedicao);
+          
+          const valorTotalAditamento = parseFloat(despesa?.valor_total_aditamento_reajuste_contrato) || 0;
+          console.log(valorTotalAditamento);
+          
+          const percentualExecutado = Math.round((valorTotalMedicao / valorTotalAditamento) * 100 * 100) / 100;
+          console.log(percentualExecutado);
+          
+          setPercentualExecutado(percentualExecutado);
+        } catch (error) {
+          console.error("Error calculating percentualExecutado:", error);
+        }
+      };
+    
+      calculatePercentualExecutado();
+      
+    }, );
+
 
   return (
     <ContainerBasic title={title} description={description}>
@@ -140,6 +164,11 @@ function Screen() {
                          ["Fiscal responsável", despesa.responsavel_fiscalizacao],
                          ["Valor previsto", moneyFormatter(despesa.valor_total_aditamento_reajuste_contrato)],
                          ["Valor executado", moneyFormatter(despesa.valor_total_medicao)] ,
+                         ["Percentual executado", percentualExecutado !== undefined ? `${percentualExecutado}%` : 'N/A'],
+                         ["Percentual da etapa", despesa.percentual_etapa +' %'],
+                         ["Última atualização", moment(despesa.data_etapa).format("DD/MM/YYYY")],
+                         ['Observação',despesa.observacao || 'N/A'],
+
                        
                       ].map(([label, value], index) => (
                         <Tr key={index}>

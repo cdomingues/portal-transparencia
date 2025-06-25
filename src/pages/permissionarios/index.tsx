@@ -6,6 +6,7 @@ export interface Produto {
 }
 
 export interface ResultItem {
+  endereco: any;
   id: number;
   produtos: Produto[];
   nome: string;
@@ -20,8 +21,7 @@ export interface FormattedResultItem {
   id: number;
   produtos: string;
   nome: string;
-  telefone: string;
-  email: string;
+  endereco: string;
   localizacao: string;
   local: string;
   ativo: boolean;
@@ -54,11 +54,20 @@ function Controller() {
       const data: ApiResponse = await response.json();
 
       const formattedData = data.results.map(item => ({
-        ...item,
-        produtos: item.produtos.map(produto => produto.nome).join(' / ')
+         id: item.id,
+  produtos: item.produtos.map(produto => produto.nome).join(' / '),
+  nome: item.nome,
+  localizacao: item.localizacao,
+  local: item.local,
+  ativo: item.ativo,
+  endereco: item.endereco,
       }));
 
-      setData(prevData => [...prevData, ...formattedData]);
+      setData(prevData => {
+  const newData = [...prevData, ...formattedData];
+  console.log("Dados formatados:", newData); // verificação
+  return newData;
+});
     } catch (error) {
       console.error('Erro ao obter os dados:', error);
     } finally {

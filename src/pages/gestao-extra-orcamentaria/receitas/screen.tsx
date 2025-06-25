@@ -27,6 +27,8 @@ import colors from "../../../styles/colors";
 
 
 export interface Receitas {
+  conta_contabil: string;
+  descricao_contabil: string;
   receita: string;
   vinculo: string;
   janeiro: string;
@@ -42,7 +44,7 @@ export interface Receitas {
   novembro: string;
   dezembro: string;
   totalArrecadado: string;
-  ano: number;
+  exercicio: number;
 }
 
 type PropsInput = {
@@ -59,7 +61,7 @@ type PropsInput = {
   };
 };
 
-const API_URL = "https://dadosadm.mogidascruzes.sp.gov.br/api/lista_receitas_extra";
+const API_URL = "https://dadosadm.mogidascruzes.sp.gov.br/api/lista_receita_despesa_extra?tipo_movimento=Receita";
 const ITEMS_PER_PAGE = 50;
 
  
@@ -102,57 +104,37 @@ function Screen({
   };
   useEffect(() => {
     fetchData();
-    fetchTiposReceita();
-  }, [selectedYear, selectedReceita]);
+    //fetchTiposReceita();
+  }, [selectedYear]);
 
   // Função para buscar receitas
   const fetchData = async () => {
-    let allLicitacoes: Receitas[] = [];
-    let page = 1;
-    let hasMore = true;
+  let url = `https://dadosadm.mogidascruzes.sp.gov.br/api/lista_receita_despesa_extra?tipo_movimento=Receita`;
 
-    while (hasMore) {
-      let url = `${API_URL}?page=${page}`;
-      const params = new URLSearchParams();
+  // Adiciona o parâmetro 'exercicio' se necessário
+  if (selectedYear !== "Todos") {
+    url += `&exercicio=${selectedYear}`;
+  }
 
-      if (selectedYear !== "Todos") params.append("ano", selectedYear);
-      if (selectedReceita) params.append("receita", selectedReceita);
+  try {
+    const response = await axios.get(url);
 
-      if (params.toString()) url += `&${params.toString()}`;
-
-      try {
-        const response = await axios.get(url);
-        if (response.data.results && response.data.results.length > 0) {
-          allLicitacoes = [...allLicitacoes, ...response.data.results];
-          page++;
-        } else {
-          hasMore = false;
-        }
-      } catch (error) {
-        console.error("Erro ao buscar dados", error);
-        hasMore = false;
-      }
+    if (response.data && Array.isArray(response.data)) {
+      setLicitacoes(response.data);
+    } else {
+      setLicitacoes([]); // Retorna array vazio se resposta inválida
+      console.warn("Formato de dados inesperado", response.data);
     }
 
-    setLicitacoes(allLicitacoes);
     setCurrentPage(1);
-  };
+  } catch (error) {
+    console.error("Erro ao buscar dados", error);
+    setLicitacoes([]);
+  }
+};
 
   // Função para buscar tipos únicos de receitas
-  const fetchTiposReceita = async () => {
-    try {
-      const response = await axios.get(API_URL);
-      if (response.data.results) {
-        const tiposUnicos: any = [
-          ...new Set(response.data.results.map((item: Receitas) => item.receita)),
-        ].sort(); // Adicionando .sort() para ordenar alfabeticamente
-  
-        setTiposReceita(tiposUnicos);
-      }
-    } catch (error) {
-      console.error("Erro ao buscar tipos de receita", error);
-    }
-  };
+ 
 
   const filteredLicitacoes = licitacoes.filter((item) =>
     searchTerm ? String(item.receita).toLowerCase().includes(searchTerm.toLowerCase()) : true
@@ -195,7 +177,7 @@ function Screen({
       <Stack direction={{ base: "column", md: "row" }} spacing={4}>
         <Select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)} width='30%'>
           <option value="Todos">Selecione o ano</option>
-          {[...Array(2025 - 2012 + 1)].map((_, i) => (
+          {[...Array(2025 - 2010 + 1)].map((_, i) => (
     <option key={i} value={2025 - i}>
       {2025 - i}
     </option>
@@ -276,6 +258,7 @@ function Screen({
       border={`1px solid ${colors.transparenciaBlack}`}>
       <Th color="white">Ano</Th>
       <Th color="white">Receita</Th>
+      <Th color="white">Vínculo</Th>
       <Th color="white">Janeiro</Th>
       <Th color="white">Fevereiro</Th>
       <Th color="white">Março</Th>
@@ -299,8 +282,9 @@ function Screen({
       bg={index % 2 === 0 ? useColorModeValue("white", "black")  : useColorModeValue("#f7f7f7", "grey.100")} 
           _hover={{ bg: "#d1d1d1", cursor: "pointer" , color: useColorModeValue("white", "black") }}
       >
-        <Td>{row.ano} </Td> 
-       <Td>{row.receita}</Td>
+        <Td>{row.exercicio} </Td> 
+       <Td>{row.conta_contabil} {row.descricao_contabil}</Td>
+       <Td>{row.vinculo} </Td> 
        <Td>{moneyFormatter(Number(row.janeiro))}</Td>
         <Td>{moneyFormatter(Number(row.fevereiro))}</Td>
         <Td>{moneyFormatter(Number(row.marco))}</Td>

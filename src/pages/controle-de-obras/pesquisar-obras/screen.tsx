@@ -22,6 +22,7 @@ import colors from "../../../styles/colors";
 import CsvDownload from "react-json-to-csv";
 import PaginationComponent from "../../../components/PaginationComponent";
 import moneyFormatter from "../../../utils/moneyFormatter";
+import ItensEmpenho from "../../gestao-orcamentaria/despesas/adiantamentos/modalContracts/components/itens_empenho";
 
 const API_URL = "https://dadosadm.mogidascruzes.sp.gov.br/api/listaobras/";
 const ITEMS_PER_PAGE = 50;
@@ -45,6 +46,7 @@ function Screen() {
   const [dados, setDados] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+ 
 
   const [filtroBairro, setFiltroBairro] = useState("");
   const [filtroTipo, setFiltroTipo] = useState("");
@@ -100,6 +102,12 @@ function Screen() {
       0
     ) || 0;
   };
+
+ 
+
+  // To use this function, call calculatePercentualExecutado(obra) where 'obra' is the relevant item.
+
+  
 
   return (
     <ContainerBasic title={title} description={description}>
