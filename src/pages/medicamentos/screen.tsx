@@ -48,8 +48,13 @@ function Screen({ handler }: PropsInput) {
     const ITEMS_PER_PAGE = 50;
   const router = useRouter();
   
-  const filteredMedicamentos = dados.filter((item)=>
-  searchTerm ? String(item.PRODUTO).toLowerCase().includes(searchTerm.toLowerCase()) : true)
+  const filteredMedicamentos = dados
+  .filter((item) =>
+    searchTerm
+      ? String(item.PRODUTO).toLowerCase().includes(searchTerm.toLowerCase())
+      : true
+  )
+  .filter((item) => item["ESTOQUE"] !== "FARMACIA ORDEM JUDICIAL");
   
   useEffect(() => {
   setCurrentPage(1);
@@ -160,7 +165,9 @@ function Screen({ handler }: PropsInput) {
           </Thead>
           <Tbody fontSize='12px'>
             
-            {paginatedMedicamentos.map((row, index) => (
+            {paginatedMedicamentos
+           
+            .map((row, index) => (
             
             <Tr 
             key={index} 
