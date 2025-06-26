@@ -791,6 +791,22 @@ export const menus=[
             },
         ]
        },
+        {
+        "id": 16,
+        "title": "Plano de Ação - SIAFIC",
+        'imageURL': IconePortal.src, 
+        'imageURL2': IconePortalBranco.src, 
+        'description': "Plano de Ação - SIAFIC",
+        "submenus": [
+             {
+                "id_submenu": 1,
+                "label":"Plano de Ação - SIAFIC",
+                "imageUrl": IconeLeis.src,
+                'url':"/siafic",
+                "extralinks": [ ]
+            },
+        ]
+       }
 
       
      

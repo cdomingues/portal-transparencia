@@ -376,6 +376,12 @@ const MenuHorizontalChakra = () => {
       href: '/infodados',
       submenu: null
     },
+     {
+      label: 'Siafic',
+      icon: MdDataThresholding,
+      href: '/siafic',
+      submenu: null
+    },
     {
       label: 'Mapa do site',
       icon: FaSitemap,
