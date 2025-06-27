@@ -41,7 +41,7 @@ Divulgação do Plano de Ação para implantação do Siafic (Sistema Único e I
                  border='1px solid black'
                  cursor='pointer'
                  >
-         <Link  href="https://ged.mogidascruzes.sp.gov.br/weblink7/DocView.aspx?id=676890"><strong>Decreto 20788/2022</strong> </Link></Stack>
+         <Link  href="https://ged.mogidascruzes.sp.gov.br/weblink7/DocView.aspx?id=676890" target="blank"><strong>Decreto 20788/2022</strong> </Link></Stack>
           <Stack 
                  marginTop={5}
                  direction="row"
@@ -52,7 +52,20 @@ Divulgação do Plano de Ação para implantação do Siafic (Sistema Único e I
                  border='1px solid black'
                  cursor='pointer'
                  >
-        <Link  href="https://leismunicipais.com.br/a/sp/m/mogi-das-cruzes/decreto/2023/2209/22083/decreto-n-22083-2023-proc-n-8260-23-1doc"><strong>Decreto 22083/2023</strong></Link>
+        <Link  href="https://leismunicipais.com.br/a/sp/m/mogi-das-cruzes/decreto/2023/2209/22083/decreto-n-22083-2023-proc-n-8260-23-1doc" target="blank"><strong>Decreto 22083/2023</strong></Link>
+        </Stack>
+
+          <Stack 
+                 marginTop={5}
+                 direction="row"
+                 maxW="500px"
+                p={4}
+                 borderRadius="md"
+                 _hover={{ bg: 'gray.200', color: 'black' }}
+                 border='1px solid black'
+                 cursor='pointer'
+                 >
+        <Link  href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/7e4c189c-c2af-43a3-8392-1c1dce234c50/Plano_de_A%C3%A7%C3%B5es.pdf" target="blank"><strong>Plano de ação - SIAFIC</strong></Link>
         </Stack>
 
         
