@@ -166,6 +166,7 @@ function Screen() {
                          ["Valor executado", moneyFormatter(despesa.valor_total_medicao)] ,
                          ["Percentual executado", percentualExecutado !== undefined ? `${percentualExecutado}%` : 'N/A'],
                          ["Percentual da etapa", despesa.percentual_etapa +' %'],
+                         ["Etapa", despesa.etapas],
                          ["Última atualização", moment(despesa.data_etapa).format("DD/MM/YYYY")],
                          ['Observação',despesa.observacao || 'N/A'],
 
