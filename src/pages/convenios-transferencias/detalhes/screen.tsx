@@ -19,13 +19,13 @@ import ContainerBasic from "../../../components/Container/Basic";
 import moneyFormatter from "../../../utils/moneyFormatter";
 import moment from "moment";
 import colors from "../../../styles/colors";
+import Link from "next/link";
 
 export interface Arquivo {
-  nr_empenho: number;
-  exercicio_empenho: string;
-  desc_item: string;
-  qtde: number;
-  valor_unit: string;
+  id: number;
+  id_convenio: string;
+  arquivo: string;
+  nome_arquivo: string;
 }
 
 export interface Etapa {
@@ -58,6 +58,7 @@ function Screen({ id_contrato }: any) {
   const description = contentContractsAndAtas.description;
   const [despesa, setDespesa] = useState<any>(null);
   const [etapa, setEtapa] = useState<Etapa[]>([]);
+  const [arquivo, setArquivo] = useState<Arquivo[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -68,7 +69,7 @@ function Screen({ id_contrato }: any) {
   }, []);
 
   useEffect(() => {
-    const fetchArquivos = async () => {
+    const fetchEtapas = async () => {
       if (!despesa) return;
 
       try {
@@ -89,9 +90,34 @@ function Screen({ id_contrato }: any) {
       }
     };
 
-    fetchArquivos();
+    fetchEtapas();
   }, [despesa]);
 
+
+  useEffect(() => {
+    const fetchArquivos = async () => {
+      if (!despesa) return;
+
+      try {
+        const response = await fetch(
+          `https://dadosadm.mogidascruzes.sp.gov.br/api/arquivo_etapa?id_convenio=${despesa.id_convenio}`
+        );console.log(response)
+
+        if (!response.ok) {
+          throw new Error("Falha ao carregar os dados");
+        }
+
+        const jsonData = await response.json();
+        setArquivo(jsonData);
+      } catch (error) {
+        console.error("Erro ao carregar os dados:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchArquivos();
+  }, [despesa]);
   return (
     <ContainerBasic title={title} description={description}>
       <Box
@@ -111,6 +137,9 @@ function Screen({ id_contrato }: any) {
             </Tab>
             <Tab _selected={{ color: colors.transparenciaCinza }}>
               <Text fontWeight="700">Etapas</Text>
+            </Tab>
+             <Tab _selected={{ color: colors.transparenciaCinza }}>
+              <Text fontWeight="700">Arquivos</Text>
             </Tab>
           </TabList>
 
@@ -237,6 +266,45 @@ function Screen({ id_contrato }: any) {
                         <Td border={`1px solid ${colors.transparenciaBlack}`}>{file.devolvido ? "Sim" : "Não"}</Td>
                         <Td border={`1px solid ${colors.transparenciaBlack}`}>{moment(file.data_devolucao).format("DD/MM/YYYY")}</Td>
                         <Td border={`1px solid ${colors.transparenciaBlack}`}>{file.detalhamento}</Td>
+                      </Tr>
+                    ))}
+                </Tbody>
+              </Table>
+            </TabPanel>
+
+            <TabPanel>
+              <Table variant="simple" size="md" width="100%" overflow="hidden" mb={5}>
+                <Thead>
+                  <Tr>
+                    <Th
+                      colSpan={8}
+                      textAlign="center"
+                      bg={colors.transparenciaBlack}
+                      color="white"
+                      p={4}
+                      fontWeight="bold"
+                      border={`1px solid ${colors.primaryDefault80p}`}
+                    >
+                      ARQUIVOS
+                    </Th>
+                  </Tr>
+                  <Tr border={`1px solid ${colors.transparenciaBlack}`}>
+                    <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>Nome do arquivo</Th>
+                    <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>Arquivo</Th>
+                  
+                  </Tr>
+                </Thead>
+                <Tbody>
+                  {arquivo
+                    .sort((a, b) => a.id - b.id)
+                    .map((file2) => (
+                      <Tr key={file2.id}>
+                        
+                        <Td border={`1px solid ${colors.transparenciaBlack}`}>{file2.nome_arquivo}</Td>
+                     
+                        <Td border={`1px solid ${colors.transparenciaBlack}`}><Link href={file2.arquivo} target="blank">Download</Link></Td>
+                       
+                      
                       </Tr>
                     ))}
                 </Tbody>
