@@ -227,55 +227,75 @@ function Screen({ id_contrato }: any) {
 
 
           {/* TABELA DE OCORRENCIAS */}
-          {ocorrencias.length > 0 && (
-            <Table variant="simple" size="md" width="100%" overflow="hidden" mt='1Opx'>
-              <Thead>
-                <Tr>
-                  <Th
-                    colSpan={2}
-                    textAlign="center"
-                    bg={colors.transparenciaBlack}
-                    color="white"
-                    p={4}
-                    fontWeight="bold"
-                    border={`1px solid ${colors.transparenciaBlack}`}
-                    
-                   >
-                    OCORRÊNCIAS 
-                  </Th>
-                </Tr>
-                <Tr>
-                  <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>
-                    Nome do Arquivo
-                  </Th>
-                  <Th bg={useColorModeValue("#f2f1f1", "black")}border={`1px solid ${colors.transparenciaBlack}`}>
-                    Download
-                  </Th>
-                </Tr>
-              </Thead>
-              <Tbody>
-                {ocorrencias                
-                .map((file) => (
-                  <Tr key={file.id}>
-                    <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
-                      {file.descricao}
-                    </Td>
-                    <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
-                      <Link 
-                      href={`https://licitacao-mgcon.mogidascruzes.sp.gov.br/arquivo/download?id=${file.id}`}
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      
-                      _hover={{ fontWeight: 'bold' }} 
-                      >
-                        Baixar
-                      </Link>
-                    </Td>
-                  </Tr>
-                ))}
-              </Tbody>
-            </Table>
-          )}
+         {ocorrencias.length > 0 && (
+  <Table variant="simple" size="md" width="100%" overflow="hidden" mt="10px">
+    <Thead>
+      <Tr>
+        <Th
+          colSpan={4}
+          textAlign="center"
+          bg={colors.transparenciaBlack}
+          color="white"
+          p={4}
+          fontWeight="bold"
+          border={`1px solid ${colors.transparenciaBlack}`}
+        >
+          OCORRÊNCIAS
+        </Th>
+      </Tr>
+      <Tr>
+        <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>
+          Data da ocorrência
+        </Th>
+        <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>
+          Descrição
+        </Th>
+        <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>
+          Complemento
+        </Th>
+        <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>
+          Arquivos
+        </Th>
+      </Tr>
+    </Thead>
+    <Tbody>
+      {ocorrencias.map((file) => (
+        <Tr key={file.id}>
+          <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
+            {moment(file.data).format("DD/MM/YYYY")}
+          </Td>
+          <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
+            {file.descricao}
+          </Td>
+          <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
+            {file.complemento}
+          </Td>
+          <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
+            {arquivo
+              .filter((arquivo) => arquivo.id_tabela === file.id)
+              .map((arquivo) => (
+                <div key={arquivo.id}>
+                  <a
+                    href={`https://licitacao-mgcon.mogidascruzes.sp.gov.br/arquivo/download?id=${arquivo.id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      color: "#185DA6",
+                      fontWeight: "normal",
+                      textDecoration: "none",
+                    }}
+                  >
+                    Baixar {arquivo.descricao_arquivo}
+                  </a>
+                </div>
+              ))}
+          </Td>
+        </Tr>
+      ))}
+    </Tbody>
+  </Table>
+)}
+
         </Box>
       </Box>
     </ContainerBasic>

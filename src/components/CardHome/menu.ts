@@ -770,7 +770,7 @@ export const menus=[
                 "id_submenu": 1,
                 "label":"Plano municipal de integridade",
                 "imageUrl": IconeLeis.src,
-                'url':"#",
+                'url':"/plano-municipal-integridade",
                 "extralinks": [ ]
             },
         ]

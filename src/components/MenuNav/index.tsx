@@ -371,6 +371,18 @@ const MenuHorizontalChakra = () => {
       ]
     },
      {
+      label: 'Diário Oficial',
+      icon: MdMenuBook,
+      href: 'https://diario-oficial.mogidascruzes.sp.gov.br/diarios/publicacoes/',
+      submenu: null
+    },
+     {
+      label: 'Plano Municipal de Integridade',
+      icon: MdMenuBook,
+      href: '/plano-municipal-integridade',
+      submenu: null
+    },
+     {
       label: 'InfoDados',
       icon: MdDataThresholding,
       href: '/infodados',

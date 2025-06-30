@@ -350,27 +350,57 @@ const Despesas = () => {
             </Tbody>
           </Table>
 
-          {!searchTerm && (
-            <Box display="flex" justifyContent="space-around" alignItems="center" paddingBottom="10px" width="80%" mt="20px">
-              <Button
-                border={`1px solid ${colors.transparenciaBlack}`}
-                width="150px"
-                onClick={() => setPagina((p) => Math.max(p - 1, 1))}
-                disabled={pagina === 1}
-              >
-                Anterior
-              </Button>
-              <span>Página {pagina} de {totalPaginas}</span>
-              <Button
-                border={`1px solid ${colors.transparenciaBlack}`}
-                width="150px"
-                onClick={() => setPagina((p) => Math.min(p + 1, totalPaginas))}
-                disabled={pagina === totalPaginas}
-              >
-                Próxima
-              </Button>
-            </Box>
-          )}
+         {!searchTerm && (
+  <Box
+    display="flex"
+    flexDirection="column"
+    alignItems="center"
+    paddingBottom="10px"
+    width="80%"
+    mt="20px"
+  >
+    <Box display="flex" justifyContent="space-around" alignItems="center" width="100%" mb="10px">
+      <Button
+        border={`1px solid ${colors.transparenciaBlack}`}
+        width="150px"
+        onClick={() => setPagina((p) => Math.max(p - 1, 1))}
+        disabled={pagina === 1}
+      >
+        Anterior
+      </Button>
+
+      <span>Página {pagina} de {totalPaginas}</span>
+
+      <Button
+        border={`1px solid ${colors.transparenciaBlack}`}
+        width="150px"
+        onClick={() => setPagina((p) => Math.min(p + 1, totalPaginas))}
+        disabled={pagina === totalPaginas}
+      >
+        Próxima
+      </Button>
+    </Box>
+
+    {/* Campo para digitar o número da página */}
+    <Box display="flex" alignItems="center" gap="10px">
+      <Text>Ir para a página:</Text>
+      <Input
+        type="number"
+        width="100px"
+        size="sm"
+        min={1}
+        max={totalPaginas}
+        value={pagina}
+        onChange={(e) => {
+          const val = parseInt(e.target.value, 10);
+          if (!isNaN(val) && val >= 1 && val <= totalPaginas) {
+            setPagina(val);
+          }
+        }}
+      />
+    </Box>
+  </Box>
+)}
         </>
      
     </ContainerBasic>

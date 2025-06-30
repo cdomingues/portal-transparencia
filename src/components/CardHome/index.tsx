@@ -145,7 +145,7 @@ function CardHomeTabs() {
                                    
                                   >
                                     <SubMenuIcon src={useColorModeValue(imageSrc, imageSrc2)} alt={title} />
-                                    <Text fontSize={useAccessibility?.fonts?.regular}>{title}</Text>
+                                    <Text fontSize={useAccessibility?.fonts?.regular}>{title.toUpperCase()}</Text>
                                   </Box>
                                   <AccordionIcon />
                                 </AccordionButton>
@@ -164,7 +164,7 @@ function CardHomeTabs() {
                                         color="yellow"
                                       >
                                         <Text fontSize="sm" fontWeight="bold">
-                                          {link.label}
+                                          {link.label.toUpperCase()}
                                         </Text>
                                       </a>
                                     );
@@ -182,8 +182,8 @@ function CardHomeTabs() {
                               style={{ display: "flex", alignItems: "center", gap: "10px" }}
                             >
                               <SubMenuIcon src={useColorModeValue(imageSrc, imageSrc2)} alt={title} />
-                              <Text fontSize="lg" fontWeight="bold">
-                                {title}
+                              <Text fontSize="sm" fontWeight="bold">
+                                {title.toUpperCase()}
                               </Text>
                             </a>
                           )
