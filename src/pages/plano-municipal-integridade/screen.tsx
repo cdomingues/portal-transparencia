@@ -77,6 +77,28 @@ function Screen({ handler }: PropsInput) {
             style={{ border: "none" }}
           />
         </Box>
+
+        <Accordion allowToggle borderRadius={4} mt='15px'>
+           <AccordionItem  pt={4} borderRadius='15px' border='1px solid ' mb='15px'>
+                        <h2>
+                          <AccordionButton>
+                            <Box as="span" flex='1' textAlign='center' fontWeight='bold' fontSize='l'>
+                              LEGISLAÇÃO      
+                            </Box>
+                            <AccordionIcon />
+                          </AccordionButton>
+                        </h2>
+                        <AccordionPanel m={4} p={8}  borderRadius={4}>
+                          <Flex flexDirection='column'>
+                           
+                        <Text >
+                       Em breve</Text>
+          
+           
+                          </Flex>
+                        </AccordionPanel>
+                      </AccordionItem>
+        </Accordion>
       </Box>
     </ContainerBasic>
   );
