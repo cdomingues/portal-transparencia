@@ -137,8 +137,8 @@ function Screen({
   const [currentPage2, setCurrentPage2] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchTerm2, setSearchTerm2] = useState("");
-  const [selectedYear, setSelectedYear] = useState<number | undefined>(2024);
-  const [selectedYear2, setSelectedYear2] = useState<number | undefined>(2024);
+  const [selectedYear, setSelectedYear] = useState<number | undefined>(2025);
+  const [selectedYear2, setSelectedYear2] = useState<number | undefined>(2025);
   const accessibility = useFontSizeAccessibilityContext();
   const [despesasVinculo08, setDespesasVinculo08] = useState<Despesa[]>([]);
   const [loading2, setLoading2] = useState(false);
@@ -352,6 +352,17 @@ const dataMaisAtual = dadosParaExibir.reduce((maisRecente, item) => {
                                 </option>
                               ))}
                             </Select>
+                              <Input
+                                    type="text"
+                                    placeholder="Pesquisar ..."
+                                    value={searchTerm}
+                                    onChange={(e) => setSearchTerm(e.target.value)}
+                                    borderRadius="8px"
+                                    height="40px"
+                                    width="250px"
+                                    my="0px"
+                                    
+                                  />
                 <Button
                   width="180px"
                   border="0"
@@ -394,7 +405,7 @@ const dataMaisAtual = dadosParaExibir.reduce((maisRecente, item) => {
                     >JSON</Button>
                        </Stack>
                        <Text fontSize={accessibility?.fonts?.regular} mb="10px">
-                                  Última atualização: <strong>01/10/2024</strong>
+                                  Última atualização: <strong>02/07/2025</strong>
                                 </Text>
                           <Stack minW={50} justifyContent="flex-end" className="button-search"></Stack>
                         </ContainerSearch>
@@ -412,12 +423,10 @@ const dataMaisAtual = dadosParaExibir.reduce((maisRecente, item) => {
       <Th color="white">Veiculo de divulgação</Th>
       <Th color="white">Tipo de serviço</Th>
       <Th color="white">Agência contratada</Th>
-      <Th color="white">Data de início</Th>
-      <Th color="white">Data de término</Th>
+      <Th color="white">Data </Th>
+    
       <Th color="white">Valor total veiculação</Th>
-      <Th color="white">Honorário da agência de veiculação</Th>
-      <Th color="white">Honorário da agência de produção</Th>
-      <Th color="white">Data do pagamento</Th>
+  
       
     </Tr>
   </Thead>
@@ -430,16 +439,16 @@ const dataMaisAtual = dadosParaExibir.reduce((maisRecente, item) => {
           _hover={{ bg: "#d1d1d1", cursor: "pointer" , color: useColorModeValue("black", "white") }}
       >
         <Td>{row.ano} </Td> 
-       <Td>{row.competencia}</Td>
+       <Td>{new Date(row.competencia).getMonth() + 1}</Td>
        <Td>{row.campanha}</Td>
         <Td>{row.veiculo_divulgacao}</Td>
         <Td>{row.tipo_servico}</Td>
         <Td>{row.agencia_contratada}</Td>
-        <Td>{moment(row.data_inicio).format("DD/MM/YYYY")}</Td>
-        <Td>{row.data_termino}</Td>
-        <Td>{row.valor_total_veiculacao}</Td>
-        <Td>{row.honorario_agencia_producao}</Td>
-        <Td>{row.data_pagamento}</Td>
+        <Td>{moment(row.competencia).format("DD/MM/YYYY")}</Td>
+        
+        <Td>{moneyFormatter(Number(row.valor_total_veiculacao))}</Td>
+       
+        
 </Tr>
     ))}
   </Tbody>

@@ -117,21 +117,8 @@ function Controller({
       'https://dadosadm.mogidascruzes.sp.gov.br/api/gastos_publicidade'
     );
     const rows = response.data;
-    const mappedRows = rows?.map((item: any) => {
-      return {
-        ...item,
-        competencia: item?.["competencia"].split("-")[1] , 
-        data_inicio: item?.data_inicio ? moment(item.data_inicio).format("DD/MM/YYYY") : "",
-        data_termino: item?.data_termino ? moment(item.data_termino).format("DD/MM/YYYY") : "",
-        data_pagamento: item?.data_pagamento ? moment(item.datdata_pagamentoa_inicio).format("DD/MM/YYYY") : "",
-       valor_total_veiculacao: moneyFormatter(parseFloat(item?.valor_total_veiculacao)),
-       honorario_agencia_veiculacao: moneyFormatter(parseFloat(item?.honorario_agencia_veiculacao)),
-       honorario_agencia_producao: moneyFormatter(parseFloat(item?.honorario_agencia_producao)),
-
-       
-      };
-    });
-    setGastos(mappedRows)
+  
+    setGastos(rows)
   }
   useEffect(() => {
     getGastos();
