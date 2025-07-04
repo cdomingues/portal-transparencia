@@ -304,7 +304,7 @@ function Screen({ id_contrato }: any) {
                      
                         <Td border={`1px solid ${colors.transparenciaBlack}`}><Link href={file2.arquivo} target="blank">Download</Link></Td>
                        
-                      
+                       
                       </Tr>
                     ))}
                 </Tbody>

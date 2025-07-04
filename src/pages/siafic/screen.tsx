@@ -55,6 +55,22 @@ Divulgação do Plano de Ação para implantação do Siafic (Sistema Único e I
         <Link  href="https://leismunicipais.com.br/a/sp/m/mogi-das-cruzes/decreto/2023/2209/22083/decreto-n-22083-2023-proc-n-8260-23-1doc" target="blank"><strong>Decreto 22083/2023</strong></Link>
         </Stack>
 
+         <Stack 
+                 marginTop={5}
+                 direction="row"
+                 maxW="500px"
+                p={4}
+                 borderRadius="md"
+                 _hover={{ bg: 'gray.200', color: 'black' }}
+                 border='1px solid black'
+                 cursor='pointer'
+                 >
+        <Link  href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/7279eee7-ae4d-49be-95a0-b7afe225a3fa/decreto-23645-2025-mogi-das-cruzes-sp-1-Anexo.pdf" target="blank"><strong>Decreto 23645/2025</strong></Link>
+        </Stack>
+
+
+    
+
           <Stack 
                  marginTop={5}
                  direction="row"
@@ -69,6 +85,8 @@ Divulgação do Plano de Ação para implantação do Siafic (Sistema Único e I
         </Stack>
 
         
+
+
       </Flex>
     </ContainerBasic>
   );

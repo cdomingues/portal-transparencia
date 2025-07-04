@@ -432,7 +432,9 @@ const dataMaisAtual = dadosParaExibir.reduce((maisRecente, item) => {
   </Thead>
   <Tbody fontSize='12px'>
     
-    {paginatedPublicidade.map((row, index) => (
+    {paginatedPublicidade
+    .sort((a, b) => a.ano - b.ano || new Date(a.competencia).getTime() - new Date(b.competencia).getTime())
+    .map((row, index) => (
     
       <Tr key={row.index}
        bg={index % 2 === 0 ? useColorModeValue("white", "black")  : useColorModeValue("#f7f7f7", "grey.100")} 
