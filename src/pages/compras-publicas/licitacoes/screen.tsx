@@ -22,6 +22,7 @@ export interface Licitacoes {
   publicacaoFim: string;
   dataAbertura: string;
   complemento: string;
+  bloqueada: boolean;
 
 }
 
@@ -98,7 +99,10 @@ function Screen() {
   };
 
   const filteredLicitacoes = licitacoes.filter((item) => {
+    if(item.bloqueada === true) return false;
   if (!searchTerm) return true;
+
+  
 
   const lowerSearchTerm = searchTerm.toLowerCase();
 
