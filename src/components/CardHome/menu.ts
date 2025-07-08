@@ -567,7 +567,7 @@ export const menus=[
                 'url':"/governo-aberto",
                 "extralinks": [
                     {label: "Governo Aberto - Início", url:"/governo-aberto/"},
-                    {label: "Portas de Participação Cidadã", url:"/governo-aberto/participacao-cidada"},
+                   //{label: "Portas de Participação Cidadã", url:"/governo-aberto/participacao-cidada"},
                  ]
             },
             {

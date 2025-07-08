@@ -310,7 +310,7 @@ const MenuHorizontalChakra = () => {
         { label: 'Governo aberto', href: '#',
           submenu: [
             { label: 'Governo aberto - Início', href: '/governo-aberto/' },      
-            { label: 'Portas de Participação Cidadã', href: '/governo-aberto/participacao-cidada' },
+          //  { label: 'Portas de Participação Cidadã', href: '/governo-aberto/participacao-cidada' },
             ]
          },
         { label: 'Governo digital', href: '/governo-digital' },
