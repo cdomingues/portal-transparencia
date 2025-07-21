@@ -31,6 +31,7 @@ const CardConcurso: React.FC<UrlConcurso> = ({url_concurso})=>{
 
 const [filtroAno, setFiltroAno] = useState('');
 const [filtroStatus, setFiltroStatus] = useState('');
+const [filtroTipo, setFiltrotipo] = useState('');
 const [concursos, setConcursos] = useState<Concurso[]>([]); 
 const [arquivosConcursos, setArquivosConcursos] = useState<ArquivoConcurso[]>([]);
 const [informacoesGerais,setInformacoesGerais] = useState<InformacoesGerais[]>([]);
@@ -43,6 +44,7 @@ interface Concurso {
   data: string; 
   status: number;
   link_inscricao: string;
+  tipo: number
 }
 
 interface ArquivoConcurso {
@@ -161,6 +163,17 @@ const dataMaisAtual = arquivosConcursos.reduce((maisRecente, item) => {
         </option>
       ))}
     </Select>
+
+    <Text pt={2} >Filtrar por tipo: </Text>
+    <Select
+      id="tipoSelect"
+      value={filtroTipo}
+      onChange={(e) => setFiltrotipo(e.target.value)}
+      w="20%">
+        <option value="">Todos</option>
+        <option value="1">Concurso Público</option>
+        <option value="2">Processo Seletivo</option>
+      </Select>
   </Box>
 
 
@@ -171,9 +184,10 @@ const dataMaisAtual = arquivosConcursos.reduce((maisRecente, item) => {
       .filter(
         (info) =>
           (!filtroAno || new Date(info.data).getFullYear() === parseInt(filtroAno, 10)) &&
-          (!filtroStatus || statusTextMapping.get(info.status) === filtroStatus)
+          (!filtroStatus || statusTextMapping.get(info.status) === filtroStatus) &&
+          (!filtroTipo || info.tipo === Number(filtroTipo))
       )
-      .sort((a, b) =>b.id - a.id)      
+      .sort((a, b) => new Date(b.data).getTime() - new Date(a.data).getTime())      
     .map((info) => (
       <AccordionItem key={info.id}
      
@@ -183,7 +197,7 @@ const dataMaisAtual = arquivosConcursos.reduce((maisRecente, item) => {
         <h2>
       <AccordionButton >
         <Box as="span" flex='1' textAlign='left' >
-      {info.titulo}
+      {moment(info.data).format('DD/MM/YYYY')} - {info.titulo}
         
         </Box>
         <Box marginRight="8px">{statusTextMapping.get(info.status)}</Box>

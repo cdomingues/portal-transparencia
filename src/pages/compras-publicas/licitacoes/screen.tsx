@@ -156,7 +156,7 @@ function Screen() {
                         boxShadow:'none',
                         //backgroundColor: colors.primaryDefault40p // cor de fundo ao focar (exemplo)
                       }}>
-          <option value="Todos">Selecione o ano</option>
+          <option value="Todos">Todos os anos</option>
             {[...Array(2025 - 2012 + 1)].map((_, i) => {
               const year = 2025 - i;
               return (
@@ -179,17 +179,29 @@ function Screen() {
               //backgroundColor: colors.primaryDefault40p // cor de fundo ao focar (exemplo)
             }}
         >
-          <option value="2">Pregão Presencial</option>
-          <option value="3">Tomada de Preços</option>
-          <option value="4">Concorrência</option>
-          <option value="5">Leilão</option>
+          <option value="20">Audiência Pública - Saúde</option>
           <option value="7">Chamada Pública</option>
+          <option value="15">Chamada Pública - Saúde</option>
           <option value="8">Chamamento Público</option>
-          <option value="9">Pré-Qualificação</option>
+          <option value="16">Chamamento Público - Educação</option>
+          <option value="13">Chamamento Público - Esportes</option>
+          <option value="12">Chamamento Público - Saúde</option>
+          <option value="14">Chamamento Público - Verde e Meio Ambiente</option>
+          <option value="4">Concorrência</option>
+          <option value="29">Concorrência Eletrônica</option>
+          <option value="21">Concurso</option>
           <option value="10">Convite</option>
+          <option value="11">Credenciamento</option>
+          <option value="30">Dispensa Eletrônica</option>
           <option value="11">Dispensa/Inexigibilidade</option>
+          <option value="5">Leilão</option>
           <option value="17">Pregão Eletrônico</option>
-        </Select>
+          <option value="2">Pregão Presencial</option>
+          <option value="9">Pré-Qualificação</option>
+          <option value="27">Processo seletivo</option>
+          <option value="31">Seleção simplificada</option>
+          <option value="3">Tomada de Preços</option>
+          </Select>
 
         <Select
           placeholder="Órgão"

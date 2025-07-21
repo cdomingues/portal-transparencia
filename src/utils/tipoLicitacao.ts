@@ -35,9 +35,15 @@ export const getTipoText = (tipo: number | undefined) => {
       case 20:
         return 'Audiência Pública - Saúde';
       case 21:
-        return 'CONCURSO';
+        return 'Concurso';
       case 27:
-        return 'PROCESSO SELETIVO';
+        return 'Processo Seletivo';
+      case 29:
+        return 'Concorrência Eletrônica'; 
+      case 30:
+        return 'Dispensa Eletrônica'   
+        case 31:
+          return 'Seleção Simplificada';
       default:
         return 'Desconhecido'; // Valor padrão para quando tipo não é reconhecido
     }
