@@ -631,7 +631,8 @@ export const menus=[
                 'imageUrl': Ouvidoria.src,
                 'url':"https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab",
                 'extralinks': [ 
-                   { label: "Pesquisa de satisfação", url: "https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/publicacoes" } ]
+                   { label: "Pesquisa de satisfação", url: "https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/publicacoes" },
+                {label:'Colab', url: 'https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab'} ]
             },
             {
                 'id_submenu': 6,
@@ -684,7 +685,8 @@ export const menus=[
                 'imageUrl': Ouvidoria.src,
                 'url':"https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab",
                 'extralinks': [ 
-                    { label: "Pesquisa de satisfação", url: "https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/publicacoes" }
+                    { label: "Pesquisa de satisfação", url: "https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/publicacoes" },
+                {label:'Colab', url: 'https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab'}
                 ]
             },
             {

@@ -44,7 +44,7 @@ function Screen({ handler }: PropsInput) {
           align={isMobile ? "justify" : "left"}
           fontWeight="700"
           fontSize={accessibility?.fonts?.regular}
-        > O Plano de Contratações Anual de 2026 está sendo elaborado e estará disponível para consulta nesta página a partir de junho de 2025. 
+        > O Plano de Contratações Anual de 2026 está sendo elaborado e estará disponível para consulta nesta página a partir de setembro de 2025.  
        </Text>
 
       </Box>
