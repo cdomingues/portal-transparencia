@@ -77,7 +77,7 @@ function CardHomeTabs() {
                     fontSize={useAccessibility?.fonts?.large}
                     fontFamily="Open Sans"
                   >
-                    {menu.title}
+                    {menu.title.toUpperCase()}
                   </Text>
                 </Flex>
                 <AccordionIcon />

@@ -391,13 +391,7 @@ export const menus=[
                     {label: "Vice Prefeito - Teo Cusatis",url: "agenda-aberta/agenda-viceprefeito",},
                 ]
             },
-            {   
-                "id_submenu": 3,
-                "label": "Veículos Oficiais",   
-                'imageUrl': IconeVeiculo.src,
-                "url":"/veiculos-oficiais",
-                "extralinks": []
-            },
+           
             {   
                 "id_submenu": 4,
                 "label": "Organizações Sociais",   

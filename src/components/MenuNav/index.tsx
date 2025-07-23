@@ -225,7 +225,7 @@ const MenuHorizontalChakra = () => {
           ] 
          },
          { label: 'Controle de radares', href: '/controle-de-radares' },
-        { label: 'Veículos oficiais', href: '/veiculos-oficiais' },
+        
         { label: 'Organizações sociais', href: 'https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-saude-e-bem-estar/organizacoes-sociais' },
         { label: 'Ouvidoria', href: 'https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab',
           submenu:[
