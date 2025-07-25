@@ -29,10 +29,10 @@ function Controller() {
   ];
 
   const getData = async () => {
-    const response = await axios.get("https://dadosadm.mogidascruzes.sp.gov.br/api/acordos")
+    const response = await axios.get("https://dadosadm.mogidascruzes.sp.gov.br/api/acordos?tipo=2")
     const rows = response.data;
-        const filteredRows = rows.filter((item: { tipo: number; }) => item.tipo === 2);
-    const mappedRows = filteredRows.map((item: any) => ({
+       // const filteredRows = rows.filter((item: { tipo: number; }) => item.tipo === 2);
+    const mappedRows = rows.map((item: any) => ({
       
       ...item,
       valor_inicial: moneyFormatter(parseFloat(item?.valor_inicial)),
