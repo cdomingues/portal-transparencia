@@ -159,6 +159,7 @@ const MenuHorizontalChakra = () => {
               submenu: [
                 {label: "Acordo de Cooperação", href: "/acordos-termos/acordo-de-cooperacao",},
                 {label: "Termo de Colaboração",href: "/acordos-termos/termo-de-colaboracao", },
+                { label: "Termo de Cooperação", href: "/acordos-termos/termo-de-cooperacao" },
                 { label: "Termo de Fomento", href: "/acordos-termos/termo-de-fomento" },
             ] },
             {label:'Plano de contratações anual', href:'/compras-publicas/plano-contratacoes-anual',},

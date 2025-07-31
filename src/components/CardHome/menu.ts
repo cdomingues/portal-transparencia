@@ -194,6 +194,7 @@ export const menus=[
                     {label: "Acordo de Cooperação", url: "/acordos-termos/acordo-de-cooperacao",},
                     {label: "Termo de Colaboração",url: "/acordos-termos/termo-de-colaboracao", },
                     { label: "Termo de Fomento", url: "/acordos-termos/termo-de-fomento" },
+                    {label:'Termo de Cooperação', url: "/acordos-termos/termo-de-cooperacao", },
                 ]},
 
             {"id_submenu": 3, 
