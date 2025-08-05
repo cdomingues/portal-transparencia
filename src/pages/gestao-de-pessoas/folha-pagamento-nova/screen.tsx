@@ -14,6 +14,14 @@ import {
   Thead,
   Tr,
   useColorModeValue,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  useDisclosure,
+  Spinner,
 } from "@chakra-ui/react";
 import PaginationComponent from "../../../components/PaginationComponent";
 import axios from "axios";
@@ -22,6 +30,7 @@ import colors from "../../../styles/colors";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import moneyFormatter from "../../../utils/moneyFormatter";
 import moment from "moment";
+import ModalPayments from './modalPayments'
 
 export interface FolhaPagamento {
   idparcalc: number;
@@ -45,7 +54,7 @@ export interface FolhaPagamento {
   idug: number;
 }
 
-const API_URL = "https://dadosadm.mogidascruzes.sp.gov.br/api/folha_pagamento";
+const API_URL = "http://localhost:8000/api/folha_pagamento";
 const ITEMS_PER_PAGE = 50;
 
 const contentContractsAndAtas = {
@@ -74,6 +83,17 @@ function Screen() {
   const [cargo, setCargo] = useState("");
   const [carregando, setCarregando] = useState(false);
   const [erro, setErro] = useState<string | null>(null);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [selectedDetails, setSelectedDetails] = useState<any>(null);
+  const [modalLoading, setModalLoading] = useState(false);
+  const [selectedHeader, setSelectedHeader] = useState<{
+  nome: string;
+  matricula: string;
+  cargo: string;
+  secretaria: string;
+  ano: number;
+  mes: number;
+} | null>(null);
 
   const accessibility = useFontSizeAccessibilityContext();
 
@@ -130,6 +150,27 @@ function Screen() {
     setFolhaPagamento([]);
     setCurrentPage(1);
   };
+
+  const handleOpenModal = async (idfunselec: number,
+  nome: string,
+  matricula: string,
+  cargo: string,
+  secretaria: string,
+  ano: number,
+  mes: number) => {
+  setModalLoading(true);
+  setSelectedDetails(null);
+  setSelectedHeader({ nome, matricula, cargo, secretaria, ano, mes });
+  onOpen();
+  try {
+    const res = await axios.get(`http://localhost:8000/api/detalhe_folha?idfunselec=${idfunselec}`);
+    setSelectedDetails(res.data);
+  } catch (error) {
+    setSelectedDetails({ error: "Erro ao buscar detalhes." });
+  } finally {
+    setModalLoading(false);
+  }
+};
 
   const exportToJSON = (data: any) => {
     const blob = new Blob([JSON.stringify(data, null, 2)], {
@@ -278,6 +319,13 @@ function Screen() {
                     cursor: "pointer",
                     color: useColorModeValue("black", "white"),
                   }}
+                  onClick={() => handleOpenModal(row.idfunselec,
+          row.nome,
+          row.matricula,
+          row.cargo,
+          row.secretaria,
+          row.ano,
+          row.mes,)}
                 >
                   <Td>{row.matricula}</Td>
                   <Td>{row.nome}</Td>
@@ -298,6 +346,67 @@ function Screen() {
               ))}
             </Tbody>
           </Table>
+<Modal isOpen={isOpen} onClose={onClose} size="4xl" >
+  <ModalOverlay />
+  <ModalContent border= '2px solid black' pb='18px'>
+    <ModalHeader fontWeight={"bold"}>DETALHES DA FOLHA</ModalHeader>
+    <ModalCloseButton />
+    <ModalBody >
+      {modalLoading ? (
+        <Spinner />
+      ) : selectedDetails?.error ? (
+        <Text color="red.500">{selectedDetails.error}</Text>
+      ) : selectedDetails?.results?.length > 0 ? (
+        <>
+          {/* Cabeçalho com dados do servidor selecionado */}
+          {selectedHeader && (
+            <Box mb={4}>
+              <Text><strong>Nome:</strong> {selectedHeader.nome}</Text>
+              <Text><strong>Matrícula:</strong> {selectedHeader.matricula}</Text>
+              <Text><strong>Cargo:</strong> {selectedHeader.cargo}</Text>
+               <Text><strong>Secretaria:</strong> {selectedHeader.secretaria}</Text>
+              <Text><strong>Mês/Ano:</strong> {selectedHeader.mes}/{selectedHeader.ano}</Text>
+            </Box>
+          )}
+
+          {/* Tabela de verbas */}
+          <Box overflowX="auto" mt={4}>
+            <Table style={{ width: "100%", borderCollapse: "collapse" }}>
+              <Thead>
+                <Tr>
+                  <Th style={{ border: "1px solid #ccc", padding: "8px" }}>Código</Th>
+                  <Th style={{ border: "1px solid #ccc", padding: "8px" }}>Descrição</Th>
+                  <Th style={{ border: "1px solid #ccc", padding: "8px" }}>Tipo</Th>
+                  <Th style={{ border: "1px solid #ccc", padding: "8px", textAlign: "right" }}>Valor</Th>
+                </Tr>
+              </Thead>
+              <Tbody>
+                {[...selectedDetails.results]
+                  .sort((b, a) => a.tipoVerba.localeCompare(b.tipoVerba))
+                  .map((item: any, index: number) => (
+                    <Tr key={index}>
+                      <Td style={{ border: "1px solid #ccc", padding: "8px" }}>{item.codverba}</Td>
+                      <Td style={{ border: "1px solid #ccc", padding: "8px" }}>{item.desnoverba}</Td>
+                      <Td style={{ border: "1px solid #ccc", padding: "8px" }}>{item.tipoVerba}</Td>
+                      <Td style={{ border: "1px solid #ccc", padding: "8px", textAlign: "right" }}>
+                        R$ {parseFloat(item.valorverba).toLocaleString("pt-BR", {
+                          minimumFractionDigits: 2,
+                          maximumFractionDigits: 2,
+                        })}
+                      </Td>
+                    </Tr>
+                  ))}
+              </Tbody>
+            </Table>
+          </Box>
+        </>
+      ) : (
+        <Text>Nenhum detalhe encontrado.</Text>
+      )}
+    </ModalBody>
+  </ModalContent>
+</Modal>
+
 
           <PaginationComponent
             pages={Math.ceil(folhaPagamento.length / ITEMS_PER_PAGE)}
