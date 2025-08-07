@@ -165,11 +165,11 @@ const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.cadastro).toLoc
               <a href={`${apiUrl}${arquivo.file}`} target='_blank'>
               {arquivo.nome} - {arquivo.ano}
               </a> 
-              </p>
+              </p> </strong>
              
               <p dangerouslySetInnerHTML={{ __html: arquivo.descricao }}></p>
            
-            </strong>
+           
           
             
           </Box>
