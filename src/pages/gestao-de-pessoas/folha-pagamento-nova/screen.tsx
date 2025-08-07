@@ -54,7 +54,7 @@ export interface FolhaPagamento {
   idug: number;
 }
 
-const API_URL = "http://localhost:8000/api/folha_pagamento";
+const API_URL = "https://dadosadm.mogidascruzes.sp.gov.br/api/folha_pagamento";
 const ITEMS_PER_PAGE = 50;
 
 const contentContractsAndAtas = {
@@ -163,7 +163,7 @@ function Screen() {
   setSelectedHeader({ nome, matricula, cargo, secretaria, ano, mes });
   onOpen();
   try {
-    const res = await axios.get(`http://localhost:8000/api/detalhe_folha?idfunselec=${idfunselec}`);
+    const res = await axios.get(`https://dadosadm.mogidascruzes.sp.gov.br/api/detalhe_folha?idfunselec=${idfunselec}`);
     setSelectedDetails(res.data);
   } catch (error) {
     setSelectedDetails({ error: "Erro ao buscar detalhes." });
@@ -272,7 +272,7 @@ function Screen() {
       </Stack>
 
       <Text fontSize={accessibility?.fonts?.regular} mb="10px" ml="5px">
-        Última atualização: <strong>05/07/2025</strong>
+        Última atualização: <strong>05/08/2025</strong>
       </Text>
 
       {carregando ? (

@@ -29,7 +29,7 @@ interface FilesListProps {
 const FilesList: React.FC<FilesListProps> = ({ tipoFiltro }) => {
   const [arquivos, setArquivos] = useState<Arquivo[]>([]);
   const [nextPage, setNextPage] = useState<number | null>(1); // Inicializado em 1
-  const [selectedYear, setSelectedYear] = useState<number | null>(null);
+  const [selectedYear, setSelectedYear] = useState<number| null>(2025);
   const filtro = tipoFiltro
   const apiUrl = "https://dadosadm.mogidascruzes.sp.gov.br"
   const url = `https://dadosadm.mogidascruzes.sp.gov.br/api/arquivos/?page_size=100&file_type=${filtro}`
@@ -60,7 +60,7 @@ const FilesList: React.FC<FilesListProps> = ({ tipoFiltro }) => {
         );
   
         // Atualizar estado com novos dados
-        setArquivos((prevArquivos) => [...prevArquivos, ...filteredResults]);
+        setArquivos((prevArquivos) => [...prevArquivos, ...data.results]);
   
         // Verifica se há mais páginas
         if (data.next) {
@@ -145,26 +145,34 @@ const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.cadastro).toLoc
       )
         .sort((a, b) => new Date(a.cadastro).getTime() - new Date(b.cadastro).getTime()).map((arquivo, index) => (
           //<Link href={`${apiUrl}${arquivo.file}`} download target="_blank"  >
-          <Stack 
+          <Box 
           key={arquivo.pk}
           marginTop={5}
-          direction="row"
-          maxW="500px"
+          flexDirection="row"
+          maxW="700px"
         //  width='400px'
          // color={ 'black'}
           p={4}
           borderRadius="md"
           //cursor="pointer"
-          _hover={{ bg: 'gray.200', color: 'black' }}
+          //_hover={{ bg: 'gray.200', color: 'black' }}
           border='1px solid black'
-          onClick={() => window.open(`${apiUrl}${arquivo.file}`, '_blank')}
-         cursor='pointer'
+         // onClick={() => window.open(`${apiUrl}${arquivo.file}`, '_blank')}
+         //cursor='pointer'
+         
           >
-            <p> {arquivo.nome} - {arquivo.ano}</p>
+            <p>
+              <a href={`${apiUrl}${arquivo.file}`} target='_blank'>
+              {arquivo.nome} - {arquivo.ano}
+              </a> 
+              </p>
+             <strong>
+              <p dangerouslySetInnerHTML={{ __html: arquivo.descricao }}></p>
+           
+            </strong>
+          
             
-            <Icon as={AiOutlineDownload} />
-            
-          </Stack>
+          </Box>
         ))}
       
     </Box>
