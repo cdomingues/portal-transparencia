@@ -160,13 +160,13 @@ const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.cadastro).toLoc
          // onClick={() => window.open(`${apiUrl}${arquivo.file}`, '_blank')}
          //cursor='pointer'
          
-          >
+          ><strong>
             <p>
               <a href={`${apiUrl}${arquivo.file}`} target='_blank'>
               {arquivo.nome} - {arquivo.ano}
               </a> 
               </p>
-             <strong>
+             
               <p dangerouslySetInnerHTML={{ __html: arquivo.descricao }}></p>
            
             </strong>
