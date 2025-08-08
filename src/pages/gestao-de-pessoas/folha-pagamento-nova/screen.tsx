@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
+import loadinggif from '../../../assets/images/Loading_icon.gif'
 import {
   Box,
   Button,
@@ -22,6 +23,7 @@ import {
   ModalBody,
   useDisclosure,
   Spinner,
+  Image
 } from "@chakra-ui/react";
 import PaginationComponent from "../../../components/PaginationComponent";
 import axios from "axios";
@@ -86,6 +88,7 @@ function Screen() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [selectedDetails, setSelectedDetails] = useState<any>(null);
   const [modalLoading, setModalLoading] = useState(false);
+  const [dots,setDots] = useState("")
   const [selectedHeader, setSelectedHeader] = useState<{
   nome: string;
   matricula: string;
@@ -192,6 +195,17 @@ function Screen() {
     currentPage * ITEMS_PER_PAGE
   );
 
+  useEffect(()=>{
+    if(carregando){
+      const interval = setInterval(()=>{
+        setDots((prev)=> (prev.length < 3 ? prev + "." : ""));
+      }, 500);
+      return () =>clearInterval(interval);
+    } else {
+      setDots("");
+    }
+  }, [carregando])
+
   return (
     <ContainerBasic title={title} description={description}>
       <Text fontWeight="bold" pl="10px" mb="15px">
@@ -276,8 +290,8 @@ function Screen() {
       </Text>
 
       {carregando ? (
-        <Box textAlign="center" py={10}>
-          <Text>Carregando dados...</Text>
+        <Box display='flex' py={10} justifyContent='center'>
+          <Image width={200} src={loadinggif.src} />
         </Box>
       ) : folhaPagamento.length === 0 ? (
         <Text ml="10px">Nenhum resultado encontrado. Ajuste os filtros e clique em "Buscar".</Text>
@@ -305,7 +319,17 @@ function Screen() {
             </Thead>
             <Tbody fontSize="12px">
               {paginatedData
-             .sort((a, b) => a.nome.localeCompare(b.nome))
+             .sort((a, b) => {
+  // 1. Ordenar por nome (ordem alfabética A-Z)
+  const nomeCompare = a.nome.localeCompare(b.nome, 'pt-BR', { sensitivity: 'base' });
+  if (nomeCompare !== 0) return nomeCompare;
+
+  // 2. Ordenar por ano (descendente)
+  if (a.ano !== b.ano) return a.ano - b.ano;
+
+  // 3. Ordenar por mês (descendente)
+  return a.mes - b.mes;
+})
               .map((row, index) => (
                 <Tr
                   key={index}

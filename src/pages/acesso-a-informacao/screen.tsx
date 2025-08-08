@@ -13,7 +13,6 @@ import protocolo_geral from "../../assets/images/icones/LAI__protocolo geral.svg
 import relatorio_de_demandas from "../../assets/images/icones/LAI__relatorio de demandas lai.svg"
 import fluxo_lai from '../../assets/images/fluxo_lai.png'
 
-
 import {
   Box,
   Divider,
@@ -41,6 +40,8 @@ import {
   ListItem,
   VStack,
   Img,
+  Image,
+  List,
 } from "@chakra-ui/react";
 import moneyFormatter from "../../utils/moneyFormatter";
 import moment from "moment";
@@ -80,6 +81,56 @@ Aqui você encontra as principais informações já disponibilizadas de forma at
  <br/>
 Se você deseja sugerir abertura de dados, apontar erros ou opinar sobre a navegação do Portal da Transparência ou SIC, escreva para dadosabertos@mogidascruzes.sp.gov.br. 
 <br/>
+  <Box
+      mt='15px'
+      borderWidth="1px"
+      borderRadius="lg"
+      overflow="hidden"
+      p={6}
+      boxShadow="md"
+      bg="white"
+    >
+      <Flex direction={{ base: "column", md: "row" }} align="flex-start">
+        
+        {/* Imagem à esquerda */}
+        <Image
+          src="https://brasil.un.org/profiles/undg_country/themes/custom/undg/images/SDGs/pt-br/SDG-16.svg"
+          alt="ODS 16"
+         // boxSize={{ base: "250px", md: "150px" }}
+         height='300px'
+          objectFit="contain"
+          mr={{ md: 6 }}
+          mb={{ base: 4, md: 0 }}
+        />
+
+        {/* Texto à direita */}
+        <Box>
+          <Heading as="h2" size="md" mb={3} color="blue.600">
+            ODS 16 — Paz, Justiça e Instituições Eficazes
+          </Heading>
+          <Text mb={3}>
+            O Objetivo de Desenvolvimento Sustentável nº 16 (ODS 16), da Agenda 2030 da ONU, busca promover sociedades pacíficas e inclusivas, garantir o acesso à justiça para todos e construir instituições eficazes, responsáveis e transparentes.
+          </Text>
+          <Text mb={3}>
+            Entre suas metas, destacam-se:
+          </Text>
+          <List spacing={2} pl={4} styleType="disc">
+            <ListItem>
+              <b>16.6</b> — Desenvolver instituições eficazes, responsáveis e transparentes em todos os níveis.
+            </ListItem>
+            <ListItem>
+              <b>16.10</b> — Assegurar o acesso público à informação e proteger as liberdades fundamentais.
+            </ListItem>
+          </List>
+          <Text mt={3}>
+            A transparência pública é um elemento central do ODS 16. Ao disponibilizar informações de forma clara, acessível e atualizada, o poder público fortalece a confiança da população, permite o controle social e contribui para decisões mais participativas e informadas.
+          </Text>
+          <Text mt={3} fontWeight="bold">
+            Em Mogi das Cruzes, o cumprimento dessas metas é avaliado por indicadores de qualidade abaixo:
+          </Text>
+        </Box>
+      </Flex>
+    </Box>
      </>,
 };
 
