@@ -92,7 +92,10 @@ function Screen({ handler }: PropsInput) {
                           <Flex flexDirection='column'>
                            
                         <Text >
-                       Em breve</Text>
+                       <Link  href="http://leismunicipa.is/2euio" target="blank">
+                       <strong>Lei ordinária 218/2025</strong>
+                       </Link>
+                       </Text>
           
            
                           </Flex>
