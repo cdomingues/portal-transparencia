@@ -248,7 +248,7 @@ function Screen() {
           </Button>
         </Stack>
         <Text fontSize={acc?.fonts?.regular} mb="10px" ml='15px'>
-          Última atualização: <strong>10/05/2025</strong>
+          Última atualização: <strong>10/08/2025</strong>
         </Text>
 
         {isLoading ? (
