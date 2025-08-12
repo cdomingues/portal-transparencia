@@ -26,9 +26,11 @@ import moneyFormatter from "../../../utils/moneyFormatter";
 import moment from "moment";
 import ContainerBasic from "../../../components/Container/Basic";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
-import {servidores} from "../../../utils/servidores"; // <<< Importa lista de servidores
+import DetalheDiaria from "../../../components/DetalheDiaria";
+import { servidores } from "../../../utils/servidores";
 
-const API_URL = "https://dadosadm.mogidascruzes.sp.gov.br/api/diaria_atualizada";
+const API_URL =
+  "https://dadosadm.mogidascruzes.sp.gov.br/api/diaria_atualizada";
 const ITEMS_PER_PAGE = 50;
 
 export interface Diarias {
@@ -49,7 +51,9 @@ export interface Diarias {
 }
 
 const exportToJSON = (data: any) => {
-  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+  const blob = new Blob([JSON.stringify(data, null, 2)], {
+    type: "application/json",
+  });
   const link = document.createElement("a");
   const url = URL.createObjectURL(blob);
 
@@ -65,9 +69,11 @@ export const receitasDesc = {
   titlePage: "Diárias de Viagens",
   description: (
     <>
-      O pagamento de diárias a servidores públicos em atividades externas é regulamentado pelo Decreto Municipal nº 15.136/2015. 
-      Os valores pagos são calculados com base nas Unidades Fiscais do Município vigentes. Para consultar os valores,{" "}
-      <Link href='https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-financas/ufm-unidade-fiscal-do-municipio'>
+      O pagamento de diárias a servidores públicos em atividades externas é
+      regulamentado pelo Decreto Municipal nº 15.136/2015. Os valores pagos são
+      calculados com base nas Unidades Fiscais do Município vigentes. Para
+      consultar os valores,{" "}
+      <Link href="https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-financas/ufm-unidade-fiscal-do-municipio">
         <strong>clique aqui</strong>
       </Link>
     </>
@@ -82,7 +88,10 @@ function Screen() {
   const [selectedYear, setSelectedYear] = useState<number | "all">(2025);
   const [diarias, setDiarias] = useState<Diarias[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [sortConfig, setSortConfig] = useState<{ key: keyof Diarias; direction: "asc" | "desc" } | null>(null);
+  const [sortConfig, setSortConfig] = useState<{
+    key: keyof Diarias;
+    direction: "asc" | "desc";
+  } | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const acc = useFontSizeAccessibilityContext();
 
@@ -114,14 +123,36 @@ function Screen() {
 
         await new Promise((resolve) => setTimeout(resolve, 0));
       }
+
+      // 🔹 Agrupando por RGF + Ano + Mês e somando valor_diaria
+      const grouped = Object.values(
+        allResults.reduce((acc: any, curr) => {
+          const key = `${curr.rgf}-${curr.ano}-${curr.mes}`;
+          if (!acc[key]) {
+            acc[key] = {
+              ...curr,
+              valor_diaria: parseFloat(curr.valor_diaria) || 0,
+            };
+          } else {
+            acc[key].valor_diaria += parseFloat(curr.valor_diaria) || 0;
+          }
+          return acc;
+        }, {})
+      );
+
+      // 🔹 Formatando valor para exibição
+      const formatted = grouped.map((item: any) => ({
+        ...item,
+        valor_diaria: item.valor_diaria.toFixed(2),
+      }));
+
+      setDiarias(formatted);
+      setCurrentPage(1);
     } catch (error) {
       console.error("Erro ao buscar dados:", error);
     } finally {
       setIsLoading(false);
     }
-
-    setDiarias(allResults);
-    setCurrentPage(1);
   };
 
   const filteredData = diarias.filter((item) =>
@@ -134,7 +165,6 @@ function Screen() {
   const sortedData = [...filteredData].sort((a, b) => {
     if (!sortConfig) return 0;
     const { key, direction } = sortConfig;
-
     const aValue = a[key];
     const bValue = b[key];
 
@@ -143,16 +173,18 @@ function Screen() {
     return 0;
   });
 
-  // 🔹 Aqui já mesclamos os dados de servidores no paginatedData
-  const paginatedData = [...sortedData]
+  // 🔹 Aqui adicionamos cargo, secretaria e localtrabalho
+  const paginatedData = sortedData
     .slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE)
     .map((row) => {
-      const servidorInfo = servidores.find((s) => String(s.matricula) === String(row.rgf));
+      const servidorInfo = servidores.find(
+        (s) => String(s.matricula) === String(row.rgf)
+      );
       return {
         ...row,
         cargo: servidorInfo?.cargo || "",
         secretaria: servidorInfo?.secretaria || "",
-        lotacao: servidorInfo?.localtrabalho || "",
+        localtrabalho: servidorInfo?.localtrabalho || "",
       };
     });
 
@@ -177,7 +209,7 @@ function Screen() {
     <ContainerBasic title={title} description={description}>
       <Box>
         <Stack direction={{ base: "column", md: "row" }} spacing={4} mb={4}>
-          {/* Campo de busca */}
+          {/* Busca */}
           <InputGroup maxWidth="400px">
             <InputLeftElement pointerEvents="none">
               <SearchIcon color="gray.300" />
@@ -189,12 +221,16 @@ function Screen() {
             />
           </InputGroup>
 
-          {/* Seletor de ano */}
+          {/* Filtro de Ano */}
           <Select
             border={`1px solid ${colors.transparenciaCinza}`}
             _focus={{ border: `1px solid ${colors.transparenciaCinza}` }}
             value={selectedYear}
-            onChange={(e) => setSelectedYear(e.target.value === "all" ? "all" : Number(e.target.value))}
+            onChange={(e) =>
+              setSelectedYear(
+                e.target.value === "all" ? "all" : Number(e.target.value)
+              )
+            }
             maxWidth="200px"
           >
             <option value="all">Todos os anos</option>
@@ -203,7 +239,7 @@ function Screen() {
             <option value={2023}>2023</option>
           </Select>
 
-          {/* Botões de exportação */}
+          {/* Exportações */}
           <Button
             width="180px"
             fontSize="20px"
@@ -247,12 +283,15 @@ function Screen() {
             JSON
           </Button>
         </Stack>
-        <Text fontSize={acc?.fonts?.regular} mb="10px" ml='15px'>
+
+        <Text fontSize={acc?.fonts?.regular} mb="10px" ml="15px">
           Última atualização: <strong>10/05/2025</strong>
         </Text>
 
         {isLoading ? (
-          <Box textAlign="center" py={10}>Carregando dados...</Box>
+          <Box textAlign="center" py={10}>
+            Carregando dados...
+          </Box>
         ) : (
           <>
             <Table mt="12px">
@@ -261,19 +300,12 @@ function Screen() {
                   {[
                     { key: "rgf", label: "RGF" },
                     { key: "nome", label: "Nome" },
-                    { key: "tipo", label: "Tipo" },
-                    { key: "data", label: "Data" },
                     { key: "ano", label: "Ano" },
                     { key: "mes", label: "Mês" },
-                    { key: "hora_saida", label: "Hora da saída" },
-                    { key: "hora_chegada", label: "Hora da chegada" },
-                    { key: "tempo_total", label: "Tempo total" },
-                    { key: "valor_diaria", label: "Valor diária" },
-                    { key: "destino", label: "Destino" },
-                    { key: "justificativa", label: "Justificativa" },
+                    { key: "valor_diaria", label: "Total Diária" },
                     { key: "cargo", label: "Cargo" },
                     { key: "secretaria", label: "Secretaria" },
-                    { key: "lotacao", label: "Lotação" },
+                    { key: "localtrabalho", label: "Local de trabalho" },
                   ].map(({ key, label }) => (
                     <Th
                       key={key}
@@ -281,7 +313,12 @@ function Screen() {
                       onClick={() => requestSort(key as keyof Diarias)}
                       cursor="pointer"
                     >
-                      {label} {sortConfig?.key === key ? (sortConfig.direction === "asc" ? "▲" : "▼") : ""}
+                      {label}{" "}
+                      {sortConfig?.key === key
+                        ? sortConfig.direction === "asc"
+                          ? "▲"
+                          : "▼"
+                        : ""}
                     </Th>
                   ))}
                 </Tr>
@@ -290,29 +327,31 @@ function Screen() {
                 {paginatedData.map((row, index) => (
                   <Tr
                     key={index}
-                    bg={index % 2 === 0 ? useColorModeValue("white", "black") : useColorModeValue("#f7f7f7", "grey.100")}
-                    _hover={{ bg: "#d1d1d1", cursor: "pointer", color: useColorModeValue("black", "white") }}
+                    bg={
+                      index % 2 === 0
+                        ? useColorModeValue("white", "black")
+                        : useColorModeValue("#f7f7f7", "grey.100")
+                    }
+                    _hover={{
+                      bg: "#d1d1d1",
+                      cursor: "pointer",
+                      color: useColorModeValue("black", "white"),
+                    }}
                     color={useColorModeValue("black", "white")}
                   >
                     <Td>{row.rgf}</Td>
                     <Td>{row.nome}</Td>
-                    <Td>{row.tipo}</Td>
-                    <Td>{moment(row.data).format('DD/MM/YYYY')}</Td>
                     <Td>{row.ano}</Td>
                     <Td>{row.mes}</Td>
-                    <Td>{row.hora_saida}</Td>
-                    <Td>{row.hora_chegada}</Td>
-                    <Td>{formatHoras(row.tempo_total)}</Td>
                     <Td>{moneyFormatter(Number(row.valor_diaria))}</Td>
-                    <Td>{row.destino}</Td>
-                    <Td>{row.justificativa}</Td>
                     <Td>{row.cargo}</Td>
                     <Td>{row.secretaria}</Td>
-                    <Td>{row.lotacao}</Td>
+                    <Td>{row.localtrabalho}</Td>
                   </Tr>
                 ))}
               </Tbody>
             </Table>
+
             <PaginationComponent
               pages={totalPages}
               setCurrentPage={setCurrentPage}
