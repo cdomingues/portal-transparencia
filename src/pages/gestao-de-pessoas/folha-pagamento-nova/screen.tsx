@@ -205,7 +205,7 @@ function Screen() {
       setDots("");
     }
   }, [carregando])
-
+console.log(folhaPagamento)
   return (
     <ContainerBasic title={title} description={description}>
       <Text fontWeight="bold" pl="10px" mb="15px">

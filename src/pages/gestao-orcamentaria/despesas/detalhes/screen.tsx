@@ -315,7 +315,7 @@ console.log("Buscando dados da URL:", url);
                    ["Função", despesa.funcao],
                    ["Subfunção ", despesa.subfuncao],
                    ["Programa", despesa.programa],
-                   ["Data da Movimentação ", despesa.data_movto],
+                   ["Data da Movimentação ", moment(despesa.data_movto).format('DD/MM/YYYY')],
                    ["Valor Empenho", moneyFormatter(Number(despesa.vlr_empenho))],
                    ["Tipo de empenho", despesa.tipo_empenho],
                    ["Programa", despesa.programa],
@@ -414,7 +414,8 @@ console.log("Buscando dados da URL:", url);
                       {file.descricao_vencimento}
                     </Td>
                     <Td border={`1px solid ${colors.transparenciaBlack}`}>{file.nr_nf}</Td>
-                    <Td  border={`1px solid ${colors.transparenciaBlack}`}>{moment(file.data_emissao_nf).format('DD/MM/YYYY')}</Td>
+                    <Td  border={`1px solid ${colors.transparenciaBlack}`}>
+                      {file.data_emissao_nf ? moment(file.data_emissao_nf).format('DD/MM/YYYY') : ' '}</Td>
                    
                     <Td  border={`1px solid ${colors.transparenciaBlack}`}>{moneyFormatter(parseFloat(file.valor_liquidacao))}</Td>
                     <Td  border={`1px solid ${colors.transparenciaBlack}`}>{moneyFormatter(parseFloat(file.valor_anulacao_liq))}</Td>
