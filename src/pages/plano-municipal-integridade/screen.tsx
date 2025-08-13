@@ -93,7 +93,7 @@ function Screen({ handler }: PropsInput) {
                            
                         <Text >
                        <Link  href="http://leismunicipa.is/2euio" target="blank">
-                       <strong>Lei ordinária 218/2025</strong>
+                       <strong>Lei Ordinária 8.218/2025</strong>
                        </Link>
                        </Text>
           
