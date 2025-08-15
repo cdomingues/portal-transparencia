@@ -126,6 +126,7 @@ function Screen() {
         });
 
         const results = response.data.results;
+       
         if (results && results.length > 0) {
           allFolha = [...allFolha, ...results];
           page++;
@@ -138,6 +139,8 @@ function Screen() {
         hasMore = false;
       }
     }
+
+     
 
     setFolhaPagamento(allFolha);
     setCurrentPage(1);
@@ -205,7 +208,7 @@ function Screen() {
       setDots("");
     }
   }, [carregando])
-console.log(folhaPagamento)
+
   return (
     <ContainerBasic title={title} description={description}>
       <Text fontWeight="bold" pl="10px" mb="15px">
@@ -319,18 +322,7 @@ console.log(folhaPagamento)
             </Thead>
             <Tbody fontSize="12px">
               {paginatedData
-             .sort((a, b) => {
-  // 1. Ordenar por nome (ordem alfabética A-Z)
-  const nomeCompare = a.nome.localeCompare(b.nome, 'pt-BR', { sensitivity: 'base' });
-  if (nomeCompare !== 0) return nomeCompare;
-
-  // 2. Ordenar por ano (descendente)
-  if (a.ano !== b.ano) return a.ano - b.ano;
-
-  // 3. Ordenar por mês (descendente)
-  return a.mes - b.mes;
-})
-              .map((row, index) => (
+             .map((row, index) => (
                 <Tr
                   key={index}
                   bg={
