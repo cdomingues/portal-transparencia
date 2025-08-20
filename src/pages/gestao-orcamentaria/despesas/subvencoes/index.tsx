@@ -269,9 +269,9 @@ const Despesas = () => {
                 border: `2px solid ${colors.transparenciaBlack}`,
               }}
               onClick={() => {
-                sessionStorage.setItem('selectedDespesa', JSON.stringify(item));
-                window.open(`detalhes?${item.id_empenho} - ${item.exercicio_empenho}`, '_blank');
-              }}
+                    sessionStorage.setItem('selectedDespesa', JSON.stringify(item));
+                    window.open(`detalhes?Exercicio_Empenho=${item.id_empenho.split('/')[1]}&nr_empenho=${item.id_empenho.split('/')[0]}`, '_blank');
+                  }}
             >
               <Text fontWeight="bold" fontSize="lg" color={colors.transparenciaBlack} borderBottom={`2px solid ${colors.transparenciaBlack}`} pb="5px" mb="8px">
                 Empenho: {item.nr_empenho} / {item.exercicio_empenho}

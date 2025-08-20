@@ -10,6 +10,8 @@ import {
   AccordionPanel,
   AccordionButton,
   AccordionIcon,
+  Divider,
+  Heading,
 
 } from "@chakra-ui/react";
 
@@ -18,6 +20,39 @@ import { isMobile } from "react-device-detect";
 import useWindowDimensions from "../../utils/getWindowSize";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
 import ContainerBasic from "../../components/Container/Basic";
+
+const treinamentos = [
+  {
+    data: "06/08/2025",
+    titulo: "Dados Sensíveis e Proteção de Dados de Crianças e Adolescentes",
+    local: "Secretaria de Habitação",
+    horario: "9h às 10h30",
+    publico: "Servidores da Secretaria de Habitação Social e Regularização Fundiária",
+    vagas: null,
+    ementa:
+      "O treinamento abordou os principais aspectos da Lei Geral de Proteção de Dados Pessoais (LGPD) aplicados ao contexto da Assistência Social, destacando os cuidados necessários no tratamento de informações sensíveis de usuários dos serviços socioassistenciais. Foram discutidos os direitos dos titulares de dados, as responsabilidades dos servidores e gestores, bem como boas práticas para garantir a privacidade e a segurança das informações em atendimentos e registros administrativos.",
+  },
+  {
+    data: "27/08/2025",
+    titulo: "Tratamento de Dados Pessoais para o Poder Público",
+    local: "Auditório da Sede",
+    horario: "9h às 10h30",
+    publico: "Servidores públicos em geral",
+    vagas: "100 lugares",
+    ementa:
+      "Aborda os princípios e fundamentos da LGPD aplicados à administração pública, destacando responsabilidades dos órgãos municipais, boas práticas no tratamento de dados pessoais e a importância da transparência e da proteção dos direitos dos cidadãos.",
+  },
+  {
+    data: "28/08/2025",
+    titulo: "LGPD e Segurança da Informação",
+    local: "Sala de Licitações (1º andar da Sede)",
+    horario: "9h às 10h30",
+    publico: "Servidores da área de tecnologia",
+    vagas: "40 lugares",
+    ementa:
+      "Discute a relação entre proteção de dados e segurança da informação, com foco em riscos, medidas de mitigação, controles técnicos e administrativos, além de estratégias para prevenção de incidentes no ambiente tecnológico da Prefeitura.",
+  },
+];
 
 export const contentInitial = {
   titlePage: "LGPD",
@@ -263,8 +298,38 @@ Sede da Prefeitura de Mogi das Cruzes - 3º andar
               </h2>
               <AccordionPanel m={4} p={8}  borderRadius={4}>
                 <Flex flexDirection='column'>
-                 
-              <Text justifyContent="flex-end" color='gray.500'><Link href='/lgpd/glossario-lgpd'><strong>Glossário de Termos Técnicos LGPD</strong></Link></Text>
+                   <Box as="span" flex='1' textAlign='center' fontWeight='bold' fontSize='2xl'>
+                    AGENDA DE TREINAMENTOS
+                  </Box>
+                  
+                 {treinamentos.map((treino, index) => (
+        <Box
+          key={index}
+          borderWidth="1px"
+          borderRadius="2xl"
+          p={6}
+          shadow="md"
+          bg="white"
+          mt={2}
+        >
+          <Heading size="md" mb={2}>
+            {treino.data} - {treino.titulo}
+          </Heading>
+
+          <Divider mb={3} />
+
+          <Text><strong>📍 Local:</strong> {treino.local}</Text>
+          <Text><strong>🕘 Horário:</strong> {treino.horario}</Text>
+          <Text><strong>👥 Público-alvo:</strong> {treino.publico}</Text>
+          {treino.vagas && <Text><strong>🪑 Vagas:</strong> {treino.vagas}</Text>}
+
+          <Box mt={4}>
+            <Text fontWeight="bold">Ementa:</Text>
+            <Text textAlign="justify">{treino.ementa}</Text>
+          </Box>
+        </Box>
+      ))}
+              <Text justifyContent="flex-end" color='gray.500' mt='25px'><Link href='/lgpd/glossario-lgpd'><strong>Glossário de Termos Técnicos LGPD</strong></Link></Text>
       <Text justifyContent="flex-end" color='gray.500'><Link href='/lgpd/direitos_titular'><strong>Direitos do Titular</strong></Link></Text>   
  
                 </Flex>

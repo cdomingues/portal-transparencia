@@ -266,15 +266,9 @@ function Screen({
             border: `2px solid ${colors.primaryDefault40p}`,
           }}
               onClick={() => {
-                // Armazenando os dados da despesa no sessionStorage
-                sessionStorage.setItem("selectedDespesa", JSON.stringify(row));
-                
-                // Redirecionando para a página de detalhes
-                window.open(
-                  `detalhes?${row.id_empenho} - ${row.exercicio_empenho}`,
-                  "_blank"
-                );
-              }}
+                    sessionStorage.setItem('selectedDespesa', JSON.stringify(row));
+                    window.open(`detalhes?Exercicio_Empenho=${row.id_empenho.split('/')[1]}&nr_empenho=${row.id_empenho.split('/')[0]}`, '_blank');
+                  }}
               >
               <Text  fontWeight="bold" 
               fontSize="lg"
