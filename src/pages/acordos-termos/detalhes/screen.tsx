@@ -179,7 +179,7 @@ function Screen() {
               </Thead>
               <Tbody>
                 {[
-                   ["Termo / Acordo", obterTipoDespesa(despesa.tipo) + ' -  '+ despesa.tc ],
+                   ["Tipo", obterTipoDespesa(despesa.tipo) + ' -  '+ despesa.tc ],
                    ["Data início", despesa.data_inicio],
                    ["Data fim", despesa.data_fim],
                    ["Duração em dia", despesa.duracao],
@@ -189,9 +189,11 @@ function Screen() {
                    ["Processo ", despesa.processo],
                    ["Descrição", despesa.assunto],
                    ["Secretaria responsável ", despesa.secretaria_responsavel],
-                   ["Valor inicial", despesa.valor_inicial],
-                   ["Valor aditado", despesa.v],
-                   ["Repasse mensal", despesa.repasse_mensal],
+                   ["Valor inicial", despesa?.valor_inicial !== null && despesa?.valor_inicial !== undefined && despesa?.valor_inicial !== ''
+  ? moneyFormatter(Number(despesa.valor_inicial))
+  : ''],
+                   ["Valor aditado", moneyFormatter(despesa.v)],
+                   ["Repasse mensal", moneyFormatter(despesa.repasse_mensal)],
                    ["Site da entidade", despesa.url_entidade],
                    ["Observações", despesa.observacoes] ,
                  

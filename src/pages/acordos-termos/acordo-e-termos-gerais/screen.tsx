@@ -1,12 +1,36 @@
 import React, { useEffect, useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
-import { Box, Button, Select, Stack, useColorModeValue, useDisclosure, Text, Input } from "@chakra-ui/react";
+import { Box, Button, Select, Stack, useColorModeValue, useDisclosure, Text, Input, useSafeLayoutEffect } from "@chakra-ui/react";
 import PaginationComponent from "../../../components/PaginationComponent";
 import CsvDownload from "react-json-to-csv";
 import { ContainerSearch } from "../../../styles/components/contratos-atas/styles";
 import colors from "../../../styles/colors";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 
+function obterTipoDespesa(tipo: any) {
+  switch (Number(tipo)) {
+    case 1:
+      return "Acordo de Cooperação";
+    case 2:
+      return "Termo de Colaboração";
+    case 3:
+      return "Termo de Fomento";
+    case 4:
+      return "Termo de Autorização de Uso";
+    case 5:
+      return "Termo de Cessão de Uso";
+    case 6:
+      return "Termo de Compromisso";
+    case 7:
+      return "Termo de Cooperação";
+    case 8:
+      return "Termo de Doação";
+    case 9:
+      return "Termo de Permissão de Uso";
+    default:
+      return "Tipo Desconhecido";
+  }
+}
 
 type PropsInput = {
   handler: {
@@ -17,35 +41,65 @@ type PropsInput = {
 };
 
 function Screen({ handler: {  data, loading } }: PropsInput) {
-  const title = "Acordos de Cooperação";
-  const description = <>Divulgação da lista de Acordos de Cooperação, que não envolvam recursos financeiros, realizados pela Prefeitura de Mogi das Cruzes é uma medida fundamental cujo propósito é reforçar a transparência das finanças municipais e promover a responsabilidade fiscal.<br/>A prestação de contas das organizações sociais no formato digital está em processo de implementação, ajuste e teste e deve ser concluído em 2026. Para consultar os processos físicos de prestação de contas, solicite a informação via SIC, indicando o número do termo/acordo. </>;
+  const title = "Acordos e termos - Gerais";
+  const description = <>Aqui você encontra a lista de todos os tipos de acordos e termos disponíveis. </>;
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [termo,setTermo] = useState<any>(null);
     const [currentPage, setCurrentPage] = useState(1);
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedYear, setSelectedYear] = useState<number | undefined>(2025); // Estado para o ano selecionado
     const accessibility = useFontSizeAccessibilityContext();
+    const [selectdTipo, setSelectedTipo] = useState<number | undefined>(undefined);
+    const [selectedSecretaria, setSelectedSecretaria] = useState<string | undefined>(undefined)
 
     const ITEMS_PER_PAGE = 50;
 
   
-  const filteredContratos = data.filter((item) => {
-      if (selectedYear) {
-        return Number((item.tc).split('/')[1]) === selectedYear; // Filtra pelo campo "ano"
-      }
-      return true; // Se nenhum ano for selecionado, mostra todos os contratos
-    }).filter((item) =>
-      (item.tc || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
-(item.interessado || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
-(item.contratada || "").toLowerCase().includes(searchTerm.toLowerCase())
-    );
+  const filteredContratos = data
+  .filter((item) => {
+    // Filtro por ano
+    if (selectedYear && Number((item.tc).split("/")[1]) !== selectedYear) {
+      return false;
+    }
+
+    // Filtro por tipo
+    if (selectdTipo && Number(item.tipo) !== selectdTipo) {
+      return false;
+    }
+
+    // Filtro por secretaria
+    if (selectedSecretaria && item.secretaria_responsavel !== selectedSecretaria) {
+      return false;
+    }
+
+    return true;
+  })
+  .filter((item) =>
+    (item.tc || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
+    (item.interessado || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
+    (item.contratada || "").toLowerCase().includes(searchTerm.toLowerCase())
+  );
     
     const paginatedContratos = filteredContratos.slice(
       (currentPage - 1) * ITEMS_PER_PAGE,
       currentPage * ITEMS_PER_PAGE
     );
     const totalPages = Math.ceil(filteredContratos.length / ITEMS_PER_PAGE);
+
+    const secretarias = [... new Set (data.map((item)=> item.secretaria_responsavel).filter(Boolean))].sort()
     
+    const tipo = [
+       { id: 1, label: "Acordo de Cooperação" },
+       { id: 2, label: "Termo de Colaboração" },
+       { id: 3, label: "Termo de Fomento" },
+       { id:4, label: "Termo de Autorização de Uso"},
+       { id:5, label: "Termo de Cessão de Uso"},
+       { id:6, label: "Termo de Compromisso"},
+       { id:7, label: "Termo de Cooperação"},
+       { id:8, label: "Termo de Doação"},
+       { id:9, label: "Termo de Permissão de Uso"},
+    ]
+
     const handlePageClick = (data: { selected: number }) => {
       const newPage = Math.max(1, Math.min(data.selected + 1, totalPages));
       setCurrentPage(newPage);
@@ -98,7 +152,7 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
         marginBottom="15px"
       >
        <ContainerSearch  >
-          <Stack minW={86} width="50%" flexDir='row'
+          <Stack minW={86} width="60%" flexDir='row'
           sx={{
             "@media (max-width: 900px)": {
               flexDir:'column'
@@ -127,6 +181,64 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
                 </option>
               ))}
             </Select>
+ {/* Select Tipo */}
+            <Select
+              value={selectdTipo}
+              onChange={(e) => setSelectedTipo(Number(e.target.value))}
+              placeholder="Todos os tipos"
+              width="220px"
+            >
+              {tipo.map((t) => (
+                <option key={t.id} value={t.id}>
+                  {t.label}
+                </option>
+              ))}
+            </Select>
+
+            {/* Select Secretaria */}
+            <Select
+              value={selectedSecretaria}
+              onChange={(e) => setSelectedSecretaria(e.target.value)}
+              placeholder="Todas as secretarias"
+              width="260px"
+            >
+              {secretarias.map((sec) => (
+                <option key={sec} value={sec}>
+                  {sec}
+                </option>
+              ))}
+            </Select> <Button
+  width="180px"
+  border="0"
+  cursor="pointer"
+  fontSize="20px"
+  textColor="white"
+  bgColor={colors.transparenciaBlack}
+  _hover={{ bgColor: colors.primaryDefault80p }}
+  height="40px"
+  borderRadius="8px"
+  mr="15px"
+  transition="background-color 0.3s ease"
+  boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
+  onClick={() => {
+    setSelectedYear(undefined);
+    setSelectedTipo(undefined);
+    setSelectedSecretaria(undefined);
+    setSearchTerm("");
+    setCurrentPage(1);
+  }}
+>
+  Limpar Filtros
+</Button>
+
+</Stack>
+<Stack minW={86} width="50%" flexDir='row'
+          sx={{
+            "@media (max-width: 900px)": {
+              flexDir:'column'
+            },
+          }}
+          >
 <Button
   width="180px"
   border="0"
@@ -187,7 +299,7 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
              borderRadius="8px"
              height="40px"
              pr="40px" // Adiciona espaço para o ícone à direita
-             width="40%"
+             width="35%"
              mb="10px"
              
            />
@@ -237,7 +349,7 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
             pb="5px" 
             mb="8px"
           >
-            {row.tc}
+           {obterTipoDespesa(row.tipo)} -  {row.tc}
           </Text>
           <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
             <strong>Empresa contratada:</strong> {row.interessado}
@@ -248,9 +360,9 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
           <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
             <strong>Descrição:</strong> {row.assunto}
           </Text>
-           <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
-            <strong>Secretaria:</strong> {row.secretaria_responsavel}
-          </Text>
+          <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
+                      <strong>Secretaria:</strong> {row.secretaria_responsavel}
+                    </Text>
         </Box>
         
         ))}

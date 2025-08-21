@@ -243,6 +243,9 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
               <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
                 <strong>Descrição:</strong> {row.assunto}
               </Text>
+              <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
+                          <strong>Secretaria:</strong> {row.secretaria_responsavel}
+                        </Text>
             </Box>
             
             ))}

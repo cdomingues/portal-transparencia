@@ -191,6 +191,7 @@ export const menus=[
                 "imageUrl":Acordos_termos.src,
                 "url":"",
                 "extralinks": [
+                    {label: "Acordos e Termos - Gerais", url: "/acordos-termos/acordo-e-termos-gerais",},
                     {label: "Acordo de Cooperação", url: "/acordos-termos/acordo-de-cooperacao",},
                     {label: "Termo de Colaboração",url: "/acordos-termos/termo-de-colaboracao", },
                     { label: "Termo de Fomento", url: "/acordos-termos/termo-de-fomento" },
@@ -380,7 +381,9 @@ export const menus=[
                 "label": "Controle de Radares",   
                 'imageUrl': IconeRadar.src,
                 "url":"/controle-de-radares",
-                "extralinks": []
+                "extralinks": [
+                    {label:"Fiscalização Eletrônica de Trânsito", url :'https://mobilidade.mogidascruzes.sp.gov.br/radar_listagem'},
+                ]
             },
             {
                 'id_submenu': 2,

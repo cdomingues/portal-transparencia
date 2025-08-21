@@ -157,6 +157,7 @@ const MenuHorizontalChakra = () => {
             ] },
             { label: 'Acordos e termos', href: '#',
               submenu: [
+                {label: 'Acordos e termos - Gerais', href:'/acordos-termos/acordo-e-termos-gerais'},
                 {label: "Acordo de Cooperação", href: "/acordos-termos/acordo-de-cooperacao",},
                 {label: "Termo de Colaboração",href: "/acordos-termos/termo-de-colaboracao", },
                 { label: "Termo de Cooperação", href: "/acordos-termos/termo-de-cooperacao" },
@@ -225,7 +226,9 @@ const MenuHorizontalChakra = () => {
            
           ] 
          },
-         { label: 'Controle de radares', href: '/controle-de-radares' },
+         { label: 'Controle de radares', href: '/controle-de-radares', submenu:[
+          {label:"Fiscalização Eletrônica de Trânsito", href :'https://mobilidade.mogidascruzes.sp.gov.br/radar_listagem'},
+         ] },
         
         { label: 'Organizações sociais', href: 'https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-saude-e-bem-estar/organizacoes-sociais' },
         { label: 'Ouvidoria', href: 'https://www.mogidascruzes.sp.gov.br/pagina/ouvidoria-geral/colab',
