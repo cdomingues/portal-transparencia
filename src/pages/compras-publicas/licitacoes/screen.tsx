@@ -115,8 +115,9 @@ function Screen() {
    
   );
 });
+const sortedLicitacoes = [...licitacoes].sort((a, b) => a.numero - b.numero);
 
-  const paginatedLicitacoes = filteredLicitacoes.slice(
+  const paginatedLicitacoes = sortedLicitacoes.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
     currentPage * ITEMS_PER_PAGE
   );
