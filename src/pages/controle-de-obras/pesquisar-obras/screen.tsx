@@ -85,7 +85,7 @@ function Screen() {
       : true;
 
     const bairroValido = filtroBairro ? item.bairro === filtroBairro : true;
-    const tipoValido = filtroTipo ? item.tipo === filtroTipo : true;
+    const tipoValido = filtroTipo ? item.categoria === filtroTipo : true;
     const statusValido = filtroStatus ? item.status === filtroStatus : true;
 
     return busca && bairroValido && tipoValido && statusValido;
@@ -148,7 +148,7 @@ function Screen() {
               width="200px"
             >
               {tiposUnicos.map((tipo, idx) => (
-                <option key={idx} value={tipo}>
+                <option key={idx} value={tipo} >
                   {tipo.replace("Categoria:", "")}
                 </option>
               ))}
@@ -280,7 +280,7 @@ function Screen() {
                 <Text><strong>Contrato: </strong>{obra.numero_contrato}</Text>
                 <Text><strong>Obra: </strong>{obra.nome_da_obra}</Text>
                 <Text><strong>Bairro: </strong>{obra.bairro}</Text>
-                <Text>{obra.categoria?.replace("Categoria:", "")}</Text>
+                <Text><strong>Categoria:</strong>{obra.categoria?.replace("Categoria:", "")}</Text>
                 <Text><strong>Status: </strong>{(obra.status).split('-')[1]}</Text>
                 <Text> <strong>Valor da obra: </strong>{moneyFormatter(obra.valor_total_aditamento_reajuste_contrato)}  </Text>
               </Box>

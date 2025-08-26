@@ -34,10 +34,11 @@ type PropsInput = {
   };
 };
 export const contentContractsAndAtas = {
-  titlePage: "Adiantamentos",
+  titlePage: "Gastos com publicidade",
   description:
-    "Adiantamentos são recursos financeiros conferidos a um servidor público, a fim de que possa realizar despesas que não possam aguardar o ciclo normal de compras. Confira os gastos relacionados a adiantamentos e hospedagens dos servidores públicos no exercício de sua função.",
+    "A publicidade legal e institucional realizada pelo Poder Público é um importante serviço cujo objetivo final é favorecer o acesso da população a todos os outros serviços públicos, além de contribuir com a transparência dos atos administrativos. Confira as despesas com publicidade da Prefeitura de Mogi das Cruzes",
 };
+
 function Screen({
   handler: { columns, data, loading, handleByYear, setYear, year,data2, setData2,arquivosColumns },
 }: PropsInput) {

@@ -37,13 +37,25 @@ export const contentContractsAndAtas = {
 function obterTipoDespesa(tipo: any) {
   switch (tipo) {
     case 1:
-      return 'Acordo de Cooperação';
+      return "Acordo de Cooperação";
     case 2:
-      return 'Termo de Colaboração';
+      return "Termo de Colaboração";
     case 3:
-      return 'Termo de Fomento';
+      return "Termo de Fomento";
+    case 4:
+      return "Termo de Autorização de Uso";
+    case 5:
+      return "Termo de Cessão de Uso";
+    case 6:
+      return "Termo de Compromisso";
+    case 7:
+      return "Termo de Cooperação";
+    case 8:
+      return "Termo de Doação";
+    case 9:
+      return "Termo de Permissão de Uso";
     default:
-      return 'Tipo Desconhecido';
+      return "Tipo Desconhecido";
   }
 }
 

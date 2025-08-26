@@ -18,6 +18,7 @@ import PaginationComponent from "../../../components/PaginationComponent";
 import CsvDownload from "react-json-to-csv";
 import colors from "../../../styles/colors";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
+import { filter } from "lodash";
 
 type PropsInput = {
   handler: {
@@ -66,8 +67,18 @@ function Screen({
       item.descricao.toLowerCase().includes(searchTerm.toLowerCase()) ||
       item.fornecedor.toLowerCase().includes(searchTerm.toLowerCase())
     );
+
+    const sortedContratos = [...filteredContratos].sort((a, b) => {
+      // Extrai o ano de "numero" (formato 000044/2024)
+      const aAno = parseInt(a.numero.split('/')[0], 10);
+      const bAno = parseInt(b.numero.split('/')[0], 10);
   
-    const paginatedContratos = filteredContratos.slice(
+      // Ordena de forma decrescente com base no ano
+      return   aAno - bAno;
+    });
+
+  
+    const paginatedContratos = sortedContratos.slice(
       (currentPage - 1) * ITEMS_PER_PAGE,
       currentPage * ITEMS_PER_PAGE
     );
@@ -106,15 +117,7 @@ function Screen({
     const years = [...new Set(data.map((item) => item.ano))].sort((a, b) => b - a);
   
     // Ordena os contratos de forma decrescente pelo ano extraído de "numero"
-    const sortedPaginatedContratos = [...paginatedContratos].sort((a, b) => {
-      // Extrai o ano de "numero" (formato 000044/2024)
-      const aAno = parseInt(a.numero.split('/')[0], 10);
-      const bAno = parseInt(b.numero.split('/')[0], 10);
-  
-      // Ordena de forma decrescente com base no ano
-      return   aAno - bAno;
-    });
-
+    
     const dataMaisAtual = data.reduce((maisRecente, item) => {
     const dataItem = new Date(item.updated_at);
     const dataAtualMaisRecente = new Date(maisRecente.updated_at);
@@ -205,7 +208,7 @@ function Screen({
         bgColor={colors.transparenciaBlack}
         _hover={{ bgColor: colors.primaryDefault80p }} // Cor de fundo ao passar o mouse
         
-        height='40px' borderRadius='8px' mr='15px'onClick={() => exportToJSON(sortedPaginatedContratos)}
+        height='40px' borderRadius='8px' mr='15px'onClick={() => exportToJSON(filteredContratos)}
         boxShadow="0px 4px 10px rgba(0, 0, 0, 0.2)"
         
         >JSON</Button>
@@ -236,7 +239,7 @@ function Screen({
                       }}
             />
     
-            {sortedPaginatedContratos.map((row) => (
+            {paginatedContratos.map((row) => (
              <Box
                        key={row.id_contrato}
                        border="2px solid transparent"

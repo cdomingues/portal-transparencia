@@ -13,6 +13,7 @@ import TagManager from "react-gtm-module";
 import { isMobile } from "react-device-detect";
 import Head from "next/head";
 import PageViewCounter from "../components/PageView";
+import '../styles/pagination.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [loaded, setLoaded] = useState(false);

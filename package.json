@@ -58,6 +58,7 @@
     "react-icons-kit": "^2.0.0",
     "react-json-to-csv": "^1.2.0",
     "react-leaflet": "^4.1.0",
+    "react-paginate": "^8.3.0",
     "react-table": "^7.8.0",
     "react-vlibras": "^2.3.4",
     "styled-components": "^5.3.9",
@@ -84,5 +85,8 @@
     "eslint-config-next": "^13.4.4",
     "ftp-deploy": "^2.4.3",
     "typescript": "5.7.3"
+  },
+  "resolutions": {
+    "@azure/msal-node": "^2.0.0"
   }
 }

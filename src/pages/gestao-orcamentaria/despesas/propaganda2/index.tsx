@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import React, { useState } from "react";
 import Screen from "./screen";
-import { getDiarias } from "../../../../calls/expenses/adiantamentos";
+import { getDiarias } from "../../../../calls/expenses/publicidade";
 import { revalidate } from "../../../../config";
 import moment from "moment";
 import { title } from "process";
