@@ -41,7 +41,7 @@ export default async function handler(
   if (nome) {
     const count = await database()
       .count("id as count")
-      .from("FOLHAPAGAMENTO")
+      .from("RFV19600")
       .where({
         ...yearFilter,
         ...monthFilter,
@@ -53,7 +53,7 @@ export default async function handler(
 
     const payroll = await database
       .select()
-      .from("FOLHAPAGAMENTO")
+      .from("RFV19600")
       .where({
         ...yearFilter,
         ...monthFilter,
@@ -72,7 +72,7 @@ export default async function handler(
   if (cargo) {
     const count = await database()
       .count("id as count")
-      .from("FOLHAPAGAMENTO")
+      .from("RFV19600")
       .where({
         ...yearFilter,
         ...monthFilter,
@@ -84,7 +84,7 @@ export default async function handler(
 
     const payroll = await database
       .select()
-      .from("FOLHAPAGAMENTO")
+      .from("RFV19600")
       .where({
         ...yearFilter,
         ...monthFilter,
@@ -102,7 +102,7 @@ export default async function handler(
 
   const count = await database()
     .count("id as count")
-    .from("FOLHAPAGAMENTO")
+    .from("RFV19600")
     .where({
       ...yearFilter,
       ...monthFilter,
@@ -111,7 +111,7 @@ export default async function handler(
 
   const payroll = await database
     .select()
-    .from("FOLHAPAGAMENTO")
+    .from("RFV19600")
     .where({
       ...yearFilter,
       ...monthFilter,
@@ -161,7 +161,7 @@ export default async function handler(
 //   const monthFilter = mes ? { mes } : {};
 
 //   // Criar Construtor de Consultas
-//   const query = database().from("FOLHAPAGAMENTO");
+//   const query = database().from("RFV19600");
 
 //   // Aplicar Filtros de Ano e Mês
 //   query.where({ ...yearFilter, ...monthFilter });
