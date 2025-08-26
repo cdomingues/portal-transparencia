@@ -6,7 +6,7 @@ import CsvDownload from "react-json-to-csv";
 import { ContainerSearch } from "../../../styles/components/contratos-atas/styles";
 import colors from "../../../styles/colors";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
-import ReactPaginate from 'react-paginate'
+//import ReactPaginate from 'react-paginate'
 //import '../../../styles/pagination.css'
 
 type PropsInput = {
@@ -298,13 +298,13 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
         >
       
         </Box>
-       {/*  <PaginationComponent 
+         <PaginationComponent 
         pages={totalPages} 
         setCurrentPage={setCurrentPage} 
         currentPage={currentPage} 
-        /> */}
+        /> 
 
-         <ReactPaginate
+         {/* <ReactPaginate
         previousLabel={"Anterior"}
         nextLabel={"Próximo"}
         breakLabel={"..."}
@@ -316,7 +316,7 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
         activeClassName={"active"}
         
       />
-     
+      */}
 
       </Box>
     </ContainerBasic>
