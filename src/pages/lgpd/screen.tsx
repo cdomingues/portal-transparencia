@@ -41,6 +41,7 @@ const treinamentos = [
     vagas: "100 lugares",
     ementa:
       "Aborda os princípios e fundamentos da LGPD aplicados à administração pública, destacando responsabilidades dos órgãos municipais, boas práticas no tratamento de dados pessoais e a importância da transparência e da proteção dos direitos dos cidadãos.",
+      apresentacao: "https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/ff554aaf-e437-4afe-bd15-b5f5469f7570/Tratamento_de_Dados_pelo_Poder_P%C3%BAblico.pptx.pdf"
   },
   {
     data: "28/08/2025",
@@ -326,6 +327,7 @@ Sede da Prefeitura de Mogi das Cruzes - 3º andar
           <Box mt={4}>
             <Text fontWeight="bold">Ementa:</Text>
             <Text textAlign="justify">{treino.ementa}</Text>
+             <Text><strong> Material:</strong> <Link href={treino.apresentacao} target="blank">{treino.apresentacao}</Link></Text>
           </Box>
         </Box>
       ))}
