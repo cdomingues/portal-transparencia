@@ -52,6 +52,18 @@ const treinamentos = [
     vagas: "40 lugares",
     ementa:
       "Discute a relação entre proteção de dados e segurança da informação, com foco em riscos, medidas de mitigação, controles técnicos e administrativos, além de estratégias para prevenção de incidentes no ambiente tecnológico da Prefeitura.",
+      apresentacao: "https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/e35a159a-66a9-45bf-9c38-939831123b73/LGPD_e_Seguran%C3%A7a_da_Informa%C3%A7%C3%A3o.pptx_1.pdf"
+  },
+  {
+    data: "04/09/2025",
+    titulo: "Dados Sensíveis e Proteção de Dados de Crianças e Adolescentes",
+    local: "Pipa Hub",
+    horario: "14h às 16h",
+    publico: "Servidores da Secretaria de Assistência Social e organizações ",
+    vagas: "",
+    ementa:
+      "O treinamento aborda os principais aspectos da Lei Geral de Proteção de Dados Pessoais (LGPD) aplicados ao contexto da Assistência Social, destacando os cuidados necessários no tratamento de informações sensíveis de usuários dos serviços socioassistenciais. Serão discutidos os direitos dos titulares de dados, as responsabilidades dos servidores e gestores, bem como boas práticas para garantir a privacidade e a segurança das informações em atendimentos e registros administrativos.",
+      material:"",
   },
 ];
 

@@ -91,7 +91,7 @@ function PublicHome() {
                  >
                 O Portal da Transparência da Prefeitura de Mogi das Cruzes reúne dados e informações da administração municipal, possibilitando o controle social e acompanhamento interno e externo das ações do poder público.  
  <br/>
- Com o objetivo de divulgar ativamente dados de interesse coletivo ou privado, o portal atende aos critérios estabelecidos pelo artigo 5º do Decreto Municipal nº22.604/2024 e artigo 6º da Lei Municipal nº 7.986/23 que regulamenta a Lei  Federal nº 12.527/11 (Lei de Acesso à Informação).
+ Com o objetivo de divulgar ativamente dados de interesse coletivo ou privado, o portal atende aos critérios estabelecidos pelo artigo 5º do Decreto Municipal nº23.595/2025 e artigo 6º da Lei Municipal nº 7.986/23 que regulamenta a Lei  Federal nº 12.527/11 (Lei de Acesso à Informação).
               </Text>
       </Stack>
 
