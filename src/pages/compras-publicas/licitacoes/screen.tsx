@@ -54,9 +54,11 @@ function Screen() {
   }, [selectedYear, selectedLicitacao, selectedGestora, selectedSituacao]);
 
   const fetchData = async () => {
+    setLicitacoes([]);
     let allLicitacoes: Licitacoes[] = [];
     let page = 1;
     let hasMore = true;
+
 
     const filters: any = {};
     if (selectedYear !== "Todos") filters.ano = selectedYear;
@@ -115,7 +117,7 @@ function Screen() {
    
   );
 });
-const sortedLicitacoes = [...licitacoes].sort((a, b) => a.numero - b.numero);
+const sortedLicitacoes = [...filteredLicitacoes].sort((a, b) => a.numero - b.numero);
 
   const paginatedLicitacoes = sortedLicitacoes.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,

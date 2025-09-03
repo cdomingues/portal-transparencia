@@ -1,54 +1,37 @@
 import { GetStaticProps } from "next";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Screen from "./screen";
-import {
-  getChart,
-  getChartYear,
-  getdvertisings,
-} from "../../../../calls/expenses/advertising";
-import {getDespesasPublicidade} from "../../../../calls/expenses/outras_despesas_publicidade"
+import { getDiarias } from "../../../../calls/expenses/publicidade";
 import { revalidate } from "../../../../config";
 import moment from "moment";
-import axios from "axios";
-import moneyFormatter from "../../../../utils/moneyFormatter";
+import { title } from "process";
+export interface ArquivoContrato {
+  id: number;
+  arquivo: string;
+  nome: string;
+  id_contrato_id: number | null;
+}
 
-function Controller({
-  chart = { datasets: [] },
-  chartYear = { datasets: [] },
-  advertisings = [],
-  contracts = [],
-  years,
-}: any) {
+export interface ApiResponse {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: ArquivoContrato[];
+}
+
+
+function Controller({ contracts = [], years = [] }: any) {
   const [year, setYear] = useState(moment().year());
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState(advertisings);
-  const [data2, setData2] = useState(contracts);
-  const [newChart, setNewChart] = useState(chart);
-  const [gastos,setGastos] = useState([])
+  const [data, setData] = useState(contracts);
+  const [data2, setData2]  = useState<ArquivoContrato[]>([]);
+  
 
   const columns = [
-    //{ title: "Id", field: "id" },
-    { title: "Ano", field: "ano" },
-    { title: "Competência", field: "competencia" },
-    { title: "Campanha", field: "campanha" },
-    { title: "Veículo de divulgação", field: "veiculo_divulgacao" },
-    { title: "Tipo de Serviço", field: "tipo_servico" },
-    //{ title: "Liquidado", field: "liquidado" },
-    { title: "Fornecedor", field: "fornecedor" },
-    { title: "Agência Contratada", field: "agencia_contratada" },
-    { title: "Data Início", field: "data_inicio" },
-    { title: "Data Término", field: "data_termino" },
-    { title: "Valor Veiculação", field: "valor_total_veiculacao" },
-    { title: "Honorário Veiculação", field: "honorario_agencia_veiculacao"},
-    { title: "Honorário Produção", field: "honorario_agencia_producao",  },
-    { title: "Data Pagamento", field: "data_pagamento",  },
-  ];
-
-  const columnsDespesasPublicidade = [
+    
     {title:"Empenho",field:'nr_empenho'},
     {title:"Exercício empenho",field:'exercicio_empenho'},
     { title: "Fornecedor", field: "descr_fornecedor" },
-    { title: "CNPJ", field: "cnpj_fornecedor" },
     { title: "Funcional", field: "class_funcional" },
     { title: "Descrição Funcional", field: "descr_funcional" },
     { title: "Ação", field: "acao" },
@@ -67,63 +50,50 @@ function Controller({
     { title: "Subelemento", field: "subelemento" },
     { title: "Processo", field: "cod_processo" },
     { title: "Licitação", field: "licitacao_modalidade" },
-  ]
+    
+    //{title:"ID",field:'id'},
+     
+  
+
+  ];
 
   const handleByYear = async (year: number) => {
     setYear(year);
 
     setLoading(true);
 
-    const { advertisings } = await getdvertisings(year);
-
-    const {contracts} = await getDespesasPublicidade(year)
-
-    const { chart } = await getChart(year);
+    const { contracts } = await getDiarias(year);
 
     setLoading(false);
 
-    setNewChart(chart);
-
-    setData(advertisings);
-
-    setData2(contracts)
+    setData(contracts);
   };
 
+  const arquivosColumns = [
+    { title: "Id", field: "id" },
+    { title: "Arquivo", field: 'arquivo'},
+    { title: "Nome", field: "nome" },
+    { title: "Contrato", field: "mes" },
+    { title: "Localização", field: "id_contrato_id" },
+    
+  ];
+
   
+
 
   const handler = {
     data,
-    data2,
     columns,
     loading,
-    chart: newChart,
-    chartYear,
+    year,
     years,
     setYear,
-    year,
     handleByYear,
-    gastos,
-    setGastos,
+    data2,
     setData2,
-    columnsDespesasPublicidade,
-  };
-
-  
-  
-
-
-  const getGastos = async  () =>{
-    const response = await axios.get(
-      'https://dadosadm.mogidascruzes.sp.gov.br/api/gastos_publicidade'
-    );
-    const rows = response.data;
-  
-    setGastos(rows)
-  }
-  useEffect(() => {
-    getGastos();
+    arquivosColumns
     
-  }, []);
+  };
 
   return <Screen handler={handler} />;
 }
@@ -131,19 +101,11 @@ function Controller({
 export default Controller;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { chart } = await getChart();
-  const { chartYear } = await getChartYear();
-  const { advertisings, years } = await getdvertisings();
-  const {contracts} = await getDespesasPublicidade();
- 
-
+  const { contracts } = await getDiarias();
   return {
     props: {
-      chartYear: chartYear || { datasets: [] },
-      chart: chart || { datasets: [] },
-      advertisings: advertisings || [],
-      years: years || [],
       contracts: contracts || [],
+      
     },
     revalidate,
   };

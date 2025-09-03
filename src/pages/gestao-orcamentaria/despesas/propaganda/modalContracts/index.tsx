@@ -12,12 +12,11 @@ import {
 } from "@chakra-ui/react";
 import Details from "./components/details";
 
-
+import Files from "./components/files";
 import { ListTabs, ModalContainer, Panel, TabItem } from "../../../../../styles/components/contratos-atas/modal/styles";
 import Liquidacoes from "./components/liquidacoes";
 import ItensEmpenho from "./components/itens_empenho";
 import Pagamentos from "./components/pagamentos";
-import Documentos from "./components/documentos";
 
 const ModalContracts = ({ isOpen, onClose, contract }: any) => {
   return (
@@ -30,15 +29,14 @@ const ModalContracts = ({ isOpen, onClose, contract }: any) => {
         <ModalBody
           style={{ paddingLeft: 0, paddingRight: 0, paddingBottom: 0 }}
         >
-          <Tabs style={{ padding: 0, margin: 0 }}>
-            <ListTabs>
-              <TabItem>Detalhes</TabItem>
+          <Tabs style={{ padding: 0, margin: 0 }} >
+            <ListTabs >
+              <TabItem fontWeight="500">Detalhes</TabItem>
 
-              
-              <TabItem>Liquidacoes</TabItem>
-              <TabItem>Itens Empenho</TabItem>
-              <TabItem>Pagamentos</TabItem>
-              <TabItem>Documentos</TabItem>
+              <TabItem fontWeight="500">Prestação de Contas</TabItem>
+              <TabItem fontWeight="500">Liquidacoes</TabItem>
+              <TabItem fontWeight="500">Itens Empenho</TabItem>
+              <TabItem fontWeight="500">Pagamentos</TabItem>
             </ListTabs>
 
             <TabPanels>
@@ -46,6 +44,10 @@ const ModalContracts = ({ isOpen, onClose, contract }: any) => {
                 <Details contract={contract} />
               </Panel>
               
+
+              <Panel>
+              <Files contract={contract}/>
+              </Panel>
 
               <Panel>
               <Liquidacoes contract={contract}/>
@@ -57,10 +59,6 @@ const ModalContracts = ({ isOpen, onClose, contract }: any) => {
 
               <Panel>
                 <Pagamentos contract={contract} />
-              </Panel>
-
-              <Panel>
-                <Documentos contract={contract} />
               </Panel>
 
 
