@@ -78,8 +78,8 @@ function Screen({
   item.objeto && item.objeto.toLowerCase().includes(searchTerm.toLowerCase()) ||
   item.fornecedor && item.fornecedor.toLowerCase().includes(searchTerm.toLowerCase())||
   item.grupo && item.grupo.toLowerCase().includes(searchTerm.toLowerCase())||
-  item.tipo_contrato && item.tipo_contrato.toLowerCase().includes(searchTerm.toLowerCase())
-
+  item.tipo_contrato && item.tipo_contrato.toLowerCase().includes(searchTerm.toLowerCase())||
+  item.gestor_contrato && item.gestor_contrato.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const formatDate = (isoString: any) => {

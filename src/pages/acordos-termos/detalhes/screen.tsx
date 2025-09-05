@@ -201,11 +201,9 @@ function Screen() {
                    ["Processo ", despesa.processo],
                    ["Descrição", despesa.assunto],
                    ["Secretaria responsável ", despesa.secretaria_responsavel],
-                   ["Valor inicial", despesa?.valor_inicial !== null && despesa?.valor_inicial !== undefined && despesa?.valor_inicial !== ''
-  ? moneyFormatter(Number(despesa.valor_inicial))
-  : ''],
-                   ["Valor aditado", moneyFormatter(despesa.v)],
-                   ["Repasse mensal", moneyFormatter(despesa.repasse_mensal)],
+                   ["Valor inicial", despesa?.valor_inicial ],
+                   ["Valor aditado", despesa?.valor_aditado ],
+                   ["Repasse mensal", despesa.repasse_mensal],
                    ["Site da entidade", despesa.url_entidade],
                    ["Observações", despesa.observacoes] ,
                  
