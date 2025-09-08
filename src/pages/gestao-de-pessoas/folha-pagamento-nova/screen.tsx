@@ -396,23 +396,83 @@ function Screen() {
                   <Th style={{ border: "1px solid #ccc", padding: "8px", textAlign: "right" }}>Valor</Th>
                 </Tr>
               </Thead>
-              <Tbody>
-                {[...selectedDetails.results]
-                  .sort((b, a) => a.tipoVerba.localeCompare(b.tipoVerba))
-                  .map((item: any, index: number) => (
-                    <Tr key={index}>
-                      <Td style={{ border: "1px solid #ccc", padding: "8px" }}>{item.codverba}</Td>
-                      <Td style={{ border: "1px solid #ccc", padding: "8px" }}>{item.desnoverba}</Td>
-                      <Td style={{ border: "1px solid #ccc", padding: "8px" }}>{item.tipoVerba}</Td>
-                      <Td style={{ border: "1px solid #ccc", padding: "8px", textAlign: "right" }}>
-                        R$ {parseFloat(item.valorverba).toLocaleString("pt-BR", {
-                          minimumFractionDigits: 2,
-                          maximumFractionDigits: 2,
-                        })}
-                      </Td>
-                    </Tr>
-                  ))}
-              </Tbody>
+             <Tbody>
+  {(() => {
+    const results = [...selectedDetails.results];
+
+    // normaliza para maiúsculo e sem plural
+    const isDesconto = (tipo: string) =>
+      tipo?.toUpperCase().startsWith("DESCONTO");
+
+    // separa descontos e não descontos
+    const descontos = results.filter((item: any) => isDesconto(item.tipoVerba));
+    const outros = results.filter((item: any) => !isDesconto(item.tipoVerba));
+
+    // lista de códigos especiais
+    const codigosEspeciais = [187, 170, 184, 181, 178];
+
+    // descontos especiais
+    const descontosEspeciais = descontos.filter((item: any) =>
+      codigosEspeciais.includes(Number(item.codverba))
+    );
+
+    // descontos que não são especiais
+    const descontosOutros = descontos.filter(
+      (item: any) => !codigosEspeciais.includes(Number(item.codverba))
+    );
+
+    const somaOutrosDescontos = descontosOutros.reduce(
+      (acc: number, item: any) => acc + parseFloat(item.valorverba),
+      0
+    );
+
+    // lista final
+    const finalList = [
+      ...outros,
+      ...descontosEspeciais,
+      ...(somaOutrosDescontos !== 0
+        ? [
+            {
+              codverba: "-",
+              desnoverba: "OUTROS DESCONTOS",
+              tipoVerba: "Descontos",
+              valorverba: somaOutrosDescontos,
+            },
+          ]
+        : []),
+    ];
+
+    return finalList
+      .sort((b: any, a: any) => a.tipoVerba.localeCompare(b.tipoVerba))
+      .map((item: any, index: number) => (
+        <Tr key={index}>
+          <Td style={{ border: "1px solid #ccc", padding: "8px" }}>
+            {item.codverba}
+          </Td>
+          <Td style={{ border: "1px solid #ccc", padding: "8px" }}>
+            {item.desnoverba}
+          </Td>
+          <Td style={{ border: "1px solid #ccc", padding: "8px" }}>
+            {item.tipoVerba}
+          </Td>
+          <Td
+            style={{
+              border: "1px solid #ccc",
+              padding: "8px",
+              textAlign: "right",
+            }}
+          >
+            R${" "}
+            {parseFloat(item.valorverba).toLocaleString("pt-BR", {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+            })}
+          </Td>
+        </Tr>
+      ));
+  })()}
+</Tbody>
+
             </Table>
           </Box>
         </>

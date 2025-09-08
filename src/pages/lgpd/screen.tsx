@@ -12,6 +12,10 @@ import {
   AccordionIcon,
   Divider,
   Heading,
+  Stack,
+  List,
+  ListItem,
+  ListIcon,
 
 } from "@chakra-ui/react";
 
@@ -20,6 +24,7 @@ import { isMobile } from "react-device-detect";
 import useWindowDimensions from "../../utils/getWindowSize";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
 import ContainerBasic from "../../components/Container/Basic";
+import { CheckCircleIcon } from "@chakra-ui/icons";
 
 const treinamentos = [
   {
@@ -63,7 +68,7 @@ const treinamentos = [
     vagas: "",
     ementa:
       "O treinamento aborda os principais aspectos da Lei Geral de Proteção de Dados Pessoais (LGPD) aplicados ao contexto da Assistência Social, destacando os cuidados necessários no tratamento de informações sensíveis de usuários dos serviços socioassistenciais. Serão discutidos os direitos dos titulares de dados, as responsabilidades dos servidores e gestores, bem como boas práticas para garantir a privacidade e a segurança das informações em atendimentos e registros administrativos.",
-      material:"",
+      apresentacao:"https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/26c79b9f-5343-40a1-b03b-f717beaad85d/Dados_Sens%C3%ADveis_e_Prote%C3%A7%C3%A3o_de_Dados_de_Cri_PhrEDhb.pdf",
   },
 ];
 
@@ -269,12 +274,77 @@ Sede da Prefeitura de Mogi das Cruzes - 3º andar
               <AccordionPanel m={4} p={8}  borderRadius={4}>
                 <Flex flexDirection='column'>
                  
-             <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              >Os tratamentos de dados realizados pela Prefeitura de Mogi das Cruzes se dão de acordo com os arts. 7°, incisos II, III, IV, VI e IX, e 11., inciso II, alíneas “a”, “b” e “c”, bem como os artigos 23 e 26, todos da Lei Geral de Proteção de Dados Pessoais (LGPD), Lei n° 13.709/2018, e se limitam ao cumprimento de obrigações legais e regulatórias, execução de políticas públicas, execução de contrato e realização de estudos de pesquisa. O tratamento de dados pessoais de crianças e de adolescentes realizado  é feito no melhor interesse daqueles, nos termos da legislação pertinente.   </Text>
- 
+            <Text mb={6}>
+        A Prefeitura de Mogi das Cruzes realiza o tratamento de dados pessoais
+        em conformidade com a Lei Geral de Proteção de Dados Pessoais (Lei nº
+        13.709/2018 – LGPD).
+      </Text>
+
+      <Divider mb={6} />
+
+      <Stack spacing={6}>
+        <Box>
+          <Heading size="md" mb={2}>
+            Bases Legais do Tratamento
+          </Heading>
+          <List spacing={3}>
+            <ListItem>
+              <ListIcon as={CheckCircleIcon} color="green.500" />
+              <b>Cumprimento de obrigação legal ou regulatória</b> (art. 7º,
+              inciso II): quando os dados são necessários para atender
+              exigências previstas em leis, regulamentos ou normas
+              administrativas.
+            </ListItem>
+            <ListItem>
+              <ListIcon as={CheckCircleIcon} color="green.500" />
+              <b>Execução de políticas públicas</b> (art. 7º, inciso III, e art.
+              23): dados utilizados para implementar programas, serviços e
+              ações de interesse público estabelecidos em lei ou regulamentos.
+            </ListItem>
+            <ListItem>
+              <ListIcon as={CheckCircleIcon} color="green.500" />
+              <b>Realização de estudos por órgão público</b> (art. 7º, inciso
+              IV): dados usados em pesquisas e diagnósticos destinados a
+              subsidiar políticas públicas, com anonimização sempre que
+              possível.
+            </ListItem>
+            <ListItem>
+              <ListIcon as={CheckCircleIcon} color="green.500" />
+              <b>Proteção da vida ou da incolumidade física</b> (art. 7º,
+              inciso VII): tratamento necessário para preservar a integridade de
+              pessoas em situações de risco.
+            </ListItem>
+            <ListItem>
+              <ListIcon as={CheckCircleIcon} color="green.500" />
+              <b>Tutela da saúde</b> (art. 7º, inciso VIII, e art. 11, inciso
+              II, “f”): dados tratados para garantir assistência, acompanhamento
+              ou políticas de saúde individual ou coletiva.
+            </ListItem>
+            <ListItem>
+              <ListIcon as={CheckCircleIcon} color="green.500" />
+              <b>Legítimo interesse do poder público</b> (art. 7º, inciso IX):
+              tratamento indispensável para atender finalidades legítimas do
+              município, respeitando direitos e liberdades fundamentais.
+            </ListItem>
+            <ListItem>
+              <ListIcon as={CheckCircleIcon} color="green.500" />
+              <b>Proteção de dados pessoais sensíveis</b> (art. 11, inciso II,
+              “a” a “e”): em situações como obrigação legal, execução de
+              políticas públicas, pesquisas, exercício de direitos ou proteção
+              da vida e da saúde.
+            </ListItem>
+          </List>
+        </Box>
+        <Text mb={2}>
+          Adicionalmente, a LGPD prevê no <strong>art. 26 </strong>regras específicas para o compartilhamento de dados entre órgãos e entidades do poder público, que somente ocorre quando necessário para a execução de políticas públicas e mediante garantia de segurança e transparência.
+        </Text>
+         <Text mb={2}>
+          Quando necessário para a <strong>descentralização da execução dos serviços públicos</strong>, os dados pessoais também podem ser <strong>compartilhados com organizações da sociedade civil e outras entidades externas parceiras do município</strong>, sempre vinculados a contratos, convênios ou instrumentos congêneres. Nesses casos, tais organizações passam a ser corresponsáveis pelo tratamento, devendo respeitar integralmente a LGPD e assegurar a proteção e confidencialidade das informações.
+         </Text>
+         <Text mb={2}>
+          No caso do tratamento de <strong>dados pessoais de crianças e adolescentes</strong>, a Prefeitura observa regra especial: todas as operações devem atender ao <strong>melhor interesse da criança e do adolescente</strong>, conforme previsto no <strong>art. 14 da LGPD</strong> e no <strong>Estatuto da Criança e do Adolescente (Lei nº 8.069/1990)</strong>.
+          </Text>
+ </Stack>
                 </Flex>
               </AccordionPanel>
             </AccordionItem>
