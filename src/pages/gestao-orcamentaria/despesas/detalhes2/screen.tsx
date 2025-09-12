@@ -519,7 +519,11 @@ useEffect(() => {
                 <Tr key={ad.id}>
                 <Td  border={`1px solid ${colors.transparenciaBlack}`}>{ad.veiculo}</Td>
                 <Td  border={`1px solid ${colors.transparenciaBlack}`}>{ad.campanha}</Td>
-                <Td  border={`1px solid ${colors.transparenciaBlack}`}><Link href={ad.arquivo_despesa} target="blank">Download</Link></Td>
+                <Td  border={`1px solid ${colors.transparenciaBlack}`}> {ad.arquivo_despesa ? (
+    <Link href={ad.arquivo_despesa} target="_blank">Download</Link>
+  ) : (
+    "-"
+  )}</Td>
                 </Tr>
                 ))}
                
