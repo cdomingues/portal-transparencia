@@ -14,6 +14,7 @@ import ContainerBasic from "../../../../components/Container/Basic";
 import moneyFormatter from "../../../../utils/moneyFormatter";
 import moment from "moment";
 import colors from "../../../../styles/colors";
+import Link from "next/link";
 
 export interface Detalhes {
   id: string;
@@ -86,7 +87,7 @@ export interface ArquivoAdiantamento {
   id: string;
   created_at: string;
   updated_at: string;
-  arquivo: string;
+  arquivo_despesa: string;
   descricao: string;
   despesa: string;
 }
@@ -507,6 +508,8 @@ useEffect(() => {
                  
                   <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.transparenciaBlack}`}>Veículo</Th>
                   <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.transparenciaBlack}`}>Campanha</Th>
+                  <Th bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.transparenciaBlack}`}>Arquivo</Th>
+                 
                  
                   
                 </Tr>
@@ -516,6 +519,7 @@ useEffect(() => {
                 <Tr key={ad.id}>
                 <Td  border={`1px solid ${colors.transparenciaBlack}`}>{ad.veiculo}</Td>
                 <Td  border={`1px solid ${colors.transparenciaBlack}`}>{ad.campanha}</Td>
+                <Td  border={`1px solid ${colors.transparenciaBlack}`}><Link href={ad.arquivo_despesa} target="blank">Download</Link></Td>
                 </Tr>
                 ))}
                

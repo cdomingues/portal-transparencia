@@ -59,7 +59,7 @@ interface Despesa {
 
 export const contentContractsAndAtas = {
   titlePage: 'Despesas',
-  description: (
+  description: 
     <>
       As fases da despesa pública são regulamentadas pela Lei Federal nº 4.320/64. São elas:
       <br />
@@ -72,7 +72,7 @@ export const contentContractsAndAtas = {
       Nesta página é possível acompanhar diariamente a execução orçamentária das despesas da Prefeitura Municipal de Mogi das Cruzes.
       <br /><br />
      </>
-  ),
+  ,
 };
 
 const Despesas = () => {
@@ -207,6 +207,9 @@ const Despesas = () => {
 
   return (
     <ContainerBasic title={title} description={description}>
+      <Box my='25px' border='1px solid lightgrey' p='5' borderRadius='15px' boxShadow='2xl' width='95vw'>
+            <iframe title="DESPESAS" width="100%" height="700" src="https://app.powerbi.com/view?r=eyJrIjoiZWFkZjQ1NTctMmI5OS00YzJjLTgyZTYtYzgxNDViM2QyNGEzIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9"  ></iframe>
+            </Box>
       <Box
         bg={useColorModeValue('white', 'gray.800')}
         padding="15px"

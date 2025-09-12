@@ -95,11 +95,12 @@ function ContainerBasic({
                 {title}
               </Heading>
               <div style={{ paddingRight: isMobile ? "0%" : "0%" }}>
-                <Box
+  <Box
     color="gray.500"
     fontSize={accessibility?.fonts?.regular}
-    dangerouslySetInnerHTML={{ __html: description }}
-  />
+  >
+    {description}
+  </Box>
               </div>
             </Box>
           )}

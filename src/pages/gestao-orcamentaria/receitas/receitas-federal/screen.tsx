@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import ContainerBasic from "../../../components/Container/Basic";
+import ContainerBasic from "../../../../components/Container/Basic";
 import { Box, Button, Input, Select, Stack, Table, Tbody, Td, Text, Th, Thead, Tr, useColorModeValue } from "@chakra-ui/react";
-import PaginationComponent from "../../../components/PaginationComponent";
+import PaginationComponent from "../../../../components/PaginationComponent";
 import axios from "axios";
 import CsvDownload from "react-json-to-csv";
-import moneyFormatter from "../../../utils/moneyFormatter";
-import colors from "../../../styles/colors";
+import moneyFormatter from "../../../../utils/moneyFormatter";
+import colors from "../../../../styles/colors";
 
 export interface Receitas {
   receita: string;
@@ -31,7 +31,7 @@ const API_URL = "https://dadosadm.mogidascruzes.sp.gov.br/api/lista_receitas";
 const ITEMS_PER_PAGE = 50;
 
 export const receitasDesc = {
-  titlePage: "Receitas",
+  titlePage: "Receitas - Federal",
   description:
     "De modo acessível e de fácil compreensão, acompanhe os valores e fontes de arrecadação do município, comparando a evolução entre os últimos anos e também a variação entre receita prevista e efetivamente arrecadada.",
 };
@@ -95,9 +95,15 @@ function Screen() {
   // Função para buscar tipos únicos de receitas
  
 
-  const filteredLicitacoes = licitacoes.filter((item) =>
-    searchTerm ? String(item.receita).toLowerCase().includes(searchTerm.toLowerCase()) : true
-  );
+  const filteredLicitacoes = licitacoes.filter((item) => {
+  const matchSearch = searchTerm
+    ? String(item.receita).toLowerCase().includes(searchTerm.toLowerCase())
+    : true;
+
+  const matchVinculo = item.vinculo && item.vinculo.trim().startsWith("05");
+
+  return matchSearch && matchVinculo;
+});
 
   const paginatedLicitacoes = filteredLicitacoes.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
@@ -120,9 +126,6 @@ function Screen() {
 
   return (
     <ContainerBasic title={title} description={description}>
-      <Box my='25px' border='1px solid lightgrey' p='5' borderRadius='15px' boxShadow='2xl' width='95vw'>
-      <iframe title="RECEITA" width="100%" height="700" src="https://app.powerbi.com/view?r=eyJrIjoiZDQxMjQwYzgtNjlhZi00YmE4LWI5NGYtNTY3MjQyZTY4ZWNmIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9"  ></iframe>
-      </Box>
       <Stack direction={{ base: "column", md: "row" }} spacing={4}>
 
         <Select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)} width='290px'>
@@ -213,7 +216,7 @@ function Screen() {
        >
       <Th color="white" >Ano</Th>
       <Th color="white">Receita</Th>
-     
+     <Th color="white">Vínculo</Th>
       <Th color="white">Janeiro</Th>
       <Th color="white">Fevereiro</Th>
       <Th color="white">Março</Th>
@@ -232,7 +235,9 @@ function Screen() {
   </Thead>
   <Tbody fontSize='12px'>
     
-    {paginatedLicitacoes.map((row, index) => (
+    {paginatedLicitacoes
+    //.filter(row => row.vinculo && row.vinculo.trim().startsWith("05"))
+    .map((row, index) => (
     
     <Tr 
     key={index} 
@@ -242,7 +247,7 @@ function Screen() {
   >
         <Td>{row.ano} </Td> 
        <Td>{row.receita} </Td> 
-      
+      <Td>{row.vinculo} </Td> 
        <Td>{moneyFormatter(Number(row.janeiro))}</Td>
         <Td>{moneyFormatter(Number(row.fevereiro))}</Td>
         <Td>{moneyFormatter(Number(row.marco))}</Td>
@@ -265,7 +270,9 @@ function Screen() {
 
       <PaginationComponent pages={Math.ceil(filteredLicitacoes.length / ITEMS_PER_PAGE)} setCurrentPage={setCurrentPage} currentPage={currentPage} />
 
-      
+      <Box mt='15px' border='1px solid lightgrey' p='5' borderRadius='15px' boxShadow='2xl'>
+      <iframe title="RECEITA" width="90%" height="700" src="https://app.powerbi.com/view?r=eyJrIjoiZDQxMjQwYzgtNjlhZi00YmE4LWI5NGYtNTY3MjQyZTY4ZWNmIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9"  ></iframe>
+      </Box>
     </ContainerBasic>
   );
 }
