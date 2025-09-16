@@ -94,7 +94,7 @@ export const menus=[
           //  {label: "Emendas Parlamentares",url: "/gestao-orcamentaria/despesas/despesas-emendas",},
             {label: "Propaganda e Publicidade",url: "/gestao-orcamentaria/despesas/propaganda", },
             {label: "Subvenções e Terceiro Setor", url: "/gestao-orcamentaria/despesas/subvencoes",},
-            {label: "Adiantamentos",url: "/gestao-orcamentaria/despesas/adiantamentos",},
+            //{label: "Adiantamentos",url: "/gestao-orcamentaria/despesas/adiantamentos",},
             {label: "Restos a Pagar",url: "/gestao-orcamentaria/despesas/despesas-restos", },
             { label: "Ordem Cronológica de Pagamentos", url: "/gestao-orcamentaria/despesas/pagamentos",},
             {label: "Divida ativa", url: "/gestao-orcamentaria/divida-ativa", },
@@ -279,6 +279,15 @@ export const menus=[
                 "url":"/gestao-de-pessoas/diarias-viagens",
                 "extralinks": [ ]
             },
+
+             {
+                "id_submenu": 4, 
+                "label": "Adiantamentos", 
+                "imageUrl":Diarias.src,
+                "url":"/gestao-de-pessoas/adiantamentos",
+                "extralinks": [ ]
+            },
+            
             {
                 "id_submenu": 5, 
                 "label": "Concurso Público", 

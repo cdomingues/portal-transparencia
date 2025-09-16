@@ -73,6 +73,7 @@ function Screen({
   const [currentPagePublicidade, setCurrentPagePublicidade] = useState(1);
   const [searchTermPublicidade, setSearchTermPublicidade] = useState("");
   const [selectedYearPublicidade, setSelectedYearPublicidade] = useState<number | undefined>();
+  const [veiculosPorEmpenho, setVeiculosPorEmpenho] = useState<{ [key: string]: any }>({});
   
   const API_URL = "https://dadosadm.mogidascruzes.sp.gov.br/api/gastos_publicidade";
   const ITEMS_PER_PAGE = 50;
@@ -99,6 +100,33 @@ function Screen({
 
     fetchGastosPublicidade();
   }, []);
+
+  const fetchArquivoPublicidade = async (nr_empenho: string, exercicio_empenho: number) => {
+    try {
+      const response = await fetch(
+        `https://dadosadm.mogidascruzes.sp.gov.br/api/arquivo_publicidade?nr_empenho=${nr_empenho}&exercicio_empenho=${exercicio_empenho}`
+      );
+
+      if (!response.ok) {
+        throw new Error("Erro ao buscar arquivo_publicidade");
+      }
+
+      const jsonData = await response.json();
+
+      // 🚀 salva a resposta completa da API no estado
+      setVeiculosPorEmpenho((prev) => ({
+        ...prev,
+        [`${nr_empenho}/${exercicio_empenho}`]: jsonData,
+      }));
+    } catch (error) {
+      console.error("Erro ao buscar arquivo_publicidade:", error);
+      // Em caso de erro, armazena uma mensagem de erro
+      setVeiculosPorEmpenho((prev) => ({
+        ...prev,
+        [`${nr_empenho}/${exercicio_empenho}`]: "Erro ao carregar",
+      }));
+    }
+  };
 
   // Filtros para a primeira tabela (despesas)
   const despesaFiltradas = data
@@ -190,6 +218,18 @@ function Screen({
   }, data[0]);
 
   const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.updated_at).toLocaleDateString('pt-BR') : '';
+
+  // Função para extrair todos os veículos únicos da resposta da API
+  const extractUniqueVehicles = (data: any) => {
+    if (!data || !data.results || !Array.isArray(data.results)) return [];
+    
+    // Extrair todos os veículos e remover duplicatas
+    const allVehicles = data.results
+      .map((item: any) => item.veiculo)
+      .filter((vehicle: string) => vehicle && vehicle.trim() !== "");
+    
+    return [...new Set(allVehicles)]; // Retorna array com valores únicos
+  };
 
   return (
     <ContainerBasic title={title} description={description}>
@@ -306,44 +346,74 @@ function Screen({
 
         {sortedPaginatedContratos
           .sort((a, b) => Number(a.nr_empenho) - Number(b.nr_empenho))
-          .map((row) => (
-            <Box
-              key={row.id}
-              border="2px solid transparent"
-              p="12px"
-              borderRadius="16px"
-              mb="12px"
-              bg={useColorModeValue("white", "black")}
-              boxShadow="lg"
-              transition="0.3s"
-              cursor="pointer"
-              _hover={{
-                boxShadow: "xl",
-                transform: "scale(1.01)",
-                border: `2px solid ${colors.transparenciaBlack}`,
-              }}
-              onClick={() => {
-                sessionStorage.setItem('selectedDespesa', JSON.stringify(row));
-                window.open(`detalhes2?Exercicio_Empenho=${row.id_empenho.split('/')[1]}&nr_empenho=${row.id_empenho.split('/')[0]}`, '_blank');
-              }}
-            >
-              <Text 
-                fontWeight="bold" 
-                fontSize="lg"
-                color={colors.transparenciaBlack}
-                borderBottom={`2px solid ${colors.transparenciaBlack}`}
-                pb="5px" 
-                mb="8px"
+          .map((row) => {
+            const chave = `${row.nr_empenho}/${row.exercicio_empenho}`;
+
+            // 🔄 dispara a busca se ainda não tiver no estado
+            useEffect(() => {
+              if (!veiculosPorEmpenho[chave]) {
+                fetchArquivoPublicidade(row.nr_empenho, row.exercicio_empenho);
+              }
+            }, [row.nr_empenho, row.exercicio_empenho]);
+
+            // Obter veículos para este empenho
+            const veiculosData = veiculosPorEmpenho[chave];
+            let veiculosDisplay = "Carregando...";
+            
+            if (veiculosData && typeof veiculosData === 'object') {
+              // Se for um objeto (resposta completa da API), extrair veículos únicos
+              const veiculosUnicos = extractUniqueVehicles(veiculosData);
+              veiculosDisplay = veiculosUnicos.length > 0 
+                ? veiculosUnicos.join(", ") 
+                : "Não informado";
+            } else if (typeof veiculosData === 'string') {
+              // Se já for uma string (formato antigo), usar diretamente
+              veiculosDisplay = veiculosData;
+            }
+
+            return (
+              <Box
+                key={row.id}
+                border="2px solid transparent"
+                p="12px"
+                borderRadius="16px"
+                mb="12px"
+                bg={useColorModeValue("white", "black")}
+                boxShadow="lg"
+                transition="0.3s"
+                cursor="pointer"
+                _hover={{
+                  boxShadow: "xl",
+                  transform: "scale(1.01)",
+                  border: `2px solid ${colors.transparenciaBlack}`,
+                }}
+                onClick={() => {
+                  sessionStorage.setItem('selectedDespesa', JSON.stringify(row));
+                  window.open(
+                    `detalhes2?Exercicio_Empenho=${row.id_empenho.split('/')[1]}&nr_empenho=${row.id_empenho.split('/')[0]}`,
+                    '_blank'
+                  );
+                }}
               >
-                Empenho: {row.nr_empenho} / {row.exercicio_empenho}
-              </Text>
-              <Text><strong>Fornecedor: </strong>{row.descr_fornecedor}</Text>
-              <Text><strong>Descrição:</strong> {row.descr_funcional}</Text>
-              <Text><strong>Valor empenho:</strong> {row.vlr_empenho}</Text>
-              <Text><strong>Unidade Orçamentária:</strong> {row.unid_orcam}</Text>
-              <Text><strong>Vinculo: </strong>{row.vinculo}</Text>
-            </Box>
-          ))}
+                <Text 
+                  fontWeight="bold" 
+                  fontSize="lg"
+                  color={colors.transparenciaBlack}
+                  borderBottom={`2px solid ${colors.transparenciaBlack}`}
+                  pb="5px" 
+                  mb="8px"
+                >
+                  Empenho: {row.nr_empenho} / {row.exercicio_empenho}
+                </Text>
+                <Text><strong>Fornecedor: </strong>{row.descr_fornecedor}</Text>
+                <Text><strong>Descrição:</strong> {row.descr_funcional}</Text>
+                <Text><strong>Valor empenho:</strong> {row.vlr_empenho}</Text>
+                <Text><strong>Unidade Orçamentária:</strong> {row.unid_orcam}</Text>
+                <Text><strong>Vínculo: </strong>{row.vinculo}</Text>
+                <Text><strong>Veículo(s): </strong>{veiculosDisplay}</Text>
+              </Box>
+            );
+          })}
 
         <PaginationComponent 
           pages={totalPages} 

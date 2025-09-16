@@ -75,7 +75,7 @@ const MenuHorizontalChakra = () => {
             {label: "Emendas Parlamentares", href: "/gestao-orcamentaria/despesas/despesas-emendas", },
             {label: "Propaganda e Publicidade", href: "/gestao-orcamentaria/despesas/propaganda", },
             {label: "Subvenções e Terceiro Setor", href: "/gestao-orcamentaria/despesas/subvencoes",},
-            {label: "Adiantamentos", href: "/gestao-orcamentaria/despesas/adiantamentos",},
+            //{label: "Adiantamentos", href: "/gestao-orcamentaria/despesas/adiantamentos",},
             {label: "Restos a Pagar",href: "/gestao-orcamentaria/despesas/despesas-restos",},
             {label: "Ordem Cronológica de Pagamentos",href: "/gestao-orcamentaria/despesas/pagamentos",},            
             {label: "Divida ativa", href: "/gestao-orcamentaria/divida-ativa", },
@@ -188,7 +188,8 @@ const MenuHorizontalChakra = () => {
         { label: 'Cargos e Salários', href: '/gestao-de-pessoas/cargos-e-salarios' },
         { label: 'Carga Horária', href: '/gestao-de-pessoas/carga-horaria' },
         { label: 'Diárias', href: '/gestao-de-pessoas/diarias-viagens' },
-         { label: 'Servidores Terceirizados', href: '/gestao-de-pessoas/terceirizados' },
+        { label: 'Adiantamentos', href: '/gestao-de-pessoas/adiantamentos' },
+        { label: 'Servidores Terceirizados', href: '/gestao-de-pessoas/terceirizados' },
        
         
       ]
