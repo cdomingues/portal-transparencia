@@ -392,6 +392,7 @@ export const menus=[
                 "url":"/controle-de-radares",
                 "extralinks": [
                     {label:"Fiscalização Eletrônica de Trânsito", url :'https://mobilidade.mogidascruzes.sp.gov.br/radar_listagem'},
+                    {label:"Controle de radares", url :'/controle-de-radares/'},
                 ]
             },
             {

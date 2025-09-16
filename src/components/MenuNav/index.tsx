@@ -229,6 +229,7 @@ const MenuHorizontalChakra = () => {
          },
          { label: 'Controle de radares', href: '/controle-de-radares', submenu:[
           {label:"Fiscalização Eletrônica de Trânsito", href :'https://mobilidade.mogidascruzes.sp.gov.br/radar_listagem'},
+          {label:"Controle de radares", href :'/controle-de-radares/'}
          ] },
         
         { label: 'Organizações sociais', href: 'https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-saude-e-bem-estar/organizacoes-sociais' },
