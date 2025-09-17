@@ -79,7 +79,7 @@ function Screen() {
 
   const obrasFiltradas = dados.filter((item) => {
     const busca = searchTerm
-      ? item?.categoria?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      ? item?.id_contrato?.toLowerCase().includes(searchTerm.toLowerCase()) ||
         item?.bairro?.toLowerCase().includes(searchTerm.toLowerCase()) ||
         item?.nome_da_obra?.toLowerCase().includes(searchTerm.toLowerCase()) 
       : true;
@@ -277,7 +277,7 @@ function Screen() {
                             sessionStorage.setItem("selectedDespesa", JSON.stringify(obra));
                             window.open( `detalhes?${obra.id}`, '_blank')}}
               >
-                <Text><strong>Contrato: </strong>{obra.numero_contrato}</Text>
+                <Text><strong>Contrato: </strong>{(obra.id_contrato).split("C")[1]}</Text>
                 <Text><strong>Obra: </strong>{obra.nome_da_obra}</Text>
                 <Text><strong>Bairro: </strong>{obra.bairro}</Text>
                 <Text><strong>Categoria:</strong>{obra.categoria?.replace("Categoria:", "")}</Text>
