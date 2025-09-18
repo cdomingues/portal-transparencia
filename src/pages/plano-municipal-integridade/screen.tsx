@@ -97,6 +97,12 @@ function Screen({ handler }: PropsInput) {
                        </Link>
                        </Text>
           
+                        <Text >
+                       <Link  href="http://leismunicipa.is/2mxiu" target="blank">
+                       <strong>Lei Complementar 198/2025</strong>
+                       </Link>
+                       </Text>
+           
            
                           </Flex>
                         </AccordionPanel>
