@@ -162,6 +162,7 @@ const MenuHorizontalChakra = () => {
                 {label: "Termo de Colaboração",href: "/acordos-termos/termo-de-colaboracao", },
                 { label: "Termo de Cooperação", href: "/acordos-termos/termo-de-cooperacao" },
                 { label: "Termo de Fomento", href: "/acordos-termos/termo-de-fomento" },
+                {label:'Termo e financiamento cultural', href: "/acordos-termos/termo-de-financiamento-cultural",},
             ] },
             {label:'Plano de contratações anual', href:'/compras-publicas/plano-contratacoes-anual',},
             { label: "Empresas sancionadas administrativamente",href:"/compras-publicas/empresas-sancionadas",},
