@@ -72,7 +72,7 @@ const MenuHorizontalChakra = () => {
             { label: "Receitas Gerais", href: "/gestao-orcamentaria/receitas" },
            // {label: "Emendas Parlamentares", href: "/gestao-orcamentaria/receitas/receitas-emendas",},
             {label: "Despesas Gerais", href: "/gestao-orcamentaria/despesas/despesas-gerais",},
-            {label: "Emendas Parlamentares", href: "/gestao-orcamentaria/despesas/despesas-emendas", },
+          //  {label: "Emendas Parlamentares", href: "/gestao-orcamentaria/despesas/despesas-emendas", },
             {label: "Propaganda e Publicidade", href: "/gestao-orcamentaria/despesas/propaganda", },
             {label: "Subvenções e Terceiro Setor", href: "/gestao-orcamentaria/despesas/subvencoes",},
             //{label: "Adiantamentos", href: "/gestao-orcamentaria/despesas/adiantamentos",},

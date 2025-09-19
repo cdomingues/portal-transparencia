@@ -48,6 +48,7 @@ function PublicHome() {
   return (
     <>
       <VLibras  />  
+      <ModalPopup />
       <Head>
         <title>Início</title>
       </Head>

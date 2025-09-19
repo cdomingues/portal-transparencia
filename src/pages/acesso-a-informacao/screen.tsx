@@ -217,9 +217,12 @@ marginBottom="15px">
               <Link _hover={{ textDecoration: "underline" }} href='https://leismunicipais.com.br/a/sp/m/mogi-das-cruzes/decreto/2025/2360/23595/decreto-n-23595-2025-regulamenta-a-lei-n-7986-de-28-de-setembro-de-2023-que-trata-do-acesso-a-informacao-no-ambito-do-poder-executivo-do-municipio-de-mogi-das-cruzes-revoga-o-decreto-22604-de-13-de-marco-de-2024-e-da-outras-providencias?q=23595' isExternal> <strong>Decreto Municipal nº  23.595/2025 </strong> </Link>  - Regulamentação da LAI</Text>
 
               <Text >
-              <Link _hover={{ textDecoration: "underline" }} href='https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/2d4e2b1b-36b4-4b72-8fa3-c0d9528c12a0/Decreto_23_589_2025.pdf' isExternal> <strong>Decreto 23589/2025 </strong> </Link>  -  Instituição de Indicadores de
+              <Link _hover={{ textDecoration: "underline" }} href='https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/2d4e2b1b-36b4-4b72-8fa3-c0d9528c12a0/Decreto_23_589_2025.pdf' isExternal> <strong>Decreto Municipal nº 23589/2025 </strong> </Link>  -  Instituição de Indicadores de
 Qualidade do Serviço de Informação ao
 Cidadão - SIC</Text>
+
+<Text >
+              <Link _hover={{ textDecoration: "underline" }} href='https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/10b68764-7c1b-404e-929d-86580adc8727/Decreto_23_837_2025_Pontos_Focais_LAI.pdf' isExternal> <strong> Decreto Municipal nº 23.837/2025  </strong> </Link>   - Designa Pontos Focais da LAI no âmbito da Administração Pública Municipal</Text>
 
  
                 </Flex>

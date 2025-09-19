@@ -8,7 +8,10 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
+  Text,
+  ModalFooter,
   Link,
+  Button,
 } from "@chakra-ui/react";
 
 const ModalPopup: React.FC = () => {
@@ -19,7 +22,26 @@ const ModalPopup: React.FC = () => {
   }, [onOpen]);
 
   return (
-   <div></div>
+   <div>
+    <Modal isOpen={isOpen} onClose={onClose} isCentered>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Aviso!</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Text>
+             Devido a manutenção nos sistemas da prefeitura, nos próximos dias o portal pode passar por alguma estabilidade
+            </Text>
+          </ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme="red" onClick={onClose}>
+              Fechar
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+   </div>
   );
 };
 

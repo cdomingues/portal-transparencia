@@ -3,7 +3,7 @@ import publicRoutes from "../../../routes/public";
 import Footer from "./Footer";
 import SideBar from "./SideBar";
 import VLibras from  '@djpfs/react-vlibras'
-import ModalPopup from "../../Modal";
+//import ModalPopup from "../../Modal";
 import {useEffect} from 'react'
 import Header from "./Header";
 
@@ -17,6 +17,7 @@ function PublicLayout({ children }: Props) {
   
   return (
     <>
+    
         <VLibras  />  
       {/* <VLibrasScript />*/}
        <Header />
