@@ -38,14 +38,7 @@ function Screen({ handler }: PropsInput) {
         borderRadius="18px"
         marginBottom="15px"
       >
-        <Text
-          mt="20px"
-          mb="20px"
-          align={isMobile ? "justify" : "left"}
-          fontWeight="700"
-          fontSize={accessibility?.fonts?.regular}
-        > O Plano de Contratações Anual de 2026 está sendo elaborado e estará disponível para consulta nesta página a partir de setembro de 2025.  
-       </Text>
+       
        <Button onClick={() => window.open("https://pncp.gov.br/app/pca/46523270000188/2025", "_blank")}>Portal Nacional de Contratações Públicas </Button>
 
       </Box>
