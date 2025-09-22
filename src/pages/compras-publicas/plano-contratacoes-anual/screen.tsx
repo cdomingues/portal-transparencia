@@ -1,7 +1,7 @@
 import React from "react";
 import ContainerBasic from "../../../components/Container/Basic";
 import publicRoutes from "../../../routes/public";
-import { Box, Link, Stack, Text, useColorModeValue } from "@chakra-ui/react";
+import { Box, Button, Link, Stack, Text, useColorModeValue } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { isMobile } from "react-device-detect";
 import { color } from "highcharts";
@@ -46,6 +46,7 @@ function Screen({ handler }: PropsInput) {
           fontSize={accessibility?.fonts?.regular}
         > O Plano de Contratações Anual de 2026 está sendo elaborado e estará disponível para consulta nesta página a partir de setembro de 2025.  
        </Text>
+       <Button onClick={() => window.open("https://pncp.gov.br/app/pca/46523270000188/2025", "_blank")}>Portal Nacional de Contratações Públicas </Button>
 
       </Box>
     </ContainerBasic>
