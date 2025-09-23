@@ -27,7 +27,7 @@ export interface Receitas {
   previsto: string
 }
 
-const API_URL = "https://dadosadm.mogidascruzes.sp.gov.br/api/lista_receitas";
+const API_URL = "https://dadosadm.mogidascruzes.sp.gov.br/api/lista_receitas2";
 const ITEMS_PER_PAGE = 50;
 
 export const receitasDesc = {
