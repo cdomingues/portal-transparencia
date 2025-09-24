@@ -365,7 +365,7 @@ Sede da Prefeitura de Mogi das Cruzes - 3º andar
                 align={isMobile ? "justify" : "left"}
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}
-              >Em breve   </Text>
+              ><Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/6383a4fc-1a82-4ffb-a0e0-71dd3bdb29f0/Plano_de_Adequa%C3%A7%C3%A3o_LGPD_2025_final.pdf" target="blank">Plano de Adequação LGPD 2025</Link>   </Text>
  
                 </Flex>
               </AccordionPanel>
