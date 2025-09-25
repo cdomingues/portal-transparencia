@@ -33,7 +33,7 @@ const ITEMS_PER_PAGE = 50;
 export const receitasDesc = {
   titlePage: "Receitas",
   description:
-    "De modo acessível e de fácil compreensão, acompanhe os valores e fontes de arrecadação do município, comparando a evolução entre os últimos anos e também a variação entre receita prevista e efetivamente arrecadada.",
+    "De forma clara e acessível, acompanhe os valores arrecadados pelo município e suas respectivas fontes, em conformidade com as leis federais nº 9.452/1997, nº 12.527/11 (Lei de Acesso à Informação) e a Lei Complementar 101/2000. Compare a evolução das receitas ao longo dos últimos anos e visualize também a diferença entre a receita prevista, a efetivamente arrecadada e deduções.",
 };
 
 function Screen() {
