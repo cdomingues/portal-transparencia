@@ -102,6 +102,12 @@ function Screen({ handler }: PropsInput) {
                        <strong>Lei Complementar 198/2025</strong>
                        </Link>
                        </Text>
+
+                       <Text>
+                        <Link href='http://leismunicipa.is/2qcfv' target="blank">
+                        <strong>Decreto Nº 23.786</strong>
+                        </Link>
+                       </Text>
            
            
                           </Flex>
