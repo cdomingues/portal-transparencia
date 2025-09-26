@@ -143,7 +143,7 @@ function Screen({ handler }: PropsInput) {
                         
                       />
         <Text fontSize={accessibility?.fonts?.regular} mb="10px">
-                        Última atualização: <strong>30/05/2025</strong>
+                        Última atualização: <strong>26/09/2025</strong>
                       </Text>
         <Table >
           <Thead>
