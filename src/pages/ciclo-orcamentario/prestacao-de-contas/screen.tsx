@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
 import publicRoutes from "../../../routes/public";
 import { Box, Link, Stack, Text, useColorModeValue } from "@chakra-ui/react";
@@ -6,6 +6,18 @@ import { useRouter } from "next/router";
 import { isMobile } from "react-device-detect";
 import { color } from "highcharts";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
+
+type Arquivo = {
+  ano: any;
+  pk: string;
+  nome: string;
+  area?: string | null;
+  descricao: string;
+  file: string;
+  created_at: string;
+  tipo: number;
+  cadastro: string;
+};
 
 type PropsInput = {
   handler: {};
@@ -26,6 +38,56 @@ function Screen({ handler }: PropsInput) {
   const title = contentMapSite?.titlePage;
   const description = contentMapSite?.description;
   const router = useRouter();
+  const apiUrl = "https://dadosadm.mogidascruzes.sp.gov.br"
+   const [arquivos, setArquivos] = useState<Arquivo[]>([]);
+    const [nextPage, setNextPage] = useState<number | null>(1);
+
+  const fetchData = async () => {
+      let currentPage = 1; // Começa na página inicial
+      let hasMorePages = true;
+    
+      try {
+        while (hasMorePages) {
+          const response = await fetch(
+            `${apiUrl}/api/arquivos/?page=${currentPage}&file_type=18`
+          );
+    
+          if (!response.ok) {
+            console.error(`Erro na requisição: ${response.status} - ${response.statusText}`);
+            break;
+          }
+    
+          const data = await response.json();
+    console.log(data)
+          // Filtrar os resultados conforme o ano selecionado
+         const filteredResults = data.results.filter(
+  (arquivo: { area: string }) =>
+    arquivo.area === "c76e23ef-16e5-494f-a25b-43a37b84470a"
+);
+    
+          // Atualizar estado com novos dados
+          setArquivos((prevArquivos: any) => [...prevArquivos, ...filteredResults]);
+    
+          // Verifica se há mais páginas
+          if (data.next) {
+            currentPage++; // Incrementa a página para a próxima iteração
+          } else {
+            hasMorePages = false; // Encerra o loop quando não houver próxima página
+          }
+        }
+    
+        // Reseta o estado da página para evitar reexecuções
+        setNextPage(null);
+      } catch (error) {
+        console.error("Erro ao obter os arquivos:", error);
+      }
+    };
+    
+    useEffect(() => {
+      if (nextPage !== null) {
+        fetchData();
+      }
+    }, [nextPage]);
   
   return (
     <ContainerBasic title={title} description={description}>
@@ -146,7 +208,23 @@ function Screen({ handler }: PropsInput) {
                 PERIODICIDADE: Quadrimestral  <br/>
                 PREVISÃO LEGAL: <Link  href="http://legislacao.planalto.gov.br/legisla/legislacao.nsf/Viw_Identificacao/lcp%20101-2000?OpenDocument" target="blank" style={{ color: "#db334f" }}>LEI COMPLEMENTAR Nº 101, DE 4 DE MAIO DE 2000 (Art. 8; Art. 56) </Link>  <br/>
                 Para mais informações, acessar:   <br/>
-                     <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/e71a7042-eaed-497b-b80b-7a72f4e9e50e/62%C2%AA_Audi%C3%AAncia_do_1%C2%BA_Quadrimestre_21.pdf" target="blank" style={{ color: "#db334f" }} >62ª Audiência do 1º Quadrimestre 21</Link><br/>
+              {arquivos
+               .slice()
+              .sort((a, b) => a.nome.localeCompare(b.nome))
+              .map((arquivo) => (
+  <div key={arquivo.pk}>
+    <Link
+      href={`${apiUrl}${arquivo.file}`}
+      download
+      target="_blank"
+      style={{ color: "#db334f" }}
+    >
+      {arquivo.nome}
+    </Link>
+  </div>
+))}
+
+                    {/*  <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/e71a7042-eaed-497b-b80b-7a72f4e9e50e/62%C2%AA_Audi%C3%AAncia_do_1%C2%BA_Quadrimestre_21.pdf" target="blank" style={{ color: "#db334f" }} >62ª Audiência do 1º Quadrimestre 21</Link><br/>
                     <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/3b29c5ba-1c48-4892-91ed-2a43231d17f1/63%C2%AA_Audi%C3%AAncia_do_2%C2%BA_Quadrimestre_21.pdf" target="blank" style={{ color: "#db334f" }} >63ª Audiência do 2º Quadrimestre 21</Link><br/>
                    <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/e6663ae5-730d-4788-abca-9c9525cecf1e/64%C2%AA_Audi%C3%AAncia_do_3%C2%BA_Quadrimestre_21.pdf" target="blank" style={{ color: "#db334f" }} >64ª Audiência do 3º Quadrimestre 21</Link><br/>
                   <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/a1c93110-b807-4de3-a0ea-c0342ed41447/65%C2%AA_Audi%C3%AAncia_do_1%C2%BA_Quadrimestre_22.pdf" target="blank" style={{ color: "#db334f" }} >65ª Audiência do 1º Quadrimestre 22</Link><br/>
@@ -159,7 +237,7 @@ function Screen({ handler }: PropsInput) {
                 <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/49739d7a-df4e-4eb0-bc2e-f3e4f0102896/72%C2%AA_Audi%C3%AAncia_do_2%C2%BA_Quadrimestre_24.pdf" target="blank" style={{ color: "#db334f" }} >72ª Audiência do 2º Quadrimestre 24</Link><br/>
                 <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/84bf5915-2a23-4042-bf69-77883af8ff31/73%C2%AA_Audi%C3%AAncia_do_3%C2%BA_Quadrimestre_24.ppt" target="blank" style={{ color: "#db334f" }} >73ª Audiência do 3º Quadrimestre 24</Link><br/>
                 <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/9e053455-90c8-45b0-8196-75cc31549c93/74%C2%AA_Audi%C3%AAncia_do_1%C2%BA_Quadrimestre_25.pptx" target="blank" style={{ color: "#db334f" }} >74ª Audiência do 1º Quadrimestre 25</Link><br/>
-                <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/8941610e-2840-4912-909b-85acd617b837/75%C2%AA_Audi%C3%AAncia_do_2%C2%BA_Quadrimestre_25.pptx" target="blank" style={{ color: "#db334f" }}> 75ª Audiência do 2º Quadrimestre 25</Link><br/>
+                <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/8941610e-2840-4912-909b-85acd617b837/75%C2%AA_Audi%C3%AAncia_do_2%C2%BA_Quadrimestre_25.pptx" target="blank" style={{ color: "#db334f" }}> 75ª Audiência do 2º Quadrimestre 25</Link><br/> */}
                 
                  </Text>
 
