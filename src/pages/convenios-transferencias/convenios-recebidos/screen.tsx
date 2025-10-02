@@ -94,11 +94,25 @@ function Screen() {
  
 
   const filteredLicitacoes = licitacoes.filter((item) => {
-  const matchSearch = searchTerm ? String(item.objeto).toLowerCase().includes(searchTerm.toLowerCase()) : true;
-  const matchYear = selectedYear !== "Todos" ? String(item.ano) === selectedYear : true;
+  const termo = searchTerm.toLowerCase();
+
+  // verifica se o termo aparece em algum dos campos
+  const matchSearch = searchTerm
+    ? (
+        String(item.objeto ?? "").toLowerCase().includes(termo) ||
+        String(item.politico ?? "").toLowerCase().includes(termo) ||
+        String(item.finalidade_objeto ?? "").toLowerCase().includes(termo) ||
+        String(item.id_convenio ?? "").toLowerCase().includes(termo) ||
+        String(item.secretaria ?? "").toLowerCase().includes(termo) 
+      )
+    : true;
+
+  const matchYear =
+    selectedYear !== "Todos" ? String(item.ano) === selectedYear : true;
+
   return matchSearch && matchYear;
 });
-
+ const dataAtual = new Date().toLocaleDateString("pt-BR"); 
   const paginatedLicitacoes = filteredLicitacoes.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
     currentPage * ITEMS_PER_PAGE
@@ -199,7 +213,7 @@ function Screen() {
           JSON
         </Button></Stack>
         <Text fontSize="md" mb="10px">
-                Última atualização: <strong>01/05/2025</strong>
+                Última atualização: <strong>{dataAtual}</strong>
               </Text>
 
 
@@ -245,6 +259,9 @@ function Screen() {
           </Text>
           <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
           <strong> Secretaria:</strong>    {row.secretaria}
+          </Text>
+          <Text>
+            <strong>Objeto:</strong> {row.objeto}
           </Text>
           <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
             <strong>Valor repasse:</strong> {row.valor_repasse !== null ? moneyFormatter(Number(row.valor_repasse)) : ""}
