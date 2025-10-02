@@ -93,21 +93,52 @@ function Screen({ handler }: PropsInput) {
                            
                         <Text >
                        <Link  href="http://leismunicipa.is/2euio" target="blank">
-                       <strong>Lei Ordinária 8.218/2025</strong>
+                       <strong>Lei Ordinária nº 8.218/2025</strong>
                        </Link>
                        </Text>
           
                         <Text >
                        <Link  href="http://leismunicipa.is/2mxiu" target="blank">
-                       <strong>Lei Complementar 198/2025</strong>
+                       <strong>Lei Complementar nº 198/2025</strong>
                        </Link>
                        </Text>
 
                        <Text>
                         <Link href='http://leismunicipa.is/2qcfv' target="blank">
-                        <strong>Decreto Nº 23.786</strong>
+                        <strong>Decreto nº 23.786</strong>
                         </Link>
                        </Text>
+           
+           
+                          </Flex>
+                        </AccordionPanel>
+                      </AccordionItem>
+
+                      <AccordionItem  pt={4} borderRadius='15px' border='1px solid ' mb='15px'>
+                        <h2>
+                          <AccordionButton>
+                            <Box as="span" flex='1' textAlign='center' fontWeight='bold' fontSize='l' textTransform="uppercase">
+                              Resoluções do Comitê de Integridade
+                            </Box>
+                            <AccordionIcon />
+                          </AccordionButton>
+                        </h2>
+                        <AccordionPanel m={4} p={8}  borderRadius={4}>
+                          <Flex flexDirection='column'>
+                           
+                        <Text >
+                       <Link  href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/f4d9413a-78ac-40b5-bc26-a27dc4d527cb/DELIBERA%C3%87%C3%83O_CIMC_N%C2%BA_1_DE_22_DE_AGOSTO_DE_2025.pdf" target="blank">
+                       <strong>Deliberação CIMC nº 1, de 22 de agosto de 2025</strong>
+                       </Link>
+                       </Text>
+          
+                        <Text >
+                       <Link  href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/6c7cf061-a666-4475-b081-4f83a708a5b8/DELIBERA%C3%87%C3%83O_CIMC_N_2_DE_29_DE_SETEMBRO_DE_2025.pdf" target="blank">
+                       <strong>Deliberação CIMC nº 2, de 29 de setembro de 2025</strong>
+                       </Link>
+                       </Text>
+
+                     
            
            
                           </Flex>
