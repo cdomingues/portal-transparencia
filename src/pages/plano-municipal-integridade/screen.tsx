@@ -83,7 +83,7 @@ function Screen({ handler }: PropsInput) {
                         <h2>
                           <AccordionButton>
                             <Box as="span" flex='1' textAlign='center' fontWeight='bold' fontSize='l'>
-                              LEGISLAÇÃO      
+                              LEGISLAÇÃO
                             </Box>
                             <AccordionIcon />
                           </AccordionButton>

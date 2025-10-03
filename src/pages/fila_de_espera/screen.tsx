@@ -78,6 +78,9 @@ Nos casos em que o município não dispõe da especialidade ou estrutura necess�
  <br/>
 A lista abaixo comtempla pacientes que estão aguardando consultas e exames de 2024 à 31/05. 
         </Text>
+        <Text>
+          Ultima atualização: 26/09/2024
+        </Text>
        
                         <Flex>
                           <Box flex="end" p={2} marginRight={5}>
