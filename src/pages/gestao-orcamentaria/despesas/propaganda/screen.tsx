@@ -18,7 +18,7 @@ import {
 import React, { useEffect, useState } from "react";
 import ContainerBasic from "../../../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../../../components/Table";
-import ModalContracts from "./modalContracts";
+
 import { ContainerSearch } from "../../../../styles/components/contratos-atas/styles";
 import CsvDownload from "react-json-to-csv";
 import PaginationComponent from "../../../../components/PaginationComponent";
@@ -455,11 +455,11 @@ function Screen({
               mb="10px"
               width='180px'
             >
-              {yearsPublicidade.map((year) => (
-                <option key={year} value={year}>
-                  {year}
-                </option>
-              ))}
+              {[2022, 2023, 2024].map((year) => (
+    <option key={year} value={year}>
+      {year}
+    </option>
+  ))}
             </Select>
             
             <Input
@@ -545,8 +545,9 @@ function Screen({
           </Thead>
           <Tbody fontSize='12px'>
             {paginatedPublicidade
+            .filter((item) => item.ano < 2025)
               .sort((a, b) => a.ano - b.ano || new Date(a.competencia).getTime() - new Date(b.competencia).getTime())
-              .map((row, index) => (
+               .map((row, index) => (
                 <Tr 
                   key={index}
                   bg={index % 2 === 0 ? useColorModeValue("white", "black") : useColorModeValue("#f7f7f7", "grey.100")} 

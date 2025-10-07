@@ -515,7 +515,9 @@ useEffect(() => {
                 </Tr>
               </Thead>
               <Tbody bg={useColorModeValue("#f2f1f1", "black")}  border={`1px solid ${colors.transparenciaBlack}`} >
-                {adiantamentos.map((ad) => (
+                {adiantamentos
+                .sort((a, b) => a.veiculo.localeCompare(b.veiculo))
+                .map((ad) => (
                 <Tr key={ad.id}>
                 <Td  border={`1px solid ${colors.transparenciaBlack}`}>{ad.veiculo}</Td>
                 <Td  border={`1px solid ${colors.transparenciaBlack}`}>{ad.campanha}</Td>

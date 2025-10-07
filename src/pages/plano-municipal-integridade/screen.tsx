@@ -77,9 +77,55 @@ function Screen({ handler }: PropsInput) {
             style={{ border: "none" }}
           />
         </Box>
+        <Box pt={4} borderRadius='15px' border='1px solid ' mb='15px'>
+           <Box as="span" flex='1' textAlign='center' fontWeight='bold' fontSize='l' p={4} ml='48%'>
+                              LEGISLAÇÃO
+                            </Box>
+           <Text ml='20px' mb='5px'>
+            <strong>Plano de Integridade do Município de Mogi das Cruzes: </strong>
+                       <Link  href="http://leismunicipa.is/2euio" target="blank">
+                       Lei Ordinária nº 8.218/2025
+                       </Link>
+                       </Text>
+          
+                        <Text ml='20px' mb='5px'> <strong>Código de Conduta e Ética dos Agentes Públicos Municipais: </strong>
+                       <Link  href="http://leismunicipa.is/2mxiu" target="blank">
+                       Lei Complementar nº 198/2025
+                       </Link>
+                       </Text>
+
+                       <Text ml='20px' mb='5px'>
+                        <strong>Programa e Comitê de Integridade: </strong>
+                        <Link href='http://leismunicipa.is/2qcfv' target="blank">
+                        Decreto nº 23.786
+                        </Link>
+                       </Text>
+
+                       <Text ml='20px' mb='5px'>
+                        <strong>Grupo de Trabalho e Estudo sobre Políticas Antirracistas: </strong>
+                        <Link href='https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/9b57b6d1-907c-4d98-becc-e646015d8e6b/DECERETO_23.874_-_30_DE_SETEMBRO_DE_2025_-_GTE.pdf' target="blank">
+                        Decreto Municipal n° 23.874/2025
+                        </Link>
+                       </Text>
+
+                       <Text ml="20px" mb="5px">
+  <strong>Pesquisa e Percepção sobre Ações de Integridade: </strong>
+  Aberto para resposta do dia 30/09 até 31/10
+  <Button
+    as="a"
+    href="/plano-municipal-integridade/pesquisa"
+    target="_blank"
+    colorScheme="blue"
+    ml="10px"
+    size="sm"
+  >
+    Clique aqui para responder a pesquisa
+  </Button>
+</Text>
+        </Box>
 
         <Accordion allowToggle borderRadius={4} mt='15px'>
-           <AccordionItem  pt={4} borderRadius='15px' border='1px solid ' mb='15px'>
+           {/* <AccordionItem  pt={4} borderRadius='15px' border='1px solid ' mb='15px'>
                         <h2>
                           <AccordionButton>
                             <Box as="span" flex='1' textAlign='center' fontWeight='bold' fontSize='l'>
@@ -112,7 +158,7 @@ function Screen({ handler }: PropsInput) {
            
                           </Flex>
                         </AccordionPanel>
-                      </AccordionItem>
+                      </AccordionItem> */}
 
                       <AccordionItem  pt={4} borderRadius='15px' border='1px solid ' mb='15px'>
                         <h2>
