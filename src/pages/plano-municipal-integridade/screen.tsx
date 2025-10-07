@@ -77,38 +77,78 @@ function Screen({ handler }: PropsInput) {
             style={{ border: "none" }}
           />
         </Box>
-        <Box pt={4} borderRadius='15px' border='1px solid ' mb='15px'>
-           <Box as="span" flex='1' textAlign='center' fontWeight='bold' fontSize='l' p={4} ml='48%'>
-                              LEGISLAÇÃO
+      <Box p={2} mb={1} display="flex" flexWrap="wrap" gap="10px">
+  <Button
+    as="a"
+    href="http://leismunicipa.is/2euio"
+    target="_blank"
+    colorScheme="blue"
+    size="sm"
+    w="320px"       // largura fixa
+    h="80px"     // altura mínima maior
+    whiteSpace="normal" // permite quebra de linha
+    textAlign="center"
+  >
+    Plano de Integridade do Município de Mogi das Cruzes
+  </Button>
+
+  <Button
+    as="a"
+    href="http://leismunicipa.is/2mxiu"
+    target="_blank"
+    colorScheme="blue"
+    size="sm"
+    w="320px"
+    h="80px"
+    whiteSpace="normal"
+    textAlign="center"
+  >
+    Código de Conduta e Ética dos Agentes Públicos Municipais
+  </Button>
+
+  <Button
+    as="a"
+    href="http://leismunicipa.is/2qcfv"
+    target="_blank"
+    colorScheme="blue"
+    size="sm"
+    w="320px"
+    h="80px"
+    whiteSpace="normal"
+    textAlign="center"
+  >
+    Programa e Comitê de Integridade
+  </Button>
+
+  <Button
+    as="a"
+    href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/9b57b6d1-907c-4d98-becc-e646015d8e6b/DECERETO_23.874_-_30_DE_SETEMBRO_DE_2025_-_GTE.pdf"
+    target="_blank"
+    colorScheme="blue"
+    size="sm"
+    w="320px"
+    h="80px"
+    whiteSpace="normal"
+    textAlign="center"
+  >
+    Grupo de Trabalho e Estudo sobre Políticas Antirracistas
+  </Button>
+</Box>
+
+       
+
+        <Accordion allowToggle borderRadius={4} mt='15px'>
+            <AccordionItem  pt={4} borderRadius='15px' border='1px solid ' mb='15px'>
+                        <h2>
+                          <AccordionButton>
+                            <Box as="span" flex='1' textAlign='center' fontWeight='bold' fontSize='l'>
+                              PESQUISA
                             </Box>
-           <Text ml='20px' mb='5px'>
-            <strong>Plano de Integridade do Município de Mogi das Cruzes: </strong>
-                       <Link  href="http://leismunicipa.is/2euio" target="blank">
-                       Lei Ordinária nº 8.218/2025
-                       </Link>
-                       </Text>
-          
-                        <Text ml='20px' mb='5px'> <strong>Código de Conduta e Ética dos Agentes Públicos Municipais: </strong>
-                       <Link  href="http://leismunicipa.is/2mxiu" target="blank">
-                       Lei Complementar nº 198/2025
-                       </Link>
-                       </Text>
-
-                       <Text ml='20px' mb='5px'>
-                        <strong>Programa e Comitê de Integridade: </strong>
-                        <Link href='http://leismunicipa.is/2qcfv' target="blank">
-                        Decreto nº 23.786
-                        </Link>
-                       </Text>
-
-                       <Text ml='20px' mb='5px'>
-                        <strong>Grupo de Trabalho e Estudo sobre Políticas Antirracistas: </strong>
-                        <Link href='https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/9b57b6d1-907c-4d98-becc-e646015d8e6b/DECERETO_23.874_-_30_DE_SETEMBRO_DE_2025_-_GTE.pdf' target="blank">
-                        Decreto Municipal n° 23.874/2025
-                        </Link>
-                       </Text>
-
-                       <Text ml="20px" mb="5px">
+                            <AccordionIcon />
+                          </AccordionButton>
+                        </h2>
+                        <AccordionPanel m={4} p={8}  borderRadius={4}>
+                          <Text ml="20px" mb="5px">
   <strong>Pesquisa e Percepção sobre Ações de Integridade: </strong>
   Aberto para resposta do dia 30/09 até 31/10
   <Button
@@ -122,43 +162,8 @@ function Screen({ handler }: PropsInput) {
     Clique aqui para responder a pesquisa
   </Button>
 </Text>
-        </Box>
-
-        <Accordion allowToggle borderRadius={4} mt='15px'>
-           {/* <AccordionItem  pt={4} borderRadius='15px' border='1px solid ' mb='15px'>
-                        <h2>
-                          <AccordionButton>
-                            <Box as="span" flex='1' textAlign='center' fontWeight='bold' fontSize='l'>
-                              LEGISLAÇÃO
-                            </Box>
-                            <AccordionIcon />
-                          </AccordionButton>
-                        </h2>
-                        <AccordionPanel m={4} p={8}  borderRadius={4}>
-                          <Flex flexDirection='column'>
-                           
-                        <Text >
-                       <Link  href="http://leismunicipa.is/2euio" target="blank">
-                       <strong>Lei Ordinária nº 8.218/2025</strong>
-                       </Link>
-                       </Text>
-          
-                        <Text >
-                       <Link  href="http://leismunicipa.is/2mxiu" target="blank">
-                       <strong>Lei Complementar nº 198/2025</strong>
-                       </Link>
-                       </Text>
-
-                       <Text>
-                        <Link href='http://leismunicipa.is/2qcfv' target="blank">
-                        <strong>Decreto nº 23.786</strong>
-                        </Link>
-                       </Text>
-           
-           
-                          </Flex>
                         </AccordionPanel>
-                      </AccordionItem> */}
+                      </AccordionItem> 
 
                       <AccordionItem  pt={4} borderRadius='15px' border='1px solid ' mb='15px'>
                         <h2>
