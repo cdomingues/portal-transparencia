@@ -132,7 +132,7 @@ const accessibility = useFontSizeAccessibilityContext()
 
         <Divider height="3px" marginTop="10px" marginBottom="4px" />
   <Text fontSize={accessibility?.fonts?.regular} mb="10px">
-                                  Última atualização: <strong>05/05/2025</strong>
+                                  Última atualização: <strong>05/10/2025</strong>
                                 </Text>
         <Box
           m={0}
