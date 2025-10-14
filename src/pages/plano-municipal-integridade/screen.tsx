@@ -189,6 +189,12 @@ function Screen({ handler }: PropsInput) {
                        </Link>
                        </Text>
 
+                       <Text >
+                       <Link  href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/aeb821fd-171a-4559-b2a2-6e8b940afa3c/DELIBERA%C3%87%C3%83O_CIMC_N%C2%BA_3_DE_9_DE_OUTUBRO_DE_2025.pdf" target="blank">
+                       <strong>Deliberação CIMC Nº 3, de 9 de outubro de 2025</strong>
+                       </Link>
+                       </Text>
+
                      
            
            
