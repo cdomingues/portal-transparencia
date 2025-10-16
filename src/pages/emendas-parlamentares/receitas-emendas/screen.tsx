@@ -321,8 +321,8 @@ useEffect(() => {
                      <Td>{row.politico}</Td>
                       <Td>{row.objeto}</Td>
                       <Td>{moneyFormatter(Number(row.valor_repasse))}</Td>
-                      <Td>{moment(row.data_inicio).format('DD/MM/YYY')}</Td>
-                      <Td>{moment(row.data_fim).format('DD/MM/YYY')}</Td>
+                      <Td>{moment(row.data_inicio).format('DD/MM/YYYY')}</Td>
+                      <Td>{moment(row.data_fim).format('DD/MM/YYYY')}</Td>
                </Tr>
              ))}
            </Tbody>
