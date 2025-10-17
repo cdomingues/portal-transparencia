@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ContainerBasic from "../../components/Container/Basic";
 import {
   Accordion,
@@ -20,6 +20,18 @@ import { isMobile } from "react-device-detect";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
 import banner_integridade from "../../assets/images/Banner_Integridade_1200x180.jpg";
 
+type Arquivo = {
+  ano: any;
+  pk: string;
+  nome: string;
+  area?: string | null;
+  descricao: string;
+  file: string;
+  created_at: string;
+  tipo: number;
+  cadastro: string;
+};
+
 type PropsInput = {
   handler: {};
 };
@@ -34,6 +46,51 @@ function Screen({ handler }: PropsInput) {
   const title = contentMapSite?.titlePage;
   const description = contentMapSite?.description;
   const router = useRouter();
+
+  const apiUrl = "https://dadosadm.mogidascruzes.sp.gov.br"
+     const [arquivos, setArquivos] = useState<Arquivo[]>([]);
+      const [nextPage, setNextPage] = useState<number | null>(1);
+
+      const fetchData = async () => {
+  let currentPage = 1;
+  let hasMorePages = true;
+
+  try {
+    while (hasMorePages) {
+      const response = await fetch(
+        `${apiUrl}/api/arquivos/?page=${currentPage}&file_type=19`
+      );
+
+      if (!response.ok) {
+        console.error(`Erro na requisição: ${response.status} - ${response.statusText}`);
+        break;
+      }
+
+      const data = await response.json();
+      console.log(data);
+
+      // Atualizar estado com todos os resultados retornados
+      setArquivos((prevArquivos: any) => [...prevArquivos, ...data.results]);
+
+      // Verifica se há mais páginas
+      if (data.next) {
+        currentPage++;
+      } else {
+        hasMorePages = false;
+      }
+    }
+
+    setNextPage(null); // Reseta o estado da página
+  } catch (error) {
+    console.error("Erro ao obter os arquivos:", error);
+  }
+};
+
+useEffect(() => {
+  if (nextPage !== null) {
+    fetchData();
+  }
+}, [nextPage]);
 
   return (
     <ContainerBasic title={title} description={description}>
@@ -174,30 +231,26 @@ function Screen({ handler }: PropsInput) {
                             <AccordionIcon />
                           </AccordionButton>
                         </h2>
-                        <AccordionPanel m={4} p={8}  borderRadius={4}>
+                        <AccordionPanel m={4} p={5}  borderRadius={4}>
                           <Flex flexDirection='column'>
+
+                            {arquivos
+                                           .slice()
+                                          .sort((a, b) => a.nome.localeCompare(b.nome))
+                                          .map((arquivo) => (
+                              <div key={arquivo.pk}>
+                                <Link
+                                  href={`${apiUrl}${arquivo.file}`}
+                                  download
+                                  target="_blank"
+                                  
+                                >
+                                  <strong>{arquivo.nome}</strong>
+                                </Link>
+                              </div>
+                            ))}
                            
-                        <Text >
-                       <Link  href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/f4d9413a-78ac-40b5-bc26-a27dc4d527cb/DELIBERA%C3%87%C3%83O_CIMC_N%C2%BA_1_DE_22_DE_AGOSTO_DE_2025.pdf" target="blank">
-                       <strong>Deliberação CIMC nº 1, de 22 de agosto de 2025</strong>
-                       </Link>
-                       </Text>
-          
-                        <Text >
-                       <Link  href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/6c7cf061-a666-4475-b081-4f83a708a5b8/DELIBERA%C3%87%C3%83O_CIMC_N_2_DE_29_DE_SETEMBRO_DE_2025.pdf" target="blank">
-                       <strong>Deliberação CIMC nº 2, de 29 de setembro de 2025</strong>
-                       </Link>
-                       </Text>
-
-                       <Text >
-                       <Link  href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/aeb821fd-171a-4559-b2a2-6e8b940afa3c/DELIBERA%C3%87%C3%83O_CIMC_N%C2%BA_3_DE_9_DE_OUTUBRO_DE_2025.pdf" target="blank">
-                       <strong>Deliberação CIMC nº 3, de 9 de outubro de 2025</strong>
-                       </Link>
-                       </Text>
-
-                     
-           
-           
+                        
                           </Flex>
                         </AccordionPanel>
                       </AccordionItem>
