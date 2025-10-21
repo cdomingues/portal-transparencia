@@ -149,6 +149,7 @@ export const menus=[
                 { label: "Desonerações e Renúncias", url: "/beneficios-fiscais/desoneracoes_renuncias" },
                 { label: "PROMAE", url: "/beneficios-fiscais/promae" },
                 { label: "Lic e Lide", url: "/beneficios-fiscais/lic_lide" },
+                {label: "Regras Benefícios Fiscais", url: "/beneficios-fiscais/regras-beneficios-fiscais"},
             ]},
               {"id_submenu": 8, 
             "title": "Emendas parlamentares", 

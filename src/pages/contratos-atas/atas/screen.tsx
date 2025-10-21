@@ -64,7 +64,7 @@ function Screen({
       return true; // Se nenhum ano for selecionado, mostra todos os contratos
     }).filter((item) =>
       item.id_contrato.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.descricao.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (item.descricao ?? "").toLowerCase().includes(searchTerm.toLowerCase())||
       item.fornecedor.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
@@ -276,6 +276,9 @@ function Screen({
                           </Text>
                           <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
                             <strong>Descrição:</strong> {row.descricao}
+                          </Text>
+                          <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
+                            <strong>Fornecedor:</strong> {row.fornecedor}
                           </Text>
                
               </Box>

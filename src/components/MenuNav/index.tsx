@@ -122,6 +122,8 @@ const MenuHorizontalChakra = () => {
               { label: "Desonerações e Renúncias", href: "/beneficios-fiscais/desoneracoes_renuncias" },
                 { label: "PROMAE", href: "/beneficios-fiscais/promae" },
                 { label: "Lic e Lide", href: "/beneficios-fiscais/lic_lide" },
+                {label: "Regras Benefícios Fiscais", href: "/beneficios-fiscais/regras-beneficios-fiscais"},
+                
           ]
          },
            { label: 'Emendas parlamentares', 

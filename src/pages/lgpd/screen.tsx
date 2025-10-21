@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Flex,
@@ -19,58 +19,36 @@ import {
 
 } from "@chakra-ui/react";
 
+interface Painel {
+  id: string;
+  created_at: string;
+  updated_at: string;
+  titulo: string;
+  descricao: string; // HTML
+  numero_pagina: string;
+}
+
+
+interface Treinamento {
+  id: string;
+  data: string;
+  horario: string;
+  titulo: string;
+  local: string;
+  publico: string;
+  vagas: string | null;
+  ementa: string;
+  apresentacao: string;
+}
+
 import { isMobile } from "react-device-detect";
 
 import useWindowDimensions from "../../utils/getWindowSize";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
 import ContainerBasic from "../../components/Container/Basic";
 import { CheckCircleIcon } from "@chakra-ui/icons";
+import moment from "moment";
 
-const treinamentos = [
-  {
-    data: "06/08/2025",
-    titulo: "Dados Sensíveis e Proteção de Dados de Crianças e Adolescentes",
-    local: "Secretaria de Habitação",
-    horario: "9h às 10h30",
-    publico: "Servidores da Secretaria de Habitação Social e Regularização Fundiária",
-    vagas: null,
-    ementa:
-      "O treinamento abordou os principais aspectos da Lei Geral de Proteção de Dados Pessoais (LGPD) aplicados ao contexto da Assistência Social, destacando os cuidados necessários no tratamento de informações sensíveis de usuários dos serviços socioassistenciais. Foram discutidos os direitos dos titulares de dados, as responsabilidades dos servidores e gestores, bem como boas práticas para garantir a privacidade e a segurança das informações em atendimentos e registros administrativos.",
-  },
-  {
-    data: "27/08/2025",
-    titulo: "Tratamento de Dados Pessoais para o Poder Público",
-    local: "Auditório da Sede",
-    horario: "9h às 10h30",
-    publico: "Servidores públicos em geral",
-    vagas: "100 lugares",
-    ementa:
-      "Aborda os princípios e fundamentos da LGPD aplicados à administração pública, destacando responsabilidades dos órgãos municipais, boas práticas no tratamento de dados pessoais e a importância da transparência e da proteção dos direitos dos cidadãos.",
-      apresentacao: "https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/ff554aaf-e437-4afe-bd15-b5f5469f7570/Tratamento_de_Dados_pelo_Poder_P%C3%BAblico.pptx.pdf"
-  },
-  {
-    data: "28/08/2025",
-    titulo: "LGPD e Segurança da Informação",
-    local: "Sala de Licitações (1º andar da Sede)",
-    horario: "9h às 10h30",
-    publico: "Servidores da área de tecnologia",
-    vagas: "40 lugares",
-    ementa:
-      "Discute a relação entre proteção de dados e segurança da informação, com foco em riscos, medidas de mitigação, controles técnicos e administrativos, além de estratégias para prevenção de incidentes no ambiente tecnológico da Prefeitura.",
-      apresentacao: "https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/e35a159a-66a9-45bf-9c38-939831123b73/LGPD_e_Seguran%C3%A7a_da_Informa%C3%A7%C3%A3o.pptx_1.pdf"
-  },
-  {
-    data: "04/09/2025",
-    titulo: "Dados Sensíveis e Proteção de Dados de Crianças e Adolescentes",
-    local: "Pipa Hub",
-    horario: "14h às 16h",
-    publico: "Servidores da Secretaria de Assistência Social e organizações ",
-    vagas: "",
-    ementa:
-      "O treinamento aborda os principais aspectos da Lei Geral de Proteção de Dados Pessoais (LGPD) aplicados ao contexto da Assistência Social, destacando os cuidados necessários no tratamento de informações sensíveis de usuários dos serviços socioassistenciais. Serão discutidos os direitos dos titulares de dados, as responsabilidades dos servidores e gestores, bem como boas práticas para garantir a privacidade e a segurança das informações em atendimentos e registros administrativos.",
-      apresentacao:"https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/26c79b9f-5343-40a1-b03b-f717beaad85d/Dados_Sens%C3%ADveis_e_Prote%C3%A7%C3%A3o_de_Dados_de_Cri_PhrEDhb.pdf",
-  },
-];
 
 export const contentInitial = {
   titlePage: "LGPD",
@@ -111,7 +89,50 @@ function HomeScreen() {
   const titlePage = contentInitial?.titlePage;
   const description = contentInitial?.description;
 
-  
+  const [paineis, setPaineis] = useState<Painel[]>([]);
+const [loading, setLoading] = useState<boolean>(true);
+const [treinamento,setTreinamento] = useState<Treinamento[]>([]);
+
+useEffect(() => {
+    async function fetchPaineis() {
+      try {
+        const response = await fetch("https://dadosadm.mogidascruzes.sp.gov.br/api/paineis/");
+        if (!response.ok) throw new Error("Erro ao buscar dados da API");
+        const data = await response.json();
+
+        // Ordena opcionalmente pelo título (se quiser manter ordem)
+        const ordenado = data.sort(
+  (a: { created_at: string }, b: { created_at: string }) =>
+    new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
+);
+        setPaineis(ordenado);
+      } catch (error) {
+        console.error("Erro ao carregar painéis:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchPaineis();
+  }, []);
+
+  useEffect(() => {
+    async function fetchTreinamentos() {
+      try {
+        const response = await fetch("https://dadosadm.mogidascruzes.sp.gov.br/api/treinamentos/");
+        if (!response.ok) throw new Error("Erro ao buscar dados da API");
+        const data = await response.json();
+
+            setTreinamento(data);
+      } catch (error) {
+        console.error("Erro ao carregar painéis:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchTreinamentos();
+  }, []);
 
   const { height, width } = useWindowDimensions();
 
@@ -188,204 +209,79 @@ Sede da Prefeitura de Mogi das Cruzes - 3º andar
         > Portaria</Link>  
      </Text>
 
-<Accordion allowToggle borderRadius={4} mt='15px'>
-          
-            <AccordionItem  pt={4} borderRadius='15px' border='1px solid ' mb='15px'>
-              <h2>
-                <AccordionButton>
-                  <Box as="span" flex='1' textAlign='center' fontWeight='bold' fontSize='l'>
-                    LEGISLAÇÃO      
-                  </Box>
-                  <AccordionIcon />
-                </AccordionButton>
-              </h2>
-              <AccordionPanel m={4} p={8}  borderRadius={4}>
-                <Flex flexDirection='column'>
-                 
-            <Text
-                align={isMobile ? "justify" : "left"}
-                fontWeight="700"
-                fontSize={accessibility?.fonts?.regular}
-                paddingTop="5px"
-              >
-                LEGISLAÇÃO                                                                                          
-              </Text>
-              <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              >
-              <Text justifyContent="flex-end">Lei Geral de Proteção de Dados Pessoais (LGPD) <Link href='https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/L13709compilado.htm'><strong>Lei Federal nº 13.709/2018</strong></Link></Text>
-              
-              <Text justifyContent="flex-end">Regulamentação no município de Mogi das Cruzes <Link href='https://www.mogidascruzes.sp.gov.br/public/site/doc/202311171202366557727c94fed.pdf'><strong>Decreto nº 21.295/2022</strong></Link></Text>
-
-               <Text justifyContent="flex-end">Política Municipal e Privacidade e Proteção de Dados Pessoais <Link href='https://leismunicipais.com.br/a/sp/m/mogi-das-cruzes/decreto/2024/2316/23153/decreto-n-23153-2024-institui-a-politica-municipal-de-privacidade-e-protecao-de-dados-pessoais-do-poder-executivo-municipal-em-consonancia-com-o-disposto-na-lei-federal-n-13709-de-14-de-agosto-de-2018-e-da-outras-providencias'><strong> Decreto nº 23.153/2024</strong></Link></Text>
-
-               <Text justifyContent="flex-end">Regulamentação das Nomas de Utilização dos Recursos de Informática, Tecnologia e Práticas de Segurança da Informação <Link href='https://leismunicipais.com.br/a/sp/m/mogi-das-cruzes/decreto/2021/2027/20268/decreto-n-20268-2021-dispoe-sobre-normas-para-utilizacao-de-recursos-de-informatica-e-tecnologia-no-ambito-interno-da-administracao-municipal-e-da-outras-providencias?q=20268%2F2021'><strong> Decreto nº 20.268/2021</strong></Link></Text>
-               
-              </Text>
-
- 
-                </Flex>
-              </AccordionPanel>
-            </AccordionItem>
-            
-             <AccordionItem  pt={4} borderRadius='15px' border='1px solid ' mb='15px'>
-              <h2>
-                <AccordionButton>
-                  <Box as="span" flex='1' textAlign='center' fontWeight='bold' fontSize='l'>
-                    CANAIS DE ATENDIMENTO
-                  </Box>
-                  <AccordionIcon />
-                </AccordionButton>
-              </h2>
-              <AccordionPanel m={4} p={8}  borderRadius={4}>
-                <Flex flexDirection='column'>
-                 
-             <Text
-        align={isMobile ? "justify" : "left"}
-        color="gray.500"
-        fontSize={accessibility?.fonts?.regular}
+<Accordion allowToggle borderRadius={4} mt="15px">
+      {paineis
+      .filter((painel) => painel.numero_pagina === "33cf53e1-42bb-42ae-a6eb-cd8c9dc4b91f")
+      .map((painel) => (
+        <AccordionItem
+          key={painel.id}
+          pt={4}
+          borderRadius="15px"
+          border="1px solid"
+          mb="15px"
         >
-        Fale com o Encarregado de Proteção de Dados: <strong>lgpd@mogidascruzes.sp.gov.br</strong>
-     </Text>
+          <h2>
+            <AccordionButton>
+              <Box
+                as="span"
+                flex="1"
+                textAlign="center"
+                fontWeight="bold"
+                fontSize="l"
+              >
+                {painel.titulo}
+              </Box>
+              <AccordionIcon />
+            </AccordionButton>
+          </h2>
+          <AccordionPanel m={4} p={8} borderRadius={4}>
+            {/* Renderiza o HTML vindo da API */}
+            <Box
+              dangerouslySetInnerHTML={{ __html: painel.descricao }}
+              sx={{
+                p: {
+                  mb: 2,
+                  textAlign: "justify",
+                },
+                a: {
+                  color: "green.600",
+                  fontWeight: "bold",
+                  textDecoration: "underline",
+                },
+              }}
+            />
+          </AccordionPanel>
+        </AccordionItem>
+      ))}
+    </Accordion>
 
-      <Text
-        align={isMobile ? "justify" : "left"}
-        color="gray.500"
-        fontSize={accessibility?.fonts?.regular}
-        >
-        Canal de atendimento para solicitações e reclamações: <Link href='https://www.mogidascruzes.sp.gov.br/servico/procon-sac-e-ouvidoria/atendimento-ao-cidadao-ouvidoria'><strong>Ouvidoria</strong></Link>
-     </Text>
- 
-                </Flex>
-              </AccordionPanel>
-            </AccordionItem>
-            
-            <AccordionItem  pt={4} borderRadius='15px' border='1px solid ' mb='15px'>
-              <h2>
-                <AccordionButton>
-                  <Box as="span" flex='1' textAlign='center' fontWeight='bold' fontSize='l'>
-                    BASES DE TRATAMENTO DE DADOS PESSOAIS
-                  </Box>
-                  <AccordionIcon />
-                </AccordionButton>
-              </h2>
-              <AccordionPanel m={4} p={8}  borderRadius={4}>
-                <Flex flexDirection='column'>
-                 
-            <Text mb={6}>
-        A Prefeitura de Mogi das Cruzes realiza o tratamento de dados pessoais
-        em conformidade com a Lei Geral de Proteção de Dados Pessoais (Lei nº
-        13.709/2018 – LGPD).
-      </Text>
+    <Accordion allowToggle borderRadius={4} mt="15px" >
+      <AccordionItem pt={4}
+          borderRadius="15px"
+          border="1px solid"
+          mb="15px">
+        <h2>
+          <AccordionButton>
+            <Box
+                as="span"
+                flex="1"
+                textAlign="center"
+                fontWeight="bold"
+                fontSize="l"
+              >
+              CAPACITAÇÃO E CONSCIENTIZAÇÃO
+            </Box>
+            <AccordionIcon />
+          </AccordionButton>
+        </h2>
 
-      <Divider mb={6} />
-
-      <Stack spacing={6}>
-        <Box>
-          <Heading size="md" mb={2}>
-            Bases Legais do Tratamento
-          </Heading>
-          <List spacing={3}>
-            <ListItem>
-              <ListIcon as={CheckCircleIcon} color="green.500" />
-              <b>Cumprimento de obrigação legal ou regulatória</b> (art. 7º,
-              inciso II): quando os dados são necessários para atender
-              exigências previstas em leis, regulamentos ou normas
-              administrativas.
-            </ListItem>
-            <ListItem>
-              <ListIcon as={CheckCircleIcon} color="green.500" />
-              <b>Execução de políticas públicas</b> (art. 7º, inciso III, e art.
-              23): dados utilizados para implementar programas, serviços e
-              ações de interesse público estabelecidos em lei ou regulamentos.
-            </ListItem>
-            <ListItem>
-              <ListIcon as={CheckCircleIcon} color="green.500" />
-              <b>Realização de estudos por órgão público</b> (art. 7º, inciso
-              IV): dados usados em pesquisas e diagnósticos destinados a
-              subsidiar políticas públicas, com anonimização sempre que
-              possível.
-            </ListItem>
-            <ListItem>
-              <ListIcon as={CheckCircleIcon} color="green.500" />
-              <b>Proteção da vida ou da incolumidade física</b> (art. 7º,
-              inciso VII): tratamento necessário para preservar a integridade de
-              pessoas em situações de risco.
-            </ListItem>
-            <ListItem>
-              <ListIcon as={CheckCircleIcon} color="green.500" />
-              <b>Tutela da saúde</b> (art. 7º, inciso VIII, e art. 11, inciso
-              II, “f”): dados tratados para garantir assistência, acompanhamento
-              ou políticas de saúde individual ou coletiva.
-            </ListItem>
-            <ListItem>
-              <ListIcon as={CheckCircleIcon} color="green.500" />
-              <b>Legítimo interesse do poder público</b> (art. 7º, inciso IX):
-              tratamento indispensável para atender finalidades legítimas do
-              município, respeitando direitos e liberdades fundamentais.
-            </ListItem>
-            <ListItem>
-              <ListIcon as={CheckCircleIcon} color="green.500" />
-              <b>Proteção de dados pessoais sensíveis</b> (art. 11, inciso II,
-              “a” a “e”): em situações como obrigação legal, execução de
-              políticas públicas, pesquisas, exercício de direitos ou proteção
-              da vida e da saúde.
-            </ListItem>
-          </List>
-        </Box>
-        <Text mb={2}>
-          Adicionalmente, a LGPD prevê no <strong>art. 26 </strong>regras específicas para o compartilhamento de dados entre órgãos e entidades do poder público, que somente ocorre quando necessário para a execução de políticas públicas e mediante garantia de segurança e transparência.
-        </Text>
-         <Text mb={2}>
-          Quando necessário para a <strong>descentralização da execução dos serviços públicos</strong>, os dados pessoais também podem ser <strong>compartilhados com organizações da sociedade civil e outras entidades externas parceiras do município</strong>, sempre vinculados a contratos, convênios ou instrumentos congêneres. Nesses casos, tais organizações passam a ser corresponsáveis pelo tratamento, devendo respeitar integralmente a LGPD e assegurar a proteção e confidencialidade das informações.
-         </Text>
-         <Text mb={2}>
-          No caso do tratamento de <strong>dados pessoais de crianças e adolescentes</strong>, a Prefeitura observa regra especial: todas as operações devem atender ao <strong>melhor interesse da criança e do adolescente</strong>, conforme previsto no <strong>art. 14 da LGPD</strong> e no <strong>Estatuto da Criança e do Adolescente (Lei nº 8.069/1990)</strong>.
-          </Text>
- </Stack>
-                </Flex>
-              </AccordionPanel>
-            </AccordionItem>
-            
-            <AccordionItem  pt={4} borderRadius='15px' border='1px solid ' mb='15px'>
-              <h2>
-                <AccordionButton>
-                  <Box as="span" flex='1' textAlign='center' fontWeight='bold' fontSize='l'>
-                    INSTRUÇÕES NORMATIVAS
-                  </Box>
-                  <AccordionIcon />
-                </AccordionButton>
-              </h2>
-              <AccordionPanel m={4} p={8}  borderRadius={4}>
-                <Flex flexDirection='column'>
-                 
-             <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              ><Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/6383a4fc-1a82-4ffb-a0e0-71dd3bdb29f0/Plnao_de_Adequa%C3%A7%C3%A3o_LGPD_2025_2026_final_g2SqI3p.pdf" target="blank">Plano de Adequação LGPD 2025</Link>   </Text>
- 
-                </Flex>
-              </AccordionPanel>
-            </AccordionItem>
-              <AccordionItem  pt={4} borderRadius='15px' border='1px solid ' mb='15px'>
-              <h2>
-                <AccordionButton>
-                  <Box as="span" flex='1' textAlign='center' fontWeight='bold' fontSize='l'>
-                    CAPACITAÇÃO E CONSCIENTIZAÇÃO
-                  </Box>
-                  <AccordionIcon />
-                </AccordionButton>
-              </h2>
-              <AccordionPanel m={4} p={8}  borderRadius={4}>
+       <AccordionPanel m={4} p={8}  borderRadius={4}>
                 <Flex flexDirection='column'>
                    <Box as="span" flex='1' textAlign='center' fontWeight='bold' fontSize='2xl'>
                     AGENDA DE TREINAMENTOS
                   </Box>
                   
-                 {treinamentos.map((treino, index) => (
+                 {treinamento.map((treino, index) => (
         <Box
           key={index}
           borderWidth="1px"
@@ -396,7 +292,7 @@ Sede da Prefeitura de Mogi das Cruzes - 3º andar
           mt={2}
         >
           <Heading size="md" mb={2}>
-            {treino.data} - {treino.titulo}
+            {moment(treino.data).format("DD/MM/YYYY")} - {treino.titulo}
           </Heading>
 
           <Divider mb={3} />
@@ -418,8 +314,9 @@ Sede da Prefeitura de Mogi das Cruzes - 3º andar
  
                 </Flex>
               </AccordionPanel>
-            </AccordionItem>
-             </Accordion>
+      </AccordionItem>
+    </Accordion>
+
                </Box>
     
         </ContainerBasic>
