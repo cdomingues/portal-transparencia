@@ -98,8 +98,9 @@ function ContainerBasic({
   <Box
     color="gray.500"
     fontSize={accessibility?.fonts?.regular}
+     dangerouslySetInnerHTML={{ __html: description }}
   >
-    {description}
+   
   </Box>
               </div>
             </Box>
