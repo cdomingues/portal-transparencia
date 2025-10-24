@@ -36,7 +36,7 @@ interface Treinamento {
   publico: string;
   vagas: string | null;
   ementa: string;
-  apresentacao: string;
+  material: string;
 }
 
 function HomeScreen() {
@@ -222,8 +222,10 @@ function HomeScreen() {
                       <Text textAlign="justify">{treino.ementa}</Text>
                       <Text>
                         <strong>Material:</strong>{" "}
-                        <Link href={treino.apresentacao} target="_blank">
-                          {treino.apresentacao}
+                        <Link href={treino.material} target="_blank">
+                          {treino.material
+    ? decodeURIComponent((treino.material as string).split("/").pop()!)
+    : "Sem arquivo"}
                         </Link>
                       </Text>
                     </Box>
