@@ -24,6 +24,7 @@ import CsvDownload from "react-json-to-csv";
 import PaginationComponent from "../../../../components/PaginationComponent";
 import colors from "../../../../styles/colors";
 import moment from "moment";
+import usePagina from "../../../../hooks/usePagina";
 
 type PropsInput = {
   handler: {
@@ -40,11 +41,6 @@ type PropsInput = {
   };
 };
 
-export const contentContractsAndAtas = {
-  titlePage: "Gastos com publicidade",
-  description:
-    "A publicidade legal e institucional realizada pelo Poder Público é um importante serviço cujo objetivo final é favorecer o acesso da população a todos os outros serviços públicos, além de contribuir com a transparência dos atos administrativos. Confira as despesas com publicidade da Prefeitura de Mogi das Cruzes",
-};
 
 type PublicidadeItem = {
   ano: number;
@@ -60,9 +56,6 @@ function Screen({
   handler: { columns, data, loading, handleByYear, setYear, year, data2, setData2, arquivosColumns },
 }: PropsInput) {
   const [contract, setContract] = useState<any>(null);
-  const title = contentContractsAndAtas?.titlePage;
-  const description = contentContractsAndAtas?.description;
-  
   // Estados para a primeira tabela (despesas)
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
@@ -74,6 +67,7 @@ function Screen({
   const [searchTermPublicidade, setSearchTermPublicidade] = useState("");
   const [selectedYearPublicidade, setSelectedYearPublicidade] = useState<number | undefined>();
   const [veiculosPorEmpenho, setVeiculosPorEmpenho] = useState<{ [key: string]: any }>({});
+  const { paginaData, loadings, error } = usePagina("4");
   
   const API_URL = "https://dadosadm.mogidascruzes.sp.gov.br/api/gastos_publicidade";
   const ITEMS_PER_PAGE = 50;
@@ -231,8 +225,22 @@ function Screen({
     return [...new Set(allVehicles)]; // Retorna array com valores únicos
   };
 
+  if (loadings) {
+      return <Text>Carregando conteúdo...</Text>;
+    }
+  
+   if (error) {
+    return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+  }
+  
+    if (!paginaData) {
+      return <Text>Página não encontrada</Text>;
+    }
+  
+    const { titulo: titlePage, descricao: description, conteudo } = paginaData;
+
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       {/* Primeira seção: Despesas */}
       <Box
         m={0}

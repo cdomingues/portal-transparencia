@@ -24,6 +24,7 @@ import { MultiAxisChart } from "../../../../components/MultiAxisChart";
 import TableComponent, { TableColumns } from "../../../../components/Table";
 import { FaDownload } from "react-icons/fa";
 import ListarArquivos from "../../../../components/ListarArquivos";
+import usePagina from "../../../../hooks/usePagina";
 
 type PropsInput = {
   handler: {
@@ -39,11 +40,6 @@ type PropsInput = {
   };
 };
 
-export const contentAdvertisements = {
-  titlePage: "Ordem Cronológica de Pagamentos",
-  description: "Divulgação da ordem cronológica de seus pagamentos, bem como as justificativas que fundamentaram a eventual alteração dessa ordem.",
-}
-
 function Screen({
   handler: {
     columns,
@@ -57,9 +53,9 @@ function Screen({
     handleByYear,
   },
 }: PropsInput) {
-  const title = contentAdvertisements?.titlePage;
-  const description = contentAdvertisements?.description;
+  
   const accessibility = useFontSizeAccessibilityContext();
+   const { paginaData, loadings, error } = usePagina("7");
 
   const chartConfig = {
     direction: isMobile ? "column" : "row",
@@ -68,9 +64,22 @@ function Screen({
     marginLeft: isMobile ? "0" : "5%",
     fontSize: isMobile ? "medium" : "larger",
   };
+  if (loadings) {
+      return <Text>Carregando conteúdo...</Text>;
+    }
+  
+   if (error) {
+    return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+  }
+  
+    if (!paginaData) {
+      return <Text>Página não encontrada</Text>;
+    }
+  
+    const { titulo: titlePage, descricao: description, conteudo } = paginaData;
 
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
    
       <Box
         m={0}

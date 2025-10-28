@@ -24,6 +24,7 @@ import colors from '../../../../styles/colors';
 import CsvDownload from 'react-json-to-csv';
 import moneyFormatter from '../../../../utils/moneyFormatter';
 import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAccessibility";
+import usePagina from '../../../../hooks/usePagina';
 
 interface Despesa {
   id: string;
@@ -57,24 +58,6 @@ interface Despesa {
   item_empenho: string;
 }
 
-export const contentContractsAndAtas = {
-  titlePage: 'Despesas',
-  description: 
-    <>
-      As fases da despesa pública são regulamentadas pela Lei Federal nº 4.320/64. São elas:
-      <br />
-      <strong>1. Empenho:</strong> O órgão competente reserva o dinheiro para custear a despesa a ser realizada. A reserva é feita por meio da Nota de Empenho.
-      <br />
-      <strong>2. Liquidação:</strong> O órgão verifica o que recebeu e o que comprou. A liquidação é feita com base em documentos que comprovem a entrega, além da nota de empenho.
-      <br />
-      <strong>3. Pagamento:</strong> O governo municipal repassa o valor ao fornecedor do produto ou serviço.
-      <br />
-      Nesta página é possível acompanhar diariamente a execução orçamentária das despesas da Prefeitura Municipal de Mogi das Cruzes.
-      <br /><br />
-     </>
-  ,
-};
-
 const Despesas = () => {
   const [despesas, setDespesas] = useState<Despesa[]>([]);
   const [despesasFiltradas, setDespesasFiltradas] = useState<Despesa[]>([]);
@@ -85,9 +68,8 @@ const Despesas = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(false);
   const [registro, setRegistro] = useState<Despesa | null>(null);
-  const title = contentContractsAndAtas?.titlePage;
-  const description = contentContractsAndAtas?.description;
   const accessibility = useFontSizeAccessibilityContext();
+  const { paginaData, loadings, error } = usePagina("3");
 
   const fetchTodasDespesasAno = async () => {
     try {
@@ -205,10 +187,35 @@ const Despesas = () => {
 
   const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.updated_at).toLocaleDateString('pt-BR') : '';
 
+   if (loadings) {
+      return <Text>Carregando conteúdo...</Text>;
+    }
+  
+   if (error) {
+    return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+  }
+  
+    if (!paginaData) {
+      return <Text>Página não encontrada</Text>;
+    }
+  
+    const { titulo: titlePage, descricao: description, conteudo } = paginaData;
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       <Box my='25px' border='1px solid lightgrey' p='5' borderRadius='15px' boxShadow='2xl' width='95vw'>
-            <iframe title="DESPESAS" width="100%" height="700" src="https://app.powerbi.com/view?r=eyJrIjoiZWFkZjQ1NTctMmI5OS00YzJjLTgyZTYtYzgxNDViM2QyNGEzIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9"  ></iframe>
+             {conteudo && (
+                     <Box
+                       dangerouslySetInnerHTML={{ __html: conteudo }}
+                       sx={{
+                         p: { mb: 2, textAlign: "justify" },
+                         a: {
+                           color: "blue.600",
+                           fontWeight: "bold",
+                           textDecoration: "underline",
+                         },
+                       }}
+                     />
+                   )}
             </Box>
       <Box
         bg={useColorModeValue('white', 'gray.800')}

@@ -6,6 +6,7 @@ import axios from "axios";
 import CsvDownload from "react-json-to-csv";
 import moneyFormatter from "../../../utils/moneyFormatter";
 import colors from "../../../styles/colors";
+import usePagina from "../../../hooks/usePagina";
 
 export interface Receitas {
   receita: string;
@@ -30,15 +31,17 @@ export interface Receitas {
 const API_URL = "https://dadosadm.mogidascruzes.sp.gov.br/api/lista_receitas2";
 const ITEMS_PER_PAGE = 50;
 
-export const receitasDesc = {
+/* export const receitasDesc = {
   titlePage: "Receitas",
   description:
     "De forma clara e acessível, acompanhe os valores arrecadados pelo município e suas respectivas fontes, em conformidade com as leis federais nº 9.452/1997, nº 12.527/11 (Lei de Acesso à Informação) e a Lei Complementar 101/2000. Compare a evolução das receitas ao longo dos últimos anos e visualize também a diferença entre a receita prevista, a efetivamente arrecadada e deduções.",
-};
+}; */
 
 function Screen() {
-  const title = receitasDesc.titlePage;
-  const description = receitasDesc.description;
+  //const title = receitasDesc.titlePage;
+  //const description = receitasDesc.description;
+
+  const { paginaData, loadings, error } = usePagina("2");
 
   const [licitacoes, setLicitacoes] = useState<Receitas[]>([]);
   const [tiposReceita, setTiposReceita] = useState<string[]>([]);
@@ -118,10 +121,36 @@ function Screen() {
     document.body.removeChild(link);
   };
 
+   if (loadings) {
+      return <Text>Carregando conteúdo...</Text>;
+    }
+  
+   if (error) {
+    return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+  }
+  
+    if (!paginaData) {
+      return <Text>Página não encontrada</Text>;
+    }
+  
+    const { titulo: titlePage, descricao: description, conteudo } = paginaData;
+
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       <Box my='25px' border='1px solid lightgrey' p='5' borderRadius='15px' boxShadow='2xl' width='95vw'>
-      <iframe title="RECEITA" width="100%" height="700" src="https://app.powerbi.com/view?r=eyJrIjoiZDQxMjQwYzgtNjlhZi00YmE4LWI5NGYtNTY3MjQyZTY4ZWNmIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9"  ></iframe>
+      {conteudo && (
+               <Box
+                 dangerouslySetInnerHTML={{ __html: conteudo }}
+                 sx={{
+                   p: { mb: 2, textAlign: "justify" },
+                   a: {
+                     color: "blue.600",
+                     fontWeight: "bold",
+                     textDecoration: "underline",
+                   },
+                 }}
+               />
+             )}
       </Box>
       <Stack direction={{ base: "column", md: "row" }} spacing={4}>
 

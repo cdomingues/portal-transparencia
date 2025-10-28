@@ -5,6 +5,7 @@ import ContainerBasic from "../../../../components/Container/Basic";
 import TableComponent, { TableColumns } from "../../../../components/Table";
 import { FaDownload } from "react-icons/fa";
 import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAccessibility";
+import usePagina from "../../../../hooks/usePagina";
 
 type PropsInput = {
   handler: {
@@ -19,10 +20,7 @@ type PropsInput = {
   };
 };
 
-export const contentExpensesRemains = {
-  titlePage: "Despesas - Restos a pagar",
-  description: "Os restos a pagar são as despesas com compromisso de serem utilizadas dentro do orçamento, mas que não foram pagas até o final do exercício. Confira aqui as informações sobre as despesas empenhadas, liquidadas e pagas relativas a essa natureza. ",
-}
+
 
 function Screen({
   handler: {
@@ -36,11 +34,25 @@ function Screen({
     handleByYear,
   },
 }: PropsInput) {
-  const title = contentExpensesRemains?.titlePage;
-  const description = contentExpensesRemains?.description;
+   const { paginaData, loadings, error } = usePagina("6");
   const accessibility = useFontSizeAccessibilityContext();
+
+   if (loadings) {
+      return <Text>Carregando conteúdo...</Text>;
+    }
+  
+   if (error) {
+    return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+  }
+  
+    if (!paginaData) {
+      return <Text>Página não encontrada</Text>;
+    }
+  
+    const { titulo: titlePage, descricao: description, conteudo } = paginaData;
+
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
        <Box
           m={0}
           bg={useColorModeValue("white", "gray.800")}
@@ -66,20 +78,20 @@ function Screen({
         borderRadius="18px"
         marginBottom="15px"
       >
-         <Text fontSize="md" mb="10px">
-                                              Última atualização: <strong>01/11/2024</strong>
-                                            </Text>
-         
-          <UnorderedList listStyleType="none" 
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}>
-
-      <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/5d885797-2dbf-4265-839e-e8cb4b1e2360/Restos_a_Pagar_-_2021.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>Restos a pagar 2021</ListItem ></div></Link>
-      <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/94fc544e-0fc8-48f9-927a-fabcccbf4249/Restos_a_Pagar_-_2022.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>Restos a pagar 2022</ListItem ></div></Link>
-      <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/3c8a1018-ae2a-4ac9-8183-a55c725cc456/Restos_a_Pagar_-_2023.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>Restos a pagar 2023</ListItem ></div></Link>
-                          
-                        </UnorderedList>
-
+        {conteudo && (
+                 <Box
+                   dangerouslySetInnerHTML={{ __html: conteudo }}
+                   sx={{
+                     p: { mb: 2, textAlign: "justify" },
+                     a: {
+                       color: "blue.600",
+                       fontWeight: "bold",
+                       textDecoration: "underline",
+                     },
+                   }}
+                 />
+               )}
+       
     
       </Box>
     </ContainerBasic>

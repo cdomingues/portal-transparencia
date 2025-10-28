@@ -15,18 +15,42 @@ import Head from "next/head";
 import PageViewCounter from "../components/PageView";
 import '../styles/pagination.css'
 
+declare global {
+  interface Window {
+    dataLayer: Record<string, any>[];
+  }
+}
+
+export {};
+
 function MyApp({ Component, pageProps }: AppProps) {
   const [loaded, setLoaded] = useState(false);
   const [cookies, setCookie] = useCookies(["refreshed"]);
   const router = useRouter();
 
   useEffect(() => {
-    TagManager.initialize({ gtmId: "<GTM-MKJGG2Q>" });
+    TagManager.initialize({ gtmId: "<G-7XQWR7YJLF>" });
     setLoaded(true);
   }, []);
 
   const ComponenteLayout =
     router.pathname === "/" && !isMobile ? PublicHome : PublicLayout;
+
+      useEffect(() => {
+    TagManager.initialize({ gtmId: "GTM-MKJGG2Q" });
+
+    const handleRouteChange = (url: string) => {
+      window.dataLayer?.push({
+        event: "pageview",
+        page: url,
+      });
+    };
+
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
 
   return (
     <ChakraProvider theme={theme}>

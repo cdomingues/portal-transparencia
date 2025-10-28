@@ -25,6 +25,7 @@ import CsvDownload from "react-json-to-csv";
 import PaginationComponent from "../../../../components/PaginationComponent";
 import { ContainerSearch } from "../../../../styles/components/contratos-atas/styles";
 import colors from "../../../../styles/colors";
+import usePagina from "../../../../hooks/usePagina";
 
 type PropsInput = {
   handler: {
@@ -41,11 +42,7 @@ type PropsInput = {
   };
 };
 
-export const contentGrants = {
-  titlePage: "Subvenções e Terceiro Setor",
-  description:
-    "Subvenção é quando a Prefeitura destina recursos financeiros para que entidades cubram seus custos de atividades prestadas à população. Confira aqui as despesas relacionadas a essa natureza.",
-};
+
 
 function Screen({
   handler: {
@@ -53,14 +50,13 @@ function Screen({
   },
 }: PropsInput) {
   const [contract, setContract] = useState<any>(null);
-  const title = contentGrants?.titlePage;
-  const description = contentGrants?.description;
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedYear, setSelectedYear] = useState<number | undefined>(2024);
 
   const availableYears = [...new Set(data.map((item) => item.exercicio_empenho))].sort((a, b) => b - a);
 
+  const { paginaData, loadings, error } = usePagina("5");
   const chartConfig = {
     direction: isMobile ? "column" : "row",
     width: isMobile ? "100%" : "40%",
@@ -129,8 +125,23 @@ function Screen({
       return a.nr_empenho - b.nr_empenho; // Crescente (menor para maior)
   });
 
+   if (loadings) {
+      return <Text>Carregando conteúdo...</Text>;
+    }
+  
+   if (error) {
+    return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+  }
+  
+    if (!paginaData) {
+      return <Text>Página não encontrada</Text>;
+    }
+  
+    const { titulo: titlePage, descricao: description, conteudo } = paginaData;
+  
+
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
