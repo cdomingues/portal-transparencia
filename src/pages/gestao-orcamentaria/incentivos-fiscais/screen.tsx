@@ -55,7 +55,7 @@ function Screen({ handler }: PropsInput) {
                     sx={{
                       p: { mb: 2, textAlign: "justify" },
                       a: {
-                        color: "blue.600",
+                        color: "blue.500",
                         fontWeight: "bold",
                         textDecoration: "underline",
                       },
