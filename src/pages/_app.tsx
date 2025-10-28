@@ -15,6 +15,7 @@ import Head from "next/head";
 import PageViewCounter from "../components/PageView";
 import '../styles/pagination.css'
 
+
 declare global {
   interface Window {
     dataLayer: Record<string, any>[];
