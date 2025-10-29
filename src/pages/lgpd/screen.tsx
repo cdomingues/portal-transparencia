@@ -222,7 +222,7 @@ function HomeScreen() {
                       <Text textAlign="justify">{treino.ementa}</Text>
                       <Text>
                         <strong>Material:</strong>{" "}
-                        <Link href={treino.material} target="_blank">
+                        <Link href={`https://dadosadm.mogidascruzes.sp.gov.br/${treino.material}`} target="_blank">
                           {treino.material
     ? decodeURIComponent((treino.material as string).split("/").pop()!)
     : "Sem arquivo"}
