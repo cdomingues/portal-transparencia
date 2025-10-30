@@ -376,7 +376,7 @@ const findPages = (searchString: string): IPublicRoute[] => {
         route?.description
           ?.toLowerCase()
           .includes(searchString.toLowerCase()) ||
-        route.name.toLowerCase().includes(searchString.toLowerCase()) ||
+        route?.name?.toLowerCase().includes(searchString.toLowerCase()) ||
         route.path.toLowerCase().includes(searchString.toLowerCase())) 
         &&
       !routeHasGroup
@@ -393,8 +393,8 @@ const findPages = (searchString: string): IPublicRoute[] => {
           group?.description
             ?.toLowerCase()
             .includes(searchString.toLowerCase()) ||
-          group.name.toLowerCase().includes(searchString.toLowerCase()) ||
-          group.path.toLowerCase().includes(searchString.toLowerCase())
+          group?.name?.toLowerCase().includes(searchString.toLowerCase()) ||
+          group?.path?.toLowerCase().includes(searchString.toLowerCase())
         ) {
           const groupName = `${route.name} > ${group.name}`;
 

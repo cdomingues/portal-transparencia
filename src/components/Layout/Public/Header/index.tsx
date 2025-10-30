@@ -345,16 +345,20 @@ const DesktopNav = ({
 
 const findPages = (searchString: string): IPublicRoute[] => {
   const filteredRoutes: IPublicRoute[] = [];
+  const q = searchString.toLowerCase();
 
   publicRoutes.forEach((route) => {
     const routeHasGroup = route?.group && route.group.length > 0;
+    const titlePage = (route?.titlePage || "").toLowerCase();
+    const description = (route?.description || "").toLowerCase();
+    const name = (route?.name || "").toLowerCase();
+    const path = (route?.path || "").toLowerCase();
+
     if (
-      (route?.titlePage?.toLowerCase().includes(searchString.toLowerCase()) ||
-        route?.description
-          ?.toLowerCase()
-          .includes(searchString.toLowerCase()) ||
-        route.name.toLowerCase().includes(searchString.toLowerCase()) ||
-        route.path.toLowerCase().includes(searchString.toLowerCase())) &&
+      (titlePage.includes(q) ||
+        description.includes(q) ||
+        name.includes(q) ||
+        path.includes(q)) &&
       !routeHasGroup
     ) {
       filteredRoutes.push(route);
@@ -362,17 +366,18 @@ const findPages = (searchString: string): IPublicRoute[] => {
 
     if (routeHasGroup && route?.group) {
       route.group.forEach((group) => {
+        const gTitlePage = (group?.titlePage || "").toLowerCase();
+        const gDescription = (group?.description || "").toLowerCase();
+        const gName = (group?.name || "").toLowerCase();
+        const gPath = (group?.path || "").toLowerCase();
+
         if (
-          group?.titlePage
-            ?.toLowerCase()
-            .includes(searchString.toLowerCase()) ||
-          group?.description
-            ?.toLowerCase()
-            .includes(searchString.toLowerCase()) ||
-          group.name.toLowerCase().includes(searchString.toLowerCase()) ||
-          group.path.toLowerCase().includes(searchString.toLowerCase())
+          gTitlePage.includes(q) ||
+          gDescription.includes(q) ||
+          gName.includes(q) ||
+          gPath.includes(q)
         ) {
-          const groupName = `${route.name} > ${group.name}`;
+          const groupName = `${route?.name || ""} > ${group?.name || ""}`;
 
           filteredRoutes.push({ ...group, name: groupName });
         }
