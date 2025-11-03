@@ -29,10 +29,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [cookies, setCookie] = useCookies(["refreshed"]);
   const router = useRouter();
 
-  useEffect(() => {
-    TagManager.initialize({ gtmId: "<G-7XQWR7YJLF>" });
-    setLoaded(true);
-  }, []);
+  
 
   const ComponenteLayout =
     router.pathname === "/" && !isMobile ? PublicHome : PublicLayout;
@@ -54,6 +51,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events]);
 
   return (
+    <>
+    <Analytics />
     <ChakraProvider theme={theme}>
       <FontSizeAccessibilityWrapper>
         <CookiesProvider>
@@ -66,6 +65,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </CookiesProvider>
       </FontSizeAccessibilityWrapper>
     </ChakraProvider>
+    </>
   );
 }
 
