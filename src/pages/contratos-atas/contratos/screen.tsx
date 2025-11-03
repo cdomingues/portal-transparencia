@@ -150,7 +150,7 @@ const dataMaisAtual = data.reduce((maisRecente, item) => {
         marginBottom="15px"
       >
         <ContainerSearch  >
-        <Text fontWeight='bold' pl='10px' mb='15px'>Para busca de contratos  selecione o ano especificio ou a opção 'Todos os anos' e busque pelo nome do fornecedor, número ou descrição do objeto do contrato </Text>
+        <Text fontWeight='bold' pl='10px' mb='15px'>Para busca de contratos  selecione o ano especificio ou a opção "Todos os anos" e busque pelo nome do fornecedor, número ou descrição do objeto do contrato </Text>
           <Stack minW={86} width="50%" flexDir='row'
           sx={{
             "@media (max-width: 900px)": {
