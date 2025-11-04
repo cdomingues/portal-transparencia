@@ -43,31 +43,10 @@ export type GroupRoutes = Array<{
   }>;
 }>;
 
-export interface ExtraLink {
-  label: string;
-  url: string;
-}
-
-export interface SubmenuItem {
-  id_submenu: number;
-  title?: string;
-  label?: string;
-  imageUrl?: string;
-  imageURL?: string;
-  url?: string;
-  link?: string;
-  extralinks?: ExtraLink[];
-}
-
 export interface IPublicRoute {
-  id: number;
-  title: string;
-  imageURL: string;
-  imageURL2: string;
-  submenus: SubmenuItem[];
-  name?: string | undefined;
-  path?: any;
-  icon?: IconType ;
+  name: string;
+  path?:  any;
+  icon: IconType ;
   element?: any;
   defaultPath?: string;
   link?: string;
