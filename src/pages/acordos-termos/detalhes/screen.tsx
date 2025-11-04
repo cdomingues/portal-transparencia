@@ -55,7 +55,9 @@ function obterTipoDespesa(tipo: any) {
     case 9:
       return "Termo de Permissão de Uso";
   case 10:
-        return "Termo de Financiamento Cultural";      
+        return "Termo de Financiamento Cultural";  
+        case 11:
+        return "Outros termos";      
     default:
       return "Tipo Desconhecido";
   }
