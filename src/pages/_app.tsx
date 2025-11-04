@@ -54,8 +54,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events]);
 
   return (
-    <>
-    <Analytics />
+    
+    //<Analytics />
     <ChakraProvider theme={theme}>
       <FontSizeAccessibilityWrapper>
         <CookiesProvider>
@@ -68,7 +68,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </CookiesProvider>
       </FontSizeAccessibilityWrapper>
     </ChakraProvider>
-    </>
+    
   );
 }
 
