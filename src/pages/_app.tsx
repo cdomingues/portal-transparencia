@@ -14,6 +14,7 @@ import { isMobile } from "react-device-detect";
 import Head from "next/head";
 import PageViewCounter from "../components/PageView";
 import '../styles/pagination.css'
+import Analytics from "../components/Analytics";
 
 declare global {
   interface Window {
@@ -53,6 +54,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events]);
 
   return (
+    <>
+    <Analytics />
     <ChakraProvider theme={theme}>
       <FontSizeAccessibilityWrapper>
         <CookiesProvider>
@@ -65,6 +68,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </CookiesProvider>
       </FontSizeAccessibilityWrapper>
     </ChakraProvider>
+    </>
   );
 }
 
