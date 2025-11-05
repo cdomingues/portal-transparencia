@@ -57,6 +57,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     
     //<Analytics />
     <ChakraProvider theme={theme}>
+    <Analytics />
       <FontSizeAccessibilityWrapper>
         <CookiesProvider>
           {loaded && (
