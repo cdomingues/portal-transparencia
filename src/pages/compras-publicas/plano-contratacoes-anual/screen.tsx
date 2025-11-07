@@ -39,7 +39,7 @@ function Screen({ handler }: PropsInput) {
         marginBottom="15px"
       >
        
-       <Button onClick={() => window.open("https://pncp.gov.br/app/pca/46523270000188/2025", "_blank")}>Portal Nacional de Contratações Públicas </Button>
+       <Button onClick={() => window.open("https://pncp.gov.br/app/pca/46523270000188/2026", "_blank")}>Portal Nacional de Contratações Públicas </Button>
 
       </Box>
     </ContainerBasic>
