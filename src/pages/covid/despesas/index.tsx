@@ -15,6 +15,7 @@ import colors from '../../../styles/colors';
 import CsvDownload from 'react-json-to-csv';
 import { startsWith } from 'lodash';
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
+import usePagina from '../../../hooks/usePagina';
 
 interface Despesa {
   id: string;
@@ -47,12 +48,6 @@ interface Despesa {
   id_empenho: string;
 }
 
-export const contentContractsAndAtas = {
-  titlePage: "Despesas COVID-19",
-  description:
-    "Dispõe das despesas empenhadas, liquidadas e pagas realizadas pelo órgão público para enfrentamento da emergência de saúde pública de importância internacional decorrente do coronavírus (COVID-19).",
-};
-
 const Despesas = () => {
   const [despesas, setDespesas] = useState<Despesa[]>([]);
   const [despesasFiltradas, setDespesasFiltradas] = useState<Despesa[]>([]);
@@ -64,10 +59,10 @@ const Despesas = () => {
   const [loading, setLoading] = useState(false);
   const itemsPerPage = 50;
 
-  const title = contentContractsAndAtas?.titlePage;
-  const description = contentContractsAndAtas?.description;
 
   const accessibility = useFontSizeAccessibilityContext();
+
+  
 
   const fetchTodasDespesasAno = async () => {
     try {
@@ -181,10 +176,24 @@ console.log('Filtered Despesas:', filteredByVinculo); // Debugging line
   }, dadosParaExibir[0]);
 
   const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.updated_at).toLocaleDateString('pt-BR') : '';
-
+const {paginaData, loadings, error} = usePagina("16");
+  
+    if (loadings) {
+          return <Text>Carregando conteúdo...</Text>;
+        }
+      
+       if (error) {
+        return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+      }
+      
+        if (!paginaData) {
+          return <Text>Página não encontrada</Text>;
+        }
+      
+        const { titulo: titlePage, descricao: description, conteudo } = paginaData;
 
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       <Box
         bg={useColorModeValue('white', 'gray.800')}
         padding="15px"

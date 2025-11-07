@@ -16,12 +16,7 @@ import moneyFormatter from "../../../utils/moneyFormatter";
 import moment from "moment";
 import colors from "../../../styles/colors";
 import { ContainerSearch } from "../../../styles/components/contratos-atas/styles";
-
-
-  
-  
-  
-
+import usePagina from "../../../hooks/usePagina";
 
 export interface Arquivo {
   nr_empenho: number;
@@ -63,15 +58,9 @@ export interface ArquivoAdiantamento {
 }
 
 
-export const contentContractsAndAtas = {
-  titlePage: "Convênios - Detalhamento",
-  description:
-    "A divulgação da lista de Convênios e Transferências repasses realizados pela Prefeitura de Mogi das Cruzes é uma medida fundamental cujo propósito é reforçar a transparência das finanças municipais e promover a responsabilidade fiscal.",
-};
-
+ 
 function Screen({ id_contrato }: any) {
-  const title = contentContractsAndAtas.titlePage;
-  const description = contentContractsAndAtas.description;
+  
   const [despesa, setDespesa] = useState<any>(null);
    const [arquivo, setArquivo] = useState<any[]>([]);
   const [contrato, setContrato] = useState<any[]>([]);
@@ -105,10 +94,24 @@ function Screen({ id_contrato }: any) {
     })
     .catch((error) => console.error("Erro ao buscar arquivos:", error));
 }, [despesa]);
+    const {paginaData, loadings, error} = usePagina("14");
     
+      if (loadings) {
+            return <Text>Carregando conteúdo...</Text>;
+          }
+        
+         if (error) {
+          return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+        }
+        
+          if (!paginaData) {
+            return <Text>Página não encontrada</Text>;
+          }
+        
+          const { titulo: titlePage, descricao: description, conteudo } = paginaData;
   return (
     
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
        <Box
               m={0}
               bg={useColorModeValue("white", "gray.800")}

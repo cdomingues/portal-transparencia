@@ -1,4 +1,4 @@
-import { useColorModeValue, Box, Button, Stack, Table, Thead, Tr, Th, Tbody, Td, Input , Link} from "@chakra-ui/react";
+import { useColorModeValue, Box, Button, Stack, Table, Text, Thead, Tr, Th, Tbody, Td, Input , Link} from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Laws } from ".";
 import ContainerBasic from "../../../components/Container/Basic";
@@ -8,6 +8,7 @@ import colors from "../../../styles/colors";
 import CsvDownload from "react-json-to-csv";
 import PaginationComponent from "../../../components/PaginationComponent";
 import moneyFormatter from "../../../utils/moneyFormatter";
+import usePagina from "../../../hooks/usePagina";
 
 type BeneficioFiscal = {
   objeto: string;
@@ -42,21 +43,9 @@ type PropsInput = {
   };
 };
 
-export const contentPROMAE = {
-  titlePage: "Desonerações, Renúncias e Benefícios Fiscais",
-  description:
-    <>
-    Planilha com desonerações, renúncias e benefícios fiscais concedidos pela admistração municipal.
-   <Link href='regras-beneficios-fiscais'> <strong>Clique aqui</strong></Link> para consultas as regras de concessão de benefícios fiscais. 
-    </>
-    ,
-};
 
 function Screen({ handler }: PropsInput) {
   const { handleSelectValue, selectOptions, laws, selectValue } = handler;
-
-  const title = contentPROMAE?.titlePage;
-  const description = contentPROMAE?.description;
 
   const [beneficiosFiscais, setBeneficiosFiscais] = useState<BeneficioFiscal[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -92,8 +81,23 @@ function Screen({ handler }: PropsInput) {
     document.body.removeChild(link);
   };
 
+  const {paginaData, loadings, error} = usePagina("17");
+  
+    if (loadings) {
+          return <Text>Carregando conteúdo...</Text>;
+        }
+      
+       if (error) {
+        return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+      }
+      
+        if (!paginaData) {
+          return <Text>Página não encontrada</Text>;
+        }
+      
+        const { titulo: titlePage, descricao: description, conteudo } = paginaData;
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}

@@ -19,6 +19,7 @@ import ContainerBasic from "../../../components/Container/Basic";
 import moneyFormatter from "../../../utils/moneyFormatter";
 import moment from "moment";
 import colors from "../../../styles/colors";
+import usePagina from '../../../hooks/usePagina';
 
 export interface Arquivo {
   nr_empenho: number;
@@ -47,16 +48,8 @@ export interface Etapa {
   detalhamento: string;
 }
 
-export const contentContractsAndAtas = {
-  titlePage: "Receitas - Emendas Parlamentares",
-  description:
-   "A arrecadação de receitas para o município pode vir de diferentes fontes. As emendas parlamentares, indicadas por Deputados Federais e Estaduais, são uma forma da cidade ter acesso a recursos. Acompanhe nesta página o descritivo das emendas parlamentares recebidas pela Prefeitura de Mogi das Cruzes."
-};
-
-
 function Screen({ id_contrato }: any) {
-  const title = contentContractsAndAtas.titlePage;
-  const description = contentContractsAndAtas.description;
+  
   const [despesa, setDespesa] = useState<any>(null);
   const [etapa, setEtapa] = useState<Etapa[]>([]);
   const [arquivo, setArquivo] = useState<Arquivo[]>([]);
@@ -119,8 +112,24 @@ function Screen({ id_contrato }: any) {
       fetchArquivos();
     }, [despesa]);
 
+    const {paginaData, loadings, error} = usePagina("21");
+    
+      if (loadings) {
+            return <Text>Carregando conteúdo...</Text>;
+          }
+        
+         if (error) {
+          return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+        }
+        
+          if (!paginaData) {
+            return <Text>Página não encontrada</Text>;
+          }
+        
+          const { titulo: titlePage, descricao: description, conteudo } = paginaData;
+
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}

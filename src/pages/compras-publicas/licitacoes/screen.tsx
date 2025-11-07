@@ -9,6 +9,7 @@ import axios from "axios";
 import CsvDownload from "react-json-to-csv";
 import colors from "../../../styles/colors";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
+import usePagina from '../../../hooks/usePagina';
 
 export interface Licitacoes {
   id: number;
@@ -29,17 +30,9 @@ export interface Licitacoes {
 const API_URL = "https://dadosadm.mogidascruzes.sp.gov.br/api/licitacoes/";
 const ITEMS_PER_PAGE = 50;
 
-export const contentContractsAndAtas = {
-  titlePage: "Licitações",
-  description:
-    "São disponibilizados no site da Prefeitura os editais de licitação de concorrência, tomada de preço e pregões para aquisição de bens e serviços, para acesso de qualquer interessado.",
-};
 
 function Screen() {
-  const title = contentContractsAndAtas.titlePage;
-  const description = contentContractsAndAtas.description;
-
-  const [licitacoes, setLicitacoes] = useState<Licitacoes[]>([]);
+   const [licitacoes, setLicitacoes] = useState<Licitacoes[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedYear, setSelectedYear] = useState("2025");
@@ -147,10 +140,37 @@ const sortedLicitacoes = [...filteredLicitacoes].sort((a, b) => a.numero - b.num
 
   const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.dataAbertura).toLocaleDateString('pt-BR') : '';
 
+const {paginaData, loadings, error} = usePagina("25");
 
+  if (loadings) {
+        return <Text>Carregando conteúdo...</Text>;
+      }
+    
+     if (error) {
+      return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+    }
+    
+      if (!paginaData) {
+        return <Text>Página não encontrada</Text>;
+      }
+    
+      const { titulo: titlePage, descricao: description, conteudo } = paginaData;
+  
   return (
-    <ContainerBasic title={title} description={description}>
-        <Text fontWeight='bold' pl='10px' mb='15px'>Para busca de licitações  selecione o ano especificio ou a opção 'Todos os anos' e selecione po tipo de licitação, o órgão ou a situação. Caso prefira escolha o ano e pesquise pelo número  ou a descrição da licitação </Text>
+    <ContainerBasic title={titlePage} description={description}>
+         {conteudo && (
+                                    <Box
+                                      dangerouslySetInnerHTML={{ __html: conteudo }}
+                                      sx={{
+                                        p: { mb: 2, textAlign: "justify" },
+                                        a: {
+                                          color: "blue.600",
+                                          fontWeight: "bold",
+                                          textDecoration: "underline",
+                                        },
+                                      }}
+                                    />
+                                  )} 
                
       <Stack direction={{ base: "column", md: "row" }} spacing={4} mb={4}>
         <Select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)}  width="200px"   border={`1px solid ${colors.transparenciaBlack}`}

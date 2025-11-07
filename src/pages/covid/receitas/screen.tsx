@@ -7,6 +7,7 @@ import CsvDownload from "react-json-to-csv";
 import moneyFormatter from "../../../utils/moneyFormatter";
 import colors from "../../../styles/colors";
 import { toLower } from "lodash";
+import usePagina from "../../../hooks/usePagina";
 
 export interface Receitas {
   receita: string;
@@ -31,15 +32,8 @@ export interface Receitas {
 const API_URL = "https://dadosadm.mogidascruzes.sp.gov.br/api/lista_receitas2";
 const ITEMS_PER_PAGE = 50;
 
-export const receitasDesc = {
-  titlePage: "Receitas COVID-19",
-  description: "Dispõe das receitas recebidas pelo órgão público para enfrentamento da emergência de saúde pública de importância internacional decorrente do coronavírus (COVID-19). ",
-}
 
 function Screen() {
-  const title = receitasDesc.titlePage;
-  const description = receitasDesc.description;
-
   const [licitacoes, setLicitacoes] = useState<Receitas[]>([]);
   const [tiposReceita, setTiposReceita] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -122,8 +116,24 @@ function Screen() {
     document.body.removeChild(link);
   };
 
+  const {paginaData, loadings, error} = usePagina("15");
+  
+    if (loadings) {
+          return <Text>Carregando conteúdo...</Text>;
+        }
+      
+       if (error) {
+        return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+      }
+      
+        if (!paginaData) {
+          return <Text>Página não encontrada</Text>;
+        }
+      
+        const { titulo: titlePage, descricao: description, conteudo } = paginaData;
+
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       <Stack direction={{ base: "column", md: "row" }} spacing={4}>
 
         <Select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)} width='290px'>

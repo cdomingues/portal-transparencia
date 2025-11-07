@@ -24,7 +24,7 @@ import { MultiAxisChart } from "../../../components/MultiAxisChart";
 import TableComponent, { TableColumns } from "../../../components/Table";
 import colors from "../../../styles/colors";
 import moneyFormatter from "../../../utils/moneyFormatter";
-//import Video from "../../../components/Videos";
+import usePagina from "../../../hooks/usePagina";
 
 type PropsInput = {
   handler: {
@@ -40,11 +40,6 @@ type PropsInput = {
   };
 };
 
-export const contentCovidExpenses = {
-  titlePage: "Despesas COVID-19",
-  description: "Dispõe das despesas empenhadas, liquidadas e pagas realizadas pelo órgão público para enfrentamento da emergência de saúde pública de importância internacional decorrente do coronavírus (COVID-19).",
-}
-
 function Screen({
   handler: {
     columns,
@@ -58,9 +53,7 @@ function Screen({
     handleByYear,
   },
 }: PropsInput) {
-  const title = contentCovidExpenses?.titlePage;
-  const description = contentCovidExpenses?.description;
-  const chartConfig = {
+   const chartConfig = {
     direction: isMobile ? "column" : "row",
     width: isMobile ? "100%" : "40%",
     marginRight: isMobile ? "0" : "10%",
@@ -68,9 +61,24 @@ function Screen({
     fontSize: isMobile ? "medium" : "larger",
   };
   
+  const {paginaData, loadings, error} = usePagina("15");
+  
+    if (loadings) {
+          return <Text>Carregando conteúdo...</Text>;
+        }
+      
+       if (error) {
+        return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+      }
+      
+        if (!paginaData) {
+          return <Text>Página não encontrada</Text>;
+        }
+      
+        const { titulo: titlePage, descricao: description, conteudo } = paginaData;
 
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
      
     
       <Divider borderWidth="2px" mt="10" mb="10" />

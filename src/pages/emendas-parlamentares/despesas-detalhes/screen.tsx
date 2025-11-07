@@ -14,6 +14,7 @@ import ContainerBasic from "../../../components/Container/Basic";
 import moneyFormatter from "../../../utils/moneyFormatter";
 import moment from "moment";
 import colors from "../../../styles/colors";
+import usePagina from "../../../hooks/usePagina";
 
 export interface Arquivo {
   nr_empenho: number;
@@ -57,15 +58,8 @@ export interface ArquivoAdiantamento {
 }
 
 
-export const contentContractsAndAtas = {
-  titlePage: "Despesas - Detalhamento",
-  description:
-    "Para que a cidade possa continuar se desenvolvendo e os serviços possam permanecer funcionando e melhorando, a Prefeitura precisa realizar despesas das mais diversas, assim como investimentos. Aqui você pode conferir as informações das despesas públicas gerais empenhadas, liquidadas e pagas, entendendo os valores direcionados para cada programa.",
-};
-
 function Screen() {
-  const title = contentContractsAndAtas.titlePage;
-  const description = contentContractsAndAtas.description;
+ 
   const [despesa, setDespesa] = useState<any>(null);
   const [data, setData] = useState<Arquivo[]>([]);
   const [loading, setLoading] = useState(true);
@@ -185,8 +179,26 @@ function Screen() {
     fetchArquivoAdiantamentos();
   }, [despesa]); 
 
-  return (
-    <ContainerBasic title={title} description={description}>
+  const {paginaData, loadings, error} = usePagina("21");
+    
+      if (loadings) {
+            return <Text>Carregando conteúdo...</Text>;
+          }
+        
+         if (error) {
+          return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+        }
+        
+          if (!paginaData) {
+            return <Text>Página não encontrada</Text>;
+          }
+        
+          const { titulo: titlePage, descricao: description, conteudo } = paginaData;
+  
+    return (
+      <ContainerBasic title={titlePage} description={description}>
+
+ 
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}

@@ -50,12 +50,13 @@
 
 // export default Screen;
 
-import { useColorModeValue, Box } from "@chakra-ui/react";
+import { useColorModeValue, Box, Text } from "@chakra-ui/react";
 import React from "react";
 import { Laws } from ".";
 import ContainerBasic from "../../../components/Container/Basic";
 import PlanContainerLaw from "../../../components/Container/PlanLaw";
 import ListarArquivos from "../../../components/ListarArquivos";
+import usePagina from "../../../hooks/usePagina";
 
 type PropsInput = {
   handler: {
@@ -66,20 +67,29 @@ type PropsInput = {
   };
 };
 
-export const contentReportExtrabudget = {
-  titlePage: "PARECERES DO TRIBUNAL DE CONTAS DO ESTADO",
-  description:
-    "São os pareceres emitidos pelo Tribunal de Contas do Estado de São Paulo às contas do Poder Executivo, que darão suporte para o Poder Legislativo (Câmara Municipal) efetuar o devido julgamento, na forma do disposto no Inciso VIII, do Artigo 52 da Lei Orgânica do Município. Informa-se que estão pendentes de apreciação as contas dos anos de 2023 e 2024. Atualizado em 21/05/2025.",
-};
+
+
 
 function Screen({ handler }: PropsInput) {
   const { handleSelectValue, selectOptions, laws, selectValue } = handler;
 
-  const title = contentReportExtrabudget?.titlePage;
-  const description = contentReportExtrabudget?.description;
+  const { paginaData, loadings, error } = usePagina("12");
+  if (loadings) {
+      return <Text>Carregando conteúdo...</Text>;
+    }
+  
+   if (error) {
+    return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+  }
+  
+    if (!paginaData) {
+      return <Text>Página não encontrada</Text>;
+    }
+  
+    const { titulo: titlePage, descricao: description, conteudo } = paginaData;
 
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
