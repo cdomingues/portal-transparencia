@@ -6,26 +6,35 @@ import { useRouter } from "next/router";
 import { isMobile } from "react-device-detect";
 import { color } from "highcharts";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
+import usePagina  from '../../../hooks/usePagina';
 
 type PropsInput = {
   handler: {};
 };
 
-export const contentMapSite = {
-  titlePage: "Plano de Contratações Anual",
-  description:
-    "A elaboração do Plano de Contratações Anual de Mogi das Cruzes é regulamentado pelo Decreto Municipal nº 23.476/25. O documento que  tem por objetivo racionalizar as contratações, garantir o alinhamento com o seu planejamento estratégicо е subsidiar a elaboração das leis orçamentárias deve ser elaborado por órgãos e entidades da Administração Pública Direta até março de cada exercício. Os dados são consolidados pela Secretaria de Gestão e Contratações Públicas e aprovado até o dia 30 de maio do ano de elaboração. O documento fica disponível para consulta pública após este processo. ",
-};
-
 
 function Screen({ handler }: PropsInput) {
   const accessibility = useFontSizeAccessibilityContext();
-  const title = contentMapSite?.titlePage;
-  const description = contentMapSite?.description;
   const router = useRouter();
   
+  const {paginaData, loadings, error} = usePagina("33");
+  
+    if (loadings) {
+          return <Text>Carregando conteúdo...</Text>;
+        }
+      
+       if (error) {
+        return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+      }
+      
+        if (!paginaData) {
+          return <Text>Página não encontrada</Text>;
+        }
+      
+        const { titulo: titlePage, descricao: description, conteudo } = paginaData;
+    
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
@@ -34,8 +43,7 @@ function Screen({ handler }: PropsInput) {
         rounded="md"
         overflow="hidden"
         maxWidth="100%"
-        
-        borderRadius="18px"
+                borderRadius="18px"
         marginBottom="15px"
       >
        
@@ -47,6 +55,9 @@ function Screen({ handler }: PropsInput) {
           >Portal Nacional de Contratações Públicas - 2026</Button>
 
       </Box>
+
+    
+                     
     </ContainerBasic>
   );
 }

@@ -206,9 +206,8 @@ export const menus=[
                 "url":"",
                 "extralinks": [
                     { label: "Licitações", url: "/compras-publicas/licitacoes" },
-                    
-                  
                     { label: "Portal Nacional de Contratações Públicas",url: "https://pncp.gov.br/app/editais?q=&status=recebendo_proposta&pagina=1"},
+                     { label: "Plano de Contratações Anual", url: "/compras-publicas/plano-contratacoes-anual" },
                     
                 ]},
                 {"id_submenu": 4, 

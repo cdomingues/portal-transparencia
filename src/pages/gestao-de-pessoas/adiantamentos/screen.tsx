@@ -17,6 +17,7 @@ import { ContainerSearch } from "../../../styles/components/contratos-atas/style
 import CsvDownload from "react-json-to-csv";
 import PaginationComponent from "../../../components/PaginationComponent";
 import colors from "../../../styles/colors";
+import usePagina from '../../../hooks/usePagina';
 
 type PropsInput = {
   handler: {
@@ -33,17 +34,11 @@ type PropsInput = {
     
   };
 };
-export const contentContractsAndAtas = {
- titlePage: "Adiantamentos",
-  description:
-    "O custeio de viagens realizado pelo Poder Público tem como finalidade viabilizar a participação de servidores e representantes municipais em atividades oficiais, como cursos de capacitação, reuniões institucionais, eventos técnicos e agendas de interesse da administração pública. Essas despesas são autorizadas e registradas em conformidade com a legislação vigente, garantindo o uso responsável dos recursos públicos",
-};
+
 function Screen({
   handler: { columns, data, loading, handleByYear, setYear, year,data2, setData2,arquivosColumns },
 }: PropsInput) {
   const [contract, setContract] = useState<any>(null);
-  const title = contentContractsAndAtas?.titlePage;
-  const description = contentContractsAndAtas?.description;
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedYear, setSelectedYear] = useState<number | undefined>(2025);
@@ -109,9 +104,25 @@ function Screen({
 
   const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.updated_at).toLocaleDateString('pt-BR') : '';
 
+  const {paginaData, loadings, error} = usePagina("40");
+  
+    if (loadings) {
+          return <Text>Carregando conteúdo...</Text>;
+        }
+      
+       if (error) {
+        return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+      }
+      
+        if (!paginaData) {
+          return <Text>Página não encontrada</Text>;
+        }
+      
+        const { titulo: titlePage, descricao: description, conteudo } = paginaData;
+    
 
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
             <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}

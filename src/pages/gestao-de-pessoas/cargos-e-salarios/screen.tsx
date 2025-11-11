@@ -14,22 +14,15 @@ import { useFontSizeAccessibilityContext } from '../../../context/fontSizeAccess
 import axios from "axios";
 import { AiOutlineDownload } from "react-icons/ai";
 import { FaDownload } from "react-icons/fa";
+import usePagina from '../../../hooks/usePagina';
 
 type PropsInput = {
   handler: {};
 };
 
-export const contentContractsAndAtas = {
-  titlePage: "Cargos e salários",
-  description: "Conforme previsto no § 6º do Art. 39 da Constituição Federal, com a redação dada pela Emenda Constitucional nº 19/98, torna-se pública a tabela de subsídios, salários e vencimentos dos cargos e empregos públicos, válida a partir de 1ª de março de 2024, em conformidade com o disposto na Lei nº 8.088, de 24 de abril de 2024."
-};
-
 function Screen({
   handler: {},
 }: PropsInput) {
-
-  const title = contentContractsAndAtas?.titlePage;
-  const description = contentContractsAndAtas?.description;
   const accessibility = useFontSizeAccessibilityContext();
 
   const [dados, setDados] = useState<any[]>([]);
@@ -45,9 +38,25 @@ function Screen({
         console.error('Erro ao buscar os dados da API:', error);
       });
   }, []);
+  const {paginaData, loadings, error} = usePagina("37");
+  
+    if (loadings) {
+          return <Text>Carregando conteúdo...</Text>;
+        }
+      
+       if (error) {
+        return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+      }
+      
+        if (!paginaData) {
+          return <Text>Página não encontrada</Text>;
+        }
+      
+        const { titulo: titlePage, descricao: description, conteudo } = paginaData;
+    
 
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}

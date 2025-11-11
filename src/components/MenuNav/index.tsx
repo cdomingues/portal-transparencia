@@ -153,8 +153,8 @@ const MenuHorizontalChakra = () => {
           { label: 'Licitações', href: '#',
             submenu: [
               { label: "Licitações", href: "/compras-publicas/licitacoes" }, 
-              
-               { label: "Portal Nacional de Contratações Públicas",href: "https://pncp.gov.br/app/editais?q=&status=recebendo_proposta&pagina=1", }, 
+              { label: "Portal Nacional de Contratações Públicas",href: "https://pncp.gov.br/app/editais?q=&status=recebendo_proposta&pagina=1", }, 
+              {label:"Plano de Contratações Anual", href: "/compras-publicas/plano-contratacoes-anual" },
              
             ] },
             { label: 'Acordos e termos', href: '#',

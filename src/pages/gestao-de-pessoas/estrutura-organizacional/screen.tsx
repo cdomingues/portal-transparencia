@@ -10,19 +10,11 @@ import dados from './secretarios.json'
 import conselhos from './conselhos.json'
 import colors from "../../../styles/colors";
 import CsvDownload from "react-json-to-csv";
+import usePagina from '../../../hooks/usePagina';
 
 type PropsInput = {
   handler: {};
 };
-
-export const contentMapSite = {
-  titlePage: "Estrutura Organizacional",
-  description:
-   <>
-  Para consultar informações detalhadas sobre a estrutura adminstrativa,bem como atribuições funcionais e diretrizes gerais obrigatórias, consulte a <Link href="http://leismunicipa.is/0ji28" ><strong>Lei complementar nº 174 de 6 de janeiro de 2023</strong></Link> .
-   </> ,
-};
-
 
 
 const exportToJSON = (data: any) => {
@@ -40,12 +32,27 @@ const exportToJSON = (data: any) => {
 
 function Screen({ handler }: PropsInput) {
   const accessibility = useFontSizeAccessibilityContext();
-  const title = contentMapSite?.titlePage;
-  const description = contentMapSite?.description;
   const router = useRouter();
+
+  const {paginaData, loadings, error} = usePagina("42");
+  
+    if (loadings) {
+          return <Text>Carregando conteúdo...</Text>;
+        }
+      
+       if (error) {
+        return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+      }
+      
+        if (!paginaData) {
+          return <Text>Página não encontrada</Text>;
+        }
+      
+        const { titulo: titlePage, descricao: description, conteudo } = paginaData;
+    
   
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}

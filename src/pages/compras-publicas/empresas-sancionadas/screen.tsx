@@ -7,29 +7,36 @@ import { isMobile } from "react-device-detect";
 import { color } from "highcharts";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import { Button } from "@chakra-ui/react";
+import usePagina  from '../../../hooks/usePagina';
 
 type PropsInput = {
   handler: {};
 };
 
-export const contentMapSite = {
-  titlePage: "Empresas sancionadas administrativamente",
-  description:
-    <>
-    Conforme o artigo 156 da Lei Federal nº 14.133/2021, os licitantes e contratados pela administração pública que não cumprirem adequadamente as cláusulas contratuais, devem ser penalizados com sanções administrativas como advertência, multa, impedimento de licitar e contratar e declaração de inidoneidade, a depender da gravidade da infração. <br/>
-O artigo 161 estabelece que essas empresas sejam incluídas no Cadastro Nacional de Empresas Idôneas e Suspensas (CEIS). 
-    </>,
-};
-
 
 function Screen({ handler }: PropsInput) {
   const accessibility = useFontSizeAccessibilityContext();
-  const title = contentMapSite?.titlePage;
-  const description = contentMapSite?.description;
+  
   const router = useRouter();
+
+  const {paginaData, loadings, error} = usePagina("34");
+  
+    if (loadings) {
+          return <Text>Carregando conteúdo...</Text>;
+        }
+      
+       if (error) {
+        return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+      }
+      
+        if (!paginaData) {
+          return <Text>Página não encontrada</Text>;
+        }
+      
+        const { titulo: titlePage, descricao: description, conteudo } = paginaData;
   
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}

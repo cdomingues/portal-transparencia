@@ -207,7 +207,7 @@ useEffect(() => {
                         <AccordionPanel m={4} p={8}  borderRadius={4}>
                           <Text ml="20px" mb="5px">
   <strong>Pesquisa e Percepção sobre Ações de Integridade: </strong>
-  Aberto para resposta do dia 30/09 até 31/10
+  Aberto para resposta do dia 30/09 até 30/11
   <Button
     as="a"
     href="/plano-municipal-integridade/pesquisa"
