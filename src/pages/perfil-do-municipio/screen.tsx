@@ -9,7 +9,6 @@ import {
   Box,
   useColorModeValue,
   Stack,
-  Text
 } from "@chakra-ui/react";
 import CountyPanel from "../../components/Panel/County";
 import TourismPanel from "../../components/Panel/Tourism";
@@ -21,36 +20,25 @@ import "leaflet/dist/leaflet.css";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
 import { isMobile } from "react-device-detect";
 import useWindowDimensions from "../../utils/useWindowDimensions";
-import usePagina from '../../hooks/usePagina';
 
 type PropsInput = {
   handler: {};
 };
 
+export const contentMunicipalityProfile = {
+  titlePage: "Perfil do Munícipio - Mogi das Cruzes",
+  description:
+    "Mogi das Cruzes é um município brasileiro do estado de São Paulo, localizado na Região Metropolitana de São Paulo, e integrante da região geográfica do Alto Tietê. Estrategicamente localizada próxima a São Paulo, Mogi das Cruzes é um centro logístico e econômico importante na região, comprometido com a inovação e o governo aberto para melhorar a vida de seus cidadãos e estimular o desenvolvimento sócio-econômico.",
+};
 
 function Screen({ handler }: PropsInput) {
   const accessibility = useFontSizeAccessibilityContext();
+  const title = contentMunicipalityProfile?.titlePage;
+  const description = contentMunicipalityProfile?.description;
   const { height, width } = useWindowDimensions();
 
-  const {paginaData, loadings, error} = usePagina("43"); 
-  
-    if (loadings) {
-          return <Text>Carregando conteúdo...</Text>;
-        }
-      
-       if (error) {
-        return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
-      }
-      
-        if (!paginaData) {
-          return <Text>Página não encontrada</Text>;
-        }
-      
-        const { titulo: titlePage, descricao: description, conteudo } = paginaData;
-    
-
   return (
-    <ContainerBasic title={titlePage} description={description}>
+    <ContainerBasic title={title} description={description}>
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
