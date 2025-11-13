@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { isMobile } from "react-device-detect";
 import { color } from "highcharts";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
+import usePagina from '../../../hooks/usePagina';
 
 type Arquivo = {
   ano: any;
@@ -22,21 +23,8 @@ type Arquivo = {
 type PropsInput = {
   handler: {};
 };
-
-export const contentMapSite = {
-  titlePage: "Prestação de Contas à CMMC",
-  description:
-    "A prestação de contas é um dever estabelecido na Constituição Federal de 1988 o qual determina a obrigação tanto do Presidente da República, quanto a administração pública e entidades do setor público. Dessa forma, a referida responsabilização é caracterizada como a demonstração do destino dos recursos públicos em determinado período, assegurando transparência sobre a alocação de verbas em prol do interesse coletivo. Além disso, a prestação de contas proporciona suporte às decisões de destinação de recursos, possibilitando aos cidadãos a obtenção de conhecimento acerca dos bens e serviços produzidos pela administração pública e dos provedores dos recursos para o seu funcionamento. ",
-};
-
-
-
-
-
 function Screen({ handler }: PropsInput) {
   const accessibility = useFontSizeAccessibilityContext();
-  const title = contentMapSite?.titlePage;
-  const description = contentMapSite?.description;
   const router = useRouter();
   const apiUrl = "https://dadosadm.mogidascruzes.sp.gov.br"
    const [arquivos, setArquivos] = useState<Arquivo[]>([]);
@@ -88,9 +76,25 @@ function Screen({ handler }: PropsInput) {
         fetchData();
       }
     }, [nextPage]);
+
+    const {paginaData, loadings, error} = usePagina("58");
+    
+      if (loadings) {
+            return <Text>Carregando conteúdo...</Text>;
+          }
+        
+         if (error) {
+          return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+        }
+        
+          if (!paginaData) {
+            return <Text>Página não encontrada</Text>;
+          }
+        
+          const { titulo: titlePage, descricao: description, conteudo } = paginaData;
   
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}

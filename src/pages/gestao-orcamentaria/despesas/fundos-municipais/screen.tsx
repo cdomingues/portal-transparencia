@@ -9,6 +9,8 @@ import { isMobile } from "react-device-detect";
 import { AiOutlineDownload } from "react-icons/ai";
 import { ContainerSearch } from "../../../../styles/components/contratos-atas/styles";
 import CsvDownload from "react-json-to-csv";
+import usePagina from '../../../../hooks/usePagina';
+import colors from "../../../../styles/colors";
 
 type Arquivo = {
   ano: any;
@@ -35,14 +37,6 @@ type PropsInput = {
   };
 };
 
-export const contentRadarsControl = {
-  titlePage: "Fundos Municipais",
-  description:
-    ".",
-};
-
-
-
 function Screen({
   handler: {
     columns,
@@ -51,8 +45,6 @@ function Screen({
     
   },
 }: PropsInput) {
-  const title = contentRadarsControl?.titlePage;
-  const description = contentRadarsControl?.description;
   const accessibility = useFontSizeAccessibilityContext();
   const [currentPage, setCurrentPage] = useState(1);
     const [searchTerm, setSearchTerm] = useState("");
@@ -104,10 +96,24 @@ function Screen({
   });
   
  
+const {paginaData, loadings, error} = usePagina("49");
 
+  if (loadings) {
+        return <Text>Carregando conteúdo...</Text>;
+      }
+    
+     if (error) {
+      return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+    }
+    
+      if (!paginaData) {
+        return <Text>Página não encontrada</Text>;
+      }
+    
+      const { titulo: titlePage, descricao: description, conteudo } = paginaData;
 
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
@@ -210,7 +216,13 @@ function Screen({
                              </ContainerSearch>
                               <Table >
                                                       <Thead>
-                               <Tr bg="#c62227" color="white">
+                              <Tr  bg={colors.transparenciaBlack}
+                                    color="white"
+                                    p={4}
+                                    fontWeight="bold"
+                                    border={`1px solid ${colors.grayLighter}`}
+                                     
+                                     >
                                  <Th color="white" onClick={() => handleSort("sigla_area_gestora")} cursor="pointer">
                                  Sigla da área gestora {sortColumn === "sigla_area_gestora" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
                                  </Th>

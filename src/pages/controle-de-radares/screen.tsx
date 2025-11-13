@@ -7,6 +7,7 @@ import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibi
 //import Video from "../../components/Videos";
 import { isMobile } from "react-device-detect";
 import { AiOutlineDownload } from "react-icons/ai";
+import usePagina from '../../hooks/usePagina';
 
 type Arquivo = {
   ano: any;
@@ -36,11 +37,11 @@ type PropsInput = {
   };
 };
 
-export const contentRadarsControl = {
+ export const contentRadarsControl = {
   titlePage: "Controle de Radares",
   description:
     "Agora você tem um ambiente onde pode conferir, de forma oficial, as principais informações sobre os equipamentos de fiscalização de trânsito em Mogi das Cruzes. Acompanhe um mapa interativo com a localização de cada radar, tenha acesso ao tipo de equipamento, à velocidade máxima permitida e ao status de operação deles.",
-};
+}; 
 
 const markerChildren = (data: any) => {
   return (
@@ -86,8 +87,8 @@ function Screen({
     radarInfractions,
   },
 }: PropsInput) {
-  const title = contentRadarsControl?.titlePage;
-  const description = contentRadarsControl?.description;
+  //const title = contentRadarsControl?.titlePage;
+  //const description = contentRadarsControl?.description;
   const accessibility = useFontSizeAccessibilityContext();
   const url_video = "https://www.youtube.com/embed/K7_TUkedcGA?si=iPxaKODtZnboQT-_";
   const titulo = "O QUE SÃO AS SEIS MEDIDAS?";
@@ -130,15 +131,26 @@ function Screen({
    
 "SMMU":"cb8f80e6-7d16-4ade-9ac6-86bd435ed1d7",
 
-
-
-    
     
   };
 
+const {paginaData, loadings, error} = usePagina("48");
 
+  if (loadings) {
+        return <Text>Carregando conteúdo...</Text>;
+      }
+    
+     if (error) {
+      return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+    }
+    
+      if (!paginaData) {
+        return <Text>Página não encontrada</Text>;
+      }
+    
+      const { titulo: titlePage, descricao: description, conteudo } = paginaData;
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
        
        
       
@@ -153,111 +165,15 @@ function Screen({
         borderRadius="18px"
         marginBottom="15px"
       >
-        <Text
-                align={isMobile ? "justify" : "left"}
-                fontWeight="700"
-                fontSize={accessibility?.fonts?.regular}
-                mt="20px"
-              >
-                Para onde vai o recurso arrecado com as multas?
-                
-                
-              </Text>
-        <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-                textAlign={"justify"}
-              >O recurso arrecadado é destinado para:<br/>
-
-5% vai para o Fundo Nacional de Segurança e Educação de Trânsito – FUNSET, conforme previsto no art. 320, §1º, do Código de Trânsito Brasileiro (Lei nº 9.503/1997);<br/>
-              
-30% é destinado ao DREM, desvinculação prevista na EC nº 93/2016; O restante vai para o Fundo Municipal de Mobilidade Urbana – FMMU, criado pela Lei Municipal nº 6.935/2014.<br/>
-                            
-Vale ressaltar, que além do desmembramento citado acima, são descontadas do valor os descontos por pagamento em dia, que é de 20% sob o valor do boleto ou de 40%, quando o proprietário ou condutor do veículo, com adesão prévia ao Sistema de Notificação Eletrônica (SNE), solicita, através do Aplicativo Carteira Digital de Trânsito (CDT) do Serviço Nacional de Processamento de Dados (SERPRO) o boleto com desconto e renúncia o direito de defesa, nos termos do § 1º do Art. 284 da Lei Nº 9.503/1997, além das taxas bancárias de emissão e manutenção dos boletos.
-              </Text>
-
-<Text
-                align={isMobile ? "justify" : "left"}
-                fontWeight="700"
-                fontSize={accessibility?.fonts?.regular}
-                mt="20px"
-              >
-                
-                O que é o FUNSET?
-                
-              </Text>
-        <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              >O Fundo Nacional de Segurança e Educação de Trânsito - FUNSET é um fundo de âmbito nacional destinado à segurança e educação de trânsito. O Código de Trânsito Brasileiro (CTB), instituído pela Lei nº 9.503, de 23 de setembro de 1997, em vigor desde 22 de janeiro de 1998, estabelece em seu artigo 320, parágrafo primeiro, que o percentual de 5% (cinco por cento) do valor das multas de trânsito deve ser depositado mensalmente, na conta do FUNSET, criado pela Lei nº 9.602 de 21 de janeiro de 1998 e regulamentado pelo Decreto nº 2.613, de 03 de junho de 1998, os quais estabelecem a gestão do referido fundo ao Departamento Nacional de Trânsito – DENATRAN.</Text>
-
-<Text
-                align={isMobile ? "justify" : "left"}
-                fontWeight="700"
-                fontSize={accessibility?.fonts?.regular}
-                mt="20px"
-              >
-                 O que é FMMU?
-                
-                
-              </Text>
-        <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              >O Fundo Municipal de Mobilidade Urbana – FMMU é um fundo de âmbito municipal no município de Mogi das Cruzes, criado com o objetivo de garantir condições financeiras para custeio e investimento em controle, operação, fiscalização e planejamento de trânsito e transporte público e de outras despesas e encargos decorrentes dessas atividades no município. O FMMU foi criado pela Lei Municipal nº 6.935/2014 e é administrado pelo Comitê Municipal de Mobilidade Urbana, composto por 5 membros e que se reuniu uma vez por mês.</Text>
-
-<Text
-                align={isMobile ? "justify" : "left"}
-                fontWeight="700"
-                fontSize={accessibility?.fonts?.regular}
-                mt="20px"
-              >
-                O que constituí o FMMU?
-                
-                
-              </Text>
-        <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              >Todas as receitas previstas no art. 8º da Lei Municipal nº 6.935/2014.</Text>
-              <Text
-                align={isMobile ? "justify" : "left"}
-                fontWeight="700"
-                fontSize={accessibility?.fonts?.regular}
-                mt="20px"
-              >
-                Para quê é destinado o recurso do FMMU?
-                
-                
-              </Text>
-        <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-                mb="50px"
-              >Conforme art. 10 da Lei Municipal nº 6.935/2014 é destinado para:<br/>
-              Desenvolvimento das atividades previstas no artigo 320 do Código de Trânsito Brasileiro;
-Financiamento de programas de educação para o trânsito;<br/>
-Implantação de programas visando à melhoria de qualidade do sistema de trânsito, circulação e transporte;<br/>
-Desenvolvimento, aprimoramento E capacitação de recursos humanos ligados à área de trânsito e transporte;<br/>
-Custeio e investimento em atividades associadas à circulação, ao transporte e ao trânsito, inclusive seu gerenciamento e monitoramento;<br/>
-Aquisição de material permanente ou de consumo e outros insumos necessários para planejamento, projeto, implantação, manutenção, operação e fiscalização do transporte público e do trânsito no Município;<br/>
-Contratação de estudos, projetos, planos ou implantações específicas para transporte público e trânsito;<br/>
-Investimentos em infraestrutura urbana de suporte aos sistemas de circulação, transporte público e trânsito no Município;<br/>
-Investimentos em equipamentos e capacitação tecnológica para gestão da circulação e dos serviços de transporte público e trânsito;<br/>
-Desenvolvimento de ações e serviços de apoio aos usuários e de garantia de segurança aos pedestres na circulação;<br/>
-Custeio e investimento das atividades desenvolvidas na gestão da circulação e dos serviços de transporte público e trânsito;<br/>
-Implementação de programas de segurança de trânsito;
-Melhorias do sistema municipal de transporte coletivo;  
-Otimização do sistema viário municipal.</Text>
-
-   <Text fontSize={accessibility?.fonts?.regular} my="10px" ml="15px">
-          Última atualização: <strong>10/05/2025</strong>
-        </Text>
+        {conteudo && (
+               <Box
+                 dangerouslySetInnerHTML={{ __html: conteudo }}
+                 sx={{
+                   p: { mb: 2, textAlign: "justify" },
+                   
+                 }}
+               />
+             )} 
 <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}

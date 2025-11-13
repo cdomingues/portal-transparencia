@@ -10,20 +10,11 @@ import dados from './medicamentos.json'
 import colors from "../../styles/colors";
 import CsvDownload from "react-json-to-csv";
 import PaginationComponent from "../../components/PaginationComponent";
+import usePagina from '../../hooks/usePagina';
 
 type PropsInput = {
   handler: {};
 };
-
-export const contentMapSite = {
-  titlePage: "Estoque de Medicamentos",
-  description:
-   <>
-   Em atendimento a Lei Federal nº 8.080/1990 (atualizada pela Lei nº 14.715/2023), e recomendação do Programa Nacional de Transparência Pública (PNTP) da Atricon, o município de Mogi das Cruzes passa a publicar a lista de medicamentos enviados as farmácias públicas municipais, de forma mensal. Para acessar a lista de medicamentos fornecidos pelo SUS e regras para obtenção,  <Link href="https://dadosabertos.mogidascruzes.sp.gov.br/planos-municipais/plano-municipal-saude"><strong>clique aqui</strong></Link>. 
-   </>,
-};
-
-
 
 const exportToJSON = (data: any) => {
     const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
@@ -40,8 +31,7 @@ const exportToJSON = (data: any) => {
 
 function Screen({ handler }: PropsInput) {
   const accessibility = useFontSizeAccessibilityContext();
-  const title = contentMapSite?.titlePage;
-  const description = contentMapSite?.description;
+  
 
   const [currentPage, setCurrentPage] = useState(1);
     const [searchTerm, setSearchTerm] = useState("");
@@ -65,8 +55,23 @@ function Screen({ handler }: PropsInput) {
     currentPage * ITEMS_PER_PAGE
   )
 
+  const {paginaData, loadings, error} = usePagina("51");
+  
+    if (loadings) {
+          return <Text>Carregando conteúdo...</Text>;
+        }
+      
+       if (error) {
+        return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+      }
+      
+        if (!paginaData) {
+          return <Text>Página não encontrada</Text>;
+        }
+      
+        const { titulo: titlePage, descricao: description, conteudo } = paginaData;
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}

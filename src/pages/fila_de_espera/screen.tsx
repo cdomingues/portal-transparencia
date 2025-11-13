@@ -10,18 +10,11 @@ import dados from './fila_de_espera.json'
 import colors from "../../styles/colors";
 import CsvDownload from "react-json-to-csv";
 import PaginationComponent from "../../components/PaginationComponent";
+import usePagina from '../../hooks/usePagina';
 
 type PropsInput = {
   handler: {};
 };
-
-export const contentMapSite = {
-  titlePage: "Lista de espera de consultas e exames na rede municipal de saúde",
-  description:
-   "Em atendimento ao item 18.3 do Programa Nacional de Transparência Pública (PNTP) da Atricon, ano referência de 2025, a Secretaria de Saúde de Mogi das Cruzes divulga a lista de espera e regulação para acesso às consultas, exames e serviços médicos da rede municipal de saúde." ,
-};
-
-
 
 const exportToJSON = (data: any) => {
     const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
@@ -38,12 +31,9 @@ const exportToJSON = (data: any) => {
 
 function Screen({ handler }: PropsInput) {
   const accessibility = useFontSizeAccessibilityContext();
-  const title = contentMapSite?.titlePage;
-  const description = contentMapSite?.description;
-
   const [currentPage, setCurrentPage] = useState(1);
-    const [searchTerm, setSearchTerm] = useState("");
-    const ITEMS_PER_PAGE = 50;
+  const [searchTerm, setSearchTerm] = useState("");
+  const ITEMS_PER_PAGE = 50;
   const router = useRouter();
   
   const filteredMedicamentos = dados.filter((item)=>
@@ -58,8 +48,24 @@ function Screen({ handler }: PropsInput) {
     currentPage * ITEMS_PER_PAGE
   )
 
+  const {paginaData, loadings, error} = usePagina("52");
+  
+    if (loadings) {
+          return <Text>Carregando conteúdo...</Text>;
+        }
+      
+       if (error) {
+        return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+      }
+      
+        if (!paginaData) {
+          return <Text>Página não encontrada</Text>;
+        }
+      
+        const { titulo: titlePage, descricao: description, conteudo } = paginaData;
+
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
@@ -72,15 +78,19 @@ function Screen({ handler }: PropsInput) {
         borderRadius="18px"
         marginBottom="15px"
       >
-        <Text>
-          Os encaminhamentos para as especialidades médicas ocorrem com base na Classificação Internacional de Doenças (CID) atribuída pelo profissional médico, respeitando os critérios clínicos, a complexidade do caso e a urgência do atendimento.
-Nos casos em que o município não dispõe da especialidade ou estrutura necessária, os pacientes são devidamente regulados para unidades fora do município, inclusive para serviços na capital São Paulo, mediante avaliação e indicação médica especializada.
- <br/>
-A lista abaixo comtempla pacientes que estão aguardando consultas e exames de 2024 à 31/05. 
-        </Text>
-        <Text>
-          Ultima atualização: 26/09/2024
-        </Text>
+       {conteudo && (
+          <Box
+            dangerouslySetInnerHTML={{ __html: conteudo }}
+            sx={{
+              p: { mb: 2, textAlign: "justify" },
+              a: {
+                color: "blue.600",
+                fontWeight: "bold",
+                textDecoration: "underline",
+              },
+            }}
+          />
+        )} 
        
                         <Flex>
                           <Box flex="end" p={2} marginRight={5}>

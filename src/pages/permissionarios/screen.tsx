@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import ContainerBasic from "../../components/Container/Basic";
-import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Flex, Icon, Link, Stack, useColorModeValue } from "@chakra-ui/react";
+import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Text, Box, Flex, Icon, Link, Stack, useColorModeValue } from "@chakra-ui/react";
 import { AiOutlineDownload } from "react-icons/ai";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
 //import Video from "../../components/Videos";
 import { useRouter } from "next/router";
 import ListaPermissionarios from "../../components/ListaPermissionarios";
 import TableComponent, { TableColumns } from "../../components/Table";
-
+import usePagina from '../../hooks/usePagina';
 
 
 type PropsInput = {
@@ -18,24 +18,33 @@ type PropsInput = {
   };
 };
 
-export const contentMapSite = {
-  titlePage: "Feiras, Mercado Municipal e Mercado do Produtor",
-  description: "Confira aqui as informações sobre Feiras, Mercado Municipal e Mercado do Produtor",
-};
 
 function Screen({ handler: { columns, data, loading } }: PropsInput) {
   
   const accessibility = useFontSizeAccessibilityContext();
-  const title = contentMapSite?.titlePage;
-  const description = contentMapSite?.description;
+  
   
   const router = useRouter();
 
+  const {paginaData, loadings, error} = usePagina("44");
   
+    if (loadings) {
+          return <Text>Carregando conteúdo...</Text>;
+        }
+      
+       if (error) {
+        return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+      }
+      
+        if (!paginaData) {
+          return <Text>Página não encontrada</Text>;
+        }
+      
+        const { titulo: titlePage, descricao: description, conteudo } = paginaData;
   
 
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       
       <Box
         m={0}

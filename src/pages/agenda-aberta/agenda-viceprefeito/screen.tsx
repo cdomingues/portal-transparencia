@@ -23,7 +23,7 @@ import { getScheduleMayor } from "../../../calls/agenda/agenda";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import { isMobile } from "react-device-detect";
 import colors from "../../../styles/colors";
-
+import usePagina from '../../../hooks/usePagina';
 
 type PropsInput = {
   handler: any;
@@ -45,11 +45,6 @@ type Meeting = {
   fim_compromisso: string;
 };
 
-export const contentMayorAgenda = {
-  titlePage: "Agenda Aberta",
-  description:
-    "Conforme previsto na Lei Municipal n° 7.653/2021 e no Decreto n° 21.006/22, todo cidadão pode ter acesso à agenda de compromissos oficiais das autoridades do Executivo de Mogi das Cruzes. Esta é mais uma medida de promoção da integridade no setor público.",
-};
 
 function Screen({ handler }: PropsInput) {
   const [selected, setSelected] = useState<Date>();
@@ -106,11 +101,6 @@ function Screen({ handler }: PropsInput) {
     return aHours > bHours ? 1 : -1;
   });
 
-  const title = contentMayorAgenda?.titlePage;
-  const description = contentMayorAgenda?.description;
-
-  
-
   const dateSelected = moment(selected).format("LL");
   const translatorMonth: any = {
     January: "Janeiro",
@@ -135,8 +125,23 @@ function Screen({ handler }: PropsInput) {
   const url_video = "https://www.youtube.com/embed/K7_TUkedcGA?si=iPxaKODtZnboQT-_";
   const titulo = "O QUE SÃO AS SEIS MEDIDAS?"; 
 
+  const {paginaData, loadings, error} = usePagina("47");
+  
+    if (loadings) {
+          return <Text>Carregando conteúdo...</Text>;
+        }
+      
+       if (error) {
+        return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+      }
+      
+        if (!paginaData) {
+          return <Text>Página não encontrada</Text>;
+        }
+      
+        const { titulo: titlePage, descricao: description, conteudo } = paginaData;
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       
       <Box
         m={0}

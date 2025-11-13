@@ -9,36 +9,35 @@ import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibi
 import governo_aberto from '../../assets/images/governo-aberto.png'
 import cronograma1 from '../../assets/images/cronograma1.png'
 import cronograma2 from '../../assets/images/cronograma2.png'
-//import Video from "../../components/Videos";
+import usePagina from '../../hooks/usePagina';
 
 type PropsInput = {
   handler: {};
 };
 
-const link_externo = <Link href='http://leismunicipa.is/0vxjy' target="blank" style={{ color: "#db334f" }}>  
- Decreto nº 22.203, de 11 de outubro de 2023 
-</Link>
-
-export const contentMapSite = {
-  titlePage: "Governo Aberto ",
-  description:
-    <> É um modelo de gestão pública que promove a transparência, a participação cidadã e a colaboração entre governo e sociedade. Em Mogi das Cruzes o 1º Plano de Ação foi cocriado com a população e regulamentado por meio do Decreto nº 22.203, de 11 de outubro de 2023 {link_externo}
-    </>
-};
-
-
 
 function Screen({ handler }: PropsInput) {
   const accessibility = useFontSizeAccessibilityContext();
-  const title = contentMapSite?.titlePage;
-  const description = contentMapSite?.description;
   const router = useRouter();
 
-  const url_video = "https://www.youtube.com/embed/hxylu6oWJLU";
-  const titulo = "O QUE É GOVERNO ABERTO?"; 
+const {paginaData, loadings, error} = usePagina("57");
+
+  if (loadings) {
+        return <Text>Carregando conteúdo...</Text>;
+      }
+    
+     if (error) {
+      return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+    }
+    
+      if (!paginaData) {
+        return <Text>Página não encontrada</Text>;
+      }
+    
+      const { titulo: titlePage, descricao: description, conteudo } = paginaData;
   
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
 
       <Box
         m={0}

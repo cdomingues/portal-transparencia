@@ -1,6 +1,5 @@
 import { useColorModeValue, Box , Text, Select, Icon, Stack, Link, Divider} from "@chakra-ui/react";
 import React, { useState } from "react";
-
 import ContainerBasic from "../../../components/Container/Basic";
 import publicacoes_saude from '../../../../data/publicacoes_saude.json';
 import { isMobile } from "react-device-detect";
@@ -8,20 +7,10 @@ import { AiOutlineDownload } from "react-icons/ai";
 import HTMLReactParser from "html-react-parser";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import colors from "../../../styles/colors";
-
-
-
-export const contentPROMAE = {
-  titlePage: "Plano Municipal de Saúde",
-  description:
-    "Divulga o plano de saúde, a programação anual e o relatório de gestão.",
-};
+import usePagina from '../../../hooks/usePagina';
 
 function Screen() {
   
-
-  const title = contentPROMAE?.titlePage;
-  const description = contentPROMAE?.description;
   const [publicacao,setPublicacao] =useState<string>('');
   const accessibility = useFontSizeAccessibilityContext();
   
@@ -29,8 +18,25 @@ function Screen() {
     (info) => info.volume === publicacao
   );
 
+  const {paginaData, loadings, error} = usePagina("53");
+  
+    if (loadings) {
+          return <Text>Carregando conteúdo...</Text>;
+        }
+      
+       if (error) {
+        return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+      }
+      
+        if (!paginaData) {
+          return <Text>Página não encontrada</Text>;
+        }
+      
+        const { titulo: titlePage, descricao: description, conteudo } = paginaData;
+  
+
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
@@ -91,119 +97,15 @@ _hover={{ bg: 'gray.200' }}
 )}
 <Divider pt="30px"/>
 
-<Text
-                align={isMobile ? "justify" : "left"}
-                fontWeight="700"
-                fontSize={accessibility?.fonts?.large}
-                pt="20px"
-                pb="20px"
-              >
-               Medicamentos
-                
-                
-              </Text>
-
-<Text
-                align={isMobile ? "justify" : "left"}
-                fontWeight="700"
-                fontSize={accessibility?.fonts?.regular}
-              >
-                Acesse aqui o arquivo da lista de medicamentos vigente:
-                
-                
-              </Text>
-        <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              >
-               <Link href="https://www.mogidascruzes.sp.gov.br/public/site/doc/2023081009262064d4d76c414d0.pdf" target="_blank" style={{ color: "#db334f" }}>Relação Municipal de Medicamentos – REMUME – 2023</Link>
-              
-
-              </Text>
-
-              <Text
-                align={isMobile ? "justify" : "left"}
-                fontWeight="700"
-                fontSize={accessibility?.fonts?.regular}
-              >
-                Programas da Prefeitura de Mogi das Cruzes:  
-                
-                
-              </Text>
-        <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              >
-            Programa de Medicamento Gratuito    <Link href="https://www.mogidascruzes.sp.gov.br/servico/saude/programa-de-medicamento-gratuito" target="_blank" style={{ color: "#db334f" }}>https://www.mogidascruzes.sp.gov.br/servico/saude/programa-de-medicamento-gratuito</Link>
-              
-
-              </Text>
-              <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              >
-            Programa de Medicamento em Casa   <Link href="https://www.mogidascruzes.sp.gov.br/servico/todos-os-assuntos/programa-de-medicamento-em-casa" target="_blank" style={{ color: "#db334f" }}>https://www.mogidascruzes.sp.gov.br/servico/todos-os-assuntos/programa-de-medicamento-em-casa</Link>
-              
-
-              </Text>
-
-              <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              >
-            Fornecimento de Insumos de Enfermagem e Medicamentos para Acamados    <Link href="https://www.mogidascruzes.sp.gov.br/servico/todos-os-assuntos/fornecimento-de-insumos-de-enfermagem-e-medicamentos-para-acamados" target="_blank" style={{ color: "#db334f" }}>https://www.mogidascruzes.sp.gov.br/servico/todos-os-assuntos/fornecimento-de-insumos-de-enfermagem-e-medicamentos-para-acamados</Link>
-              
-
-              </Text>
-
-
-              <Text
-                align={isMobile ? "justify" : "left"}
-                fontWeight="700"
-                fontSize={accessibility?.fonts?.regular}
-              >
-                Programas do Estado de São Paulo    
-                
-                
-              </Text>
-              <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              >Medicamentos de Alto Custo </Text>
-        <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              >
-            Os medicamentos de Alto Custo são fornecidos pelo Governo do Estado de São Paulo por meio da Secretaria de Estado da Saúde. 
-
-O guia de orientações ao paciente, está disponível no portal da Secretaria Estadual   <Link href="https://www.saude.sp.gov.br/" target="_blank" style={{ color: "#db334f" }}>https://www.saude.sp.gov.br/</Link>
-              
-
-              </Text>
-              <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              >
-           Acesse aqui a lista por Componente Especializado da Assistência Farmacêutica (CEAF)     <Link href="https://www.saude.sp.gov.br/ses/perfil/gestor/assistencia-farmaceutica/medicamentos-dos-componentes-da-assistencia-farmaceutica/medicamentos-do-componente-especializado-da-assistencia-farmaceutica/" target="_blank" style={{ color: "#db334f" }}>Medicamentos do Componente Especializado da Assistência Farmacêutica</Link>
-              
-
-              </Text>
-              <Text
-                align={isMobile ? "justify" : "left"}
-                color="gray.500"
-                fontSize={accessibility?.fonts?.regular}
-              >
-           Acesse aqui a lista por Protocolos e Normas Técnicas Estaduais       <Link href="https://www.saude.sp.gov.br/ses/perfil/gestor/assistencia-farmaceutica/medicamentos-dos-protocolos-e-normas-tecnicas-estaduais/" target="_blank" style={{ color: "#db334f" }}>Medicamentos dos Protocolos e Normas Técnicas Estaduais</Link>
-              
-
-              </Text>
+{conteudo && (
+    <Box
+      dangerouslySetInnerHTML={{ __html: conteudo }}
+      sx={{
+        p: { mb: 2, textAlign: "justify" },
+        
+      }}
+    />
+  )} 
       </Box>
     </ContainerBasic>
   );

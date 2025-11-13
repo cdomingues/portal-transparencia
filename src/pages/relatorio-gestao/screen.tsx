@@ -55,6 +55,7 @@ import ContainerBasic from "../../components/Container/Basic";
 import despesas_covid from "../../assets/images/icones/despesas covid.svg"
 import receitas_covid from "../../assets/images/icones/receitas covid.svg"
 import { FaDownload } from "react-icons/fa";
+import usePagina from '../../hooks/usePagina';
 
 type PropsInput = {
   handler: {
@@ -74,11 +75,6 @@ type PropsInput = {
   };
 };
 
-export const contentInitial = {
-  titlePage: "Relatório de Gestão",
-  description:
-    "Divulgação de informações sobre a Gestão do Executivo",
-};
 
 function HomeScreen({ handler }: PropsInput) {
   const {
@@ -98,10 +94,23 @@ function HomeScreen({ handler }: PropsInput) {
     date,
   } = handler;
   const accessibility = useFontSizeAccessibilityContext();
-  const titlePage = contentInitial?.titlePage;
-  const description = contentInitial?.description;
-
   const { height, width } = useWindowDimensions();
+
+  const {paginaData, loadings, error} = usePagina("78");
+  
+    if (loadings) {
+          return <Text>Carregando conteúdo...</Text>;
+        }
+      
+       if (error) {
+        return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+      }
+      
+        if (!paginaData) {
+          return <Text>Página não encontrada</Text>;
+        }
+      
+        const { titulo: titlePage, descricao: description, conteudo } = paginaData;
 
   return (
     <ContainerBasic title={titlePage} description={description}>

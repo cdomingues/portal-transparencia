@@ -159,19 +159,15 @@ const {paginaData, loadings, error} = usePagina("25");
   return (
     <ContainerBasic title={titlePage} description={description}>
          {conteudo && (
-                                    <Box
-                                      dangerouslySetInnerHTML={{ __html: conteudo }}
-                                      sx={{
-                                        p: { mb: 2, textAlign: "justify" },
-                                        a: {
-                                          color: "blue.600",
-                                          fontWeight: "bold",
-                                          textDecoration: "underline",
-                                        },
-                                      }}
-                                    />
-                                  )} 
-               
+        <Box
+          dangerouslySetInnerHTML={{ __html: conteudo }}
+          sx={{
+            p: { mb: 2, textAlign: "justify" },
+            
+          }}
+        />
+      )} 
+
       <Stack direction={{ base: "column", md: "row" }} spacing={4} mb={4}>
         <Select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)}  width="200px"   border={`1px solid ${colors.transparenciaBlack}`}
                       _focus={{
