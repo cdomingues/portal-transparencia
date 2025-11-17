@@ -1,28 +1,14 @@
 import React, { useEffect, useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
 import {
-  Box,
-  Text,
-  useColorModeValue,
-  Table,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr,
-  Button,
-  Flex,
-  Input,
-  Stack,
-  Select,
-  Link,
-} from "@chakra-ui/react";
+  Box,  Text,  useColorModeValue, Button,  Flex,  Input,  Stack,  Select,  Link,} from "@chakra-ui/react";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import colors from "../../../styles/colors";
 import CsvDownload from "react-json-to-csv";
 import PaginationComponent from "../../../components/PaginationComponent";
 import moneyFormatter from "../../../utils/moneyFormatter";
 import ItensEmpenho from "../../gestao-orcamentaria/despesas/adiantamentos/modalContracts/components/itens_empenho";
+import usePagina from '../../../hooks/usePagina';
 
 const API_URL = "https://dadosadm.mogidascruzes.sp.gov.br/api/listaobras/";
 const ITEMS_PER_PAGE = 50;
@@ -40,9 +26,7 @@ const exportToJSON = (data: any) => {
 
 function Screen() {
   const accessibility = useFontSizeAccessibilityContext();
-  const title = "Portal de Obras";
-  const description = "Lista de obras públicas da cidade de Mogi das Cruzes.";
-
+  
   const [dados, setDados] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -107,10 +91,24 @@ function Screen() {
 
   // To use this function, call calculatePercentualExecutado(obra) where 'obra' is the relevant item.
 
-  
+  const {paginaData, loadings, error} = usePagina("69");
+    
+      if (loadings) {
+            return <Text>Carregando conteúdo...</Text>;
+          }
+        
+         if (error) {
+          return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+        }
+        
+          if (!paginaData) {
+            return <Text>Página não encontrada</Text>;
+          }
+        
+          const { titulo: titlePage, descricao: description, conteudo } = paginaData;
 
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       <Box
         bg={useColorModeValue("white", "gray.800")}
         padding="15px"
@@ -241,18 +239,15 @@ function Screen() {
 
           
           </Flex>
-          <p>
-          O município de Mogi das Cruzes na data {dataFormatada} não possui obras
-          paralisadas, em conformidade com o{" "}
-          <Link
-            href="https://paineldeobras.tce.sp.gov.br/pentaho/api/repos/:public:Obra:painel_obras.wcdf/generatedContent?userid=anony&password=zero"
-            target="blank"
-            style={{ color: "#db334f" }}
-          >
-            painel de obras do TCE SP
-          </Link>
-          .
-        </p>
+          {conteudo && (
+                 <Box
+                   dangerouslySetInnerHTML={{ __html: conteudo }}
+                   sx={{
+                     p: { mb: 2, textAlign: "justify" },
+                     
+                   }}
+                 />
+               )}
         </Flex>
 
        

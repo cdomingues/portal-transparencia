@@ -212,7 +212,7 @@ marginBottom="15px">
                     dangerouslySetInnerHTML={{ __html: painel.descricao }}
                     sx={{
                       p: { mb: 2, textAlign: "justify" },
-                      a: { color: "green.600", textDecoration: "underline" },
+                      
                     }}
                   />
                 </AccordionPanel>

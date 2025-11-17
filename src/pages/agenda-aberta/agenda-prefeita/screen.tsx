@@ -44,41 +44,13 @@ type Meeting = {
   rank: number;
   fim_compromisso: string;
 };
-export const contentMayorAgenda = {
-  titlePage: "Agenda Aberta",
-  description:
-    "Conforme previsto na Lei Municipal n° 7.653/2021 e no Decreto n° 21.006/22, todo cidadão pode ter acesso à agenda de compromissos oficiais das autoridades do Executivo de Mogi das Cruzes. Esta é mais uma medida de promoção da integridade no setor público.",
-};
+
 
 function Screen({ handler }: PropsInput) {
   const [selected, setSelected] = useState<Date>();
   const [schedule, setSchedule] = useState<Array<Meeting>>([]);
 
   
-
-  /* const handleGetOpenSchedule = async () => {
-    const response = await fetch(
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=e6ee12e9-2fec-4d91-acac-36b36bd179c2&q=Caio%20Cunha&limit=3000",
-      //"https://dadosadm.mogidascruzes.sp.gov.br/api/pessoas/d684362d-1a38-4b00-a4ab-11d3c7583af0/",
-      {
-        
-      }
-    );
-
-    const data = await response.json();
-
-    if (!data) {
-      return;
-    }
-
-    return setSchedule(data?.result?.records  );
-  }; 
-
-  useEffect(() => {
-    handleGetOpenSchedule(); 
-  }, []);*/
-
-
   useEffect(() => {
     fetch('https://dadosadm.mogidascruzes.sp.gov.br/api/pessoas/9851753f-9a36-4622-b315-205a91c0a78e/') 
        

@@ -37,11 +37,6 @@ type PropsInput = {
   };
 };
 
- export const contentRadarsControl = {
-  titlePage: "Controle de Radares",
-  description:
-    "Agora você tem um ambiente onde pode conferir, de forma oficial, as principais informações sobre os equipamentos de fiscalização de trânsito em Mogi das Cruzes. Acompanhe um mapa interativo com a localização de cada radar, tenha acesso ao tipo de equipamento, à velocidade máxima permitida e ao status de operação deles.",
-}; 
 
 const markerChildren = (data: any) => {
   return (

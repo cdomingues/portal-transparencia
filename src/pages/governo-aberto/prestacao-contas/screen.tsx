@@ -8,12 +8,9 @@ import { color } from "highcharts";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import usePagina from '../../../hooks/usePagina';
 
-type PropsInput = {
-  handler: {};
-};
 
 
-function Screen({ handler }: PropsInput) {
+function Screen() {
   const accessibility = useFontSizeAccessibilityContext();
   const router = useRouter();
 
