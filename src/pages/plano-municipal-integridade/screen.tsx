@@ -19,6 +19,7 @@ import { useRouter } from "next/router";
 import { isMobile } from "react-device-detect";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
 import banner_integridade from "../../assets/images/Banner_Integridade_1200x180.jpg";
+import usePagina from "../../hooks/usePagina";
 
 type Arquivo = {
   ano: any;
@@ -36,15 +37,11 @@ type PropsInput = {
   handler: {};
 };
 
-export const contentMapSite = {
-  titlePage: "Plano Municipal de Integridade de Mogi das Cruzes ",
-  description: " ",
-};
+
 
 function Screen({ handler }: PropsInput) {
   const accessibility = useFontSizeAccessibilityContext();
-  const title = contentMapSite?.titlePage;
-  const description = contentMapSite?.description;
+  
   const router = useRouter();
 
   const apiUrl = "https://dadosadm.mogidascruzes.sp.gov.br"
@@ -92,8 +89,24 @@ useEffect(() => {
   }
 }, [nextPage]);
 
+const {paginaData, loadings, error} = usePagina("75");
+  
+    if (loadings) {
+          return <Text>Carregando conteúdo...</Text>;
+        }
+      
+       if (error) {
+        return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+      }
+      
+        if (!paginaData) {
+          return <Text>Página não encontrada</Text>;
+        }
+      
+        const { titulo: titlePage, descricao: description, conteudo } = paginaData;
+
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       <Box
         bg={useColorModeValue("white", "gray.800")}
         p={{ base: "10px", md: "15px" }}
@@ -102,26 +115,15 @@ useEffect(() => {
         borderRadius="18px"
         mb="15px"
       >
-        <Img src={banner_integridade.src} mb="20px" width="100%" />
-
-        <Stack spacing={4} fontSize={accessibility.fontSize} textAlign="justify">
-          <Text>
-            A Prefeitura de Mogi das Cruzes instituiu, por meio de lei municipal, o Programa Municipal de Integridade, um marco importante na consolidação de uma administração pública mais ética, transparente e eficiente.
-          </Text>
-          <Text>
-            O Programa visa fortalecer a governança, prevenir irregularidades e promover uma cultura organizacional orientada pelos mais altos padrões de integridade, em sintonia com recomendações internacionais, como as diretrizes da Organização para a Cooperação e Desenvolvimento Econômico (OCDE).
-          </Text>
-          <Text>
-            Como instrumento central do Programa, o Plano de Integridade é um documento estratégico, dinâmico e operacional, que define ações concretas, metas, indicadores e responsabilidades distribuídas por eixos temáticos. O Plano será revisado periodicamente, assegurando sua constante atualização frente aos desafios e necessidades da gestão pública.
-          </Text>
-          <Text>
-            A iniciativa também prevê a criação do Comitê de Integridade, com composição multissetorial e atribuições consultivas e deliberativas. O Comitê será responsável por coordenar, monitorar e avaliar a efetividade das ações do Plano, promovendo o engajamento da alta gestão e a articulação de toda a estrutura administrativa.
-          </Text>
-          <Text>
-            Ao institucionalizar o Plano de Integridade, Mogi das Cruzes reafirma seu compromisso com o interesse público, com o uso responsável dos recursos públicos e com a construção de uma relação mais transparente e confiável entre o poder público e a sociedade.
-          </Text>
-          <Text>Confira as iniciativas normativas e não normativas propostas abaixo:</Text>
-        </Stack>
+         {conteudo && (
+                <Box
+                  dangerouslySetInnerHTML={{ __html: conteudo }}
+                  sx={{
+                    p: { mb: 2, textAlign: "justify" },
+                    
+                  }}
+                />
+              )} 
 
         <Box width="100%" p={2}>
           <Box
