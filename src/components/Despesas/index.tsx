@@ -25,12 +25,185 @@ function Despesas() {
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [progress, setProgress] = useState({ current: 0, total: 0 });
 
   useEffect(() => {
     fetchData();
   }, [selectedYear]);
 
+  // Otimização 1: Carregamento paralelo com limite de concorrência
+  const fetchDataParallel = async () => {
+    setLoading(true);
+    setError(null);
+    setDespesas([]);
+    setProgress({ current: 0, total: 0 });
+
+    try {
+      // Primeira requisição para descobrir o total de páginas
+      console.log("Descobrindo total de páginas...");
+      const firstResponse = await axios.get<ApiResponse>(API_URL, {
+        params: {
+          page: 1,
+          exercicio_empenho: selectedYear,
+        },
+      });
+
+      const totalCount = firstResponse.data.count;
+      const resultsPerPage = firstResponse.data.results.length;
+      const totalPages = Math.ceil(totalCount / resultsPerPage);
+      
+      console.log(`Total de páginas: ${totalPages}, Total de itens: ${totalCount}`);
+      setProgress({ current: 1, total: totalPages });
+
+      // Se tiver poucas páginas, carrega tudo de uma vez
+      if (totalPages <= 5) {
+        return await fetchSequential(firstResponse, totalPages);
+      }
+
+      // Para muitas páginas, carrega em paralelo com limite
+      return await fetchWithConcurrency(firstResponse, totalPages);
+
+    } catch (error) {
+      console.error("Erro ao carregar dados:", error);
+      setError("Erro ao carregar os dados. Tente novamente.");
+      return [];
+    }
+  };
+
+  // Carregamento sequencial (para poucas páginas)
+  const fetchSequential = async (firstResponse: any, totalPages: number) => {
+    const allData = [...firstResponse.data.results];
+    
+    for (let page = 2; page <= totalPages; page++) {
+      const response = await axios.get<ApiResponse>(API_URL, {
+        params: {
+          page,
+          exercicio_empenho: selectedYear,
+        },
+      });
+      
+      allData.push(...response.data.results);
+      setProgress({ current: page, total: totalPages });
+      console.log(`Página ${page}/${totalPages} carregada`);
+    }
+    
+    return allData;
+  };
+
+  // Carregamento com concorrência controlada
+  const fetchWithConcurrency = async (firstResponse: any, totalPages: number) => {
+    const allData = [...firstResponse.data.results];
+    const CONCURRENCY_LIMIT = 3; // Número máximo de requisições simultâneas
+    const pageNumbers = Array.from({ length: totalPages - 1 }, (_, i) => i + 2);
+
+    // Divide as páginas em grupos para carregamento paralelo
+    for (let i = 0; i < pageNumbers.length; i += CONCURRENCY_LIMIT) {
+      const chunk = pageNumbers.slice(i, i + CONCURRENCY_LIMIT);
+      
+      const promises = chunk.map(page => 
+        axios.get<ApiResponse>(API_URL, {
+          params: {
+            page,
+            exercicio_empenho: selectedYear,
+          },
+        }).then(response => ({
+          page,
+          data: response.data.results
+        }))
+      );
+
+      const results = await Promise.all(promises);
+      
+      // Ordena e adiciona os resultados
+      results.sort((a, b) => a.page - b.page);
+      results.forEach(result => {
+        allData.push(...result.data);
+      });
+
+      setProgress({ current: i + CONCURRENCY_LIMIT + 1, total: totalPages });
+      console.log(`Lote ${Math.floor(i/CONCURRENCY_LIMIT) + 1} concluído`);
+    }
+    
+    return allData;
+  };
+
+  // Otimização 2: Versão simplificada com melhor feedback
+  const fetchDataOptimized = async () => {
+    setLoading(true);
+    setError(null);
+    setDespesas([]);
+    setProgress({ current: 0, total: 0 });
+
+    let allData: Despesa[] = [];
+    let page = 1;
+    let hasMore = true;
+
+    try {
+      // Primeira requisição para saber o total
+      const firstResponse = await axios.get<ApiResponse>(API_URL, {
+        params: {
+          page: 1,
+          exercicio_empenho: selectedYear,
+        },
+      });
+
+      const totalCount = firstResponse.data.count;
+      const resultsPerPage = firstResponse.data.results.length;
+      const estimatedPages = Math.ceil(totalCount / resultsPerPage);
+      
+      setProgress({ current: 1, total: estimatedPages });
+      allData.push(...firstResponse.data.results);
+
+      // Carrega as páginas restantes sem delay desnecessário
+      const pagePromises = [];
+      for (page = 2; page <= estimatedPages; page++) {
+        pagePromises.push(
+          axios.get<ApiResponse>(API_URL, {
+            params: {
+              page,
+              exercicio_empenho: selectedYear,
+            },
+          }).then(response => {
+            setProgress({ current: page, total: estimatedPages });
+            return response.data.results;
+          })
+        );
+
+        // Limita concorrência a 3 requisições por vez
+        if (pagePromises.length >= 3 || page === estimatedPages) {
+          const results = await Promise.all(pagePromises);
+          results.forEach(pageResults => {
+            allData.push(...pageResults);
+          });
+          pagePromises.length = 0; // Limpa o array
+        }
+      }
+
+      console.log(`✅ Total carregado: ${allData.length} itens`);
+      setDespesas(allData);
+      
+    } catch (error) {
+      console.error("Erro ao carregar dados:", error);
+      setError("Erro ao carregar os dados. Tente novamente.");
+    } finally {
+      setLoading(false);
+      setCurrentPage(1);
+    }
+  };
+
+  // Função principal - escolhe a estratégia baseada no ano
   const fetchData = async () => {
+    // Para anos com muitos dados, usa estratégia otimizada
+    if (["2024", "2023", "2022"].includes(selectedYear)) {
+      await fetchDataOptimized();
+    } else {
+      // Para 2025 (poucos dados) ou fallback
+      await fetchDataSimple();
+    }
+  };
+
+  // Fallback: carregamento simples sequencial
+  const fetchDataSimple = async () => {
     setLoading(true);
     setError(null);
     setDespesas([]);
@@ -41,8 +214,6 @@ function Despesas() {
 
     try {
       while (hasMore) {
-        console.log(`Carregando página ${page}...`);
-        
         const response = await axios.get<ApiResponse>(API_URL, {
           params: {
             page: page,
@@ -56,17 +227,20 @@ function Despesas() {
           allData.push(...pageResults);
           console.log(`Página ${page}: ${pageResults.length} itens`);
           
+          // Atualiza progresso
+          if (response.data.count) {
+            setProgress({ 
+              current: page, 
+              total: Math.ceil(response.data.count / pageResults.length) 
+            });
+          }
+          
           // Verifica se há mais páginas
-          const totalCount = response.data.count;
-          hasMore = allData.length < totalCount;
+          hasMore = !!response.data.next;
           page++;
         } else {
-          console.log(`Página ${page} sem resultados, parando...`);
           hasMore = false;
         }
-
-        // Pequeno delay para não sobrecarregar a API
-        await new Promise(resolve => setTimeout(resolve, 100));
       }
       
       console.log(`✅ Total carregado: ${allData.length} itens`);
@@ -118,7 +292,7 @@ function Despesas() {
       <h1>Despesas Públicas - Mogi das Cruzes</h1>
 
       {/* Controles */}
-      <div style={{ marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '15px' }}>
+      <div style={{ marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '15px', flexWrap: 'wrap' }}>
         <label>
           Selecione o ano:
           <select 
@@ -145,14 +319,64 @@ function Despesas() {
             cursor: loading ? 'not-allowed' : 'pointer'
           }}
         >
-          {loading ? 'Carregando...' : 'Buscar Dados'}
+          {loading ? 'Carregando...' : 'Buscar Dados (Otimizado)'}
+        </button>
+
+        {/* Botão para carregamento simples (fallback) */}
+        <button 
+          onClick={fetchDataSimple} 
+          disabled={loading}
+          style={{ 
+            padding: '5px 15px',
+            backgroundColor: loading ? '#ccc' : '#28a745',
+            color: 'white',
+            border: 'none',
+            borderRadius: '4px',
+            cursor: loading ? 'not-allowed' : 'pointer',
+            fontSize: '12px'
+          }}
+        >
+          Modo Simples
         </button>
       </div>
+
+      {/* Barra de progresso */}
+      {loading && progress.total > 0 && (
+        <div style={{ marginBottom: '15px' }}>
+          <div style={{ 
+            background: '#f0f0f0', 
+            borderRadius: '10px', 
+            height: '20px',
+            marginBottom: '5px'
+          }}>
+            <div 
+              style={{
+                background: '#007bff',
+                height: '100%',
+                borderRadius: '10px',
+                width: `${(progress.current / progress.total) * 100}%`,
+                transition: 'width 0.3s ease',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: 'white',
+                fontSize: '12px',
+                fontWeight: 'bold'
+              }}
+            >
+              {Math.round((progress.current / progress.total) * 100)}%
+            </div>
+          </div>
+          <div style={{ textAlign: 'center', fontSize: '14px', color: '#666' }}>
+            Carregando página {progress.current} de {progress.total}...
+          </div>
+        </div>
+      )}
 
       {/* Estados de loading e erro */}
       {loading && (
         <div style={{ padding: '10px', background: '#e3f2fd', marginBottom: '10px', borderRadius: '4px' }}>
-          <p>📥 Carregando todas as páginas... Aguarde.</p>
+          <p>📥 Carregando {progress.total} páginas... {progress.current > 0 && `(${progress.current}/${progress.total})`}</p>
         </div>
       )}
 
