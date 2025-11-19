@@ -104,7 +104,6 @@ function Screen({
     document.body.removeChild(link);
   };
   
-
   const handleOpenModal = (item: any) => {
     onOpen();
     setContract(item?.row?.values);

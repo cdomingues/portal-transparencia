@@ -8,6 +8,7 @@ import { color } from "highcharts";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
 import { FaDownload } from "react-icons/fa";
 import usePagina from '../../hooks/usePagina';
+import Despesas from "../../components/Despesas";
 
 function Screen() {
   const accessibility = useFontSizeAccessibilityContext();
@@ -53,6 +54,8 @@ function Screen() {
         />
       )} 
       </Box>
+
+      
     </ContainerBasic>
   );
 }
