@@ -3,6 +3,7 @@ import NextDocument, { Html, Head, Main, NextScript } from "next/document";
 import Script from "next/script";
 import theme from "../themes";
 
+
 export default class Document extends NextDocument {
   render() {
     return (
@@ -48,6 +49,7 @@ export default class Document extends NextDocument {
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Main />
           <NextScript />
+          
         </body>
       </Html>
     );
