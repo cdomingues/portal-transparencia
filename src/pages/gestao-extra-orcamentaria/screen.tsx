@@ -11,6 +11,7 @@ import parecer_tribunal from "../../assets/images/icones/parecer_tribunal.svg";
 import plano_plurianual from "../../assets/images/icones/plano_plurianual.svg";
 import despesas_extraorcamentarias from "../../assets/images/icones/gestão extraorçamentaria__despesas extraorcamentarias.svg";
 import receitas_extraorcamentarias from "../../assets/images/icones/gestão extraorçamentaria__receitas extraorcamentarias.svg";
+import usePagina from "../../hooks/usePagina";
 
 
 import {
@@ -70,13 +71,14 @@ type PropsInput = {
   };
 };
 
-export const contentInitial = {
+/* export const contentInitial = {
   titlePage: "Gestão Extra Orçamentária",
   description:
     "A gestão extraorçamentária aborda as atividades que envolvem recursos além do orçamento formal. Isso inclui recursos que não são alocados diretamente no orçamento, mas que ainda são necessários para que a organização execute suas atividades operacionais.",
-};
+}; */
 
 function HomeScreen({ handler }: PropsInput) {
+  const { paginaData, loadings, error } = usePagina("2");
   const {
     //news,
     expenseAmount,
@@ -94,11 +96,25 @@ function HomeScreen({ handler }: PropsInput) {
     date,
   } = handler;
   const accessibility = useFontSizeAccessibilityContext();
-  const titlePage = contentInitial?.titlePage;
-  const description = contentInitial?.description;
+ // const titlePage = contentInitial?.titlePage;
+ // const description = contentInitial?.description;
 
   const { height, width } = useWindowDimensions();
 
+  if (loadings) {
+        return <Text>Carregando conteúdo...</Text>;
+      }
+    
+     if (error) {
+      return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+    }
+    
+      if (!paginaData) {
+        return <Text>Página não encontrada</Text>;
+      }
+    
+      const { titulo: titlePage, descricao: description, conteudo } = paginaData;
+  
   return (
     <ContainerBasic title={titlePage} description={description}>
       <Stack

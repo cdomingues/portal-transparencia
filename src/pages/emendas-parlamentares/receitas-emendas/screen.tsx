@@ -30,6 +30,7 @@ import colors from "../../../styles/colors";
 import CsvDownload from "react-json-to-csv";
 import moment from "moment";
 import moneyFormatter from "../../../utils/moneyFormatter";
+import usePagina from "../../../hooks/usePagina";
 
 type PropsInput = {
   handler: {
@@ -40,16 +41,9 @@ type PropsInput = {
     receitas: Array<any>;
   };
 };
-export const contentRevenue = {
-  titlePage: "Receitas - Emendas Parlamentares",
-  description:
-    <>
-    A arrecadação de receitas para o município pode vir de diferentes fontes. As emendas parlamentares, indicadas por Deputados Federais e Estaduais, são uma forma da cidade ter acesso a recursos. Acompanhe nesta página o descritivo das emendas parlamentares recebidas pela Prefeitura de Mogi das Cruzes. <br/><strong>Para pesquisar emendas pix, escreva no campo de busca "transferência especial"</strong>.</>,
-};
-function RevenueScreen({ handler: { receitas },}: PropsInput) {
-  const title = contentRevenue?.titlePage;
-  const description = contentRevenue?.description;
 
+function RevenueScreen({ handler: { receitas },}: PropsInput) {
+  
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedYear, setSelectedYear] = useState<number | undefined>(2025);
@@ -128,10 +122,24 @@ useEffect(() => {
   
     const years = [...new Set(receitas.map((item) => (item.ano)))].sort((a, b) => b - a);
   console.log(years)
+  const {paginaData, loadings, error} = usePagina("20");
   
+    if (loadings) {
+          return <Text>Carregando conteúdo...</Text>;
+        }
+      
+       if (error) {
+        return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+      }
+      
+        if (!paginaData) {
+          return <Text>Página não encontrada</Text>;
+        }
+      
+        const { titulo: titlePage, descricao: description, conteudo } = paginaData;
 
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       
         <Box
           m={0}

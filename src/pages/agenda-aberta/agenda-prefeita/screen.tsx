@@ -23,7 +23,7 @@ import { getScheduleMayor } from "../../../calls/agenda/agenda";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import { isMobile } from "react-device-detect";
 import colors from "../../../styles/colors";
-
+import usePagina from '../../../hooks/usePagina';
 
 type PropsInput = {
   handler: any;
@@ -45,41 +45,12 @@ type Meeting = {
   fim_compromisso: string;
 };
 
-export const contentMayorAgenda = {
-  titlePage: "Agenda Aberta",
-  description:
-    "Conforme previsto na Lei Municipal n° 7.653/2021 e no Decreto n° 21.006/22, todo cidadão pode ter acesso à agenda de compromissos oficiais das autoridades do Executivo de Mogi das Cruzes. Esta é mais uma medida de promoção da integridade no setor público.",
-};
 
 function Screen({ handler }: PropsInput) {
   const [selected, setSelected] = useState<Date>();
   const [schedule, setSchedule] = useState<Array<Meeting>>([]);
 
   
-
-  /* const handleGetOpenSchedule = async () => {
-    const response = await fetch(
-      "https://dados.mogidascruzes.sp.gov.br/api/3/action/datastore_search?resource_id=e6ee12e9-2fec-4d91-acac-36b36bd179c2&q=Caio%20Cunha&limit=3000",
-      //"https://dadosadm.mogidascruzes.sp.gov.br/api/pessoas/d684362d-1a38-4b00-a4ab-11d3c7583af0/",
-      {
-        
-      }
-    );
-
-    const data = await response.json();
-
-    if (!data) {
-      return;
-    }
-
-    return setSchedule(data?.result?.records  );
-  }; 
-
-  useEffect(() => {
-    handleGetOpenSchedule(); 
-  }, []);*/
-
-
   useEffect(() => {
     fetch('https://dadosadm.mogidascruzes.sp.gov.br/api/pessoas/9851753f-9a36-4622-b315-205a91c0a78e/') 
        
@@ -107,11 +78,6 @@ function Screen({ handler }: PropsInput) {
     return aHours > bHours ? 1 : -1;
   });
 
-  const title = contentMayorAgenda?.titlePage;
-  const description = contentMayorAgenda?.description;
-
-  
-
   const dateSelected = moment(selected).format("LL");
   const translatorMonth: any = {
     January: "Janeiro",
@@ -136,8 +102,24 @@ function Screen({ handler }: PropsInput) {
   const url_video = "https://www.youtube.com/embed/K7_TUkedcGA?si=iPxaKODtZnboQT-_";
   const titulo = "O QUE SÃO AS SEIS MEDIDAS?"; 
 
+  const {paginaData, loadings, error} = usePagina("46");
+  
+    if (loadings) {
+          return <Text>Carregando conteúdo...</Text>;
+        }
+      
+       if (error) {
+        return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+      }
+      
+        if (!paginaData) {
+          return <Text>Página não encontrada</Text>;
+        }
+      
+        const { titulo: titlePage, descricao: description, conteudo } = paginaData;
+
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
     
 
       <Box

@@ -33,6 +33,7 @@ import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccess
 import moneyFormatter from "../../../utils/moneyFormatter";
 import moment from "moment";
 import ModalPayments from './modalPayments'
+import usePagina from '../../../hooks/usePagina';
 
 export interface FolhaPagamento {
   idparcalc: number;
@@ -59,17 +60,8 @@ export interface FolhaPagamento {
 const API_URL = "https://dadosadm.mogidascruzes.sp.gov.br/api/folha_pagamento";
 const ITEMS_PER_PAGE = 50;
 
-const contentContractsAndAtas = {
-  titlePage: "Folha de Pagamento",
-  description:
-    "É dever do Poder Público dar transparência à Folha de Pagamento dos funcionários. Acompanhe aqui o detalhamento dos cargos e salários dos servidores públicos municipais.",
-};
-
 function Screen() {
-  const title = contentContractsAndAtas.titlePage;
-  const description = contentContractsAndAtas.description;
-
-  const currentDate = new Date();
+   const currentDate = new Date();
   const defaultYear =
     currentDate.getMonth() === 0
       ? currentDate.getFullYear() - 1
@@ -209,11 +201,38 @@ function Screen() {
     }
   }, [carregando])
 
+  
+  const {paginaData, loadings, error} = usePagina("35");
+  
+    if (loadings) {
+          return <Text>Carregando conteúdo...</Text>;
+        }
+      
+       if (error) {
+        return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+      }
+      
+        if (!paginaData) {
+          return <Text>Página não encontrada</Text>;
+        }
+      
+        const { titulo: titlePage, descricao: description, conteudo } = paginaData;
+
   return (
-    <ContainerBasic title={title} description={description}>
-      <Text fontWeight="bold" pl="10px" mb="15px">
-        Para busca de servidores, selecione o ano, mês e aplique os filtros desejados. Os dados só serão exibidos após a busca.
-      </Text>
+    <ContainerBasic title={titlePage} description={description}>
+       {conteudo && (
+                                          <Box
+                                            dangerouslySetInnerHTML={{ __html: conteudo }}
+                                            sx={{
+                                              p: { mb: 2, textAlign: "justify" },
+                                              a: {
+                                                color: "blue.600",
+                                                fontWeight: "bold",
+                                                textDecoration: "underline",
+                                              },
+                                            }}
+                                          />
+                                        )} 
 
       <Stack direction={{ base: "column", md: "row" }} spacing={4} mb={4}>
         <Select value={selectedYear} onChange={(e) => setSelectedYear(Number(e.target.value))} width="150px">

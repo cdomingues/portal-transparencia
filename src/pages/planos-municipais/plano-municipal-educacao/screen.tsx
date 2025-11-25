@@ -11,7 +11,7 @@ import HTMLReactParser from 'html-react-parser'
 import { select } from "d3";
 import { AiOutlineDownload } from "react-icons/ai";
 import colors from "../../../styles/colors";
-
+import usePagina from '../../../hooks/usePagina';
 
 const publicacoes_educacao = [  
   {
@@ -158,9 +158,6 @@ export const contentOtherInformations = {
 
 
 function Screen(PropsInput: any) {
-  
-  const title = contentOtherInformations?.titlePage;
-  const description = contentOtherInformations?.description;
   const accessibility = useFontSizeAccessibilityContext();
   const { height, width } = useWindowDimensions();
   const [publicacao,setPublicacao] =useState<string>('');
@@ -182,11 +179,25 @@ function Screen(PropsInput: any) {
     .then(data =>{setPublicacao(data) })
   },[])    */
   
+ const {paginaData, loadings, error} = usePagina("54");
  
+   if (loadings) {
+         return <Text>Carregando conteúdo...</Text>;
+       }
+     
+      if (error) {
+       return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+     }
+     
+       if (!paginaData) {
+         return <Text>Página não encontrada</Text>;
+       }
+     
+       const { titulo: titlePage, descricao: description, conteudo } = paginaData;
 
   return (
     
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
        <Box
           m={0}
           bg={useColorModeValue("white", "gray.800")}

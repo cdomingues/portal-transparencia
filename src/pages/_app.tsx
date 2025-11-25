@@ -16,7 +16,6 @@ import PageViewCounter from "../components/PageView";
 import '../styles/pagination.css'
 import Analytics from "../components/Analytics";
 
-
 declare global {
   interface Window {
     dataLayer: Record<string, any>[];
@@ -52,9 +51,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events]);
 
   return (
-    <>
-    <Analytics />
+    
+    //<Analytics />
     <ChakraProvider theme={theme}>
+    <Analytics />
       <FontSizeAccessibilityWrapper>
         <CookiesProvider>
           {loaded && (
@@ -66,7 +66,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </CookiesProvider>
       </FontSizeAccessibilityWrapper>
     </ChakraProvider>
-    </>
+    
   );
 }
 

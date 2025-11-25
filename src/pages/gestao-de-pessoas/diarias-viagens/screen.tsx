@@ -27,6 +27,7 @@ import moment from "moment";
 import ContainerBasic from "../../../components/Container/Basic";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import {servidores} from "../../../utils/servidores"; // <<< Importa lista de servidores
+import usePagina from '../../../hooks/usePagina';
 
 const API_URL = "https://dadosadm.mogidascruzes.sp.gov.br/api/diaria_atualizada";
 const ITEMS_PER_PAGE = 50;
@@ -61,23 +62,8 @@ const exportToJSON = (data: any) => {
   document.body.removeChild(link);
 };
 
-export const receitasDesc = {
-  titlePage: "Diárias de Viagens",
-  description: (
-    <>
-      O pagamento de diárias a servidores públicos em atividades externas é regulamentado pelo Decreto Municipal nº 15.136/2015. 
-      Os valores pagos são calculados com base nas Unidades Fiscais do Município vigentes. Para consultar os valores,{" "}
-      <Link href='https://www.mogidascruzes.sp.gov.br/pagina/secretaria-de-financas/ufm-unidade-fiscal-do-municipio'>
-        <strong>clique aqui</strong>
-      </Link>
-    </>
-  ),
-};
 
 function Screen() {
-  const title = receitasDesc.titlePage;
-  const description = receitasDesc.description;
-
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedYear, setSelectedYear] = useState<number | "all">(2025);
   const [diarias, setDiarias] = useState<Diarias[]>([]);
@@ -173,8 +159,24 @@ function Screen() {
     return `${horas}h ${minutos}min`;
   };
 
+  const {paginaData, loadings, error} = usePagina("39");
+  
+    if (loadings) {
+          return <Text>Carregando conteúdo...</Text>;
+        }
+      
+       if (error) {
+        return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+      }
+      
+        if (!paginaData) {
+          return <Text>Página não encontrada</Text>;
+        }
+      
+        const { titulo: titlePage, descricao: description, conteudo } = paginaData;
+    
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       <Box>
         <Stack direction={{ base: "column", md: "row" }} spacing={4} mb={4}>
           {/* Campo de busca */}

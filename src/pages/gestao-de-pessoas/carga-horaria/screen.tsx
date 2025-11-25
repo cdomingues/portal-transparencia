@@ -34,6 +34,7 @@ import axios from "axios";
 import CsvDownload from "react-json-to-csv";
 import moneyFormatter from "../../../utils/moneyFormatter";
 import colors from "../../../styles/colors";
+import usePagina from '../../../hooks/usePagina';
 
 export interface Cargos {
   descricao: string;
@@ -56,14 +57,6 @@ type PropsInput = {
 
 const ITEMS_PER_PAGE = 50;
 
-
-
-export const contentTransportationTickets = {
-  titlePage: "Carga Horária",
-  description:
-    "Carga Horária de cada cargo",
-};
-
 function Screen({
   handler: {
     columns,
@@ -77,8 +70,6 @@ function Screen({
     handleByYear,
   },
 }: PropsInput) {
-  const title = contentTransportationTickets?.titlePage;
-  const description = contentTransportationTickets?.description;
   const [currentPage, setCurrentPage] = useState(1);
   const chartConfig = {
     direction: isMobile ? "column" : "row",
@@ -106,10 +97,25 @@ function Screen({
     link.click();
     document.body.removeChild(link);
   };
+const {paginaData, loadings, error} = usePagina("38");
 
+  if (loadings) {
+        return <Text>Carregando conteúdo...</Text>;
+      }
+    
+     if (error) {
+      return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+    }
+    
+      if (!paginaData) {
+        return <Text>Página não encontrada</Text>;
+      }
+    
+      const { titulo: titlePage, descricao: description, conteudo } = paginaData;
+  
 
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       
 
       <Box

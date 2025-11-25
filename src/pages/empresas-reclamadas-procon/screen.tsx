@@ -9,30 +9,33 @@ import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibi
 import colors from "../../styles/colors";
 import CsvDownload from "react-json-to-csv";
 import PaginationComponent from "../../components/PaginationComponent";
+import usePagina from '../../hooks/usePagina';
 
 type PropsInput = {
   handler: {};
 };
 
-export const contentMapSite = {
-  titlePage: "Empresas Reclamadas no Procon",
-  description:
-   "",
-};
-
-
-
-
-
 function Screen({ handler }: PropsInput) {
   const accessibility = useFontSizeAccessibilityContext();
-  const title = contentMapSite?.titlePage;
-  const description = contentMapSite?.description;
-
   
+  const {paginaData, loadings, error} = usePagina("50");
+  
+    if (loadings) {
+          return <Text>Carregando conteúdo...</Text>;
+        }
+      
+       if (error) {
+        return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+      }
+      
+        if (!paginaData) {
+          return <Text>Página não encontrada</Text>;
+        }
+      
+        const { titulo: titlePage, descricao: description, conteudo } = paginaData;
 
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
@@ -52,7 +55,19 @@ function Screen({ handler }: PropsInput) {
         {/* <Text fontSize={accessibility?.fonts?.regular} mb="10px">
                         Última atualização: <strong>30/05/2025</strong>
                       </Text> */}
-        <iframe title="PROCON 2024" width="1200px" height="800px" src="https://app.powerbi.com/view?r=eyJrIjoiZjFlYmRkZDgtNDllMC00NDI5LWFjZDItYzYyOTMwYjBlNmUxIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9"  ></iframe>
+      {conteudo && (
+                                         <Box
+                                           dangerouslySetInnerHTML={{ __html: conteudo }}
+                                           sx={{
+                                             p: { mb: 2, textAlign: "justify" },
+                                             a: {
+                                               color: "blue.600",
+                                               fontWeight: "bold",
+                                               textDecoration: "underline",
+                                             },
+                                           }}
+                                         />
+                                       )} 
         <Button mt='20px'>
           <Link href="https://www.mogidascruzes.sp.gov.br/public/site/doc/20250509150621681e441d1b768.pdf">
           Download lista de empresas reclamadas

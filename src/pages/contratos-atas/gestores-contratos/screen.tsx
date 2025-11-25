@@ -26,8 +26,7 @@ import CsvDownload from "react-json-to-csv";
 import moneyFormatter from "../../../utils/moneyFormatter";
 import moment from "moment";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
-
-
+import usePagina from "../../../hooks/usePagina";
 
 type PropsInput = {
   handler: {
@@ -44,18 +43,11 @@ type PropsInput = {
   };
 };
 
-export const contentContractsAndAtas = {
-  titlePage: "Relação dos gestores de contratos.",
-  description:
-    "",
-};
 
 function Screen({
   handler: { columns, data },
 }: PropsInput) {
   const [contract, setContract] = useState<any>(null);
-  const title = contentContractsAndAtas?.titlePage;
-  const description = contentContractsAndAtas?.description;
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedYear, setSelectedYear] = useState<number | undefined>(2025); // Estado para o ano selecionado
@@ -112,7 +104,6 @@ function Screen({
     document.body.removeChild(link);
   };
   
-
   const handleOpenModal = (item: any) => {
     onOpen();
     setContract(item?.row?.values);
@@ -143,8 +134,26 @@ const dataMaisAtual = data.reduce((maisRecente, item) => {
   }, data[0]);
 
   const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.updated_at).toLocaleDateString('pt-BR') : '';
+  const {paginaData, loadings, error} = usePagina("24");
+  
+    if (loadings) {
+          return <Text>Carregando conteúdo...</Text>;
+        }
+      
+       if (error) {
+        return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+      }
+      
+        if (!paginaData) {
+          return <Text>Página não encontrada</Text>;
+        }
+      
+        const { titulo: titlePage, descricao: description, conteudo } = paginaData;
+    
+
+
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}
@@ -156,7 +165,19 @@ const dataMaisAtual = data.reduce((maisRecente, item) => {
         marginBottom="15px"
       >
         <ContainerSearch  >
-        <Text fontWeight='bold' pl='10px' mb='15px'>Para busca de contratos  selecione o ano especificio ou a opção 'Todos os anos' e busque pelo nome do fornecedor, número ou descrição do objeto do contrato </Text>
+       {conteudo && (
+                            <Box
+                              dangerouslySetInnerHTML={{ __html: conteudo }}
+                              sx={{
+                                p: { mb: 2, textAlign: "justify" },
+                                a: {
+                                  color: "blue.600",
+                                  fontWeight: "bold",
+                                  textDecoration: "underline",
+                                },
+                              }}
+                            />
+                          )} 
           <Stack minW={86} width="50%" flexDir='row'
           sx={{
             "@media (max-width: 900px)": {

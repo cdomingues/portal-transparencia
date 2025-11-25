@@ -34,11 +34,11 @@ import {
 } from "react-icons/bs";
 import { IPublicRoute } from "../types";
 import { contentInitial } from "../pages/screen";
-import { contentMunicipalityProfile } from "../pages/perfil-do-municipio/screen";
-import { contentConstructionsControl } from "../pages/controle-de-obras/inicio";
+//import { contentMunicipalityProfile } from "../pages/perfil-do-municipio/screen";
+//import { contentConstructionsControl } from "../pages/controle-de-obras/inicio";
 //import { contentAboutConstructions } from "../pages/controle-de-obras/sobre-as-obras";
-import { contentRadarsControl } from "../pages/controle-de-radares/screen";
-import { contentMayorAgenda } from "../pages/agenda-aberta/agenda-prefeita/screen";
+//import { contentRadarsControl } from "../pages/controle-de-radares/screen";
+//import { contentMayorAgenda } from "../pages/agenda-aberta/agenda-prefeita/screen";
 
 import { contentAbout } from "../pages/sobre-portal/screen";
 import { pointRadial } from "d3";
@@ -101,14 +101,14 @@ let publicRoutes: IPublicRoute[] = [
         name: "Prefeita - Mara Bertaiolli",
         path: "agenda-prefeita",
         icon: AiOutlineProfile,
-        ...contentMayorAgenda,
+        //...contentMayorAgenda,
       },
       {
         defaultPath: "/agenda-aberta",
         name: "Vice Prefeito - Teo Cusatis",
         path: "agenda-viceprefeito",
         icon: AiOutlineProfile,
-        ...contentMayorAgenda,
+     //   ...contentMayorAgenda,
       },
       
      
@@ -283,7 +283,7 @@ let publicRoutes: IPublicRoute[] = [
     icon: BsCameraVideo,
     path: "/controle-de-radares",
     group: undefined,
-    ...contentRadarsControl,
+  //  ...contentRadarsControl,
   },
 
   {
@@ -710,7 +710,7 @@ let publicRoutes: IPublicRoute[] = [
     icon:  BsFileText,
     path: "/perfil-do-municipio",
     group: undefined,
-    ...contentMunicipalityProfile,
+  //  ...contentMunicipalityProfile,
   },
 
   {
@@ -783,7 +783,7 @@ let publicRoutes: IPublicRoute[] = [
         path: "inicio",
         defaultPath: "/controle-de-obras",
         icon: AiOutlineHome,
-        ...contentConstructionsControl,
+      //  ...contentConstructionsControl,
       },
      
       {

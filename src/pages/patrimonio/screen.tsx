@@ -8,6 +8,7 @@ import colors from "../../styles/colors";
 import ButtonDownload from "../../components/Button_download";
 import { AiOutlineDownload } from "react-icons/ai";
 import HTMLReactParser from "html-react-parser";
+import usePagina from '../../hooks/usePagina';
 
 const filesDownload =[
   {"url": "https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/bf2b0511-b258-446e-b5c0-5c4e5ab84eb9/patrimonio_1990-1998.csv", "titulo": "Lista patrimonio 1990 - 1998"},
@@ -46,13 +47,9 @@ type PropsInput = {
     loading: boolean;
   };
 };
-export const contentPatrimony = {
-  titlePage:  "Patrimônio",
-  description: "Confira aqui as informações sobre o Patrimônio Mobiliário da Prefeitura de Mogi das Cruzes",
-}
+
 function Screen({ handler: { columns, data, loading } }: PropsInput) {
-  const title = contentPatrimony?.titlePage;
-  const description = contentPatrimony?.description;
+  
   const accessibility = useFontSizeAccessibilityContext()
   const [titleFile,setTitleFile] = useState<string>('')
   
@@ -60,9 +57,24 @@ function Screen({ handler: { columns, data, loading } }: PropsInput) {
     (info) => info.titulo === titleFile
   );
     
+  const {paginaData, loadings, error} = usePagina("45");
+  
+    if (loadings) {
+          return <Text>Carregando conteúdo...</Text>;
+        }
+      
+       if (error) {
+        return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+      }
+      
+        if (!paginaData) {
+          return <Text>Página não encontrada</Text>;
+        }
+      
+        const { titulo: titlePage, descricao: description, conteudo } = paginaData;
 
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
             <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}

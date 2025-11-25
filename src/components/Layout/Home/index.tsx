@@ -29,7 +29,7 @@ import ModalPopup from "../../Modal";
 import { useWindowSize } from "../../../hooks/useWindowSize";
 //import VLibras from '@moreiraste/react-vlibras';
 import VLibras from  '@djpfs/react-vlibras'
-
+import usePagina from '../../../hooks/usePagina';
 // type Props = {
 //   children?: React.ReactNode;
 // };
@@ -45,12 +45,29 @@ function PublicHome() {
   const { width } = useWindowSize();
   const isMobile = width <= 700;
 
+  const {paginaData, loadings, error} = usePagina("1");
+  
+    if (loadings) {
+          return <Text>Carregando conteúdo...</Text>;
+        }
+      
+       if (error) {
+        return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+      }
+      
+        if (!paginaData) {
+          return <Text>Página não encontrada</Text>;
+        }
+      
+        const { titulo: titlePage, descricao: description, conteudo } = paginaData;
+    
+
   return (
     <>
       <VLibras  />  
       <ModalPopup />
       <Head>
-        <title>Início</title>
+        <title>{titlePage}</title>
       </Head>
       <Header />
       <div style={{  overflow: "hidden", marginBottom: "78px" }}>
@@ -90,9 +107,12 @@ function PublicHome() {
                  width='80%'
                 
                  >
-                O Portal da Transparência da Prefeitura de Mogi das Cruzes reúne dados e informações da administração municipal, possibilitando o controle social e acompanhamento interno e externo das ações do poder público.  
- <br/>
- Com o objetivo de divulgar ativamente dados de interesse coletivo ou privado, o portal atende aos critérios estabelecidos pelo artigo 5º do Decreto Municipal nº23.595/2025 e artigo 6º da Lei Municipal nº 7.986/23 que regulamenta a Lei  Federal nº 12.527/11 (Lei de Acesso à Informação).
+                  {description && (
+                        <Box
+                          dangerouslySetInnerHTML={{ __html: description }}
+                          
+                        />
+                      )}
               </Text>
       </Stack>
 

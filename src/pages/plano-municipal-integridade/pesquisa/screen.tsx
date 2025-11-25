@@ -26,7 +26,7 @@ type PropsInput = {
 
 export const contentMapSite = {
   titlePage: "Pesquisa e Percepção sobre Ações de Integridade ",
-  description: " Aberto para resposta do dia 30/09 até 31/10",
+  description: " Aberto para resposta do dia 30/09 até 30/11",
 };
 
 function Screen({ handler }: PropsInput) {

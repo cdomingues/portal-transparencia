@@ -153,8 +153,8 @@ const MenuHorizontalChakra = () => {
           { label: 'Licitações', href: '#',
             submenu: [
               { label: "Licitações", href: "/compras-publicas/licitacoes" }, 
-              
-               { label: "Portal Nacional de Contratações Públicas",href: "https://pncp.gov.br/app/editais?q=&status=recebendo_proposta&pagina=1", }, 
+              { label: "Portal Nacional de Contratações Públicas",href: "https://pncp.gov.br/app/editais?q=&status=recebendo_proposta&pagina=1", }, 
+              {label:"Plano de Contratações Anual", href: "/compras-publicas/plano-contratacoes-anual" },
              
             ] },
             { label: 'Acordos e termos', href: '#',
@@ -273,7 +273,7 @@ const MenuHorizontalChakra = () => {
          },
           { label: 'Fundos Municipais', href: '/gestao-orcamentaria/despesas/fundos-municipais' },
            { label: 'Fila de Espera Creches Públicas', href: 'https://sge.sme-mogidascruzes.sp.gov.br/grid_classificacao_unidade/' },
-           {label:'Empresas reclamadas no PROCON',href:'empresas-reclamadas-procon'},
+           {label:'Empresas reclamadas no PROCON',href:'/empresas-reclamadas-procon'},
            {label:'Estoque de medicamentos', href:'/medicamentos'},
             {label:'Lista de espera de consultas e exames"', href:'/fila_de_espera'}
        

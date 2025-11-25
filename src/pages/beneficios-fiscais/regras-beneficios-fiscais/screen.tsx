@@ -2,22 +2,27 @@ import { useColorModeValue, Box, Button, Stack, Table, Thead, Tr, Th, Tbody, Td,
 import React, { useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
 import colors from "../../../styles/colors";
-
-export const contentPROMAE = {
-  titlePage: "Regras para concessão de desonerações, renúncias e benefícios fiscais",
-  description:
-    "A Prefeitura de Mogi das Cruzes adota políticas de incentivos fiscais como instrumento para estimular o desenvolvimento econômico, atrair novos investimentos, apoiar a expansão de empresas locais, fomentar a geração de empregos e promover a inovação. Esses benefícios são concedidos de forma legal e transparente, por meio de leis municipais específicas, e envolvem modalidades como doações de áreas públicas com encargos, redução ou isenção de tributos municipais e programas voltados a setores estratégicos, como tecnologia e indústria. Nesta página, você encontra informações detalhadas sobre cada modalidade, os requisitos para acesso, as empresas beneficiadas e os impactos esperados para a cidade. ",
-};
+import usePagina from "../../../hooks/usePagina";
 
 function Screen() {
+const {paginaData, loadings, error} = usePagina("77");
 
-  const title = contentPROMAE?.titlePage;
-  const description = contentPROMAE?.description;
-
-  
+  if (loadings) {
+        return <Text>Carregando conteúdo...</Text>;
+      }
+    
+     if (error) {
+      return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+    }
+    
+      if (!paginaData) {
+        return <Text>Página não encontrada</Text>;
+      }
+    
+      const { titulo: titlePage, descricao: description, conteudo } = paginaData;
 
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}

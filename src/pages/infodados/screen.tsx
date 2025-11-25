@@ -6,29 +6,26 @@ import { useRouter } from "next/router";
 import { isMobile } from "react-device-detect";
 import { color } from "highcharts";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
+import usePagina from '../../hooks/usePagina';
 
-type PropsInput = {
-  handler: {};
-};
-
-export const contentMapSite = {
-  titlePage: "InfoDados Mogi",
-  description:
-    <> O InfoDados Mogi é a página de dados e indicadores sobre a cidade de Mogi das Cruzes. O objetivo é ampliar a transparência pública e facilitar o acesso à informação para qualquer pessoa interessada em conhecer melhor a realidade do município.<br/>Aqui, você encontrará dashboards interativos com dados e indicadores de diversas áreas, como, por exemplo,  segurança, saúde, educação, mobilidade e economia, reunindo informações de diferentes secretarias e setores do Poder Executivo, além de fontes externas como entes do Governo Federal, institutos de pesquisa e outros.</>
-};
-
-
-
-
-
-function Screen({ handler }: PropsInput) {
+function Screen() {
   const accessibility = useFontSizeAccessibilityContext();
-  const title = contentMapSite?.titlePage;
-  const description = contentMapSite?.description;
   const router = useRouter();
+  const {paginaData, loadings, error} = usePagina("68");
+    
+      if (loadings) {
+            return <Text>Carregando conteúdo...</Text>;
+          }        
+         if (error) {
+          return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+        }        
+          if (!paginaData) {
+            return <Text>Página não encontrada</Text>;
+          }        
+          const { titulo: titlePage, descricao: description, conteudo } = paginaData;
   
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}

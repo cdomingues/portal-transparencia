@@ -8,33 +8,39 @@ import { color } from "highcharts";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import CardConcursoDetalhe from "../../../components/CardConcursosDetalhe";
 import TesteArquivos from "../../../components/ListarArquivos";
-//import Video from "../../../components/Videos";
+import usePagina from '../../../hooks/usePagina';
 
 type PropsInput = {
   handler: {};
 };
 
-export const contentMapSite = {
-  titlePage: "Concurso Público",
-  description:
-    "Informações sobre os atos dos concursos públicos e processos seletivos: vagas efetivamente preenchidas, lista de aprovados com as classificações, fila de espera/cadastro reserva e validade do concurso. ",
-};
-
-
-
-
-
 function Screen({ id }: any) {
   const accessibility = useFontSizeAccessibilityContext();
-  const title = contentMapSite?.titlePage;
-  const description = contentMapSite?.description;
-  const router = useRouter();
+ const router = useRouter();
   const url_video = "https://www.youtube.com/embed/_2b8fcV3Q04?list=PLr6uMRVxi5CZDYEttIUVaIzsm07L7qI6a";
   const titulo = "O QUE É CONCURSO PÚBLICO?"; 
   const urlConcurso = `https://dadosadm.mogidascruzes.sp.gov.br/api/lista_concursos?${id}`
 console.log(urlConcurso)
+
+const {paginaData, loadings, error} = usePagina("36");
+
+  if (loadings) {
+        return <Text>Carregando conteúdo...</Text>;
+      }
+    
+     if (error) {
+      return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+    }
+    
+      if (!paginaData) {
+        return <Text>Página não encontrada</Text>;
+      }
+    
+      const { titulo: titlePage, descricao: description, conteudo } = paginaData;
+  
+
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
     
   
       <Box

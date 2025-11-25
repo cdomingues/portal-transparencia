@@ -4,33 +4,32 @@ import ContainerBasic from "../../components/Container/Basic";
 import { Checkbox, Flex, Heading, Input, Link, Stack, Text } from "@chakra-ui/react";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
 import { isMobile } from "react-device-detect";
-import colors from "../../styles/colors";
+import usePagina from "../../hooks/usePagina";
 
-export const contentFaq = {
-  titlePage: "Plano de Ação - SIAFIC",
-  description:
-    " ",
-};
 
 function Screen() {
-  const title = contentFaq?.titlePage;
-  const description = contentFaq?.description;
-  const accessibility = useFontSizeAccessibilityContext();
+    const accessibility = useFontSizeAccessibilityContext();
+ const {paginaData, loadings, error} = usePagina("76");
+   
+     if (loadings) {
+           return <Text>Carregando conteúdo...</Text>;
+         }
+       
+        if (error) {
+         return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+       }
+       
+         if (!paginaData) {
+           return <Text>Página não encontrada</Text>;
+         }
+       
+         const { titulo: titlePage, descricao: description, conteudo } = paginaData;
  
- 
-
-
-
-
-  return (
-    <ContainerBasic title={title} description={description}>
+         return (
+    <ContainerBasic title={titlePage} description={description}>
       <Flex direction="column" width={isMobile ? '100%' : '80%'}>
 
-        <Text mb={4} fontSize={accessibility.fontSize}>
-          A atualização é necessária em atendimento a requisição do TCE/SP nº TC-004501.989.24 -  (Contas da Prefeitura de 2024), item C.1.7. I-GOV-TI, conforme segue:
-
-Divulgação do Plano de Ação para implantação do Siafic (Sistema Único e Integrado de Execução Orçamentária, Administração Financeira e Controle) exigido pelo decreto Federal nº 10.540/20. 
-        </Text>
+       
          <Stack 
                  marginTop={5}
                  direction="row"

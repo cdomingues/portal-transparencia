@@ -8,7 +8,7 @@ import {
   TabPanel,
   Box,
   useColorModeValue,
-  Stack,
+  Stack, 
 } from "@chakra-ui/react";
 import CountyPanel from "../../components/Panel/County";
 import TourismPanel from "../../components/Panel/Tourism";
@@ -20,6 +20,7 @@ import "leaflet/dist/leaflet.css";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
 import { isMobile } from "react-device-detect";
 import useWindowDimensions from "../../utils/useWindowDimensions";
+import usePagina from '../../hooks/usePagina';
 
 type PropsInput = {
   handler: {};
@@ -33,12 +34,29 @@ export const contentMunicipalityProfile = {
 
 function Screen({ handler }: PropsInput) {
   const accessibility = useFontSizeAccessibilityContext();
-  const title = contentMunicipalityProfile?.titlePage;
-  const description = contentMunicipalityProfile?.description;
+  
   const { height, width } = useWindowDimensions();
 
+  
+  
+  const {paginaData, loadings, error} = usePagina("43");
+  
+    if (loadings) {
+          return <p>Carregando conteúdo...</p>;
+        }
+      
+       if (error) {
+        return <p>Erro ao carregar página: {(error as Error).message}</p>;
+      }
+      
+        if (!paginaData) {
+          return <p>Página não encontrada</p>;
+        }
+      
+        const { titulo: titlePage, descricao: description, conteudo } = paginaData;
+  
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}

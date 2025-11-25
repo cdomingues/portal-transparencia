@@ -7,6 +7,8 @@ import { ContainerSearch } from "../../../styles/components/contratos-atas/style
 import colors from "../../../styles/colors";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 
+import usePagina from "../../../hooks/usePagina";
+
 function obterTipoDespesa(tipo: any) {
   switch (Number(tipo)) {
     case 1:
@@ -43,8 +45,7 @@ type PropsInput = {
 };
 
 function Screen({ handler: {  data, loading } }: PropsInput) {
-  const title = "Acordos e termos - Gerais";
-  const description = <>Aqui você encontra a lista de todos os tipos de acordos e termos disponíveis. </>;
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [termo,setTermo] = useState<any>(null);
     const [currentPage, setCurrentPage] = useState(1);
@@ -139,10 +140,27 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
   }, data[0]);
 
   const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.data_inicio).toLocaleDateString('pt-BR') : '';
+
+  const {paginaData, loadings, error} = usePagina("26");
+  
+    if (loadings) {
+          return <Text>Carregando conteúdo...</Text>;
+        }
+      
+       if (error) {
+        return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+      }
+      
+        if (!paginaData) {
+          return <Text>Página não encontrada</Text>;
+        }
+      
+        const { titulo: titlePage, descricao: description, conteudo } = paginaData;
+    
   
   return (
     
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}

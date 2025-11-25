@@ -6,25 +6,32 @@ import { useRouter } from "next/router";
 import { isMobile } from "react-device-detect";
 import { color } from "highcharts";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
+import usePagina from '../../../hooks/usePagina';
 
-type PropsInput = {
-  handler: {};
-};
 
-export const contentMapSite = {
-  titlePage: "Prestação de Contas Simplificada",
-  description:
-    <> Este formato de apresentação de prestação de contas de fácil compreensão, se utiliza de linguagem simples e objetiva e tem como objetivo o entendimento por parte do cidadão de informações da Secretaria de Educação, Secretaria de Saúde e da Secretaria de Assistência Social.<br/>Fruto da Ação nº 2 do Compromisso nº 3 do 1º Plano de Ação em Governo Aberto de Mogi das Cruzes.</>
-};
 
-function Screen({ handler }: PropsInput) {
+function Screen() {
   const accessibility = useFontSizeAccessibilityContext();
-  const title = contentMapSite?.titlePage;
-  const description = contentMapSite?.description;
   const router = useRouter();
+
+  const {paginaData, loadings, error} = usePagina("57");
+  
+    if (loadings) {
+          return <Text>Carregando conteúdo...</Text>;
+        }
+      
+       if (error) {
+        return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+      }
+      
+        if (!paginaData) {
+          return <Text>Página não encontrada</Text>;
+        }
+      
+        const { titulo: titlePage, descricao: description, conteudo } = paginaData;
   
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       <Box
         m={0}
         bg={useColorModeValue("white", "gray.800")}

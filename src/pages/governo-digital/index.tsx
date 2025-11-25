@@ -2,9 +2,9 @@ import React from "react";
 import Screen from "./screen";
 
 function Controller() {
-  const handler = {};
+  
 
-  return <Screen handler={handler} />;
+  return <Screen  />;
 }
 
 export default Controller;

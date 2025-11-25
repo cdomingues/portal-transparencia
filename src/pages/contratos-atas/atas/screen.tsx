@@ -19,6 +19,8 @@ import CsvDownload from "react-json-to-csv";
 import colors from "../../../styles/colors";
 import { useFontSizeAccessibilityContext } from "../../../context/fontSizeAccessibility";
 import { filter } from "lodash";
+import usePagina from '../../../hooks/usePagina';
+import moment from "moment";
 
 type PropsInput = {
   handler: {
@@ -35,17 +37,11 @@ type PropsInput = {
     
   };
 };
-export const contentContractsAndAtas = {
-  titlePage: "Atas",
-  description:
-    "Nesta página, confira as informações sobre contratos e atas celebrados pela Prefeitura de Mogi das Cruzes com prestadores de serviço. Pesquise por número, modalidade, processo, valor, fornecedor, objeto, entre outros itens. ",
-};
+
 function Screen({
   handler: { columns, data, loading, handleByYear, setYear, year, data2, setData2,arquivosColumns },
 }: PropsInput) {
   const [contract, setContract] = useState<any>(null);
-  const title = contentContractsAndAtas?.titlePage;
-  const description = contentContractsAndAtas?.description;
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedYear, setSelectedYear] = useState<number | undefined>(2025);
@@ -127,9 +123,23 @@ function Screen({
   const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.updated_at).toLocaleDateString('pt-BR') : '';
 
     
+const {paginaData, loadings, error} = usePagina("23");
 
+  if (loadings) {
+        return <Text>Carregando conteúdo...</Text>;
+      }
+    
+     if (error) {
+      return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+    }
+    
+      if (!paginaData) {
+        return <Text>Página não encontrada</Text>;
+      }
+    
+      const { titulo: titlePage, descricao: description, conteudo } = paginaData;
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
           <Box
             m={0}
             bg={useColorModeValue("white", "gray.800")}
@@ -272,7 +282,7 @@ function Screen({
                             <strong>Empresa contratada:</strong> {row.fornecedor}
                           </Text>
                           <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
-                            <strong>Data Início:</strong> {row.data_inicio} - <strong>Data Fim:</strong> {row.data_termino}
+                            <strong>Data Início:</strong> {moment(row.data_inicio).format('DD-MM-YYYY')} - <strong>Data Fim:</strong> {moment(row.data_termino).format('DD-MM-YYYY')}
                           </Text>
                           <Text fontSize="md" color={useColorModeValue("gray.700", "white")}>
                             <strong>Descrição:</strong> {row.descricao}

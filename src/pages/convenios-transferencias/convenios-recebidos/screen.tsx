@@ -6,6 +6,7 @@ import axios from "axios";
 import CsvDownload from "react-json-to-csv";
 import moneyFormatter from "../../../utils/moneyFormatter";
 import colors from "../../../styles/colors";
+import usePagina from "../../../hooks/usePagina";
 
 type Convenio = {
   id: string;
@@ -43,22 +44,15 @@ type Convenio = {
 const API_URL = "https://dadosadm.mogidascruzes.sp.gov.br/api/convenios";
 const ITEMS_PER_PAGE = 50;
 
-export const receitasDesc = {
-  titlePage: "Convênios - recebidos",
-  description:
-    "A divulgação da lista de Convênios e Transferências repasses realizados pela Prefeitura de Mogi das Cruzes é uma medida fundamental cujo propósito é reforçar a transparência das finanças municipais e promover a responsabilidade fiscal. ",
-};
-
 function Screen() {
-  const title = receitasDesc.titlePage;
-  const description = receitasDesc.description;
-
+  
   const [licitacoes, setLicitacoes] = useState<Convenio[]>([]);
   const [tiposReceita, setTiposReceita] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedYear, setSelectedYear] = useState("2025");
   const [selectedReceita, setSelectedReceita] = useState("");
+  const {paginaData, loadings, error} = usePagina("13");
   let count = 1
 
   useEffect(() => {
@@ -135,8 +129,23 @@ function Screen() {
     document.body.removeChild(link);
   };
 
+  if (loadings) {
+        return <Text>Carregando conteúdo...</Text>;
+      }
+    
+     if (error) {
+      return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+    }
+    
+      if (!paginaData) {
+        return <Text>Página não encontrada</Text>;
+      }
+    
+      const { titulo: titlePage, descricao: description, conteudo } = paginaData;
+  
+
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
       <Stack direction={{ base: "column", md: "row" }} spacing={4}>
 
         <Select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)} width='290px'>

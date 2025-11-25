@@ -3,9 +3,9 @@ import axios from "axios";
 import Screen from "./screen";
 
 function Controller() {
-  const handler = {};
+  
 
-  return <Screen handler={handler} />;
+  return <Screen  />;
 }
 
 

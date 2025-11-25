@@ -24,7 +24,7 @@ import axios from "axios";
 import CsvDownload from "react-json-to-csv";
 import moneyFormatter from "../../../utils/moneyFormatter";
 import colors from "../../../styles/colors";
-
+import usePagina from "../../../hooks/usePagina";
 
 export interface Receitas {
   conta_contabil: string;
@@ -65,15 +65,6 @@ const API_URL = "https://dadosadm.mogidascruzes.sp.gov.br/api/lista_receita_desp
 const ITEMS_PER_PAGE = 50;
 
  
-
- 
-  
-export const contentExtrabudgetRevenues = {
-  titlePage: "Receitas Extraorçamentárias",
-  description: "Aqui você pode acompanhar as informações sobre as receitas que não figuram no orçamento e, por isso, não são renda do município, apenas transitam pelo poder público. ",
-}
-
-
 function Screen({
   handler: {
     columns,
@@ -87,14 +78,14 @@ function Screen({
     handleByYear,
   },
 }: PropsInput) {
-  const title = contentExtrabudgetRevenues?.titlePage;
-  const description = contentExtrabudgetRevenues?.description;
+  const dataAtual = new Date().toLocaleDateString("pt-BR");
   const [licitacoes, setLicitacoes] = useState<Receitas[]>([]);
   const [tiposReceita, setTiposReceita] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedYear, setSelectedYear] = useState("2025");
   const [selectedReceita, setSelectedReceita] = useState("");
+  const { paginaData, loadings, error } = usePagina("10");
   const chartConfig = {
     direction: isMobile ? "column" : "row",
     width: isMobile ? "100%" : "40%",
@@ -159,8 +150,22 @@ function Screen({
     document.body.removeChild(link);
   };
 
+  if (loadings) {
+        return <Text>Carregando conteúdo...</Text>;
+      }
+    
+     if (error) {
+      return <Text>Erro ao carregar página: {(error as Error).message}</Text>;
+    }
+    
+      if (!paginaData) {
+        return <Text>Página não encontrada</Text>;
+      }
+    
+      const { titulo: titlePage, descricao: description, conteudo } = paginaData;
+
   return (
-    <ContainerBasic title={title} description={description}>
+    <ContainerBasic title={titlePage} description={description}>
          
 
       <Box
@@ -247,7 +252,7 @@ function Screen({
         width="30%"
         my="10px"
       />
-       <Text my='10px'>Última atualização em <strong>01/05/2025</strong></Text>
+       <Text my='10px'>Última atualização em <strong>{dataAtual}</strong></Text>
 <Table >
   <Thead>
     <Tr  bg={colors.transparenciaBlack}
