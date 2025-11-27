@@ -1,18 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false,
- 
-  eslint: {
-    ignoreDuringBuilds: true,},
 
-  // async rewrites() {
-  //   return [
-  //     {
-  //       source: '/api/:path*',
-  //       destination: 'http://licitacao-mgcon.mogidascruzes.sp.gov.br/arquivo/:path*',
-  //     },
-  //   ];
-  // },
+  devIndicators: {
+    buildActivity: false, // remove o aviso Dynamic Route no modo dev
+  },
+
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 
   async headers() {
     return [

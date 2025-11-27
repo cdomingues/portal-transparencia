@@ -16,25 +16,20 @@ import PageViewCounter from "../components/PageView";
 import '../styles/pagination.css'
 import Analytics from "../components/Analytics";
 
-declare global {
-  interface Window {
-    dataLayer: Record<string, any>[];
-  }
-}
-
-export {};
-
 function MyApp({ Component, pageProps }: AppProps) {
   const [loaded, setLoaded] = useState(false);
   const [cookies, setCookie] = useCookies(["refreshed"]);
   const router = useRouter();
 
-  
-
   const ComponenteLayout =
     router.pathname === "/" && !isMobile ? PublicHome : PublicLayout;
 
-      useEffect(() => {
+  // 🔥 ADICIONE ESTE USEEFFECT
+  useEffect(() => {
+    setLoaded(true);
+  }, []);
+
+  useEffect(() => {
     TagManager.initialize({ gtmId: "GTM-MKJGG2Q" });
 
     const handleRouteChange = (url: string) => {
@@ -51,10 +46,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events]);
 
   return (
-    
-    //<Analytics />
     <ChakraProvider theme={theme}>
-    <Analytics />
+      <Analytics />
       <FontSizeAccessibilityWrapper>
         <CookiesProvider>
           {loaded && (
@@ -66,7 +59,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         </CookiesProvider>
       </FontSizeAccessibilityWrapper>
     </ChakraProvider>
-    
   );
 }
 
