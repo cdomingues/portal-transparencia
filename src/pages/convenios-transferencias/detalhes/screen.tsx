@@ -195,7 +195,7 @@ function Screen({ id_contrato }: any) {
                         ["Status", despesa.status_convenio],
                         ["Ano", despesa.ano],
                         ["Data formalizado", despesa.data_formalizado],
-                        ["Processo administrativo", despesa.processo_administrativo],
+                        //["Processo administrativo", despesa.processo_administrativo],
                         ["Objeto", despesa.objeto],
                         ["Valor repasse", moneyFormatter(Number(despesa.valor_repasse))],
                         ["Valor contrapartida", moneyFormatter(Number(despesa.contrapartida))],
@@ -252,7 +252,7 @@ function Screen({ id_contrato }: any) {
                     <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>Situação</Th>
                     <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>Devolvido</Th>
                     <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>Data devolução</Th>
-                    <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>Detalhamento</Th>
+                    <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>Sub-etapa</Th>
                   </Tr>
                 </Thead>
                 <Tbody>
@@ -277,7 +277,7 @@ function Screen({ id_contrato }: any) {
                         <Td border={`1px solid ${colors.transparenciaBlack}`}>{file.situacao}</Td>
                         <Td border={`1px solid ${colors.transparenciaBlack}`}>{file.devolvido ? "Sim" : "Não"}</Td>
                         <Td border={`1px solid ${colors.transparenciaBlack}`}>{moment(file.data_devolucao).format("DD/MM/YYYY")}</Td>
-                        <Td border={`1px solid ${colors.transparenciaBlack}`}>{file.detalhamento}</Td>
+                        <Td border={`1px solid ${colors.transparenciaBlack}`}>{file.sub_etapa}</Td>
                       </Tr>
                     ))}
                 </Tbody>
@@ -307,7 +307,7 @@ function Screen({ id_contrato }: any) {
                   </Tr>
                 </Thead>
                 <Tbody>
-                  {arquivo
+                 {/*  {arquivo
                     .sort((a, b) => a.id - b.id)
                     .map((file2) => (
                       <Tr key={file2.id}>
@@ -318,7 +318,7 @@ function Screen({ id_contrato }: any) {
                        
                        
                       </Tr>
-                    ))}
+                    ))} */}
                 </Tbody>
               </Table>
             </TabPanel>
