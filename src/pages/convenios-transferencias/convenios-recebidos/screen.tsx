@@ -282,7 +282,19 @@ function Screen() {
       <PaginationComponent pages={Math.ceil(filteredLicitacoes.length / ITEMS_PER_PAGE)} setCurrentPage={setCurrentPage} currentPage={currentPage} />
 
        <Box mt='15px' border='1px solid lightgrey' p='5' borderRadius='15px' boxShadow='2xl'>
-           <iframe title="CONVÊNIOS - PORTAL TRANSPARÊNCIA" width="100%" height="700" src="https://app.powerbi.com/view?r=eyJrIjoiNGQ4MjE2YTUtMTc2Zi00ZTA1LWJmNmUtOGVjYjc2NjE3OGM5IiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9" ></iframe>
+          {conteudo && (
+                         <Box
+                           dangerouslySetInnerHTML={{ __html: conteudo }}
+                           sx={{
+                             p: { mb: 2, textAlign: "justify" },
+                             a: {
+                               color: "blue.600",
+                               fontWeight: "bold",
+                               textDecoration: "underline",
+                             },
+                           }}
+                         />
+                       )}
        </Box>
     </ContainerBasic>
   );
