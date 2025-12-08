@@ -172,125 +172,136 @@ export default [
         href: "",
         children: [
           {
-            label: "Cab",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-abastecimento-de-alimentos-e-bens-de-consumo/institucional",
-          },
-          {
-            label: "Cae",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-alimentacao-escolar/institucional",
-          },
-          {
-            label: "Cmapd",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-para-assuntos-da-pessoa-com-deficiencia/institucional",
-          },
-          {
-            label: "Cmdr",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-desenvolvimento-rural/institucional",
-          },
-          {
-            label: "Cme",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-educacao/institucional",
-          },
-          {
-            label: "Cmi",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-do-idoso/institucional",
-          },
-          {
-            label: "Cmit",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-inovacao-e-tecnologia/institucional",
-          },
-          {
-            label: "Cmpsd",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-politicas-sobre-drogas/institucional",
-          },
-          {
-            label: "Cms",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-saude/institucional",
-          },
-          {
-            label: "Cmttmu",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-transporte-transito-e-mobilidade-urbana/institucional",
-          },
-          {
-            label: "Comas",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-assistencia-social/institucional",
-          },
-          {
-            label: "Comjuve",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-da-juventude/institucional",
-          },
-          {
-            label: "Commulher",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-da-mulher/institucional",
-          },
-          {
-            label: "Comoma",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-mogiano-de-meio-ambiente/institucional",
-          },
-          {
-            label: "Comphap",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-preservacao-do-patrimonio-historico-cultural-e-artistico/institucional",
-          },
-          {
-            label: "Compir",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-promocao-da-igualdade-racial/institucional",
-          },
-          {
-            label: "Comsep",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-seguranca-publica/institucional",
-          },
-          {
-            label: "Comtur",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-turismo/institucional",
-          },
-          {
-            label: "Comuc",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-cultura/institucional",
-          },
-          {
-            label: "Concidade",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-da-cidade/institucional",
-          },
-          {
-            label: "Consea",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-seguranca-alimentar/institucional",
-          },
-          {
-            label: "Desporto",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-do-desporto/institucional",
-          },
-          {
-            label: "Fundeb",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/fundo-de-manutencao-e-desenvolvimento-da-educacao-basica/institucional",
-          },
-          {
-            label: "Tutelar",
-            subLabel: "",
-            href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-tutelar/institucional",
-          },
+  label: "Abastecimento",
+  subLabel: "",
+  href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-abastecimento-de-alimentos-e-bens-de-consumo/institucional",
+},
+{
+  label: "Alimentação Escolar",
+  subLabel: "",
+  href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-alimentacao-escolar/institucional",
+},
+{
+  label: "Assistência Social",
+  subLabel: "",
+  href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-assistencia-social/institucional",
+},
+{
+  label: "Cidade",
+  subLabel: "",
+  href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-da-cidade/institucional",
+},
+{
+  label: "Criança e Adolescente",
+  subLabel: "",
+  href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-dos-direitos-da-crianca-e-do-adolescente/institucional",
+},
+{
+  label: "Cultura",
+  subLabel: "",
+  href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-cultura/institucional",
+},
+{
+  label: "Desenvolvimento Rural",
+  subLabel: "",
+  href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-desenvolvimento-rural/institucional",
+},
+{
+  label: "Desporto",
+  subLabel: "",
+  href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-do-desporto/institucional",
+},
+{
+  label: "Educação",
+  subLabel: "",
+  href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-educacao/institucional",
+},
+{
+  label: "Fundeb",
+  subLabel: "",
+  href: "https://www.mogidascruzes.sp.gov.br/pagina/fundo-de-manutencao-e-desenvolvimento-da-educacao-basica/institucional",
+},
+{
+  label: "Habitação Social",
+  subLabel: "",
+  href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-habitacao-social-e-regularizacao-fundiaria/institucional",
+},
+{
+  label: "Idoso",
+  subLabel: "",
+  href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-do-idoso/institucional",
+},
+{
+  label: "Igualdade Racial",
+  subLabel: "",
+  href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-promocao-da-igualdade-racial/institucional",
+},
+{
+  label: "Inovação e Tecnologia",
+  subLabel: "",
+  href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-inovacao-e-tecnologia/institucional",
+},
+{
+  label: "Meio Ambiente",
+  subLabel: "",
+  href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-meio-ambiente/institucional",
+},
+{
+  label: "Mobilidade Urbana",
+  subLabel: "",
+  href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-mobilidade-urbana/institucional",
+},
+{
+  label: "Mulher",
+  subLabel: "",
+  href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-da-mulher/institucional",
+},
+{
+  label: "Parcerias Público-Privadas",
+  subLabel: "",
+  href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-gestor-de-parcerias-publico-privadas/institucional",
+},
+{
+  label: "Patrimônio Histórico",
+  subLabel: "",
+  href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-preservacao-do-patrimonio-historico-cultural-e-artistico/institucional",
+},
+{
+  label: "Pessoa com Deficiência",
+  subLabel: "",
+  href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-para-assuntos-da-pessoa-com-deficiencia/institucional",
+},
+{
+  label: "Políticas Sobre Drogas",
+  subLabel: "",
+  href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-politicas-sobre-drogas/institucional",
+},
+{
+  label: "Saúde",
+  subLabel: "",
+  href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-saude/institucional",
+},
+{
+  label: "Segurança Alimentar",
+  subLabel: "",
+  href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-seguranca-alimentar/institucional",
+},
+{
+  label: "Segurança Pública",
+  subLabel: "",
+  href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-seguranca-publica/institucional",
+},
+{
+  label: "Turismo",
+  subLabel: "",
+  href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-de-turismo/institucional",
+},
+{
+  label: "Tutelar",
+  subLabel: "",
+  href: "https://www.mogidascruzes.sp.gov.br/pagina/conselho-tutelar/institucional",
+},
+
         ],
       },
       {

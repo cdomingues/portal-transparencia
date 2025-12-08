@@ -184,12 +184,15 @@ function Screen({ id_contrato }: any) {
                       {[
                         ["Convênio", despesa.id_convenio],
                         ["Tipo recurso", despesa.tipo_recurso],
+                        ["Número da emenda", despesa.cod_objeto],
                         ["Demanda", despesa.nivel_demanda],
                         ["Modalidade ", despesa.modalidade],
+                        ["Conta bancária", despesa.conta_bancaria],
                         ["Aplicação", despesa.aplicacao],
-                        ["Orgão ", despesa.orgao],
+                        ["Orgão concedente", despesa.orgao],
+                        ["Número do empenho de origem", despesa.nr_empenho_origem],
                         ["Autor", despesa.politico],
-                        ["Secretaria ", despesa.secretaria],
+                        ["Secretaria executora", despesa.secretaria],
                         ["Status", despesa.status_convenio],
                         ["Ano", despesa.ano],
                         ["Data formalizado", despesa.data_formalizado],
@@ -250,7 +253,7 @@ function Screen({ id_contrato }: any) {
                     <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>Situação</Th>
                     <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>Devolvido</Th>
                     <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>Data devolução</Th>
-                    <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>Detalhamento</Th>
+                    <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>Sub-etapa</Th>
                   </Tr>
                 </Thead>
                 <Tbody>
@@ -275,7 +278,7 @@ function Screen({ id_contrato }: any) {
                         <Td border={`1px solid ${colors.transparenciaBlack}`}>{file.situacao}</Td>
                         <Td border={`1px solid ${colors.transparenciaBlack}`}>{file.devolvido ? "Sim" : "Não"}</Td>
                         <Td border={`1px solid ${colors.transparenciaBlack}`}>{moment(file.data_devolucao).format("DD/MM/YYYY")}</Td>
-                        <Td border={`1px solid ${colors.transparenciaBlack}`}>{file.detalhamento}</Td>
+                        <Td border={`1px solid ${colors.transparenciaBlack}`}>{file.sub_etapa}</Td>
                       </Tr>
                     ))}
                 </Tbody>
