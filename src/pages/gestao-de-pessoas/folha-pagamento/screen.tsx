@@ -132,12 +132,15 @@ function Screen() {
       }
     }
 
-     
-
     setFolhaPagamento(allFolha);
     setCurrentPage(1);
     setCarregando(false);
   };
+
+  // Carrega dados automaticamente apenas na primeira renderização
+  useEffect(() => {
+    fetchData();
+  }, []); // Array vazio - executa apenas uma vez na montagem
 
   const clearFilters = () => {
     setSelectedYear(defaultYear);
@@ -145,7 +148,7 @@ function Screen() {
     setSearchTerm("");
     setMatricula("");
     setCargo("");
-    setFolhaPagamento([]);
+    // Não chama fetchData aqui - o usuário precisará clicar em Buscar
     setCurrentPage(1);
   };
 
