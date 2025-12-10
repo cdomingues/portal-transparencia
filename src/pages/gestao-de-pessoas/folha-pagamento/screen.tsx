@@ -148,7 +148,7 @@ function Screen() {
     setSearchTerm("");
     setMatricula("");
     setCargo("");
-    // Não chama fetchData aqui - o usuário precisará clicar em Buscar
+    setFolhaPagamento([]);
     setCurrentPage(1);
   };
 
