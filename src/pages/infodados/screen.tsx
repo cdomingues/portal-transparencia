@@ -67,6 +67,10 @@ function Screen() {
             title: "Análise CADÚNICO",
             src: "https://app.powerbi.com/view?r=eyJrIjoiYWE4NzlkZmEtYzRhYy00ZDdlLTg2ZTgtNGE1YjJhOGVmMjY2IiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
           },
+          {
+            title: "Primeira Infância",
+            src:"https://app.powerbi.com/view?r=eyJrIjoiNjBkNjlkMjEtZTU0MS00NjI5LThkMjktNTBlMGNlODAzNDdjIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9",
+          }
         ].map((item, index) => (
           <AccordionItem key={index}>
             <h2>
