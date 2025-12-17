@@ -116,9 +116,13 @@ function Screen({
   // Ordena os contratos de forma decrescente pelo ano extraído de "numero"
   const sortedPaginatedContratos = [...paginatedContratos].sort((a, b) => {
     // Extrai o ano de "numero" (formato 000044/2024)
-    const aAno = parseInt(a.numero.split('/')[0], 10);
-    const bAno = parseInt(b.numero.split('/')[0], 10);
+    const aAno = a?.numero
+  ? parseInt(a.numero.split('/')[0], 10)
+  : 0;
 
+const bAno = b?.numero
+  ? parseInt(b.numero.split('/')[0], 10)
+  : 0;
     // Ordena de forma decrescente com base no ano
     return   aAno - bAno;
   });
