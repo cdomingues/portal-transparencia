@@ -27,6 +27,7 @@ export interface Arquivo {
   id_convenio: string;
   arquivo: string;
   nome_arquivo: string;
+  publico: boolean;
 }
 
 export interface Etapa {
@@ -310,18 +311,27 @@ function Screen({ id_contrato }: any) {
                   </Tr>
                 </Thead>
                 <Tbody>
-                 {/*  {arquivo
-                    .sort((a, b) => a.id - b.id)
-                    .map((file2) => (
-                      <Tr key={file2.id}>
-                        
-                        <Td border={`1px solid ${colors.transparenciaBlack}`}>{file2.nome_arquivo}</Td>
-                     
-                        <Td border={`1px solid ${colors.transparenciaBlack}`}><Link href={file2.arquivo} target="blank">Download</Link></Td>
-                       
-                       
-                      </Tr>
-                    ))} */}
+                  {arquivo
+  .filter(file => file.publico === true)
+  .sort((a, b) => a.id - b.id)
+  .map((file2) => (
+    <Tr key={file2.id}>
+      <Td border={`1px solid ${colors.transparenciaBlack}`}>
+        {file2.nome_arquivo}
+      </Td>
+
+      <Td border={`1px solid ${colors.transparenciaBlack}`}>
+        {file2.arquivo ? (
+          <Link href={file2.arquivo} target="_blank">
+            Download
+          </Link>
+        ) : (
+          <span style={{ color: "#999" }}>Indisponível</span>
+        )}
+      </Td>
+    </Tr>
+  ))}
+
                 </Tbody>
               </Table>
             </TabPanel>
