@@ -13,18 +13,20 @@ import {
   Tab,
   TabPanels,
   TabPanel,
+  Link
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
 import moneyFormatter from "../../../utils/moneyFormatter";
 import moment from "moment";
 import colors from "../../../styles/colors";
-import Link from "next/link";
+
 import usePagina from "../../../hooks/usePagina";
 
 export interface Arquivo {
   id: number;
   id_convenio: string;
+  id_etapa: string;
   arquivo: string;
   nome_arquivo: string;
   publico: boolean;
@@ -58,6 +60,14 @@ function Screen({ id_contrato }: any) {
   const [arquivo, setArquivo] = useState<Arquivo[]>([]);
   const [loading, setLoading] = useState(true);
   const {paginaData, loadings, error} = usePagina("13");
+
+  const etapasMap = React.useMemo(() => {
+  const map: Record<string, number> = {};
+  etapa.forEach((e) => {
+    map[e.id] = e.numero_etapa;
+  });
+  return map;
+}, [etapa]);
 
   useEffect(() => {
     const convenioData = sessionStorage.getItem("selectedConvenio");
@@ -130,6 +140,8 @@ function Screen({ id_contrato }: any) {
     }
   
     const { titulo: titlePage, descricao: description, conteudo } = paginaData;
+
+    
 
 
   return (
@@ -211,28 +223,39 @@ function Screen({ id_contrato }: any) {
                          ["Cronograma físico financeiro",
     despesa?.cronograma?.trim()
       ? (
-        <a
+        <Link
           href={despesa.cronograma}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-600 hover:text-red-600 hover:font-bold transition"
+          isExternal
+  //color="blue.600"
+  fontWeight="bold"
+  _hover={{
+   // color: "red.600",
+    fontWeight: "bold",
+    textDecoration: "underline",
+  }}
+  transition="all 0.2s ease-in-out"
         >
           Acessar
-        </a>
+        </Link>
       )
       : "Não informado"
   ],
   ["Fonte",
     despesa?.url_emendas?.trim()
       ? (
-        <a
+        <Link
           href={despesa.url_emendas}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-600 hover:text-red-600 hover:font-bold transition"
+          isExternal
+          fontWeight="bold"
+  _hover={{
+   // color: "red.600",
+    fontWeight: "bold",
+    textDecoration: "underline",
+  }}
+  transition="all 0.2s ease-in-out"
         >
-          Acessar
-        </a>
+          {despesa.url_emendas}
+        </Link>
       )
       : "Não informado"
   ]
@@ -340,34 +363,34 @@ function Screen({ id_contrato }: any) {
                     </Th>
                   </Tr>
                   <Tr border={`1px solid ${colors.transparenciaBlack}`}>
+                    <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}> Nº da etapa</Th>
                     <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>Nome do arquivo</Th>
                     <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>Arquivo</Th>
                   
                   </Tr>
                 </Thead>
-                <Tbody>
-                  {arquivo
-  .filter(file => file.publico === true)
-  .sort((a, b) => a.id - b.id)
-  .map((file2) => (
-    <Tr key={file2.id}>
-      <Td border={`1px solid ${colors.transparenciaBlack}`}>
-        {file2.nome_arquivo}
-      </Td>
+               <Tbody>
+  {arquivo
+    .filter(file => file.publico === true && file.arquivo)
+    .sort((a, b) => a.id - b.id)
+    .map((file2) => (
+      <Tr key={file2.id}>
+        <Td border={`1px solid ${colors.transparenciaBlack}`} textAlign="center">
+          {etapasMap[file2.id_etapa] ?? "—"}
+        </Td>
 
-      <Td border={`1px solid ${colors.transparenciaBlack}`}>
-        {file2.arquivo ? (
+        <Td border={`1px solid ${colors.transparenciaBlack}`}>
+          {file2.nome_arquivo}
+        </Td>
+
+        <Td border={`1px solid ${colors.transparenciaBlack}`}>
           <Link href={file2.arquivo} target="_blank">
             Download
           </Link>
-        ) : (
-          <span style={{ color: "#999" }}>Indisponível</span>
-        )}
-      </Td>
-    </Tr>
-  ))}
-
-                </Tbody>
+        </Td>
+      </Tr>
+    ))}
+</Tbody>
               </Table>
             </TabPanel>
           </TabPanels>
