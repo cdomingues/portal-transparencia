@@ -31,6 +31,7 @@ export interface Arquivo {
 }
 
 export interface Etapa {
+  numero_etapa: number;
   id: string;
   id_convenio: string;
   encaminhamento: string;
@@ -188,23 +189,53 @@ function Screen({ id_contrato }: any) {
                         ["Convênio", despesa.id_convenio],
                         ["Tipo recurso", despesa.tipo_recurso],
                         ["Número da emenda", despesa.cod_objeto],
+                        ["Autor", despesa.politico],
                         ["Demanda", despesa.nivel_demanda],
                         ["Modalidade ", despesa.modalidade],
-                        ["Conta bancária", despesa.conta_bancaria],
+                        ["Conta bancária", despesa.conta],
                         ["Aplicação", despesa.aplicacao],
                         ["Orgão concedente", despesa.orgao],
-                        ["Número do empenho de origem", despesa.nr_empenho_origem],
-                        ["Autor", despesa.politico],
+                        ["Número do empenho de origem", despesa.numero_empenho],
+                        
                         ["Secretaria executora", despesa.secretaria],
                         ["Status", despesa.status_convenio],
                         ["Ano", despesa.ano],
-                        ["Data formalizado", despesa.data_formalizado],
-                        ["Processo administrativo", despesa.processo_administrativo],
+                        ["Data formalizado", moment(despesa.data_formalizado).format("DD/MM/YYYY")],
+                        ["Processo administrativo", despesa.processo_principal],
                         ["Objeto", despesa.objeto],
                         ["Valor repasse", moneyFormatter(Number(despesa.valor_repasse))],
+                        ["Valor repassado", moneyFormatter(Number(despesa.valor_repassado))],
                         ["Valor contrapartida", moneyFormatter(Number(despesa.contrapartida))],
                         ["Data inicio", moment(despesa.data_inicio).format("DD/MM/YYYY")],
                         ["Data fim", moment(despesa.data_fim).format("DD/MM/YYYY")],
+                         ["Cronograma físico financeiro",
+    despesa?.cronograma?.trim()
+      ? (
+        <a
+          href={despesa.cronograma}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:text-red-600 hover:font-bold transition"
+        >
+          Acessar
+        </a>
+      )
+      : "Não informado"
+  ],
+  ["Fonte",
+    despesa?.url_emendas?.trim()
+      ? (
+        <a
+          href={despesa.url_emendas}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:text-red-600 hover:font-bold transition"
+        >
+          Acessar
+        </a>
+      )
+      : "Não informado"
+  ]
                       ].map(([label, value], index) => (
                         <Tr key={index}>
                           <Td
@@ -237,7 +268,7 @@ function Screen({ id_contrato }: any) {
                 <Thead>
                   <Tr>
                     <Th
-                      colSpan={8}
+                      colSpan={9}
                       textAlign="center"
                       bg={colors.transparenciaBlack}
                       color="white"
@@ -249,6 +280,7 @@ function Screen({ id_contrato }: any) {
                     </Th>
                   </Tr>
                   <Tr border={`1px solid ${colors.transparenciaBlack}`}>
+                  <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>Nº da etapa</Th>
                     <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>Data Início</Th>
                     <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>Prazo em dias</Th>
                     <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>Prazo final</Th>
@@ -264,6 +296,9 @@ function Screen({ id_contrato }: any) {
                     .sort((a, b) => new Date(b.data_inicio).getTime() - new Date(a.data_inicio).getTime())
                     .map((file) => (
                       <Tr key={file.encaminhamento}>
+                        <Td border={`1px solid ${colors.transparenciaBlack}`}>
+                          {file.numero_etapa}
+                        </Td>
                         <Td border={`1px solid ${colors.transparenciaBlack}`}>
                           {moment(file.data_inicio).format("DD/MM/YYYY")}
                         </Td>
