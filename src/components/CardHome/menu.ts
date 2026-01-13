@@ -198,6 +198,7 @@ export const menus=[
                     { label: "Termo de Fomento", url: "/acordos-termos/termo-de-fomento" },
                     {label:'Termo de Cooperação', url: "/acordos-termos/termo-de-cooperacao", },
                     {label: 'Termo de Financiamento Cultural', url: "/acordos-termos/termo-de-financiamento-cultural",},
+                    {label: 'Credenciamento', url: "/acordos-termos/credenciamento",},
                 ]},
 
             {"id_submenu": 3, 

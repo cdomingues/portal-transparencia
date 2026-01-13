@@ -54,8 +54,10 @@ function obterTipoDespesa(tipo: any) {
       return "Termo de Doação";
     case 9:
       return "Termo de Permissão de Uso";
-  case 10:
+    case 10:
         return "Termo de Financiamento Cultural";  
+    case 11:
+        return "Credenciamento";      
          
     default:
       return "Tipo Desconhecido";

@@ -31,6 +31,8 @@ function obterTipoDespesa(tipo: any) {
       return "Termo de Permissão de Uso";
     case 10:
       return "Termo de Financiamento Cultural";      
+    case 11:
+      return "Credenciamento";      
     default:
       return "Tipo Desconhecido";
   }
@@ -102,6 +104,7 @@ function Screen({ handler: {  data, loading } }: PropsInput) {
        { id:8, label: "Termo de Doação"},
        { id:9, label: "Termo de Permissão de Uso"},
        { id:10, label: "Termo de Financiamento Cultural"},
+       { id:11, label: "Credenciamento"},
     ]
 
     const handlePageClick = (data: { selected: number }) => {

@@ -87,8 +87,15 @@ let publicRoutes: IPublicRoute[] = [
         icon: AiFillCaretRight,
         subgroup: false,
       },
-      
-      
+      {
+        defaultPath: "/acordos-termos",
+        name: "Credenciamento",
+        path: "credenciamento",
+        icon: AiFillCaretRight,
+        subgroup: false,
+      },
+
+
     ],
   },
   {
