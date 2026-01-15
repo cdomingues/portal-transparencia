@@ -160,7 +160,7 @@ function Screen({ handler }: PropsInput) {
             color="text.dark"
             
           >
-            AGENDA  VICE PREFEITO - TEO CUSATIS
+            AGENDA VICE-PREFEITO - TÉO CUSATIS
           </Heading>
 
           <Stack direction="row" flexWrap="wrap-reverse" mt='10px'>
