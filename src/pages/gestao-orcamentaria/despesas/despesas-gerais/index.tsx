@@ -62,7 +62,7 @@ const Despesas = () => {
   const [despesas, setDespesas] = useState<Despesa[]>([]);
   const [despesasFiltradas, setDespesasFiltradas] = useState<Despesa[]>([]);
   const [todasDespesasAno, setTodasDespesasAno] = useState<Despesa[]>([]);
-  const [ano, setAno] = useState(new Date().getFullYear());
+  const [ano, setAno] = useState(2026);
   const [pagina, setPagina] = useState(1);
   const [totalPaginas, setTotalPaginas] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');
@@ -243,7 +243,7 @@ const Despesas = () => {
             width="180px"
             placeholder="Selecione o ano"
           >
-            {[2025, 2024, 2023, 2022, 2021].map((a) => (
+            {[2026, 2025, 2024, 2023, 2022, 2021].map((a) => (
               <option key={a} value={a}>
                 {a}
               </option>

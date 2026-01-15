@@ -54,7 +54,7 @@ export const contentContractsAndAtas = {
 };
 
 const App = () => {
-  const [ano, setAno] = useState('2025');
+  const [ano, setAno] = useState('2026');
   const [busca, setBusca] = useState('');
   const [dados, setDados] = useState<Despesa[]>([]);
   const [carregando, setCarregando] = useState(false);
@@ -157,6 +157,7 @@ const App = () => {
           className="border p-2 rounded"
           width= '180px'
         >
+          <option value="2026">2026</option>
           <option value="2025">2025</option>
            <option value="2024">2024</option>
            <option value="2023">2023</option>
