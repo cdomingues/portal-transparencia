@@ -315,7 +315,8 @@ function Screen() {
       </Text>
 
       {carregando ? (
-        <Box display='flex' py={10} justifyContent='center'>
+        <Box display='flex' py={10} justifyContent='center' flexDirection='column'>
+          <Text>Aguarde enquanto os dados são carregados</Text>
           <Image width={200} src={loadinggif.src} />
         </Box>
       ) : folhaPagamento.length === 0 ? (

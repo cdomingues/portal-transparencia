@@ -35,7 +35,7 @@ function Screen() {
    const [licitacoes, setLicitacoes] = useState<Licitacoes[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedYear, setSelectedYear] = useState("2025");
+  const [selectedYear, setSelectedYear] = useState("2026");
   const [selectedLicitacao, setSelectedLicitacao] = useState("");
   const [selectedGestora, setSelectedGestora] = useState("");
   const [selectedSituacao, setSelectedSituacao] = useState("");
@@ -176,8 +176,8 @@ const {paginaData, loadings, error} = usePagina("25");
                         //backgroundColor: colors.primaryDefault40p // cor de fundo ao focar (exemplo)
                       }}>
           <option value="Todos">Todos os anos</option>
-            {[...Array(2025 - 2012 + 1)].map((_, i) => {
-              const year = 2025 - i;
+            {[...Array(2026 - 2012 + 1)].map((_, i) => {
+              const year = 2026 - i;
               return (
                 <option key={year} value={year}>
                   {year}
