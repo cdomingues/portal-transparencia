@@ -40,8 +40,9 @@ function Controller() {
 
     // Filtra os dados conforme o tipo_recurso desejado
     const emendas = rows.filter((item: { tipo_recurso: string; }) =>
-      item.tipo_recurso === "EMENDA PARLAMENTAR - TRANSFERÊNCIA ESPECIAL" ||
-      item.tipo_recurso === "EMENDA PARLAMENTAR"
+      item.tipo_recurso
+          ?.toLowerCase()
+          .includes("emenda")
     );
 
     setReceitas(emendas);

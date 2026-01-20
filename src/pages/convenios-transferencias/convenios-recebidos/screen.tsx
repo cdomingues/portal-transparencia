@@ -50,7 +50,7 @@ function Screen() {
   const [tiposReceita, setTiposReceita] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedYear, setSelectedYear] = useState("2025");
+  const [selectedYear, setSelectedYear] = useState("2026");
   const [selectedReceita, setSelectedReceita] = useState("");
   const {paginaData, loadings, error} = usePagina("13");
   let count = 1
@@ -150,9 +150,9 @@ function Screen() {
 
         <Select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)} width='290px'>
           <option value="Todos">Selecione o ano</option>
-          {[...Array(2025 - 2012 + 1)].map((_, i) => (
-    <option key={i} value={2025 - i}>
-      {2025 - i}
+          {[...Array(2026 - 2012 + 1)].map((_, i) => (
+    <option key={i} value={2026 - i}>
+      {2026 - i}
     </option>
   ))}
         </Select>

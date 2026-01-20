@@ -52,7 +52,7 @@ function Screen({
   // --- Estados despesas (primeira tabela)
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedYear, setSelectedYear] = useState<number | undefined>(2025);
+  const [selectedYear, setSelectedYear] = useState<number | undefined>(2026);
 
   // --- Estados publicidade (segunda tabela)
   const [gastos, setGastos] = useState<PublicidadeItem[]>([]);
@@ -302,11 +302,12 @@ function Screen({
             height="40px"
             width="180px"
           >
-            {years.map((y) => (
-              <option key={y} value={y}>
-                {y}
-              </option>
-            ))}
+            
+          {[...Array(2026 - 2009+ 1)].map((_, i) => (
+    <option key={i} value={2026 - i}>
+      {2026 - i}
+    </option>
+  ))}
           </Select>
 
           <Button

@@ -44,7 +44,7 @@ function Screen({
   const [contract, setContract] = useState<any>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedYear, setSelectedYear] = useState<number | undefined>(2025);
+  const [selectedYear, setSelectedYear] = useState<number | undefined>(2026);
   const accessibility = useFontSizeAccessibilityContext();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -174,11 +174,11 @@ const {paginaData, loadings, error} = usePagina("23");
                   mb="10px"
                   width='180px'
                 >
-                  {years.map((year) => (
-                    <option key={year} value={year}>
-                      {year}
-                    </option>
-                  ))}
+                   {[...Array(2026 - 2009 + 1)].map((_, i) => (
+    <option key={i} value={2026 - i}>
+      {2026 - i}
+    </option>
+  ))}
                 </Select>
     <Button
       width="180px"

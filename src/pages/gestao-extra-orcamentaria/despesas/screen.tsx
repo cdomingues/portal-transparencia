@@ -91,7 +91,7 @@ function Screen({
   const [despesas, setDespesas] = useState<Despesa[]>([]);
 const [currentPage, setCurrentPage] = useState(1);
 const [searchTerm, setSearchTerm] = useState("");
-const [selectedYear, setSelectedYear] = useState("2025");
+const [selectedYear, setSelectedYear] = useState("2026");
 
 const {paginaData, loadings, error } = usePagina("11");
 
@@ -179,9 +179,9 @@ const fetchData = async () => {
                  <Stack direction={{ base: "column", md: "row" }} spacing={4}>
                    <Select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)} width='30%'>
                      <option value="Todos">Selecione o ano</option>
-                     {[...Array(2025 - 2010 + 1)].map((_, i) => (
-               <option key={i} value={2025 - i}>
-                 {2025 - i}
+                     {[...Array(2026 - 2010 + 1)].map((_, i) => (
+               <option key={i} value={2026 - i}>
+                 {2026 - i}
                </option>
              ))}
                    </Select>

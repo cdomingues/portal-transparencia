@@ -52,7 +52,7 @@ function Screen({
   const [contract, setContract] = useState<any>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedYear, setSelectedYear] = useState<number | undefined>(2024);
+  const [selectedYear, setSelectedYear] = useState<number | undefined>(2026);
 
   const availableYears = [...new Set(data.map((item) => item.exercicio_empenho))].sort((a, b) => b - a);
 
@@ -193,10 +193,11 @@ function Screen({
                               mb="10px"
                               width='180px'
                             >
-                               {[2025, 2024, 2023, 2022, 2021].map((a) => (
-              <option key={a} value={a}>
-                {a}
-              </option>
+                              <option value="Todos">Selecione o ano</option>
+          {[...Array(2026 - 2009 + 1)].map((_, i) => (
+    <option key={i} value={2026 - i}>
+      {2026 - i}
+    </option>
             ))}
                             </Select>
                 <Button

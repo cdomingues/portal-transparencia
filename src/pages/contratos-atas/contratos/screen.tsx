@@ -46,7 +46,7 @@ function Screen({
   
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedYear, setSelectedYear] = useState<number | undefined>(2025); // Estado para o ano selecionado
+  const [selectedYear, setSelectedYear] = useState<number | undefined>(2026); // Estado para o ano selecionado
   const accessibility = useFontSizeAccessibilityContext();
 
   const { isOpen, onOpen, onClose } = useDisclosure();

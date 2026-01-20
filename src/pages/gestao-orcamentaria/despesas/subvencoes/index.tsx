@@ -193,11 +193,11 @@ const Despesas = () => {
             width="180px"
             placeholder="Selecione o ano"
           >
-            {[2025, 2024, 2023, 2022, 2021].map((a) => (
-              <option key={a} value={a}>
-                {a}
-              </option>
-            ))}
+          {[...Array(2026 - 2009 + 1)].map((_, i) => (
+    <option key={i} value={2026 - i}>
+      {2026 - i}
+    </option>
+  ))}
           </Select>
 
           <Button
@@ -247,8 +247,11 @@ const Despesas = () => {
       </Box>
 
       {loading ? (
-        <Box display="flex" justifyContent="center" alignItems="center" height="200px">
+        <Box display="flex" justifyContent="center" alignItems="center" height="200px" flexDirection="column">
+          
           <Spinner size="xl" />
+<br/>
+          <Text>Aguarde enquanto os dados estão sendo carregados</Text>
         </Box>
       ) : (
         <ul>
