@@ -193,6 +193,7 @@ const MenuHorizontalChakra = () => {
         { label: 'Diárias', href: '/gestao-de-pessoas/diarias-viagens' },
         { label: 'Adiantamentos', href: '/gestao-de-pessoas/adiantamentos' },
         { label: 'Servidores Terceirizados', href: '/gestao-de-pessoas/terceirizados' },
+        { label: 'Saldo de cargos criados, preenchidos e vagos', href: '/gestao-de-pessoas/saldo-cargos' },
        
         
       ]

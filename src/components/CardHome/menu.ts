@@ -304,6 +304,13 @@ export const menus=[
                 "url":"/gestao-de-pessoas/terceirizados",
                 "extralinks": []
             },
+             {
+                "id_submenu": 7, 
+                "label": "Saldo de cargos criados, preenchidos e vagos",  
+                "imageUrl":FolhaPagamento.src,
+                "url":"/gestao-de-pessoas/saldo-cargos",
+                "extralinks": []
+            },
            
            
            
