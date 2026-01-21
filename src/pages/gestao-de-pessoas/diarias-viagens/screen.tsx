@@ -60,7 +60,7 @@ const exportToJSON = (data: any) => {
 
 function Screen() {
   const [currentPage, setCurrentPage] = useState(1);
-  const [selectedYear, setSelectedYear] = useState<number | "all">(2025);
+  const [selectedYear, setSelectedYear] = useState<number | "all">(2026);
   const [diarias, setDiarias] = useState<Diarias[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [sortConfig, setSortConfig] = useState<{ key: keyof Diarias; direction: "asc" | "desc" } | null>(
@@ -219,6 +219,7 @@ function Screen() {
             maxWidth="200px"
           >
             <option value="all">Todos os anos</option>
+             <option value={2026}>2026</option>
             <option value={2025}>2025</option>
             <option value={2024}>2024</option>
             <option value={2023}>2023</option>
@@ -255,87 +256,111 @@ function Screen() {
         </Text>
 
         {/* ------------------- TABELA ------------------- */}
-        {isLoading ? (
-          <Box textAlign="center" py={10}>
-            Carregando dados...
-          </Box>
+       {isLoading ? (
+  <Box textAlign="center" py={10}>
+    Carregando dados...
+  </Box>
+) : (
+  <>
+    <Table mt="12px">
+      <Thead>
+        <Tr bg={colors.transparenciaBlack} color="white">
+          {[
+            { key: "rgf", label: "RGF" },
+            { key: "nome", label: "Nome" },
+            { key: "tipo", label: "Tipo" },
+            { key: "data", label: "Data" },
+            { key: "ano", label: "Ano" },
+            { key: "mes", label: "Mês" },
+            { key: "hora_saida", label: "Hora da saída" },
+            { key: "hora_chegada", label: "Hora da chegada" },
+            { key: "tempo_total", label: "Tempo total" },
+            { key: "valor_diaria", label: "Valor diária" },
+            { key: "destino", label: "Destino" },
+            { key: "justificativa", label: "Justificativa" },
+            { key: "cargo", label: "Cargo" },
+            { key: "secretaria", label: "Secretaria" },
+            { key: "lotacao", label: "Lotação" },
+          ].map(({ key, label }) => (
+            <Th
+              key={key}
+              color="white"
+              cursor="pointer"
+              onClick={() => requestSort(key as keyof Diarias)}
+            >
+              {label}{" "}
+              {sortConfig?.key === key
+                ? sortConfig.direction === "asc"
+                  ? "▲"
+                  : "▼"
+                : ""}
+            </Th>
+          ))}
+        </Tr>
+      </Thead>
+
+      <Tbody fontSize="12px">
+        {paginatedData.length === 0 ? (
+          <Tr>
+            <Td colSpan={15} textAlign="center" py={8}>
+             <Box
+                 width="100%"
+                     textAlign="center"
+                     padding="40px"
+                     bg={useColorModeValue("gray.50", "gray.700")}
+                     borderRadius="12px"
+                     border="1px solid"
+                     borderColor="gray.300"
+                     mb='15px'
+               >
+                 <Text fontSize="lg" fontWeight="bold">
+                       Dados não encontrados para o período selecionado
+                     </Text>
+               </Box>
+            </Td>
+          </Tr>
         ) : (
-          <>
-            <Table mt="12px">
-              <Thead>
-                <Tr bg={colors.transparenciaBlack} color="white">
-                  {[
-                    { key: "rgf", label: "RGF" },
-                    { key: "nome", label: "Nome" },
-                    { key: "tipo", label: "Tipo" },
-                    { key: "data", label: "Data" },
-                    { key: "ano", label: "Ano" },
-                    { key: "mes", label: "Mês" },
-                    { key: "hora_saida", label: "Hora da saída" },
-                    { key: "hora_chegada", label: "Hora da chegada" },
-                    { key: "tempo_total", label: "Tempo total" },
-                    { key: "valor_diaria", label: "Valor diária" },
-                    { key: "destino", label: "Destino" },
-                    { key: "justificativa", label: "Justificativa" },
-                    { key: "cargo", label: "Cargo" },
-                    { key: "secretaria", label: "Secretaria" },
-                    { key: "lotacao", label: "Lotação" },
-                  ].map(({ key, label }) => (
-                    <Th
-                      key={key}
-                      color="white"
-                      cursor="pointer"
-                      onClick={() => requestSort(key as keyof Diarias)}
-                    >
-                      {label}{" "}
-                      {sortConfig?.key === key
-                        ? sortConfig.direction === "asc"
-                          ? "▲"
-                          : "▼"
-                        : ""}
-                    </Th>
-                  ))}
-                </Tr>
-              </Thead>
-
-              <Tbody fontSize="12px">
-                {paginatedData.map((row) => (
-                  <Tr
-                    key={row.id}
-                    bg={useColorModeValue("white", "#f7f7f7")}
-                    _hover={{
-                      bg: "#d1d1d1",
-                      cursor: "pointer",
-                      color: useColorModeValue("black", "white"),
-                    }}
-                  >
-                    <Td>{row.rgf}</Td>
-                    <Td>{row.nome}</Td>
-                    <Td>{row.tipo}</Td>
-                    <Td>{moment(row.data).format("DD/MM/YYYY")}</Td>
-                    <Td>{row.ano}</Td>
-                    <Td>{row.mes}</Td>
-                    <Td>{row.hora_saida}</Td>
-                    <Td>{row.hora_chegada}</Td>
-                    <Td>{formatHoras(row.tempo_total)}</Td>
-                    <Td>{moneyFormatter(Number(row.valor_diaria))}</Td>
-                    <Td>{row.destino}</Td>
-                    <Td>{row.justificativa}</Td>
-                    <Td>{row.cargo}</Td>
-                    <Td>{row.secretaria}</Td>
-                    <Td>{row.lotacao}</Td>
-                  </Tr>
-                ))}
-              </Tbody>
-            </Table>
-
-            <PaginationComponent
-              pages={totalPages}
-              setCurrentPage={setCurrentPage}
-              currentPage={currentPage}
-            />
-          </>
+          paginatedData.map((row) => (
+            <Tr
+              key={row.id}
+              bg={useColorModeValue("white", "#f7f7f7")}
+              _hover={{
+                bg: "#d1d1d1",
+                cursor: "pointer",
+                color: useColorModeValue("black", "white"),
+              }}
+            >
+              <Td>{row.rgf}</Td>
+              <Td>{row.nome}</Td>
+              <Td>{row.tipo}</Td>
+              <Td>{moment(row.data).format("DD/MM/YYYY")}</Td>
+              <Td>{row.ano}</Td>
+              <Td>{row.mes}</Td>
+              <Td>{row.hora_saida}</Td>
+              <Td>{row.hora_chegada}</Td>
+              <Td>{formatHoras(row.tempo_total)}</Td>
+              <Td>{moneyFormatter(Number(row.valor_diaria))}</Td>
+              <Td>{row.destino}</Td>
+              <Td>{row.justificativa}</Td>
+              <Td>{row.cargo}</Td>
+              <Td>{row.secretaria}</Td>
+              <Td>{row.lotacao}</Td>
+            </Tr>
+          ))
         )}
+      </Tbody>
+    </Table>
+
+    {paginatedData.length > 0 && (
+      <PaginationComponent
+        pages={totalPages}
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
+      />
+    )}
+  </>
+)}
+
       </Box>
     </ContainerBasic>
   );
