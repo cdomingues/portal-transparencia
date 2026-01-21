@@ -313,105 +313,134 @@ const Despesas = () => {
 
  
        
-        <>
-          <Table fontSize={accessibility?.fonts?.regular}>
-            <Thead>
-              <Tr
-                bg={colors.transparenciaBlack}
-                color="white"
-                p={4}
-                fontWeight="bold"
-                border={`1px solid ${colors.grayLighter}`}
-              >
-                <Th color="white">Empenho</Th>
-                 <Th color="white">Item Empenho</Th>
-                <Th color="white">Valor empenho</Th>
-                <Th color="white">Fornecedor</Th>
-                <Th color="white">CNPJ fornecedor</Th>
-                <Th color="white">Unidade Orçamentária</Th>
-                <Th color="white">Classificação funcional</Th>
-                <Th color="white">Descrição funcional</Th>
-                <Th color="white">Subelemento</Th>
-              </Tr>
-            </Thead>
-            <Tbody fontSize='12px'>
-              {dadosParaExibir.map((row, index) => (
-                <Tr
-                  key={index}
-                  bg={index % 2 === 0 ? useColorModeValue("white", "black") : useColorModeValue("#f7f7f7", "grey.100")}
-                  _hover={{ bg: "#d1d1d1", cursor: "pointer", color: useColorModeValue("black", "white") }}
-                  color={useColorModeValue("black", "white")}
-                  onClick={() => {
-                    sessionStorage.setItem('selectedDespesa', JSON.stringify(row));
-                    window.open(`detalhes?Exercicio_Empenho=${row.id_empenho.split('/')[1]}&nr_empenho=${row.id_empenho.split('/')[0]}`, '_blank');
-                  }}
-                >
-                  <Td>{row.id_empenho}</Td>
-                  <Td>{row.item_empenho}</Td>
-                  <Td>{moneyFormatter(Number(row.vlr_empenho))}</Td>
-                  <Td>{row.descr_fornecedor}</Td>
-                  <Td>{row.cnpj_fornecedor}</Td>
-                  <Td>{row.unid_orcam}</Td>
-                  <Td>{row.class_funcional}</Td>
-                  <Td>{row.descr_funcional}</Td>
-                  <Td>{row.subelemento}</Td>
-                </Tr>
-              ))}
-            </Tbody>
-          </Table>
-
-         {!searchTerm && (
+        {dadosParaExibir.length === 0 ? (
   <Box
-    display="flex"
-    flexDirection="column"
-    alignItems="center"
-    paddingBottom="10px"
-    width="80%"
-    mt="20px"
+    width="100%"
+    textAlign="center"
+    padding="40px"
+    bg={useColorModeValue("gray.50", "gray.700")}
+    borderRadius="12px"
+    border="1px solid"
+    borderColor="gray.300"
   >
-    <Box display="flex" justifyContent="space-around" alignItems="center" width="100%" mb="10px">
-      <Button
-        border={`1px solid ${colors.transparenciaBlack}`}
-        width="150px"
-        onClick={() => setPagina((p) => Math.max(p - 1, 1))}
-        disabled={pagina === 1}
-      >
-        Anterior
-      </Button>
-
-      <span>Página {pagina} de {totalPaginas}</span>
-
-      <Button
-        border={`1px solid ${colors.transparenciaBlack}`}
-        width="150px"
-        onClick={() => setPagina((p) => Math.min(p + 1, totalPaginas))}
-        disabled={pagina === totalPaginas}
-      >
-        Próxima
-      </Button>
-    </Box>
-
-    {/* Campo para digitar o número da página */}
-    <Box display="flex" alignItems="center" gap="10px">
-      <Text>Ir para a página:</Text>
-      <Input
-        type="number"
-        width="100px"
-        size="sm"
-        min={1}
-        max={totalPaginas}
-        value={pagina}
-        onChange={(e) => {
-          const val = parseInt(e.target.value, 10);
-          if (!isNaN(val) && val >= 1 && val <= totalPaginas) {
-            setPagina(val);
-          }
-        }}
-      />
-    </Box>
+    <Text fontSize="lg" fontWeight="bold">
+      Dados não encontrados para o período selecionado
+    </Text>
   </Box>
+) : (
+  <>
+    <Table fontSize={accessibility?.fonts?.regular}>
+      <Thead>
+        <Tr
+          bg={colors.transparenciaBlack}
+          color="white"
+          fontWeight="bold"
+        >
+          <Th color="white">Empenho</Th>
+          <Th color="white">Item Empenho</Th>
+          <Th color="white">Valor empenho</Th>
+          <Th color="white">Fornecedor</Th>
+          <Th color="white">CNPJ fornecedor</Th>
+          <Th color="white">Unidade Orçamentária</Th>
+          <Th color="white">Classificação funcional</Th>
+          <Th color="white">Descrição funcional</Th>
+          <Th color="white">Subelemento</Th>
+        </Tr>
+      </Thead>
+
+      <Tbody fontSize="12px">
+        {dadosParaExibir.map((row, index) => (
+          <Tr
+            key={index}
+            bg={
+              index % 2 === 0
+                ? useColorModeValue("white", "black")
+                : useColorModeValue("#f7f7f7", "gray.100")
+            }
+            _hover={{
+              bg: "#d1d1d1",
+              cursor: "pointer",
+              color: useColorModeValue("black", "white"),
+            }}
+            onClick={() => {
+              sessionStorage.setItem("selectedDespesa", JSON.stringify(row));
+              window.open(
+                `detalhes?Exercicio_Empenho=${row.id_empenho.split("/")[1]}&nr_empenho=${row.id_empenho.split("/")[0]}`,
+                "_blank"
+              );
+            }}
+          >
+            <Td>{row.id_empenho}</Td>
+            <Td>{row.item_empenho}</Td>
+            <Td>{moneyFormatter(Number(row.vlr_empenho))}</Td>
+            <Td>{row.descr_fornecedor}</Td>
+            <Td>{row.cnpj_fornecedor}</Td>
+            <Td>{row.unid_orcam}</Td>
+            <Td>{row.class_funcional}</Td>
+            <Td>{row.descr_funcional}</Td>
+            <Td>{row.subelemento}</Td>
+          </Tr>
+        ))}
+      </Tbody>
+    </Table>
+
+    {!searchTerm && (
+      <Box
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        paddingBottom="10px"
+        width="80%"
+        mt="20px"
+      >
+        <Box
+          display="flex"
+          justifyContent="space-around"
+          alignItems="center"
+          width="100%"
+          mb="10px"
+        >
+          <Button
+            onClick={() => setPagina((p) => Math.max(p - 1, 1))}
+            disabled={pagina === 1}
+          >
+            Anterior
+          </Button>
+
+          <span>
+            Página {pagina} de {totalPaginas}
+          </span>
+
+          <Button
+            onClick={() => setPagina((p) => Math.min(p + 1, totalPaginas))}
+            disabled={pagina === totalPaginas}
+          >
+            Próxima
+          </Button>
+        </Box>
+
+        <Box display="flex" alignItems="center" gap="10px">
+          <Text>Ir para a página:</Text>
+          <Input
+            type="number"
+            width="100px"
+            size="sm"
+            min={1}
+            max={totalPaginas}
+            value={pagina}
+            onChange={(e) => {
+              const val = parseInt(e.target.value, 10);
+              if (!isNaN(val) && val >= 1 && val <= totalPaginas) {
+                setPagina(val);
+              }
+            }}
+          />
+        </Box>
+      </Box>
+    )}
+  </>
 )}
-        </>
+
      
     </ContainerBasic>
   );

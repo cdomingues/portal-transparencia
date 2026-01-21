@@ -358,77 +358,88 @@ function Screen({
           Última atualização: <strong>{ultimaAtualizacao}</strong>
         </Text>
 
-        {paginatedContratos.map((row: any) => {
-          const nr = row.nr_empenho ?? row.numero ?? "";
-          const exercicio = Number(row.exercicio_empenho ?? row.exercicio ?? 0);
-          const chave = `${nr}/${exercicio}`;
-          const veiculosData = veiculosPorEmpenho[chave];
-          let veiculosDisplay = "Carregando...";
+       {(!paginatedContratos || paginatedContratos.length === 0) ? (
+  <Box
+    width="100%"
+        textAlign="center"
+        padding="40px"
+        bg={useColorModeValue("gray.50", "gray.700")}
+        borderRadius="12px"
+        border="1px solid"
+        borderColor="gray.300"
+        mb='15px'
+  >
+    <Text fontSize="lg" fontWeight="bold">
+          Dados não encontrados para o período selecionado
+        </Text>
+  </Box>
+) : (
+  paginatedContratos.map((row: any) => {
+    const nr = row.nr_empenho ?? row.numero ?? "";
+    const exercicio = Number(row.exercicio_empenho ?? row.exercicio ?? 0);
+    const chave = `${nr}/${exercicio}`;
+    const veiculosData = veiculosPorEmpenho[chave];
+    let veiculosDisplay = "Carregando...";
 
-          if (veiculosData && typeof veiculosData === "object") {
-            const veicUnicos = extractUniqueVehicles(veiculosData);
-            veiculosDisplay = veicUnicos.length > 0 ? veicUnicos.join(", ") : "Não informado";
-          } else if (typeof veiculosData === "string") {
-            veiculosDisplay = veiculosData;
+    if (veiculosData && typeof veiculosData === "object") {
+      const veicUnicos = extractUniqueVehicles(veiculosData);
+      veiculosDisplay = veicUnicos.length > 0 ? veicUnicos.join(", ") : "Não informado";
+    } else if (typeof veiculosData === "string") {
+      veiculosDisplay = veiculosData;
+    }
+
+    const keyForRow = row.id ?? row.id_empenho ?? chave;
+
+    return (
+      <Box
+        key={keyForRow}
+        border="2px solid transparent"
+        p="12px"
+        borderRadius="16px"
+        mb="12px"
+        bg={useColorModeValue("white", "black")}
+        boxShadow="lg"
+        transition="0.3s"
+        cursor="pointer"
+        _hover={{
+          boxShadow: "xl",
+          transform: "scale(1.01)",
+          border: `2px solid ${colors.transparenciaBlack}`,
+        }}
+        onClick={() => {
+          try {
+            sessionStorage.setItem("selectedDespesa", JSON.stringify(row));
+          } catch (e) {}
+          if (row.id_empenho) {
+            const parts = row.id_empenho.split("/");
+            window.open(
+              `detalhes2?Exercicio_Empenho=${parts[1]}&nr_empenho=${parts[0]}`,
+              "_blank"
+            );
           }
+        }}
+      >
+        <Text
+          fontWeight="bold"
+          fontSize="lg"
+          color={colors.transparenciaBlack}
+          borderBottom={`2px solid ${colors.transparenciaBlack}`}
+          pb="5px"
+          mb="8px"
+        >
+          Empenho: {nr} / {exercicio}
+        </Text>
 
-          const keyForRow = row.id ?? row.id_empenho ?? chave;
-
-          return (
-            <Box
-              key={keyForRow}
-              border="2px solid transparent"
-              p="12px"
-              borderRadius="16px"
-              mb="12px"
-              bg={useColorModeValue("white", "black")}
-              boxShadow="lg"
-              transition="0.3s"
-              cursor="pointer"
-              _hover={{
-                boxShadow: "xl",
-                transform: "scale(1.01)",
-                border: `2px solid ${colors.transparenciaBlack}`,
-              }}
-              onClick={() => {
-                try {
-                  sessionStorage.setItem("selectedDespesa", JSON.stringify(row));
-                } catch (e) {
-                  // ignore sessionStorage errors
-                }
-                if (row.id_empenho) {
-                  const parts = row.id_empenho.split("/");
-                  window.open(`detalhes2?Exercicio_Empenho=${parts[1]}&nr_empenho=${parts[0]}`, "_blank");
-                }
-              }}
-            >
-              <Text fontWeight="bold" fontSize="lg" color={colors.transparenciaBlack} borderBottom={`2px solid ${colors.transparenciaBlack}`} pb="5px" mb="8px">
-                Empenho: {nr} / {exercicio}
-              </Text>
-              <Text>
-                <strong>Fornecedor: </strong>
-                {row.descr_fornecedor ?? "—"}
-              </Text>
-              <Text>
-                <strong>Descrição:</strong> {row.descr_funcional ?? "—"}
-              </Text>
-              <Text>
-                <strong>Valor empenho:</strong> {row.vlr_empenho ?? "—"}
-              </Text>
-              <Text>
-                <strong>Unidade Orçamentária:</strong> {row.unid_orcam ?? "—"}
-              </Text>
-              <Text>
-                <strong>Vínculo: </strong>
-                {row.vinculo ?? "—"}
-              </Text>
-              <Text>
-                <strong>Veículo(s): </strong>
-                {veiculosDisplay}
-              </Text>
-            </Box>
-          );
-        })}
+        <Text><strong>Fornecedor:</strong> {row.descr_fornecedor ?? "—"}</Text>
+        <Text><strong>Descrição:</strong> {row.descr_funcional ?? "—"}</Text>
+        <Text><strong>Valor empenho:</strong> {row.vlr_empenho ?? "—"}</Text>
+        <Text><strong>Unidade Orçamentária:</strong> {row.unid_orcam ?? "—"}</Text>
+        <Text><strong>Vínculo:</strong> {row.vinculo ?? "—"}</Text>
+        <Text><strong>Veículo(s):</strong> {veiculosDisplay}</Text>
+      </Box>
+    );
+  })
+)}
 
         <PaginationComponent pages={totalPages} setCurrentPage={setCurrentPage} currentPage={currentPage} />
       </Box>
