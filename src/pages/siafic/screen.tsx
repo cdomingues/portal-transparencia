@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AccordionCommponent from "../../components/Accordion";
 import ContainerBasic from "../../components/Container/Basic";
-import { Checkbox, Flex, Heading, Input, Link, Stack, Text } from "@chakra-ui/react";
+import { Box, Button, Checkbox, Flex, Heading, Input, Link, Stack, Text } from "@chakra-ui/react";
 import { useFontSizeAccessibilityContext } from "../../context/fontSizeAccessibility";
 import { isMobile } from "react-device-detect";
 import usePagina from "../../hooks/usePagina";
@@ -82,11 +82,50 @@ function Screen() {
                  >
         <Link  href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/7e4c189c-c2af-43a3-8392-1c1dce234c50/Plano_de_A%C3%A7%C3%B5es.pdf" target="blank"><strong>Plano de ação - SIAFIC</strong></Link>
         </Stack>
+     </Flex>
+     <Box p={2} mt='20px' display="flex" flexWrap="wrap" gap="10px">
+       <Button
+         as="a"
+         href="https://leideacesso.etransparencia.com.br/mogidascruzes.camara.sp/tdaportalclient.aspx?418"
+         target="_blank"
+         colorScheme="blue"
+         size="sm"
+         w="320px"       // largura fixa
+         h="80px"     // altura mínima maior
+         whiteSpace="normal" // permite quebra de linha
+         textAlign="center"
+       >
+         Portal da Transparência da Câmara Municipal
+       </Button>
 
-        
+        <Button
+         as="a"
+         href="https://iprem.mogidascruzes.sp.gov.br/#"
+         target="_blank"
+         colorScheme="blue"
+         size="sm"
+         w="320px"       // largura fixa
+         h="80px"     // altura mínima maior
+         whiteSpace="normal" // permite quebra de linha
+         textAlign="center"
+       >
+         Portal da Transparência do Iprem
+       </Button>
 
-
-      </Flex>
+        <Button
+         as="a"
+         href="https://www.semae.sp.gov.br/#"
+         target="_blank"
+         colorScheme="blue"
+         size="sm"
+         w="320px"       // largura fixa
+         h="80px"     // altura mínima maior
+         whiteSpace="normal" // permite quebra de linha
+         textAlign="center"
+       >
+         Portal da Transparência do Semae
+       </Button>
+       </Box>
     </ContainerBasic>
   );
 }
