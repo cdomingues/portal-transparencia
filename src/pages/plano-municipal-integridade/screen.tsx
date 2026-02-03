@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ContainerBasic from "../../components/Container/Basic";
+import bannerIntegridadeLarge  from '../../assets/images/Banner_Integridade_1920x2020.jpg';
+import bannerIntegridadeMedium  from '../../assets/images/Banner_Integridade_1200x180.jpg';
+import bannerIntegridadeSmall  from '../../assets/images/Banner_Integridade_640x160.jpg';
 import {
   Accordion,
   AccordionButton,
@@ -115,8 +118,29 @@ const {paginaData, loadings, error} = usePagina("75");
         borderRadius="18px"
         mb="15px"
       >
+        <picture>
+      {/* Desktop */}
+      <source
+        media="(min-width: 1200px)"
+        srcSet={bannerIntegridadeLarge.src}
+      />
+
+      {/* Tablet */}
+      <source
+        media="(min-width: 640px)"
+        srcSet={bannerIntegridadeMedium.src}
+      />
+
+      {/* Mobile (fallback) */}
+      <img
+        src={bannerIntegridadeSmall.src}
+        alt="Plano Municipal de Integridade"
+        className="w-full h-auto object-cover"
+      />
+    </picture>
          {conteudo && (
                 <Box
+                  mt='20px'
                   dangerouslySetInnerHTML={{ __html: conteudo }}
                   sx={{
                     p: { mb: 2, textAlign: "justify" },
