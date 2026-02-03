@@ -3,14 +3,7 @@ import Head from "next/head";
 //import BlogComponent from "../components/Blog";
 //import { News } from "../types";
 import { PublicPolicyData } from "../api/totalizador/politicas-publicas";
-import CardHorizon from "../../components/CardHorizon";
-import diretriz_orcamentaria from "../../assets/images/icones/diretriz_orcamentaria.svg";
-import balanco_anual from "../../assets/images/icones/balanco_anual.svg";
-import lei_orcamentaria from "../../assets/images/icones/lei_orcamentaria_anual.svg";
-import parecer_tribunal from "../../assets/images/icones/parecer_tribunal.svg";
-import plano_plurianual from "../../assets/images/icones/plano_plurianual.svg";
-import relatorio_gestao_fiscal from "../../assets/images/icones/relatorio_gestao_fiscal.svg";
-import relatorio_resumido from "../../assets/images/icones/relatorio_resumido.svg";
+
 import {
   Box,
   Divider,
@@ -56,6 +49,7 @@ import despesas_covid from "../../assets/images/icones/despesas covid.svg"
 import receitas_covid from "../../assets/images/icones/receitas covid.svg"
 import { FaDownload } from "react-icons/fa";
 import usePagina from '../../hooks/usePagina';
+import ListarArquivos from "../../components/ListarArquivos";
 
 type PropsInput = {
   handler: {
@@ -133,8 +127,10 @@ function HomeScreen({ handler }: PropsInput) {
           borderRadius="18px"
           marginBottom="15px"
         >
-          
-     
+          <Text fontSize="md" mb="10px">
+                  Última atualização: <strong>03/02/2026</strong>
+                </Text>
+      <ListarArquivos tipoFiltro={20} />
       <UnorderedList listStyleType="none" 
                 color="gray.500"
                 fontSize={accessibility?.fonts?.regular}>
@@ -155,6 +151,7 @@ function HomeScreen({ handler }: PropsInput) {
           <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/41854082-18c2-4101-a51d-03dc7b079563/relatorios_circunstanciados_e_planos_de_at_dJvDFc5.pdf" target="_blank"><div style={{ display: 'flex', alignItems: 'center' }}> <FaDownload style={{ marginRight: '10px', marginTop: 'auto', marginBottom: 'auto' }} /> <ListItem className="list-group-item"  pb={2}>  Relatório Circunstanciado e Plano de Atuação 2023-2024</ListItem ></div></Link>
           </Box>
                           
+                         
                           
                         </UnorderedList>
         </Box>

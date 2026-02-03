@@ -29,7 +29,7 @@ interface FilesListProps {
 const FilesList: React.FC<FilesListProps> = ({ tipoFiltro }) => {
   const [arquivos, setArquivos] = useState<Arquivo[]>([]);
   const [nextPage, setNextPage] = useState<number | null>(1); // Inicializado em 1
-  const [selectedYear, setSelectedYear] = useState<number| null>(2025);
+  const [selectedYear, setSelectedYear] = useState<number| null>(2026);
   const filtro = tipoFiltro
   const apiUrl = "https://dadosadm.mogidascruzes.sp.gov.br"
   const url = `https://dadosadm.mogidascruzes.sp.gov.br/api/arquivos/?page_size=100&file_type=${filtro}`
@@ -116,9 +116,7 @@ const ultimaAtualizacao = dataMaisAtual ? new Date(dataMaisAtual.cadastro).toLoc
       </option>
     ))}
   </Select> */}
-<Text fontSize="md" mb="10px">
-        Última atualização: <strong>{ultimaAtualizacao}</strong>
-      </Text>
+
 <Menu>
   <MenuButton as={Button}  maxW="200px" bgColor={colors.transparenciaCinza}>
     {selectedYear || "Todos os Anos"}
