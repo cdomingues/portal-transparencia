@@ -44,7 +44,6 @@ type Arquivo = {
   id_tabela: number
   descricao: string
   nome: string
-  data: string
 }
 
 type ArquivosPorOcorrencia = {
@@ -120,6 +119,16 @@ function Screen({ id_contrato }: any) {
 
     fetchOcorrencias();
   }, []);
+
+  useEffect(() => {
+  if (!ocorrencias.length) return
+
+  ocorrencias.forEach((ocorrencia) => {
+    carregarArquivosOcorrencia(ocorrencia.id)
+  })
+}, [ocorrencias])
+
+
 const carregarArquivosOcorrencia = async (ocorrenciaId: number) => {
   if (arquivosPorOcorrencia[ocorrenciaId]) return
 
@@ -138,6 +147,8 @@ const carregarArquivosOcorrencia = async (ocorrenciaId: number) => {
     [ocorrenciaId]: arquivosFiltrados,
   }))
 }
+
+
 
   
 
@@ -216,7 +227,7 @@ const carregarArquivosOcorrencia = async (ocorrenciaId: number) => {
               <Thead>
                 <Tr>
                   <Th
-                    colSpan={3}
+                    colSpan={2}
                     textAlign="center"
                     bg={colors.transparenciaBlack}
                     color="white"
@@ -228,9 +239,6 @@ const carregarArquivosOcorrencia = async (ocorrenciaId: number) => {
                   </Th>
                 </Tr>
                 <Tr>
-                  <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>
-                    Data
-                  </Th>
                   <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>
                     Nome do Arquivo
                   </Th>
@@ -245,10 +253,7 @@ const carregarArquivosOcorrencia = async (ocorrenciaId: number) => {
                 .map((file) => (
                   <Tr key={file.id}>
                     <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
-                      {moment(file.data).format('DD/MM/YYYY')}
-                    </Td>
-                    <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
-                      {file.descricao}
+                      {file.nome}
                     </Td>
                     <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
                       <Link 
@@ -269,12 +274,13 @@ const carregarArquivosOcorrencia = async (ocorrenciaId: number) => {
 
 
           {/* TABELA DE OCORRENCIAS */}
-         {ocorrencias.length > 0 && (
+         {/* TABELA DE OCORRÊNCIAS */}
+{ocorrencias.length > 0 && (
   <Table variant="simple" size="md" width="100%" overflow="hidden" mt="10px">
     <Thead>
       <Tr>
         <Th
-          colSpan={4}
+          colSpan={3}
           textAlign="center"
           bg={colors.transparenciaBlack}
           color="white"
@@ -285,91 +291,105 @@ const carregarArquivosOcorrencia = async (ocorrenciaId: number) => {
           OCORRÊNCIAS
         </Th>
       </Tr>
-      <Tr> 
-        <Th bg={useColorModeValue("#f2f1f1", "black")} fontWeight={'bold'} border={`1px solid ${colors.transparenciaBlack}`}>
+
+      <Tr>
+        <Th
+          bg={useColorModeValue("#f2f1f1", "black")}
+          border={`1px solid ${colors.transparenciaBlack}`}
+        >
           Data da ocorrência
         </Th>
-        <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>
+
+        <Th
+          bg={useColorModeValue("#f2f1f1", "black")}
+          border={`1px solid ${colors.transparenciaBlack}`}
+        >
           Descrição
         </Th>
-        <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>
+
+        <Th
+          bg={useColorModeValue("#f2f1f1", "black")}
+          border={`1px solid ${colors.transparenciaBlack}`}
+        >
           Complemento
         </Th>
-        
       </Tr>
     </Thead>
+
     <Tbody>
-  {ocorrencias.map((file) => {
-    const arquivos = arquivosPorOcorrencia[file.id] || []
+      {ocorrencias.map((ocorrencia) => {
+        const arquivos = arquivosPorOcorrencia[ocorrencia.id] || []
 
-    return (
-      <React.Fragment key={file.id}>
-        {/* Linha da ocorrência */}
-        <Tr>
-          
-          <Td bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>{moment(file.data).format("DD/MM/YYYY")}</Td>
-          <Td bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>{file.descricao}</Td>
-          <Td bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>{file.complemento}</Td>
-          
-        </Tr>
+        return (
+          <React.Fragment key={ocorrencia.id}>
+            {/* Linha da ocorrência */}
+            <Tr>
+              <Td
+                bg={useColorModeValue("#f2f1f1", "black")}
+                border={`1px solid ${colors.transparenciaBlack}`}
+              >
+                {moment(ocorrencia.data).format("DD/MM/YYYY")}
+              </Td>
 
-        {/* Accordion */}
-        <Tr >
-          <Td colSpan={3} bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>
-            
-                  <Tr flex="1" textAlign="left" fontWeight="bold" >
-                    Arquivos da ocorrência #{file.id}
-                    {arquivos.length > 0 && ` (${arquivos.length})`}
-                  </Tr>
-                   <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>
-                    Data 
-                  </Th>
-                  <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>
-                    Nome do Arquivo
-                  </Th>
-                  <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>
-                    Download
-                  </Th>
+              <Td
+                bg={useColorModeValue("#f2f1f1", "black")}
+                border={`1px solid ${colors.transparenciaBlack}`}
+              >
+                {ocorrencia.descricao}
+              </Td>
 
-                  
+              <Td
+                bg={useColorModeValue("#f2f1f1", "black")}
+                border={`1px solid ${colors.transparenciaBlack}`}
+              >
+                {ocorrencia.complemento}
+              </Td>
+            </Tr>
 
-                
-                  {arquivos.length === 0 ? (
-                    <Box color="gray.500">
-                      Nenhum arquivo encontrado
-                    </Box>
-                  ) : (
-                    arquivos.map((arq) => (
-                      <Tr key={arq.id} mb={2} border={`1px solid ${colors.transparenciaBlack}`}>
-                       
-                     
-                      <Td> {arq.data}</Td>
-                      <Td> {arq.descricao}</Td>
-                      <Td> <a
-                          href={`https://licitacao-mgcon.mogidascruzes.sp.gov.br/arquivo/download?id=${arq.id}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          style={{ color: "#185DA6" }}
-                        >
-                           {arq.nome}
-                        </a> </Td>
-                       </Tr>
+            {/* Linhas dos arquivos da ocorrência */}
+            {arquivos.length === 0 ? (
+              <Tr>
+                <Td />
+                <Td
+                  colSpan={2}
+                  color="gray.500"
+                  border={`1px solid ${colors.transparenciaBlack}`}
+                >
+                  Nenhum arquivo encontrado para esta ocorrência.
+                </Td>
+              </Tr>
+            ) : (
+              arquivos.map((arq) => (
+                <Tr key={arq.id}>
+                  {/* coluna vazia para alinhar */}
+                  <Td border={`1px solid ${colors.transparenciaBlack}`} />
 
+                  <Td border={`1px solid ${colors.transparenciaBlack}`}>
+                     {arq.descricao}
+                  </Td>
+
+                  <Td border={`1px solid ${colors.transparenciaBlack}`}>
+                    <Link
+                      href={`https://licitacao-mgcon.mogidascruzes.sp.gov.br/arquivo/download?id=${arq.id}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       
-                    ))
-                  )}
-               
-          </Td>
-        </Tr>
-      </React.Fragment>
-    )
-  })}
-</Tbody>
-
-
-
+                      fontWeight="medium"
+                      _hover={{ textDecoration: "underline" }}
+                    >
+                      Baixar
+                    </Link>
+                  </Td>
+                </Tr>
+              ))
+            )}
+          </React.Fragment>
+        )
+      })}
+    </Tbody>
   </Table>
 )}
+
 
         </Box>
       </Box>
