@@ -38,44 +38,35 @@ const FilesList: React.FC<FilesListProps> = ({ tipoFiltro }) => {
   //const count = "page_size=100" 
 
   const fetchData = async () => {
-    let currentPage = 1; // Começa na página inicial
-    let hasMorePages = true;
-  
-    try {
-      while (hasMorePages) {
-        const response = await fetch(
-          `${apiUrl}/api/arquivos/?page=${currentPage}&file_type=${tipoFiltro}`
-        );
-  
-        if (!response.ok) {
-          console.error(`Erro na requisição: ${response.status} - ${response.statusText}`);
-          break;
-        }
-  
-        const data = await response.json();
-  console.log(data)
-        // Filtrar os resultados conforme o ano selecionado
-        const filteredResults = data.results.filter((arquivo: { ano: number }) =>
-          selectedYear ? arquivo.ano === selectedYear : true
-        );
-  
-        // Atualizar estado com novos dados
-        setArquivos((prevArquivos) => [...prevArquivos, ...data.results]);
-  
-        // Verifica se há mais páginas
-        if (data.next) {
-          currentPage++; // Incrementa a página para a próxima iteração
-        } else {
-          hasMorePages = false; // Encerra o loop quando não houver próxima página
-        }
+  let page = 1;
+  let hasNext = true;
+  const allResults: Arquivo[] = [];
+
+  try {
+    while (hasNext) {
+      const response = await fetch(
+        `${apiUrl}/api/arquivos/?file_type=${tipoFiltro}&page=${page}`
+      );
+
+      if (!response.ok) break;
+
+      const data = await response.json();
+
+      allResults.push(...data.results);
+
+      if (data.next) {
+        page++;
+      } else {
+        hasNext = false;
       }
-  
-      // Reseta o estado da página para evitar reexecuções
-      setNextPage(null);
-    } catch (error) {
-      console.error("Erro ao obter os arquivos:", error);
     }
-  };
+
+    setArquivos(allResults);
+  } catch (error) {
+    console.error("Erro ao buscar arquivos:", error);
+  }
+};
+
   
   useEffect(() => {
     if (nextPage !== null) {

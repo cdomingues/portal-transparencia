@@ -8,6 +8,12 @@ import {
   Td,
   useColorModeValue,
   Link,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon
+
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
@@ -19,6 +25,7 @@ import { objetos_licitacao } from "../../../utils/objetos_licitacao";
 import { getSituacaoText } from "../../../utils/situacaoLicitacao";
 import id from "date-fns/esm/locale/id/index.js";
 import colors from "../../../styles/colors";
+import axios from "axios";
 
 export interface ArquivoLicitacao {
   id: number;
@@ -29,10 +36,19 @@ export interface ArquivoLicitacao {
   complemento: string;
 }
 
-export interface Arquivo {
-  id: number;
-  id_tabela: number;
-  descricao_arquivo: string;
+
+
+type Arquivo = {
+  id: number
+  tabela: string
+  id_tabela: number
+  descricao: string
+  nome: string
+  data: string
+}
+
+type ArquivosPorOcorrencia = {
+  [ocorrenciaId: number]: Arquivo[]
 }
 
 export const contentContractsAndAtas = {
@@ -48,6 +64,8 @@ function Screen({ id_contrato }: any) {
   const [arquivo, setArquivo] = useState<any[]>([]);
   const [data, setData] = useState<any[]>([]);
   const [ocorrencias, setOcorrencias] = useState<any[]>([]);
+  const [arquivosPorOcorrencia, setArquivosPorOcorrencia] =
+  useState<ArquivosPorOcorrencia>({})
   
   const url = `https://dadosadm.mogidascruzes.sp.gov.br/api/licitacoes?id=${id_contrato}`;
   const url_files = `https://dadosadm.mogidascruzes.sp.gov.br/api/arquivos_contratos_atas?id_contrato_id=${id_contrato}`;
@@ -102,6 +120,24 @@ function Screen({ id_contrato }: any) {
 
     fetchOcorrencias();
   }, []);
+const carregarArquivosOcorrencia = async (ocorrenciaId: number) => {
+  if (arquivosPorOcorrencia[ocorrenciaId]) return
+
+  const response = await axios.get(
+    `https://dadosadm.mogidascruzes.sp.gov.br/api/licitacoes-arquivos/?id_tabela=${ocorrenciaId}`
+  )
+
+  const arquivosFiltrados = response.data.results.filter(
+    (a: any) =>
+      a.tabela === "OCORRENCIA" &&
+      a.id_tabela === ocorrenciaId
+  )
+
+  setArquivosPorOcorrencia((prev) => ({
+    ...prev,
+    [ocorrenciaId]: arquivosFiltrados,
+  }))
+}
 
   
 
@@ -180,7 +216,7 @@ function Screen({ id_contrato }: any) {
               <Thead>
                 <Tr>
                   <Th
-                    colSpan={2}
+                    colSpan={3}
                     textAlign="center"
                     bg={colors.transparenciaBlack}
                     color="white"
@@ -192,6 +228,9 @@ function Screen({ id_contrato }: any) {
                   </Th>
                 </Tr>
                 <Tr>
+                  <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>
+                    Data
+                  </Th>
                   <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>
                     Nome do Arquivo
                   </Th>
@@ -206,7 +245,10 @@ function Screen({ id_contrato }: any) {
                 .map((file) => (
                   <Tr key={file.id}>
                     <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
-                      {file.nome}
+                      {moment(file.data).format('DD/MM/YYYY')}
+                    </Td>
+                    <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
+                      {file.descricao}
                     </Td>
                     <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
                       <Link 
@@ -243,8 +285,8 @@ function Screen({ id_contrato }: any) {
           OCORRÊNCIAS
         </Th>
       </Tr>
-      <Tr>
-        <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>
+      <Tr> 
+        <Th bg={useColorModeValue("#f2f1f1", "black")} fontWeight={'bold'} border={`1px solid ${colors.transparenciaBlack}`}>
           Data da ocorrência
         </Th>
         <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>
@@ -253,46 +295,79 @@ function Screen({ id_contrato }: any) {
         <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>
           Complemento
         </Th>
-        <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>
-          Arquivos
-        </Th>
+        
       </Tr>
     </Thead>
     <Tbody>
-      {ocorrencias.map((file) => (
-        <Tr key={file.id}>
-          <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
-            {moment(file.data).format("DD/MM/YYYY")}
-          </Td>
-          <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
-            {file.descricao}
-          </Td>
-          <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
-            {file.complemento}
-          </Td>
-          <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
-            {arquivo
-              .filter((arquivo) => arquivo.id_tabela === file.id)
-              .map((arquivo) => (
-                <div key={arquivo.id}>
-                  <a
-                    href={`https://licitacao-mgcon.mogidascruzes.sp.gov.br/arquivo/download?id=${arquivo.id}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      color: "#185DA6",
-                      fontWeight: "normal",
-                      textDecoration: "none",
-                    }}
-                  >
-                    Baixar {arquivo.descricao_arquivo}
-                  </a>
-                </div>
-              ))}
+  {ocorrencias.map((file) => {
+    const arquivos = arquivosPorOcorrencia[file.id] || []
+
+    return (
+      <React.Fragment key={file.id}>
+        {/* Linha da ocorrência */}
+        <Tr>
+          
+          <Td bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>{moment(file.data).format("DD/MM/YYYY")}</Td>
+          <Td bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>{file.descricao}</Td>
+          <Td bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>{file.complemento}</Td>
+          
+        </Tr>
+
+        {/* Accordion */}
+        <Tr >
+          <Td colSpan={3} bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>
+            
+                  <Tr flex="1" textAlign="left" fontWeight="bold" >
+                    Arquivos da ocorrência #{file.id}
+                    {arquivos.length > 0 && ` (${arquivos.length})`}
+                  </Tr>
+                   <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>
+                    Data 
+                  </Th>
+                  <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>
+                    Nome do Arquivo
+                  </Th>
+                  <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>
+                    Download
+                  </Th>
+
+                  
+
+                
+                  {arquivos.length === 0 ? (
+                    <Box color="gray.500">
+                      Nenhum arquivo encontrado
+                    </Box>
+                  ) : (
+                    arquivos.map((arq) => (
+                      <Tr key={arq.id} mb={2} border={`1px solid ${colors.transparenciaBlack}`}>
+                       
+                     
+                      <Td> {arq.data}</Td>
+                      <Td> {arq.descricao}</Td>
+                      <Td> <a
+                          href={`https://licitacao-mgcon.mogidascruzes.sp.gov.br/arquivo/download?id=${arq.id}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{ color: "#185DA6" }}
+                        >
+                           {arq.nome}
+                        </a> </Td>
+                       </Tr>
+
+                      
+                    ))
+                  )}
+               
           </Td>
         </Tr>
-      ))}
-    </Tbody>
+      </React.Fragment>
+    )
+  })}
+</Tbody>
+
+
+
   </Table>
 )}
 
