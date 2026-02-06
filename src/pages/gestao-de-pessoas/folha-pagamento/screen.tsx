@@ -241,7 +241,7 @@ function Screen() {
         <Select value={selectedYear} onChange={(e) => setSelectedYear(Number(e.target.value))} width="150px">
           <option value="">Todos os anos</option>
           {[...Array(2026 - 2002 + 1)].map((_, i) => {
-            const year = 2025 - i;
+            const year = 2026 - i;
             return (
               <option key={year} value={year}>
                 {year}
