@@ -227,7 +227,7 @@ const carregarArquivosOcorrencia = async (ocorrenciaId: number) => {
               <Thead>
                 <Tr>
                   <Th
-                    colSpan={2}
+                    colSpan={3}
                     textAlign="center"
                     bg={colors.transparenciaBlack}
                     color="white"
@@ -239,6 +239,9 @@ const carregarArquivosOcorrencia = async (ocorrenciaId: number) => {
                   </Th>
                 </Tr>
                 <Tr>
+                   <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>
+                    Data
+                  </Th>
                   <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>
                     Nome do Arquivo
                   </Th>
@@ -253,7 +256,10 @@ const carregarArquivosOcorrencia = async (ocorrenciaId: number) => {
                 .map((file) => (
                   <Tr key={file.id}>
                     <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
-                      {file.nome}
+                      {moment(file.data).format('DD/MM/YYYY')}
+                    </Td>
+                     <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
+                      {file.descricao}
                     </Td>
                     <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
                       <Link 

@@ -13,7 +13,12 @@ import {
   Tab,
   TabPanels,
   TabPanel,
-  Link
+  Link,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
@@ -127,6 +132,21 @@ function Screen({ id_contrato }: any) {
     fetchArquivos();
   }, [despesa]);
 
+  const arquivosPorEtapa = React.useMemo(() => {
+  const map: Record<string, Arquivo[]> = {}
+
+  arquivo
+    .filter(a => a.publico === true && a.arquivo)
+    .forEach(a => {
+      if (!map[a.id_etapa]) {
+        map[a.id_etapa] = []
+      }
+      map[a.id_etapa].push(a)
+    })
+
+  return map
+}, [arquivo])
+
  if (loadings) {
       return <Text>Carregando conteúdo...</Text>;
     }
@@ -164,9 +184,7 @@ function Screen({ id_contrato }: any) {
             <Tab _selected={{ color: colors.transparenciaCinza }}>
               <Text fontWeight="700">Etapas</Text>
             </Tab>
-             <Tab _selected={{ color: colors.transparenciaCinza }}>
-              <Text fontWeight="700">Arquivos</Text>
-            </Tab>
+             
           </TabList>
 
           <TabPanels>
@@ -213,8 +231,11 @@ function Screen({ id_contrato }: any) {
                         ["Status", despesa.status_convenio],
                         ["Ano", despesa.ano],
                         ["Data formalizado", moment(despesa.data_formalizado).format("DD/MM/YYYY")],
-                        ["Processo administrativo", despesa.processo_principal],
+                       // ["Processo administrativo", despesa.processo_principal],
                         ["Objeto", despesa.objeto],
+                        ["Finalidade", despesa.finalidade_objeto],
+                        ['Tipo Instrumento', despesa.tipo_instrumento || 'Não informado'], 
+
                         ["Valor repasse", moneyFormatter(Number(despesa.valor_repasse))],
                         ["Valor repassado", moneyFormatter(Number(despesa.valor_repassado))],
                         ["Valor contrapartida", moneyFormatter(Number(despesa.contrapartida))],
@@ -315,84 +336,112 @@ function Screen({ id_contrato }: any) {
                   </Tr>
                 </Thead>
                 <Tbody>
-                  {etapa
-                    .sort((a, b) => new Date(b.data_inicio).getTime() - new Date(a.data_inicio).getTime())
-                    .map((file) => (
-                      <Tr key={file.encaminhamento}>
-                        <Td border={`1px solid ${colors.transparenciaBlack}`}>
-                          {file.numero_etapa}
-                        </Td>
-                        <Td border={`1px solid ${colors.transparenciaBlack}`}>
-                          {moment(file.data_inicio).format("DD/MM/YYYY")}
-                        </Td>
-                        <Td border={`1px solid ${colors.transparenciaBlack}`}>{file.prazo_em_dias}</Td>
-                        <Td border={`1px solid ${colors.transparenciaBlack}`}>
-                          {file.data_inicio && typeof file.prazo_em_dias === "number"
-                            ? (() => {
-                                const data = new Date(file.data_inicio);
-                                data.setDate(data.getDate() + file.prazo_em_dias);
-                                return data.toLocaleDateString("pt-BR");
-                              })()
-                            : "—"}
-                        </Td>
-                        <Td border={`1px solid ${colors.transparenciaBlack}`}>{file.encaminhamento}</Td>
-                        <Td border={`1px solid ${colors.transparenciaBlack}`}>{file.situacao}</Td>
-                        <Td border={`1px solid ${colors.transparenciaBlack}`}>{file.devolvido ? "Sim" : "Não"}</Td>
-                        <Td border={`1px solid ${colors.transparenciaBlack}`}>{moment(file.data_devolucao).format("DD/MM/YYYY")}</Td>
-                        <Td border={`1px solid ${colors.transparenciaBlack}`}>{file.sub_etapa}</Td>
-                      </Tr>
-                    ))}
-                </Tbody>
-              </Table>
-            </TabPanel>
+  {etapa
+    .sort(
+      (a, b) =>
+        new Date(b.data_inicio).getTime() -
+        new Date(a.data_inicio).getTime()
+    )
+    .map((file) => {
+      const arquivosDaEtapa = arquivosPorEtapa[file.id] || []
 
-            <TabPanel>
-              <Table variant="simple" size="md" width="100%" overflow="hidden" mb={5}>
-                <Thead>
-                  <Tr>
-                    <Th
-                      colSpan={8}
-                      textAlign="center"
-                      bg={colors.transparenciaBlack}
-                      color="white"
-                      p={4}
-                      fontWeight="bold"
-                      border={`1px solid ${colors.primaryDefault80p}`}
+      return (
+        <React.Fragment key={file.id}>
+          {/* Linha da etapa */}
+          <Tr>
+            <Td border={`1px solid ${colors.transparenciaBlack}`}>
+              {file.numero_etapa}
+            </Td>
+            <Td border={`1px solid ${colors.transparenciaBlack}`}>
+              {moment(file.data_inicio).format("DD/MM/YYYY")}
+            </Td>
+            <Td border={`1px solid ${colors.transparenciaBlack}`}>
+              {file.prazo_em_dias}
+            </Td>
+            <Td border={`1px solid ${colors.transparenciaBlack}`}>
+              {file.data_inicio && typeof file.prazo_em_dias === "number"
+                ? (() => {
+                    const data = new Date(file.data_inicio)
+                    data.setDate(data.getDate() + file.prazo_em_dias)
+                    return data.toLocaleDateString("pt-BR")
+                  })()
+                : "—"}
+            </Td>
+            <Td border={`1px solid ${colors.transparenciaBlack}`}>
+              {file.encaminhamento}
+            </Td>
+            <Td border={`1px solid ${colors.transparenciaBlack}`}>
+              {file.situacao}
+            </Td>
+            <Td border={`1px solid ${colors.transparenciaBlack}`}>
+              {file.devolvido ? "Sim" : "Não"}
+            </Td>
+            <Td border={`1px solid ${colors.transparenciaBlack}`}>
+              {file.data_devolucao
+                ? moment(file.data_devolucao).format("DD/MM/YYYY")
+                : "—"}
+            </Td>
+            <Td border={`1px solid ${colors.transparenciaBlack}`}>
+              {file.sub_etapa}
+            </Td>
+          </Tr>
+
+          {/* Accordion de arquivos (só se existir) */}
+          {arquivosDaEtapa.length > 0 && (
+            <Tr>
+              <Td colSpan={9} p={0} border="none">
+                <Accordion allowToggle border={`1px solid ${colors.transparenciaBlack}`}>
+                  <AccordionItem border="none">
+                    <AccordionButton
+                      bg={useColorModeValue("#f9f9f9", "gray.700")}
+                      _hover={{ bg: useColorModeValue("#ececec", "gray.600") }}
                     >
-                      ARQUIVOS
-                    </Th>
-                  </Tr>
-                  <Tr border={`1px solid ${colors.transparenciaBlack}`}>
-                    <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}> Nº da etapa</Th>
-                    <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>Nome do arquivo</Th>
-                    <Th bg={useColorModeValue("#f2f1f1", "black")} border={`1px solid ${colors.transparenciaBlack}`}>Arquivo</Th>
-                  
-                  </Tr>
-                </Thead>
-               <Tbody>
-  {arquivo
-    .filter(file => file.publico === true && file.arquivo)
-    .sort((a, b) => a.id - b.id)
-    .map((file2) => (
-      <Tr key={file2.id}>
-        <Td border={`1px solid ${colors.transparenciaBlack}`} textAlign="center">
-          {etapasMap[file2.id_etapa] ?? "—"}
-        </Td>
+                      <Box flex="1" textAlign="left" fontWeight="bold" >
+                        Arquivos da Etapa {file.numero_etapa}
+                      </Box>
+                      <AccordionIcon />
+                    </AccordionButton>
 
-        <Td border={`1px solid ${colors.transparenciaBlack}`}>
-          {file2.nome_arquivo}
-        </Td>
-
-        <Td border={`1px solid ${colors.transparenciaBlack}`}>
-          <Link href={file2.arquivo} target="_blank">
-            Download
-          </Link>
-        </Td>
-      </Tr>
-    ))}
+                    <AccordionPanel pb={4}>
+                      <Table size="sm" variant="simple">
+                        <Thead>
+                          <Tr>
+                            <Th>Nome do arquivo</Th>
+                            <Th>Download</Th>
+                          </Tr>
+                        </Thead>
+                        <Tbody>
+                          {arquivosDaEtapa.map((arq) => (
+                            <Tr key={arq.id}>
+                              <Td>{arq.nome_arquivo}</Td>
+                              <Td >
+                                <Link
+                                  href={arq.arquivo}
+                                  isExternal
+                                  fontWeight="bold"
+                                >
+                                  Download
+                                </Link>
+                              </Td>
+                            </Tr>
+                          ))}
+                        </Tbody>
+                      </Table>
+                    </AccordionPanel>
+                  </AccordionItem>
+                </Accordion>
+              </Td>
+            </Tr>
+          )}
+        </React.Fragment>
+      )
+    })}
 </Tbody>
+
               </Table>
             </TabPanel>
+
+            
           </TabPanels>
         </Tabs>
       </Box>
