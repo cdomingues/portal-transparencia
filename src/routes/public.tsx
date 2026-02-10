@@ -344,6 +344,28 @@ let publicRoutes: IPublicRoute[] = [
         icon: AiFillCaretRight,
       },]
   },
+  {
+    name: "Emendas Parlamentares",
+    path: "/emendas-parlamentares",
+    element: <div></div>,
+    icon: BsFileText,
+    group: [
+      
+      {
+       defaultPath: "/emendas-parlamentares",
+        name: "Emendas - Receitas",
+        path: "/receitas-emendas",
+        icon: AiFillCaretDown,
+        subgroup: false,
+      },
+      {
+       defaultPath: "/emendas-parlamentares",
+        name: "Emendas - Despesas",
+        path: "/emendas-parlamentares/despesas-emendas",
+        icon: AiFillCaretDown,
+        subgroup: false,
+      },
+    ]},
 
   {
     name: "Execução Orçamentária",
@@ -364,12 +386,7 @@ let publicRoutes: IPublicRoute[] = [
         path: "receitas",
         icon: AiFillCaretRight,
       },
-      {
-        defaultPath: "/gestao-orcamentaria",
-        name: "Emendas Parlamentares",
-        path: "receitas/receitas-emendas",
-        icon: AiFillCaretRight,
-      },
+     
      
       
        {
@@ -384,12 +401,7 @@ let publicRoutes: IPublicRoute[] = [
         path: "despesas/despesas-gerais",
         icon: AiFillCaretRight,
       },
-      {
-        defaultPath: "/gestao-orcamentaria",
-        name: "Emendas Parlamentares",
-        path: "despesas/despesas-emendas",
-        icon: AiFillCaretRight,
-      },
+   
       {
         defaultPath: "/gestao-orcamentaria",
         name: "Adiantamentos",
