@@ -317,7 +317,7 @@ useEffect(() => {
              _hover={{ bg: "#d1d1d1", cursor: "pointer" , color: useColorModeValue("black", "white") }}
              color={useColorModeValue("black", "white")}
               onClick={() => {
-            sessionStorage.setItem('selectedConvenio', JSON.stringify(row));
+           // sessionStorage.setItem('selectedConvenio', JSON.stringify(row));
             window.open( `receitas-emendas-detalhes?id_convenio=${row.id_convenio}`, '_blank')}}
            >
                  <Td>{row.ano} </Td> 

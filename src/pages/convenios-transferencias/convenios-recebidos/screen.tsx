@@ -244,7 +244,7 @@ function Screen() {
             border: `2px solid ${colors.transparenciaBlack}`,
           }}
           onClick={() => {
-            sessionStorage.setItem('selectedConvenio', JSON.stringify(row));
+            //sessionStorage.setItem('selectedConvenio', JSON.stringify(row));
             window.open( `detalhes?${row.id_convenio}`, '_blank')}}
          
         >

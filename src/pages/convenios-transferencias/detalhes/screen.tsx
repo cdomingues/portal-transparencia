@@ -58,7 +58,7 @@ export interface Etapa {
 }
 
 
-function Screen({ id_contrato }: any) {
+function Screen({ id_convenio }: any) {
   
   const [despesa, setDespesa] = useState<any>(null);
   const [etapa, setEtapa] = useState<Etapa[]>([]);
@@ -74,13 +74,40 @@ function Screen({ id_contrato }: any) {
   return map;
 }, [etapa]);
 
-  useEffect(() => {
+  /* useEffect(() => {
     const convenioData = sessionStorage.getItem("selectedConvenio");
     if (convenioData) {
       setDespesa(JSON.parse(convenioData));
     }
-  }, []);
+  }, []); */
 
+  const url = `https://dadosadm.mogidascruzes.sp.gov.br/api/convenios?id_convenio=${id_convenio}`
+
+  useEffect(() => {
+  const fetchConvenio = async () => {
+    if (!id_convenio) return;
+
+    try {
+      const response = await fetch(
+        `https://dadosadm.mogidascruzes.sp.gov.br/api/convenios?id_convenio=${id_convenio}`
+      );
+
+      if (!response.ok) {
+        throw new Error("Erro ao buscar convênio");
+      }
+
+      const data = await response.json();
+
+      if (data && Array.isArray(data) && data.length > 0) {
+        setDespesa(data[0]); // 
+      }
+    } catch (error) {
+      console.error("Erro ao carregar convênio:", error);
+    }
+  };
+
+  fetchConvenio();
+}, [id_convenio]);
   useEffect(() => {
     const fetchEtapas = async () => {
       if (!despesa) return;
@@ -397,7 +424,7 @@ function Screen({ id_contrato }: any) {
                       _hover={{ bg: useColorModeValue("#ececec", "gray.600") }}
                     >
                       <Box flex="1" textAlign="left" fontWeight="bold" >
-                        Arquivos da Etapa {file.numero_etapa}
+                        Clique para visualizar os arquivos da Etapa {file.numero_etapa}
                       </Box>
                       <AccordionIcon />
                     </AccordionButton>
