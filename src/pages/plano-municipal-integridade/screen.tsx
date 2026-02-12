@@ -40,6 +40,14 @@ type PropsInput = {
   handler: {};
 };
 
+interface Painel {
+  id: string;
+  created_at: string;
+  updated_at: string;
+  titulo: string;
+  descricao: string;
+  numero_pagina: string;
+}
 
 
 function Screen({ handler }: PropsInput) {
@@ -50,6 +58,7 @@ function Screen({ handler }: PropsInput) {
   const apiUrl = "https://dadosadm.mogidascruzes.sp.gov.br"
      const [arquivos, setArquivos] = useState<Arquivo[]>([]);
       const [nextPage, setNextPage] = useState<number | null>(1);
+      const [paineis, setPaineis] = useState<Painel[]>([]);
 
       const fetchData = async () => {
   let currentPage = 1;
@@ -85,6 +94,27 @@ function Screen({ handler }: PropsInput) {
     console.error("Erro ao obter os arquivos:", error);
   }
 };
+
+useEffect(() => {
+      async function fetchPaineis() {
+        try {
+          const response = await fetch(
+            "https://dadosadm.mogidascruzes.sp.gov.br/api/paineis/"
+          );
+          if (!response.ok) throw new Error("Erro ao buscar painéis");
+          const data = await response.json();
+  
+          const ordenado = data.sort(
+            (a: Painel, b: Painel) =>
+              new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
+          );
+          setPaineis(ordenado);
+        } catch (error) {
+          console.error("Erro ao carregar painéis:", error);
+        }
+      }
+      fetchPaineis();
+    }, []);
 
 useEffect(() => {
   if (nextPage !== null) {
@@ -160,7 +190,51 @@ const {paginaData, loadings, error} = usePagina("75");
             style={{ border: "none" }}
           />
         </Box>
-      <Box p={2} mb={1} display="flex" flexWrap="wrap" gap="10px">
+
+        <Box>
+          <Accordion allowToggle borderRadius={4} mt="15px">
+                  {paineis
+                    .filter(
+                      (p) => p.numero_pagina === "9cfad482-72d6-484c-afe0-10166433bcc2"
+                    )
+                     .sort((a, b) =>
+    new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+  )
+                    .map((painel) => (
+                      <AccordionItem
+                        key={painel.id}
+                        border="1px solid"
+                        borderRadius="15px"
+                        mb="15px"
+                      >
+                        <h2>
+                          <AccordionButton>
+                            <Box
+                              flex="1"
+                              textAlign="center"
+                              fontWeight="bold"
+                              fontSize="lg"
+                            >
+                              {painel.titulo}
+                            </Box>
+                            <AccordionIcon />
+                          </AccordionButton>
+                        </h2>
+                        <AccordionPanel m={4} p={4}>
+                          <Box
+                            dangerouslySetInnerHTML={{ __html: painel.descricao }}
+                            sx={{
+                              p: { mb: 2, textAlign: "justify" },
+                              
+                            }}
+                          />
+                        </AccordionPanel>
+                      </AccordionItem>
+                    ))}
+                </Accordion>
+        </Box>
+
+      {/* <Box p={2} mb={1} display="flex" flexWrap="wrap" gap="10px">
   <Button
     as="a"
     href="http://leismunicipa.is/2euio"
@@ -280,8 +354,8 @@ const {paginaData, loadings, error} = usePagina("75");
                           </Flex>
                         </AccordionPanel>
                       </AccordionItem>
-        </Accordion>
-      </Box>
+        </Accordion>*/}
+      </Box> 
     </ContainerBasic>
   );
 }
