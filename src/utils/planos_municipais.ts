@@ -22,7 +22,7 @@ export const planos_municipais =[
     {
       "sigla_area_gestora": "SEPLAG/SME/SMS/SEMAS/SMC/SMEL/SMIU/SMU/SMMU/SMTDA/GABP-CP",
       "plano_municipal": "Plano Municipal da Primeira Infância",
-      "link_acesso": "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/Plano_Municipal_pela_Primeira_Infancia.pdf"
+      "link_acesso": "https://www.mogidascruzes.sp.gov.br/public/site/doc/2025100117345868dd9072d4635.pdf"
     },
     {
       "sigla_area_gestora": "SMMU",

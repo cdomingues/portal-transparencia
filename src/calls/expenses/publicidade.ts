@@ -2,7 +2,7 @@ import axios from "axios";
 import moment from "moment";
 import { baseUrl } from "../../config";
 import moneyFormatter from "../../utils/moneyFormatter";
-import { objetos_licitacao } from "../../utils/objetos_licitacao"; 
+
 
 export const getDiarias = async (years?: number) => {
   try {
