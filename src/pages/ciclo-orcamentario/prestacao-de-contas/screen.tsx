@@ -201,7 +201,7 @@ function Screen({ handler }: PropsInput) {
                 fontSize={accessibility?.fonts?.regular}
               >
                 SECRETARIA MUNICIPAL DE FINANÇAS  
-                
+                  
               </Text>
         <Text
                 align={isMobile ? "justify" : "left"}
@@ -228,20 +228,7 @@ function Screen({ handler }: PropsInput) {
   </div>
 ))}
 
-                    {/*  <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/e71a7042-eaed-497b-b80b-7a72f4e9e50e/62%C2%AA_Audi%C3%AAncia_do_1%C2%BA_Quadrimestre_21.pdf" target="blank" style={{ color: "#db334f" }} >62ª Audiência do 1º Quadrimestre 21</Link><br/>
-                    <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/3b29c5ba-1c48-4892-91ed-2a43231d17f1/63%C2%AA_Audi%C3%AAncia_do_2%C2%BA_Quadrimestre_21.pdf" target="blank" style={{ color: "#db334f" }} >63ª Audiência do 2º Quadrimestre 21</Link><br/>
-                   <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/e6663ae5-730d-4788-abca-9c9525cecf1e/64%C2%AA_Audi%C3%AAncia_do_3%C2%BA_Quadrimestre_21.pdf" target="blank" style={{ color: "#db334f" }} >64ª Audiência do 3º Quadrimestre 21</Link><br/>
-                  <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/a1c93110-b807-4de3-a0ea-c0342ed41447/65%C2%AA_Audi%C3%AAncia_do_1%C2%BA_Quadrimestre_22.pdf" target="blank" style={{ color: "#db334f" }} >65ª Audiência do 1º Quadrimestre 22</Link><br/>
-                 <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/f69c589c-1ce9-439d-9e56-4dbb1b2b7e57/66%C2%AA_Audi%C3%AAncia_do_2%C2%BA_Quadrimestre_22.pdf" target="blank" style={{ color: "#db334f" }} >66ª Audiência do 2º Quadrimestre 22</Link><br/>
-                <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/20f2833f-3236-48e2-ab43-49d897f2da6f/67%C2%AA_Audi%C3%AAncia_do_3%C2%BA_Quadrimestre_22.pdf" target="blank" style={{ color: "#db334f" }} >67ª Audiência do 3º Quadrimestre 22</Link><br/>
-                <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/69072435-570c-47bb-a14d-b7da393f4e61/68%C2%AA_Audi%C3%AAncia_1%C2%BA_Quadrimestre_23.pdf" target="blank" style={{ color: "#db334f" }} >68ª Audiência do 1º Quadrimestre 23</Link><br/>
-                <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/defde387-9b66-4cfe-ab7b-498b1c38a04c/69%C2%AA_Audi%C3%AAncia_do_2%C2%BA_Quadrimestre_23.pdf" target="blank" style={{ color: "#db334f" }} >69ª Audiência do 2º Quadrimestre 23</Link><br/>
-                <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/20c87c2f-0b90-4aa2-a317-a3e1a7a090db/70%C2%AA_Audi%C3%AAncia_do_3%C2%BA_Quadrimestre_23.pdf" target="blank" style={{ color: "#db334f" }} >70ª Audiência do 3º Quadrimestre 23</Link><br/>
-                <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/91ee00dd-4ac6-40c7-b08b-9ea67d9d2748/71%C2%AA_Audi%C3%AAncia_do_1%C2%BA_Quadrimestre_24.pdf" target="blank" style={{ color: "#db334f" }} >71ª Audiência do 1º Quadrimestre 24</Link><br/>
-                <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/49739d7a-df4e-4eb0-bc2e-f3e4f0102896/72%C2%AA_Audi%C3%AAncia_do_2%C2%BA_Quadrimestre_24.pdf" target="blank" style={{ color: "#db334f" }} >72ª Audiência do 2º Quadrimestre 24</Link><br/>
-                <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/84bf5915-2a23-4042-bf69-77883af8ff31/73%C2%AA_Audi%C3%AAncia_do_3%C2%BA_Quadrimestre_24.ppt" target="blank" style={{ color: "#db334f" }} >73ª Audiência do 3º Quadrimestre 24</Link><br/>
-                <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/9e053455-90c8-45b0-8196-75cc31549c93/74%C2%AA_Audi%C3%AAncia_do_1%C2%BA_Quadrimestre_25.pptx" target="blank" style={{ color: "#db334f" }} >74ª Audiência do 1º Quadrimestre 25</Link><br/>
-                <Link href="https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/8941610e-2840-4912-909b-85acd617b837/75%C2%AA_Audi%C3%AAncia_do_2%C2%BA_Quadrimestre_25.pptx" target="blank" style={{ color: "#db334f" }}> 75ª Audiência do 2º Quadrimestre 25</Link><br/> */}
+
                 
                  </Text>
 

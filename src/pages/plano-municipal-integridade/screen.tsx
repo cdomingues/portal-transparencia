@@ -188,50 +188,38 @@ const {paginaData, loadings, error} = usePagina("75");
             src="https://app.powerbi.com/view?r=eyJrIjoiYzc1MDBiOGItNDRkMi00MTU4LWE2NWYtOGIxZWU2NzdmZjZmIiwidCI6IjU3MjU0YWRhLTUxMmUtNDhjNi05NTI5LTAyOTE4ODg1OTliZiJ9"
             border="0"
             style={{ border: "none" }}
+            mb='20px'
           />
         </Box>
 
         <Box>
-          <Accordion allowToggle borderRadius={4} mt="15px">
-                  {paineis
-                    .filter(
-                      (p) => p.numero_pagina === "9cfad482-72d6-484c-afe0-10166433bcc2"
-                    )
-                     .sort((a, b) =>
-    new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-  )
-                    .map((painel) => (
-                      <AccordionItem
-                        key={painel.id}
-                        border="1px solid"
-                        borderRadius="15px"
-                        mb="15px"
-                      >
-                        <h2>
-                          <AccordionButton>
-                            <Box
-                              flex="1"
-                              textAlign="center"
-                              fontWeight="bold"
-                              fontSize="lg"
-                            >
-                              {painel.titulo}
-                            </Box>
-                            <AccordionIcon />
-                          </AccordionButton>
-                        </h2>
-                        <AccordionPanel m={4} p={4}>
-                          <Box
-                            dangerouslySetInnerHTML={{ __html: painel.descricao }}
-                            sx={{
-                              p: { mb: 2, textAlign: "justify" },
-                              
-                            }}
-                          />
-                        </AccordionPanel>
-                      </AccordionItem>
-                    ))}
-                </Accordion>
+          <div className="mt-4 space-y-4">
+  {paineis
+    .filter(
+      (p) => p.id === "dfa19d77-2e11-45f2-bd04-b36f14bc219e"
+    )
+    .sort(
+      (a, b) =>
+        new Date(b.created_at).getTime() -
+        new Date(a.created_at).getTime()
+    )
+    .map((painel) => (
+      <div
+        key={painel.id}
+        className="border rounded-2xl shadow-md p-6 bg-white mt-10"
+      >
+     
+
+        {/* CONTEÚDO */}
+        <div
+          className="space-y-2 text-justify [&>p]:mb-2"
+          dangerouslySetInnerHTML={{
+            __html: painel.descricao,
+          }}
+        />
+      </div>
+    ))}
+</div>
         </Box>
 
       {/* <Box p={2} mb={1} display="flex" flexWrap="wrap" gap="10px">
