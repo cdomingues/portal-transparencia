@@ -345,6 +345,7 @@ function Screen() {
             </Thead>
             <Tbody fontSize="12px">
               {paginatedData
+              .filter((row) =>row.tipo_folha !=="Adiantamento de Férias")
              .map((row, index) => (
                 <Tr
                   key={index}
