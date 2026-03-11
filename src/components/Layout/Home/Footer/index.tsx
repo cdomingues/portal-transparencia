@@ -15,7 +15,7 @@ import {
 import logo from "../../../../assets/images/Brasao_horizontal_normal.png";
 import logoDark from "../../../../assets/images/Brasao_horizontal_branco.png";
 import { useFontSizeAccessibilityContext } from "../../../../context/fontSizeAccessibility";
-import seloTansparencia2022 from "../../../../assets/images/selo_ouro (1).png"
+import timebrasil from "../../../../assets/images/SELO - MUNICIPIO PARTICIPANTE.png"
 import seloTansparencia2023 from "../../../../assets/images/selo_transparencia_ouro-2023.png"
 import seloTansparencia2024 from "../../../../assets/images/selo_transparencia_ouro-2024.png"
 import pnpc from "../../../../assets/images/logo-PNPC.png"
@@ -72,15 +72,16 @@ export default function LargeWithLogoCentered() {
     <Image
       alt="Radar da Transparência"
       src={radar_transparencia.src}
-      width={["180px", "220px", "260px"]}
+      //width={["180px", "220px", "260px"]}
+      height={"80px"}
       border="1px solid lightgrey"
       borderRadius="12px"
     />
   </Link>
-  <Image alt="Selo 2022" src={seloTansparencia2022.src} width={["120px", "140px", "160px"]} />
-  <Image alt="Selo 2023" src={seloTansparencia2023.src} width={["120px", "140px", "160px"]} />
-  <Image alt="Selo 2024" src={seloTansparencia2024.src} width={["120px", "140px", "160px"]} />
-  <Image alt="PNPC" src={pnpc.src} width={["120px", "140px", "160px"]} />
+  
+  {/* <Image alt="Selo 2023" src={seloTansparencia2023.src} width={["120px", "140px", "160px"]} /> */}
+  <Image alt="Selo 2024" src={seloTansparencia2024.src} height={"120px"} />
+  <Image alt="PNPC" src={timebrasil.src} height={"120px"}  />
 </Flex>
         <Divider />
         

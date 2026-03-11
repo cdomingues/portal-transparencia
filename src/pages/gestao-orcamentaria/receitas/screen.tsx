@@ -228,7 +228,7 @@ function Screen() {
           JSON
         </Button></Stack>
         <Text fontSize="md" mb="10px">
-                Última atualização: <strong>01/06/2025</strong>
+                Última atualização: <strong>01/03/2026</strong>
               </Text>
 
 <Table overflowX='auto' width='100%' >
