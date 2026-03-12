@@ -187,6 +187,52 @@ const {paginaData, loadings, error} = usePagina("48");
         >
             Demonstrativo de Receita e sua destinação e Detalhamento de Despesas FMMU 
         </Heading>
+
+             <Accordion allowToggle borderRadius={4}>
+          {Object.keys(areaIdentifiers).map((section) => (
+            <AccordionItem  pt={4} key={section} bg={useColorModeValue("gray.100", "black")}>
+              <h2>
+                <AccordionButton>
+                  <Box as="span" flex='1' textAlign='left'>
+                  2026
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel m={4} p={8} bg={useColorModeValue("white", "black")} borderRadius={4}>
+                <Flex>
+                  <Box flex="end" p={2} marginRight={5}></Box>
+                  <Box maxWidth="100%" p={2}>
+                    {arquivos
+                    .filter((arquivo) => {
+    console.log(arquivo.pk); // Verificar o valor do pk para cada arquivo
+    return arquivo.area === areaIdentifiers[section] && arquivo.nome !== "Audiência LOA 2022";
+  })
+                      .sort((a, b) => a.ano - b.ano) // Sort by year for better organization
+                      .filter((arquivo) => arquivo.ano === 2026)
+                      .map((arquivo) => (
+                        <Link href={`${apiUrl}${arquivo.file}`} download target="_blank" key={arquivo.pk}>
+                          <Stack
+                            direction="row"
+                            maxW="600px"
+                            color="gray"
+                            p={2}
+                            borderRadius="md"
+                            _hover={{ bg: 'gray.200' }}
+                            marginTop={5}
+                          >
+                            <h1>{arquivo.nome} </h1>
+                            <Icon as={AiOutlineDownload} />
+                          </Stack>
+                        </Link>
+                      ))}
+                  </Box>
+                </Flex>
+              </AccordionPanel>
+            </AccordionItem>
+          ))}
+        </Accordion>
+
         <Accordion allowToggle borderRadius={4}>
           {Object.keys(areaIdentifiers).map((section) => (
             <AccordionItem  pt={4} key={section} bg={useColorModeValue("gray.100", "black")}>
