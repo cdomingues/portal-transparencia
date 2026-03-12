@@ -65,7 +65,7 @@ function Screen({
   const {paginaData, loadings, error} = usePagina("82");
   
     if (loadings) {
-          return <Text>Carregando conteúdo...</Text>;
+          return <Text>Carregando conteúdo ...</Text>;
         }
       
        if (error) {
