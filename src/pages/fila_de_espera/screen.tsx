@@ -37,7 +37,7 @@ function Screen({ handler }: PropsInput) {
   const router = useRouter();
   
   const filteredMedicamentos = dados.filter((item)=>
-  searchTerm ? String(item.Especialidade).toLowerCase().includes(searchTerm.toLowerCase()) : true)
+  searchTerm ? String(item.exames_especialidades).toLowerCase().includes(searchTerm.toLowerCase()) : true)
   
   useEffect(() => {
   setCurrentPage(1);
@@ -162,9 +162,16 @@ function Screen({ handler }: PropsInput) {
               p={4}
               fontWeight="bold"
               border={`1px solid ${colors.grayLighter}`}>
+              
               <Th color="white">Tipo</Th>
-              <Th color="white">Especialidade</Th>
-              <Th color="white">Número de pacientes</Th>
+              <Th color="white">Exames / Especialidade</Th>
+              <Th color="white">Mês referência</Th>
+              <Th color="white">Demanda</Th>
+              <Th color="white">Município solicitado</Th>
+              <Th color="white">Município ofertado</Th>
+              <Th color="white">Estado ofertado</Th>
+              <Th color="white">Total ofertado</Th>
+              <Th color="white">Tempo médio de espera (dias) </Th>
             
             
             </Tr>
@@ -179,10 +186,15 @@ function Screen({ handler }: PropsInput) {
             _hover={{ bg: "#d1d1d1", cursor: "pointer" , color: useColorModeValue("black", "white") }}
             color={useColorModeValue("black", "white")}
           >
-              <Td>{row["Tipo"]} </Td> 
-              <Td>{row["Especialidade"]}</Td>
-              <Td>{row["Nº de pacientes na fila"]}</Td>
-              
+              <Td>{row.tipo} </Td> 
+              <Td>{row.exames_especialidades}</Td>
+              <Td>{row.mes_referencia}</Td>
+              <Td>{row.demanda}</Td>
+              <Td>{row.municipio_solicitado}</Td>
+              <Td>{row.municipio_ofertado}</Td>
+              <Td>{row.estado_ofertado}</Td>
+              <Td>{row.total_ofertado}</Td>
+              <Td>{row.tempo_medio_espera}</Td>
                
               </Tr>
             ))}
