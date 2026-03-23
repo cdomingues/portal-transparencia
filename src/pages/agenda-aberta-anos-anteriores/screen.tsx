@@ -181,7 +181,7 @@ function HomeScreen({ handler }: PropsInput) {
                       title="Agenda Prefeito - Caio Cunha"
                       imageURL={agenda_caio.src}
                       description="Conforme previsto na Lei Municipal 7.653/2021 e no Decreto 21.006/22, todo cidadão pode ter acesso à agenda de compromissos oficiais das autoridades do Executivo de Mogi das Cruzes. Esta é mais uma medida de promoção da integridade no setor público."
-                      link="agenda-aberta/agenda-prefeito"
+                      link="agenda-aberta-anos-anteriores/agenda-prefeito"
                       backgroundColor="transparent"
                     />
                   </Box>
@@ -192,7 +192,7 @@ function HomeScreen({ handler }: PropsInput) {
                     Priscila Yamagami"
                       imageURL={agenda_priscila.src}
                       description="Conforme previsto na Lei Municipal nº  7.653/2021 e no Decreto nº  21.006/22, todo cidadão pode ter acesso à agenda de compromissos oficiais das autoridades do Executivo de Mogi das Cruzes. Esta é mais uma medida de promoção da integridade no setor público."
-                      link="agenda-aberta/agenda-coprefeita"
+                      link="agenda-aberta-anos-anteriores/agenda-coprefeita"
                       backgroundColor="transparent"
                     />
                   </Box>
@@ -211,7 +211,7 @@ function HomeScreen({ handler }: PropsInput) {
                       title="Agenda Chefe de Gabinete "
                       imageURL={agenda_caio.src}
                       description="Conforme previsto na Lei Municipal 7.653/2021 e no Decreto 21.006/22, todo cidadão pode ter acesso à agenda de compromissos oficiais das autoridades do Executivo de Mogi das Cruzes. Esta é mais uma medida de promoção da integridade no setor público."
-                      link="agenda-aberta/agenda-chefe-gabinete"
+                      link="agenda-aberta-anos-anteriores/agenda-chefe-gabinete"
                       backgroundColor="transparent"
                       
                     />
@@ -221,7 +221,7 @@ function HomeScreen({ handler }: PropsInput) {
                       title="Agenda Demais Autoridades "
                       imageURL={agenda_caio.src}
                       description="Conforme previsto na Lei Municipal 7.653/2021 e no Decreto 21.006/22, todo cidadão pode ter acesso à agenda de compromissos oficiais das autoridades do Executivo de Mogi das Cruzes. Esta é mais uma medida de promoção da integridade no setor público."
-                      link="agenda-aberta/agenda-secretarios"
+                      link="agenda-aberta-anos-anteriores/agenda-secretarios"
                       backgroundColor="transparent"
                       
                     />

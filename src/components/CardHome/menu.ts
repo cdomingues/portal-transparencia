@@ -414,6 +414,18 @@ export const menus=[
                     {label: "Vice Prefeito - Teo Cusatis",url: "agenda-aberta/agenda-viceprefeito",},
                 ]
             },
+             {
+                'id_submenu': 3,
+                "label": "Agenda anos anteriores",      
+                'imageUrl': Agenda_aberta.src,
+                "url":"",
+                "extralinks": [
+                    {label: "Prefeito", url: "agenda-aberta-anos-anteriores/agenda-prefeito",  },
+                    {label: "Vice Prefeita",url: "agenda-aberta-anos-anteriores/coprefeita",},
+                    {label: "Chefe de Gabinete",url: "agenda-aberta-anos-anteriores/agenda-chefe-gabinete",},
+                    {label: "Secretarios",url: "agenda-aberta-anos-anteriores/agenda-secretarios",},
+                ]
+            },
            
             {   
                 "id_submenu": 4,

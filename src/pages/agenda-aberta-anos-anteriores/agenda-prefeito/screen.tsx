@@ -90,17 +90,22 @@ function Screen({ handler }: PropsInput) {
 
   const filteredValues = schedule
   ?.filter((item: Meeting) => {
-    // Linha modificada abaixo
-    const timeWithSubtraction = moment(item?.data_compromisso);
-    const isSameDate = timeWithSubtraction.format("YYYY-MM-DD") === String(moment(selected).format("YYYY-MM-DD"));
-    const isNotFutureDate = timeWithSubtraction.isSameOrBefore(moment(), 'day');
-    return  isSameDate && isNotFutureDate
+    const itemDate = moment(item?.data_compromisso);
+
+    const isSameDate =
+      itemDate.format("YYYY-MM-DD") ===
+      String(moment(selected).format("YYYY-MM-DD"));
+
+    const isNotFutureDate = itemDate.isSameOrBefore(moment(), "day");
+
+    // NOVA REGRA: limitar até 31/12/2024
+    const limitDate = moment("2024-12-31", "YYYY-MM-DD");
+    const isBeforeLimit = itemDate.isSameOrBefore(limitDate, "day");
+
+    return isSameDate && isNotFutureDate && isBeforeLimit;
   })
-  // Uma linha depois para contexto
   .sort((a: Meeting, b: Meeting) => {
-    // Linha modificada abaixo
     const aHours = moment(a?.data_compromisso).format("HH:mm");
-    // Linha modificada abaixo
     const bHours = moment(b?.data_compromisso).format("HH:mm");
     return aHours > bHours ? 1 : -1;
   });
@@ -260,13 +265,16 @@ function Screen({ handler }: PropsInput) {
               maxH={350}
               style={{ marginBottom: 30}}
             >
-              <DayPicker
-              
-                mode="single"
-                selected={selected}
-                onSelect={setSelected}
-                locale={ptBR}
-              />
+             <DayPicker
+  mode="single"
+  selected={selected}
+  onSelect={setSelected}
+  locale={ptBR}
+  fromDate={new Date(2020, 0, 1)}
+  toDate={new Date(2024, 11, 31)}
+  captionLayout="dropdown" // opcional: melhora UX
+  disabled={{ after: new Date(2024, 11, 31) }}
+/>
             </Stack>
           </Stack>
         </Stack>

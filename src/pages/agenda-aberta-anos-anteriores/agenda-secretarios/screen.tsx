@@ -412,6 +412,10 @@ function Screen({ handler }: PropsInput) {
                 selected={selected}
                 onSelect={setSelected}
                 locale={ptBR}
+                fromDate={new Date(2020, 0, 1)}
+                toDate={new Date(2024, 11, 31)}
+                captionLayout="dropdown" // opcional: melhora UX
+                disabled={{ after: new Date(2024, 11, 31) }}
               />
             </Stack>
           </Stack>
