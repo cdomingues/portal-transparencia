@@ -37,7 +37,7 @@ export interface Diarias {
   rgf: number;
   nome: string;
   tipo: string;
-  data: string;
+  data: string; 
   ano: number;
   mes: number;
   ufm: string;

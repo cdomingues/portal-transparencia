@@ -59,7 +59,9 @@ function ContainerBasic({
           paddingLeft: isMobile ? 0 : "0%",
           paddingRight: isMobile ? 0 : "0%",
           justifyContent: "flex-start", // Adicionado
+           
         }}
+       
       >
         <Container
           style={{
@@ -95,11 +97,15 @@ function ContainerBasic({
                 {title}
               </Heading>
               <div style={{ paddingRight: isMobile ? "0%" : "0%" }}>
-  <Box
-    color="gray.500"
-    fontSize={accessibility?.fonts?.regular}
-     dangerouslySetInnerHTML={{ __html: description }}
-  >
+ <Box
+  color="gray.500"
+  maxWidth="1200px"
+  fontSize={accessibility?.fonts?.regular}
+  dangerouslySetInnerHTML={{ __html: description }}
+  whiteSpace="normal"
+  wordBreak="break-word"
+  overflowWrap="break-word"
+>
    
   </Box>
               </div>

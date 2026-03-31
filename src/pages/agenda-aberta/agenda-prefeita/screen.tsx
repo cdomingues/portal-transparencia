@@ -255,6 +255,7 @@ function Screen({ handler }: PropsInput) {
                 onSelect={setSelected}
                 locale={ptBR}
                 fromMonth={new Date(2025, 0)}
+                
               />
             
             </Stack>

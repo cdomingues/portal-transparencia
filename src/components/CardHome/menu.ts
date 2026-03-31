@@ -73,6 +73,7 @@ import CustomAccordion from "../CustomAccordion";
 import { useState } from "react";
 import AccordionMenuItem from "../MenuAcordion";
 import { AiOutlineGlobal } from "react-icons/ai";
+import { image } from "d3";
 
 export const menus=[
       {
@@ -260,30 +261,45 @@ export const menus=[
                 "url":"/gestao-de-pessoas/folha-pagamento",
                 "extralinks": [ ]
             },
-            {
+             {
                 "id_submenu": 2, 
+                "label": "Folha de Pagamento - Estagiários", 
+                "imageUrl":FolhaPagamento.src,
+                "url":"/gestao-de-pessoas/folha-pagamento-estagiarios",
+                "extralinks": [ ]
+            },
+            {
+                "id_submenu": 3, 
                 "label": "Cargos e Salários", 
                 "imageUrl":CargosSalarios.src,
                 "url":"/gestao-de-pessoas/cargos-e-salarios",
                 "extralinks": [ ]
             },
             {
-                "id_submenu": 3, 
+                "id_submenu": 4, 
                 "label": "Carga Horária", 
                 "imageUrl":CargosSalarios.src,
                 "url":"/gestao-de-pessoas/carga-horaria",
                 "extralinks": [ ]
             },
             {
-                "id_submenu": 4, 
+                "id_submenu": 5, 
                 "label": "Diárias", 
                 "imageUrl":Diarias.src,
                 "url":"/gestao-de-pessoas/diarias-viagens",
                 "extralinks": [ ]
             },
+            {
+                    "id_submenu": 6,
+                    "label": "Regras e tabela de pagamento de diárias",
+                    "imageUrl": Diarias.src,
+                    "url": "/gestao-de-pessoas/regras-pagamento-diarias",
+                    "extralinks": []
+
+            },
 
              {
-                "id_submenu": 4, 
+                "id_submenu": 7, 
                 "label": "Adiantamentos", 
                 "imageUrl":Diarias.src,
                 "url":"/gestao-de-pessoas/adiantamentos",
@@ -291,26 +307,62 @@ export const menus=[
             },
             
             {
-                "id_submenu": 5, 
+                "id_submenu": 8, 
                 "label": "Concurso Público", 
                 "imageUrl":FolhaPagamento.src,
                 "url":"/gestao-de-pessoas/concurso-publico",
                 "extralinks": []
             },
             {
-                "id_submenu": 6, 
+                "id_submenu": 9, 
                 "label": "Servidores Terceirizados",  
                 "imageUrl":FolhaPagamento.src,
                 "url":"/gestao-de-pessoas/terceirizados",
                 "extralinks": []
             },
              {
-                "id_submenu": 7, 
+                "id_submenu": 10, 
                 "label": "Saldo de cargos criados, preenchidos e vagos",  
                 "imageUrl":FolhaPagamento.src,
                 "url":"/gestao-de-pessoas/saldo-cargos",
                 "extralinks": []
             },
+            {
+                "id_submenu": 11, 
+                "label": "Viagens",  
+                "imageUrl":Diarias.src,
+                "url":"/gestao-de-pessoas/viagens",
+                "extralinks": []
+            },
+             {
+                "id_submenu": 12, 
+                "label": "Estatuto do Servidor Público",  
+                "imageUrl":Diarias.src,
+                "url":"https://leismunicipais.com.br/estatuto-do-servidor-funcionario-publico-mogi-das-cruzes-sp",
+                "extralinks": []
+            },
+             {
+                "id_submenu": 13, 
+                "label": "Guia de Conduta e Ética do Agente Público",  
+                "imageUrl":Diarias.src,
+                "url":"https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/3dbd744e-a1e9-4798-82fc-f28c774efc6a/AF_Guia_Pocket_105_x_148_cm_CONDUTA_E_%C3%89TIC_kZmNdcf.pdf",
+                "extralinks": []
+            },
+              {
+                "id_submenu": 14, 
+                "label": "Revisão anual da remuneração dos servidores ativos e inativos",  
+                "imageUrl":Diarias.src,
+                "url":"http://leis.org/26077",
+                "extralinks": []
+            },
+              {
+                "id_submenu": 15, 
+                "label": "Subsídios dos cargos de Prefeito, Vice-Prefeito e Secretários",  
+                "imageUrl":Diarias.src,
+                "url":"http://leis.org/1gxni",
+                "extralinks": []
+            },
+            
            
            
            
