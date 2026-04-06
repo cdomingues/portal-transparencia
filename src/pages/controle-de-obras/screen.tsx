@@ -157,11 +157,11 @@ function HomeScreen({ handler }: PropsInput) {
                   justifyContent={isMobile ? "flex-start" : "center"}
                 >
                   <Box padding="6" bg="transparent" flexDirection="row">
-                    <CardHorizon
-                      title="Portal de Obras"
+                     <CardHorizon
+                      title="Obras - versão anterior"
                       imageURL={relatorio_gestao_fiscal.src}
                       description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="controle-de-obras/inicio"
+                      link="controle-de-obras/obras-publicas"
                       backgroundColor="transparent"
                     />
                   </Box>
@@ -175,21 +175,7 @@ function HomeScreen({ handler }: PropsInput) {
                  backgroundColor="transparent"/>
                   </Box>
                 </Stack>
-                <Stack
-                  direction={isMobile ? "column" : "row"}
-                  align={isMobile ? "center" : "center"}
-                  justifyContent={isMobile ? "flex-start" : "center"}
-                >
-                  <Box padding="6" bg="transparent" flexDirection="row">
-                    <CardHorizon
-                      title="Obras - versão anterior"
-                      imageURL={relatorio_gestao_fiscal.src}
-                      description="O Plano Plurianual (PPA) é o principal instrumento pelo qual o município faz o planejamento de como irá investir os recursos públicos nos próximos anos."
-                      link="controle-de-obras/obras-publicas"
-                      backgroundColor="transparent"
-                    />
-                  </Box>
-                </Stack>
+                
                 <Stack
                   direction={isMobile ? "column" : "row"}
                   align={isMobile ? "center" : "center"}

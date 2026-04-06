@@ -20,6 +20,7 @@ import { ContainerSearch } from "../../../styles/components/contratos-atas/style
 import moment from "moment";
 import moneyFormatter from "../../../utils/moneyFormatter";
 import colors from "../../../styles/colors";
+import { url } from "inspector";
 
 export const contentContractsAndAtas = {
   titlePage: "Detalhamento - Obras",
@@ -34,6 +35,7 @@ function Screen() {
   const [arquivo, setArquivo] = useState<any[]>([]);
   const [empenho, setEmpenho] = useState<any[]>([]);
   const [despesa, setDespesa] = useState<any>(null);
+  const [medicao, setMedicao] = useState<any[]>([]);
    const [percentualExecutado,setPercentualExecutado] = useState<number | undefined>();
 
 
@@ -46,6 +48,8 @@ function Screen() {
 }, []);
 
   const url_files = 'https://dadosadm.mogidascruzes.sp.gov.br/api/arquivos_obras/';
+
+  const url_medicao = 'https://dadosadm.mogidascruzes.sp.gov.br/api/valores_executados/'
 
   useEffect(() => {
   if (!despesa?.nome_da_obra) return;
@@ -64,6 +68,25 @@ function Screen() {
       }
     })
     .catch((error) => console.error("Erro ao buscar arquivos:", error));
+}, [despesa]);
+
+ useEffect(() => {
+  if (!despesa?.id) return;
+
+  fetch(url_medicao)
+    .then((response) => response.json())
+    .then((data) => {
+      const lista = data.results || []; // 👈 AQUI ESTÁ O PULO DO GATO
+
+      const filtrados = lista.filter(
+        (item: { obra: any; }) => item.obra === despesa.id
+      );
+
+     
+
+      setMedicao(filtrados);
+    })
+    .catch((error) => console.error("Erro ao buscar medições:", error));
 }, [despesa]);
 
       useEffect(() => {
@@ -118,6 +141,12 @@ function Screen() {
   fontWeight="700"
 //  fontSize={accessibility?.fonts?.regular}
 >Arquivos</Text></Tab>
+<Tab _selected={{ color: colors.transparenciaCinza }}> 
+  <Text
+   
+  fontWeight="700"
+  //fontSize={accessibility?.fonts?.regular}
+>Medições</Text></Tab>
   
 
 </TabList>
@@ -230,6 +259,71 @@ function Screen() {
               </Tbody>
             </Table>
           )}
+</TabPanel>
+
+<TabPanel>
+  {/* MEDIÇÕES */}
+  {medicao.length > 0 ? (
+    <Table variant="simple" size="md" width="100%">
+      <Thead>
+        <Tr>
+          <Th
+            colSpan={6}
+            textAlign="center"
+            bg={colors.transparenciaBlack}
+            color="white"
+            p={4}
+            fontWeight="bold"
+            border={`1px solid ${colors.transparenciaBlack}`}
+          >
+            MEDIÇÕES DA OBRA
+          </Th>
+        </Tr>
+
+        <Tr>
+          <Th border={`1px solid ${colors.transparenciaBlack}`}>Medição</Th>
+          <Th border={`1px solid ${colors.transparenciaBlack}`}>Processo</Th>
+          <Th border={`1px solid ${colors.transparenciaBlack}`}>Período</Th>
+          <Th border={`1px solid ${colors.transparenciaBlack}`}>Data Medição</Th>
+          <Th border={`1px solid ${colors.transparenciaBlack}`}>Valor</Th>
+          <Th border={`1px solid ${colors.transparenciaBlack}`}>Observação</Th>
+        </Tr>
+      </Thead>
+
+      <Tbody>
+        {medicao.map((item) => (
+          <Tr key={item.id}>
+            <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
+              {item.medicao}
+            </Td>
+
+            <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
+              {item.processo_mediacao}
+            </Td>
+
+            <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
+              {moment(item.data_inicial_medicao).format("DD/MM/YYYY")} até{" "}
+              {moment(item.data_final_medicao).format("DD/MM/YYYY")}
+            </Td>
+
+            <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
+              {moment(item.data_medicao).format("DD/MM/YYYY")}
+            </Td>
+
+            <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
+              {moneyFormatter(Number(item.valor))}
+            </Td>
+
+            <Td p={3} border={`1px solid ${colors.transparenciaBlack}`}>
+              {item.observacao || "-"}
+            </Td>
+          </Tr>
+        ))}
+      </Tbody>
+    </Table>
+  ) : (
+    <Text>Nenhuma medição encontrada.</Text>
+  )}
 </TabPanel>
           <TabPanel>
           {/* EMPENHOS */}

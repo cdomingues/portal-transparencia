@@ -54,6 +54,8 @@ import Compras_publicas from "../../assets/images/icones/icones_barra lateral__c
 import Gestao_de_pessoas from "../../assets/images/icones/icones_barra lateral__gestao de pessoas.svg";
 import Patrimonio from "../../assets/images/icones/icones_barra lateral__patrimonio.svg";
 import Controle_de_obras from "../../assets/images/icones/portal_de_obras_red3.svg";
+import Controle_de_obrasWhite from "../../assets/images/icones/portal_de_obras_white.svg";
+import Controle_de_obrasBlack from "../../assets/images/icones/portal_de_obras_black.svg";
 import Controle_de_radares from "../../assets/images/icones/Home_botoes_radares.svg";
 import Agenda_aberta from "../../assets/images/icones/icones_barra lateral__agenda aberta.svg";
 import Convenios_transferencias from "../../assets/images/icones/terceiro setor__convenios.svg";
@@ -889,7 +891,31 @@ export const menus=[
                 "extralinks": [ ]
             },
         ]
-       }
+       },
+        {
+        "id": 17,
+        "title": "Portal de obras",
+        'imageURL': Controle_de_obrasBlack.src, 
+        'imageURL2': Controle_de_obrasWhite.src, 
+        'description': "Plano de Ação - SIAFIC",
+        "submenus": [
+             {
+                "id_submenu": 1,
+                "label":"Pesquisar obras",
+                "imageUrl": Controle_de_obras.src,
+                'url':"/controle-de-obras/pesquisar-obras",
+                "extralinks": [ ]
+            },
+            {
+                "id_submenu": 2,
+                "label":"Obras versão antiga",
+                "imageUrl": Controle_de_obras.src,
+                'url':"/controle-de-obras/obras-publicas",
+                "extralinks": [ ]
+            },
+        ]
+       },
+       
 
       
      

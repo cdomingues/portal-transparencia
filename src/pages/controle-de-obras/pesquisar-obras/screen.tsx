@@ -30,7 +30,7 @@ function Screen() {
   const [dados, setDados] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
- 
+ const [selectedYear, setSelectedYear] = useState<number | "all">(2025);
 
   const [filtroBairro, setFiltroBairro] = useState("");
   const [filtroTipo, setFiltroTipo] = useState("");
@@ -60,6 +60,18 @@ function Screen() {
   const bairrosUnicos = [...new Set(dados.map((item) => item.bairro).filter(Boolean))].sort();
   const tiposUnicos = [...new Set(dados.map((item) => item.categoria).filter(Boolean))].sort();
   const statusUnicos = [...new Set(dados.map((item) => item.status).filter(Boolean))].sort();
+  const anosUnicos = [
+  ...new Set(
+    dados
+      .map((item) => {
+        if (!item.inicio_ate) return null;
+
+        const data = new Date(item.inicio_ate);
+        return data.getFullYear();
+      })
+      .filter((ano): ano is number => ano !== null)
+  ),
+].sort((a, b) => b - a); 
 
   const obrasFiltradas = dados.filter((item) => {
     const busca = searchTerm
@@ -71,8 +83,13 @@ function Screen() {
     const bairroValido = filtroBairro ? item.bairro === filtroBairro : true;
     const tipoValido = filtroTipo ? item.categoria === filtroTipo : true;
     const statusValido = filtroStatus ? item.status === filtroStatus : true;
+    const anoValido =
+    selectedYear === "all"
+      ? true
+      : item.inicio_ate &&
+        new Date(item.inicio_ate).getFullYear() === selectedYear;
 
-    return busca && bairroValido && tipoValido && statusValido;
+    return busca && bairroValido && tipoValido && statusValido && anoValido;
   });
 
   const obrasPaginadas = obrasFiltradas.slice(
@@ -165,6 +182,25 @@ function Screen() {
                 </option>
               ))}
             </Select>
+
+            <Select
+  //placeholder="Filtrar por ano"
+  value={selectedYear}
+  onChange={(e) =>
+    setSelectedYear(
+      e.target.value === "all" ? "all" : Number(e.target.value)
+    )
+  }
+  borderRadius="8px"
+  width="150px"
+>
+  <option value="all">Todos</option>
+  {anosUnicos.map((ano, idx) => (
+    <option key={idx} value={ano}>
+      {ano}
+    </option>
+  ))}
+</Select>
 
             <Button
               onClick={() => {
