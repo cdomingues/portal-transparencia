@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Screen from "./screen";
-import { saldo_cargos } from "../../../utils/tabela_saldo_cargos";
+import { saldo_de_cargos } from "../../../utils/tabela_saldo_cargos";
 
 function Controller({}: any) {
 
@@ -26,7 +26,7 @@ function Controller({}: any) {
     const getData = async () => {
         try {
           // Supondo que `localizacao_radares` seja uma lista de objetos
-          const rows = saldo_cargos;
+          const rows = saldo_de_cargos;
       
           // Mapeando os dados, adicionando o campo `kmh` se ele não existir
           const mappedRows: any = rows.map((item) => {
