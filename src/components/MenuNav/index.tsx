@@ -197,7 +197,7 @@ const MenuHorizontalChakra = () => {
         { label: 'Viagens', href: '/gestao-de-pessoas/viagens' },
         { label: 'Servidores Terceirizados', href: '/gestao-de-pessoas/terceirizados' },
         { label: 'Saldo de cargos criados, preenchidos e vagos', href: '/gestao-de-pessoas/saldo-cargos' },
-         { label: 'statuto do Servidor Público', href: 'https://leismunicipais.com.br/estatuto-do-servidor-funcionario-publico-mogi-das-cruzes-sp' },
+         { label: 'Estatuto do Servidor Público', href: 'https://leismunicipais.com.br/estatuto-do-servidor-funcionario-publico-mogi-das-cruzes-sp' },
          {label: 'Guia de Conduta e Ética do Agente Público', href:'https://dadosadm.mogidascruzes.sp.gov.br/media/arquivos/3dbd744e-a1e9-4798-82fc-f28c774efc6a/AF_Guia_Pocket_105_x_148_cm_CONDUTA_E_%C3%89TIC_kZmNdcf.pdf'},
          {label:"Revisão anual da remuneração dos servidores ativos e inativos", href:"http://leis.org/26077"},
          {label:'Subsídios dos cargos de Prefeito, Vice-Prefeito e Secretários' , href:'https://leismunicipais.com.br/a/sp/m/mogi-das-cruzes/lei-ordinaria/2023/803/8027/lei-ordinaria-n-8027-2023-dispoe-sobre-fixacao-dos-subsidios-do-prefeito-vice-prefeito-e-secretarios-municipais-para-a-legislatura-a-ser-iniciada-em-1-de-janeiro-de-2025-e-da-outras-providencias'}
