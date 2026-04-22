@@ -382,8 +382,7 @@ const MenuHorizontalChakra = () => {
       href: '#',
       submenu: [
         { label: 'LGPD', href: '/lgpd' },
-        { label: 'Direitos do titular', href: '/lgpd/direitos_titular' },
-        { label: 'Glossário de Termos Técnicos da LGPD', href: '/lgpd/glossario-lgpd' },
+        
        
       ]
     },

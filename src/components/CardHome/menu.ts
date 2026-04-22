@@ -796,20 +796,7 @@ export const menus=[
                 "extralinks": [ ]
             },
 
-            {
-                "id_submenu": 2,
-                "label":"Direitos do titular",
-                "imageUrl": IconeLeis.src,
-                'url':"/lgpd/direitos_titular",
-                "extralinks": [ ]
-            },
-            {
-                "id_submenu": 3,
-                "label":"Glossário de Termos Técnicos LGPD",
-                "imageUrl": IconeLeis.src,
-                'url':"/lgpd/glossario-lgpd",
-                "extralinks": [ ]
-            },
+          
         ]
        },
        {
