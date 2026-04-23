@@ -248,7 +248,8 @@ const Despesas = () => {
       
 
      
-      {loading ? (   <Box display="flex" justifyContent="center" alignItems="center" height="200px">
+      {loading ? (   <Box display="flex" flexDir="column" gap='15px' justifyContent="center" alignItems="center" height="200px">
+        Aguarde enquanto os dados estão sendo carregados ...
           <Spinner size="xl" />
         </Box>
       ) : (

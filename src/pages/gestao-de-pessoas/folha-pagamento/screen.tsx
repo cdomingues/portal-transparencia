@@ -311,7 +311,7 @@ function Screen() {
       </Stack>
 
       <Text fontSize={accessibility?.fonts?.regular} mb="10px" ml="5px">
-        Última atualização: <strong>05/01/2026</strong>
+        Última atualização: <strong>05/04/2026</strong>
       </Text>
 
       {carregando ? (

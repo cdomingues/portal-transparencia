@@ -46,7 +46,7 @@ function RevenueScreen({ handler: { receitas },}: PropsInput) {
   
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedYear, setSelectedYear] = useState<number | undefined>(2025);
+  const [selectedYear, setSelectedYear] = useState<number | undefined>(2026);
   const [sortColumn, setSortColumn] = useState<string | null>(null);
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
 
@@ -284,7 +284,7 @@ useEffect(() => {
         Modalidade {sortColumn === "modalidade" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
       </Th>
       <Th color="white" onClick={() => handleSort("orgao")} cursor="pointer">
-        Órgão {sortColumn === "orgao" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
+        Órgão de origem{sortColumn === "orgao" ? (sortDirection === "asc" ? "▲" : "▼") : ""}
       </Th>
       <Th color="white" onClick={() => handleSort("secretaria")} cursor="pointer">
         Secretaria {sortColumn === "secretaria" ? (sortDirection === "asc" ? "▲" : "▼") : ""}

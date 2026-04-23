@@ -252,7 +252,7 @@ function Screen() {
         </Stack>
 
         <Text fontSize={acc?.fonts?.regular} mb="10px" ml="15px">
-          Última atualização: <strong>06/11/2025</strong>
+          Última atualização: <strong>10/02/2025</strong>
         </Text>
 
         {/* ------------------- TABELA ------------------- */}
