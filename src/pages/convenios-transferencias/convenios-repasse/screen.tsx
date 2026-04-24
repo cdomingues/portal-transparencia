@@ -6,7 +6,7 @@ import {
   Text,
   useDisclosure,
   Box,
-  useColorModeValue
+  useColorModeValue, Input
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import ContainerBasic from "../../../components/Container/Basic";
@@ -41,14 +41,33 @@ function Screen({
   const [contract, setContract] = useState<any>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
+const [selectedYear, setSelectedYear] = useState<string>("all");
+  const filteredConvenios = data.filter((item) => {
+  const id = String(item?.id_contrato ?? "").toLowerCase();
+  const descricao = String(item?.descricao ?? "").toLowerCase();
+  const fornecedor = String(item?.fornecedor ?? "").toLowerCase();
+  const search = searchTerm.toLowerCase();
 
-  const filteredConvenios = data.filter((item)=>
-    item.id_contrato.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  item.descricao.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  item.fornecedor.toLowerCase().includes(searchTerm.toLowerCase())
-)
+  const anoItem = item?.data_inicio?.slice(0, 4);
 
+  const matchSearch =
+    id.includes(search) ||
+    descricao.includes(search) ||
+    fornecedor.includes(search);
 
+  const matchYear =
+    selectedYear === "all" || anoItem === selectedYear;
+
+  return matchSearch && matchYear;
+});
+
+const yearsFromData = Array.from(
+  new Set(
+    data
+      .map((item) => item?.data_inicio?.slice(0, 4)) // pega o ano
+      .filter(Boolean)
+  )
+).sort((a, b) => Number(b) - Number(a));
 
   
   const exportToJSON = (data: any) => {
@@ -109,6 +128,30 @@ function Screen({
             },
           }}
           >
+           <Input
+  placeholder="Buscar contrato..."
+  value={searchTerm}
+  onChange={(e) => setSearchTerm(e.target.value)}
+  height="40px"
+  borderRadius="8px"
+  maxW="300px"
+/>
+
+<Select
+  value={selectedYear}
+  onChange={(e) => setSelectedYear(e.target.value)}
+  height="40px"
+  borderRadius="8px"
+  maxW="180px"
+>
+  <option value="all">Todos os anos</option>
+
+  {yearsFromData.map((year) => (
+    <option key={year} value={year}>
+      {year}
+    </option>
+  ))}
+</Select>
            
 <Button
   width="180px"

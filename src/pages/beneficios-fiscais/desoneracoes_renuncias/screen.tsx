@@ -1,4 +1,4 @@
-import { useColorModeValue, Box, Button, Stack, Table, Text, Thead, Tr, Th, Tbody, Td, Input , Link} from "@chakra-ui/react";
+import { useColorModeValue, Box, Button, Stack, Table, Text, Thead, Tr, Th, Tbody, Td, Input , Select} from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Laws } from ".";
 import ContainerBasic from "../../../components/Container/Basic";
@@ -50,15 +50,25 @@ function Screen({ handler }: PropsInput) {
   const [beneficiosFiscais, setBeneficiosFiscais] = useState<BeneficioFiscal[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
     const [searchTerm, setSearchTerm] = useState("");
+    const [selectedYear, setSelectedYear] = useState<string>("all");
+const yearsFromData = Array.from(
+  new Set(dados.map((item) => item.ano).filter(Boolean))
+).sort((a, b) => Number(b) - Number(a));
 
-    const filteredData = dados.filter((item) => {
+
+  const filteredData = dados.filter((item) => {
   const term = searchTerm.toLowerCase();
-  return (
+
+  const matchSearch =
     item.objeto?.toLowerCase().includes(term) ||
     item.certificado_desoneracao?.toString().toLowerCase().includes(term) ||
     item.empresa_beneficiada?.toLowerCase().includes(term) ||
-    item.cnpj?.toLowerCase().includes(term)
-  );
+    item.cnpj?.toLowerCase().includes(term);
+
+  const matchYear =
+    selectedYear === "all" || String(item.ano) === selectedYear;
+
+  return matchSearch && matchYear;
 });
 
   const paginatedData = filteredData.slice(
@@ -125,7 +135,25 @@ function Screen({ handler }: PropsInput) {
                 width="250px"
                 my="10px"
                 
-              />
+              />  <Select
+  value={selectedYear}
+  onChange={(e) => {
+    setSelectedYear(e.target.value);
+    setCurrentPage(1); // reseta paginação
+  }}
+  height="40px"
+  borderRadius="8px"
+  width="180px"
+  my="10px"
+>
+  <option value="all">Todos os anos</option>
+
+  {yearsFromData.map((year) => (
+    <option key={year} value={year}>
+      {year}
+    </option>
+  ))}
+</Select>
 
         <Button
                   width="180px"
