@@ -55,6 +55,7 @@ export interface FolhaPagamento {
   desconto: string;
   liquido: string;
   idug: number;
+  horas_semanais: number;
 }
 
 const API_URL = "https://dadosadm.mogidascruzes.sp.gov.br/api/folha_pagamento?cargo=estagiario";
@@ -329,6 +330,7 @@ function Screen() {
                 <Th color="white">Matricula</Th>
                 <Th color="white">Nome</Th>
                 <Th color="white">Cargo</Th>
+                <Th color='white'>Horas semanais</Th>
                 <Th color="white">Situação</Th>
                 <Th color="white">Data de admissão</Th>
                 <Th color="white">Data de exoneração</Th>
@@ -370,6 +372,7 @@ function Screen() {
                   <Td>{row.matricula}</Td>
                   <Td>{row.nome}</Td>
                   <Td>{row.cargo}</Td>
+                  <Td>{row.horas_semanais}</Td>
                   <Td>{row.situacao}</Td>
                   <Td>{moment(row.dataadmissao).format("DD/MM/YYYY")}</Td>
                   <Td>{row.dataexoneracao ? moment(row.dataexoneracao).format("DD/MM/YYYY") : "-"}</Td>

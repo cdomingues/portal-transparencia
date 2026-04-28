@@ -124,7 +124,7 @@ const yearsFromData = Array.from(
 
         <Input
                 type="text"
-                placeholder="Pesquisar receita..."
+                placeholder="Pesquisar por fornecedor ou cnpj..."
                 value={searchTerm}
                 onChange={(e) => {
                   setSearchTerm(e.target.value);
